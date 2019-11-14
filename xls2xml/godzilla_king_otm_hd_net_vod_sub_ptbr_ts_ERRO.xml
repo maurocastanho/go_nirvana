@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE ADI SYSTEM "ADI.DTD">
+<ADI xmlns="http://www.eventis.nl/PRODIS/ADI">
+	<Metadata>
+		<AMS Provider="WARNER" Product="" Asset_Name="Godzilla_King_Of_The_Monsters_Package" Version_Major="1" Version_Minor="0" Description="Godzilla II: Rei dos Monstros" Creation_Date="2019-11-13" Provider_ID="warner.com" Asset_ID="WARNER1201911132327180003" Asset_Class="package"/>
+		<AppData Name="Metadata_Spec_Version" Value="CableLabsVOD1.1"/>
+	</Metadata>
+	<Asset>
+		<Metadata>
+			<AMS Provider="WARNER" Product="MOD" Asset_Name="Godzilla_King_Of_The_Monsters_Title" Version_Major="1" Version_Minor="0" Description="Godzilla II: Rei dos Monstros" Creation_Date="2019-11-13" Provider_ID="nirvana.com.br" Asset_ID="WARNER2201911132327180003" Asset_Class="title"/>
+			<AppData App="MOD" Name="Type" Value="title"/>
+			<AppData App="MOD" Name="Title_Sort_Name" Value="Godzilla II: Rei dos M"/>
+			<AppData App="MOD" Name="Title_Brief" Value="Godzilla II: Rei do"/>
+			<AppData App="MOD" Name="Title" Value="Godzilla II: Rei d"/>
+			<AppData App="MOD" Name="Summary_Long" Value="A história acompanha os esforços heroicos da agência criptozoológica, Monarch, enquanto seus membros enfrentam diversos monstros colossais, incluindo o poderoso Godzilla, que cria um conflito com Mothra, Rodan, e seu arqui-inimigo supremo de três cabeças, o Rei Ghidorah. Quando esses seres antigos, que até então não passavam de lendas, ressurgem, todos começam a competir pela supremacia, deixando a própria existência da humanidade por um fio."/>
+			<AppData App="MOD" Name="Summary_Medium" Value="A história acompanha os esforços heroicos da agência criptozoológica, Monarch, enquanto seus membros enfrentam diversos monstros colossais, incluindo o poderoso Godzilla, que cria um conflito com Mothra, Rodan, e seu arqui-inimigo supremo de três cabeças, o Rei Ghidorah. Quando esses seres antigos, que até então não passavam de lendas, ressurgem, todos começam a competir pela supremacia, deixando a própria existência da humanidade por um fio."/>
+			<AppData App="MOD" Name="Summary_Short" Value="A história acompanha os esforços heroicos da agência criptozoológica, Monarch, enquanto seus membros enfrentam diversos monstros colossais, incluindo o poderoso Godzilla, que cria um conflito com Mothra, Rodan, e seu arqui-inimigo supremo de três cabeças, "/>
+			<AppData App="MOD" Name="Rating" Value="12"/>
+			<AppData App="MOD" Name="Extradata_4" Value="#ERRO#"/>
+			<AppData App="MOD" Name="Closed_Captioning" Value="N"/>
+			<AppData App="MOD" Name="Run_Time" Value="02:11:41"/>
+			<AppData App="MOD" Name="Display_Run_Time" Value="02:11"/>
+			<AppData App="MOD" Name="Year" Value="2019"/>
+			<AppData App="MOD" Name="Country_of_Origin" Value="USA"/>
+			<AppData App="MOD" Name="Studio" Value="Warner Bros"/>
+			<AppData App="MOD" Name="Studio_Name" Value="Warner Bros"/>
+			<AppData App="MOD" Name="Actors_Display" Value="Kyle Chandler, Vera Farmiga, Millie Bobby Brown, Bradley Whitford, Sally Hawkins, Charles Dance, Thomas Middleditch, Aisha Hinds, O&#39;Shea Jackson Jr., David Strathairn, Ken Watanabe, Ziyi Zhang "/>
+			<AppData App="MOD" Name="Actors" Value="Kyle Chandler"/>
+			<AppData App="MOD" Name="Actors" Value=" Vera Farmiga"/>
+			<AppData App="MOD" Name="Actors" Value=" Millie Bobby Brown"/>
+			<AppData App="MOD" Name="Actors" Value=" Bradley Whitford"/>
+			<AppData App="MOD" Name="Actors" Value=" Sally Hawkins"/>
+			<AppData App="MOD" Name="Actors" Value=" Charles Dance"/>
+			<AppData App="MOD" Name="Actors" Value=" Thomas Middleditch"/>
+			<AppData App="MOD" Name="Actors" Value=" Aisha Hinds"/>
+			<AppData App="MOD" Name="Actors" Value=" O&#39;Shea Jackson Jr."/>
+			<AppData App="MOD" Name="Actors" Value=" David Strathairn"/>
+			<AppData App="MOD" Name="Actors" Value=" Ken Watanabe"/>
+			<AppData App="MOD" Name="Actors" Value=" Ziyi Zhang "/>
+			<AppData App="MOD" Name="Director" Value="Michael Dougherty"/>
+			<AppData App="MOD" Name="Director_Display" Value="Michael Dougherty"/>
+			<AppData App="MOD" Name="Category" Value="Filme"/>
+			<AppData App="MOD" Name="Genre" Value="Fantasia"/>
+			<AppData App="MOD" Name="Box_Office" Value="250000"/>
+			<AppData App="MOD" Name="Extradata_1" Value=""/>
+			<AppData App="MOD" Name="Billing_ID" Value="WBH1D"/>
+			<AppData App="MOD" Name="Licensing_Window_Start" Value="09-19-19"/>
+			<AppData App="MOD" Name="Licensing_Window_End" Value="03-19-20"/>
+			<AppData App="MOD" Name="Preview_Period" Value="0"/>
+			<AppData App="MOD" Name="Provider_QA_Contact" Value="MediaCenter"/>
+			<AppData App="MOD" Name="Contract_Name" Value="Nirvana-01032013"/>
+			<AppData App="MOD" Name="Suggested_Price" Value="14.90"/>
+		</Metadata>
+		<Asset>
+			<Metadata>
+				<AMS Provider="WARNER" Product="MOD" Asset_Name="Godzilla_King_Of_The_Monsters_Movie" Version_Major="1" Version_Minor="0" Creation_Date="2019-11-13" Description="Godzilla II: Rei dos Monstros" Provider_ID="nirvana.com.br" Asset_ID="WARNER3201911132327180003" Asset_Class="movie"/>
+				<AppData App="MOD" Name="Type" Value="movie"/>
+				<AppData App="MOD" Name="Screen_Format" Value="HD"/>
+				<AppData App="MOD" Name="HDContent" Value="HD"/>
+				<AppData App="MOD" Name="Watermarking" Value="N"/>
+				<AppData App="MOD" Name="Languages" Value="en"/>
+				<AppData App="MOD" Name="Bit_Rate" Value="HD"/>
+				<AppData App="MOD" Name="Audio_Type" Value="Dolby 5.1"/>
+				<AppData App="MOD" Name="Viewing_Can_Be_Resumed" Value="Y"/>
+				<AppData App="MOD" Name="Dubbed_Languages" Value="#ERRO#"/>
+				<AppData App="MOD" Name="Content_FileSize" Value="7899119860"/>
+				<AppData App="MOD" Name="Content_CheckSum" Value="13FE65051B849A38ADF8F0A151139FA7"/>
+			</Metadata>
+			<Content Value="godzilla_king_otm_hd_net_vod_sub_ptbr.ts"/>
+		</Asset>
+		<Asset>
+			<Metadata>
+				<AMS Provider="WARNER" Product="MOD" Asset_Name="Godzilla_King_Of_The_Monsters_Poster" Version_Major="1" Version_Minor="0" Creation_Date="2019-11-13" Description="Godzilla II: Rei dos Monstros" Provider_ID="nirvana.com.br" Asset_ID="WARNER4201911132327180003" Asset_Class="poster"/>
+				<AppData App="MOD" Name="Type" Value="poster"/>
+				<AppData App="MOD" Name="Content_FileSize" Value="67627"/>
+				<AppData App="MOD" Name="Content_CheckSum" Value="3A21C2811097F55C4D0DFFCA8CB16ECF"/>
+			</Metadata>
+			<Content Value="godzilla_king_otm_hd_net_vod_sub_ptbr.jpg"/>
+		</Asset>
+		<Asset>
+			<Metadata>
+				<AMS Provider="NIR" Product="MOD" Asset_Name="Godzilla_King_Of_The_Monsters_Preview" Version_Major="1" Version_Minor="0" Creation_Date="2019-11-13" Description="Godzilla II: Rei dos Monstros" Provider_ID="nirvana.com.br" Asset_ID="WARNER5201911132327180003" Asset_Class="preview"/>
+				<AppData App="MOD" Name="Type" Value="preview"/>
+				<AppData App="MOD" Name="Rating" Value="18"/>
+				<AppData App="MOD" Name="Run_Time" Value="00:00:45"/>
+				<AppData App="MOD" Name="Audio_Type" Value="Stereo"/>
+				<AppData App="MOD" Name="Content_FileSize" Value="144591928"/>
+				<AppData App="MOD" Name="Content_CheckSum" Value="E0BD54C5614CDAA111855B563DAB7A9A"/>
+			</Metadata>
+			<Content Value="godzilla_king_otm_hd_net_vod_sub_ptbr_trailer.ts"/>
+		</Asset>
+	</Asset>
+</ADI>

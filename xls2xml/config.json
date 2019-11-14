@@ -1,6 +1,8 @@
 {
     "options": [
         {"name": "provider", "value": "WARNER"},
+        {"name": "provider_id", "value": "warner.com"},
+        {"name": "asset_prefix", "value": "WARN"},
         {"name": "owner", "value": "gvt"},
         {"name": "doctype", "value": "ADI"},
         {"name": "doctype_system", "value": "ADI.DTD"},
@@ -19,49 +21,22 @@
                         {
                             "name": "AMS",
                             "attrs": [
-                                {"Name": "Provider", "Value": "WARNER", "field": "provider", "function": "option"},
+                                {"Name": "Provider", "field": "provider", "function": "option"},
                                 {"Name": "Product", "Value": "", "function": "fixed"},
-                                {"Name": "Asset_Name", "maxlength": "2", "field": "Título Original", "function": "suffix", "suffix": "Package", "suffix_number": 1},
+                                {"Name": "Asset_Name", "maxlength": "45", "field": "Título Original", "function": "field_suffix", "suffix": "_Package"},
                                 {"Name": "Version_Major", "Value": "1", "field": "", "function": "fixed"},
                                 {"Name": "Version_Minor", "Value": "0", "field": "", "function": "fixed"},
                                 {"Name": "Description", "field": "Título em Português", "function": "field"},
                                 {"Name": "Creation_Date", "function": "date"},
-                                {"Name": "Provider_ID", "Value": "nirvana.com.br", "field": "", "function": "fixed"},
-                                {"Name": "Asset_ID", "Value": "", "field": "", "function": "assetid", "suffix_number": 1, "prefix": "NIRV"},
-                                {"Name": "Asset_Class", "Value": "package", "field": "", "function": "fixed"}
+                                {"Name": "Provider_ID", "field": "provider_id", "function": "option"},
+                                {"Name": "Asset_ID", "function": "assetid", "suffix_number": 1, "prefix": "asset_prefix"},
+                                {"Name": "Asset_Class", "Value": "package", "function": "fixed"}
                             ]
                         },
                         {"name": "AppData", "single_attrs": [{"App": "MOD", "Name": "Metadata_Spec_Version", "Value": "CableLabsVOD1.1", "field": "", "function": "fixed"}]}
                     ]
                 },
                 {
-                    "name": "Asset",
-                    "elements": [
-                        {
-                            "name": "Metadata",
-                            "options": {"name": "section", "value": "package"},
-                            "elements": [
-                                {
-                                    "name": "AMS",
-                                    "attrs": [
-                                        {"Name": "Provider", "Value": "WARNER", "field": "", "function": "fixed"},
-                                        {"Name": "Product", "Value": "MOD", "field": "", "function": "fixed"},
-                                        {"Name": "Asset_Name", "Value": "", "maxlength": "42", "field": "Título Original", "function": "suffix", "suffix": "Package", "suffix_number": 1},
-                                        {"Name": "Version_Major", "Value": "1", "field": "", "function": "fixed"},
-                                        {"Name": "Version_Minor", "Value": "0", "field": "", "function": "fixed"},
-                                        {"Name": "Description", "Value": "", "field": "Sinopse EPG", "function": "field"},
-                                        {"Name": "Creation_Date", "Value": "", "field": "", "function": "date"},
-                                        {"Name": "Provider_ID", "Value": "nirvana.com.br", "field": "", "function": "fixed"},
-                                        {"Name": "Asset_ID", "Value": "", "field": "", "function": "assetid", "suffix_number": 1, "prefix": "NIRV"},
-                                        {"Name": "Asset_Class", "Value": "package", "field": "", "function": "fixed"}
-                                    ]
-                                },
-                                {"name": "AppData", "single_attrs": [{"App": "MOD", "Name": "Metadata_Spec_Version", "Value": "CableLabsVOD1.1", "field": "", "function": "fixed"}]}
-                            ]
-                        }
-                        ]
-                        },
-                        {
                     "name": "Asset",
                     "elements": [
                         {
@@ -73,7 +48,7 @@
                                     "attrs": [
                                         {"Name": "Provider", "Value": "WARNER", "field": "", "function": "fixed"},
                                         {"Name": "Product", "Value": "MOD", "field": "", "function": "fixed"},
-                                        {"Name": "Asset_Name", "Value": "", "maxlength": "42", "field": "Título Original", "function": "suffix", "suffix": "Title", "suffix_number": 2},
+                                        {"Name": "Asset_Name", "Value": "", "maxlength": "42", "field": "Título Original", "function": "field_suffix", "suffix": "_Title"},
                                         {"Name": "Version_Major", "Value": "1", "field": "", "function": "fixed"},
                                         {"Name": "Version_Minor", "Value": "0", "field": "", "function": "fixed"},
                                         {"Name": "Description", "Value": "", "field": "Título em Português", "function": "field"},
@@ -85,196 +60,182 @@
                                 },
                                 {
                                     "name": "AppData",
+                                    "common_attrs": {"App": "MOD"},
                                     "single_attrs": [
-                                        {"App": "MOD", "Name": "Type", "Value": "title", "field": "", "function": "fixed"},
-                                        {"App": "MOD", "Name": "Content_Category", "Value": "", "field": "Category", "function": "field"},
-                                        {"App": "MOD", "Name": "Commercial_Type", "Value": "", "field": "Category", "function": "field"},
-                                        {"App": "MOD", "Name": "Title", "Value": "", "maxlength": "128", "field": "Título em Português", "function": "field"},
-                                        {"App": "MOD", "Name": "Original_Title", "target_language": "pt-BR", "Value": "", "maxlength": "128", "field": "Título Original", "function": "field"},
-                                        {"App": "MOD", "Name": "Encoding_Profile", "Value": "", "field": "encoding_profile", "function": "field"},
+                                        {"Name": "Type", "Value": "title", "field": "", "function": "fixed"},
+                                        {"Name": "Title_Sort_Name", "field": "Título em Português", "maxlength": "22", "function": "field"},
+                                        {"Name": "Title_Brief", "field": "Título em Português", "maxlength": "19", "function": "field"},
+                                        {"Name": "Title", "field": "Título em Português", "maxlength": "18", "function": "field"},
+                                        {"Name": "Summary_Long", "target_language": "pt-BR", "maxlength": "1024", "field": "Sinopse EPG", "function": "field_no_quotes"},
+                                        {"Name": "Summary_Medium", "target_language": "pt-BR", "maxlength": "1024", "field": "Sinopse EPG", "function": "field_no_quotes"},
+                                        {"Name": "Summary_Short", "target_language": "pt-BR", "maxlength": "256", "field": "Sinopse EPG", "function": "field_no_quotes"},
+                                        {"Name": "Rating", "Options": "L,10,12,14,16,18,ER", "field": "Classificação Etária", "function": "field_validated"},
+                                        {"Name": "Extradata_4", "field": "Extradata 4", "function": "field"},
+                                        {"Name": "Closed_Captioning", "Value": "N", "field": "", "function": "fixed"},
+                                        {"Name": "Run_Time", "field": "Duração", "function": "field"},
+                                        {"Name": "Display_Run_Time", "maxlength": "5", "field": "Duração", "function": "field"},
+                                        {"Name": "Year", "Value": "", "field": "Ano", "function": "field"},
                                         {
-                                            "App": "MOD",
-                                            "Name": "Episode_ID",
-                                            "Value": "",
-                                            "field1": "Season Number",
-                                            "field2": "Episode number",
-                                            "function": "episode_id",
-                                            "depends": "Episode number",
-                                            "Optional": "Y"
-                                        },
-                                        {
-                                            "App": "MOD",
-                                            "Name": "Summary_Medium",
-                                            "target_language": "pt-BR",
-                                            "Value": "",
-                                            "maxlength": "1024",
-                                            "field": "Summary Medium",
-                                            "function": "field_no_quotes"
-                                        },
-                                        {"App": "MOD", "Name": "Summary_Short", "target_language": "pt-BR", "Value": "", "maxlength": "256", "field": "Summary Short", "function": "field_no_quotes"},
-                                        {"App": "MOD", "Name": "Rating", "Value": "", "Options": "L,10,12,14,16,18,ER", "field": "Rating", "function": "field_validated"},
-                                        {"App": "MOD", "Name": "Closed_Captioning", "Value": "N", "field": "", "function": "fixed"},
-                                        {"App": "MOD", "Name": "Run_Time", "Value": "", "Suffix": "-3", "maxlength": "8", "field": "Duration", "function": "field"},
-                                        {"App": "MOD", "Name": "Year", "Value": "", "field": "Year", "function": "field"},
-                                        {
-                                            "App": "MOD",
                                             "Name": "Country_of_Origin",
-                                            "Value": "",
                                             "Options": "FRA,GBR,CHI,CZE,ARG,MEX,CAN,IRL,ITA,NLD,JAM,NZL,JPN,DEU,ESP,HKG,USA,BRA,SWE",
-                                            "field": "Country of Origin",
+                                            "field": "País de Origem",
                                             "function": "field_validated"
                                         },
-                                        {"App": "MOD", "Name": "Studio", "Value": "", "maxlength": "22", "field": "Studio", "function": "field"},
-                                        {"App": "MOD", "Name": "Studio_Name", "Value": "", "maxlength": "128", "field": "Studio", "function": "field"},
-                                        {"App": "MOD", "Name": "Actors_Display", "Value": "", "field": "Actors Display", "detail": "Actors", "function": "actors"},
-                                        {"App": "MOD", "Name": "Director_Display", "Value": "", "field": "Director", "detail": "Director", "function": "actors"},
-                                        {"App": "MOD", "Name": "Genre", "target_language": "pt-BR", "Value": "", "field": "Genre", "function": "field"},
-                                        {"App": "MOD", "Name": "Box_Office", "Value": "0", "field": "", "function": "fixed"},
-                                        {"App": "MOD", "Name": "Billing_ID", "Value": "", "field": "BILLING ID", "function": "field"},
-                                        {"App": "MOD", "Name": "Licensing_Window_Start", "Value": "", "field": "Window From", "function": "field"},
-                                        {"App": "MOD", "Name": "Licensing_Window_End", "Value": "", "field": "Window To", "function": "field"},
-                                        {"App": "MOD", "Name": "Preview_Period", "Value": "0", "field": "", "function": "fixed"},
-                                        {"App": "MOD", "Name": "Provider_QA_Contact", "Value": "MediaCenter", "field": "", "function": "fixed"},
-                                        {"App": "MOD", "Name": "Contract_Name", "Value": "Nirvana-01032013", "field": "", "function": "fixed"},
-                                        {"App": "MOD", "Name": "Suggested_Price", "Value": "0.00", "field": "", "function": "fixed"}
+                                        {"Name": "Studio", "maxlength": "22", "field": "Estúdio", "function": "field"},
+                                        {"Name": "Studio_Name", "maxlength": "22", "field": "Estúdio", "function": "field"},
+                                        {"Name": "Actors_Display", "field": "Elenco", "function": "field"},
+                                        {"Name": "Actors", "field": "Elenco", "function": "split", "function2": "field"},
+                                        {"Name": "Director", "field": "Diretor", "function": "field"},
+                                        {"Name": "Director_Display", "field": "Diretor", "function": "field"},
+                                        {"Name": "Category", "field": "Categoria", "function": "field"},
+                                        {"Name": "Genre", "target_language": "pt-BR", "field": "Genero 1", "function": "field"},
+                                        {"Name": "Box_Office", "field": "Box Office", "function": "field"},
+                                        {"Name": "Extradata_1", "field": "Extradata 1", "function": "field"},
+                                        {"Name": "Billing_ID", "field": "Billing ID", "function": "field"},
+                                        {"Name": "Licensing_Window_Start", "Value": "", "field": "Data início no NOW", "function": "field"},
+                                        {"Name": "Licensing_Window_End", "Value": "", "field": "Data Fim no NOW", "function": "field"},
+                                        {"Name": "Preview_Period", "Value": "0", "field": "", "function": "fixed"},
+                                        {"Name": "Provider_QA_Contact", "Value": "MediaCenter", "function": "fixed"},
+                                        {"Name": "Contract_Name", "Value": "Nirvana-01032013", "function": "fixed"},
+                                        {"Name": "Suggested_Price", "field": "Cobrança", "function": "field_money"}
                                     ]
                                 }
                             ]
-                        }]
-                        }
-                        ,
+                        },
                         {
-                            "name": "Metadata",
-                            "options": {"name": "section", "value": "movie"},
+                            "name": "Asset",
                             "elements": [
                                 {
-                                    "name": "AMS",
-                                    "attrs": [
-                                        {"Name": "Provider", "Value": "WARNER", "field": "", "function": "fixed"},
-                                        {"Name": "Product", "Value": "MOD", "field": "", "function": "fixed"},
-                                        {"Name": "Asset_Name", "Value": "", "maxlength": "42", "field": "Título Original", "function": "suffix", "suffix": "Movie", "suffix_number": 3},
-                                        {"Name": "Version_Major", "Value": "1", "field": "", "function": "fixed"},
-                                        {"Name": "Version_Minor", "Value": "0", "field": "", "function": "fixed"},
-                                        {"Name": "Creation_Date", "Value": "", "field": "", "function": "date"},
-                                        {"Name": "Description", "field": "Título em Português", "function": "field"},
-                                        {"Name": "Provider_ID", "Value": "nirvana.com.br", "field": "", "function": "fixed"},
-                                        {"Name": "Asset_ID", "Value": "", "field": "", "function": "assetid", "suffix_number": 3, "prefix": "NIRV"},
-                                        {"Name": "Asset_Class", "Value": "movie", "field": "", "function": "fixed"}
+                                    "name": "Metadata",
+                                    "options": {"name": "section", "value": "movie"},
+                                    "elements": [
+                                        {
+                                            "name": "AMS",
+                                            "attrs": [
+                                                {"Name": "Provider", "Value": "WARNER", "field": "", "function": "fixed"},
+                                                {"Name": "Product", "Value": "MOD", "field": "", "function": "fixed"},
+                                                {"Name": "Asset_Name", "Value": "", "maxlength": "42", "field": "Título Original", "function": "field_suffix", "suffix": "_Movie"},
+                                                {"Name": "Version_Major", "Value": "1", "field": "", "function": "fixed"},
+                                                {"Name": "Version_Minor", "Value": "0", "field": "", "function": "fixed"},
+                                                {"Name": "Creation_Date", "Value": "", "field": "", "function": "date"},
+                                                {"Name": "Description", "field": "Título em Português", "function": "field"},
+                                                {"Name": "Provider_ID", "Value": "nirvana.com.br", "field": "", "function": "fixed"},
+                                                {"Name": "Asset_ID", "Value": "", "field": "", "function": "assetid", "suffix_number": 3, "prefix": "NIRV"},
+                                                {"Name": "Asset_Class", "Value": "movie", "field": "", "function": "fixed"}
+                                            ]
+                                        },
+                                        {
+                                            "name": "AppData",
+                                            "common_attrs": {"App": "MOD"},
+                                            "single_attrs": [
+                                                {"Name": "Type", "Value": "movie", "function": "fixed"},
+                                                {"Name": "Screen_Format", "Options": "Widescreen,Letterbox,Standard", "field": "Formato", "function": "screen_format"},
+                                                {"Name": "HDContent", "Options": "Y,N", "field": "Formato", "function": "is_HD"},
+                                                {"Name": "Watermarking", "Value": "N", "function": "fixed"},
+                                                {
+                                                    "Name": "Languages",
+                                                    "Options": "cs,da,de,en,es,fr,ga,hi,hu,it,ja,ko,nl,pt,ru,sv,tr,uk,vi,zh,não",
+                                                    "field": "Audio",
+                                                    "function": "field_validated"
+                                                },
+                                                {"Name": "Bit_Rate", "Options": "2000,8000", "field": "Formato", "bitrate_sd": "2000", "bitrate_hd": "8000", "function": "bitrate"},
+                                                {"Name": "Audio_Type", "Options": "Mono,Dolby 5.1,Stereo", "field": "Movie Audio Type", "function": "field_validated"},
+                                                {"Name": "Viewing_Can_Be_Resumed", "Value": "Y", "function": "fixed"},
+                                                {
+                                                    "Name": "Dubbed_Languages",
+                                                    "Optional": "Y",
+                                                    "Options": "cs,da,de,en,es,fr,ga,hi,hu,it,ja,ko,nl,pt,ru,sv,tr,uk,vi,zh,não",
+                                                    "field": "Dublado",
+                                                    "exclude": ",não",
+                                                    "function": "field_validated"
+                                                },
+                                                {"Name": "Content_FileSize", "Value": "", "field": "Movie Size", "function": "field"},
+                                                {"Name": "Content_CheckSum", "Value": "", "field": "Movie MD5", "function": "field"}
+                                            ]
+                                        }
                                     ]
                                 },
-                                {
-                                    "name": "AppData",
-                                    "single_attrs": [
-                                        {"App": "MOD", "Name": "Type", "Value": "movie", "field": "", "function": "fixed"},
-                                        {"App": "MOD", "Name": "Encryption", "Value": "Y", "field": "", "function": "fixed"},
-                                        {"App": "MOD", "Name": "Screen_Format", "Value": "", "Options": "Widescreen,Letterbox,Standard", "field": "Formato", "function": "screen_format"},
-                                        {"App": "MOD", "Name": "HDContent", "Value": "", "Options": "Y,N", "field": "Formato", "function": "is_HD"},
-                                        {"App": "MOD", "Name": "Watermarking", "Value": "N", "field": "", "function": "fixed"},
-                                        {
-                                            "App": "MOD",
-                                            "Name": "Languages",
-                                            "Value": "",
-                                            "Options": "Inglês,Espanhol,Francês,Alemão,Italiano,Japonês,Chinês,Coreano,Português",
-                                            "field": "Audio",
-                                            "function": "field_validated"
-                                        },
-                                        {"App": "MOD", "Name": "Bit_Rate", "Value": "", "Options": "2000,8000", "field": "Formato", "bitrate_sd": "2000", "bitrate_hd": "8000", "function": "bitrate"},
-                                        {"App": "MOD", "Name": "Audio_Type", "Value": "", "Options": "Mono,Surround 5.1,Stereo", "field": "Audio Type", "function": "field_validated"},
-                                        {"App": "MOD", "Name": "Viewing_Can_Be_Resumed", "Value": "Y", "field": "", "function": "fixed"},
-                                        {
-                                            "App": "MOD",
-                                            "Name": "Subtitle_Languages",
-                                            "Value": "",
-                                            "Optional": "Y",
-                                            "Options": "Inglês,Espanhol,Francês,Alemão,Italiano,Japonês,Chinês,Coreano,Português",
-                                            "field": "Legenda",
-                                            "exclude": ",sem legendas,não",
-                                            "function": "field_validated"
-                                        },
-                                        {
-                                            "App": "MOD",
-                                            "Name": "Dubbed_Languages",
-                                            "Value": "",
-                                            "Optional": "Y",
-                                            "Options": "Inglês,Espanhol,Francês,Alemão,Italiano,Japonês,Chinês,Coreano,Português",
-                                            "field": "Dublado",
-                                            "exclude": ",não",
-                                            "function": "field_validated"
-                                        },
-                                        {"App": "MOD", "Name": "Copy_Protection", "Value": "Y", "field": "", "function": "fixed"},
-                                        {"App": "MOD", "Name": "Copy_Protection_Verbose", "Value": "Y", "field": "", "function": "fixed"},
-                                        {"App": "MOD", "Name": "CGMS_A", "Value": "3", "field": "", "function": "fixed"},
-                                        {"App": "MOD", "Name": "Content_FileSize", "Value": "", "field": "Movie Size", "function": "field"},
-                                        {"App": "MOD", "Name": "Content_CheckSum", "Value": "", "field": "Movie MD5", "function": "field"}
-                                    ]
-                                },
-                                {"name": "Content", "single_attrs": [{"Name": "Value", "field": "ID", "function": "field", "suffix": "ts"}]}
+                                {"name": "Content", "attrs": [{"Name": "Value", "field": "ID", "function": "field_suffix", "suffix": ".ts"}]}
                             ]
                         },
                         {
-                            "name": "Metadata",
-                            "options": {"name": "section", "value": "poster"},
+                            "name": "Asset",
                             "elements": [
                                 {
-                                    "name": "AMS",
-                                    "attrs": [
-                                        {"Name": "Provider", "Value": "WARNER", "field": "", "function": "fixed"},
-                                        {"Name": "Product", "Value": "MOD", "field": "", "function": "fixed"},
-                                        {"Name": "Asset_Name", "Value": "", "maxlength": "42", "field": "Título Original", "function": "suffix", "suffix": "Poster", "suffix_number": 4},
-                                        {"Name": "Version_Major", "Value": "1", "field": "", "function": "fixed"},
-                                        {"Name": "Version_Minor", "Value": "0", "field": "", "function": "fixed"},
-                                        {"Name": "Creation_Date", "Value": "", "field": "", "function": "date"},
-                                        {"Name": "Description", "Value": "", "field": "Título em Português", "function": "field"},
-                                        {"Name": "Provider_ID", "Value": "nirvana.com.br", "field": "", "function": "fixed"},
-                                        {"Name": "Asset_ID", "Value": "", "field": "", "function": "assetid", "suffix_number": 4, "prefix": "NIRV"},
-                                        {"Name": "Asset_Class", "Value": "poster", "field": "", "function": "fixed"}
+                                    "name": "Metadata",
+                                    "options": {"name": "section", "value": "poster"},
+                                    "elements": [
+                                        {
+                                            "name": "AMS",
+                                            "attrs": [
+                                                {"Name": "Provider", "Value": "WARNER", "field": "", "function": "fixed"},
+                                                {"Name": "Product", "Value": "MOD", "field": "", "function": "fixed"},
+                                                {"Name": "Asset_Name", "Value": "", "maxlength": "42", "field": "Título Original", "function": "field_suffix", "suffix": "_Poster"},
+                                                {"Name": "Version_Major", "Value": "1", "field": "", "function": "fixed"},
+                                                {"Name": "Version_Minor", "Value": "0", "field": "", "function": "fixed"},
+                                                {"Name": "Creation_Date", "Value": "", "field": "", "function": "date"},
+                                                {"Name": "Description", "Value": "", "field": "Título em Português", "function": "field"},
+                                                {"Name": "Provider_ID", "Value": "nirvana.com.br", "field": "", "function": "fixed"},
+                                                {"Name": "Asset_ID", "Value": "", "field": "", "function": "assetid", "suffix_number": 4, "prefix": "NIRV"},
+                                                {"Name": "Asset_Class", "Value": "poster", "field": "", "function": "fixed"}
+                                            ]
+                                        },
+                                        {
+                                            "name": "AppData",
+                                            "common_attrs": {"App": "MOD"},
+                                            "single_attrs": [
+                                                {"Name": "Type", "Value": "poster", "field": "", "function": "fixed"},
+                                                {"Name": "Content_FileSize", "Value": "", "field": "Poster Size", "function": "field"},
+                                                {"Name": "Content_CheckSum", "Value": "", "field": "Poster MD5", "function": "field"}
+                                            ]
+                                        }
                                     ]
                                 },
-                                {
-                                    "name": "AppData",
-                                    "single_attrs": [
-                                        {"App": "MOD", "Name": "Type", "Value": "poster", "field": "", "function": "fixed"},
-                                        {"App": "MOD", "Name": "Content_FileSize", "Value": "", "field": "Poster Size", "function": "field"},
-                                        {"App": "MOD", "Name": "Content_CheckSum", "Value": "", "field": "Poster MD5", "function": "field"}
-                                    ]
-                                },
-                                {"name": "Content", "single_attrs": [{"Name": "id_field", "field": "ID", "function": "field", "suffix": "jpeg"}]}
+                                {"name": "Content", "attrs": [{"Name": "Value", "field": "ID", "function": "field_suffix", "suffix": ".jpg"}]}
                             ]
                         },
                         {
-                            "name": "Metadata",
-                            "options": {"name": "section", "value": "preview"},
+                            "name": "Asset",
                             "elements": [
                                 {
-                                    "name": "AMS",
-                                    "attrs": [
-                                        {"Name": "Provider", "Value": "NIR", "field": "", "function": "fixed"},
-                                        {"Name": "Product", "Value": "MOD", "field": "", "function": "fixed"},
-                                        {"Name": "Asset_Name", "Value": "", "maxlength": "42", "field": "Título Original", "function": "suffix", "suffix": "Preview", "suffix_number": 5},
-                                        {"Name": "Version_Major", "Value": "1", "field": "", "function": "fixed"},
-                                        {"Name": "Version_Minor", "Value": "0", "field": "", "function": "fixed"},
-                                        {"Name": "Creation_Date", "Value": "", "field": "", "function": "date"},
-                                        {"Name": "Description", "Value": "", "field": "Título em Português", "function": "field"},
-                                        {"Name": "Provider_ID", "Value": "nirvana.com.br", "field": "", "function": "fixed"},
-                                        {"Name": "Asset_ID", "Value": "", "field": "", "function": "assetid", "suffix_number": 5, "prefix": "NIRV"},
-                                        {"Name": "Asset_Class", "Value": "preview", "field": "", "function": "fixed"}
+                                    "name": "Metadata",
+                                    "options": {"name": "section", "value": "preview"},
+                                    "elements": [
+                                        {
+                                            "name": "AMS",
+                                            "attrs": [
+                                                {"Name": "Provider", "Value": "NIR", "field": "", "function": "fixed"},
+                                                {"Name": "Product", "Value": "MOD", "field": "", "function": "fixed"},
+                                                {"Name": "Asset_Name", "Value": "", "maxlength": "42", "field": "Título Original", "function": "field_suffix", "suffix": "_Preview"},
+                                                {"Name": "Version_Major", "Value": "1", "field": "", "function": "fixed"},
+                                                {"Name": "Version_Minor", "Value": "0", "field": "", "function": "fixed"},
+                                                {"Name": "Creation_Date", "Value": "", "field": "", "function": "date"},
+                                                {"Name": "Description", "Value": "", "field": "Título em Português", "function": "field"},
+                                                {"Name": "Provider_ID", "Value": "nirvana.com.br", "field": "", "function": "fixed"},
+                                                {"Name": "Asset_ID", "Value": "", "field": "", "function": "assetid", "suffix_number": 5, "prefix": "NIRV"},
+                                                {"Name": "Asset_Class", "Value": "preview", "field": "", "function": "fixed"}
+                                            ]
+                                        },
+                                        {
+                                            "name": "AppData",
+                                            "common_attrs": {"App": "MOD"},
+                                            "single_attrs": [
+                                                {"Name": "Type", "Value": "preview", "field": "", "function": "fixed"},
+                                                {"Name": "Rating", "Value": "18", "Options": "L,10,12,14,16,18,ER", "field": "", "function": "fixed"},
+                                                {"Name": "Run_Time", "Value": "00:00:45", "field": "", "function": "fixed"},
+                                                {"Name": "Audio_Type", "Value": "Stereo", "function": "fixed"},
+                                                {"Name": "Content_FileSize", "field": "Trailer Size", "function": "field"},
+                                                {"Name": "Content_CheckSum", "field": "Trailer MD5", "function": "field"}
+                                            ]
+                                        }
                                     ]
                                 },
-                                {
-                                    "name": "AppData",
-                                    "single_attrs": [
-                                        {"App": "MOD", "Name": "Type", "Value": "preview", "field": "", "function": "fixed"},
-                                        {"App": "MOD", "Name": "Rating", "Value": "18", "Options": "L,10,12,14,16,18,ER", "field": "", "function": "fixed"},
-                                        {"App": "MOD", "Name": "Run_Time", "Value": "00:00:45", "field": "", "function": "fixed"},
-                                        {"App": "MOD", "Name": "Audio_Type", "Value": "Stereo", "Options": "Stereo,Mono,Surround 5.1", "field": "", "fixed": "field"},
-                                        {"App": "MOD", "Name": "Content_FileSize", "Value": "1234567890", "field": "", "function": "fixed"},
-                                        {"App": "MOD", "Name": "Content_CheckSum", "Value": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX", "field": "", "function": "fixed"}
-                                    ]
-                                }
+                                {"name": "Content", "attrs": [{"Name": "Value", "field": "ID", "function": "field_suffix", "suffix": "_trailer.ts"}]}
                             ]
                         }
                     ]
                 }
             ]
         }
-    
+    ]
+}

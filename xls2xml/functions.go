@@ -14,182 +14,222 @@ import (
 	"golang.org/x/text/unicode/norm"
 )
 
-const ERR = "#ERRO#"
+// ERR Default error message
+var ERR []string
 
 // FunctionDict is the relation between the operation name and the function
-var FunctionDict = map[string]func(map[string]string, map[string]interface{}, map[string]string) (string, error){
-	"fixed":           Fixed,
-	"field":           Field,
-	"field_validated": FieldValidated,
-	"field_noacc":     FieldNoAccents,
-	"field_trim":      FieldTrim,
-	"field_no_quotes": FieldNoQuotes,
-	"field_money":     FieldMoney,
-	"suffix":          Suffix,
-	"assetid":         AssetId,
-	"date":            Date,
-	"convert_date":    ConvertDate,
-	"is_HD":           IsHD,
-	"screen_format":   ScreenFormat,
-	"exclude":         Exclude,
-	"actors":          Actors,
-	"bitrate":         BitRate,
-	"seconds":         Seconds,
-	"surname_name":    SurnameName,
-	"episode_id":      EpisodeId,
-	"episode_name":    EpisodeName,
-	"condition":       Condition,
-	"option":          Option,
-}
+var FunctionDict map[string]func(string, map[string]string, map[string]interface{}, map[string]string) ([]string, error)
 
-func Process(funcName string, line map[string]string, json map[string]interface{}, options map[string]string) (string, error) {
+func Process(funcName string, line map[string]string, json map[string]interface{}, options map[string]string) ([]string, error) {
+	ERR = []string{"#ERRO#"}
 	// fmt.Printf("=> %s\n", funcName)
 	if funcName == "" {
 		return ERR, fmt.Errorf("'function' nao especificada")
 	}
 	function, ok := FunctionDict[funcName]
 	if ok {
-		return function(line, json, options)
+		return function("", line, json, options)
 	}
 	fmt.Printf("Warning: funcao [%s] nao existe!\n", funcName)
-	result, _ := Undefined(line, json, options)
+	result, _ := Undefined("", line, json, options)
 	return result, fmt.Errorf("Funcao nao definida: [%s]", funcName)
 }
 
-func truncate(value string, suffix string, line map[string]string, json map[string]interface{}, options map[string]string) (string, error) {
-	val, err := getValue("maxlength", json)
-	if val == "" || err != nil {
-		return value, nil
+func findValue(value string, field string, json map[string]interface{}) (string, error) {
+	if value == "" {
+		return getValue(field, json)
 	}
-	max, err := strconv.Atoi(val)
-	if err != nil {
-		return ERR, fmt.Errorf("Valor nao numerico em maxlenght: [%v]", val)
-	}
-	valLen := len(value)
-	sufLen := len(suffix)
-	if valLen+sufLen <= max {
-		return value, nil
-	}
-	if sufLen+1 >= max {
-		return ERR, fmt.Errorf("Sufixo [%s] nao pode ser aplicado porque estoura o tamanho maximo [%d] no elemento [%s]", suffix, max, value)
-	}
-	runes := []rune(value)
-	safeSubstring := string(runes[0:max])
-	return safeSubstring, nil
+	return value, nil
 }
 
 // Fixed returns the same value
-func Fixed(line map[string]string, json map[string]interface{}, options map[string]string) (string, error) {
+func Fixed(value string, line map[string]string, json map[string]interface{}, options map[string]string) ([]string, error) {
+	if value != "" {
+		return []string{value}, nil
+	}
 	val, err := getValue("Value", json)
-	return val, err
+	return []string{val}, err
 }
 
-func FieldMoney(line map[string]string, json map[string]interface{}, options map[string]string) (string, error) {
-	val, err := getValue("Value", json)
+func FieldMoney(value string, line map[string]string, json map[string]interface{}, options map[string]string) ([]string, error) {
+	val, err := getField(value, "Name", line, json, options)
 	if err != nil {
 		return ERR, err
 	}
-	return formatMoney(val)
-}
-
-func Field(line map[string]string, json map[string]interface{}, options map[string]string) (string, error) {
-	value, err := getField("Name", line, json, options)
-	return value, err
-}
-
-func getField(field string, line map[string]string, json map[string]interface{}, options map[string]string) (string, error) {
-	// fmt.Printf("field=%#v, json=%#v, line=%#v, options=%#v\n", field, json, line, options)
-	val, err := getValue("field", json)
+	result, err := formatMoney(val)
 	if err != nil {
 		return ERR, err
+	}
+	return []string{result}, nil
+}
+
+func Field(value string, line map[string]string, json map[string]interface{}, options map[string]string) ([]string, error) {
+	value, err := getField(value, "Name", line, json, options)
+	if err != nil {
+		return ERR, err
+	}
+	value, err = truncate(value, line, json, options)
+	return []string{value}, err
+}
+
+func getField(value string, field string, line map[string]string, json map[string]interface{}, options map[string]string) (string, error) {
+	// fmt.Printf("field=%#v, json=%#v, line=%#v, options=%#v\n", field, json, line, options)
+	if value != "" {
+		return value, nil
+	}
+	val, err := getValue("field", json)
+	if err != nil {
+		return ERR[0], err
 	}
 	value, ok := line[val]
 	if !ok {
-		return ERR, fmt.Errorf("Element '%s' inexistente na linha [%v]", val, line)
+		return ERR[0], fmt.Errorf("Elemento '%s' inexistente na linha", val)
 	}
 	// fmt.Printf("field(%v) = [%v]\n", field, value)
 	return value, nil
 }
 
-func FieldValidated(line map[string]string, json map[string]interface{}, options map[string]string) (string, error) {
-	field, err := Field(line, json, options)
-	return field, err
+func FieldValidated(value string, line map[string]string, json map[string]interface{}, options map[string]string) ([]string, error) {
+	field, err := Field(value, line, json, options)
+	if err != nil {
+		return ERR, err
+	}
+	val, err := getValue("Options", json)
+	if err != nil {
+		return ERR, err
+	}
+	opts := strings.Split(val, ",")
+	for _, opt := range opts {
+		if opt == field[0] {
+			return field, nil
+		}
+	}
+	return ERR, fmt.Errorf("Falha na validacao do elemento '%s': %s, valores possiveis: %v", json["Name"], field, opts)
 }
 
-func FieldNoAccents(line map[string]string, json map[string]interface{}, options map[string]string) (string, error) {
-	field, err := Field(line, json, options)
+func FieldNoAccents(value string, line map[string]string, json map[string]interface{}, options map[string]string) ([]string, error) {
+	field, err := getField(value, "Name", line, json, options)
 	if err != nil {
 		return ERR, err
 	}
 	result, err := RemoveAccents(field)
-	return result, err
-}
-
-func FieldTrim(line map[string]string, json map[string]interface{}, options map[string]string) (string, error) {
-	field, err := Field(line, json, options)
 	if err != nil {
 		return ERR, err
 	}
-	return strings.TrimSpace(field), nil
+	result, err = truncate(value, line, json, options)
+	return []string{result}, err
 }
 
-func FieldNoQuotes(line map[string]string, json map[string]interface{}, options map[string]string) (string, error) {
-	field, err := Field(line, json, options)
+func FieldTrim(value string, line map[string]string, json map[string]interface{}, options map[string]string) ([]string, error) {
+	field, err := getField(value, "Name", line, json, options)
 	if err != nil {
 		return ERR, err
 	}
-	return RemoveQuotes(field), nil
+	result := strings.TrimSpace(field)
+	if err != nil {
+		return ERR, err
+	}
+	result, err = truncate(value, line, json, options)
+	return []string{result}, nil
 }
 
-func Suffix(line map[string]string, json map[string]interface{}, options map[string]string) (string, error) {
+func FieldNoQuotes(value string, line map[string]string, json map[string]interface{}, options map[string]string) ([]string, error) {
+	field, err := getField(value, "Name", line, json, options)
+	if err != nil {
+		return ERR, err
+	}
+	value = RemoveQuotes(field)
+	if err != nil {
+		return ERR, err
+	}
+	result, err := truncate(value, line, json, options)
+	return []string{result}, nil
+}
+
+func Suffix(value string, line map[string]string, json map[string]interface{}, options map[string]string) ([]string, error) {
 	suffix, ok := json["suffix"].(string)
 	if !ok || suffix == "" {
 		return ERR, fmt.Errorf("Sufixo nao encontrado: [%v]", json)
 	}
-	field, err := Field(line, json, options)
+	field, err := Field(value, line, json, options)
 	if err != nil {
 		return ERR, err
 	}
 	// fmt.Printf("-->> %v\n", field)
-	noacc, err := RemoveAccents(field)
+	noacc, err := RemoveAccents(field[0])
 	if err != nil {
 		return ERR, err
 	}
+
+	extIdx := strings.LastIndex(noacc, ".")
+	if extIdx > 0 {
+		noacc = noacc[0:extIdx]
+	}
+
 	val := ReplaceAllNonAlpha(noacc)
-	val, err = truncate(val, suffix, line, json, options)
+	val, err = truncateSuffix(val, suffix, line, json, options)
 	if err != nil {
 		return ERR, err
 	}
-	result := fmt.Sprintf("%s_%s", val, suffix)
+	result := fmt.Sprintf("%s%s", val, suffix)
 	//	fmt.Printf("-->> %v\n", result)
-	return result, nil
+	return []string{result}, nil
 }
 
-func AssetId(line map[string]string, json map[string]interface{}, options map[string]string) (string, error) {
-	field, err := Field(line, json, options)
-	return field, err
-}
-
-func Date(line map[string]string, json map[string]interface{}, options map[string]string) (string, error) {
-	return formatDate(time.Now()), nil
-}
-
-func ConvertDate(line map[string]string, json map[string]interface{}, options map[string]string) (string, error) {
-	field, err := Field(line, json, options)
-	if err != nil {
-		return ERR, err
+func AssetId(value string, line map[string]string, json map[string]interface{}, options map[string]string) ([]string, error) {
+	if value != "" {
+		return []string{value}, nil
 	}
-	t, err := time.Parse("01/02/06", field)
-	if err != nil {
-		return ERR, err
+	provider, ok := options["provider"]
+	if !ok || provider == "" {
+		return ERR, fmt.Errorf("Provider assetid nao encontrado (provider): [%v]", options)
 	}
-	return formatDate(t), nil
-}
-
-func Condition(line map[string]string, json map[string]interface{}, options map[string]string) (string, error) {
-	condition, ok := json["condition"].(string)
+	suffixF, ok := json["suffix_number"].(float64)
 	if !ok {
-		return ERR, fmt.Errorf("Element '%s' inexistente na linha [%v]", "condition", line)
+		return ERR, fmt.Errorf("Numero do Sufixo do assetid (suffix_number) nao encontrado: [%v]", json)
+	}
+	suffix := int(suffixF)
+	timestamp := options["timestamp"]
+	if !ok || timestamp == "" {
+		return ERR, fmt.Errorf("Timestamp nao encontrada (timestamp): [%v]", options)
+	}
+	fileNum, ok := line["file_number"]
+	if !ok || fileNum == "" {
+		return ERR, fmt.Errorf("Numero do arquivo nao encontrado (file_number): [%v]", line)
+	}
+	result := fmt.Sprintf("%s%d%s%04s", provider, suffix, timestamp, fileNum)
+	return []string{result}, nil
+}
+
+func Date(value string, line map[string]string, json map[string]interface{}, options map[string]string) ([]string, error) {
+	if value != "" {
+		return []string{value}, nil
+	}
+	return []string{formatDate(time.Now())}, nil
+}
+
+func ConvertDate(value string, line map[string]string, json map[string]interface{}, options map[string]string) ([]string, error) {
+	field, err := Field(value, line, json, options)
+	if err != nil {
+		return ERR, err
+	}
+	t, err := time.Parse("01/02/06", field[0])
+	if err != nil {
+		return ERR, err
+	}
+	return []string{formatDate(t)}, nil
+}
+
+func Condition(value string, line map[string]string, json map[string]interface{}, options map[string]string) ([]string, error) {
+	var condition string
+	var ok bool
+	if value == "" {
+		condition, ok = json["condition"].(string)
+		if !ok {
+			return ERR, fmt.Errorf("Elemento '%s' inexistente na linha", "condition")
+		}
+	} else {
+		condition = value
 	}
 	result, err := evalCondition(condition, line)
 	if err != nil {
@@ -198,32 +238,88 @@ func Condition(line map[string]string, json map[string]interface{}, options map[
 	if result {
 		value, ok := json["if_true"].(string)
 		if !ok {
-			return ERR, fmt.Errorf("Element '%s' inexistente na linha [%v]", "if_true", line)
+			return ERR, fmt.Errorf("Elemento '%s' inexistente na linha", "if_true")
 		}
-		return value, nil
+		return []string{value}, nil
 	} else {
 		value, ok := json["if_false"].(string)
 		if !ok {
-			return ERR, fmt.Errorf("Element '%s' inexistente na linha [%v]", "if_false", line)
+			return ERR, fmt.Errorf("Element '%s' inexistente na linha", "if_false")
 		}
-		return value, nil
+		return []string{value}, nil
 	}
 }
 
-func FilterCondition(line map[string]string, json map[string]interface{}, options map[string]string) (string, error) {
-	_, ok := json["condition"].(string)
-	if !ok {
-		return ERR, fmt.Errorf("Element '%s' inexistente na linha [%v]", "Value", line)
+func Eval(value string, line map[string]string, json map[string]interface{}, options map[string]string) ([]string, error) {
+	var expr string
+	var ok bool
+	if value == "" {
+		expr, ok = json["expression"].(string)
+		if !ok {
+			return ERR, fmt.Errorf("Elemento '%s' inexistente na linha", "expression")
+		}
+	} else {
+		expr = value
 	}
-	condition, ok := json["condition"].(string)
-	if !ok {
-		return ERR, fmt.Errorf("Element '%s' inexistente na linha [%v]", "condition", line)
+	functions := map[string]govaluate.ExpressionFunction{
+		"strlen": func(args ...interface{}) (interface{}, error) {
+			length := len(args[0].(string))
+			return fmt.Sprintf("%d", length), nil
+		},
+	}
+	expression, err := govaluate.NewEvaluableExpressionWithFunctions(expr, functions)
+	if err != nil {
+		return ERR, fmt.Errorf("Expressao invalida (%v) na linha", expr)
+	}
+	params := make(map[string]interface{})
+	for k, v := range line {
+		params[k] = v
+	}
+	result, err := expression.Evaluate(params)
+	return []string{result.(string)}, err
+}
+
+func FilterCondition(value string, line map[string]string, json map[string]interface{}, options map[string]string) ([]string, error) {
+	var condition string
+	var ok bool
+	if value == "" {
+		condition, ok = json["condition"].(string)
+		if !ok {
+			return ERR, fmt.Errorf("Elemento '%s' inexistente na linha", "Value")
+		}
+	} else {
+		condition = value
 	}
 	_, err := evalCondition(condition, line)
 	if err != nil {
 		return ERR, err
 	}
-	return "", nil
+	return []string{""}, nil
+}
+
+func Split(value string, line map[string]string, json map[string]interface{}, options map[string]string) ([]string, error) {
+	field, err := getField(value, "field", line, json, options)
+	if err != nil {
+		return ERR, err
+	}
+	funcName, ok := json["function2"].(string)
+	if !ok {
+		return ERR, fmt.Errorf("Elemento '%s' inexistente na linha %v", "function2", line)
+	}
+	func2, ok := FunctionDict[funcName]
+	if !ok {
+		return ERR, fmt.Errorf("Funcao2 '%s' invalida na linha", json)
+	}
+	result := make([]string, 0)
+	values := strings.Split(field, ",")
+	for _, value := range values {
+		res, err := func2(value, line, json, options)
+		if err != nil {
+			return ERR, err
+		}
+		result = append(result, res...)
+	}
+	return result, nil
 }
 
 func evalCondition(expr string, line map[string]string) (bool, error) {
@@ -235,7 +331,7 @@ func evalCondition(expr string, line map[string]string) (bool, error) {
 	}
 	expression, err := govaluate.NewEvaluableExpressionWithFunctions(expr, functions)
 	if err != nil {
-		return false, fmt.Errorf("Expressao invalida (%v) na linha [%v]", expr, line)
+		return false, fmt.Errorf("Expressao invalida (%v) na linha", expr)
 	}
 	params := make(map[string]interface{})
 	for k, v := range line {
@@ -245,77 +341,94 @@ func evalCondition(expr string, line map[string]string) (bool, error) {
 	return result.(bool), err
 }
 
-func IsHD(line map[string]string, json map[string]interface{}, options map[string]string) (string, error) {
-	field, err := Field(line, json, options)
+func IsHD(value string, line map[string]string, json map[string]interface{}, options map[string]string) ([]string, error) {
+	field, err := Field(value, line, json, options)
 	return field, err
 }
 
-func ScreenFormat(line map[string]string, json map[string]interface{}, options map[string]string) (string, error) {
-	field, err := Field(line, json, options)
+func ScreenFormat(value string, line map[string]string, json map[string]interface{}, options map[string]string) ([]string, error) {
+	field, err := Field(value, line, json, options)
 	return field, err
 }
 
-func Exclude(line map[string]string, json map[string]interface{}, options map[string]string) (string, error) {
-	field, err := Field(line, json, options)
+func Exclude(value string, line map[string]string, json map[string]interface{}, options map[string]string) ([]string, error) {
+	field, err := Field(value, line, json, options)
 	return field, err
 }
 
-func Actors(line map[string]string, json map[string]interface{}, options map[string]string) (string, error) {
-	field, err := Field(line, json, options)
+func Actors(value string, line map[string]string, json map[string]interface{}, options map[string]string) ([]string, error) {
+	field, err := Field(value, line, json, options)
 	return field, err
 }
 
-func ActorsNet(line map[string]string, json map[string]interface{}, options map[string]string) (string, error) {
-	field, err := Field(line, json, options)
+func ActorsNet(value string, line map[string]string, json map[string]interface{}, options map[string]string) ([]string, error) {
+	field, err := Field(value, line, json, options)
 	return field, err
 }
 
-func BitRate(line map[string]string, json map[string]interface{}, options map[string]string) (string, error) {
-	field, err := Field(line, json, options)
+func BitRate(value string, line map[string]string, json map[string]interface{}, options map[string]string) ([]string, error) {
+	field, err := Field(value, line, json, options)
 	return field, err
 }
 
-func Seconds(line map[string]string, json map[string]interface{}, options map[string]string) (string, error) {
-	field, err := Field(line, json, options)
+func Seconds(value string, line map[string]string, json map[string]interface{}, options map[string]string) ([]string, error) {
+	field, err := Field(value, line, json, options)
 	if err != nil {
 		return ERR, err
 	}
-	t, err := time.Parse("03:04:05", field)
+	t, err := time.Parse("03:04:05", field[0])
 	if err != nil {
 		return ERR, err
 	}
-	return formatHMS(t), nil
+	return []string{formatHMS(t)}, nil
 }
 
-func SurnameName(line map[string]string, json map[string]interface{}, options map[string]string) (string, error) {
-	field, err := Field(line, json, options)
+func SurnameName(value string, line map[string]string, json map[string]interface{}, options map[string]string) ([]string, error) {
+	var field string
+	if value == "" {
+		f, err := Field(value, line, json, options)
+		if err != nil {
+			return ERR, err
+		}
+		field = f[0]
+	} else {
+		field = value
+	}
+	result := RemoveSpaces(field)
+	return []string{result}, nil
+}
+
+func EpisodeId(value string, line map[string]string, json map[string]interface{}, options map[string]string) ([]string, error) {
+	field, err := Field(value, line, json, options)
 	return field, err
 }
 
-func EpisodeId(line map[string]string, json map[string]interface{}, options map[string]string) (string, error) {
-	field, err := Field(line, json, options)
+func EpisodeName(value string, line map[string]string, json map[string]interface{}, options map[string]string) ([]string, error) {
+	field, err := Field(value, line, json, options)
 	return field, err
 }
 
-func EpisodeName(line map[string]string, json map[string]interface{}, options map[string]string) (string, error) {
-	field, err := Field(line, json, options)
-	return field, err
-}
-
-func Option(line map[string]string, json map[string]interface{}, options map[string]string) (string, error) {
+// Option seeks the result in the JSON file, section "options"
+func Option(value string, line map[string]string, json map[string]interface{}, options map[string]string) ([]string, error) {
+	if value != "" {
+		return []string{value}, nil
+	}
 	optField, ok := json["field"].(string)
 	if !ok {
-		return ERR, fmt.Errorf("Elemento '%s' inexistente na linha [%v]", "field", line)
+		return ERR, fmt.Errorf("Elemento '%s' inexistente na linha", "field")
 	}
-	value, ok := options[optField]
+	val, ok := options[optField]
 	if !ok {
 		return ERR, fmt.Errorf("Elemento '%s' inexistente nas options [%v]", optField, options)
 	}
-	return value, nil
+	return []string{val}, nil
 }
 
-func Undefined(line map[string]string, json map[string]interface{}, options map[string]string) (string, error) {
-	return "##UNDEFINED##", fmt.Errorf("Funcao indefinida: [%s]")
+func Undefined(value string, line map[string]string, json map[string]interface{}, options map[string]string) ([]string, error) {
+	if value != "" {
+		return []string{value}, nil
+	}
+	return []string{"##UNDEFINED##"}, fmt.Errorf("Funcao indefinida: [%s]")
 }
 
 func getValue(key string, json map[string]interface{}) (string, error) {
@@ -381,14 +494,14 @@ func date() string {
 	return formatDate(now)
 }
 
-func timestamp() string {
-	// Mon Jan 2 15:04:05 MST 2006
+func Timestamp() string {
 	now := time.Now()
-	// %y%m%d%H%M%S
 	return formatTimestamp(now)
 }
 
 func formatTimestamp(t time.Time) string {
+	// Mon Jan 2 15:04:05 MST 2006
+	// %y%m%d%H%M%S
 	return t.Format("20060102150405")
 }
 
@@ -398,4 +511,44 @@ func formatHMS(t time.Time) string {
 
 func formatDate(t time.Time) string {
 	return t.Format("2006-01-02")
+}
+
+func truncateSuffix(value string, suffix string, line map[string]string, json map[string]interface{}, options map[string]string) (string, error) {
+	val, err := getValue("maxlength", json)
+	if val == "" || err != nil {
+		return value, nil
+	}
+	max, err := strconv.Atoi(val)
+	if err != nil {
+		return ERR[0], fmt.Errorf("Valor nao numerico em maxlenght: [%v]", val)
+	}
+	valLen := len(value)
+	sufLen := len(suffix)
+	if valLen+sufLen <= max {
+		return value, nil
+	}
+	if sufLen+1 >= max {
+		return ERR[0], fmt.Errorf("Sufixo [%s] nao pode ser aplicado porque estoura o tamanho maximo [%d] no elemento [%s]", suffix, max, value)
+	}
+	runes := []rune(value)
+	safeSubstring := string(runes[0:max])
+	return safeSubstring, nil
+}
+
+func truncate(value string, line map[string]string, json map[string]interface{}, options map[string]string) (string, error) {
+	val, err := getValue("maxlength", json)
+	if val == "" || err != nil {
+		return value, nil
+	}
+	max, err := strconv.Atoi(val)
+	if err != nil {
+		return ERR[0], fmt.Errorf("Valor nao numerico em maxlenght: [%v]", val)
+	}
+	valLen := len(value)
+	if valLen <= max {
+		return value, nil
+	}
+	runes := []rune(value)
+	safeSubstring := string(runes[0:max])
+	return safeSubstring, nil
 }
