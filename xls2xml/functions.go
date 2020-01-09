@@ -38,6 +38,7 @@ func InitFunctions() {
 		"episode_id":      EpisodeID,
 		"date":            Date,
 		"convert_date":    ConvertDate,
+		"timestamp":       Utc,
 		"seconds":         Seconds,
 		"surname_name":    SurnameName,
 		"condition":       Condition,
@@ -46,6 +47,7 @@ func InitFunctions() {
 		"eval":            Eval,
 		"split":           Split,
 		"uuid":            UUID,
+		"map":             Map,
 	}
 }
 
@@ -178,7 +180,7 @@ func FieldNoAccents(value string, line lineT, json jsonT, options optionsT) ([]s
 	if err != nil {
 		return ERR, err
 	}
-	result, err = truncate(value, line, json, options)
+	result, err = truncate(result, line, json, options)
 	return []string{result}, err
 }
 
@@ -189,7 +191,7 @@ func FieldTrim(value string, line lineT, json jsonT, options optionsT) ([]string
 		return ERR, err
 	}
 	result := strings.TrimSpace(field)
-	result, err = truncate(value, line, json, options)
+	result, err = truncate(result, line, json, options)
 	if err != nil {
 		return ERR, err
 	}
@@ -204,7 +206,7 @@ func FieldNoQuotes(value string, line lineT, json jsonT, options optionsT) ([]st
 	}
 	value = RemoveQuotes(field)
 	result, err := truncate(value, line, json, options)
-	return []string{result}, nil
+	return []string{result}, err
 }
 
 // Suffix removes the extension and appends a suffix to a field, returning the result
@@ -380,9 +382,16 @@ func Eval(value string, line lineT, json jsonT, _ optionsT) ([]string, error) {
 	}
 	params := make(map[string]interface{})
 	for k, v := range line {
-		params[k] = v
+		params[RemoveSpaces(k)] = v
 	}
 	result, err := expression.Evaluate(params)
+	if result == nil {
+		result = ""
+	}
+	if err != nil {
+		result = fmt.Sprintf("Erro na expressao [%s] com parametros [%#v]", expr, params)
+		fmt.Print(result)
+	}
 	return []string{result.(string)}, err
 }
 
@@ -454,6 +463,36 @@ func Split(value string, line lineT, json jsonT, options optionsT) ([]string, er
 	return result, nil
 }
 
+// Map returns a map with a field for key and other for value
+func Map(value string, line lineT, json jsonT, options optionsT) ([]string, error) {
+	key, err := getField(value, "field1", line, json, options)
+	if err != nil {
+		return ERR, err
+	}
+	val, err := getField(value, "field2", line, json, options)
+	if err != nil {
+		return ERR, err
+	}
+
+	return []string{key, val}, nil
+}
+
+// Map returns a map with a field for key and other for value
+func Utc(value string, line lineT, json jsonT, options optionsT) ([]string, error) {
+	val, err := getField(value, "field", line, json, options)
+	if err != nil {
+		return ERR, err
+	}
+	dat, err := parseDate(val)
+	if err != nil {
+		return ERR, err
+	}
+	utc := timeToUTCTimestamp(dat)
+	result := fmt.Sprintf("%d", utc)
+
+	return []string{result}, nil
+}
+
 // EvalCondition evaluates a boolean expression
 func EvalCondition(expr string, line lineT) (bool, error) {
 	functions := map[string]govaluate.ExpressionFunction{
@@ -506,8 +545,8 @@ func SurnameName(value string, line lineT, json jsonT, options optionsT) ([]stri
 	return []string{result}, nil
 }
 
-func UUID(value string, line lineT, json jsonT, options optionsT) ([]string, error) {
-	result := fmt.Sprintf("%d", uuids)
+func UUID(_ string, _ lineT, _ jsonT, _ optionsT) ([]string, error) {
+	result := uuids()
 	return []string{result}, nil
 }
 
@@ -543,14 +582,14 @@ func getValue(key string, json jsonT) (string, error) {
 	return value, nil
 }
 
-func stripchars(str, chr string) string {
-	return strings.Map(func(r rune) rune {
-		if !strings.ContainsRune(chr, r) {
-			return r
-		}
-		return -1
-	}, str)
-}
+//func stripchars(str, chr string) string {
+//	return strings.Map(func(r rune) rune {
+//		if !strings.ContainsRune(chr, r) {
+//			return r
+//		}
+//		return -1
+//	}, str)
+//}
 
 // RemoveSpaces replaces all whitespace with "_"
 func RemoveSpaces(val string) string {
@@ -593,10 +632,10 @@ func formatMoney(val string) (string, error) {
 	return fmt.Sprintf("%.2f", res), nil
 }
 
-func date() string {
-	now := time.Now()
-	return formatDate(now)
-}
+//func date() string {
+//	now := time.Now()
+//	return formatDate(now)
+//}
 
 // Timestamp returns a timestamp from present time
 func Timestamp() string {
@@ -678,5 +717,9 @@ func appendIfNotNil(orig []string, values ...string) []string {
 
 func uuids() string {
 	u1 := uuid.NewV4()
-	return fmt.Sprintf("%s", u1)
+	return u1.String()
+}
+
+func timeToUTCTimestamp(t time.Time) int64 {
+	return t.UnixNano() / int64(time.Millisecond)
 }

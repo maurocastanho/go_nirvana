@@ -35,7 +35,7 @@ type Writer interface {
 	OpenOutput()
 	StartElem(string, ElemType)
 	EndElem(string)
-	WriteAttr(string, string)
+	WriteAttr(string, string, string)
 	WriteAndClose(string) error
 }
 
@@ -387,13 +387,14 @@ func processAttrs(_ string, json []interface{}, lines []lineT, wr Writer) (err2 
 
 func processAttr(json jsonT, lines []lineT, wr Writer) (err []error) {
 	var name string
-	name, ok := json["Name"].(string)
+	name, _ = json["Name"].(string)
 	function, ok := json["function"].(string)
 	if ok {
+		vtype, _ := json["type"].(string)
 		procVals, err2 := Process(function, lines, json, options)
 		err = appendErrors(err, err2)
 		for _, procVal := range procVals {
-			wr.WriteAttr(name, procVal)
+			wr.WriteAttr(name, procVal, vtype)
 		}
 	}
 	return
@@ -422,14 +423,15 @@ func processSingleAttr(nameElem string, json jsonT, lines []lineT, commonAttrs m
 	}
 	var procVals []string
 	if ok {
+		vtype, _ := json["type"].(string)
 		procVals, err = Process(function, lines, json, options)
 		for _, procVal := range procVals {
 			wr.StartElem(nameElem, SINGLE)
 			for k, v := range commonAttrs {
-				wr.WriteAttr(k, v.(string))
+				wr.WriteAttr(k, v.(string), "string")
 			}
-			wr.WriteAttr("Name", name)
-			wr.WriteAttr("Value", procVal)
+			wr.WriteAttr("Name", name, "string")
+			wr.WriteAttr("Value", procVal, vtype)
 			wr.EndElem(nameElem)
 		}
 		return
