@@ -5,10 +5,10 @@ import (
 	"time"
 )
 
-var line = map[string]string{
-	"id":   "1",
-	"name": "2",
-}
+//var line = map[string]string{
+//	"id":   "1",
+//	"name": "2",
+//}
 
 func TestFunctionDict(t *testing.T) {
 	// x := FunctionDict["fixed"]
@@ -162,7 +162,7 @@ func TestCondition(t *testing.T) {
 	}
 
 	for _, table := range tables {
-		res, err := evalCondition(table.arg, line)
+		res, err := EvalCondition(table.arg, line)
 		if err != nil {
 			t.Error(err)
 		}
