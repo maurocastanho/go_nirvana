@@ -412,12 +412,12 @@ func FilterCondition(value string, line lineT, json jsonT, options optionsT) ([]
 		return ERR, err
 	}
 	if cond {
-		funcName, ok := json["function"].(string)
-		if !ok {
+		funcName, ok1 := json["function"].(string)
+		if !ok1 {
 			return ERR, fmt.Errorf("condicao sem elemento 'function' na linha %v", json)
 		}
-		function, ok := FunctionDict[funcName]
-		if !ok {
+		function, ok1 := FunctionDict[funcName]
+		if !ok1 {
 			fmt.Printf("Warning: funcao [%s] nao existe!\n", funcName)
 			result, _ := Undefined("", nil, json, options)
 			return result, fmt.Errorf("funcao nao definida: [%s]", funcName)
@@ -452,11 +452,11 @@ func Split(value string, line lineT, json jsonT, options optionsT) ([]string, er
 	}
 	result := make([]string, 0)
 	values := strings.Split(field, ",")
-	for _, value := range values {
-		value = strings.TrimSpace(value)
-		res, err := func2(value, line, json, options)
-		if err != nil {
-			return ERR, err
+	for _, val := range values {
+		val = strings.TrimSpace(val)
+		res, err1 := func2(val, line, json, options)
+		if err1 != nil {
+			return ERR, err1
 		}
 		result = append(result, res...)
 	}
@@ -477,7 +477,7 @@ func Map(value string, line lineT, json jsonT, options optionsT) ([]string, erro
 	return []string{key, val}, nil
 }
 
-// Map returns a map with a field for key and other for value
+// Utc returns a date in UTC format
 func Utc(value string, line lineT, json jsonT, options optionsT) ([]string, error) {
 	val, err := getField(value, "field", line, json, options)
 	if err != nil {
@@ -545,6 +545,7 @@ func SurnameName(value string, line lineT, json jsonT, options optionsT) ([]stri
 	return []string{result}, nil
 }
 
+// UUID returns a random uuid number
 func UUID(_ string, _ lineT, _ jsonT, _ optionsT) ([]string, error) {
 	result := uuids()
 	return []string{result}, nil

@@ -8,7 +8,8 @@ import (
 	"path"
 	"strings"
 
-	"github.com/360EntSecGroup-Skylar/excelize"
+	"github.com/plandem/xlsx"
+
 	// "github.com/mgutz/ansi"
 	"flag"
 )
@@ -19,6 +20,9 @@ const (
 	MAP    = iota
 	ARRAY  = iota
 )
+
+// DATEFORMAT is the default date format
+const DATEFORMAT = "01-02-06"
 
 type lineT map[string]string
 
@@ -115,33 +119,59 @@ func main() {
 		}
 	}
 
-	f, err := excelize.OpenFile(inputXls)
+	f, err := xlsx.Open(inputXls)
 	if err != nil {
 		logError(err)
 		os.Exit(2)
 	}
+	defer f.Close()
 
 	header := make([]string, 0)
 	lines := make([]map[string]string, 0)
 	// Get all the rows in the Sheet1.
-	rows := f.GetRows("dados")
 	idx := 1
-	for i, row := range rows {
-		if i == 0 {
-			for _, colCell := range row {
-				header = append(header, strings.TrimSpace(colCell))
+	sheet := f.Sheet(0)
+
+	//redBold := styles.New(
+	//	styles.NumberFormatID(15),
+	//)
+	//
+	//// Add formatting to xlsx
+	//styleID := f.AddStyles(redBold)
+
+	ncols, nrows := sheet.Dimension()
+	for row := 0; row < nrows; row++ {
+		if row == 0 {
+			var col int
+			for col = 0; col < ncols; col++ {
+				colCell := sheet.Cell(col, row)
+				if colCell.String() == "" {
+					break
+				}
+				header = append(header, strings.TrimSpace(colCell.String()))
 			}
+			ncols = col - 1
 		} else {
 			line := make(map[string]string)
 			lines = append(lines, line)
-			for i, colCell := range row {
-				line[header[i]] = strings.TrimSpace(colCell)
+			for col := 0; col < ncols; col++ {
+				colCell := sheet.Cell(col, row)
+				cellF := ""
+				x, err1 := colCell.Date()
+				// TODO evitar o teste de prefixo
+				if err1 != nil || !strings.HasPrefix(header[col], "Data") {
+					cellF = strings.TrimSpace(colCell.String())
+				} else {
+					cellF = x.UTC().Format(DATEFORMAT)
+				}
+				fmt.Printf("+++> %s\n", cellF)
+				line[header[col]] = cellF
 			}
 			line["file_number"] = fmt.Sprintf("%d", idx)
 			idx++
 		}
 	}
-	// fmt.Printf("--==>>> %#v\n", lines)
+	fmt.Printf("--==>>> %#v\n", lines)
 
 	file, err := os.Open(confFile)
 	if err != nil {
