@@ -57,8 +57,8 @@ type Writer interface {
 // }
 // type AppData struct {
 // 	App   string `xml:"App,attr"`
-// 	Name  string `xml:"Name,attr"`
-// 	Value string `xml:"Value,attr"`
+// 	Name  string `xml:"name,attr"`
+// 	Value string `xml:"value,attr"`
 // }
 // type Metadata struct {
 // 	Ams      Ams       `xml:"AMS,allowempty"`
@@ -164,7 +164,7 @@ func main() {
 				} else {
 					cellF = x.UTC().Format(DATEFORMAT)
 				}
-				fmt.Printf("+++> %s\n", cellF)
+				//fmt.Printf("+++> %s\n", cellF)
 				line[header[col]] = cellF
 			}
 			line["file_number"] = fmt.Sprintf("%d", idx)
@@ -409,6 +409,11 @@ func processAttrs(_ string, json []interface{}, lines []lineT, wr Writer) (err2 
 	for _, v := range json {
 		switch vv := v.(type) {
 		case map[string]interface{}:
+			_, ok := vv["elements"]
+			if ok {
+				err2 = appendErrors(err2, processMap(vv, lines, wr)...)
+				continue
+			}
 			err2 = appendErrors(err2, processAttr(vv, lines, wr)...)
 		}
 	}
@@ -417,7 +422,7 @@ func processAttrs(_ string, json []interface{}, lines []lineT, wr Writer) (err2 
 
 func processAttr(json jsonT, lines []lineT, wr Writer) (err []error) {
 	var name string
-	name, _ = json["Name"].(string)
+	name, _ = json["name"].(string)
 	function, ok := json["function"].(string)
 	if ok {
 		vtype, _ := json["type"].(string)
@@ -442,8 +447,8 @@ func processSingleAttrs(name string, json []interface{}, lines []lineT, commonAt
 
 func processSingleAttr(nameElem string, json jsonT, lines []lineT, commonAttrs map[string]interface{}, wr Writer) (err error) {
 	var name string
-	name, ok := json["Name"].(string)
-	value, _ := json["Value"].(string)
+	name, ok := json["name"].(string)
+	value, _ := json["value"].(string)
 	_, okf := json["filter"].(string)
 	var function string
 	if okf {
@@ -460,8 +465,8 @@ func processSingleAttr(nameElem string, json jsonT, lines []lineT, commonAttrs m
 			for k, v := range commonAttrs {
 				wr.WriteAttr(k, v.(string), "string")
 			}
-			wr.WriteAttr("Name", name, "string")
-			wr.WriteAttr("Value", procVal, vtype)
+			wr.WriteAttr("name", name, "string")
+			wr.WriteAttr("value", procVal, vtype)
 			wr.EndElem(nameElem)
 		}
 		return

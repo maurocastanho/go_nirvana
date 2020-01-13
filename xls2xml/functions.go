@@ -15,6 +15,11 @@ import (
 	"golang.org/x/text/unicode/norm"
 )
 
+const (
+	//ISO8601 is format for ISO8601 dates. Like RFC3339, but without timezone
+	ISO8601 = "2006-01-02T15:04:05"
+)
+
 // ERR Default error message
 var ERR []string
 
@@ -87,13 +92,13 @@ func Fixed(value string, _ lineT, json jsonT, _ optionsT) ([]string, error) {
 	if value != "" {
 		return []string{value}, nil
 	}
-	val, err := getValue("Value", json)
+	val, err := getValue("value", json)
 	return []string{val}, err
 }
 
 // FieldMoney returns field formatted as money
 func FieldMoney(value string, line lineT, json jsonT, options optionsT) ([]string, error) {
-	val, err := getField(value, "Name", line, json, options)
+	val, err := getField(value, "name", line, json, options)
 	if err != nil {
 		return ERR, err
 	}
@@ -106,7 +111,7 @@ func FieldMoney(value string, line lineT, json jsonT, options optionsT) ([]strin
 
 // Field returns field from line after truncating max size
 func Field(value string, line lineT, json jsonT, options optionsT) ([]string, error) {
-	value, err := getField(value, "Name", line, json, options)
+	value, err := getField(value, "name", line, json, options)
 	if err != nil {
 		return ERR, err
 	}
@@ -116,13 +121,13 @@ func Field(value string, line lineT, json jsonT, options optionsT) ([]string, er
 
 // FieldRaw returns field without further processing
 func FieldRaw(value string, line lineT, json jsonT, options optionsT) ([]string, error) {
-	value, err := getField(value, "Name", line, json, options)
+	value, err := getField(value, "name", line, json, options)
 	return []string{value}, err
 }
 
 // FieldDate returns a date field after formatting
 func FieldDate(value string, line lineT, json jsonT, options optionsT) ([]string, error) {
-	value, err := getField(value, "Name", line, json, options)
+	value, err := getField(value, "name", line, json, options)
 	if err != nil {
 		return ERR, err
 	}
@@ -167,12 +172,12 @@ func FieldValidated(value string, line lineT, json jsonT, options optionsT) ([]s
 			return field, nil
 		}
 	}
-	return ERR, fmt.Errorf("falha na validacao do elemento '%s': %s, valores possiveis: %v", json["Name"], field, opts)
+	return ERR, fmt.Errorf("falha na validacao do elemento '%s': %s, valores possiveis: %v", json["name"], field, opts)
 }
 
 // FieldNoAccents returns the field after replacing accented characters for its non-accented correspondents
 func FieldNoAccents(value string, line lineT, json jsonT, options optionsT) ([]string, error) {
-	field, err := getField(value, "Name", line, json, options)
+	field, err := getField(value, "name", line, json, options)
 	if err != nil {
 		return ERR, err
 	}
@@ -186,7 +191,7 @@ func FieldNoAccents(value string, line lineT, json jsonT, options optionsT) ([]s
 
 // FieldTrim returns the field after removing spaces from left and right
 func FieldTrim(value string, line lineT, json jsonT, options optionsT) ([]string, error) {
-	field, err := getField(value, "Name", line, json, options)
+	field, err := getField(value, "name", line, json, options)
 	if err != nil {
 		return ERR, err
 	}
@@ -200,7 +205,7 @@ func FieldTrim(value string, line lineT, json jsonT, options optionsT) ([]string
 
 // FieldNoQuotes removes all quotation symbols from the field and returns it
 func FieldNoQuotes(value string, line lineT, json jsonT, options optionsT) ([]string, error) {
-	field, err := getField(value, "Name", line, json, options)
+	field, err := getField(value, "name", line, json, options)
 	if err != nil {
 		return ERR, err
 	}
@@ -440,9 +445,9 @@ func Split(value string, line lineT, json jsonT, options optionsT) ([]string, er
 	var field string
 	var err error
 	if funcName == "fixed" {
-		field = json["Value"].(string)
+		field = json["value"].(string)
 		if !ok {
-			return ERR, fmt.Errorf("funcao fixed precisa de elemento 'Value' na linha %v", line)
+			return ERR, fmt.Errorf("funcao fixed precisa de elemento 'value' na linha %v", line)
 		}
 	} else {
 		field, err = getField(value, "field", line, json, options)
@@ -722,5 +727,24 @@ func uuids() string {
 }
 
 func timeToUTCTimestamp(t time.Time) int64 {
+	fmt.Printf("::: %#v", t.Format("15:04:05"))
 	return t.UnixNano() / int64(time.Millisecond)
+}
+
+func ToDate(value string) (time.Time, error) {
+	//is serial format?
+	serial, err := strconv.ParseFloat(value, 64)
+	if err == nil {
+		return time.Unix(int64((serial-25569)*86400), 0), nil
+	}
+	return time.Parse(ISO8601, value)
+}
+
+func ToTimestamp(value string) (int64, error) {
+	//is serial format?
+	serial, err := strconv.ParseFloat(value, 64)
+	if err != nil {
+		return -1, err
+	}
+	return int64(serial * 86400 * 1000), nil
 }
