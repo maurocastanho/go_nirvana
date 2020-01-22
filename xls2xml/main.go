@@ -150,7 +150,7 @@ func main() {
 				}
 				header = append(header, strings.TrimSpace(colCell.String()))
 			}
-			ncols = col - 1
+			ncols = col
 		} else {
 			line := make(map[string]string)
 			lines = append(lines, line)
@@ -198,8 +198,8 @@ func main() {
 	for _, el := range opts {
 		// fmt.Printf(">>>> %T\n", el)
 		m := el.(map[string]interface{})
-		name := m["name"].(string)
-		value := m["value"].(string)
+		name := m["Name"].(string)
+		value := m["Value"].(string)
 		options[name] = value
 	}
 	options["timestamp"] = Timestamp()
@@ -319,15 +319,15 @@ func process(json jsonT, lines []lineT, wr Writer) (err error) {
 
 func processMap(json jsonT, lines []lineT, wr Writer) (err2 []error) {
 	var name string
-	name, hasName := json["name"].(string)
+	name, hasName := json["Name"].(string)
 	if !hasName {
 		if name != "" {
 			fmt.Printf("name not found: [%s]\n", name)
 		}
 	}
 	commonAttrs, _ := json["common_attrs"].(map[string]interface{})
-	filter, ok := json["filter"].(string)
-	if ok {
+	filter, okFilter := json["filter"].(string)
+	if okFilter {
 		filterOk, err := EvalCondition(filter, lines[0])
 		if err != nil {
 			err2 = append(err2, err)
@@ -337,7 +337,8 @@ func processMap(json jsonT, lines []lineT, wr Writer) (err2 []error) {
 			return
 		}
 	}
-	if hasName && !ok {
+	sAux, okSattr := json["single_attrs"]
+	if hasName && !okSattr {
 		wr.StartElem(name, MAP)
 	}
 
@@ -346,8 +347,7 @@ func processMap(json jsonT, lines []lineT, wr Writer) (err2 []error) {
 		attrs := at.([]interface{})
 		err2 = appendErrors(err2, processAttrs(name, attrs, lines, wr)...)
 	}
-	sAux, ok := json["single_attrs"]
-	if ok {
+	if okSattr {
 		sAttrs := sAux.([]interface{})
 		err2 = appendErrors(err2, processSingleAttrs(name, sAttrs, lines, commonAttrs, wr)...)
 	}
@@ -422,7 +422,7 @@ func processAttrs(_ string, json []interface{}, lines []lineT, wr Writer) (err2 
 
 func processAttr(json jsonT, lines []lineT, wr Writer) (err []error) {
 	var name string
-	name, _ = json["name"].(string)
+	name, _ = json["Name"].(string)
 	function, ok := json["function"].(string)
 	if ok {
 		vtype, _ := json["type"].(string)
@@ -447,8 +447,8 @@ func processSingleAttrs(name string, json []interface{}, lines []lineT, commonAt
 
 func processSingleAttr(nameElem string, json jsonT, lines []lineT, commonAttrs map[string]interface{}, wr Writer) (err error) {
 	var name string
-	name, ok := json["name"].(string)
-	value, _ := json["value"].(string)
+	name, ok := json["Name"].(string)
+	value, _ := json["Value"].(string)
 	_, okf := json["filter"].(string)
 	var function string
 	if okf {
@@ -465,8 +465,8 @@ func processSingleAttr(nameElem string, json jsonT, lines []lineT, commonAttrs m
 			for k, v := range commonAttrs {
 				wr.WriteAttr(k, v.(string), "string")
 			}
-			wr.WriteAttr("name", name, "string")
-			wr.WriteAttr("value", procVal, vtype)
+			wr.WriteAttr("Name", name, "string")
+			wr.WriteAttr("Value", procVal, vtype)
 			wr.EndElem(nameElem)
 		}
 		return

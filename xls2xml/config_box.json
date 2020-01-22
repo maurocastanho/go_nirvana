@@ -1,0 +1,84 @@
+{
+    "options": [{"name": "filename_field", "value": "ID"}, {"name": "name_field", "value": "Título Original"}],
+    "elements": [
+        {
+            "name": "assets",
+            "elements": [
+                {
+                    "attrs": [
+                        {"name": "id", "function": "uuid"},
+                        {"name": "title", "function": "field", "field": "Título Original"},
+                        {"name": "synopsis", "function": "field", "field": "Sinopse Resumo"},
+                        {"name": "morality_level", "function": "field", "field": "Classificação Etária", "type": "int"},
+                        {"name": "adult", "function": "condition", "condition": "Classificação_Etária == 18", "if_true": "true", "if_false": "false", "type": "boolean"},
+                        {"name": "duration", "function": "field", "field": "Duração", "type": "timestamp"},
+                        {"name": "series_id", "function": "uuid", "filter": "Número do Episódio != ''"},
+                        {"name": "season_id", "function": "uuid", "filter": "Número do Episódio != ''"},
+                        {"name": "season_episode_number", "function": "field", "field": "Número do Episódio", "filter": "Número do Episódio != ''"},
+                        {"name": "genres", "value": "horror,college", "function": "split", "function2": "fixed"},
+                        {"name": "available_from", "function": "timestamp", "field": "Data início no NOW", "type": "int"},
+                        {"name": "available_to", "function": "timestamp", "field": "Data Fim no NOW", "type": "int"},
+                        {"name": "images", "elements": [{"name": "id", "function": "uuid"}]},
+                        {
+                            "name": "metadata",
+                            "elements": [
+                                {
+                                    "attrs": [
+                                        {
+                                            "name": "rights",
+                                            "function": "fixed",
+                                            "value": ""
+                                        },
+                                        {
+                                            "name": "country",
+                                            "function": "field",
+                                            "field": "País de Origem"
+                                        },
+                                        {
+                                            "name": "release_year",
+                                            "function": "field",
+                                            "field": "Ano"
+                                        },
+                                        {
+                                            "name": "summary",
+                                            "function": "field",
+                                            "field": "Sinopse Resumo"
+                                        },
+                                        {
+                                            "name": "actors",
+                                            "function": "split",
+                                            "function2": "field",
+                                            "field": "Elenco"
+                                        },
+                                        {
+                                            "name": "directors",
+                                            "function": "split",
+                                            "function2": "field",
+                                            "field": "Diretor"
+                                        }
+                                    ]
+                                }
+                        ]},
+                        {
+                            "name": "medias",
+                            "elements": [
+                                {
+                                    "attrs": [
+                                        {"name": "id", "function": "uuid"},
+                                        {"name": "type", "function": "fixed", "value": "MEDIA"},
+                                        {"name": "title", "function": "fixed", "value": "Trailer"},
+                                        {"name": "location", "function": "location", "field": "Trailer ID"},
+                                        {"name": "technology", "function": "fixed", "value": "MP4"},
+                                        {"name": "audio_languages", "function": "split", "function2": "field", "field": "Linguagem Áudio"},
+                                        {"name": "subtitles_languages", "function": "split", "function2": "field", "field": "Linguagem Legenda"},
+                                        {"name": "metadata", "elements": []}
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

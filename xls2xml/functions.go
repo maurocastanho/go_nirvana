@@ -92,13 +92,13 @@ func Fixed(value string, _ lineT, json jsonT, _ optionsT) ([]string, error) {
 	if value != "" {
 		return []string{value}, nil
 	}
-	val, err := getValue("value", json)
+	val, err := getValue("Value", json)
 	return []string{val}, err
 }
 
 // FieldMoney returns field formatted as money
 func FieldMoney(value string, line lineT, json jsonT, options optionsT) ([]string, error) {
-	val, err := getField(value, "name", line, json, options)
+	val, err := getField(value, "Name", line, json, options)
 	if err != nil {
 		return ERR, err
 	}
@@ -111,7 +111,7 @@ func FieldMoney(value string, line lineT, json jsonT, options optionsT) ([]strin
 
 // Field returns field from line after truncating max size
 func Field(value string, line lineT, json jsonT, options optionsT) ([]string, error) {
-	value, err := getField(value, "name", line, json, options)
+	value, err := getField(value, "Name", line, json, options)
 	if err != nil {
 		return ERR, err
 	}
@@ -121,13 +121,13 @@ func Field(value string, line lineT, json jsonT, options optionsT) ([]string, er
 
 // FieldRaw returns field without further processing
 func FieldRaw(value string, line lineT, json jsonT, options optionsT) ([]string, error) {
-	value, err := getField(value, "name", line, json, options)
+	value, err := getField(value, "Name", line, json, options)
 	return []string{value}, err
 }
 
 // FieldDate returns a date field after formatting
 func FieldDate(value string, line lineT, json jsonT, options optionsT) ([]string, error) {
-	value, err := getField(value, "name", line, json, options)
+	value, err := getField(value, "Name", line, json, options)
 	if err != nil {
 		return ERR, err
 	}
@@ -172,12 +172,12 @@ func FieldValidated(value string, line lineT, json jsonT, options optionsT) ([]s
 			return field, nil
 		}
 	}
-	return ERR, fmt.Errorf("falha na validacao do elemento '%s': %s, valores possiveis: %v", json["name"], field, opts)
+	return ERR, fmt.Errorf("falha na validacao do elemento '%s': %s, valores possiveis: %v", json["Name"], field, opts)
 }
 
 // FieldNoAccents returns the field after replacing accented characters for its non-accented correspondents
 func FieldNoAccents(value string, line lineT, json jsonT, options optionsT) ([]string, error) {
-	field, err := getField(value, "name", line, json, options)
+	field, err := getField(value, "Name", line, json, options)
 	if err != nil {
 		return ERR, err
 	}
@@ -191,7 +191,7 @@ func FieldNoAccents(value string, line lineT, json jsonT, options optionsT) ([]s
 
 // FieldTrim returns the field after removing spaces from left and right
 func FieldTrim(value string, line lineT, json jsonT, options optionsT) ([]string, error) {
-	field, err := getField(value, "name", line, json, options)
+	field, err := getField(value, "Name", line, json, options)
 	if err != nil {
 		return ERR, err
 	}
@@ -205,7 +205,7 @@ func FieldTrim(value string, line lineT, json jsonT, options optionsT) ([]string
 
 // FieldNoQuotes removes all quotation symbols from the field and returns it
 func FieldNoQuotes(value string, line lineT, json jsonT, options optionsT) ([]string, error) {
-	field, err := getField(value, "name", line, json, options)
+	field, err := getField(value, "Name", line, json, options)
 	if err != nil {
 		return ERR, err
 	}
@@ -445,7 +445,7 @@ func Split(value string, line lineT, json jsonT, options optionsT) ([]string, er
 	var field string
 	var err error
 	if funcName == "fixed" {
-		field = json["value"].(string)
+		field = json["Value"].(string)
 		if !ok {
 			return ERR, fmt.Errorf("funcao fixed precisa de elemento 'value' na linha %v", line)
 		}
@@ -546,7 +546,22 @@ func SurnameName(value string, line lineT, json jsonT, options optionsT) ([]stri
 	} else {
 		field = value
 	}
-	result := RemoveSpaces(field)
+	result := RemoveExtraSpaces(field)
+	if result == "" {
+		return []string{""}, nil
+	}
+	names := strings.Split(result, " ")
+	length := len(names)
+	var newName strings.Builder
+	for i := 1; i < length; i++ {
+		if i > 1 {
+			newName.WriteString(" ")
+		}
+		newName.WriteString(names[i])
+	}
+	newName.WriteString(", ")
+	newName.WriteString(names[0])
+	result = newName.String()
 	return []string{result}, nil
 }
 
@@ -600,6 +615,10 @@ func getValue(key string, json jsonT) (string, error) {
 // RemoveSpaces replaces all whitespace with "_"
 func RemoveSpaces(val string) string {
 	return strings.Join(strings.Fields(val), "_")
+}
+
+func RemoveExtraSpaces(val string) string {
+	return strings.Join(strings.Fields(val), " ")
 }
 
 // RemoveQuotes replaces all quotes with "_"
@@ -690,6 +709,10 @@ func truncateSuffix(value string, suffix string, _ lineT, json jsonT, _ optionsT
 		return ERR[0], fmt.Errorf("sufixo [%s] nao pode ser aplicado porque estoura o tamanho maximo [%d] no elemento [%s]", suffix, max, value)
 	}
 	r := []rune(value)
+	l := len(r)
+	if max > l {
+		max = l
+	}
 	safeSubstring := string(r[0:max])
 	return safeSubstring, nil
 }
@@ -747,4 +770,13 @@ func ToTimestamp(value string) (int64, error) {
 		return -1, err
 	}
 	return int64(serial * 86400 * 1000), nil
+}
+
+func ToTimeSeconds(value string) (int64, error) {
+	//is serial format?
+	serial, err := strconv.ParseFloat(value, 64)
+	if err != nil {
+		return -1, err
+	}
+	return int64(serial * 86400), nil
 }
