@@ -1,0 +1,39 @@
+{
+    "assets": [
+        {
+            "id": "e5dd7acd-c432-45d6-8d3c-6508bbb61a22",
+            "title": {"eng": "lorem ipsum ..."},
+            "subtitle": {"eng": "lorem ipsum ..."},
+            "synopsis": {"eng": "lorem ipsum ..."},
+            "morality_level": 18,
+            "adult": false,
+            "duration": 3600000,
+            "series_id": "523c4c5c-68c5-4e00-a98b-754b9e9f4b71",
+            "season_id": "759bab6c-1168-4ed5-ab91-b4ec41501daa",
+            "season_episode_number": 7,
+            "genres": ["horror", "love", "college"],
+            "available_from": 1566047956123,
+            "available_to": 1666047956456,
+            "categories": ["7b4ef709-51d8-438c-b2b1-4123dc5c6756"],
+            "metadata": {},
+            "images": [
+                {
+                    "type": "poster",
+                    "language": "eng",
+                    "location": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Earth_by_the_EPIC_Team_on_21_April_2018.png/280px-Earth_by_the_EPIC_Team_on_21_April_2018.png"
+                }
+            ],
+            "medias": [
+                {
+                    "id": "37409ea7-8a21-4899-9b18-fce68cc22f71",
+                    "type": "TRAILER",
+                    "title": "lorem ipsum...",
+                    "location": "https://server.com/movie.mp4",
+                    "audio_languages": ["eng"],
+                    "subtitles_languages": ["fra"],
+                    "metadata": {}
+                }
+            ]
+        }
+    ]
+}

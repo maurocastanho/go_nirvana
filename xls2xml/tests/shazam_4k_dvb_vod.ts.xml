@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE ADI SYSTEM "ADI.DTD">
+<ADI xmlns="http://www.eventis.nl/PRODIS/ADI">
+	<Metadata>
+		<AMS Provider="WARNER" Product="" Asset_Name="Shazam__Package" Version_Major="1" Version_Minor="0" Description="Shazam!" Creation_Date="2020-01-23" Provider_ID="warner.com" Asset_ID="WARN1200123013910007" Asset_Class="package"/>
+		<App_Data App="MOD" Name="Metadata_Spec_Version" Value="CableLabsVOD1.1"/>
+	</Metadata>
+	<Asset>
+		<Metadata>
+			<AMS Provider="WARNER" Product="" Asset_Name="Shazam__Title" Version_Major="1" Version_Minor="0" Description="Shazam!" Creation_Date="2020-01-23" Provider_ID="warner.com" Asset_ID="WARN2200123013910007" Asset_Class="title"/>
+			<App_Data App="MOD" Name="Type" Value="title"/>
+			<App_Data App="MOD" Name="Title_Sort_Name" Value="Shazam!"/>
+			<App_Data App="MOD" Name="Title_Brief" Value="Shazam!"/>
+			<App_Data App="MOD" Name="Title" Value="Shazam!"/>
+			<App_Data App="MOD" Name="Summary_Long" Value="Todos temos um super-herói dentro de nós, só é preciso de um pouco de magia para trazê-lo para fora. No caso de Billy Batson, basta gritar uma palavra SHAZAM! e esse esperto órfão de 14 anos se transforma no Super-Herói adulto chamado Shazam, tudo graças a um feiticeiro ancião. Mantendo um coração de criança dentro de um corpo sarado, como o de um deus Shazam se encanta com essa versão adulta de si mesmo, fazendo o que qualquer adolescente faria se tivesse superpoderes: divertindo-se à beça com eles! Será que ele pode voar? Será que ele tem visão de raio-X? Será que ele consegue disparar raios pelas mãos? Ou talvez pular a prova de estudos sociais? Shazam coloca suas habilidades à prova com a alegre imprudência de uma criança. Mas ele terá que dominar esses poderes logo para enfrentar as terríveis forças do mal controladas pelo Dr. Thaddeus Sivana."/>
+			<App_Data App="MOD" Name="Summary_Medium" Value="Todos temos um super-herói dentro de nós, só é preciso de um pouco de magia para trazê-lo para fora. No caso de Billy Batson, basta gritar uma palavra SHAZAM! e esse esperto órfão de 14 anos se transforma no Super-Herói adulto chamado Shazam, tudo graças a um feiticeiro ancião. Mantendo um coração de criança dentro de um corpo sarado, como o de um deus Shazam se encanta com essa versão adulta de si mesmo, fazendo o que qualquer adolescente faria se tivesse superpoderes: divertindo-se à beça com eles! Será que ele pode voar? Será que ele tem visão de raio-X? Será que ele consegue disparar raios pelas mãos? Ou talvez pular a prova de estudos sociais? Shazam coloca suas habilidades à prova com a alegre imprudência de uma criança. Mas ele terá que dominar esses poderes logo para enfrentar as terríveis forças do mal controladas pelo Dr. Thaddeus Sivana."/>
+			<App_Data App="MOD" Name="Summary_Short" Value="Todos temos um super-herói dentro de nós, só é preciso de um pouco de magia para trazê-lo para fora. No caso de Billy Batson, basta gritar uma palavra SHAZAM! e esse esperto órfão de 14 anos se transforma no Super-Herói adulto chamado Shazam, tudo graças a"/>
+			<App_Data App="MOD" Name="Rating" Value="12"/>
+			<App_Data App="MOD" Name="Closed_Captioning" Value="N"/>
+			<App_Data App="MOD" Name="Run_Time" Value="7901"/>
+			<App_Data App="MOD" Name="Display_Run_Time" Value="02:12"/>
+			<App_Data App="MOD" Name="Year" Value="2019"/>
+			<App_Data App="MOD" Name="Country_of_Origin" Value="USA"/>
+			<App_Data App="MOD" Name="Studio" Value="Warner Bros"/>
+			<App_Data App="MOD" Name="Studio_Name" Value="Warner Bros"/>
+			<App_Data App="MOD" Name="Actors_Display" Value="Zachary Levi, Mark Strong, Asher Angel, Jack Dylan Grazer, Adam Brody, Djimon Hounsou, Faithe Herman, Grace Fulton, Michelle Borth, Ian Chen, Ross Butler, Jovan Armand, D.J. Cotrona, Marta Milans, Cooper Andrews"/>
+			<App_Data App="MOD" Name="Actors" Value="Levi, Zachary"/>
+			<App_Data App="MOD" Name="Actors" Value="Strong, Mark"/>
+			<App_Data App="MOD" Name="Actors" Value="Angel, Asher"/>
+			<App_Data App="MOD" Name="Actors" Value="Dylan Grazer, Jack"/>
+			<App_Data App="MOD" Name="Actors" Value="Brody, Adam"/>
+			<App_Data App="MOD" Name="Actors" Value="Hounsou, Djimon"/>
+			<App_Data App="MOD" Name="Actors" Value="Herman, Faithe"/>
+			<App_Data App="MOD" Name="Actors" Value="Fulton, Grace"/>
+			<App_Data App="MOD" Name="Actors" Value="Borth, Michelle"/>
+			<App_Data App="MOD" Name="Actors" Value="Chen, Ian"/>
+			<App_Data App="MOD" Name="Actors" Value="Butler, Ross"/>
+			<App_Data App="MOD" Name="Actors" Value="Armand, Jovan"/>
+			<App_Data App="MOD" Name="Actors" Value="Cotrona, D.J."/>
+			<App_Data App="MOD" Name="Actors" Value="Milans, Marta"/>
+			<App_Data App="MOD" Name="Actors" Value="Andrews, Cooper"/>
+			<App_Data App="MOD" Name="Director" Value="F. Sandberg, David"/>
+			<App_Data App="MOD" Name="Director_Display" Value="David F. Sandberg"/>
+			<App_Data App="MOD" Name="Category" Value="Filme"/>
+			<App_Data App="MOD" Name="Genre" Value="Ficção Científica"/>
+			<App_Data App="MOD" Name="Box_Office" Value=""/>
+			<App_Data App="MOD" Name="Billing_ID" Value="WBH1D"/>
+			<App_Data App="MOD" Name="Licensing_Window_Start" Value="2019-08-01"/>
+			<App_Data App="MOD" Name="Licensing_Window_End" Value="2020-02-01"/>
+			<App_Data App="MOD" Name="Preview_Period" Value="0"/>
+			<App_Data App="MOD" Name="Provider_QA_Contact" Value="MediaCenter"/>
+			<App_Data App="MOD" Name="Contract_Name" Value="Shazam!"/>
+			<App_Data App="MOD" Name="Suggested_Price" Value="14.90"/>
+		</Metadata>
+		<Asset>
+			<Metadata>
+				<AMS Provider="WARNER" Product="" Asset_Name="Shazam__Movie" Version_Major="1" Version_Minor="0" Creation_Date="2020-01-23" Description="Shazam!" Provider_ID="warner.com" Asset_ID="WARN3200123013910007" Asset_Class="movie"/>
+				<App_Data App="MOD" Name="Type" Value="movie"/>
+				<App_Data App="MOD" Name="Watermarking" Value="N"/>
+				<App_Data App="MOD" Name="Audio_Type" Value="Dolby 5.1"/>
+				<App_Data App="MOD" Name="Viewing_Can_Be_Resumed" Value="Y"/>
+				<App_Data App="MOD" Name="CGMS_A" Value="3"/>
+				<App_Data App="MOD" Name="Languages" Value="en"/>
+				<App_Data App="MOD" Name="Languages" Value="pt"/>
+				<App_Data App="MOD" Name="Subtitle_Languages" Value="pt"/>
+				<App_Data App="MOD" Name="Content_FileSize" Value="18370214892"/>
+				<App_Data App="MOD" Name="Content_CheckSum" Value="5364F30E12A1E5CEA9E20CE01F803422"/>
+			</Metadata>
+			<Content Value="shazam_4k_dvb_vod.ts"/>
+		</Asset>
+		<Asset>
+			<Metadata>
+				<AMS Provider="WARNER" Product="" Asset_Name="Shazam__Poster" Version_Major="1" Version_Minor="0" Creation_Date="2020-01-23" Description="Shazam!" Provider_ID="warner.com" Asset_ID="WARN4200123013910007" Asset_Class="poster"/>
+				<App_Data App="MOD" Name="Type" Value="poster"/>
+				<App_Data App="MOD" Name="Content_FileSize" Value="53643"/>
+				<App_Data App="MOD" Name="Content_CheckSum" Value="DCD493F3F983C2D654E808D71E672FBD"/>
+			</Metadata>
+			<Content Value="shazam_4k_dvb_vod.jpg"/>
+		</Asset>
+		<Asset>
+			<Metadata>
+				<AMS Provider="WARNER" Product="" Asset_Name="Shazam__Preview" Version_Major="1" Version_Minor="0" Creation_Date="2020-01-23" Description="Shazam!" Provider_ID="warner.com" Asset_ID="WARN5200123013910007" Asset_Class="preview"/>
+				<App_Data App="MOD" Name="Type" Value="preview"/>
+				<App_Data App="MOD" Name="Rating" Value="12"/>
+				<App_Data App="MOD" Name="Run_Time" Value="144"/>
+				<App_Data App="MOD" Name="Audio_Type" Value="Dolby 5.1"/>
+				<App_Data App="MOD" Name="Content_FileSize" Value="145039932"/>
+				<App_Data App="MOD" Name="Content_CheckSum" Value="4BF2E131D90A38BDB5B78B1C6F7B41B3"/>
+			</Metadata>
+			<Content Value="shazam_4k_dvb_vod_trailer.ts"/>
+		</Asset>
+	</Asset>
+</ADI>

@@ -15,10 +15,10 @@ import (
 	"golang.org/x/text/unicode/norm"
 )
 
-const (
-	//ISO8601 is format for ISO8601 dates. Like RFC3339, but without timezone
-	ISO8601 = "2006-01-02T15:04:05"
-)
+//const (
+//	//ISO8601 is format for ISO8601 dates. Like RFC3339, but without timezone
+//	ISO8601 = "2006-01-02T15:04:05"
+//)
 
 // ERR Default error message
 var ERR []string
@@ -53,6 +53,7 @@ func InitFunctions() {
 		"split":           Split,
 		"uuid":            UUID,
 		"map":             Map,
+		"janela_repasse":  JanelaRepasse,
 	}
 }
 
@@ -80,12 +81,12 @@ func Process(funcName string, lines []lineT, json jsonT, options optionsT) ([]st
 	return result, nil
 }
 
-func findValue(value string, field string, json jsonT) (string, error) {
-	if value == "" {
-		return getValue(field, json)
-	}
-	return value, nil
-}
+//func findValue(value string, field string, json jsonT) (string, error) {
+//	if value == "" {
+//		return getValue(field, json)
+//	}
+//	return value, nil
+//}
 
 // Fixed returns the same value
 func Fixed(value string, _ lineT, json jsonT, _ optionsT) ([]string, error) {
@@ -587,6 +588,23 @@ func Option(value string, _ lineT, json jsonT, options optionsT) ([]string, erro
 	return []string{val}, nil
 }
 
+// JanelaRepasse returns the last character of the billing id
+func JanelaRepasse(value string, line lineT, json jsonT, options optionsT) ([]string, error) {
+	if value != "" {
+		return []string{value}, nil
+	}
+	billId, err := getField(value, "field", line, json, options)
+	if err != nil {
+		return ERR, err
+	}
+	val := ""
+	if billId != "" {
+		idx := len(billId) - 1
+		val = billId[idx : idx+1]
+	}
+	return []string{val}, nil
+}
+
 // Undefined returns a value to indicate an undefined function
 func Undefined(value string, _ lineT, _ jsonT, _ optionsT) ([]string, error) {
 	if value != "" {
@@ -617,6 +635,7 @@ func RemoveSpaces(val string) string {
 	return strings.Join(strings.Fields(val), "_")
 }
 
+// RemoveExtraSpaces removes any redundant spaces and trim spaces at left and right
 func RemoveExtraSpaces(val string) string {
 	return strings.Join(strings.Fields(val), " ")
 }
@@ -735,14 +754,14 @@ func truncate(value string, _ lineT, json jsonT, _ optionsT) (string, error) {
 	return safeSubstring, nil
 }
 
-func appendIfNotNil(orig []string, values ...string) []string {
-	for _, val := range values {
-		if val != "" {
-			orig = append(orig, val)
-		}
-	}
-	return orig
-}
+//func appendIfNotNil(orig []string, values ...string) []string {
+//	for _, val := range values {
+//		if val != "" {
+//			orig = append(orig, val)
+//		}
+//	}
+//	return orig
+//}
 
 func uuids() string {
 	u1 := uuid.NewV4()
@@ -754,15 +773,17 @@ func timeToUTCTimestamp(t time.Time) int64 {
 	return t.UnixNano() / int64(time.Millisecond)
 }
 
-func ToDate(value string) (time.Time, error) {
-	//is serial format?
-	serial, err := strconv.ParseFloat(value, 64)
-	if err == nil {
-		return time.Unix(int64((serial-25569)*86400), 0), nil
-	}
-	return time.Parse(ISO8601, value)
-}
+// ToDate converts time to a standard string format
+//func ToDate(value string) (time.Time, error) {
+//	//is serial format?
+//	serial, err := strconv.ParseFloat(value, 64)
+//	if err == nil {
+//		return time.Unix(int64((serial-25569)*86400), 0), nil
+//	}
+//	return time.Parse(ISO8601, value)
+//}
 
+// ToTimestamp converts a numeric string to a timestamp in milliseconds
 func ToTimestamp(value string) (int64, error) {
 	//is serial format?
 	serial, err := strconv.ParseFloat(value, 64)
@@ -772,6 +793,7 @@ func ToTimestamp(value string) (int64, error) {
 	return int64(serial * 86400 * 1000), nil
 }
 
+// ToTimeSeconds converts a numeric string to a timestamp in seconds
 func ToTimeSeconds(value string) (int64, error) {
 	//is serial format?
 	serial, err := strconv.ParseFloat(value, 64)

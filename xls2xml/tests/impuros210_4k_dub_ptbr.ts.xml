@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE ADI SYSTEM "ADI.DTD">
+<ADI xmlns="http://www.eventis.nl/PRODIS/ADI">
+	<Metadata>
+		<AMS Provider="FOX" Product="" Asset_Name="Impuros_Package" Version_Major="1" Version_Minor="0" Description="Impuros" Creation_Date="2020-01-23" Provider_ID="www.foxplay.com" Asset_ID="FOXX1200123013910022" Asset_Class="package"/>
+		<App_Data App="MOD" Name="Metadata_Spec_Version" Value="CableLabsVOD1.1"/>
+	</Metadata>
+	<Asset>
+		<Metadata>
+			<AMS Provider="FOX" Product="" Asset_Name="Impuros_Title" Version_Major="1" Version_Minor="0" Description="Impuros" Creation_Date="2020-01-23" Provider_ID="www.foxplay.com" Asset_ID="FOXX2200123013910022" Asset_Class="title"/>
+			<App_Data App="MOD" Name="Type" Value="title"/>
+			<App_Data App="MOD" Name="Title_Sort_Name" Value="Impuros"/>
+			<App_Data App="MOD" Name="Title_Brief" Value="Impuros"/>
+			<App_Data App="MOD" Name="Title" Value="Impuros"/>
+			<App_Data App="MOD" Name="Episode_Name" Value="Impuros Episódio 10"/>
+			<App_Data App="MOD" Name="Episode_ID" Value="02010"/>
+			<App_Data App="MOD" Name="Summary_Long" Value="Evandro e Gilmar têm que se livrar dos corpos depois de um jantar que termina em várias mortes, mas Arlete chega na casa de surpresa. Morello pega Inês na clínica e leva a filha para casa. Evandro planeja sua fuga, mas o piloto Jorge não está disposto a se envolver com essa matança. Inês briga com Morello e foge à procura de cocaína no Dendê. Morello vai atrás dela, mas a chance de pegar Evandro fará com que ele tenha que escolher entre a ajudar a filha ou prender seu alvo."/>
+			<App_Data App="MOD" Name="Summary_Medium" Value="Evandro e Gilmar têm que se livrar dos corpos depois de um jantar que termina em várias mortes, mas Arlete chega na casa de surpresa. Morello pega Inês na clínica e leva a filha para casa. Evandro planeja sua fuga, mas o piloto Jorge não está disposto a se envolver com essa matança. Inês briga com Morello e foge à procura de cocaína no Dendê. Morello vai atrás dela, mas a chance de pegar Evandro fará com que ele tenha que escolher entre a ajudar a filha ou prender seu alvo."/>
+			<App_Data App="MOD" Name="Summary_Short" Value="Evandro e Gilmar têm que se livrar dos corpos depois de um jantar que termina em várias mortes, mas Arlete chega na casa de surpresa. Morello pega Inês na clínica e leva a filha para casa. Evandro planeja sua fuga, mas o piloto Jorge não está disposto a se"/>
+			<App_Data App="MOD" Name="Rating" Value="16"/>
+			<App_Data App="MOD" Name="ExtraData_1" Value="97"/>
+			<App_Data App="MOD" Name="ExtraData_4" Value="1"/>
+			<App_Data App="MOD" Name="Closed_Captioning" Value="N"/>
+			<App_Data App="MOD" Name="Run_Time" Value="3240"/>
+			<App_Data App="MOD" Name="Display_Run_Time" Value="00:54"/>
+			<App_Data App="MOD" Name="Year" Value="2019"/>
+			<App_Data App="MOD" Name="Country_of_Origin" Value="BRA"/>
+			<App_Data App="MOD" Name="Studio" Value="Fox"/>
+			<App_Data App="MOD" Name="Studio_Name" Value="Fox"/>
+			<App_Data App="MOD" Name="Actors_Display" Value="Raphael Logam, Cyria Coentro, Rui Ricardo Diaz, Lorena Comparato, Fernanda Machado, Leandro Firmino"/>
+			<App_Data App="MOD" Name="Actors" Value="Logam, Raphael"/>
+			<App_Data App="MOD" Name="Actors" Value="Coentro, Cyria"/>
+			<App_Data App="MOD" Name="Actors" Value="Ricardo Diaz, Rui"/>
+			<App_Data App="MOD" Name="Actors" Value="Comparato, Lorena"/>
+			<App_Data App="MOD" Name="Actors" Value="Machado, Fernanda"/>
+			<App_Data App="MOD" Name="Actors" Value="Firmino, Leandro"/>
+			<App_Data App="MOD" Name="Director" Value="Portella, Tomás"/>
+			<App_Data App="MOD" Name="Director_Display" Value="Tomás Portella"/>
+			<App_Data App="MOD" Name="Category" Value="Série"/>
+			<App_Data App="MOD" Name="Genre" Value="Drama"/>
+			<App_Data App="MOD" Name="Box_Office" Value=""/>
+			<App_Data App="MOD" Name="Billing_ID" Value="FXH6M"/>
+			<App_Data App="MOD" Name="Licensing_Window_Start" Value="2019-11-09"/>
+			<App_Data App="MOD" Name="Licensing_Window_End" Value="2021-02-28"/>
+			<App_Data App="MOD" Name="Preview_Period" Value="0"/>
+			<App_Data App="MOD" Name="Provider_QA_Contact" Value="MediaCenter"/>
+			<App_Data App="MOD" Name="Contract_Name" Value="Impuros"/>
+			<App_Data App="MOD" Name="Suggested_Price" Value="0.00"/>
+		</Metadata>
+		<Asset>
+			<Metadata>
+				<AMS Provider="FOX" Product="" Asset_Name="Impuros_Movie" Version_Major="1" Version_Minor="0" Creation_Date="2020-01-23" Description="Impuros" Provider_ID="www.foxplay.com" Asset_ID="FOXX3200123013910022" Asset_Class="movie"/>
+				<App_Data App="MOD" Name="Type" Value="movie"/>
+				<App_Data App="MOD" Name="Screen_Format" Value="Widescreen"/>
+				<App_Data App="MOD" Name="Encoding_Type" Value="STB_4K"/>
+				<App_Data App="MOD" Name="Resolution" Value="4K"/>
+				<App_Data App="MOD" Name="DynamicRange" Value="HDR"/>
+				<App_Data App="MOD" Name="Bit_Rate" Value="18000"/>
+				<App_Data App="MOD" Name="Watermarking" Value="N"/>
+				<App_Data App="MOD" Name="Audio_Type" Value="Dolby 5.1"/>
+				<App_Data App="MOD" Name="Viewing_Can_Be_Resumed" Value="Y"/>
+				<App_Data App="MOD" Name="CGMS_A" Value="3"/>
+				<App_Data App="MOD" Name="Languages" Value="pt"/>
+				<App_Data App="MOD" Name="Content_FileSize" Value="7285182172"/>
+				<App_Data App="MOD" Name="Content_CheckSum" Value="0DBF137EFA55FFB4FF0B829B33B44C21"/>
+			</Metadata>
+			<Content Value="impuros210_4k_dub_ptbr.ts"/>
+		</Asset>
+		<Asset>
+			<Metadata>
+				<AMS Provider="FOX" Product="" Asset_Name="Impuros_Poster" Version_Major="1" Version_Minor="0" Creation_Date="2020-01-23" Description="Impuros" Provider_ID="www.foxplay.com" Asset_ID="FOXX4200123013910022" Asset_Class="poster"/>
+				<App_Data App="MOD" Name="Type" Value="poster"/>
+				<App_Data App="MOD" Name="Content_FileSize" Value="132240"/>
+				<App_Data App="MOD" Name="Content_CheckSum" Value="22AC68D0C8274A3FDCC799E6F0C92B0C"/>
+			</Metadata>
+			<Content Value="impuros210_4k_dub_ptbr.jpg"/>
+		</Asset>
+	</Asset>
+</ADI>

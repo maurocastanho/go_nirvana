@@ -1,0 +1,33 @@
+{
+    "assets": [
+        {
+            "id": "411d2ada-21da-11ea-978f-2e728ce88125",
+            "title": {"por": "Br'oz"},
+            "synopsis": {"por": "Arquivo de teste."},
+            "morality_level": 16,
+            "adult": false,
+            "duration": 438000,
+            "series_id": "",
+            "season_id": "",
+            "genres": ["show", "pop"],
+            "available_from": 1575601200000,
+            "available_to": 1607223600000,
+            "categories": ["03bda820-beaf-4573-b8a9-6250a586feb5"],
+            "metadata": {"rights": []},
+            "images": [
+            ],
+            "medias": [
+                {
+                    "id": "c89c5700-21db-11ea-978f-2e728ce88125",
+                    "type": "MEDIA",
+                    "title": "db633322-21db-11ea-978f-2e728ce88125",
+                    "location": "teste_2/video_teste.mp4",
+                    "technology": "MP4",
+                    "audio_languages": ["por"],
+                    "subtitles_languages": [],
+                    "metadata": {}
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE ADI SYSTEM "ADI.DTD">
+<ADI xmlns="http://www.eventis.nl/PRODIS/ADI">
+	<Metadata>
+		<AMS Provider="WARNER" Product="" Asset_Name="O_Pintassilgo_Package" Version_Major="1" Version_Minor="0" Description="O Pintassilgo" Creation_Date="2020-01-23" Provider_ID="warner.com" Asset_ID="WARN1200123013910009" Asset_Class="package"/>
+		<App_Data App="MOD" Name="Metadata_Spec_Version" Value="CableLabsVOD1.1"/>
+	</Metadata>
+	<Asset>
+		<Metadata>
+			<AMS Provider="WARNER" Product="" Asset_Name="O_Pintassilgo_Title" Version_Major="1" Version_Minor="0" Description="O Pintassilgo" Creation_Date="2020-01-23" Provider_ID="warner.com" Asset_ID="WARN2200123013910009" Asset_Class="title"/>
+			<App_Data App="MOD" Name="Type" Value="title"/>
+			<App_Data App="MOD" Name="Title_Sort_Name" Value="O Pintassilgo"/>
+			<App_Data App="MOD" Name="Title_Brief" Value="O Pintassilgo"/>
+			<App_Data App="MOD" Name="Title" Value="O Pintassilgo"/>
+			<App_Data App="MOD" Name="Summary_Long" Value="Theodore Theo Decker tinha 13 anos quando sua mãe foi morta em um atentado ao Museu Metropolitano de Arte. Essa tragédia muda o rumo de sua vida, levando-o a uma emocionante odisseia de sofrimento e culpa, reinvenção e redenção, e até mesmo amor. Em meio a isso tudo, ele se apega a um pequeno resquício de esperança daquele dia terrível... a pintura de um passarinho acorrentado ao seu poleiro. O Pintassilgo."/>
+			<App_Data App="MOD" Name="Summary_Medium" Value="Theodore Theo Decker tinha 13 anos quando sua mãe foi morta em um atentado ao Museu Metropolitano de Arte. Essa tragédia muda o rumo de sua vida, levando-o a uma emocionante odisseia de sofrimento e culpa, reinvenção e redenção, e até mesmo amor. Em meio a isso tudo, ele se apega a um pequeno resquício de esperança daquele dia terrível... a pintura de um passarinho acorrentado ao seu poleiro. O Pintassilgo."/>
+			<App_Data App="MOD" Name="Summary_Short" Value="Theodore Theo Decker tinha 13 anos quando sua mãe foi morta em um atentado ao Museu Metropolitano de Arte. Essa tragédia muda o rumo de sua vida, levando-o a uma emocionante odisseia de sofrimento e culpa, reinvenção e redenção, e até mesmo amor. Em meio a"/>
+			<App_Data App="MOD" Name="Rating" Value="16"/>
+			<App_Data App="MOD" Name="ExtraData_4" Value="1"/>
+			<App_Data App="MOD" Name="Closed_Captioning" Value="N"/>
+			<App_Data App="MOD" Name="Run_Time" Value="8940"/>
+			<App_Data App="MOD" Name="Display_Run_Time" Value="02:29"/>
+			<App_Data App="MOD" Name="Year" Value="2019"/>
+			<App_Data App="MOD" Name="Country_of_Origin" Value="USA"/>
+			<App_Data App="MOD" Name="Studio" Value="Warner Bros"/>
+			<App_Data App="MOD" Name="Studio_Name" Value="Warner Bros"/>
+			<App_Data App="MOD" Name="Actors_Display" Value="Ansel Elgort, Oakes Fegley, Aneurin Barnard, Finn Wolfhard, Ashleigh Cummings , Willa Fitzgerald, Aimee Laurence, Sarah Paulson, Luke Wilson, Jeffrey Wright, Nicole Kidman, Denis O&#39;Hare, Boyd Gaines, Peter Jacobson, Luke Kleintank, Robert Joy"/>
+			<App_Data App="MOD" Name="Actors" Value="Elgort, Ansel"/>
+			<App_Data App="MOD" Name="Actors" Value="Fegley, Oakes"/>
+			<App_Data App="MOD" Name="Actors" Value="Barnard, Aneurin"/>
+			<App_Data App="MOD" Name="Actors" Value="Wolfhard, Finn"/>
+			<App_Data App="MOD" Name="Actors" Value="Cummings, Ashleigh"/>
+			<App_Data App="MOD" Name="Actors" Value="Fitzgerald, Willa"/>
+			<App_Data App="MOD" Name="Actors" Value="Laurence, Aimee"/>
+			<App_Data App="MOD" Name="Actors" Value="Paulson, Sarah"/>
+			<App_Data App="MOD" Name="Actors" Value="Wilson, Luke"/>
+			<App_Data App="MOD" Name="Actors" Value="Wright, Jeffrey"/>
+			<App_Data App="MOD" Name="Actors" Value="Kidman, Nicole"/>
+			<App_Data App="MOD" Name="Actors" Value="O&#39;Hare, Denis"/>
+			<App_Data App="MOD" Name="Actors" Value="Gaines, Boyd"/>
+			<App_Data App="MOD" Name="Actors" Value="Jacobson, Peter"/>
+			<App_Data App="MOD" Name="Actors" Value="Kleintank, Luke"/>
+			<App_Data App="MOD" Name="Actors" Value="Joy, Robert"/>
+			<App_Data App="MOD" Name="Director" Value="Crowley, John"/>
+			<App_Data App="MOD" Name="Director_Display" Value="John Crowley"/>
+			<App_Data App="MOD" Name="Category" Value="Filme"/>
+			<App_Data App="MOD" Name="Genre" Value="Drama"/>
+			<App_Data App="MOD" Name="Box_Office" Value=""/>
+			<App_Data App="MOD" Name="Billing_ID" Value="WBH1N"/>
+			<App_Data App="MOD" Name="Licensing_Window_Start" Value="2020-01-02"/>
+			<App_Data App="MOD" Name="Licensing_Window_End" Value="2020-01-15"/>
+			<App_Data App="MOD" Name="Preview_Period" Value="0"/>
+			<App_Data App="MOD" Name="Provider_QA_Contact" Value="MediaCenter"/>
+			<App_Data App="MOD" Name="Contract_Name" Value="The Goldfinch"/>
+			<App_Data App="MOD" Name="Suggested_Price" Value="18.90"/>
+		</Metadata>
+		<Asset>
+			<Metadata>
+				<AMS Provider="WARNER" Product="" Asset_Name="O_Pintassilgo_Movie" Version_Major="1" Version_Minor="0" Creation_Date="2020-01-23" Description="O Pintassilgo" Provider_ID="warner.com" Asset_ID="WARN3200123013910009" Asset_Class="movie"/>
+				<App_Data App="MOD" Name="Type" Value="movie"/>
+				<App_Data App="MOD" Name="Screen_Format" Value="Widescreen"/>
+				<App_Data App="MOD" Name="Encoding_Type" Value="STB_4K"/>
+				<App_Data App="MOD" Name="Resolution" Value="4K"/>
+				<App_Data App="MOD" Name="DynamicRange" Value="HDR"/>
+				<App_Data App="MOD" Name="Bit_Rate" Value="18000"/>
+				<App_Data App="MOD" Name="Watermarking" Value="N"/>
+				<App_Data App="MOD" Name="Audio_Type" Value="Dolby 5.1"/>
+				<App_Data App="MOD" Name="Viewing_Can_Be_Resumed" Value="Y"/>
+				<App_Data App="MOD" Name="CGMS_A" Value="3"/>
+				<App_Data App="MOD" Name="Languages" Value="en"/>
+				<App_Data App="MOD" Name="Languages" Value="pt"/>
+				<App_Data App="MOD" Name="Subtitle_Languages" Value="pt"/>
+				<App_Data App="MOD" Name="Content_FileSize" Value="20171411120"/>
+				<App_Data App="MOD" Name="Content_CheckSum" Value="20448965166FFB1FDA3AF172A8F8573E"/>
+			</Metadata>
+			<Content Value="goldfinch_4k_dvb_evod.ts"/>
+		</Asset>
+		<Asset>
+			<Metadata>
+				<AMS Provider="WARNER" Product="" Asset_Name="O_Pintassilgo_Poster" Version_Major="1" Version_Minor="0" Creation_Date="2020-01-23" Description="O Pintassilgo" Provider_ID="warner.com" Asset_ID="WARN4200123013910009" Asset_Class="poster"/>
+				<App_Data App="MOD" Name="Type" Value="poster"/>
+				<App_Data App="MOD" Name="Content_FileSize" Value="104324"/>
+				<App_Data App="MOD" Name="Content_CheckSum" Value="6127D7DABC32ACA464FD27EDF774568E"/>
+			</Metadata>
+			<Content Value="goldfinch_4k_dvb_evod.jpg"/>
+		</Asset>
+		<Asset>
+			<Metadata>
+				<AMS Provider="WARNER" Product="" Asset_Name="O_Pintassilgo_Preview" Version_Major="1" Version_Minor="0" Creation_Date="2020-01-23" Description="O Pintassilgo" Provider_ID="warner.com" Asset_ID="WARN5200123013910009" Asset_Class="preview"/>
+				<App_Data App="MOD" Name="Type" Value="preview"/>
+				<App_Data App="MOD" Name="Rating" Value="16"/>
+				<App_Data App="MOD" Name="Run_Time" Value="140"/>
+				<App_Data App="MOD" Name="Audio_Type" Value="Dolby 5.1"/>
+				<App_Data App="MOD" Name="Content_FileSize" Value="140879868"/>
+				<App_Data App="MOD" Name="Content_CheckSum" Value="32056FE6B3A8E62AE5EE9519C177D469"/>
+			</Metadata>
+			<Content Value="goldfinch_4k_dvb_evod_trailer.ts"/>
+		</Asset>
+	</Asset>
+</ADI>

@@ -36,7 +36,7 @@ type ElemType int
 type Writer interface {
 	Filename() string
 	Suffix() string
-	OpenOutput()
+	OpenOutput() error
 	StartElem(string, ElemType)
 	EndElem(string)
 	WriteAttr(string, string, string)
@@ -222,12 +222,18 @@ func main() {
 	filename := ""
 	var curr lineT
 	name := ""
-	for i := 0; i < len(lines); {
+
+	jsonXls, okXls := json["xls_output"]
+	JsonXlsMap := jsonXls.(map[string]interface{})
+	var rs *ReportSheet
+
+	nLines := len(lines)
+	for i := 0; i < nLines; {
 		_, _ = fmt.Fprintf(os.Stderr, "Processando linha %d... ", i+1)
 		var pack []lineT
 		j := i
 		// Groups lines with the same filename or empty filename
-		for ; j < len(lines); j++ {
+		for ; j < nLines; j++ {
 			curr = lines[j]
 			name = curr[nameField]
 			if lastName == "" {
@@ -248,22 +254,56 @@ func main() {
 		}
 		filename = path.Join(outDir, lastName)
 		_, _ = fmt.Fprintf(os.Stderr, "%s\n", filename)
-		err = process(json, pack, createWriter(outType, filename))
+		err = process(json, pack, createWriter(outType, filename, "", 0, 0))
 		if err != nil {
 			logError(err)
 			success = -1
 		}
 		lastName = name
+
+		// publisher output
+		if okXls {
+			jsonCols, ok := JsonXlsMap["columns"].([]interface{})
+			if !ok {
+				logError(fmt.Errorf("elemento 'columns' nao existe em xls_output no arquivo json"))
+				success = -1
+				break
+			}
+			xlsFile := JsonXlsMap["filename"].(string)
+			if !ok {
+				logError(fmt.Errorf("elemento 'filename' nao existe em xls_output no arquivo json"))
+				success = -1
+				break
+			}
+			sheetName := JsonXlsMap["sheet"].(string)
+			if !ok {
+				logError(fmt.Errorf("elemento 'sheet' nao existe em xls_output no arquivo json"))
+				success = -1
+				break
+			}
+			filename = path.Join(outDir, xlsFile)
+			if rs == nil {
+				nCols := len(jsonCols)
+				rs = NewReportSheet(filename, sheetName, nCols, nLines)
+				err = rs.OpenOutput()
+				if err != nil {
+					logError(err)
+					break
+				}
+			}
+			processAttrs("", jsonCols, pack, rs)
+			rs.NewLine()
+			fmt.Fprintf(os.Stderr, "%s\n", filename)
+			if err != nil {
+				logError(err)
+				success = -1
+			}
+		}
+		if okXls {
+			rs.WriteAndClose("")
+		}
 	}
-	filename = path.Join(outDir, "planilha.xlsx")
-	rs := NewReportSheet(filename)
-	rs.OpenFile("teste")
-	// err = process(json, pack, createWriter(outType, filename))
-	// fmt.Fprintf(os.Stderr, "%s\n", filename)
-	// if err != nil {
-	// 	logError(err)
-	// 	success = -1
-	// }
+
 	if success != 0 {
 		log("*******************************************")
 		log("*    ATENCAO: ERROS NO PROCESSAMENTO      *")
@@ -273,7 +313,7 @@ func main() {
 	os.Exit(success)
 }
 
-func createWriter(outType string, filename string) Writer {
+func createWriter(outType string, filename string, sheetname string, ncols int, nlines int) Writer {
 	var writer Writer
 	switch outType {
 	case "xml":
@@ -281,6 +321,8 @@ func createWriter(outType string, filename string) Writer {
 		writer = NewXMLWriter(filename, systemID)
 	case "json":
 		writer = NewJSONWriter(filename)
+	case "report":
+		writer = NewReportSheet(filename, sheetname, ncols, nlines)
 	}
 	return writer
 }

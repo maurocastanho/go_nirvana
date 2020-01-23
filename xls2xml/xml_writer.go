@@ -74,7 +74,6 @@ func (wr *XMLWriter) WriteAttr(name string, value string, vtype string) {
 		}
 		val = value
 	}
-
 	wr.w.WriteAttr(xw.Attr{Name: name, Value: val})
 }
 
@@ -84,7 +83,7 @@ func (wr *XMLWriter) EndElem(name string) {
 }
 
 // OpenOutput prepares to write a XML file
-func (wr *XMLWriter) OpenOutput() {
+func (wr *XMLWriter) OpenOutput() error {
 	wr.b = &bytes.Buffer{}
 	encod := charmap.ISO8859_1.NewEncoder()
 	wr.w = xw.OpenEncoding(wr.b, "ISO-8859-1", encod, xw.WithIndentString("\t"))
@@ -98,6 +97,7 @@ func (wr *XMLWriter) OpenOutput() {
 			wr.w.EndDTD(),
 		)
 	}
+	return nil
 }
 
 // WriteAndClose write all data to the extenal file

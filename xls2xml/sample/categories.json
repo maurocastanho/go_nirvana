@@ -1,0 +1,18 @@
+{
+    "categories": [
+        {
+            "id": "03bda820-beaf-4573-b8a9-6250a586feb5",
+            "name": {"por": "show", "eng":"show"},
+            "hidden": false,
+            "morality_level": 0,
+            "parental_control": false,
+            "adult": false,
+            "downloadable": false,
+            "offline": false,
+            "metadata": {},
+            "images": [],
+            "parent_id": "",
+            "assets": ["411d2ada-21da-11ea-978f-2e728ce88125"]
+        }
+    ]
+}

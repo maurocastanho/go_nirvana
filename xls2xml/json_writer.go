@@ -138,8 +138,8 @@ func (wr *JSONWriter) EndElem(name string) {
 }
 
 // OpenOutput opens a new output file
-func (wr *JSONWriter) OpenOutput() {
-
+func (wr *JSONWriter) OpenOutput() error {
+	return nil
 }
 
 // WriteAndClose writes the structure in an external file
