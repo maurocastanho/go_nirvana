@@ -37,9 +37,11 @@ type Writer interface {
 	Filename() string
 	Suffix() string
 	OpenOutput() error
-	StartElem(string, ElemType)
-	EndElem(string)
-	WriteAttr(string, string, string)
+	StartElem(string, ElemType) error
+	EndElem(string) error
+	StartComment(string) error
+	EndComment(string) error
+	WriteAttr(string, string, string) error
 	WriteAndClose(string) error
 }
 
@@ -124,7 +126,7 @@ func main() {
 		logError(err)
 		os.Exit(2)
 	}
-	defer f.Close()
+	defer closeSheet(f)
 
 	header := make([]string, 0)
 	lines := make([]map[string]string, 0)
@@ -263,8 +265,8 @@ func main() {
 
 		// publisher output
 		if okXls {
-			jsonCols, ok := JsonXlsMap["columns"].([]interface{})
-			if !ok {
+			jsonCols, okCols := JsonXlsMap["columns"].([]interface{})
+			if !okCols {
 				logError(fmt.Errorf("elemento 'columns' nao existe em xls_output no arquivo json"))
 				success = -1
 				break
@@ -293,14 +295,18 @@ func main() {
 			}
 			processAttrs("", jsonCols, pack, rs)
 			rs.NewLine()
-			fmt.Fprintf(os.Stderr, "%s\n", filename)
+			_, err = fmt.Fprintf(os.Stderr, "%s\n", filename)
 			if err != nil {
 				logError(err)
 				success = -1
 			}
 		}
-		if okXls {
-			rs.WriteAndClose("")
+		if rs != nil && okXls {
+			err = rs.WriteAndClose("")
+			if err != nil {
+				logError(err)
+				success = -1
+			}
 		}
 	}
 
@@ -328,7 +334,10 @@ func createWriter(outType string, filename string, sheetname string, ncols int, 
 }
 
 func process(json jsonT, lines []lineT, wr Writer) (err error) {
-	wr.OpenOutput()
+	err = wr.OpenOutput()
+	if err != nil {
+		return err
+	}
 	// fmt.Println("----------")
 	var err3 error
 	err2 := processMap(json, lines, wr)
@@ -381,7 +390,11 @@ func processMap(json jsonT, lines []lineT, wr Writer) (err2 []error) {
 	}
 	sAux, okSattr := json["single_attrs"]
 	if hasName && !okSattr {
-		wr.StartElem(name, MAP)
+		err := wr.StartElem(name, MAP)
+		err2 = appendErrors(err2, err)
+		if err != nil {
+			return
+		}
 	}
 
 	at, ok := json["attrs"]
@@ -399,11 +412,29 @@ func processMap(json jsonT, lines []lineT, wr Writer) (err2 []error) {
 		err2 = appendErrors(err2, processArray(name, elements, lines, wr)...)
 	}
 
+	co, ok := json["comments"]
+	if ok {
+		err := wr.StartComment("xxx")
+		if err != nil {
+			err2 = appendErrors(err2, err)
+			return
+		}
+		comm := co.([]interface{})
+		err2 = appendErrors(err2, processAttrs(name, comm, lines, wr)...)
+		err = wr.EndComment("xxx")
+		if err != nil {
+			err2 = appendErrors(err2, err)
+			return
+		}
+	}
+
 	for k, v := range json {
+		// Ignore already processed elements
 		switch k {
 		case "attrs":
 		case "single_attrs":
 		case "elements":
+		case "comments":
 			continue
 		}
 		switch vv := v.(type) {
@@ -431,7 +462,11 @@ func processMap(json jsonT, lines []lineT, wr Writer) (err2 []error) {
 			// fmt.Printf("\n%v is type %T\n", k, v)
 		}
 	}
-	wr.EndElem(name)
+	err := wr.EndElem(name)
+	if err != nil {
+		err2 = appendErrors(err2, err)
+		return
+	}
 	return
 }
 
@@ -471,7 +506,11 @@ func processAttr(json jsonT, lines []lineT, wr Writer) (err []error) {
 		procVals, err2 := Process(function, lines, json, options)
 		err = appendErrors(err, err2)
 		for _, procVal := range procVals {
-			wr.WriteAttr(name, procVal, vtype)
+			err1 := wr.WriteAttr(name, procVal, vtype)
+			if err1 != nil {
+				err = appendErrors(err, err1)
+				return
+			}
 		}
 	}
 	return
@@ -503,13 +542,28 @@ func processSingleAttr(nameElem string, json jsonT, lines []lineT, commonAttrs m
 		vtype, _ := json["type"].(string)
 		procVals, err = Process(function, lines, json, options)
 		for _, procVal := range procVals {
-			wr.StartElem(nameElem, SINGLE)
-			for k, v := range commonAttrs {
-				wr.WriteAttr(k, v.(string), "string")
+			err = wr.StartElem(nameElem, SINGLE)
+			if err != nil {
+				return
 			}
-			wr.WriteAttr("Name", name, "string")
-			wr.WriteAttr("Value", procVal, vtype)
-			wr.EndElem(nameElem)
+			for k, v := range commonAttrs {
+				err = wr.WriteAttr(k, v.(string), "string")
+				if err != nil {
+					return
+				}
+			}
+			err = wr.WriteAttr("Name", name, "string")
+			if err != nil {
+				return
+			}
+			err = wr.WriteAttr("Value", procVal, vtype)
+			if err != nil {
+				return
+			}
+			err = wr.EndElem(nameElem)
+			if err != nil {
+				return
+			}
 		}
 		return
 	}
@@ -562,6 +616,13 @@ func appendErrors(result []error, errors ...error) []error {
 		result = append(result, e)
 	}
 	return result
+}
+
+func closeSheet(file *xlsx.Spreadsheet) {
+	err := file.Close()
+	if err != nil {
+		logError(err)
+	}
 }
 
 //func field(idx string)

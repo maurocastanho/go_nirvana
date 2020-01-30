@@ -42,17 +42,17 @@ func NewReportSheet(filename string, sheetName string, nCols int, nLines int) *R
 }
 
 // OpenOutput opens the output file for writing
-func (rs *ReportSheet) OpenOutput() error {
+func (rs *ReportSheet) OpenOutput() (err error) {
 	st, err := os.Stat(rs.filepath)
 	if err == nil {
 		if st.IsDir() {
-			err := fmt.Errorf("arquivo [%s] nao pode ser aberto pois e' um diretorio", rs.filepath)
-			return err
+			err = fmt.Errorf("arquivo [%s] nao pode ser aberto pois e' um diretorio", rs.filepath)
+			return
 		}
 		err2 := os.Remove(rs.filepath)
 		if err2 != nil {
-			err := fmt.Errorf("arquivo [%s] nao pode ser sobrescrito", rs.filepath)
-			return err
+			err = fmt.Errorf("arquivo [%s] nao pode ser sobrescrito", rs.filepath)
+			return
 		}
 	}
 	// Open the XLSX file using file name
@@ -98,17 +98,17 @@ func (rs *ReportSheet) OpenOutput() error {
 	)
 	rs.moneyStyle = rs.xlsFile.AddStyles(moneyStyle)
 
-	return nil
+	return
 }
 
 // StartElem is unused
-func (rs *ReportSheet) StartElem(string, ElemType) {
-
+func (rs *ReportSheet) StartElem(string, ElemType) error {
+	return nil
 }
 
 // EndElem is unused
-func (rs *ReportSheet) EndElem(string) {
-
+func (rs *ReportSheet) EndElem(string) error {
+	return nil
 }
 
 func (rs *ReportSheet) writeCell(col int, row int, value interface{}, style styles.DirectStyleID) error {
@@ -122,11 +122,10 @@ func (rs *ReportSheet) writeCell(col int, row int, value interface{}, style styl
 }
 
 // WriteAttr writes a new attribute as a sheet cell
-func (rs *ReportSheet) WriteAttr(name string, value string, vtype string) {
+func (rs *ReportSheet) WriteAttr(name string, value string, vtype string) error {
 	//fmt.Printf("name:[%v], value:[%v], vtype:[%v]\n", name, value, vtype)
-
 	style := rs.bodyStyle
-	ERR := "#ERRO#"
+	ERRS := "#ERRO#"
 	var val interface{}
 	switch vtype {
 	case "", "string":
@@ -134,14 +133,14 @@ func (rs *ReportSheet) WriteAttr(name string, value string, vtype string) {
 	case "int":
 		v, err := strconv.ParseFloat(value, 64)
 		if err != nil {
-			val = ERR
+			val = ERRS
 			break
 		}
 		val = v
 	case "money":
 		v, err := strconv.ParseFloat(value, 64)
 		if err != nil {
-			val = ERR
+			val = ERRS
 			break
 		}
 		val = v
@@ -150,7 +149,7 @@ func (rs *ReportSheet) WriteAttr(name string, value string, vtype string) {
 		time, err := ToTimeSeconds(value)
 		if err != nil {
 			fmt.Printf("%s *--------> %#v\n", name, val)
-			val = ERR
+			val = ERRS
 			break
 		}
 		hours := time / 3600
@@ -160,14 +159,14 @@ func (rs *ReportSheet) WriteAttr(name string, value string, vtype string) {
 		sec, err := ToTimeSeconds(value)
 		if err != nil {
 			fmt.Printf("%s *--------> %#v\n", name, val)
-			val = ERR
+			val = ERRS
 			break
 		}
 		val = float64(sec) / (24.0 * 3600.0)
 		style = rs.timeStyle
 	case "boolean":
 		if value != "true" && value != "false" {
-			val = ERR
+			val = ERRS
 			break
 		}
 		val = value
@@ -177,22 +176,29 @@ func (rs *ReportSheet) WriteAttr(name string, value string, vtype string) {
 		err := rs.writeCell(rs.currentCol, 0, name, rs.headerStyle)
 		if err != nil {
 			logError(err)
-			return
+			return err
 		}
 	}
 	err := rs.writeCell(rs.currentCol, rs.currentRow, val, style)
 	if err != nil {
 		logError(err)
-		return
+		return err
 	}
 	rs.currentCol++
+	return nil
 }
 
 // WriteAndClose writes the xls file and closes it
-func (rs *ReportSheet) WriteAndClose(string) error {
-	rs.xlsFile.SaveAs(rs.filepath)
-	rs.xlsFile.Close()
-	return nil
+func (rs *ReportSheet) WriteAndClose(string) (err error) {
+	err = rs.xlsFile.SaveAs(rs.filepath)
+	if err != nil {
+		return
+	}
+	err = rs.xlsFile.Close()
+	if err != nil {
+		return
+	}
+	return
 }
 
 func (rs *ReportSheet) processColumns(_ string, json []interface{}, lines []lineT, wr Writer) (err2 []error) {
@@ -216,6 +222,16 @@ func (rs *ReportSheet) processColumn(json jsonT, lines []lineT, _ Writer) (err [
 		}
 	}
 	return
+}
+
+// StartComment marks the start of a comment section
+func (rs *ReportSheet) StartComment(_ string) error {
+	return nil
+}
+
+// EndComment closes a comment section
+func (rs *ReportSheet) EndComment(_ string) error {
+	return nil
 }
 
 // Filename returns the output file name

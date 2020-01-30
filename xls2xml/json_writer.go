@@ -32,13 +32,14 @@ func (wr *JSONWriter) Filename() string {
 }
 
 // StartElem starts a JSON element
-func (wr *JSONWriter) StartElem(name string, elType ElemType) {
+func (wr *JSONWriter) StartElem(name string, elType ElemType) error {
 	fmt.Printf("%s -> %v\n", name, elType)
 	el := wr.getElement(name, elType)
 	current := wr.st.Peek()
 	wr.insertElement(name, current, el)
 	wr.st.Push(el)
 	// fmt.Printf("--> %#v - %T\n", wr.st, current)
+	return nil
 }
 
 // getElement returns a new variable for a given element
@@ -61,7 +62,7 @@ func (wr *JSONWriter) insertElement(name string, current interface{}, elem inter
 	var el interface{}
 	if name != "" {
 		m := make(map[string]interface{})
-		arr := make([]interface{}, 0, 0)
+		arr := make([]interface{}, 0)
 		arr = append(arr, elem)
 		m[name] = arr
 		el = arr
@@ -85,7 +86,7 @@ func (wr *JSONWriter) insertElement(name string, current interface{}, elem inter
 }
 
 // WriteAttr writes a subelement
-func (wr *JSONWriter) WriteAttr(name string, value string, vtype string) {
+func (wr *JSONWriter) WriteAttr(name string, value string, vtype string) error {
 	current := wr.st.Peek()
 	if current == nil {
 		wr.root = value
@@ -129,12 +130,24 @@ func (wr *JSONWriter) WriteAttr(name string, value string, vtype string) {
 		}
 	}
 	fmt.Printf("\"%s\": %s\n", name, value)
+	return nil
 }
 
 // EndElem closes a JSON element
-func (wr *JSONWriter) EndElem(name string) {
+func (wr *JSONWriter) EndElem(name string) error {
 	fmt.Printf("End: %s\n", name)
 	wr.st.Pop()
+	return nil
+}
+
+// StartComment marks the start of a comment section
+func (wr *JSONWriter) StartComment(_ string) error {
+	return nil
+}
+
+// EndComment closes a comment section
+func (wr *JSONWriter) EndComment(_ string) error {
+	return nil
 }
 
 // OpenOutput opens a new output file
@@ -143,7 +156,7 @@ func (wr *JSONWriter) OpenOutput() error {
 }
 
 // WriteAndClose writes the structure in an external file
-func (wr *JSONWriter) WriteAndClose(filename string) error {
+func (wr *JSONWriter) WriteAndClose(_ string) error {
 	result, err := js.MarshalIndent(wr.root, "", "  ")
 	fmt.Printf("RESULT %v, %v\n", string(result), err)
 	return nil
