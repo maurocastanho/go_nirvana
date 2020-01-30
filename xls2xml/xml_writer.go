@@ -21,8 +21,6 @@ type XMLWriter struct {
 	systemID string
 	w        *xw.Writer
 	b        *bytes.Buffer
-	comm     *xw.Writer
-	commB    *bytes.Buffer
 	ec       *xw.ErrCollector
 	status   int
 }
@@ -45,13 +43,19 @@ func (wr *XMLWriter) Filename() string {
 
 // StartElem starts a XML element
 func (wr *XMLWriter) StartElem(name string, _ ElemType) error {
-	switch wr.status {
-	case normalS:
-		return wr.w.StartElem(xw.Elem{Name: name})
-	case commentS:
-		return wr.comm.StartElem(xw.Elem{Name: name})
+	wr.ec.Do(wr.w.StartElem(xw.Elem{Name: name}))
+	if wr.ec.Err != nil {
+		return fmt.Errorf(wr.ec.Error())
 	}
-	return fmt.Errorf("invalid state: %d", wr.status)
+	return nil
+}
+
+func (wr *XMLWriter) Write(value string) error {
+	wr.ec.Do(wr.w.WriteText(value))
+	if wr.ec.Err != nil {
+		return fmt.Errorf(wr.ec.Error())
+	}
+	return nil
 }
 
 // WriteAttr adds an attribute to the current XML attribute
@@ -88,54 +92,42 @@ func (wr *XMLWriter) WriteAttr(name string, value string, vtype string) error {
 		}
 		val = value
 	}
-	switch wr.status {
-	case normalS:
-		return wr.w.WriteAttr(xw.Attr{Name: name, Value: val})
-	case commentS:
-		return wr.comm.WriteAttr(xw.Attr{Name: name, Value: val})
+	wr.ec.Do(wr.w.WriteAttr(xw.Attr{Name: name, Value: val}))
+	if wr.ec.Err != nil {
+		return fmt.Errorf(wr.ec.Error())
 	}
-	return fmt.Errorf("invalid state: %d", wr.status)
+	return nil
 }
 
 // EndElem closes a XML element
 func (wr *XMLWriter) EndElem(name string) error {
-	switch wr.status {
-	case normalS:
-		return wr.w.EndElem(name)
-	case commentS:
-		return wr.comm.EndElem(name)
+	wr.ec.Do(wr.w.EndElem(name))
+	if wr.ec.Err != nil {
+		return fmt.Errorf(wr.ec.Error())
 	}
-	return fmt.Errorf("invalid state: %d", wr.status)
+	return nil
 }
 
 // StartComment marks the start of a comment section
 func (wr *XMLWriter) StartComment(name string) error {
-	// doc := xw.Doc{}
 	wr.status = commentS
-	wr.w.WriteRaw(fmt.Sprintf("\n<!-- %s\n", name))
-	//return wr.comm.StartDoc(doc)
+	wr.ec.Do(wr.w.WriteRaw(fmt.Sprintf("\n<!-- %s\n", name)))
+	if wr.ec.Err != nil {
+		return fmt.Errorf(wr.ec.Error())
+	}
 	return nil
+
 }
 
 // EndComment closes a comment section
 func (wr *XMLWriter) EndComment(_ string) error {
-	//err := wr.comm.Flush()
-	//if err != nil {
-	//	return err
-	//}
-	//comments := wr.commB.String()
-	//err = wr.w.WriteRaw("\n")
-	//if err != nil {
-	//	return err
-	//}
-	//err = wr.w.WriteRaw(comments)
-	//if err != nil {
-	//	return err
-	//}
-	//wr.commB.Reset()
-	wr.w.WriteRaw("-->\n")
 	wr.status = normalS
+	wr.ec.Do(wr.w.WriteRaw(" -->\n"))
+	if wr.ec.Err != nil {
+		return fmt.Errorf(wr.ec.Error())
+	}
 	return nil
+
 }
 
 // OpenOutput prepares to write a XML file
@@ -143,17 +135,9 @@ func (wr *XMLWriter) OpenOutput() (err error) {
 	encod := charmap.ISO8859_1.NewEncoder()
 	wr.b = &bytes.Buffer{}
 	wr.w = xw.OpenEncoding(wr.b, "ISO-8859-1", encod, xw.WithIndentString("\t"))
-	wr.commB = &bytes.Buffer{}
-	wr.comm = xw.OpenEncoding(wr.commB, "ISO-8859-1", encod, xw.WithIndentString("\t"))
 	wr.ec = &xw.ErrCollector{}
-	defer wr.ec.Panic()
 	doc := xw.Doc{}
 	err = wr.w.StartDoc(doc)
-	if err != nil {
-		return
-	}
-	doc2 := xw.Doc{}
-	err = wr.comm.StartDoc(doc2)
 	if err != nil {
 		return
 	}
@@ -162,6 +146,9 @@ func (wr *XMLWriter) OpenOutput() (err error) {
 			wr.w.StartDTD(xw.DTD{Name: "ADI", SystemID: wr.systemID}),
 			wr.w.EndDTD(),
 		)
+	}
+	if wr.ec.Err != nil {
+		return fmt.Errorf(wr.ec.Error())
 	}
 	return nil
 }

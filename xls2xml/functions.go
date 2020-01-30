@@ -53,6 +53,7 @@ func InitFunctions() {
 		"split":           Split,
 		"uuid":            UUID,
 		"map":             Map,
+		"convert":         Convert,
 		"janela_repasse":  JanelaRepasse,
 	}
 }
@@ -381,6 +382,12 @@ func Eval(value string, line lineT, json jsonT, _ optionsT) ([]string, error) {
 			length := len(args[0].(string))
 			return fmt.Sprintf("%d", length), nil
 		},
+		"replace": func(args ...interface{}) (interface{}, error) {
+			orig := args[0].(string)
+			from := args[1].(string)
+			to := args[2].(string)
+			return strings.ReplaceAll(orig, from, to), nil
+		},
 	}
 	expression, err := govaluate.NewEvaluableExpressionWithFunctions(expr, functions)
 	if err != nil {
@@ -481,6 +488,37 @@ func Map(value string, line lineT, json jsonT, options optionsT) ([]string, erro
 	}
 
 	return []string{key, val}, nil
+}
+
+// Convert maps an element of a string array unto another
+func Convert(value string, line lineT, json jsonT, options optionsT) ([]string, error) {
+	key, err := getField(value, "field", line, json, options)
+	if err != nil {
+		return ERR, err
+	}
+	from, ok := json["from"].(string)
+	if !ok {
+		return ERR, err
+	}
+	to, ok := json["to"].(string)
+	if !ok {
+		return ERR, err
+	}
+	fArr := strings.Split(from, ",")
+	tArr := strings.Split(to, ",")
+	if len(fArr) == 0 || len(fArr) != len(tArr) {
+		return ERR, fmt.Errorf("funcao 'convert' tem que ter parametros 'from' e 'to' com mesmo numero de elementos")
+	}
+	cMap := make(map[string]string)
+	for i, fr := range fArr {
+		cMap[fr] = tArr[i]
+	}
+
+	val, ok := cMap[key]
+	if !ok {
+		return ERR, fmt.Errorf("valor [%s] nao consta da string 'from' no elemento 'convert'", key)
+	}
+	return []string{val}, nil
 }
 
 // Utc returns a date in UTC format

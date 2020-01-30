@@ -121,6 +121,10 @@ func (rs *ReportSheet) writeCell(col int, row int, value interface{}, style styl
 	return nil
 }
 
+func (rs *ReportSheet) Write(_ string) error {
+	return nil
+}
+
 // WriteAttr writes a new attribute as a sheet cell
 func (rs *ReportSheet) WriteAttr(name string, value string, vtype string) error {
 	//fmt.Printf("name:[%v], value:[%v], vtype:[%v]\n", name, value, vtype)

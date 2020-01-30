@@ -41,6 +41,7 @@ type Writer interface {
 	EndElem(string) error
 	StartComment(string) error
 	EndComment(string) error
+	Write(string) error
 	WriteAttr(string, string, string) error
 	WriteAndClose(string) error
 }
@@ -414,14 +415,14 @@ func processMap(json jsonT, lines []lineT, wr Writer) (err2 []error) {
 
 	co, ok := json["comments"]
 	if ok {
-		err := wr.StartComment("xxx")
+		err := wr.StartComment("DTH")
 		if err != nil {
 			err2 = appendErrors(err2, err)
 			return
 		}
 		comm := co.([]interface{})
-		err2 = appendErrors(err2, processAttrs(name, comm, lines, wr)...)
-		err = wr.EndComment("xxx")
+		err2 = appendErrors(err2, processSingleElements(name, comm, lines, wr)...)
+		err = wr.EndComment("DTH")
 		if err != nil {
 			err2 = appendErrors(err2, err)
 			return
@@ -462,10 +463,12 @@ func processMap(json jsonT, lines []lineT, wr Writer) (err2 []error) {
 			// fmt.Printf("\n%v is type %T\n", k, v)
 		}
 	}
-	err := wr.EndElem(name)
-	if err != nil {
-		err2 = appendErrors(err2, err)
-		return
+	if hasName && !okSattr {
+		err := wr.EndElem(name)
+		if err != nil {
+			err2 = appendErrors(err2, err)
+			return
+		}
 	}
 	return
 }
@@ -585,6 +588,50 @@ func processArray(_ string, json []interface{}, lines []lineT, wr Writer) (err2 
 		}
 	}
 	//w.EndElem(nameElem)
+	return
+}
+
+func processSingleElements(_ string, json []interface{}, lines []lineT, wr Writer) (err2 []error) {
+	for _, v := range json {
+		switch vv := v.(type) {
+		case map[string]interface{}:
+			_, ok := vv["elements"]
+			if ok {
+				err2 = appendErrors(err2, processMap(vv, lines, wr)...)
+				continue
+			}
+			err2 = appendErrors(err2, processSingleElement(vv, lines, wr)...)
+		}
+	}
+	return
+}
+
+func processSingleElement(json jsonT, lines []lineT, wr Writer) (err []error) {
+	var name string
+	name, _ = json["Name"].(string)
+	function, ok := json["function"].(string)
+	if ok {
+		procVals, err2 := Process(function, lines, json, options)
+		err = appendErrors(err, err2)
+		err2 = wr.StartElem(name, SINGLE)
+		if err2 != nil {
+			err = appendErrors(err, err2)
+			return
+		}
+		for _, procVal := range procVals {
+			err1 := wr.Write(procVal)
+			if err1 != nil {
+				err = appendErrors(err, err1)
+				_ = wr.EndElem(name)
+				return
+			}
+		}
+		err2 = wr.EndElem(name)
+		if err2 != nil {
+			err = appendErrors(err, err2)
+			return
+		}
+	}
 	return
 }
 

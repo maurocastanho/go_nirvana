@@ -85,6 +85,10 @@ func (wr *JSONWriter) insertElement(name string, current interface{}, elem inter
 	}
 }
 
+func (wr *JSONWriter) Write(_ string) error {
+	return nil
+}
+
 // WriteAttr writes a subelement
 func (wr *JSONWriter) WriteAttr(name string, value string, vtype string) error {
 	current := wr.st.Peek()
