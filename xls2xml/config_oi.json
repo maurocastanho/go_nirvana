@@ -76,6 +76,13 @@
                 },
                 {
                     "Name": "Asset",
+                    "comments": [
+                        {"Name": "businessRule", "field": "Business rule id", "function": "field"},
+                        {"Name": "UserNibble2", "field": "UserNibble2", "function": "field"},
+                        {"Name": "audioLanguage", "field": "Audio", "function": "eval", "expression":  "replace(Audio, ',', ';')"},
+                        {"Name": "soundType", "field": "Movie Audio Type", "function": "convert", "from": "Dolby 5.1,Stereo", "to": "Surround Sound,Simple Stereo"}
+                    ],
+
                     "elements": [
                         {
                             "Name": "Metadata",
@@ -139,17 +146,7 @@
                                         {"Name": "Provider_QA_Contact", "Value": "MediaCenter", "function": "fixed"},
                                         {"Name": "Contract_Name", "field": "Título Original", "function": "field"},
                                         {"Name": "Suggested_Price", "field": "Cobrança", "function": "field_money"}
-                                    ],
-                                    "comments": [
-                                            {"Name": "businessRule", "field": "Business rule id", "function": "field"},
-                                            {"Name": "UserNibble2", "field": "UserNibble2", "function": "field"},
-                                            {"Name": "audioLanguage", "field": "Audio", "function": "eval", "expression":  "replace(Audio, ',', ';')"},
-                                            {"Name": "subtitleLanguage", "field": "Legendado", "function": "field", "filter":  "Legendado != 'não'"},
-                                            {"Name": "soundType", "field": "Movie Audio Type", "function": "convert", "from": "Dolby 5.1,Stereo", "to": "Surround Sound,Simple Stereo"}
-
-
-                                        ]
-
+                                    ]
                                 }
                             ]
                         },
