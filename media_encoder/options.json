@@ -1,5 +1,14 @@
 {
-"ffmpeg_exe": "ffmpeg",
-"mp4box_dir": "",
-"mp4box_exe": "MP4Box"
+  "Windows": {
+    "ffmpeg_exe": "ffmpeg",
+    "mp4box_dir": "",
+    "mp4dash_exe": "mp4dash",
+    "mp4fragment_exe": "mp4fragment"
+  },
+  "linux": {
+    "ffmpeg_exe": "ffmpeg",
+    "mp4box_dir": "~/bin/Bento4-SDK-1-5-1-629.x86_64-unknown-linux/bin",
+    "mp4dash_exe": "mp4dash",
+    "mp4fragment_exe": "mp4fragment"
+  }
 }
