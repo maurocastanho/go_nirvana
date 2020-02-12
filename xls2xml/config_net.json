@@ -109,7 +109,7 @@
                                         {"Name": "Summary_Long", "target_language": "pt-BR", "maxlength": "1024", "field": "Sinopse EPG", "function": "field_no_quotes"},
                                         {"Name": "Summary_Medium", "target_language": "pt-BR", "maxlength": "1024", "field": "Sinopse EPG", "function": "field_no_quotes"},
                                         {"Name": "Summary_Short", "target_language": "pt-BR", "maxlength": "256", "field": "Sinopse EPG", "function": "field_no_quotes"},
-                                        {"Name": "Rating", "Options": "L,10,12,14,16,18,ER", "field": "Classificação Etária", "function": "field_validated"},
+                                        {"Name": "Rating", "Options": "1,10,12,14,16,18,ER", "field": "Classificação Etária", "function": "field_validated"},
                                         {"Name": "ExtraData_1", "field": "Extradata 1", "function": "field", "filter": "Extradata_1 != ''"},
                                         {"Name": "ExtraData_2", "field": "Extradata 2", "function": "field", "filter": "Extradata_2 != ''"},
                                         {"Name": "ExtraData_4", "Value": "1", "function": "fixed", "filter": "Formato == '4K'"},
@@ -269,7 +269,7 @@
                                             "common_attrs": {"App": "MOD"},
                                             "single_attrs": [
                                                 {"Name": "Type", "Value": "preview", "function": "fixed"},
-                                                {"Name": "Rating", "Options": "L,10,12,14,16,18,ER", "field": "Classificação Etária", "function": "field_validated"},
+                                                {"Name": "Rating", "Options": "1,10,12,14,16,18,ER", "field": "Classificação Etária", "function": "field_validated"},
                                                 {"Name": "Run_Time", "field": "Duração Trailer", "function": "field", "type": "time_s"},
                                                 {"Name": "Audio_Type", "field": "Trailer Audio Type", "function": "field"},
                                                 {"Name": "Content_FileSize", "field": "Trailer Size", "function": "field"},
