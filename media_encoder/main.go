@@ -28,14 +28,20 @@ func main() {
 	outDir := ""
 	assetID := ""
 	strChan := ""
+	ignoreAudio := false
+	ignoreVideo := false
+	time := ""
 	flag.StringVar(&inFile, "in", "", "Arquivo de entrada")
 	flag.StringVar(&assetID, "assetid", "", "Asset ID")
 	flag.StringVar(&confFile, "options", "", "Arquivo JSON de configuracao")
 	flag.StringVar(&profFile, "profiles", "", "Arquivo JSON com os profiles")
 	flag.StringVar(&outDir, "outdir", "", "Diretorio de saida")
+	flag.BoolVar(&ignoreAudio, "ignoreaudio", false, "Ignorar canais de audio")
+	flag.BoolVar(&ignoreVideo, "ignorevideo", false, "Ignorar canais de audio")
 	flag.StringVar(&strChan, "audiochan", "", "Mapeamento dos canais de audio\n"+
 		"formato: <mapeamento>|<mapeamento>|...\n"+
 		"mapeamento: s<stream inicial>i<entrada>o<saida><linguagem (3 letras)>")
+	flag.StringVar(&time, "time", "", "tempo em segundos para restringir o encoding (para testes)")
 	flag.Parse()
 
 	if inFile == "" {
@@ -140,101 +146,36 @@ func main() {
 	}
 	tempDir += string(os.PathSeparator)
 
-	defer os.RemoveAll(tempDir)
-
+	defer func() { _ = os.RemoveAll(tempDir) }()
 	encoding := profiles["encodings"].(map[string]interface{})
-	videoJ := encoding["ffmpeg_video"].(map[string]interface{})
-	presetsV := videoJ["presets"].([]interface{})
-	// Process video
-	for i := range presetsV {
-		break
-		encoding = profiles["encodings"].(map[string]interface{})
-		videoJ = encoding["ffmpeg_video"].(map[string]interface{})
-		videoTs := videoJ["templates"].(map[string]interface{})
-		videoT := videoTs["default"].([]interface{})
-		profiles = readJSON(profFile) // resets profile
-		presetV1 := presetsV[i].(map[string]interface{})
-		replacer := strings.NewReplacer("%i", inFile, "%a", assetID, "%d", outDir, "%t", tempDir,
-			"%o", path.Join(outDir, path.Base(inFile)), "%s", presetV1["suffix"].(string))
-		fragJ := encoding["mp4fragment"].(map[string]interface{})
-		fragT := fragJ["template"].([]interface{})
-		var presetfrag1 map[string]interface{}
-		applyTemplate(presetV1, videoT, replacer)
-		applyTemplate(presetfrag1, fragT, replacer)
-		// Encode files
-		flatV, err := buildCommand(options["ffmpeg_exe"].(string), videoT)
-		err = execCommand(flatV)
-		if err != nil {
-			logError(err)
-			return
-		}
-		// Fragment files
-		mp4fragExe := path.Join(options["mp4box_dir"].(string), options["mp4fragment_exe"].(string))
-		flatF, err := buildCommand(mp4fragExe, fragT)
-		err = execCommand(flatF)
-		if err != nil {
-			logError(err)
+
+	done := false
+	// Process audio
+	if !ignoreAudio {
+		err, done = encodeAudio(audioChans, profFile, inFile, assetID, outDir, tempDir, time, err, options)
+		if done {
 			return
 		}
 	}
-	// Process audio
-	audioJ := encoding["ffmpeg_audio"].(map[string]interface{})
-	presetsA := audioJ["presets"].([]interface{})
-	for i := range presetsA {
-		for _, ch := range audioChans {
-			profiles = readJSON(profFile) // resets profile
-			encoding = profiles["encodings"].(map[string]interface{})
-			audioJ = encoding["ffmpeg_audio"].(map[string]interface{})
-			audioTs := audioJ["templates"].(map[string]interface{})
-			audioT := audioTs["default"].([]interface{})
-			presetA1 := presetsA[i].(map[string]interface{})
-			replacerWords := []string{"%i", inFile, "%a", assetID, "%d", outDir, "%t", tempDir,
-				"%o", path.Join(outDir, path.Base(inFile)), "%s", presetA1["suffix"].(string)}
-			for j := 0; j < 9; j++ {
-				replacerWords = append(replacerWords, fmt.Sprintf("%%%d", j), fmt.Sprintf("%d", ch.start+j))
-			}
-			replacerWords = append(replacerWords, "%l", ch.lang)
-			replacer := strings.NewReplacer(replacerWords...)
-			fragJ := encoding["mp4fragment"].(map[string]interface{})
-			fragT := fragJ["template"].([]interface{})
-			applyTemplate(presetA1, audioT, replacer)
-			channels := audioTs["channels"].(map[string]interface{})
-			channel, ok1 := channels[ch.mappping].([]interface{})
-			if !ok1 {
-				logError(fmt.Errorf("mapeamento de canal de audio nao encontrado no arquivo de profiles: [%s]", ch.mappping))
-				return
-			}
-			for _, chTemp := range channel {
-				chTemplate := chTemp.(map[string]interface{})
-				applyTemplate(chTemplate, audioT, replacer)
-			}
-			var presetfrag1 map[string]interface{}
-			applyTemplate(presetfrag1, fragT, replacer)
-			// Encode files
-			flatA, err := buildCommand(options["ffmpeg_exe"].(string), audioT)
-			err = execCommand(flatA)
-			if err != nil {
-				logError(err)
-				return
-			}
-			// Fragment files
-			mp4fragExe := path.Join(options["mp4box_dir"].(string), options["mp4fragment_exe"].(string))
-			flatF, err := buildCommand(mp4fragExe, fragT)
-			err = execCommand(flatF)
-			if err != nil {
-				logError(err)
-				return
-			}
+	if !ignoreVideo {
+		err, done = encodeVideo(profFile, inFile, assetID, outDir, tempDir, time, err, options)
+		if done {
+			return
 		}
 	}
 
 	// Generate MPD
 	var presetdash1 map[string]interface{}
+	encoding = profiles["encodings"].(map[string]interface{})
 	dashJ := encoding["mp4dash"].(map[string]interface{})
 	dashT := dashJ["template"].([]interface{})
 	replacer := strings.NewReplacer("%i", inFile, "%a", assetID, "%d", outDir, "%t", tempDir,
 		"%o", path.Join(outDir, path.Base(inFile)))
-	applyTemplate(presetdash1, dashT, replacer)
+	err = applyTemplate(presetdash1, dashT, replacer)
+	if err != nil {
+		logError(err)
+		return
+	}
 	mp4dashExe := path.Join(options["mp4box_dir"].(string), options["mp4dash_exe"].(string))
 	flatB, err := buildCommand(mp4dashExe, dashT)
 	err = execCommand(flatB)
@@ -244,6 +185,138 @@ func main() {
 	}
 
 	// ~/bin/Bento4-SDK-1-5-1-629.x86_64-unknown-linux/bin/mp4dash --no-split --use-segment-list --no-media --mpd-name=teste.mpd -f -o . Robot-stream1.mp4 Robot-stream3.mp4
+}
+
+func encodeAudio(audioChans []audioChanT, profFile string, inFile string, assetID string, outDir string, tempDir string, time string, err error, options map[string]interface{}) (error, bool) {
+	profiles := readJSON(profFile) // resets profile
+	encoding := profiles["encodings"].(map[string]interface{})
+	audioJ := encoding["ffmpeg_audio"].(map[string]interface{})
+	presetsA := audioJ["presets"].([]interface{})
+	for i := range presetsA {
+		for _, ch := range audioChans {
+			profiles = readJSON(profFile) // resets profile
+			encoding = profiles["encodings"].(map[string]interface{})
+			audioJ = encoding["ffmpeg_audio"].(map[string]interface{})
+			audioTs := audioJ["templates"].(map[string]interface{})
+			audioT := audioTs["default"].([]interface{})
+			preset := presetsA[i].(map[string]interface{})
+			replacerWords := []string{"%i", inFile, "%a", assetID, "%d", outDir, "%t", tempDir,
+				"%o", path.Join(outDir, path.Base(inFile)), "%s", preset["suffix"].(string)}
+			for j := 0; j < 9; j++ {
+				replacerWords = append(replacerWords, fmt.Sprintf("%%%d", j), fmt.Sprintf("%d", ch.start+j))
+			}
+			replacerWords = append(replacerWords, "%l", ch.lang)
+			replacer := strings.NewReplacer(replacerWords...)
+			fragJ := encoding["mp4fragment"].(map[string]interface{})
+			fragT := fragJ["template"].([]interface{})
+			if time != "" {
+				preset["-t"] = time
+			}
+			err = applyTemplate(preset, audioT, replacer)
+			if err != nil {
+				logError(err)
+				return err, true
+			}
+			channelout, okc := preset["channelout"]
+			if !okc {
+				logError(fmt.Errorf("preset %d nao contem channelout", i))
+				return err, true
+
+			}
+			channels := audioTs["channels"].(map[string]interface{})
+			chMapping := ch.mappping + channelout.(string)
+			channel, ok1 := channels[chMapping].([]interface{})
+			if !ok1 {
+				err = fmt.Errorf("mapeamento de canal de audio nao encontrado no arquivo de profiles (channels): [%s]", chMapping)
+				logError(err)
+				return err, true
+			}
+			for _, chTemp := range channel {
+				chTemplate := chTemp.(map[string]interface{})
+				err = applyTemplate(chTemplate, audioT, replacer)
+				if err != nil {
+					logError(err)
+					return err, true
+				}
+			}
+			var presetfrag1 map[string]interface{}
+			err = applyTemplate(presetfrag1, fragT, replacer)
+			if err != nil {
+				logError(err)
+				return err, true
+			}
+			// Encode files
+			flatA, err1 := buildCommand(options["ffmpeg_exe"].(string), audioT)
+			err1 = execCommand(flatA)
+			if err1 != nil {
+				logError(err1)
+				return err1, true
+			}
+			//// Fragment files
+			//mp4fragExe := path.Join(options["mp4box_dir"].(string), options["mp4fragment_exe"].(string))
+			//flatF, err1 := buildCommand(mp4fragExe, fragT)
+			//err1 = execCommand(flatF)
+			//if err1 != nil {
+			//	logError(err1)
+			//	return err1, true
+			//}
+		}
+	}
+	return err, false
+}
+
+func encodeVideo(profFile string, inFile string, assetID string, outDir string, tempDir string, time string, err error, options map[string]interface{}) (error, bool) {
+	profiles := readJSON(profFile) // resets profile
+	encoding := profiles["encodings"].(map[string]interface{})
+	videoJ := encoding["ffmpeg_video"].(map[string]interface{})
+	presetsV := videoJ["presets"].([]interface{})
+	// Process video
+
+	for i := range presetsV {
+		encoding = profiles["encodings"].(map[string]interface{})
+		videoJ = encoding["ffmpeg_video"].(map[string]interface{})
+		videoTs := videoJ["templates"].(map[string]interface{})
+		videoT := videoTs["default"].([]interface{})
+		profiles = readJSON(profFile) // resets profile
+		presetV1 := presetsV[i].(map[string]interface{})
+
+		replacerWords := []string{"%i", inFile, "%a", assetID, "%d", outDir, "%t", tempDir,
+			"%o", path.Join(outDir, path.Base(inFile)), "%s", presetV1["suffix"].(string)}
+
+		replacer := strings.NewReplacer(replacerWords...)
+		fragJ := encoding["mp4fragment"].(map[string]interface{})
+		fragT := fragJ["template"].([]interface{})
+		var presetfrag1 map[string]interface{}
+		if time != "" {
+			presetV1["-t"] = time
+		}
+		err = applyTemplate(presetV1, videoT, replacer)
+		if err != nil {
+			logError(err)
+			return err, true
+		}
+		err = applyTemplate(presetfrag1, fragT, replacer)
+		if err != nil {
+			logError(err)
+			return err, true
+		}
+		// Encode files
+		flatV, err1 := buildCommand(options["ffmpeg_exe"].(string), videoT)
+		err1 = execCommand(flatV)
+		if err1 != nil {
+			logError(err1)
+			return err1, true
+		}
+		//// Fragment files
+		//mp4fragExe := path.Join(options["mp4box_dir"].(string), options["mp4fragment_exe"].(string))
+		//flatF, err1 := buildCommand(mp4fragExe, fragT)
+		//err1 = execCommand(flatF)
+		//if err1 != nil {
+		//	logError(err1)
+		//	return err1, true
+		//}
+	}
+	return err, false
 }
 
 func execCommand(flat []string) error {
@@ -264,7 +337,7 @@ func buildCommand(cmdExe string, template []interface{}) ([]string, error) {
 	flat := make([]string, 0, 100)
 	flat = append(flat, cmdExe)
 	err := flattenArray(template, &flat)
-	fmt.Printf("%s ---> %#v\n", cmdExe, flat)
+	// fmt.Printf("%s ---> %#v\n", cmdExe, flat)
 	return flat, err
 }
 
@@ -342,7 +415,7 @@ func flattenArray(arr []interface{}, result *[]string) error {
 	return nil
 }
 
-func applyTemplate(preset map[string]interface{}, templs []interface{}, replacer *strings.Replacer) {
+func applyTemplate(preset map[string]interface{}, templs []interface{}, replacer *strings.Replacer) error {
 	if preset == nil {
 		preset = make(map[string]interface{})
 	}
@@ -354,20 +427,45 @@ func applyTemplate(preset map[string]interface{}, templs []interface{}, replacer
 				if !ok {
 					switch vv := v.(type) {
 					case string:
-						vv2 := replacer.Replace(vv)
+						vv2 := replaceParams(vv, replacer)
 						if vv2 != vv {
 							t[k] = vv2
 						}
 					}
 					continue
 				}
-				t[k] = replacer.Replace(val.(string)) // Max level of embedding: must be a string
+				switch v1 := val.(type) {
+				case string:
+					t[k] = replaceParams(v1, replacer) // Max level of embedding: must be a string
+				default:
+					return fmt.Errorf("parametro [%s] tem que ser string", k)
+				}
 			}
 		case string:
-			t2 := replacer.Replace(t)
+			t2 := replaceParams(t, replacer)
 			if t2 != t {
 				templs[i] = t2
 			}
 		}
 	}
+	return nil
+}
+
+func replaceParams(str string, replacer *strings.Replacer) string {
+	const LIMIT = 5 // limit of interactions
+	result := str
+	count := 0
+	for {
+		old := result
+		result = replacer.Replace(result)
+		if old == result {
+			break
+		}
+		count++
+		if count == LIMIT {
+			log(fmt.Sprintf("WARNING: limite de substituicoes atingido na string [%s], original[%s]", result, str))
+			break
+		}
+	}
+	return result
 }
