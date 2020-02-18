@@ -5,6 +5,7 @@ go 1.13
 require (
 	github.com/360EntSecGroup-Skylar/excelize v1.4.1
 	github.com/Knetic/govaluate v3.0.0+incompatible
+	github.com/fatih/color v1.9.0 // indirect
 	github.com/golang-collections/collections v0.0.0-20130729185459-604e922904d3
 	github.com/kr/pretty v0.1.0 // indirect
 	github.com/plandem/xlsx v1.0.4

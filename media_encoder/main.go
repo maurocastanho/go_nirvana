@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bufio"
 	js "encoding/json"
 	"flag"
 	"fmt"
@@ -11,6 +12,9 @@ import (
 	"runtime"
 	"strconv"
 	"strings"
+	"sync"
+
+	"github.com/fatih/color"
 )
 
 type audioChanT struct {
@@ -71,13 +75,14 @@ func main() {
 			os.Exit(1)
 		}
 	}
-
 	if outDir == "" {
 		outDir = "."
 	}
+	outDir += string(os.PathSeparator)
+
 	audioChans := make([]audioChanT, 0)
 	strChans := strings.Split(strChan, "|")
-	count := 0
+	count := 1
 	for _, ch := range strChans {
 		l := len(ch)
 		if l == 0 {
@@ -119,7 +124,7 @@ func main() {
 		count += d1 + d2
 	}
 
-	fmt.Printf("AUDIO CHANNELS --> %#v\t", audioChans)
+	// fmt.Printf("AUDIO CHANNELS --> %#v\n", audioChans)
 
 	allOptions := readJSON(confFile)
 	if allOptions == nil {
@@ -148,6 +153,8 @@ func main() {
 
 	defer func() { _ = os.RemoveAll(tempDir) }()
 	encoding := profiles["encodings"].(map[string]interface{})
+
+	fmt.Println("=== Iniciando encoding ===")
 
 	done := false
 	// Process audio
@@ -183,8 +190,7 @@ func main() {
 		logError(err)
 		return
 	}
-
-	// ~/bin/Bento4-SDK-1-5-1-629.x86_64-unknown-linux/bin/mp4dash --no-split --use-segment-list --no-media --mpd-name=teste.mpd -f -o . Robot-stream1.mp4 Robot-stream3.mp4
+	log("\n=== Processo de encoding terminado ===")
 }
 
 func encodeAudio(audioChans []audioChanT, profFile string, inFile string, assetID string, outDir string, tempDir string, time string, err error, options map[string]interface{}) (error, bool) {
@@ -207,8 +213,8 @@ func encodeAudio(audioChans []audioChanT, profFile string, inFile string, assetI
 			}
 			replacerWords = append(replacerWords, "%l", ch.lang)
 			replacer := strings.NewReplacer(replacerWords...)
-			fragJ := encoding["mp4fragment"].(map[string]interface{})
-			fragT := fragJ["template"].([]interface{})
+			//fragJ := encoding["mp4fragment"].(map[string]interface{})
+			//fragT := fragJ["template"].([]interface{})
 			if time != "" {
 				preset["-t"] = time
 			}
@@ -239,12 +245,13 @@ func encodeAudio(audioChans []audioChanT, profFile string, inFile string, assetI
 					return err, true
 				}
 			}
-			var presetfrag1 map[string]interface{}
-			err = applyTemplate(presetfrag1, fragT, replacer)
-			if err != nil {
-				logError(err)
-				return err, true
-			}
+			//var presetfrag1 map[string]interface{}
+			//err = applyTemplate(presetfrag1, fragT, replacer)
+			//if err != nil {
+			//	logError(err)
+			//	return err, true
+			//}
+
 			// Encode files
 			flatA, err1 := buildCommand(options["ffmpeg_exe"].(string), audioT)
 			err1 = execCommand(flatA)
@@ -271,7 +278,8 @@ func encodeVideo(profFile string, inFile string, assetID string, outDir string, 
 	videoJ := encoding["ffmpeg_video"].(map[string]interface{})
 	presetsV := videoJ["presets"].([]interface{})
 	// Process video
-
+	var wg sync.WaitGroup
+	errorList := make([]error, 0)
 	for i := range presetsV {
 		encoding = profiles["encodings"].(map[string]interface{})
 		videoJ = encoding["ffmpeg_video"].(map[string]interface{})
@@ -284,9 +292,8 @@ func encodeVideo(profFile string, inFile string, assetID string, outDir string, 
 			"%o", path.Join(outDir, path.Base(inFile)), "%s", presetV1["suffix"].(string)}
 
 		replacer := strings.NewReplacer(replacerWords...)
-		fragJ := encoding["mp4fragment"].(map[string]interface{})
-		fragT := fragJ["template"].([]interface{})
-		var presetfrag1 map[string]interface{}
+		//fragJ := encoding["mp4fragment"].(map[string]interface{})
+		//fragT := fragJ["template"].([]interface{})
 		if time != "" {
 			presetV1["-t"] = time
 		}
@@ -295,18 +302,24 @@ func encodeVideo(profFile string, inFile string, assetID string, outDir string, 
 			logError(err)
 			return err, true
 		}
-		err = applyTemplate(presetfrag1, fragT, replacer)
-		if err != nil {
-			logError(err)
-			return err, true
-		}
+		//var presetfrag1 map[string]interface{}
+		//err = applyTemplate(presetfrag1, fragT, replacer)
+		//if err != nil {
+		//	logError(err)
+		//	return err, true
+		//}
 		// Encode files
 		flatV, err1 := buildCommand(options["ffmpeg_exe"].(string), videoT)
-		err1 = execCommand(flatV)
-		if err1 != nil {
-			logError(err1)
-			return err1, true
-		}
+		wg.Add(1)
+		go func(group *sync.WaitGroup) {
+			defer group.Done()
+			err1 = execCommand(flatV)
+			if err1 != nil {
+				logError(err1)
+				errorList = append(errorList, err1)
+				// return err1, true
+			}
+		}(&wg)
 		//// Fragment files
 		//mp4fragExe := path.Join(options["mp4box_dir"].(string), options["mp4fragment_exe"].(string))
 		//flatF, err1 := buildCommand(mp4fragExe, fragT)
@@ -316,7 +329,11 @@ func encodeVideo(profFile string, inFile string, assetID string, outDir string, 
 		//	return err1, true
 		//}
 	}
-	return err, false
+	wg.Wait()
+	if len(errorList) > 0 {
+		return errorList[0], true
+	}
+	return nil, false
 }
 
 func execCommand(flat []string) error {
@@ -327,9 +344,39 @@ func execCommand(flat []string) error {
 		cmdS = []string{"sh", "-c"}
 	}
 	cmd := exec.Command(cmdS[0], cmdS[1], strings.Join(flat, " "))
-	fmt.Printf("Exec: [%v]\n", strings.Join(cmd.Args[:], "|"))
-	cmdOut, err := cmd.CombinedOutput()
-	fmt.Printf("output = [\n%v]\n", string(cmdOut))
+	log(fmt.Sprintf("\nExec: [%v]\n", strings.Join(cmd.Args[:], "|")))
+	// cmdOut, err := cmd.CombinedOutput()
+	cmdReader, err := cmd.StderrPipe()
+	if err != nil {
+		return err
+	}
+	cmdReaderO, err := cmd.StdoutPipe()
+	if err != nil {
+		return err
+	}
+	scannerO := bufio.NewScanner(cmdReaderO)
+	doneO := make(chan bool)
+	go func() {
+		for scannerO.Scan() {
+			color.Cyan("%v\n", scannerO.Text())
+		}
+		doneO <- true
+	}()
+	scanner := bufio.NewScanner(cmdReader)
+	done := make(chan bool)
+	go func() {
+		for scanner.Scan() {
+			color.Yellow("%v\n", scanner.Text())
+		}
+		done <- true
+	}()
+	err = cmd.Start()
+	if err != nil {
+		return err
+	}
+	<-done
+	<-doneO
+	err = cmd.Wait()
 	return err
 }
 

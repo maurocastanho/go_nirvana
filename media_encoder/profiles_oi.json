@@ -19,23 +19,21 @@
                     {"-minrate": null},
                     {"-maxrate": null},
                     {"-bufsize": null},
-                    {"-g": "60"},
-                    {"-keyint_min": "60"},
+                    {"-x264-params": "nal-hrd=cbr:force-cfr=1"},
+                    [{"-frag_duration": "2000000"}, {"-movflags": "omit_tfhd_offset+empty_moov+skip_trailer+faststart"}],
                     {"-sc_threshold": "0"},
                     {"-b_strategy": "0"},
                     {"-bf": "3"},
                     {"-refs": "4"},
-                    {"-x264opts": "no-scenecut:open_gop=0"},
                     {"-vf": null},
-                    [{"-flags": "+cgop"}, {"-movflags": "faststart"}, {"-vsync": "passthrough"}, {"-write_tmcd": "0"}, "-an"],
+                    [{"-vsync": "passthrough"}, {"-write_tmcd": "off"}],
                     "-an",
                     {"-f": "mp4"},
                     "-y",
-                    "%t%a%s_tmp",
+                    "%d%a%s",
                     {"suffix": null}
                 ]
             },
-            "optionals": [{"filter1v": {"-vf": ""}}],
             "presets": [
                 {"video layer": "1", "-level": "2.1", "-s": "192x108", "-b:v": "100k", "-minrate": "100k", "-maxrate": "100k", "-bufsize": "100k", "suffix": "_SD_Hm_100.m4v"},
                 {"video layer": "2", "-level": "2.1", "-s": "320x180", "-b:v": "300k", "-minrate": "300k", "-maxrate": "300k", "-bufsize": "300k", "suffix": "_SD_Hm_300.m4v"},
@@ -54,15 +52,17 @@
                     {"-i": "%i"},
                     ["-hide_banner", {"-threads": "0"}, {"-analyzeduration": "100M"}, {"-probesize": "100M"}],
                     {"-filter_complex": null},
+                    {"-surround":  null},
                     {"-map": null},
                     {"-metadata:s:a:0": "language=%l"},
                     {"-c:a": "aac"},
                     {"-b:a": null},
                     {"-ac": null},
                     {"-ar": null},
+                    [{"-frag_duration": "2000000"}, {"-movflags": "omit_tfhd_offset+empty_moov+skip_trailer+faststart"}],
                     "-vn",
                     {"-f": "mp4"},
-                    "%t%a%s_tmp",
+                    "%d%a%s",
                     "-y",
                     {"suffix": null}
                 ],
@@ -70,10 +70,8 @@
                     "i51o51": [{"-map": "0:%0"}],
                     "i20o20": [{"-map": "0:%0"}],
                     "i51o20": [{"-ac": "2"}],
-                    "i20o51": [{"-filter_complex": "\"[0:a]pan=5.1(side)|FL=FL|FR=FR|LFE<FL+FR|SL=FL|SR=FR[a]\""}, {"-map": "0"}, {"-map": "-0:a"}, {"-map": "[a]"}],
+                    "i20o51": [{"-af": "surround"}],
                     "c51o20": [{"-filter_complex": "\"[%0:a][%1:a][%2:a][%3:a][%4:a][%5:a] amerge=inputs=6[51mix]\""}, {"-map": "[51mix]"}],
-
-
                     "c20o20": [{"-filter_complex": "\"[%0:a][%1:a] amerge=inputs=2[20mix]\""}, {"-map": "[20mix]"}]
                 }
             },
@@ -85,7 +83,6 @@
                 {"audio layer": "4", "channelout": "o51", "-b:a": "256k", "-ac": "6", "-ar": "24000", "suffix": "_HD_51_%l.m4a"}
             ]
         },
-        "mp4fragment": {"template": ["%t%a%s_tmp", "%a%s"]},
-        "mp4dash": {"template": ["--no-split", "--use-segment-list", "--no-media", {"--mpd-name": "robot.mpd"}, "--force", {"-o": "."}, "%a*.m*"]}
+        "mp4dash": {"template": ["--no-split", "--use-segment-list", "--no-media", {"--mpd-name": "%a.mpd"}, "--force", {"-o": "%d"}, "%d%a*.m4a", "%d%a*.m4v"]}
     }
 }

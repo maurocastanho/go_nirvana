@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 	"os"
+
+	"github.com/fatih/color"
 )
 
 func latinToUTF8(buffer []byte) string {
@@ -15,12 +17,10 @@ func latinToUTF8(buffer []byte) string {
 }
 
 func logError(err error) {
-	// phosphorize := ansi.ColorFunc("red")
-	msg := fmt.Sprintf("ERRO: %v\n", err.Error())
+	msg := fmt.Sprintf(color.RedString("ERRO: %v\n", err.Error()))
 	log(msg)
 }
 
 func log(msg string) {
-	// phosphorize := ansi.ColorFunc("red")
 	_, _ = fmt.Fprintln(os.Stderr, msg)
 }
