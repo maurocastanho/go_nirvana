@@ -31,7 +31,8 @@
                     {"-f": "mp4"},
                     "-y",
                     "%d%a%s",
-                    {"suffix": null}
+                    {"suffix": null},
+                    {"output": "%d%a%s"}
                 ]
             },
             "presets": [
@@ -64,15 +65,17 @@
                     {"-f": "mp4"},
                     "%d%a%s",
                     "-y",
-                    {"suffix": null}
+                    {"suffix": null},
+                    {"output": "%d%a%s"}
                 ],
                 "channels": {
                     "i51o51": [{"-map": "0:%0"}],
                     "i20o20": [{"-map": "0:%0"}],
                     "i51o20": [{"-ac": "2"}],
                     "i20o51": [{"-af": "surround"}],
-                    "c51o20": [{"-filter_complex": "\"[%0:a][%1:a][%2:a][%3:a][%4:a][%5:a] amerge=inputs=6[51mix]\""}, {"-map": "[51mix]"}],
-                    "c20o20": [{"-filter_complex": "\"[%0:a][%1:a] amerge=inputs=2[20mix]\""}, {"-map": "[20mix]"}]
+                    "c51o51": [{"-filter_complex": "[0:%0][0:%1][0:%2][0:%3][0:%4][0:%5]amerge=inputs=6[51mix]"}, {"-map": "[51mix]"}],
+                    "c51o20": [{"-filter_complex": "[0:%0][0:%1][0:%2][0:%3][0:%4][0:%5]amerge=inputs=6[51mix]"}, {"-map": "[51mix]"}, {"-ac": "2"}],
+                    "c20o20": [{"-filter_complex": "[0:%0][0:%1]amerge=inputs=2[20mix]"}, {"-map": "[20mix]"}]
                 }
             },
             "optionals": [{"filter1a": {"-af": ""}}],
@@ -83,6 +86,6 @@
                 {"audio layer": "4", "channelout": "o51", "-b:a": "256k", "-ac": "6", "-ar": "24000", "suffix": "_HD_51_%l.m4a"}
             ]
         },
-        "mp4dash": {"template": ["--no-split", "--use-segment-list", "--no-media", {"--mpd-name": "%a.mpd"}, "--force", {"-o": "%d"}, "%d%a*.m4a", "%d%a*.m4v"]}
+        "mp4dash": {"template": ["--no-split", "--use-segment-list", "--no-media", {"--mpd-name": "%a.mpd"}, "--force", {"-o": "%d"}, "%A", "%V"]}
     }
 }

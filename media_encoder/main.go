@@ -34,6 +34,7 @@ func main() {
 	strChan := ""
 	ignoreAudio := false
 	ignoreVideo := false
+	maxProcs := 1
 	time := ""
 	flag.StringVar(&inFile, "in", "", "Arquivo de entrada")
 	flag.StringVar(&assetID, "assetid", "", "Asset ID")
@@ -42,9 +43,15 @@ func main() {
 	flag.StringVar(&outDir, "outdir", "", "Diretorio de saida")
 	flag.BoolVar(&ignoreAudio, "ignoreaudio", false, "Ignorar canais de audio")
 	flag.BoolVar(&ignoreVideo, "ignorevideo", false, "Ignorar canais de audio")
+	flag.IntVar(&maxProcs, "maxprocs", 1, "Numero maximo de encodings simultaneos")
+
 	flag.StringVar(&strChan, "audiochan", "", "Mapeamento dos canais de audio\n"+
 		"formato: <mapeamento>|<mapeamento>|...\n"+
-		"mapeamento: s<stream inicial>i<entrada>o<saida><linguagem (3 letras)>")
+		"mapeamento: s<stream inicial><type><entrada>o<saida><linguagem (3 letras)>\n"+
+		"type: i - canais mixados, c - canais separados\n"+
+		"exemplos: s1i20POR - canal inicial de audio 1, entrada 2.0 mixada, linguagem POR\n"+
+		"          s1c51ENG - canal inicial de audio 1, entrada 5.1 com canais separados, linguagem ENG\n"+
+		"Opcoes podem ser concatenadas com '|', ex: s1i20POR|s3c51ENG")
 	flag.StringVar(&time, "time", "", "tempo em segundos para restringir o encoding (para testes)")
 	flag.Parse()
 
@@ -135,7 +142,7 @@ func main() {
 
 	opt, ok := allOptions[runtime.GOOS]
 	if !ok {
-		logError(fmt.Errorf("sistema operacional invalido: '%s'. Deve ser 'Windows' ou 'linux'", runtime.GOOS))
+		logError(fmt.Errorf("sistema operacional invalido: '%s'. Deve ser 'windows' ou 'linux'", runtime.GOOS))
 		fmt.Println(allOptions[runtime.GOOS])
 		os.Exit(2)
 	}
@@ -157,15 +164,17 @@ func main() {
 	fmt.Println("=== Iniciando encoding ===")
 
 	done := false
+	var audioOut []string
+	var videoOut []string
 	// Process audio
 	if !ignoreAudio {
-		err, done = encodeAudio(audioChans, profFile, inFile, assetID, outDir, tempDir, time, err, options)
+		audioOut, err, done = encodeAudio(audioOut, audioChans, profFile, inFile, assetID, outDir, tempDir, time, err, options)
 		if done {
 			return
 		}
 	}
 	if !ignoreVideo {
-		err, done = encodeVideo(profFile, inFile, assetID, outDir, tempDir, time, err, options)
+		videoOut, err, done = encodeVideo(videoOut, profFile, inFile, assetID, outDir, tempDir, time, err, options, maxProcs)
 		if done {
 			return
 		}
@@ -176,7 +185,13 @@ func main() {
 	encoding = profiles["encodings"].(map[string]interface{})
 	dashJ := encoding["mp4dash"].(map[string]interface{})
 	dashT := dashJ["template"].([]interface{})
-	replacer := strings.NewReplacer("%i", inFile, "%a", assetID, "%d", outDir, "%t", tempDir,
+	replacer := strings.NewReplacer(
+		"%i", inFile,
+		"%a", assetID,
+		"%d", outDir,
+		"%t", tempDir,
+		"%A", strings.Join(audioOut, " "),
+		"%V", strings.Join(videoOut, " "),
 		"%o", path.Join(outDir, path.Base(inFile)))
 	err = applyTemplate(presetdash1, dashT, replacer)
 	if err != nil {
@@ -193,7 +208,7 @@ func main() {
 	log("\n=== Processo de encoding terminado ===")
 }
 
-func encodeAudio(audioChans []audioChanT, profFile string, inFile string, assetID string, outDir string, tempDir string, time string, err error, options map[string]interface{}) (error, bool) {
+func encodeAudio(output []string, audioChans []audioChanT, profFile string, inFile string, assetID string, outDir string, tempDir string, time string, err error, options map[string]interface{}) ([]string, error, bool) {
 	profiles := readJSON(profFile) // resets profile
 	encoding := profiles["encodings"].(map[string]interface{})
 	audioJ := encoding["ffmpeg_audio"].(map[string]interface{})
@@ -221,13 +236,12 @@ func encodeAudio(audioChans []audioChanT, profFile string, inFile string, assetI
 			err = applyTemplate(preset, audioT, replacer)
 			if err != nil {
 				logError(err)
-				return err, true
+				return output, err, true
 			}
 			channelout, okc := preset["channelout"]
 			if !okc {
 				logError(fmt.Errorf("preset %d nao contem channelout", i))
-				return err, true
-
+				return output, err, true
 			}
 			channels := audioTs["channels"].(map[string]interface{})
 			chMapping := ch.mappping + channelout.(string)
@@ -235,14 +249,14 @@ func encodeAudio(audioChans []audioChanT, profFile string, inFile string, assetI
 			if !ok1 {
 				err = fmt.Errorf("mapeamento de canal de audio nao encontrado no arquivo de profiles (channels): [%s]", chMapping)
 				logError(err)
-				return err, true
+				return output, err, true
 			}
 			for _, chTemp := range channel {
 				chTemplate := chTemp.(map[string]interface{})
 				err = applyTemplate(chTemplate, audioT, replacer)
 				if err != nil {
 					logError(err)
-					return err, true
+					return output, err, true
 				}
 			}
 			//var presetfrag1 map[string]interface{}
@@ -257,8 +271,9 @@ func encodeAudio(audioChans []audioChanT, profFile string, inFile string, assetI
 			err1 = execCommand(flatA)
 			if err1 != nil {
 				logError(err1)
-				return err1, true
+				return output, err, true
 			}
+			output = findOutput(audioT, output)
 			//// Fragment files
 			//mp4fragExe := path.Join(options["mp4box_dir"].(string), options["mp4fragment_exe"].(string))
 			//flatF, err1 := buildCommand(mp4fragExe, fragT)
@@ -269,16 +284,32 @@ func encodeAudio(audioChans []audioChanT, profFile string, inFile string, assetI
 			//}
 		}
 	}
-	return err, false
+	return output, err, false
 }
 
-func encodeVideo(profFile string, inFile string, assetID string, outDir string, tempDir string, time string, err error, options map[string]interface{}) (error, bool) {
+func findOutput(template []interface{}, output []string) []string {
+	for _, el := range template {
+		switch el2 := el.(type) {
+		case map[string]interface{}:
+			for k, v := range el2 {
+				if k == "output" {
+					output = append(output, v.(string))
+				}
+			}
+		}
+	}
+	return output
+}
+
+func encodeVideo(output []string, profFile string, inFile string, assetID string, outDir string, tempDir string, time string, err error, options map[string]interface{}, maxProcs int) ([]string, error, bool) {
 	profiles := readJSON(profFile) // resets profile
 	encoding := profiles["encodings"].(map[string]interface{})
 	videoJ := encoding["ffmpeg_video"].(map[string]interface{})
 	presetsV := videoJ["presets"].([]interface{})
 	// Process video
 	var wg sync.WaitGroup
+	var sem = make(chan int, maxProcs)
+
 	errorList := make([]error, 0)
 	for i := range presetsV {
 		encoding = profiles["encodings"].(map[string]interface{})
@@ -300,7 +331,7 @@ func encodeVideo(profFile string, inFile string, assetID string, outDir string, 
 		err = applyTemplate(presetV1, videoT, replacer)
 		if err != nil {
 			logError(err)
-			return err, true
+			return output, err, true
 		}
 		//var presetfrag1 map[string]interface{}
 		//err = applyTemplate(presetfrag1, fragT, replacer)
@@ -311,14 +342,18 @@ func encodeVideo(profFile string, inFile string, assetID string, outDir string, 
 		// Encode files
 		flatV, err1 := buildCommand(options["ffmpeg_exe"].(string), videoT)
 		wg.Add(1)
+		sem <- 1
 		go func(group *sync.WaitGroup) {
 			defer group.Done()
+			defer func() { <-sem }()
+
 			err1 = execCommand(flatV)
 			if err1 != nil {
 				logError(err1)
 				errorList = append(errorList, err1)
 				// return err1, true
 			}
+			output = findOutput(videoT, output)
 		}(&wg)
 		//// Fragment files
 		//mp4fragExe := path.Join(options["mp4box_dir"].(string), options["mp4fragment_exe"].(string))
@@ -331,14 +366,14 @@ func encodeVideo(profFile string, inFile string, assetID string, outDir string, 
 	}
 	wg.Wait()
 	if len(errorList) > 0 {
-		return errorList[0], true
+		return output, errorList[0], true
 	}
-	return nil, false
+	return output, nil, false
 }
 
 func execCommand(flat []string) error {
 	var cmdS []string
-	if runtime.GOOS == "Windows" {
+	if runtime.GOOS == "windows" {
 		cmdS = []string{"cmd.exe", "/c"}
 	} else {
 		cmdS = []string{"sh", "-c"}

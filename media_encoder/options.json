@@ -1,5 +1,5 @@
 {
-  "Windows": {
+  "windows": {
     "ffmpeg_exe": "ffmpeg",
     "mp4box_dir": "",
     "mp4dash_exe": "mp4dash",
