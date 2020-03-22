@@ -141,7 +141,7 @@ func (wr *XMLWriter) OpenOutput() (err error) {
 	if err != nil {
 		return
 	}
-	if true {
+	if wr.systemID != "" {
 		wr.ec.Do(
 			wr.w.StartDTD(xw.DTD{Name: "ADI", SystemID: wr.systemID}),
 			wr.w.EndDTD(),

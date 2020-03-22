@@ -412,6 +412,11 @@ func processMap(json jsonT, lines []lineT, wr Writer) (err2 []error) {
 		elements := el.([]interface{})
 		err2 = appendErrors(err2, processArray(name, elements, lines, wr)...)
 	}
+	el2, ok := json["elements2"]
+	if ok {
+		elements := el2.([]interface{})
+		err2 = appendErrors(err2, processSingleElements(name, elements, lines, wr)...)
+	}
 
 	co, ok := json["comments"]
 	if ok {
@@ -435,6 +440,7 @@ func processMap(json jsonT, lines []lineT, wr Writer) (err2 []error) {
 		case "attrs":
 		case "single_attrs":
 		case "elements":
+		case "elements2":
 		case "comments":
 			continue
 		}
@@ -595,7 +601,7 @@ func processSingleElements(_ string, json []interface{}, lines []lineT, wr Write
 	for _, v := range json {
 		switch vv := v.(type) {
 		case map[string]interface{}:
-			_, ok := vv["elements"]
+			_, ok := vv["elements2"]
 			if ok {
 				err2 = appendErrors(err2, processMap(vv, lines, wr)...)
 				continue
