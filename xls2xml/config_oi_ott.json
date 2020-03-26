@@ -78,10 +78,26 @@
                                 {"Name": "provideID", "at_type": "ott", "Value": "aaaaa", "function": "fixed"},
                                 {"Name": "showType", "at_type": "ott", "Value": "movie", "function": "fixed"},
                                 {"Name": "title", "at_type": "ott", "Value": "title", "function": "fixed"},
-                                {"Name": "sortTitle", "at_type": "ott", "Value": "shorttitle", "function": "fixed"},
-                                {"Name": "reducedTitle", "at_type": "ott", "Value": "reducedtitle", "function": "fixed"},
-                                {"Name": "summary", "at_type": "ott", "Value": "summary", "function": "fixed"},
-                                {"Name": "shortSummary", "at_type": "ott", "Value": "shortsummary", "function": "fixed"},
+                                {"Name": "title",
+                                    "attrs": [{"Name": "language", "Value": "pt", "function": "fixed"}],
+                                    "at_type": "ott", "Value": "title", "function": "fixed"
+                                },
+                                {"Name": "shortTitle",
+                                    "attrs": [{"Name": "language", "Value": "pt", "function": "fixed"}],
+                                    "at_type": "ott", "Value": "title", "function": "fixed"
+                                },
+                                {"Name": "reducedTitle",
+                                    "attrs": [{"Name": "language", "Value": "pt", "function": "fixed"}],
+                                    "at_type": "ott", "Value": "title", "function": "fixed"
+                                },
+                                {"Name": "summary",
+                                    "attrs": [{"Name": "language", "Value": "pt", "function": "fixed"}],
+                                    "at_type": "ott", "Value": "title", "function": "fixed"
+                                },
+                                {"Name": "shortSummary",
+                                    "attrs": [{"Name": "language", "Value": "pt", "function": "fixed"}],
+                                    "at_type": "ott", "Value": "title", "function": "fixed"
+                                },
                                 {"Name": "episodeNumber", "at_type": "ott", "Value": "", "function": "fixed"},
                                 {"Name": "cgmsaLevel", "at_type": "ott", "Value": "copynever", "function": "fixed"},
                                 {"Name": "rating", "at_type": "ott", "Value": "", "function": "fixed"},
@@ -89,20 +105,29 @@
                                 {"Name": "release_year", "at_type": "ott", "Value": "2014", "function": "fixed"},
                                 {"Name": "countryRegionCode", "at_type": "ott", "Value": "US", "function": "fixed"},
 
-                                {"Name": "person",
+                                {"Name": "title",
                                     "attrs": [{"Name": "name", "Value": "Nirvana", "function": "fixed"}],
+                                    "at_type": "ott", "Value": "", "function": "fixed"
+                                },
+                                {"Name": "person",
+                                    "attrs": [
+                                        {"Name": "mname", "Value": "", "function": "fixed"},
+                                        {"Name": "fname", "Value": "John", "function": "fixed"},
+                                        {"Name": "lname", "Value": "Slattery", "function": "fixed"},
+                                        {"Name": "role", "Value": "actor", "function": "fixed"}
+                                    ],
                                     "at_type": "ott", "Value": "", "function": "fixed"
                                 },
 
 
-                                {"Name": "person", "at_type": "ott", "Value": "", "function": "fixed"},
-                                {"Name": "person", "at_type": "ott", "Value": "", "function": "fixed"},
                                 {"Name": "studio", "at_type": "ott", "Value": "UNI", "function": "fixed"},
                                 {"Name": "studioDisplayName", "at_type": "ott", "Value": "Universal", "function": "fixed"},
                                 {"Name": "category", "at_type": "ott", "Value": "Colecao Oi/Cinema/Drama", "function": "fixed"},
                                 {"Name": "autoDeploy", "at_type": "ott", "Value": "false", "function": "fixed"},
                                 {"Name": "autoImport", "at_type": "ott", "Value": "false", "function": "fixed"},
                                 {"Name": "categorization", "at_type": "ott", "Value": "", "function": "fixed"},
+
+
                                 {"Name": "genre", "at_type": "ott", "Value": "", "function": "fixed"},
                                 {"Name": "additionalInfo", "at_type": "ott", "Value": "", "function": "fixed"}
                             ]
@@ -130,6 +155,11 @@
                         },
                         {
                             "Name": "asset",
+                            "attrs": [
+                                {"Name": "Verb", "Value": "", "function": "fixed"},
+                                {"Name": "type", "Value": "feature", "function": "fixed"},
+                                {"Name": "asset_name", "Value": "Asset Name", "function": "fixed"}
+                            ],
                             "elements": [
                                 {
                                     "Name": "metadata",
@@ -153,6 +183,10 @@
                         },
                         {
                             "Name": "asset",
+                            "attrs": [
+                                {"Name": "type", "Value": "trailer", "function": "fixed"},
+                                {"Name": "asset_name", "Value": "Asset Name", "function": "fixed"}
+                            ],
                             "elements": [
                                 {
                                     "Name": "metadata",
