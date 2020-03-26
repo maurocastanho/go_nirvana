@@ -412,11 +412,6 @@ func processMap(json jsonT, lines []lineT, wr Writer) (err2 []error) {
 		elements := el.([]interface{})
 		err2 = appendErrors(err2, processArray(name, elements, lines, wr)...)
 	}
-	el2, ok := json["elements2"]
-	if ok {
-		elements := el2.([]interface{})
-		err2 = appendErrors(err2, processSingleElements(name, elements, lines, wr)...)
-	}
 
 	co, ok := json["comments"]
 	if ok {
@@ -440,7 +435,6 @@ func processMap(json jsonT, lines []lineT, wr Writer) (err2 []error) {
 		case "attrs":
 		case "single_attrs":
 		case "elements":
-		case "elements2":
 		case "comments":
 			continue
 		}
@@ -538,46 +532,99 @@ func processSingleAttrs(name string, json []interface{}, lines []lineT, commonAt
 func processSingleAttr(nameElem string, json jsonT, lines []lineT, commonAttrs map[string]interface{}, wr Writer) (err error) {
 	var name string
 	name, ok := json["Name"].(string)
-	value, _ := json["Value"].(string)
 	_, okf := json["filter"].(string)
-	var function string
+	var filterFunc string
 	if okf {
-		function = "filter"
+		filterFunc = "filter"
 	} else {
-		function, ok = json["function"].(string)
+		filterFunc, ok = json["function"].(string)
 	}
+	isOtt := false
+	elType, okt := json["at_type"].(string)
+	if okt {
+		isOtt = elType == "ott"
+	}
+
 	var procVals []string
 	if ok {
 		vtype, _ := json["type"].(string)
-		procVals, err = Process(function, lines, json, options)
+		procVals, err = Process(filterFunc, lines, json, options)
+		done := false
+		var err2 error
 		for _, procVal := range procVals {
-			err = wr.StartElem(nameElem, SINGLE)
-			if err != nil {
-				return
-			}
-			for k, v := range commonAttrs {
-				err = wr.WriteAttr(k, v.(string), "string")
-				if err != nil {
-					return
+			if isOtt {
+				at, ok := json["attrs"]
+				var attrs []interface{}
+				if ok {
+					attrs = at.([]interface{})
 				}
+				err2, done = writeElem(wr, attrs, lines, name, procVal)
+			} else {
+				err2, done = writeAttr(wr, nameElem, commonAttrs, name, procVal, vtype)
 			}
-			err = wr.WriteAttr("Name", name, "string")
-			if err != nil {
-				return
-			}
-			err = wr.WriteAttr("Value", procVal, vtype)
-			if err != nil {
-				return
-			}
-			err = wr.EndElem(nameElem)
-			if err != nil {
-				return
+			if done {
+				return err2
 			}
 		}
+		attrs, oka := json["single_attrs"].([]interface{})
+		if oka {
+			processAttrs(name, attrs, lines, wr)
+			return nil
+		}
+
 		return
 	}
-	err = fmt.Errorf("erro no atributo %s: %s", name, value)
+	value, _ := json["Value"].(string)
+	err = fmt.Errorf("erro no atributo %s, value [%s]", name, value)
 	return
+}
+
+func writeElem(wr Writer, attrs []interface{}, lines []lineT, name string, procVal string) (error, bool) {
+	err := wr.StartElem(name, SINGLE)
+	if err != nil {
+		return nil, true
+	}
+	var err3 []error
+	err3 = appendErrors(err3, processAttrs(name, attrs, lines, wr)...)
+	if len(err3) > 0 {
+		return err3[0], true
+	}
+
+	if procVal != "" {
+		err1 := wr.Write(procVal)
+		if err1 != nil {
+			_ = wr.EndElem(name)
+			return err1, true
+		}
+	}
+	err2 := wr.EndElem(name)
+	return err2, false
+}
+
+func writeAttr(wr Writer, nameElem string, commonAttrs map[string]interface{}, name string, procVal string, vtype string) (error, bool) {
+	err := wr.StartElem(nameElem, SINGLE)
+	if err != nil {
+		return nil, true
+	}
+	for k, v := range commonAttrs {
+		err = wr.WriteAttr(k, v.(string), "string")
+		if err != nil {
+			return nil, true
+		}
+	}
+	err = wr.WriteAttr("Name", name, "string")
+	if err != nil {
+		return nil, true
+	}
+	err = wr.WriteAttr("Value", procVal, vtype)
+	if err != nil {
+		return nil, true
+	}
+	err = wr.EndElem(nameElem)
+	if err != nil {
+		return nil, true
+	}
+	return nil, false
 }
 
 func processArray(_ string, json []interface{}, lines []lineT, wr Writer) (err2 []error) {
