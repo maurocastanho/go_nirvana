@@ -1,57 +1,114 @@
 {
-    "options": [{"name": "filename_field", "value": "ID"}, {"name": "name_field", "value": "Título Original"}],
+    "options": [{"Name": "filename_field", "Value": "ID"},
+        {"Name": "name_field", "Value": "Título Original"},
+        {"Name": "categ_field1", "Value": "Genero 1"},
+        {"Name": "categ_field2", "Value": "Genero 2"}
+    ],
+    "xls_output": {
+        "filename": "publicar_box.xls",
+        "sheet": "Formulário",
+        "columns": [
+            {"Name": "ASSET_ID", "function": "assetid", "suffix_number": 1, "prefix": "Provider"},
+            {"Name": "ORIGINAL TITLE", "field": "Título Original", "function": "field_raw"},
+            {"Name": "TÍTULO EM PORTUGUÊS", "field": "Título em Português", "function": "field_raw"},
+            {"Name": "NOME DO EPISÓDIO", "field": "Título em Português do Episódio", "function": "field_raw"},
+            {"Name": "TEMPORADA", "field": "Temporada", "function": "field_raw", "format": "0"},
+            {"Name": "EPISÓDIO", "field": "Número do Episódio", "function": "field_raw", "format": "0"},
+            {"Name": "PRODUTO", "field": "Produto", "function": "field_raw"},
+            {"Name": "PROVEDOR", "field": "Provider", "function": "field_raw"},
+            {"Name": "JANELA DE REPASSE", "field": "Billing ID", "function": "janela_repasse"},
+            {"Name": "ESTÚDIO", "field": "Estúdio", "function": "field_raw"},
+            {"Name": "CANAL", "field": "Canal", "function": "field_raw"},
+            {"Name": "CATEGORIA", "field": "Categoria", "function": "field_raw"},
+            {"Name": "GÊNERO 1", "field": "Genero 1", "function": "field_raw"},
+            {"Name": "GÊNERO 2", "field": "Genero 2", "function": "field_raw"},
+            {"Name": "ANO DE PRODUÇÃO", "field": "Ano", "function": "field_raw", "format": "0"},
+            {"Name": "BOX OFFICE", "field": "Box Office", "function": "field_raw", "format": "#,##0.00"},
+            {"Name": "RANKING", "field": "Ranking", "function": "field_raw", "format": "#,##0.0"},
+            {"Name": "LÍNGUA ORIGINAL", "field": "Língua Original", "function": "field_raw"},
+            {"Name": "RATING", "field": "Classificação Etária", "function": "field_raw", "format": "0"},
+            {"Name": "ELENCO", "field": "Elenco", "function": "field_raw"},
+            {"Name": "DIRETOR", "field": "Diretor", "function": "field_raw"},
+            {"Name": "PAÍS DE ORIGEM", "field": "País de Origem", "function": "field_raw"},
+            {"Name": "SINOPSE", "field": "Sinopse EPG", "function": "field_raw"},
+            {"Name": "DURAÇÃO", "field": "Duração", "function": "field", "format": "HH:MM:SS", "type": "time_s"},
+            {"Name": "LICENÇA INÍCIO", "field": "Data Início", "function": "field_date", "format": "DD/MM/YYYY"},
+            {"Name": "LICENÇA FIM", "field": "Data Fim", "function": "field_date", "format": "DD/MM/YYYY"},
+            {"Name": "TECNOLOGIA", "field": "Formato", "function": "field_raw"},
+            {"Name": "AUDIO", "field": "Audio", "function": "field_raw"},
+            {"Name": "VERSAO", "field": "Versao", "function": "field_raw"},
+            {"Name": "COBRANÇA", "field": "Cobrança", "function": "field", "format": "\"R$\" #,##0.00", "type": "money"},
+            {"Name": "DOWNLOAD TO GO", "field": "DOWNLOAD TO GO", "function": "field_raw"},
+            {"Name": "DIAS DE DOWNLOAD", "field": "DIAS DE DOWNLOAD", "function": "field_raw", "format": "0"},
+            {"Name": "PASTA FTP", "field": "PASTA FTP", "function": "field_raw"},
+            {"Name": "BILLING ID", "field": "Billing ID", "function": "field_raw"}
+        ]
+    },
+
     "elements": [
         {
-            "name": "assets",
+            "Name": "assets",
             "elements": [
                 {
                     "attrs": [
-                        {"name": "id", "function": "uuid"},
-                        {"name": "title", "function": "field", "field": "Título Original"},
-                        {"name": "synopsis", "function": "field", "field": "Sinopse Resumo"},
-                        {"name": "morality_level", "function": "field", "field": "Classificação Etária", "type": "int"},
-                        {"name": "adult", "function": "condition", "condition": "Classificação_Etária == 18", "if_true": "true", "if_false": "false", "type": "boolean"},
-                        {"name": "duration", "function": "field", "field": "Duração", "type": "timestamp"},
-                        {"name": "series_id", "function": "uuid", "filter": "Número do Episódio != ''"},
-                        {"name": "season_id", "function": "uuid", "filter": "Número do Episódio != ''"},
-                        {"name": "season_episode_number", "function": "field", "field": "Número do Episódio", "filter": "Número do Episódio != ''"},
-                        {"name": "genres", "value": "horror,college", "function": "split", "function2": "fixed"},
-                        {"name": "available_from", "function": "timestamp", "field": "Data início no NOW", "type": "int"},
-                        {"name": "available_to", "function": "timestamp", "field": "Data Fim no NOW", "type": "int"},
-                        {"name": "images", "elements": [{"name": "id", "function": "uuid"}]},
+                        {"Name": "id", "function": "uuid"},
                         {
-                            "name": "metadata",
+                            "Name": "title",
+                            "elements": [{"attrs": [{"Name": "por", "function": "field", "field": "Título"}]}]
+                        },
+                        {
+                            "Name": "synopsis",
+                            "elements": [{"attrs": [{"Name": "por", "function": "field", "field": "Sinopse EPG"}]}]
+                        },
+                        {"Name": "morality_level", "function": "field", "field": "Classificação Etária", "type": "int"},
+                        {"Name": "adult", "function": "condition", "condition": "Classificação_Etária == 18", "if_true": "true", "if_false": "false", "type": "boolean"},
+                        {"Name": "duration", "function": "field", "field": "Duração", "type": "timestamp"},
+                        {"Name": "series_id", "function": "uuid", "filter": "Número do Episódio != ''"},
+                        {"Name": "season_id", "function": "uuid", "filter": "Número do Episódio != ''"},
+                        {"Name": "season_episode_number", "function": "field", "field": "Número do Episódio", "filter": "Número do Episódio != ''"},
+                        {
+                            "Name": "genres",
+                            "elements": [{"attrs": [{"Name": "genres", "function": "field", "field": "Genero 1"}]}]
+                        },
+                        {"Name": "available_from", "function": "timestamp", "field": "Data Início", "type": "int"},
+                        {"Name": "available_to", "function": "timestamp", "field": "Data Fim", "type": "int"},
+                        {"Name": "images", "elements": []},
+                        {
+                            "Name": "metadata",
                             "elements": [
                                 {
                                     "attrs": [
                                         {
-                                            "name": "rights",
+                                            "Name": "rights",
                                             "function": "fixed",
-                                            "value": ""
+                                            "Value": "",
+                                            "elements": [
+
+                                            ]
                                         },
                                         {
-                                            "name": "country",
+                                            "Name": "country",
                                             "function": "field",
                                             "field": "País de Origem"
                                         },
                                         {
-                                            "name": "release_year",
+                                            "Name": "release_year",
                                             "function": "field",
                                             "field": "Ano"
                                         },
                                         {
-                                            "name": "summary",
+                                            "Name": "summary",
                                             "function": "field",
                                             "field": "Sinopse Resumo"
                                         },
                                         {
-                                            "name": "actors",
+                                            "Name": "actors",
                                             "function": "split",
                                             "function2": "field",
                                             "field": "Elenco"
                                         },
                                         {
-                                            "name": "directors",
+                                            "Name": "directors",
                                             "function": "split",
                                             "function2": "field",
                                             "field": "Diretor"
@@ -60,18 +117,22 @@
                                 }
                         ]},
                         {
-                            "name": "medias",
+                            "Name": "medias",
                             "elements": [
                                 {
                                     "attrs": [
-                                        {"name": "id", "function": "uuid"},
-                                        {"name": "type", "function": "fixed", "value": "MEDIA"},
-                                        {"name": "title", "function": "fixed", "value": "Trailer"},
-                                        {"name": "location", "function": "location", "field": "Trailer ID"},
-                                        {"name": "technology", "function": "fixed", "value": "MP4"},
-                                        {"name": "audio_languages", "function": "split", "function2": "field", "field": "Linguagem Áudio"},
-                                        {"name": "subtitles_languages", "function": "split", "function2": "field", "field": "Linguagem Legenda"},
-                                        {"name": "metadata", "elements": []}
+                                        {"Name": "id", "function": "uuid"},
+                                        {"Name": "type", "function": "fixed", "Value": "MEDIA"},
+                                        {"Name": "title", "function": "fixed", "Value": "Trailer"},
+                                        {"Name": "location", "function": "field", "field": "Trailer ID"},
+                                        {"Name": "technology", "function": "fixed", "Value": "MP4"},
+                                        {
+                                            "Name": "audio_languages",
+                                            "elements": [{"attrs": [{"Name": "audio_languages", "function": "split", "function2": "field", "field": "Linguagem Áudio"}]}]
+                                        },
+
+                                        {"Name": "subtitles_languages", "function": "split", "function2": "field", "field": "Linguagem Legenda"},
+                                        {"Name": "metadata", "elements": []}
                                     ]
                                 }
                             ]

@@ -4,20 +4,23 @@ import (
 	js "encoding/json"
 	"fmt"
 	"strconv"
+	"strings"
 
 	"github.com/golang-collections/collections/stack"
 )
 
 // JSONWriter represents a writer to a JSON file
 type JSONWriter struct {
-	fileName string
-	root     interface{}
-	st       stack.Stack
+	fileName   string
+	root       interface{}
+	st         stack.Stack
+	categLines []map[string]string
 }
 
 // NewJSONWriter creates a new struct
-func NewJSONWriter(filename string) *JSONWriter {
-	w := JSONWriter{fileName: filename}
+func NewJSONWriter(filename string, categLines []map[string]string) *JSONWriter {
+	w := JSONWriter{fileName: filename, categLines: categLines}
+	w.initCateg()
 	return &w
 }
 
@@ -52,6 +55,9 @@ func (wr *JSONWriter) getElement(name string, elType ElemType) interface{} {
 		el = make([]interface{}, 0)
 	case SINGLE:
 		el = name
+	case EMPTY:
+		el = nil
+
 	default:
 	}
 	return el
@@ -63,7 +69,9 @@ func (wr *JSONWriter) insertElement(name string, current interface{}, elem inter
 	if name != "" {
 		m := make(map[string]interface{})
 		arr := make([]interface{}, 0)
-		arr = append(arr, elem)
+		if elem != nil {
+			arr = append(arr, elem)
+		}
 		m[name] = arr
 		el = arr
 	}
@@ -164,4 +172,64 @@ func (wr *JSONWriter) WriteAndClose(_ string) error {
 	result, err := js.MarshalIndent(wr.root, "", "  ")
 	fmt.Printf("RESULT %v, %v\n", string(result), err)
 	return nil
+}
+
+// WriteExtras writes additional files
+func (wr *JSONWriter) WriteExtras() {
+	if wr.categLines == nil {
+		return
+	}
+	result, err := js.MarshalIndent(wr.root, "", "  ")
+	fmt.Printf("CATEGORIES %v, %v\n", string(result), err)
+}
+
+func (wr *JSONWriter) initCateg() map[string]interface{} {
+	root := make(map[string]interface{})
+	cat := make([]map[string]interface{}, 0)
+	for _, line := range wr.categLines {
+		el := make(map[string]interface{})
+		el["id"] = line["id"]
+		elName := make(map[string]interface{})
+		strNames := strings.Split(line["name"], "|")
+		for _, l := range strNames {
+			vals := strings.Split(l, ":")
+			elName[vals[0]] = vals[1]
+		}
+		el["name"] = elName
+		el["hidden"] = line["hidden"] == "true"
+		el["morality_level"] = line["morality_level"]
+		el["parental_control"] = line["parental_control"] == "true"
+		el["adult"] = line["adult"] == "true"
+		el["downloadable"] = line["downloadable"] == "true"
+		el["offline"] = line["offline"] == "true"
+		el["metadata"] = make(map[string]interface{})
+		el["images"] = make([]interface{}, 0)
+		el["parent_id"] = ""
+		el["assets"] = make([]interface{}, 0)
+
+		cat = append(cat, el)
+	}
+	root["categories"] = cat
+	wr.root = root
+	return root
+}
+
+// AddAsset adds an asset to the categories list
+func (wr *JSONWriter) AddAsset(id string, categName string) error {
+	r := wr.root.(map[string]interface{})
+	categs := r["categories"].([]map[string]interface{})
+	for _, categ := range categs {
+		name := categ["name"].(map[string]interface{})["por"]
+		if name == categName {
+			assets := categ["assets"].([]interface{})
+			assets = append(assets, id)
+			categ["assets"] = assets
+			return nil
+		}
+	}
+	uuid, err := UUID("", nil, nil, nil)
+	if err != nil {
+		return err
+	}
+	return fmt.Errorf("Categoria nao existente: inclua na aba 'categories'. Nome: [%s], sugestao de id: [%s] ", categName, uuid[0])
 }

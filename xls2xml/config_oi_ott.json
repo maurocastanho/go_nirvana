@@ -116,7 +116,8 @@
                                         {"Name": "lname", "Value": "Slattery", "function": "fixed"},
                                         {"Name": "role", "Value": "actor", "function": "fixed"}
                                     ],
-                                    "at_type": "ott", "Value": "", "function": "fixed"
+                                    "at_type": "ott",
+                                    "field": "Elenco", "function": "split", "function2": "surname_name"
                                 },
 
 

@@ -167,3 +167,8 @@ func (wr *XMLWriter) WriteAndClose(filename string) (err error) {
 	}
 	return
 }
+
+// WriteExtras writes additional files
+func (wr *XMLWriter) WriteExtras() {
+
+}

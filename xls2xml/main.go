@@ -19,6 +19,7 @@ const (
 	SINGLE = 0
 	MAP    = iota
 	ARRAY  = iota
+	EMPTY  = iota
 )
 
 // DATEFORMAT is the default date format
@@ -44,6 +45,7 @@ type Writer interface {
 	Write(string) error
 	WriteAttr(string, string, string) error
 	WriteAndClose(string) error
+	WriteExtras()
 }
 
 // type Ams struct {
@@ -129,72 +131,11 @@ func main() {
 	}
 	defer closeSheet(f)
 
-	header := make([]string, 0)
-	lines := make([]map[string]string, 0)
-	// Get all the rows in the Sheet1.
-	idx := 1
-	sheet := f.Sheet(0)
-
-	//redBold := styles.New(
-	//	styles.NumberFormatID(15),
-	//)
-	//
-	//// Add formatting to xlsx
-	//styleID := f.AddStyles(redBold)
-
-	ncols, nrows := sheet.Dimension()
-	for row := 0; row < nrows; row++ {
-		if row == 0 {
-			var col int
-			for col = 0; col < ncols; col++ {
-				colCell := sheet.Cell(col, row)
-				if colCell.String() == "" {
-					break
-				}
-				header = append(header, strings.TrimSpace(colCell.String()))
-			}
-			ncols = col
-		} else {
-			line := make(map[string]string)
-			lines = append(lines, line)
-			for col := 0; col < ncols; col++ {
-				colCell := sheet.Cell(col, row)
-				cellF := ""
-				x, err1 := colCell.Date()
-				// TODO evitar o teste de prefixo
-				if err1 != nil || !strings.HasPrefix(header[col], "Data") {
-					cellF = strings.TrimSpace(colCell.String())
-				} else {
-					cellF = x.UTC().Format(DATEFORMAT)
-				}
-				//fmt.Printf("+++> %s\n", cellF)
-				line[header[col]] = cellF
-			}
-			line["file_number"] = fmt.Sprintf("%d", idx)
-			idx++
-		}
-	}
+	sheetIdx := 0
+	lines := readSheetIdx(f, sheetIdx)
 	fmt.Printf("--==>>> %#v\n", lines)
 
-	file, err := os.Open(confFile)
-	if err != nil {
-		logError(err)
-		os.Exit(3)
-	}
-
-	buf, err := ioutil.ReadAll(file)
-	if err != nil {
-		logError(err)
-		os.Exit(3)
-	}
-	newBuf := latinToUTF8(buf)
-
-	var json map[string]interface{}
-	err = js.Unmarshal([]byte(newBuf), &json)
-	if err != nil {
-		logError(err)
-		os.Exit(4)
-	}
+	json := readConfig(confFile)
 
 	options = make(map[string]string)
 	opts := json["options"].([]interface{})
@@ -216,6 +157,10 @@ func main() {
 		logError(fmt.Errorf("ERRO ao procurar name_field nas options [%#v]", options))
 		return
 	}
+
+	categField1, _ := options["categ_field1"]
+	categField2, _ := options["categ_field2"]
+
 	// fmt.Printf("**> [%v]: %#v\n", filenameField, options)
 	// fmt.Printf("***> [%v]: %#v\n", filename, line)
 
@@ -230,6 +175,11 @@ func main() {
 	JsonXlsMap := jsonXls.(map[string]interface{})
 	var rs *ReportSheet
 
+	var wrCateg *JSONWriter
+	if outType == "json" {
+		categLines := readSheetIdx(f, 2)
+		wrCateg = NewJSONWriter(filename, categLines)
+	}
 	nLines := len(lines)
 	for i := 0; i < nLines; {
 		_, _ = fmt.Fprintf(os.Stderr, "Processando linha %d... ", i+1)
@@ -257,7 +207,8 @@ func main() {
 		}
 		filename = path.Join(outDir, lastName)
 		_, _ = fmt.Fprintf(os.Stderr, "%s\n", filename)
-		err = process(json, pack, createWriter(outType, filename, "", 0, 0))
+		wr := createWriter(f, 2, outType, filename, "", 0, 0)
+		err = process(json, pack, wr)
 		if err != nil {
 			logError(err)
 			success = -1
@@ -303,15 +254,39 @@ func main() {
 			}
 		}
 		if rs != nil && okXls {
+			log("Writing " + filename)
 			err = rs.WriteAndClose("")
 			if err != nil {
 				logError(err)
 				success = -1
 			}
 		}
+		if wrCateg != nil {
+			log("Processing categories...")
+			for k := range pack {
+				categ1 := pack[k][categField1]
+				err = wrCateg.AddAsset(pack[k][nameField], categ1)
+				if err != nil {
+					logError(err)
+					success = -1
+				}
+				categ2 := pack[k][categField2]
+				err = wrCateg.AddAsset(pack[k][nameField], categ2)
+				if err != nil {
+					logError(err)
+					success = -1
+				}
+			}
+		}
 	}
-
-	if success != 0 {
+	if success == 0 {
+		if rs != nil {
+			rs.WriteExtras()
+		}
+		if wrCateg != nil {
+			wrCateg.WriteExtras()
+		}
+	} else {
 		log("*******************************************")
 		log("*    ATENCAO: ERROS NO PROCESSAMENTO      *")
 		log("*******************************************")
@@ -320,14 +295,91 @@ func main() {
 	os.Exit(success)
 }
 
-func createWriter(outType string, filename string, sheetname string, ncols int, nlines int) Writer {
+func readSheetIdx(f *xlsx.Spreadsheet, sheetIdx int) []map[string]string {
+	header := make([]string, 0)
+	lines := make([]map[string]string, 0)
+	// Get all the rows in the Sheet1.
+	idx := 1
+	sheet := f.Sheet(sheetIdx)
+
+	//redBold := styles.New(
+	//	styles.NumberFormatID(15),
+	//)
+	//
+	//// Add formatting to xlsx
+	//styleID := f.AddStyles(redBold)
+
+	lines = readSheet(sheet, header, lines, idx)
+	return lines
+}
+
+func readSheet(sheet xlsx.Sheet, header []string, lines []map[string]string, idx int) []map[string]string {
+	ncols, nrows := sheet.Dimension()
+	for row := 0; row < nrows; row++ {
+		if row == 0 {
+			var col int
+			for col = 0; col < ncols; col++ {
+				colCell := sheet.Cell(col, row)
+				if colCell.String() == "" {
+					break
+				}
+				header = append(header, strings.TrimSpace(colCell.String()))
+			}
+			ncols = col
+		} else {
+			line := make(map[string]string)
+			lines = append(lines, line)
+			for col := 0; col < ncols; col++ {
+				colCell := sheet.Cell(col, row)
+				cellF := ""
+				x, err1 := colCell.Date()
+				// TODO evitar o teste de prefixo
+				if err1 != nil || !strings.HasPrefix(header[col], "Data") {
+					cellF = strings.TrimSpace(colCell.String())
+				} else {
+					cellF = x.UTC().Format(DATEFORMAT)
+				}
+				//fmt.Printf("+++> %s\n", cellF)
+				line[header[col]] = cellF
+			}
+			line["file_number"] = fmt.Sprintf("%d", idx)
+			idx++
+		}
+	}
+	return lines
+}
+
+func readConfig(confFile string) map[string]interface{} {
+	file, err := os.Open(confFile)
+	if err != nil {
+		logError(err)
+		os.Exit(3)
+	}
+
+	buf, err := ioutil.ReadAll(file)
+	if err != nil {
+		logError(err)
+		os.Exit(3)
+	}
+	newBuf := latinToUTF8(buf)
+
+	var json map[string]interface{}
+	err = js.Unmarshal([]byte(newBuf), &json)
+	if err != nil {
+		logError(err)
+		os.Exit(4)
+	}
+	return json
+}
+
+func createWriter(f *xlsx.Spreadsheet, idx int, outType string, filename string, sheetname string, ncols int, nlines int) Writer {
 	var writer Writer
 	switch outType {
 	case "xml":
 		systemID := options["doctype_system"]
 		writer = NewXMLWriter(filename, systemID)
 	case "json":
-		writer = NewJSONWriter(filename)
+		writer = NewJSONWriter(filename, nil)
 	case "report":
 		writer = NewReportSheet(filename, sheetname, ncols, nlines)
 	}
@@ -389,9 +441,22 @@ func processMap(json jsonT, lines []lineT, wr Writer) (err2 []error) {
 			return
 		}
 	}
+	var elType ElemType = MAP
 	sAux, okSattr := json["single_attrs"]
+	el, okEl := json["elements"]
+	var elements []interface{}
+	if okEl {
+		elements = el.([]interface{})
+		if len(elements) == 0 {
+			elType = EMPTY
+		} else {
+			elType = MAP
+		}
+
+		log(fmt.Sprintf("ELEMENTS %s [%v] %d", name, elements, len(elements)))
+	}
 	if hasName && !okSattr {
-		err := wr.StartElem(name, MAP)
+		err := wr.StartElem(name, elType)
 		err2 = appendErrors(err2, err)
 		if err != nil {
 			return
@@ -407,14 +472,12 @@ func processMap(json jsonT, lines []lineT, wr Writer) (err2 []error) {
 		sAttrs := sAux.([]interface{})
 		err2 = appendErrors(err2, processSingleAttrs(name, sAttrs, lines, commonAttrs, wr)...)
 	}
-	el, ok := json["elements"]
-	if ok {
-		elements := el.([]interface{})
+	if okEl && len(elements) > 0 {
 		err2 = appendErrors(err2, processArray(name, elements, lines, wr)...)
 	}
 
-	co, ok := json["comments"]
-	if ok {
+	co, okComm := json["comments"]
+	if okComm {
 		err := wr.StartComment("DTH")
 		if err != nil {
 			err2 = appendErrors(err2, err)
@@ -553,9 +616,9 @@ func processSingleAttr(nameElem string, json jsonT, lines []lineT, commonAttrs m
 		var err2 error
 		for _, procVal := range procVals {
 			if isOtt {
-				at, ok := json["attrs"]
+				at, oka := json["attrs"]
 				var attrs []interface{}
-				if ok {
+				if oka {
 					attrs = at.([]interface{})
 				}
 				err2, done = writeElem(wr, attrs, lines, name, procVal)
@@ -580,12 +643,16 @@ func processSingleAttr(nameElem string, json jsonT, lines []lineT, commonAttrs m
 }
 
 func writeElem(wr Writer, attrs []interface{}, lines []lineT, name string, procVal string) (error, bool) {
+	processed := processAttrs(name, attrs, lines, wr)
+	if len(processed) == 0 {
+		return nil, false
+	}
 	err := wr.StartElem(name, SINGLE)
 	if err != nil {
 		return nil, true
 	}
 	var err3 []error
-	err3 = appendErrors(err3, processAttrs(name, attrs, lines, wr)...)
+	err3 = appendErrors(err3, processed...)
 	if len(err3) > 0 {
 		return err3[0], true
 	}

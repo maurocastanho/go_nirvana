@@ -55,6 +55,7 @@ func (rs *ReportSheet) OpenOutput() (err error) {
 			return
 		}
 	}
+	err = nil
 	// Open the XLSX file using file name
 	rs.xlsFile = xlsx.New()
 	rs.sheet = rs.xlsFile.AddSheet(rs.sheetName)
@@ -102,12 +103,12 @@ func (rs *ReportSheet) OpenOutput() (err error) {
 }
 
 // StartElem is unused
-func (rs *ReportSheet) StartElem(string, ElemType) error {
+func (rs *ReportSheet) StartElem(_ string, _ ElemType) error {
 	return nil
 }
 
 // EndElem is unused
-func (rs *ReportSheet) EndElem(string) error {
+func (rs *ReportSheet) EndElem(_ string) error {
 	return nil
 }
 
@@ -193,7 +194,7 @@ func (rs *ReportSheet) WriteAttr(name string, value string, vtype string) error 
 }
 
 // WriteAndClose writes the xls file and closes it
-func (rs *ReportSheet) WriteAndClose(string) (err error) {
+func (rs *ReportSheet) WriteAndClose(_ string) (err error) {
 	err = rs.xlsFile.SaveAs(rs.filepath)
 	if err != nil {
 		return
@@ -252,4 +253,8 @@ func (rs *ReportSheet) Suffix() string {
 func (rs *ReportSheet) NewLine() {
 	rs.currentRow++
 	rs.currentCol = 0
+}
+
+// WriteExtras writes additional files
+func (rs *ReportSheet) WriteExtras() {
 }

@@ -55,6 +55,7 @@ func InitFunctions() {
 		"map":             Map,
 		"convert":         Convert,
 		"janela_repasse":  JanelaRepasse,
+		"attr_map":        AttrMap,
 	}
 }
 
@@ -482,6 +483,46 @@ func Map(value string, line lineT, json jsonT, options optionsT) ([]string, erro
 	if err != nil {
 		return ERR, err
 	}
+	val, err := getField(value, "field2", line, json, options)
+	if err != nil {
+		return ERR, err
+	}
+
+	return []string{key, val}, nil
+}
+
+// AttrMap returns a map with a field for attribute name and other for value
+func AttrMap(value string, line lineT, json jsonT, options optionsT) ([]string, error) {
+	key, err := getField(value, "attr_list", line, json, options)
+	if err != nil {
+		return ERR, err
+	}
+	//values := strings.Split(key, ",")
+	//attrs, ok := json["attrs"].([]interface{})
+	//if !ok {
+	//	return ERR, fmt.Errorf("atributo 'attrs' nao encontrado em funcao attrmap")
+	//}
+	//var attrMap map[string]string
+	//for _, s := range values {
+	//	for _, at := range attrs {
+	//		attr := at.(map[string]interface{})
+	//		name, ok := attr["Name"].(string)
+	//		if !ok {
+	//			return ERR, fmt.Errorf("atributo 'Name' nao encontrado em funcao attrmap")
+	//		}
+	//		fun, err2 := getField(value, "attr_list", line, json, options)
+	//		if err2 != nil {
+	//			return ERR, err2
+	//		}
+	//
+	//		res, err := function("", line, json, options)
+	//		if err != nil {
+	//			return res, err
+	//		}
+	//		result = append(result, res...)
+	//		attrMap[name], err = Process(fun, line, json, options)
+	//	}
+	//}
 	val, err := getField(value, "field2", line, json, options)
 	if err != nil {
 		return ERR, err
