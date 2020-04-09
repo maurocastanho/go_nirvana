@@ -100,7 +100,7 @@ func (wr *XMLWriter) WriteAttr(name string, value string, vtype string) error {
 }
 
 // EndElem closes a XML element
-func (wr *XMLWriter) EndElem(name string) error {
+func (wr *XMLWriter) EndElem(name string, _ ElemType) error {
 	wr.ec.Do(wr.w.EndElem(name))
 	if wr.ec.Err != nil {
 		return fmt.Errorf(wr.ec.Error())

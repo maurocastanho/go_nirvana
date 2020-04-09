@@ -44,7 +44,6 @@
             {"Name": "BILLING ID", "field": "Billing ID", "function": "field_raw"}
         ]
     },
-
     "elements": [
         {
             "Name": "assets",
@@ -54,10 +53,12 @@
                         {"Name": "id", "function": "uuid"},
                         {
                             "Name": "title",
+                            "no_array": "",
                             "elements": [{"attrs": [{"Name": "por", "function": "field", "field": "Título"}]}]
                         },
                         {
                             "Name": "synopsis",
+                            "no_array": "",
                             "elements": [{"attrs": [{"Name": "por", "function": "field", "field": "Sinopse EPG"}]}]
                         },
                         {"Name": "morality_level", "function": "field", "field": "Classificação Etária", "type": "int"},
@@ -68,6 +69,7 @@
                         {"Name": "season_episode_number", "function": "field", "field": "Número do Episódio", "filter": "Número do Episódio != ''"},
                         {
                             "Name": "genres",
+                            "elem_val": "",
                             "elements": [{"attrs": [{"Name": "genres", "function": "field", "field": "Genero 1"}]}]
                         },
                         {"Name": "available_from", "function": "timestamp", "field": "Data Início", "type": "int"},
@@ -75,6 +77,8 @@
                         {"Name": "images", "elements": []},
                         {
                             "Name": "metadata",
+                            "no_array": "",
+
                             "elements": [
                                 {
                                     "attrs": [
@@ -128,10 +132,45 @@
                                         {"Name": "technology", "function": "fixed", "Value": "MP4"},
                                         {
                                             "Name": "audio_languages",
-                                            "elements": [{"attrs": [{"Name": "audio_languages", "function": "split", "function2": "field", "field": "Linguagem Áudio"}]}]
+                                            "elem_val": "",
+                                            "elements": [
+                                                {
+                                                    "Name": "kkk",
+                                                    "only_values": "",
+                                                    "attrs": [
+                                                        {
+                                                            "Name": "audio_languages1",
+                                                            "function": "split",
+                                                            "function2": "field",
+                                                            "field": "Língua Original",
+                                                            "atype": "value"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+
+                                        },
+                                        {
+                                            "Name": "subtitles_languages",
+                                            "elem_val": "",
+                                            "elements": [
+                                                {
+                                                    "Name": "kkk",
+                                                    "only_values": "",
+                                                    "attrs": [
+                                                        {
+                                                            "Name": "audio_languages1",
+                                                            "function": "split",
+                                                            "function2": "field",
+                                                            "field": "Linguagem Legenda",
+                                                            "atype": "value"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+
                                         },
 
-                                        {"Name": "subtitles_languages", "function": "split", "function2": "field", "field": "Linguagem Legenda"},
                                         {"Name": "metadata", "elements": []}
                                     ]
                                 }

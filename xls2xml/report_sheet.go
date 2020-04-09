@@ -108,7 +108,7 @@ func (rs *ReportSheet) StartElem(_ string, _ ElemType) error {
 }
 
 // EndElem is unused
-func (rs *ReportSheet) EndElem(_ string) error {
+func (rs *ReportSheet) EndElem(_ string, _ ElemType) error {
 	return nil
 }
 
