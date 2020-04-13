@@ -1,6 +1,8 @@
 {
-    "options": [{"Name": "filename_field", "Value": "ID"},
+    "options": [
+        {"Name": "filename_field", "Value": "ID"},
         {"Name": "name_field", "Value": "Título Original"},
+        {"Name": "id_field", "Value": "uuid_box"},
         {"Name": "categ_field1", "Value": "Genero 1"},
         {"Name": "categ_field2", "Value": "Genero 2"}
     ],
@@ -50,7 +52,7 @@
             "elements": [
                 {
                     "attrs": [
-                        {"Name": "id", "function": "uuid"},
+                        {"Name": "id", "function": "field", "field": "uuid_box"},
                         {
                             "Name": "title",
                             "no_array": "",

@@ -201,10 +201,11 @@ func (wr *JSONWriter) WriteExtras() {
 	if wr.categLines == nil {
 		return
 	}
-	//result, err := js.MarshalIndent(wr.root, "", "  ")
-	//fmt.Printf("CATEGORIES %v, %v\n", string(result), err)
 	res, _ := js.MarshalIndent(consolidated, "", "  ")
 	fmt.Printf("RESULT %v\n", string(res))
+
+	result, err := js.MarshalIndent(wr.root, "", "  ")
+	fmt.Printf("CATEGORIES %v, %v\n", string(result), err)
 
 }
 

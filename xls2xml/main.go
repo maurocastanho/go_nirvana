@@ -158,6 +158,7 @@ func main() {
 		logError(fmt.Errorf("ERRO ao procurar name_field nas options [%#v]", options))
 		return
 	}
+	idField, _ := options["id_field"]
 
 	categField1, _ := options["categ_field1"]
 	categField2, _ := options["categ_field2"]
@@ -266,13 +267,13 @@ func main() {
 			log("Processing categories...")
 			for k := range pack {
 				categ1 := pack[k][categField1]
-				err = wrCateg.AddAsset(pack[k][nameField], categ1)
+				err = wrCateg.AddAsset(pack[k][idField], categ1)
 				if err != nil {
 					logError(err)
 					success = -1
 				}
 				categ2 := pack[k][categField2]
-				err = wrCateg.AddAsset(pack[k][nameField], categ2)
+				err = wrCateg.AddAsset(pack[k][idField], categ2)
 				if err != nil {
 					logError(err)
 					success = -1
