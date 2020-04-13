@@ -9,6 +9,8 @@ import (
 	"github.com/golang-collections/collections/stack"
 )
 
+var consolidated interface{}
+
 // JSONWriter represents a writer to a JSON file
 type JSONWriter struct {
 	fileName   string
@@ -47,13 +49,13 @@ func (wr *JSONWriter) StartElem(name string, elType ElemType) error {
 func (wr *JSONWriter) getElement(name string, elType ElemType) interface{} {
 	var el interface{}
 	switch elType {
-	case MAP, MAP_NOARR:
+	case Map, MapNoarr:
 		el = make(map[string]interface{})
-	case ARRAY:
+	case Array:
 		el = make([]interface{}, 0)
-	case SINGLE:
+	case Single:
 		el = name
-	case EMPTY:
+	case Empty:
 		el = nil
 
 	default:
@@ -64,7 +66,7 @@ func (wr *JSONWriter) getElement(name string, elType ElemType) interface{} {
 // insertElement inserts a new elemnt into the structure
 func (wr *JSONWriter) insertElement(name string, current interface{}, elem interface{}, elType ElemType) {
 	var el interface{}
-	if elType == MAP || elem == nil {
+	if elType == Map || elem == nil {
 		arr := make([]interface{}, 0)
 		if elem != nil {
 			arr = append(arr, elem)
@@ -174,11 +176,23 @@ func (wr *JSONWriter) OpenOutput() error {
 
 // WriteAndClose writes the structure in an external file
 func (wr *JSONWriter) WriteAndClose(_ string) error {
-	result, err := js.MarshalIndent(wr.root, "", "  ")
-	if err != nil {
-		logError(err)
+
+	if consolidated == nil {
+		consolidated = wr.root
+	} else {
+
+		arrCons := consolidated.(map[string]interface{})["assets"].([]interface{})
+		arrNew := wr.root.(map[string]interface{})["assets"].([]interface{})[0]
+
+		consolidated.(map[string]interface{})["assets"] = append(arrCons, arrNew)
+		wr.root = consolidated
 	}
-	fmt.Printf("RESULT %v\n", string(result))
+
+	//result, err := js.MarshalIndent(wr.root, "", "  ")
+	//if err != nil {
+	//	logError(err)
+	//}
+	//fmt.Printf("RESULT %v\n", string(result))
 	return nil
 }
 
@@ -189,6 +203,9 @@ func (wr *JSONWriter) WriteExtras() {
 	}
 	//result, err := js.MarshalIndent(wr.root, "", "  ")
 	//fmt.Printf("CATEGORIES %v, %v\n", string(result), err)
+	res, _ := js.MarshalIndent(consolidated, "", "  ")
+	fmt.Printf("RESULT %v\n", string(res))
+
 }
 
 func (wr *JSONWriter) initCateg() map[string]interface{} {

@@ -52,7 +52,7 @@ func InitFunctions() {
 		"eval":            Eval,
 		"split":           Split,
 		"uuid":            UUID,
-		"map":             Map,
+		"map":             MapField,
 		"convert":         Convert,
 		"janela_repasse":  JanelaRepasse,
 		"attr_map":        AttrMap,
@@ -478,7 +478,7 @@ func Split(value string, line lineT, json jsonT, options optionsT) ([]string, er
 }
 
 // Map returns a map with a field for key and other for value
-func Map(value string, line lineT, json jsonT, options optionsT) ([]string, error) {
+func MapField(value string, line lineT, json jsonT, options optionsT) ([]string, error) {
 	key, err := getField(value, "field1", line, json, options)
 	if err != nil {
 		return ERR, err

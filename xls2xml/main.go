@@ -16,15 +16,15 @@ import (
 
 // Element types
 const (
-	SINGLE    = 0
-	MAP       = iota
-	ARRAY     = iota
-	EMPTY     = iota
-	MAP_NOARR = iota
+	Single   = 0
+	Map      = iota
+	Array    = iota
+	Empty    = iota
+	MapNoarr = iota
 )
 
-// DATEFORMAT is the default date format
-const DATEFORMAT = "01-02-06"
+// Dateformat is the default date format
+const Dateformat = "01-02-06"
 
 type lineT map[string]string
 
@@ -338,7 +338,7 @@ func readSheet(sheet xlsx.Sheet, header []string, lines []map[string]string, idx
 				if err1 != nil || !strings.HasPrefix(header[col], "Data") {
 					cellF = strings.TrimSpace(colCell.String())
 				} else {
-					cellF = x.UTC().Format(DATEFORMAT)
+					cellF = x.UTC().Format(Dateformat)
 				}
 				//fmt.Printf("+++> %s\n", cellF)
 				line[header[col]] = cellF
@@ -442,7 +442,7 @@ func processMap(json jsonT, lines []lineT, wr Writer) (err2 []error) {
 			return
 		}
 	}
-	var elType ElemType = MAP
+	var elType ElemType = Map
 	_, onlyValues := json["only_values"]
 	_, noArr := json["no_array"]
 	_, okValattr := json["elem_val"]
@@ -452,14 +452,14 @@ func processMap(json jsonT, lines []lineT, wr Writer) (err2 []error) {
 	if okEl {
 		elements = el.([]interface{})
 		if len(elements) == 0 {
-			elType = EMPTY
+			elType = Empty
 		} else {
 			if okValattr {
-				elType = ARRAY
+				elType = Array
 			} else if noArr {
-				elType = MAP_NOARR
+				elType = MapNoarr
 			} else {
-				elType = MAP
+				elType = Map
 			}
 		}
 		log(fmt.Sprintf("ELEMENTS %s [%v] %d", name, elements, len(elements)))
@@ -657,7 +657,7 @@ func writeElem(wr Writer, attrs []interface{}, lines []lineT, name string, procV
 	if len(processed) == 0 {
 		return nil, false
 	}
-	err := wr.StartElem(name, SINGLE)
+	err := wr.StartElem(name, Single)
 	if err != nil {
 		return nil, true
 	}
@@ -670,16 +670,16 @@ func writeElem(wr Writer, attrs []interface{}, lines []lineT, name string, procV
 	if procVal != "" {
 		err1 := wr.Write(procVal)
 		if err1 != nil {
-			_ = wr.EndElem(name, SINGLE)
+			_ = wr.EndElem(name, Single)
 			return err1, true
 		}
 	}
-	err2 := wr.EndElem(name, SINGLE)
+	err2 := wr.EndElem(name, Single)
 	return err2, false
 }
 
 func writeAttr(wr Writer, nameElem string, commonAttrs map[string]interface{}, name string, procVal string, vtype string) (error, bool) {
-	err := wr.StartElem(nameElem, SINGLE)
+	err := wr.StartElem(nameElem, Single)
 	if err != nil {
 		return nil, true
 	}
@@ -697,7 +697,7 @@ func writeAttr(wr Writer, nameElem string, commonAttrs map[string]interface{}, n
 	if err != nil {
 		return nil, true
 	}
-	err = wr.EndElem(nameElem, SINGLE)
+	err = wr.EndElem(nameElem, Single)
 	if err != nil {
 		return nil, true
 	}
@@ -743,7 +743,7 @@ func processSingleElement(json jsonT, lines []lineT, wr Writer) (err []error) {
 	if ok {
 		procVals, err2 := Process(function, lines, json, options)
 		err = appendErrors(err, err2)
-		err2 = wr.StartElem(name, SINGLE)
+		err2 = wr.StartElem(name, Single)
 		if err2 != nil {
 			err = appendErrors(err, err2)
 			return
@@ -752,11 +752,11 @@ func processSingleElement(json jsonT, lines []lineT, wr Writer) (err []error) {
 			err1 := wr.Write(procVal)
 			if err1 != nil {
 				err = appendErrors(err, err1)
-				_ = wr.EndElem(name, SINGLE)
+				_ = wr.EndElem(name, Single)
 				return
 			}
 		}
-		err2 = wr.EndElem(name, SINGLE)
+		err2 = wr.EndElem(name, Single)
 		if err2 != nil {
 			err = appendErrors(err, err2)
 			return
