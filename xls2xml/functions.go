@@ -220,7 +220,7 @@ func FieldNoQuotes(value string, line lineT, json jsonT, options optionsT) ([]st
 // Suffix removes the extension and appends a suffix to a field, returning the result
 func Suffix(value string, line lineT, json jsonT, options optionsT) ([]string, error) {
 	suffix, ok := json["suffix"].(string)
-	if !ok || suffix == "" {
+	if !ok {
 		return ERR, fmt.Errorf("sufixo nao encontrado: [%v]", json)
 	}
 	field, err := Field(value, line, json, options)
@@ -237,13 +237,13 @@ func Suffix(value string, line lineT, json jsonT, options optionsT) ([]string, e
 	if extIdx > 0 {
 		noacc = noacc[0:extIdx]
 	}
-
+	prefix, _ := options["inpPrefix"]
 	val := ReplaceAllNonAlpha(noacc)
 	val, err = truncateSuffix(val, suffix, line, json, options)
 	if err != nil {
 		return ERR, err
 	}
-	result := fmt.Sprintf("%s%s", val, suffix)
+	result := fmt.Sprintf("%s%s%s", prefix, val, suffix)
 	//	fmt.Printf("-->> %v\n", result)
 	return []string{result}, nil
 }

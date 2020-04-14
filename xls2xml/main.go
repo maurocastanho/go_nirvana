@@ -90,6 +90,7 @@ const errSuffix = "_ERRO"
 func main() {
 
 	InitFunctions()
+	options = make(map[string]string)
 
 	inputXls := ""
 	confFile := ""
@@ -127,9 +128,12 @@ func main() {
 		}
 	}
 
-	if inpPrefix == "" && outType == "json" {
-		logError(fmt.Errorf("input_prefix e' obrigatorio para tipo JSON"))
-		os.Exit(1)
+	if outType == "json" {
+		if inpPrefix == "" {
+			logError(fmt.Errorf("input_prefix e' obrigatorio para tipo JSON"))
+			os.Exit(1)
+		}
+		options["inpPrefix"] = inpPrefix
 	}
 
 	f, err := xlsx.Open(inputXls)
@@ -145,7 +149,6 @@ func main() {
 
 	json := readConfig(confFile)
 
-	options = make(map[string]string)
 	opts := json["options"].([]interface{})
 	for _, el := range opts {
 		// fmt.Printf(">>>> %T\n", el)

@@ -11,9 +11,9 @@
       "id": "b4101d20-2789-474e-9222-dc51207d45f8",
       "images": [
         {
-          "id": "godzilla_king_otm_hd_net_evod_sub_ptbr.ts",
-          "location": "godzilla_king_otm_hd_net_evod_sub_ptbr_thumb.jpg",
-          "poster": "thumb"
+          "id": "23051aa2-9857-44f1-8b5e-82df6b683a88",
+          "location": "nirvana/godzilla_king_otm_hd_net_evod_sub_ptbr_thumb.jpg",
+          "type": "thumb"
         }
       ],
       "medias": [
@@ -21,8 +21,8 @@
           "audio_languages": [
             "eng"
           ],
-          "id": "a08e3806-bd28-4fbd-bc69-963440720809",
-          "location": "godzilla_king_otm_hd_net_evod_sub_ptbr_trailer.ts",
+          "id": "2ea96dfd-ad4a-4351-bfd5-b2745d41c53a",
+          "location": "nirvana/godzilla_king_otm_hd_net_evod_sub_ptbr_trailer",
           "metadata": [],
           "subtitles_languages": [
             "por"
@@ -42,8 +42,8 @@
       },
       "morality_level": 12,
       "season_episode_number": "1",
-      "season_id": "ab1bcd89-67a2-44f1-bce8-13c7c8d9120f",
-      "series_id": "18159549-9f35-45d0-b660-feaf5b255aab",
+      "season_id": "68c6ef61-f702-4491-a835-0ab7dc9f648e",
+      "series_id": "b6167613-98cb-4390-8571-39cec6f46eb2",
       "synopsis": {
         "por": "Sinopse integral"
       },
@@ -62,9 +62,9 @@
       "id": "d65ef34c-8722-4113-b039-fd147d3bbe2c",
       "images": [
         {
-          "id": "godzilla_king_otm_hd_net_evod_sub_ptbr2.ts",
-          "location": "godzilla_king_otm_hd_net_evod_sub_ptbr2_thumb.jpg",
-          "poster": "thumb"
+          "id": "fb4516ac-6f1e-4851-853d-dd575a7e4de0",
+          "location": "nirvana/godzilla_king_otm_hd_net_evod_sub_ptbr2_thumb.jpg",
+          "type": "thumb"
         }
       ],
       "medias": [
@@ -72,8 +72,8 @@
           "audio_languages": [
             "eng"
           ],
-          "id": "56ee32d4-30b3-4295-86dc-d1fdbe196574",
-          "location": "godzilla_king_otm_hd_net_evod_sub_ptbr_trailer.ts",
+          "id": "66cc038e-9b3b-414e-8a82-065fceda5205",
+          "location": "nirvana/godzilla_king_otm_hd_net_evod_sub_ptbr_trailer",
           "metadata": [],
           "subtitles_languages": [
             "por"
@@ -93,8 +93,8 @@
       },
       "morality_level": 12,
       "season_episode_number": "2",
-      "season_id": "f9f0f81e-74ab-43ff-bef5-572393a64216",
-      "series_id": "3622f621-6dbd-4386-a8d3-4e81c6255ae9",
+      "season_id": "c4338b32-dc03-4b2e-98c0-53eb53b729a6",
+      "series_id": "e50bef41-1165-4776-8b52-509403f8f86c",
       "synopsis": {
         "por": "Sinopse integral"
       },
@@ -113,9 +113,9 @@
       "id": "ca333c25-ed86-493f-a4b1-1defee5b8349",
       "images": [
         {
-          "id": "godzilla_king_otm_hd_net_evod_sub_ptbr2.ts",
-          "location": "godzilla_king_otm_hd_net_evod_sub_ptbr2_thumb.jpg",
-          "poster": "thumb"
+          "id": "7d3be747-0bd9-4046-8296-10cb74883c75",
+          "location": "nirvana/godzilla_king_otm_hd_net_evod_sub_ptbr2_thumb.jpg",
+          "type": "thumb"
         }
       ],
       "medias": [
@@ -123,8 +123,8 @@
           "audio_languages": [
             "eng"
           ],
-          "id": "02ba980e-2512-4407-a7ee-0049451c8740",
-          "location": "godzilla_king_otm_hd_net_evod_sub_ptbr_trailer.ts",
+          "id": "b68edd9a-b756-4f86-a3cf-38ae1143b8d7",
+          "location": "nirvana/godzilla_king_otm_hd_net_evod_sub_ptbr_trailer",
           "metadata": [],
           "subtitles_languages": [
             "por"
@@ -144,8 +144,8 @@
       },
       "morality_level": 12,
       "season_episode_number": "2",
-      "season_id": "38437e54-4949-4536-b4c6-35150e05bd2a",
-      "series_id": "787113fe-a118-4070-a58e-1c57fb66b6ba",
+      "season_id": "0c84dc57-0004-4b10-baf3-b8a045bfe1ba",
+      "series_id": "3e51d592-59a0-462a-a065-9a84efde7e61",
       "synopsis": {
         "por": "Sinopse integral"
       },

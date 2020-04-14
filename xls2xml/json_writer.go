@@ -205,24 +205,20 @@ func (wr *JSONWriter) WriteExtras() {
 	}
 	res, _ := js.MarshalIndent(consolidated, "", "  ")
 	fileAssets := path.Join(wr.fileName, "assets.json")
+	log("Writing " + fileAssets)
 	err := ioutil.WriteFile(fileAssets, res, 0644)
 	if err != nil {
 		err = fmt.Errorf("ERRO ao criar arquivo [%#v]: %v", fileAssets, err)
 		return
 	}
-
-	fmt.Printf("RESULT %v\n", string(res))
-
 	result, err := js.MarshalIndent(wr.root, "", "  ")
 	fileCateg := path.Join(wr.fileName, "categories.json")
+	log("Writing " + fileCateg)
 	err = ioutil.WriteFile(fileCateg, result, 0644)
 	if err != nil {
 		err = fmt.Errorf("ERRO ao criar arquivo [%#v]: %v", fileCateg, err)
 		return
 	}
-
-	fmt.Printf("CATEGORIES %v, %v\n", string(result), err)
-
 }
 
 func (wr *JSONWriter) initCateg() map[string]interface{} {
