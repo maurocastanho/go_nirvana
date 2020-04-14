@@ -129,16 +129,19 @@
                                         },
                                         {
                                             "Name": "actors",
-                                            "function": "split",
-                                            "function2": "field",
-                                            "field": "Elenco"
+                                            "elem_val": "",
+                                            "elements": [{"attrs": [{"Name": "actors",
+                                                "function2": "field",
+                                                "function": "split", "field": "Elenco"}]}]
                                         },
                                         {
                                             "Name": "directors",
-                                            "function": "split",
-                                            "function2": "field",
-                                            "field": "Diretor"
+                                            "elem_val": "",
+                                            "elements": [{"attrs": [{"Name": "actors",
+                                                "function2": "field",
+                                                "function": "split", "field": "Diretor"}]}]
                                         }
+
                                     ]
                                 }
                         ]},
