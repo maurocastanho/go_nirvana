@@ -477,7 +477,7 @@ func Split(value string, line lineT, json jsonT, options optionsT) ([]string, er
 	return result, nil
 }
 
-// Map returns a map with a field for key and other for value
+// MapField returns a map with a field for key and other for value
 func MapField(value string, line lineT, json jsonT, options optionsT) ([]string, error) {
 	key, err := getField(value, "field1", line, json, options)
 	if err != nil {

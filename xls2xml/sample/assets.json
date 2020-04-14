@@ -1,33 +1,157 @@
 {
-    "assets": [
+  "assets": [
+    {
+      "adult": false,
+      "available_from": 1567641600000,
+      "available_to": 1568764800000,
+      "duration": 7901000,
+      "genres": [
+        "Fantasia"
+      ],
+      "id": "b4101d20-2789-474e-9222-dc51207d45f8",
+      "images": [
         {
-            "id": "411d2ada-21da-11ea-978f-2e728ce88125",
-            "title": {"por": "Br'oz"},
-            "synopsis": {"por": "Arquivo de teste."},
-            "morality_level": 16,
-            "adult": false,
-            "duration": 438000,
-            "series_id": "",
-            "season_id": "",
-            "genres": ["show", "pop"],
-            "available_from": 1575601200000,
-            "available_to": 1607223600000,
-            "categories": ["03bda820-beaf-4573-b8a9-6250a586feb5"],
-            "metadata": {"rights": []},
-            "images": [
-            ],
-            "medias": [
-                {
-                    "id": "c89c5700-21db-11ea-978f-2e728ce88125",
-                    "type": "MEDIA",
-                    "title": "db633322-21db-11ea-978f-2e728ce88125",
-                    "location": "teste_2/video_teste.mp4",
-                    "technology": "MP4",
-                    "audio_languages": ["por"],
-                    "subtitles_languages": [],
-                    "metadata": {}
-                }
-            ]
+          "id": "godzilla_king_otm_hd_net_evod_sub_ptbr.ts",
+          "location": "godzilla_king_otm_hd_net_evod_sub_ptbr_thumb.jpg",
+          "poster": "thumb"
         }
-    ]
+      ],
+      "medias": [
+        {
+          "audio_languages": [
+            "eng"
+          ],
+          "id": "a08e3806-bd28-4fbd-bc69-963440720809",
+          "location": "godzilla_king_otm_hd_net_evod_sub_ptbr_trailer.ts",
+          "metadata": [],
+          "subtitles_languages": [
+            "por"
+          ],
+          "technology": "MP4",
+          "title": "Trailer",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": "Ziyi Zhang",
+        "country": "USA",
+        "directors": "Michael Dougherty",
+        "release_year": "2019",
+        "rights": [],
+        "summary": "Sinopse resumida"
+      },
+      "morality_level": 12,
+      "season_episode_number": "1",
+      "season_id": "ab1bcd89-67a2-44f1-bce8-13c7c8d9120f",
+      "series_id": "18159549-9f35-45d0-b660-feaf5b255aab",
+      "synopsis": {
+        "por": "Sinopse integral"
+      },
+      "title": {
+        "por": "Godzilla: King Of The Monsters"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1567641600000,
+      "available_to": 1568764800000,
+      "duration": 7901000,
+      "genres": [
+        "Fantasia"
+      ],
+      "id": "d65ef34c-8722-4113-b039-fd147d3bbe2c",
+      "images": [
+        {
+          "id": "godzilla_king_otm_hd_net_evod_sub_ptbr2.ts",
+          "location": "godzilla_king_otm_hd_net_evod_sub_ptbr2_thumb.jpg",
+          "poster": "thumb"
+        }
+      ],
+      "medias": [
+        {
+          "audio_languages": [
+            "eng"
+          ],
+          "id": "56ee32d4-30b3-4295-86dc-d1fdbe196574",
+          "location": "godzilla_king_otm_hd_net_evod_sub_ptbr_trailer.ts",
+          "metadata": [],
+          "subtitles_languages": [
+            "por"
+          ],
+          "technology": "MP4",
+          "title": "Trailer",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": "Ziyi Zhang",
+        "country": "USA",
+        "directors": "Michael Dougherty",
+        "release_year": "2019",
+        "rights": [],
+        "summary": "Sinopse resumida"
+      },
+      "morality_level": 12,
+      "season_episode_number": "2",
+      "season_id": "f9f0f81e-74ab-43ff-bef5-572393a64216",
+      "series_id": "3622f621-6dbd-4386-a8d3-4e81c6255ae9",
+      "synopsis": {
+        "por": "Sinopse integral"
+      },
+      "title": {
+        "por": "Godzilla: King Of The Monsters 2"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1567641600000,
+      "available_to": 1568764800000,
+      "duration": 7901000,
+      "genres": [
+        "Fantasia"
+      ],
+      "id": "ca333c25-ed86-493f-a4b1-1defee5b8349",
+      "images": [
+        {
+          "id": "godzilla_king_otm_hd_net_evod_sub_ptbr2.ts",
+          "location": "godzilla_king_otm_hd_net_evod_sub_ptbr2_thumb.jpg",
+          "poster": "thumb"
+        }
+      ],
+      "medias": [
+        {
+          "audio_languages": [
+            "eng"
+          ],
+          "id": "02ba980e-2512-4407-a7ee-0049451c8740",
+          "location": "godzilla_king_otm_hd_net_evod_sub_ptbr_trailer.ts",
+          "metadata": [],
+          "subtitles_languages": [
+            "por"
+          ],
+          "technology": "MP4",
+          "title": "Trailer",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": "Ziyi Zhang",
+        "country": "USA",
+        "directors": "Michael Dougherty",
+        "release_year": "2019",
+        "rights": [],
+        "summary": "Sinopse resumida"
+      },
+      "morality_level": 12,
+      "season_episode_number": "2",
+      "season_id": "38437e54-4949-4536-b4c6-35150e05bd2a",
+      "series_id": "787113fe-a118-4070-a58e-1c57fb66b6ba",
+      "synopsis": {
+        "por": "Sinopse integral"
+      },
+      "title": {
+        "por": "Godzilla: King Of The Monsters 3"
+      }
+    }
+  ]
 }

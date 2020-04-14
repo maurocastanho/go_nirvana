@@ -76,7 +76,27 @@
                         },
                         {"Name": "available_from", "function": "timestamp", "field": "Data Início", "type": "int"},
                         {"Name": "available_to", "function": "timestamp", "field": "Data Fim", "type": "int"},
-                        {"Name": "images", "elements": []},
+                        {
+                            "Name": "images",
+                            "elements": [
+                                {"attrs":[
+                                    {"Name": "id", "function": "field", "field": "ID"},
+                                    {"Name": "poster", "function": "fixed", "Value": "poster"},
+                                    {"Name": "location", "function": "field_suffix", "field": "ID", "suffix":  "_poster.jpg"}
+                                ]},
+                                {"attrs":[
+                                    {"Name": "id", "function": "field", "field": "ID"},
+                                    {"Name": "poster", "function": "fixed", "Value": "landscape"},
+                                    {"Name": "location", "function": "field_suffix", "field": "ID", "suffix":  "_landscape.jpg"}
+                                ]},
+                                {"attrs":[
+                                    {"Name": "id", "function": "field", "field": "ID"},
+                                    {"Name": "poster", "function": "fixed", "Value": "thumb"},
+                                    {"Name": "location", "function": "field_suffix", "field": "ID", "suffix":  "_thumb.jpg"}
+                                ]}
+                            ]
+
+                        },
                         {
                             "Name": "metadata",
                             "no_array": "",

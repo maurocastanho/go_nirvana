@@ -3,6 +3,8 @@ package main
 import (
 	js "encoding/json"
 	"fmt"
+	"io/ioutil"
+	"path"
 	"strconv"
 	"strings"
 
@@ -202,9 +204,23 @@ func (wr *JSONWriter) WriteExtras() {
 		return
 	}
 	res, _ := js.MarshalIndent(consolidated, "", "  ")
+	fileAssets := path.Join(wr.fileName, "assets.json")
+	err := ioutil.WriteFile(fileAssets, res, 0644)
+	if err != nil {
+		err = fmt.Errorf("ERRO ao criar arquivo [%#v]: %v", fileAssets, err)
+		return
+	}
+
 	fmt.Printf("RESULT %v\n", string(res))
 
 	result, err := js.MarshalIndent(wr.root, "", "  ")
+	fileCateg := path.Join(wr.fileName, "categories.json")
+	err = ioutil.WriteFile(fileCateg, result, 0644)
+	if err != nil {
+		err = fmt.Errorf("ERRO ao criar arquivo [%#v]: %v", fileCateg, err)
+		return
+	}
+
 	fmt.Printf("CATEGORIES %v, %v\n", string(result), err)
 
 }

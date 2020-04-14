@@ -1,18 +1,46 @@
 {
-    "categories": [
-        {
-            "id": "03bda820-beaf-4573-b8a9-6250a586feb5",
-            "name": {"por": "show", "eng":"show"},
-            "hidden": false,
-            "morality_level": 0,
-            "parental_control": false,
-            "adult": false,
-            "downloadable": false,
-            "offline": false,
-            "metadata": {},
-            "images": [],
-            "parent_id": "",
-            "assets": ["411d2ada-21da-11ea-978f-2e728ce88125"]
-        }
-    ]
+  "categories": [
+    {
+      "adult": false,
+      "assets": [
+        "b4101d20-2789-474e-9222-dc51207d45f8",
+        "d65ef34c-8722-4113-b039-fd147d3bbe2c",
+        "ca333c25-ed86-493f-a4b1-1defee5b8349"
+      ],
+      "downloadable": false,
+      "hidden": false,
+      "id": "03bda820-beaf-4573-b8a9-6250a586feb5",
+      "images": [],
+      "metadata": {},
+      "morality_level": "0",
+      "name": {
+        "eng": "Fantasy",
+        "por": "Fantasia"
+      },
+      "offline": false,
+      "parent_id": "",
+      "parental_control": false
+    },
+    {
+      "adult": false,
+      "assets": [
+        "b4101d20-2789-474e-9222-dc51207d45f8",
+        "d65ef34c-8722-4113-b039-fd147d3bbe2c",
+        "ca333c25-ed86-493f-a4b1-1defee5b8349"
+      ],
+      "downloadable": false,
+      "hidden": false,
+      "id": "3a65ffe4-61cf-4db7-af67-a3461e270bbb",
+      "images": [],
+      "metadata": {},
+      "morality_level": "0",
+      "name": {
+        "eng": "Adventure",
+        "por": "Aventura"
+      },
+      "offline": false,
+      "parent_id": "",
+      "parental_control": false
+    }
+  ]
 }

@@ -95,10 +95,12 @@ func main() {
 	confFile := ""
 	outType := ""
 	outDir := ""
+	inpPrefix := ""
 	flag.StringVar(&inputXls, "xls", "", "Arquivo XLS de entrada")
 	flag.StringVar(&confFile, "config", "", "Arquivo JSON de configuracao")
 	flag.StringVar(&outType, "outtype", "xml", "Tipo de output (xml ou json). Default: xml")
 	flag.StringVar(&outDir, "outdir", "", "Diretorio de saida")
+	flag.StringVar(&inpPrefix, "input_prefix", "", "Prefixo para os arquivos de media (diretorio)")
 	flag.Parse()
 
 	if inputXls == "" {
@@ -123,6 +125,11 @@ func main() {
 			logError(fmt.Errorf("diretorio [%s] nao e' valido", outDir))
 			os.Exit(1)
 		}
+	}
+
+	if inpPrefix == "" && outType == "json" {
+		logError(fmt.Errorf("input_prefix e' obrigatorio para tipo JSON"))
+		os.Exit(1)
 	}
 
 	f, err := xlsx.Open(inputXls)
@@ -180,7 +187,7 @@ func main() {
 	var wrCateg *JSONWriter
 	if outType == "json" {
 		categLines := readSheetIdx(f, 2)
-		wrCateg = NewJSONWriter(filename, categLines)
+		wrCateg = NewJSONWriter(outDir, categLines)
 	}
 	nLines := len(lines)
 	for i := 0; i < nLines; {
