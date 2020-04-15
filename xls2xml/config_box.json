@@ -78,18 +78,18 @@
                         {"Name": "available_to", "function": "timestamp", "field": "Data Fim", "type": "int"},
                         {
                             "Name": "images",
-                            "elements": [
-                                {"attrs":[
+                            "elements_array": [
+                                {"group_attrs":[
                                     {"Name": "id", "function": "field", "field": "uuid_poster"},
                                     {"Name": "type", "function": "fixed", "Value": "poster"},
                                     {"Name": "location", "function": "field", "field": "ID", "suffix":  "_poster.jpg"}
                                 ]},
-                                {"attrs":[
+                                {"group_attrs":[
                                     {"Name": "id", "function": "field", "field": "uuid_landscape"},
                                     {"Name": "type", "function": "fixed", "Value": "landscape"},
                                     {"Name": "location", "function": "field_suffix", "field": "ID", "suffix":  "_landscape.jpg"}
                                 ]},
-                                {"attrs":[
+                                {"group_attrs":[
                                     {"Name": "id", "function": "field", "field": "uuid_thumb"},
                                     {"Name": "type", "function": "fixed", "Value": "thumb"},
                                     {"Name": "location", "function": "field_suffix", "field": "ID", "suffix":  "_thumb.jpg"}
@@ -147,11 +147,58 @@
                         ]},
                         {
                             "Name": "medias",
-                            "elements": [
+                            "elements_array": [
                                 {
-                                    "attrs": [
-                                        {"Name": "id", "function": "uuid"},
+                                    "group_attrs": [
+                                        {"Name": "id", "function": "field", "field": "uuid_box"},
                                         {"Name": "type", "function": "fixed", "Value": "MEDIA"},
+                                        {"Name": "title", "function": "field", "field": "Título"},
+                                        {"Name": "location", "function": "field_suffix", "field": "ID", "suffix": ""},
+                                        {"Name": "technology", "function": "fixed", "Value": "MP4"},
+                                        {
+                                            "Name": "audio_languages",
+                                            "elem_val": "",
+                                            "elements": [
+                                                {
+                                                    "attrs": [
+                                                        {
+                                                            "Name": "audio_languages1",
+                                                            "function": "split",
+                                                            "function2": "field",
+                                                            "field": "Linguagem Áudio",
+                                                            "atype": "value"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+
+                                        },
+                                        {
+                                            "Name": "subtitles_languages",
+                                            "elem_val": "",
+                                            "elements": [
+                                                {
+                                                    "attrs": [
+                                                        {
+                                                            "Name": "audio_languages1",
+                                                            "function": "split",
+                                                            "function2": "field",
+                                                            "field": "Linguagem Legenda",
+                                                            "atype": "value"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+
+                                        },
+
+                                        {"Name": "metadata", "elements": []}
+                                    ]
+                                },
+                                {
+                                    "group_attrs": [
+                                        {"Name": "id", "function": "field", "field": "uuid_trailer"},
+                                        {"Name": "type", "function": "fixed", "Value": "TRAILER"},
                                         {"Name": "title", "function": "fixed", "Value": "Trailer"},
                                         {"Name": "location", "function": "field_suffix", "field": "Trailer ID", "suffix": ""},
                                         {"Name": "technology", "function": "fixed", "Value": "MP4"},

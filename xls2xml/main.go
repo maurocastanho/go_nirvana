@@ -21,6 +21,7 @@ const (
 	Array    = iota
 	Empty    = iota
 	MapNoarr = iota
+	MapArray = iota
 )
 
 // Dateformat is the default date format
@@ -47,6 +48,8 @@ type Writer interface {
 	WriteAttr(string, string, string) error
 	WriteAndClose(string) error
 	WriteExtras()
+	StartMap()
+	EndMap()
 }
 
 // type Ams struct {
@@ -459,6 +462,7 @@ func processMap(json jsonT, lines []lineT, wr Writer) (err2 []error) {
 	_, okValattr := json["elem_val"]
 	sAux, okSattr := json["single_attrs"]
 	el, okEl := json["elements"]
+	okElArray := false
 	var elements []interface{}
 	if okEl {
 		elements = el.([]interface{})
@@ -474,7 +478,14 @@ func processMap(json jsonT, lines []lineT, wr Writer) (err2 []error) {
 			}
 		}
 		log(fmt.Sprintf("ELEMENTS %s [%v] %d", name, elements, len(elements)))
+	} else {
+		el, okElArray = json["elements_array"]
+		if okElArray {
+			elements = el.([]interface{})
+			elType = Array
+		}
 	}
+
 	isMap := hasName && !okSattr && !onlyValues
 	if isMap {
 		err := wr.StartElem(name, elType)
@@ -489,12 +500,19 @@ func processMap(json jsonT, lines []lineT, wr Writer) (err2 []error) {
 		attrs := at.([]interface{})
 		err2 = appendErrors(err2, processAttrs(name, attrs, lines, wr)...)
 	}
+	atgr, ok := json["group_attrs"]
+	if ok {
+		attrs := atgr.([]interface{})
+		err2 = appendErrors(err2, processGroupAttrs(name, attrs, lines, wr)...)
+	}
 	if okSattr {
 		sAttrs := sAux.([]interface{})
 		err2 = appendErrors(err2, processSingleAttrs(name, sAttrs, lines, commonAttrs, wr)...)
 	}
-	if okEl && len(elements) > 0 {
-		err2 = appendErrors(err2, processArray(name, elements, lines, wr)...)
+	if len(elements) > 0 {
+		if okEl || okElArray {
+			err2 = appendErrors(err2, processArray(name, elements, lines, wr)...)
+		}
 	}
 
 	co, okComm := json["comments"]
@@ -516,10 +534,11 @@ func processMap(json jsonT, lines []lineT, wr Writer) (err2 []error) {
 	for k, v := range json {
 		// Ignore already processed elements
 		switch k {
-		case "attrs":
-		case "single_attrs":
-		case "elements":
-		case "comments":
+		case "attrs",
+			"single_attrs",
+			"elements",
+			"elements_array",
+			"comments":
 			continue
 		}
 		switch vv := v.(type) {
@@ -559,9 +578,9 @@ func processMap(json jsonT, lines []lineT, wr Writer) (err2 []error) {
 
 func processOptions(json jsonT) error {
 	for k, v := range json {
-		switch v := v.(type) {
+		switch vv := v.(type) {
 		case string:
-			options[k] = v
+			options[k] = vv
 		default:
 			return fmt.Errorf("opcao tem que ser string, chave: [%s]", k)
 		}
@@ -578,9 +597,36 @@ func processAttrs(_ string, json []interface{}, lines []lineT, wr Writer) (err2 
 				err2 = appendErrors(err2, processMap(vv, lines, wr)...)
 				continue
 			}
+			_, okElArr := vv["elements_array"]
+			if okElArr {
+				err2 = appendErrors(err2, processMap(vv, lines, wr)...)
+				continue
+			}
 			err2 = appendErrors(err2, processAttr(vv, lines, wr)...)
 		}
 	}
+	return
+}
+
+func processGroupAttrs(_ string, json []interface{}, lines []lineT, wr Writer) (err2 []error) {
+	wr.StartElem("a", MapArray)
+	for _, v := range json {
+		switch vv := v.(type) {
+		case map[string]interface{}:
+			_, okEl := vv["elements"]
+			if okEl {
+				err2 = appendErrors(err2, processMap(vv, lines, wr)...)
+				continue
+			}
+			_, okElArr := vv["elements_array"]
+			if okElArr {
+				err2 = appendErrors(err2, processMap(vv, lines, wr)...)
+				continue
+			}
+			err2 = appendErrors(err2, processAttr(vv, lines, wr)...)
+		}
+	}
+	wr.EndElem("a", MapArray)
 	return
 }
 

@@ -38,6 +38,14 @@ func (wr *JSONWriter) Filename() string {
 	return wr.fileName
 }
 
+func (wr *JSONWriter) StartMap() {
+	wr.getElement("", Map)
+}
+
+func (wr *JSONWriter) EndMap() {
+	wr.EndElem("", Map)
+}
+
 // StartElem starts a JSON element
 func (wr *JSONWriter) StartElem(name string, elType ElemType) error {
 	fmt.Printf("%s -> %v\n", name, elType)
@@ -51,7 +59,7 @@ func (wr *JSONWriter) StartElem(name string, elType ElemType) error {
 func (wr *JSONWriter) getElement(name string, elType ElemType) interface{} {
 	var el interface{}
 	switch elType {
-	case Map, MapNoarr:
+	case Map, MapNoarr, MapArray:
 		el = make(map[string]interface{})
 	case Array:
 		el = make([]interface{}, 0)
@@ -66,7 +74,7 @@ func (wr *JSONWriter) getElement(name string, elType ElemType) interface{} {
 }
 
 // insertElement inserts a new elemnt into the structure
-func (wr *JSONWriter) insertElement(name string, current interface{}, elem interface{}, elType ElemType) {
+func (wr *JSONWriter) insertElement(name string, elem interface{}, elType ElemType) {
 	var el interface{}
 	if elType == Map || elem == nil {
 		arr := make([]interface{}, 0)
@@ -77,6 +85,7 @@ func (wr *JSONWriter) insertElement(name string, current interface{}, elem inter
 	} else {
 		el = elem
 	}
+	current := wr.st.Peek()
 	if current == nil {
 		m := make(map[string]interface{})
 		wr.root = m
@@ -87,7 +96,9 @@ func (wr *JSONWriter) insertElement(name string, current interface{}, elem inter
 			c[name] = el
 			fmt.Printf("** %#v\n", c)
 		case []interface{}:
+			wr.st.Pop()
 			c = append(c, el)
+			wr.st.Push(c)
 			fmt.Printf("** %#v\n", c)
 		case interface{}:
 			fmt.Printf("**== %#v\n", c)
@@ -155,8 +166,7 @@ func (wr *JSONWriter) WriteAttr(name string, value string, vtype string) error {
 func (wr *JSONWriter) EndElem(name string, elType ElemType) error {
 	fmt.Printf("End: %s\n", name)
 	el := wr.st.Pop()
-	current := wr.st.Peek()
-	wr.insertElement(name, current, el, elType)
+	wr.insertElement(name, el, elType)
 
 	return nil
 }

@@ -11,6 +11,16 @@
       "id": "b4101d20-2789-474e-9222-dc51207d45f8",
       "images": [
         {
+          "id": "c0c55502-eb14-4997-8ee9-aa4b09c2d4a6",
+          "location": "godzilla_king_otm_hd_net_evod_sub_ptbr.ts",
+          "type": "poster"
+        },
+        {
+          "id": "70156e26-6f1c-4bbc-9f27-e144916e7f0c",
+          "location": "nirvana/godzilla_king_otm_hd_net_evod_sub_ptbr_landscape.jpg",
+          "type": "landscape"
+        },
+        {
           "id": "23051aa2-9857-44f1-8b5e-82df6b683a88",
           "location": "nirvana/godzilla_king_otm_hd_net_evod_sub_ptbr_thumb.jpg",
           "type": "thumb"
@@ -21,7 +31,21 @@
           "audio_languages": [
             "eng"
           ],
-          "id": "9e6cdb37-039a-4388-8e17-be9d0cdcd93f",
+          "id": "b4101d20-2789-474e-9222-dc51207d45f8",
+          "location": "nirvana/godzilla_king_otm_hd_net_evod_sub_ptbr",
+          "metadata": [],
+          "subtitles_languages": [
+            "por"
+          ],
+          "technology": "MP4",
+          "title": "Godzilla: King Of The Monsters",
+          "type": "MEDIA"
+        },
+        {
+          "audio_languages": [
+            "eng"
+          ],
+          "id": "237e4936-6a73-42ef-880f-336e6ade2bb8",
           "location": "nirvana/godzilla_king_otm_hd_net_evod_sub_ptbr_trailer",
           "metadata": [],
           "subtitles_languages": [
@@ -29,7 +53,7 @@
           ],
           "technology": "MP4",
           "title": "Trailer",
-          "type": "MEDIA"
+          "type": "TRAILER"
         }
       ],
       "metadata": {
@@ -57,8 +81,8 @@
       },
       "morality_level": 12,
       "season_episode_number": "1",
-      "season_id": "3f27fb28-a965-4f18-b8e9-3a5a3a6c69c4",
-      "series_id": "bb776d0e-a1e6-446e-b72b-7c1b0eee84f7",
+      "season_id": "5f50c08e-e445-4c34-bb8f-a2b6f39724fe",
+      "series_id": "eca81894-b3d9-451e-a700-5c74452544d5",
       "synopsis": {
         "por": "Sinopse integral"
       },
@@ -77,6 +101,16 @@
       "id": "d65ef34c-8722-4113-b039-fd147d3bbe2c",
       "images": [
         {
+          "id": "18ef3b37-da6c-4b81-b7be-0ee352b7748d",
+          "location": "godzilla_king_otm_hd_net_evod_sub_ptbr2.ts",
+          "type": "poster"
+        },
+        {
+          "id": "8b4736ae-a375-4d35-937e-0facd33c65d3",
+          "location": "nirvana/godzilla_king_otm_hd_net_evod_sub_ptbr2_landscape.jpg",
+          "type": "landscape"
+        },
+        {
           "id": "fb4516ac-6f1e-4851-853d-dd575a7e4de0",
           "location": "nirvana/godzilla_king_otm_hd_net_evod_sub_ptbr2_thumb.jpg",
           "type": "thumb"
@@ -87,7 +121,21 @@
           "audio_languages": [
             "eng"
           ],
-          "id": "b58e5bb7-b172-48e7-90b0-d59513314652",
+          "id": "d65ef34c-8722-4113-b039-fd147d3bbe2c",
+          "location": "nirvana/godzilla_king_otm_hd_net_evod_sub_ptbr2",
+          "metadata": [],
+          "subtitles_languages": [
+            "por"
+          ],
+          "technology": "MP4",
+          "title": "Godzilla: King Of The Monsters 2",
+          "type": "MEDIA"
+        },
+        {
+          "audio_languages": [
+            "eng"
+          ],
+          "id": "f68933b1-3745-4ef4-9617-fabb34fa9f01",
           "location": "nirvana/godzilla_king_otm_hd_net_evod_sub_ptbr_trailer",
           "metadata": [],
           "subtitles_languages": [
@@ -95,7 +143,7 @@
           ],
           "technology": "MP4",
           "title": "Trailer",
-          "type": "MEDIA"
+          "type": "TRAILER"
         }
       ],
       "metadata": {
@@ -123,8 +171,8 @@
       },
       "morality_level": 12,
       "season_episode_number": "2",
-      "season_id": "031e2b66-c10e-4e54-81c7-53fb5220ab17",
-      "series_id": "20b42eb7-2be5-4130-9164-ff14281ae68a",
+      "season_id": "460a3bab-2599-4211-b8a0-e8bbddccc021",
+      "series_id": "22203c4c-65a2-493f-9998-737c24998a66",
       "synopsis": {
         "por": "Sinopse integral"
       },
@@ -143,6 +191,16 @@
       "id": "ca333c25-ed86-493f-a4b1-1defee5b8349",
       "images": [
         {
+          "id": "23051aa2-9857-44f1-8b5e-82df6b683a88",
+          "location": "godzilla_king_otm_hd_net_evod_sub_ptbr2.ts",
+          "type": "poster"
+        },
+        {
+          "id": "fc5ae815-f7ba-4119-aa04-56de8b934996",
+          "location": "nirvana/godzilla_king_otm_hd_net_evod_sub_ptbr2_landscape.jpg",
+          "type": "landscape"
+        },
+        {
           "id": "7d3be747-0bd9-4046-8296-10cb74883c75",
           "location": "nirvana/godzilla_king_otm_hd_net_evod_sub_ptbr2_thumb.jpg",
           "type": "thumb"
@@ -153,7 +211,21 @@
           "audio_languages": [
             "eng"
           ],
-          "id": "ce520e48-8d3f-43f5-84df-e00499a41ac7",
+          "id": "ca333c25-ed86-493f-a4b1-1defee5b8349",
+          "location": "nirvana/godzilla_king_otm_hd_net_evod_sub_ptbr2",
+          "metadata": [],
+          "subtitles_languages": [
+            "por"
+          ],
+          "technology": "MP4",
+          "title": "Godzilla: King Of The Monsters 3",
+          "type": "MEDIA"
+        },
+        {
+          "audio_languages": [
+            "eng"
+          ],
+          "id": "b61c9269-f918-4f90-9550-d795b58e7281",
           "location": "nirvana/godzilla_king_otm_hd_net_evod_sub_ptbr_trailer",
           "metadata": [],
           "subtitles_languages": [
@@ -161,7 +233,7 @@
           ],
           "technology": "MP4",
           "title": "Trailer",
-          "type": "MEDIA"
+          "type": "TRAILER"
         }
       ],
       "metadata": {
@@ -189,8 +261,8 @@
       },
       "morality_level": 12,
       "season_episode_number": "2",
-      "season_id": "2281cc1f-0e3d-4033-839d-420c61caed9d",
-      "series_id": "f8fb5834-0cdd-417e-b6ba-e8530587586e",
+      "season_id": "b55aa244-db7b-483e-8a38-b125bfb2c4c2",
+      "series_id": "bb16480e-d4f0-4b85-8c75-02fe6ee489d2",
       "synopsis": {
         "por": "Sinopse integral"
       },

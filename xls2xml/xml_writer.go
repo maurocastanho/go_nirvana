@@ -25,6 +25,14 @@ type XMLWriter struct {
 	status   int
 }
 
+func (wr *XMLWriter) StartMap() {
+
+}
+
+func (wr *XMLWriter) EndMap() {
+
+}
+
 // NewXMLWriter creates a new struct
 func NewXMLWriter(filename string, systemID string) *XMLWriter {
 	w := XMLWriter{fileName: filename, systemID: systemID}

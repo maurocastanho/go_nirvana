@@ -29,6 +29,14 @@ type ReportSheet struct {
 	moneyStyle  styles.DirectStyleID
 }
 
+func (rs *ReportSheet) StartMap() {
+
+}
+
+func (rs *ReportSheet) EndMap() {
+
+}
+
 // NewReportSheet creates a new struct
 func NewReportSheet(filename string, sheetName string, nCols int, nLines int) *ReportSheet {
 	rs := ReportSheet{
