@@ -81,18 +81,13 @@
                             "elements_array": [
                                 {"group_attrs":[
                                     {"Name": "id", "function": "field", "field": "uuid_poster"},
-                                    {"Name": "type", "function": "fixed", "Value": "poster"},
-                                    {"Name": "location", "function": "field", "field": "ID", "suffix":  "_poster.jpg"}
+                                    {"Name": "type", "function": "fixed", "Value": "vod_poster"},
+                                    {"Name": "location", "function": "field_suffix", "field": "ID", "suffix":  "_poster.jpg"}
                                 ]},
                                 {"group_attrs":[
                                     {"Name": "id", "function": "field", "field": "uuid_landscape"},
-                                    {"Name": "type", "function": "fixed", "Value": "landscape"},
+                                    {"Name": "type", "function": "fixed", "Value": "vod_background"},
                                     {"Name": "location", "function": "field_suffix", "field": "ID", "suffix":  "_landscape.jpg"}
-                                ]},
-                                {"group_attrs":[
-                                    {"Name": "id", "function": "field", "field": "uuid_thumb"},
-                                    {"Name": "type", "function": "fixed", "Value": "thumb"},
-                                    {"Name": "location", "function": "field_suffix", "field": "ID", "suffix":  "_thumb.jpg"}
                                 ]}
                             ]
 
@@ -128,6 +123,15 @@
                                             "field": "Sinopse Resumo"
                                         },
                                         {
+                                            "Name": "summary",
+                                            "elem_val": "",
+                                            "elements": [
+                                                {"attrs": [{"Name": "summary",
+                                                "function": "field",
+                                                "field": "Sinopse Resumo"}]}
+                                            ]
+                                        },
+                                        {
                                             "Name": "actors",
                                             "elem_val": "",
                                             "elements": [{"attrs": [{"Name": "actors",
@@ -154,7 +158,7 @@
                                         {"Name": "type", "function": "fixed", "Value": "MEDIA"},
                                         {"Name": "title", "function": "field", "field": "Título"},
                                         {"Name": "location", "function": "field_suffix", "field": "ID", "suffix": ""},
-                                        {"Name": "technology", "function": "fixed", "Value": "MP4"},
+                                        {"Name": "technology", "function": "box_technology", "field": "ID"},
                                         {
                                             "Name": "audio_languages",
                                             "elem_val": "",
@@ -192,54 +196,7 @@
 
                                         },
 
-                                        {"Name": "metadata", "elements": []}
-                                    ]
-                                },
-                                {
-                                    "group_attrs": [
-                                        {"Name": "id", "function": "field", "field": "uuid_trailer"},
-                                        {"Name": "type", "function": "fixed", "Value": "TRAILER"},
-                                        {"Name": "title", "function": "fixed", "Value": "Trailer"},
-                                        {"Name": "location", "function": "field_suffix", "field": "Trailer ID", "suffix": ""},
-                                        {"Name": "technology", "function": "fixed", "Value": "MP4"},
-                                        {
-                                            "Name": "audio_languages",
-                                            "elem_val": "",
-                                            "elements": [
-                                                {
-                                                    "attrs": [
-                                                        {
-                                                            "Name": "audio_languages1",
-                                                            "function": "split",
-                                                            "function2": "field",
-                                                            "field": "Língua Original",
-                                                            "atype": "value"
-                                                        }
-                                                    ]
-                                                }
-                                            ]
-
-                                        },
-                                        {
-                                            "Name": "subtitles_languages",
-                                            "elem_val": "",
-                                            "elements": [
-                                                {
-                                                    "attrs": [
-                                                        {
-                                                            "Name": "audio_languages1",
-                                                            "function": "split",
-                                                            "function2": "field",
-                                                            "field": "Linguagem Legenda",
-                                                            "atype": "value"
-                                                        }
-                                                    ]
-                                                }
-                                            ]
-
-                                        },
-
-                                        {"Name": "metadata", "elements": []}
+                                        {"Name": "metadata", "no_array": "", "elements": [{"attrs": []}]}
                                     ]
                                 }
                             ]

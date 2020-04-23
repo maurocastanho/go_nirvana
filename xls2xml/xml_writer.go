@@ -25,10 +25,12 @@ type XMLWriter struct {
 	status   int
 }
 
+// StartMap starts a map element
 func (wr *XMLWriter) StartMap() {
 
 }
 
+// EndMap closes a map element
 func (wr *XMLWriter) EndMap() {
 
 }

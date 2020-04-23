@@ -38,17 +38,22 @@ func (wr *JSONWriter) Filename() string {
 	return wr.fileName
 }
 
+// StartMap starts a map element
 func (wr *JSONWriter) StartMap() {
 	wr.getElement("", Map)
 }
 
+// EndMap closes a map element
 func (wr *JSONWriter) EndMap() {
-	wr.EndElem("", Map)
+	err := wr.EndElem("", Map)
+	if err != nil {
+		logError(err)
+	}
 }
 
 // StartElem starts a JSON element
 func (wr *JSONWriter) StartElem(name string, elType ElemType) error {
-	fmt.Printf("%s -> %v\n", name, elType)
+	//fmt.Printf("%s -> %v\n", name, elType)
 	el := wr.getElement(name, elType)
 	wr.st.Push(el)
 	// fmt.Printf("--> %#v - %T\n", wr.st, current)
@@ -94,16 +99,16 @@ func (wr *JSONWriter) insertElement(name string, elem interface{}, elType ElemTy
 		switch c := current.(type) {
 		case map[string]interface{}:
 			c[name] = el
-			fmt.Printf("** %#v\n", c)
+			// fmt.Printf("** %#v\n", c)
 		case []interface{}:
 			wr.st.Pop()
 			c = append(c, el)
 			wr.st.Push(c)
-			fmt.Printf("** %#v\n", c)
+			//fmt.Printf("** %#v\n", c)
 		case interface{}:
 			fmt.Printf("**== %#v\n", c)
 		default:
-			fmt.Printf("**** %#v\n", c)
+			//fmt.Printf("**** %#v\n", c)
 		}
 	}
 }
@@ -151,20 +156,20 @@ func (wr *JSONWriter) WriteAttr(name string, value string, vtype string) error {
 			c = append(c, value)
 			wr.st.Pop()
 			wr.st.Push(c)
-			fmt.Printf("** %#v\n", c)
+			//fmt.Printf("** %#v\n", c)
 		case interface{}:
-			fmt.Printf("**== %#v\n", c)
+			//fmt.Printf("**== %#v\n", c)
 		default:
-			fmt.Printf("*********** %#v\n", c)
+			//fmt.Printf("*********** %#v\n", c)
 		}
 	}
-	fmt.Printf("\"%s\": %s\n", name, value)
+	//fmt.Printf("\"%s\": %s\n", name, value)
 	return nil
 }
 
 // EndElem closes a JSON element
 func (wr *JSONWriter) EndElem(name string, elType ElemType) error {
-	fmt.Printf("End: %s\n", name)
+	//fmt.Printf("End: %s\n", name)
 	el := wr.st.Pop()
 	wr.insertElement(name, el, elType)
 

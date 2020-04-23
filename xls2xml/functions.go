@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"path"
 	"regexp"
 	"strconv"
 	"strings"
@@ -56,6 +57,7 @@ func InitFunctions() {
 		"convert":         Convert,
 		"janela_repasse":  JanelaRepasse,
 		"attr_map":        AttrMap,
+		"box_technology":  BoxTechnology,
 	}
 }
 
@@ -219,18 +221,20 @@ func FieldNoQuotes(value string, line lineT, json jsonT, options optionsT) ([]st
 
 // Suffix removes the extension and appends a suffix to a field, returning the result
 func Suffix(value string, line lineT, json jsonT, options optionsT) ([]string, error) {
-	suffix, ok := json["suffix"].(string)
-	if !ok {
-		return ERR, fmt.Errorf("sufixo nao encontrado: [%v]", json)
-	}
 	field, err := Field(value, line, json, options)
 	if err != nil {
 		return ERR, err
 	}
+
 	// fmt.Printf("-->> %v\n", field)
 	noacc, err := RemoveAccents(field[0])
 	if err != nil {
 		return ERR, err
+	}
+
+	suffix, _ := json["suffix"].(string)
+	if suffix == "" {
+		suffix = path.Ext(noacc)
 	}
 
 	extIdx := strings.LastIndex(noacc, ".")
@@ -682,6 +686,34 @@ func JanelaRepasse(value string, line lineT, json jsonT, options optionsT) ([]st
 		val = billId[idx : idx+1]
 	}
 	return []string{val}, nil
+}
+
+// BoxTechnology returns the technology of the encoding based on the extension
+func BoxTechnology(value string, line lineT, json jsonT, options optionsT) ([]string, error) {
+	if value != "" {
+		return []string{value}, nil
+	}
+	filename, err := getField(value, "field", line, json, options)
+	if err != nil {
+		return ERR, err
+	}
+	extension := strings.ToLower(path.Ext(filename))
+	result := ""
+	switch extension {
+	case ".mp4":
+		result = "MP4"
+	case ".ts", ".mov":
+		result = "TS"
+	case ".m3u8":
+		result = "HLS"
+	case ".mpd":
+		result = "DASH"
+	case ".ism":
+		result = "HSS"
+	default:
+		return ERR, fmt.Errorf("tecnologia indeterminada para a extensao: [%s]", extension)
+	}
+	return []string{result}, nil
 }
 
 // Undefined returns a value to indicate an undefined function

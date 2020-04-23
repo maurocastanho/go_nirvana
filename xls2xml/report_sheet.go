@@ -29,10 +29,12 @@ type ReportSheet struct {
 	moneyStyle  styles.DirectStyleID
 }
 
+// StartMap starts a map element
 func (rs *ReportSheet) StartMap() {
 
 }
 
+// EndMap closes a map element
 func (rs *ReportSheet) EndMap() {
 
 }

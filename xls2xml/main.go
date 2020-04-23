@@ -148,7 +148,7 @@ func main() {
 
 	sheetIdx := 0
 	lines := readSheetIdx(f, sheetIdx)
-	fmt.Printf("--==>>> %#v\n", lines)
+	//fmt.Printf("--==>>> %#v\n", lines)
 
 	json := readConfig(confFile)
 
@@ -197,7 +197,7 @@ func main() {
 	}
 	nLines := len(lines)
 	for i := 0; i < nLines; {
-		_, _ = fmt.Fprintf(os.Stderr, "Processando linha %d... ", i+1)
+		log(fmt.Sprintf("Processando linha %d... ", i+1))
 		var pack []lineT
 		j := i
 		// Groups lines with the same filename or empty filename
@@ -477,7 +477,7 @@ func processMap(json jsonT, lines []lineT, wr Writer) (err2 []error) {
 				elType = Map
 			}
 		}
-		log(fmt.Sprintf("ELEMENTS %s [%v] %d", name, elements, len(elements)))
+		//log(fmt.Sprintf("ELEMENTS %s [%v] %d", name, elements, len(elements)))
 	} else {
 		el, okElArray = json["elements_array"]
 		if okElArray {
@@ -609,7 +609,10 @@ func processAttrs(_ string, json []interface{}, lines []lineT, wr Writer) (err2 
 }
 
 func processGroupAttrs(_ string, json []interface{}, lines []lineT, wr Writer) (err2 []error) {
-	wr.StartElem("a", MapArray)
+	err2 = appendErrors(err2, wr.StartElem("a", MapArray))
+	if len(err2) > 0 {
+		return
+	}
 	for _, v := range json {
 		switch vv := v.(type) {
 		case map[string]interface{}:
@@ -626,7 +629,7 @@ func processGroupAttrs(_ string, json []interface{}, lines []lineT, wr Writer) (
 			err2 = appendErrors(err2, processAttr(vv, lines, wr)...)
 		}
 	}
-	wr.EndElem("a", MapArray)
+	err2 = appendErrors(err2, wr.EndElem("a", MapArray))
 	return
 }
 
