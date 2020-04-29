@@ -118,7 +118,7 @@ func (wr *JSONWriter) Write(_ string) error {
 }
 
 // WriteAttr writes a subelement
-func (wr *JSONWriter) WriteAttr(name string, value string, vtype string) error {
+func (wr *JSONWriter) WriteAttr(name string, value string, vtype string, _ string) error {
 	current := wr.st.Peek()
 	if current == nil {
 		wr.root = value

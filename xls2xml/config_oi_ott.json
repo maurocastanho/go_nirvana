@@ -73,37 +73,36 @@
                     "elements": [
                         {
                             "Name": "metadata",
-                            "single_attrs": [
-                                {"Name": "assetID", "at_type": "ott", "Value": "1111111", "function": "fixed"},
-                                {"Name": "provideID", "at_type": "ott", "Value": "aaaaa", "function": "fixed"},
+                            "attrs": [
+                                {"Name": "assetID", "at_type": "ott", "function": "assetid", "suffix_number": 1, "prefix": "Provider"},
+                                {"Name": "providerID", "at_type": "ott", "field": "Provider id", "function": "field"},
                                 {"Name": "showType", "at_type": "ott", "Value": "movie", "function": "fixed"},
-                                {"Name": "title", "at_type": "ott", "Value": "title", "function": "fixed"},
                                 {"Name": "title",
                                     "attrs": [{"Name": "language", "Value": "pt", "function": "fixed"}],
-                                    "at_type": "ott", "Value": "title", "function": "fixed"
+                                    "at_type": "ott", "field": "Título em Português", "maxlength": "254", "function": "field"
                                 },
                                 {"Name": "shortTitle",
                                     "attrs": [{"Name": "language", "Value": "pt", "function": "fixed"}],
-                                    "at_type": "ott", "Value": "title", "function": "fixed"
+                                    "at_type": "ott", "field": "Título em Português", "maxlength": "100", "function": "field"
                                 },
                                 {"Name": "reducedTitle",
                                     "attrs": [{"Name": "language", "Value": "pt", "function": "fixed"}],
-                                    "at_type": "ott", "Value": "title", "function": "fixed"
+                                    "at_type": "ott", "field": "Título em Português", "maxlength": "19", "function": "field"
                                 },
                                 {"Name": "summary",
                                     "attrs": [{"Name": "language", "Value": "pt", "function": "fixed"}],
-                                    "at_type": "ott", "Value": "title", "function": "fixed"
+                                    "at_type": "ott", "maxlength": "1024", "field": "Sinopse EPG", "function": "field_no_quotes"
                                 },
                                 {"Name": "shortSummary",
                                     "attrs": [{"Name": "language", "Value": "pt", "function": "fixed"}],
-                                    "at_type": "ott", "Value": "title", "function": "fixed"
+                                    "at_type": "ott", "maxlength": "254", "field": "Sinopse EPG", "function": "field_no_quotes"
                                 },
-                                {"Name": "episodeNumber", "at_type": "ott", "Value": "", "function": "fixed"},
+                                {"Name": "episodeNumber", "at_type": "ott", "field": "Número do Episódio", "function": "field"},
                                 {"Name": "cgmsaLevel", "at_type": "ott", "Value": "copynever", "function": "fixed"},
-                                {"Name": "rating", "at_type": "ott", "Value": "", "function": "fixed"},
-                                {"Name": "runTimeMinutes", "at_type": "ott", "Value": "5", "function": "fixed"},
-                                {"Name": "release_year", "at_type": "ott", "Value": "2014", "function": "fixed"},
-                                {"Name": "countryRegionCode", "at_type": "ott", "Value": "US", "function": "fixed"},
+                                {"Name": "rating", "at_type": "ott", "Options": "L,10,12,14,16,18,ER", "field": "Classificação Etária", "function": "field_validated"},
+                                {"Name": "runTimeMinutes", "at_type": "ott", "field": "Duração", "function": "field", "type": "time_m"},
+                                {"Name": "release_year", "at_type": "ott", "field": "Ano", "function": "field"},
+                                {"Name": "countryRegionCode", "at_type": "ott", "field": "País de Origem", "function": "field"},
 
                                 {"Name": "title",
                                     "attrs": [{"Name": "name", "Value": "Nirvana", "function": "fixed"}],
@@ -117,9 +116,8 @@
                                         {"Name": "role", "Value": "actor", "function": "fixed"}
                                     ],
                                     "at_type": "ott",
-                                    "field": "Elenco", "function": "split", "function2": "surname_name"
+                                    "field": "Elenco", "function": "split", "function2": "empty"
                                 },
-
 
                                 {"Name": "studio", "at_type": "ott", "Value": "UNI", "function": "fixed"},
                                 {"Name": "studioDisplayName", "at_type": "ott", "Value": "Universal", "function": "fixed"},

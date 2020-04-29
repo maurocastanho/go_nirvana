@@ -58,6 +58,10 @@ func InitFunctions() {
 		"janela_repasse":  JanelaRepasse,
 		"attr_map":        AttrMap,
 		"box_technology":  BoxTechnology,
+		"empty":           EmptyFunc,
+		"first_name":      FirstName,
+		"middle_name":     MiddleName,
+		"last_name":       LastName,
 	}
 }
 
@@ -325,6 +329,11 @@ func Date(value string, _ lineT, _ jsonT, _ optionsT) ([]string, error) {
 		return []string{value}, nil
 	}
 	return []string{formatDate(time.Now())}, nil
+}
+
+// Empty returns always a empty value
+func EmptyFunc(_ string, _ lineT, _ jsonT, _ optionsT) ([]string, error) {
+	return []string{""}, nil
 }
 
 // ConvertDate converts a date string from the mm/dd/yy format to the default format
@@ -723,6 +732,50 @@ func Undefined(value string, _ lineT, _ jsonT, _ optionsT) ([]string, error) {
 	}
 	return []string{"##UNDEFINED##"}, fmt.Errorf("funcao indefinida: [%s]", value)
 }
+
+// FirstName returns the first name of a composite name
+func FirstName(value string, _ lineT, _ jsonT, _ optionsT) ([]string, error) {
+	if value != "" {
+		return []string{value}, nil
+	}
+	names := strings.Split(value, " ")
+	result := ""
+	if len(names) >= 1 {
+		result = names[0]
+	}
+	return []string{result}, nil
+}
+
+// LastName returns the first name of a composite name
+func LastName(value string, _ lineT, _ jsonT, _ optionsT) ([]string, error) {
+	if value != "" {
+		return []string{value}, nil
+	}
+	names := strings.Split(value, " ")
+	result := ""
+	length := len(names)
+	if length > 1 {
+		result = names[length-1]
+	}
+	return []string{result}, nil
+}
+
+// MiddleName returns the first name of a composite name
+func MiddleName(value string, _ lineT, _ jsonT, _ optionsT) ([]string, error) {
+	if value != "" {
+		return []string{value}, nil
+	}
+	names := strings.Split(value, " ")
+	result := ""
+	length := len(names)
+	if length > 2 {
+		result = names[1]
+	}
+	return []string{result}, nil
+}
+
+///////////////////////////////
+///////////////////////////////
 
 func getValue(key string, json jsonT) (string, error) {
 	value, ok := json[key].(string)

@@ -69,7 +69,7 @@ func (wr *XMLWriter) Write(value string) error {
 }
 
 // WriteAttr adds an attribute to the current XML attribute
-func (wr *XMLWriter) WriteAttr(name string, value string, vtype string) error {
+func (wr *XMLWriter) WriteAttr(name string, value string, vtype string, attrType string) error {
 	ERRS := "#ERRO#"
 	var val string
 	switch vtype {
@@ -95,6 +95,15 @@ func (wr *XMLWriter) WriteAttr(name string, value string, vtype string) error {
 			break
 		}
 		val = fmt.Sprintf("%d", sec)
+	case "time_m":
+		sec, err := ToTimeSeconds(value)
+		if err != nil {
+			fmt.Printf("%s *--------> %#v\n", name, val)
+			val = ERRS
+			break
+		}
+		min := int64(math.Ceil(float64(sec) / 60.0))
+		val = fmt.Sprintf("%d", min)
 	case "boolean":
 		if value != "true" && value != "false" {
 			val = ERRS
@@ -102,9 +111,19 @@ func (wr *XMLWriter) WriteAttr(name string, value string, vtype string) error {
 		}
 		val = value
 	}
-	wr.ec.Do(wr.w.WriteAttr(xw.Attr{Name: name, Value: val}))
-	if wr.ec.Err != nil {
-		return fmt.Errorf(wr.ec.Error())
+
+	if attrType == "ott" && val != "" {
+		wr.ec.Do(
+			wr.Write(val),
+		)
+		if wr.ec.Err != nil {
+			return fmt.Errorf(wr.ec.Error())
+		}
+	} else {
+		wr.ec.Do(wr.w.WriteAttr(xw.Attr{Name: name, Value: val}))
+		if wr.ec.Err != nil {
+			return fmt.Errorf(wr.ec.Error())
+		}
 	}
 	return nil
 }

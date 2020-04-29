@@ -137,7 +137,7 @@ func (rs *ReportSheet) Write(_ string) error {
 }
 
 // WriteAttr writes a new attribute as a sheet cell
-func (rs *ReportSheet) WriteAttr(name string, value string, vtype string) error {
+func (rs *ReportSheet) WriteAttr(name string, value string, vtype string, _ string) error {
 	//fmt.Printf("name:[%v], value:[%v], vtype:[%v]\n", name, value, vtype)
 	style := rs.bodyStyle
 	ERRS := "#ERRO#"
