@@ -62,6 +62,7 @@ func InitFunctions() {
 		"first_name":      FirstName,
 		"middle_name":     MiddleName,
 		"last_name":       LastName,
+		"set_var":         SetVar,
 	}
 }
 
@@ -100,6 +101,11 @@ func Process(funcName string, lines []lineT, json jsonT, options optionsT) ([]st
 func Fixed(value string, _ lineT, json jsonT, _ optionsT) ([]string, error) {
 	if value != "" {
 		return []string{value}, nil
+	}
+	val, _ := json["Value"].(string)
+	if val != "" && val[0:1] == "$" {
+		result := options[val]
+		return []string{result}, nil
 	}
 	val, err := getValue("Value", json)
 	return []string{val}, err
@@ -148,18 +154,18 @@ func FieldDate(value string, line lineT, json jsonT, options optionsT) ([]string
 	return []string{value}, err
 }
 
-func getField(value string, _ string, line lineT, json jsonT, _ optionsT) (string, error) {
+func getField(value string, _ string, line lineT, json jsonT, options optionsT) (string, error) {
 	// fmt.Printf("field=%#v, json=%#v, line=%#v, options=%#v\n", field, json, line, options)
 	if value != "" {
 		return value, nil
 	}
-	val, err := getValue("field", json)
+	fieldName, err := getValue("field", json)
 	if err != nil {
 		return ERR[0], err
 	}
-	value, ok := line[val]
+	value, ok := line[fieldName]
 	if !ok {
-		return ERR[0], fmt.Errorf("elemento '%s' inexistente na linha", val)
+		return ERR[0], fmt.Errorf("elemento '%s' inexistente na linha", fieldName)
 	}
 	// fmt.Printf("field(%v) = [%v]\n", field, value)
 	return value, nil
@@ -331,8 +337,18 @@ func Date(value string, _ lineT, _ jsonT, _ optionsT) ([]string, error) {
 	return []string{formatDate(time.Now())}, nil
 }
 
-// Empty returns always a empty value
+// EmptyFunc returns always a empty value
 func EmptyFunc(_ string, _ lineT, _ jsonT, _ optionsT) ([]string, error) {
+	return []string{""}, nil
+}
+
+// SetVar sets a variable in the options
+func SetVar(value string, line lineT, json jsonT, options optionsT) ([]string, error) {
+	name, ok := json["var"].(string)
+	if !ok || name == "" {
+		return ERR, fmt.Errorf("campo 'var' nao encontrado: [%v]", json)
+	}
+	options["$"+name] = value
 	return []string{""}, nil
 }
 
@@ -734,9 +750,13 @@ func Undefined(value string, _ lineT, _ jsonT, _ optionsT) ([]string, error) {
 }
 
 // FirstName returns the first name of a composite name
-func FirstName(value string, _ lineT, _ jsonT, _ optionsT) ([]string, error) {
+func FirstName(value string, _ lineT, json jsonT, _ optionsT) ([]string, error) {
 	if value != "" {
 		return []string{value}, nil
+	}
+	val, _ := json["Value"].(string)
+	if val != "" && val[0:1] == "$" {
+		value = options[val]
 	}
 	names := strings.Split(value, " ")
 	result := ""
@@ -747,9 +767,13 @@ func FirstName(value string, _ lineT, _ jsonT, _ optionsT) ([]string, error) {
 }
 
 // LastName returns the first name of a composite name
-func LastName(value string, _ lineT, _ jsonT, _ optionsT) ([]string, error) {
+func LastName(value string, _ lineT, json jsonT, _ optionsT) ([]string, error) {
 	if value != "" {
 		return []string{value}, nil
+	}
+	val, _ := json["Value"].(string)
+	if val != "" && val[0:1] == "$" {
+		value = options[val]
 	}
 	names := strings.Split(value, " ")
 	result := ""
@@ -761,9 +785,13 @@ func LastName(value string, _ lineT, _ jsonT, _ optionsT) ([]string, error) {
 }
 
 // MiddleName returns the first name of a composite name
-func MiddleName(value string, _ lineT, _ jsonT, _ optionsT) ([]string, error) {
+func MiddleName(value string, _ lineT, json jsonT, _ optionsT) ([]string, error) {
 	if value != "" {
 		return []string{value}, nil
+	}
+	val, _ := json["Value"].(string)
+	if val != "" && val[0:1] == "$" {
+		value = options[val]
 	}
 	names := strings.Split(value, " ")
 	result := ""

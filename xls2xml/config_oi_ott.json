@@ -110,13 +110,13 @@
                                 },
                                 {"Name": "person",
                                     "attrs": [
-                                        {"Name": "mname", "Value": "", "function": "fixed"},
-                                        {"Name": "fname", "Value": "John", "function": "fixed"},
-                                        {"Name": "lname", "Value": "Slattery", "function": "fixed"},
+                                        {"Name": "mname", "Value": "$person", "function": "middle_name"},
+                                        {"Name": "fname", "Value": "$person", "function": "first_name"},
+                                        {"Name": "lname", "Value": "$person", "function": "last_name"},
                                         {"Name": "role", "Value": "actor", "function": "fixed"}
                                     ],
                                     "at_type": "ott",
-                                    "field": "Elenco", "function": "split", "function2": "empty"
+                                    "field": "Elenco", "function": "split", "function2": "set_var", "var": "person"
                                 },
 
                                 {"Name": "studio", "at_type": "ott", "Value": "UNI", "function": "fixed"},
