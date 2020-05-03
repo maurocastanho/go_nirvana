@@ -118,6 +118,16 @@
                                     "at_type": "ott",
                                     "field": "Elenco", "function": "split", "function2": "set_var", "var": "person"
                                 },
+                                {"Name": "person",
+                                    "attrs": [
+                                        {"Name": "mname", "Value": "$person", "function": "middle_name"},
+                                        {"Name": "fname", "Value": "$person", "function": "first_name"},
+                                        {"Name": "lname", "Value": "$person", "function": "last_name"},
+                                        {"Name": "role", "Value": "director", "function": "fixed"}
+                                    ],
+                                    "at_type": "ott",
+                                    "field": "Diretor", "function": "split", "function2": "set_var", "var": "person"
+                                },
 
                                 {"Name": "studio", "at_type": "ott", "Value": "UNI", "function": "fixed"},
                                 {"Name": "studioDisplayName", "at_type": "ott", "Value": "Universal", "function": "fixed"},

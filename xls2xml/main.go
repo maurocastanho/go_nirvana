@@ -653,7 +653,11 @@ func processAttr(json jsonT, lines []lineT, wr Writer) (err []error) {
 				attrs := at.([]interface{})
 				err = appendErrors(err, processAttrs(name, attrs, lines, wr)...)
 			}
-			err1 := wr.WriteAttr(name, procVal, vtype, attrType)
+			var err1 error
+			f2, okf2 := json["function2"]
+			if !okf2 || f2 != "set_var" {
+				err1 = wr.WriteAttr(name, procVal, vtype, attrType)
+			}
 			if err1 != nil {
 				err = appendErrors(err, err1)
 				return
@@ -716,7 +720,7 @@ func processSingleAttr(nameElem string, json jsonT, lines []lineT, commonAttrs m
 		}
 		attrs, oka := json["single_attrs"].([]interface{})
 		if oka {
-			processAttrs(name, attrs, lines, wr)
+			processAttrs("", attrs, lines, wr)
 			return nil
 		}
 

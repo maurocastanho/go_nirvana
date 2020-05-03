@@ -154,7 +154,7 @@ func FieldDate(value string, line lineT, json jsonT, options optionsT) ([]string
 	return []string{value}, err
 }
 
-func getField(value string, _ string, line lineT, json jsonT, options optionsT) (string, error) {
+func getField(value string, _ string, line lineT, json jsonT, _ optionsT) (string, error) {
 	// fmt.Printf("field=%#v, json=%#v, line=%#v, options=%#v\n", field, json, line, options)
 	if value != "" {
 		return value, nil
@@ -343,7 +343,7 @@ func EmptyFunc(_ string, _ lineT, _ jsonT, _ optionsT) ([]string, error) {
 }
 
 // SetVar sets a variable in the options
-func SetVar(value string, line lineT, json jsonT, options optionsT) ([]string, error) {
+func SetVar(value string, _ lineT, json jsonT, options optionsT) ([]string, error) {
 	name, ok := json["var"].(string)
 	if !ok || name == "" {
 		return ERR, fmt.Errorf("campo 'var' nao encontrado: [%v]", json)
