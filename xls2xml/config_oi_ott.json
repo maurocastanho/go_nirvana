@@ -129,15 +129,30 @@
                                     "field": "Diretor", "function": "split", "function2": "set_var", "var": "person"
                                 },
 
-                                {"Name": "studio", "at_type": "ott", "Value": "UNI", "function": "fixed"},
-                                {"Name": "studioDisplayName", "at_type": "ott", "Value": "Universal", "function": "fixed"},
-                                {"Name": "category", "at_type": "ott", "Value": "Colecao Oi/Cinema/Drama", "function": "fixed"},
+                                {"Name": "studio", "at_type": "ott", "field": "Estúdio", "function": "field"},
+                                {"Name": "studioDisplayName", "at_type": "ott", "field": "Estúdio", "function": "field"},
+                                {"Name": "category", "at_type": "ott", "field": "Codigo Categoria 1", "function": "field"},
                                 {"Name": "autoDeploy", "at_type": "ott", "Value": "false", "function": "fixed"},
                                 {"Name": "autoImport", "at_type": "ott", "Value": "false", "function": "fixed"},
-                                {"Name": "categorization", "at_type": "ott", "Value": "", "function": "fixed"},
+                                {"Name": "categorization",
+                                    "elements": [
+                                        {
+                                            "Name": "category1", "at_type": "ott",
+                                            "attrs": [{"Name": "name", "field": "Codigo Categoria 1", "function": "field"}],
+                                            "Value": "", "function": "fixed"
+                                        },
+                                        {
+                                            "Name": "category2", "at_type": "ott",
+                                            "attrs":[{"Name": "name", "field": "Codigo Categoria 2", "function": "field"}],
+                                            "Value": "", "function": "fixed",
+                                            "filter": "Codigo_Categoria_2!=''"
+                                        }
+                                    ],
+                                    "at_type": "ott", "Value": "", "function": "empty"
+                                },
 
 
-                                {"Name": "genre", "at_type": "ott", "Value": "", "function": "fixed"},
+                                {"Name": "genre", "at_type": "ott", "field": "Codigo Categoria 1", "function": "field"},
                                 {"Name": "additionalInfo", "at_type": "ott", "Value": "", "function": "fixed"}
                             ]
                         },

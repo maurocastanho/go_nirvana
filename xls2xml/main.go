@@ -640,6 +640,9 @@ func processAttr(json jsonT, lines []lineT, wr Writer) (err []error) {
 	name, _ = json["Name"].(string)
 	attrType, _ := json["at_type"].(string)
 	function, ok := json["function"].(string)
+	if function == "empty" {
+		return
+	}
 	if ok {
 		vtype, _ := json["type"].(string)
 		procVals, err2 := Process(function, lines, json, options)
@@ -665,7 +668,6 @@ func processAttr(json jsonT, lines []lineT, wr Writer) (err []error) {
 			if attrType == "ott" {
 				err = appendErrors(err, wr.EndElem(name, Map))
 			}
-
 		}
 	}
 	return
