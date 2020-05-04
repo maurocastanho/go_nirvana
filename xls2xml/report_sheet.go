@@ -232,7 +232,7 @@ func (rs *ReportSheet) processColumn(json jsonT, lines []lineT, _ Writer) (err [
 	if ok {
 		procVals, err2 := Process(function, lines, json, options)
 		err = appendErrors(err, err2)
-		for _, procVal := range procVals {
+		for _, procVal := range procVals.vals {
 			fmt.Printf("%s: %#v\n", name, procVal)
 		}
 	}

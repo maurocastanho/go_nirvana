@@ -647,7 +647,7 @@ func processAttr(json jsonT, lines []lineT, wr Writer) (err []error) {
 		vtype, _ := json["type"].(string)
 		procVals, err2 := Process(function, lines, json, options)
 		err = appendErrors(err, err2)
-		for _, procVal := range procVals {
+		for _, procVal := range procVals.vals {
 			if attrType == "ott" {
 				err = appendErrors(err, wr.StartElem(name, Map))
 			}
@@ -699,13 +699,16 @@ func processSingleAttr(nameElem string, json jsonT, lines []lineT, commonAttrs m
 		isOtt = elType == "ott"
 	}
 
-	var procVals []string
+	var procVals *ResultsT
 	if ok {
 		vtype, _ := json["type"].(string)
 		procVals, err = Process(filterFunc, lines, json, options)
+		if err != nil {
+			return err
+		}
 		done := false
 		var err2 error
-		for _, procVal := range procVals {
+		for _, procVal := range procVals.vals {
 			if isOtt {
 				at, oka := json["attrs"]
 				var attrs []interface{}
@@ -829,7 +832,7 @@ func processSingleElement(json jsonT, lines []lineT, wr Writer) (err []error) {
 			err = appendErrors(err, err2)
 			return
 		}
-		for _, procVal := range procVals {
+		for _, procVal := range procVals.vals {
 			err1 := wr.Write(procVal)
 			if err1 != nil {
 				err = appendErrors(err, err1)
