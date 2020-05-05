@@ -507,12 +507,12 @@ func FilterCondition(value string, line lineT, json jsonT, options optionsT) ([]
 		return ERR, err
 	}
 	if cond {
-		funcName, ok1 := json["function"].(string)
+		funcName, ok1 := json["function2"].(string)
 		if !ok1 {
-			return ERR, fmt.Errorf("condicao sem elemento 'function' na linha %v", json)
+			return ERR, fmt.Errorf("condicao sem elemento 'function2' na linha %v", json)
 		}
-		function, ok1 := FunctionDict[funcName]
-		if !ok1 {
+		function, ok2 := FunctionDict[funcName]
+		if !ok2 {
 			fmt.Printf("Warning: funcao [%s] nao existe!\n", funcName)
 			result, _ := Undefined("", nil, json, options)
 			return result, fmt.Errorf("funcao nao definida: [%s]", funcName)
