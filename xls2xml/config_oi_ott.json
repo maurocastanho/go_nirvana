@@ -152,8 +152,35 @@
                                 },
 
 
-                                {"Name": "genre", "at_type": "ott", "field": "Codigo Categoria 1", "function": "field"},
-                                {"Name": "additionalInfo", "at_type": "ott", "Value": "", "function": "fixed"}
+                                {"Name": "genre", "at_type": "ott", "field": "Codigo Categoria 1", "function": "field"}
+
+                            ],
+                            "elements": [
+                                {
+                                    "Name": "additionalInfo",
+                                    "attrs":[{"Name": "name", "field": "Título em Português", "function": "field"},
+                                        {"Name": "value",
+                                            "attrs": [{"Name": "param", "Value": "RentableOn", "function": "fixed"}],
+                                            "at_type":  "ott", "Value": "OI_IPTV,OI_PC,OI_Mobile,OI_DTH", "function": "fixed"
+                                        },
+                                        {"Name": "value",
+                                            "attrs": [{"Name": "param", "Value": "DownloadableOn", "function": "fixed"}],
+                                            "at_type":  "ott", "Value": "OI_IPTV,OI_PC,OI_Mobile,OI_DTH", "function": "fixed"
+                                        },
+                                        {"Name": "value",
+                                            "attrs": [{"Name": "param", "Value": "CountryGrantRestriction", "function": "fixed"}],
+                                            "at_type":  "ott", "Value": "BR", "function": "fixed"
+                                        },
+                                        {"Name": "value",
+                                            "attrs": [{"Name": "param", "Value": "ISPGrantRestriction", "function": "fixed"}],
+                                            "at_type":  "ott", "Value": "", "function": "fixed"
+                                        },
+                                        {"Name": "value",
+                                            "attrs": [{"Name": "param", "Value": "ReasonCode", "function": "fixed"}],
+                                            "at_type":  "ott", "Value": "", "function": "fixed"
+                                        }
+                                    ]
+                                }
                             ]
                         },
                         {
@@ -161,20 +188,14 @@
                             "attrs": [
                                 {"Name": "suggestedPrice", "at_type": "ott", "Value": "0.0", "function": "fixed"},
                                 {"Name": "currency_iso3166-2", "at_type": "ott", "Value": "BR", "function": "fixed"},
-                                {"Name": "billingID", "at_type": "ott", "Value": "movie", "function": "fixed"},
-                                {"Name": "additionalInfo", "at_type": "ott", "Value": "", "function": "fixed"}
+                                {"Name": "billingID", "at_type": "ott", "Value": "movie", "function": "fixed"}
                             ]
                         },
                         {
                             "Name": "rightsMetadata",
                             "attrs": [
-                                {"Name": "licensingWindowStart", "at_type": "ott", "Value": "2020-09-15T06:00:00", "function": "fixed"},
-                                {"Name": "licensingWindowEnd-2", "at_type": "ott", "Value": "2020-09-15T06:00:00", "function": "fixed"},
-                                {"Name": "availabilityWindowStart", "at_type": "ott", "Value": "2015-09-15T06:00:00", "function": "fixed"},
-                                {"Name": "availabilityWindowEnd", "at_type": "ott", "Value": "2015-09-15T06:00:00", "function": "fixed"},
-                                {"Name": "daystoLastChance", "at_type": "ott", "Value": "0", "function": "fixed"},
-                                {"Name": "newReleaseWindow", "at_type": "ott", "Value": "0", "function": "fixed"},
-                                {"Name": "maximumViewingLimit", "at_type": "ott", "Value": "2880", "function": "fixed"}
+                                {"Name": "licensingWindowStart", "at_type": "ott", "field": "Data Início", "function": "date_ott"},
+                                {"Name": "licensingWindowEnd-2", "at_type": "ott", "field": "Data Fim", "function": "date_ott"}
                             ]
                         },
                         {

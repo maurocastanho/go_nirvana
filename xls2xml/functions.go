@@ -84,6 +84,7 @@ func InitFunctions() {
 		"last_name":       LastName,
 		"set_var":         SetVar,
 		"assetid_ott":     AssetIDOtt,
+		"date_ott":        DateRFC3339,
 	}
 }
 
@@ -186,7 +187,7 @@ func getField(value string, _ string, line lineT, json jsonT, _ optionsT) (strin
 	}
 	value, ok := line[fieldName]
 	if !ok {
-		return ERR[0].val, fmt.Errorf("elemento '%s' inexistente na linha", fieldName)
+		return fieldName, fmt.Errorf("elemento '%s' inexistente na linha", fieldName)
 	}
 	// fmt.Printf("field(%v) = [%v]\n", field, value)
 	return value, nil
@@ -401,6 +402,19 @@ func ConvertDate(value string, line lineT, json jsonT, options optionsT) ([]Resu
 		return ERR, err
 	}
 	return []ResultsT{NewResult(formatDate(t))}, nil
+}
+
+// DateRFC3339 converts a date string from the mm/dd/yy format to the RFC3339 format
+func DateRFC3339(value string, line lineT, json jsonT, options optionsT) ([]ResultsT, error) {
+	field, err := Field(value, line, json, options)
+	if err != nil {
+		return ERR, err
+	}
+	t, err := time.Parse("01-02-06", field[0].val)
+	if err != nil {
+		return ERR, err
+	}
+	return []ResultsT{NewResult(t.Format(time.RFC3339))}, nil
 }
 
 // Condition returns one of two given values according to a boolean condition
