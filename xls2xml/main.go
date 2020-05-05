@@ -647,7 +647,7 @@ func processAttr(json jsonT, lines []lineT, wr Writer) (err []error) {
 		vtype, _ := json["type"].(string)
 		procVals, err2 := Process(function, lines, json, options)
 		err = appendErrors(err, err2)
-		for _, procVal := range procVals.vals {
+		for _, procVal := range *procVals {
 			if attrType == "ott" {
 				err = appendErrors(err, wr.StartElem(name, Map))
 			}
@@ -659,7 +659,7 @@ func processAttr(json jsonT, lines []lineT, wr Writer) (err []error) {
 			var err1 error
 			f2, okf2 := json["function2"]
 			if !okf2 || f2 != "set_var" {
-				err1 = wr.WriteAttr(name, procVal, vtype, attrType)
+				err1 = wr.WriteAttr(name, procVal.val, vtype, attrType)
 			}
 			if err1 != nil {
 				err = appendErrors(err, err1)
@@ -699,7 +699,7 @@ func processSingleAttr(nameElem string, json jsonT, lines []lineT, commonAttrs m
 		isOtt = elType == "ott"
 	}
 
-	var procVals *ResultsT
+	var procVals *[]ResultsT
 	if ok {
 		vtype, _ := json["type"].(string)
 		procVals, err = Process(filterFunc, lines, json, options)
@@ -708,16 +708,16 @@ func processSingleAttr(nameElem string, json jsonT, lines []lineT, commonAttrs m
 		}
 		done := false
 		var err2 error
-		for _, procVal := range procVals.vals {
+		for _, procVal := range *procVals {
 			if isOtt {
 				at, oka := json["attrs"]
 				var attrs []interface{}
 				if oka {
 					attrs = at.([]interface{})
 				}
-				err2, done = writeElem(wr, attrs, lines, name, procVal)
+				err2, done = writeElem(wr, attrs, lines, name, procVal.val)
 			} else {
-				err2, done = writeAttr(wr, nameElem, commonAttrs, name, procVal, vtype, elType)
+				err2, done = writeAttr(wr, nameElem, commonAttrs, name, procVal.val, vtype, elType)
 			}
 			if done {
 				return err2
@@ -832,8 +832,8 @@ func processSingleElement(json jsonT, lines []lineT, wr Writer) (err []error) {
 			err = appendErrors(err, err2)
 			return
 		}
-		for _, procVal := range procVals.vals {
-			err1 := wr.Write(procVal)
+		for _, procVal := range *procVals {
+			err1 := wr.Write(procVal.val)
 			if err1 != nil {
 				err = appendErrors(err, err1)
 				_ = wr.EndElem(name, Single)
