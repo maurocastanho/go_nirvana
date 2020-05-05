@@ -112,12 +112,14 @@ func (wr *XMLWriter) WriteAttr(name string, value string, vtype string, attrType
 		val = value
 	}
 
-	if attrType == "ott" && val != "" {
-		wr.ec.Do(
-			wr.Write(val),
-		)
-		if wr.ec.Err != nil {
-			return fmt.Errorf(wr.ec.Error())
+	if attrType == "ott" {
+		if val != "" {
+			wr.ec.Do(
+				wr.Write(val),
+			)
+			if wr.ec.Err != nil {
+				return fmt.Errorf(wr.ec.Error())
+			}
 		}
 	} else {
 		wr.ec.Do(wr.w.WriteAttr(xw.Attr{Name: name, Value: val}))

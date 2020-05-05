@@ -666,7 +666,8 @@ func processAttr(json jsonT, lines []lineT, wr Writer) (err []error) {
 		err = appendErrors(err, err2)
 		for _, procVal := range procVals {
 			processVars(procVal.vars, options)
-			if attrType == "ott" {
+			isOtt := attrType == "ott"
+			if isOtt {
 				err = appendErrors(err, wr.StartElem(name, Map))
 			}
 			at, okA := json["attrs"]
@@ -683,7 +684,7 @@ func processAttr(json jsonT, lines []lineT, wr Writer) (err []error) {
 				err = appendErrors(err, err1)
 				return
 			}
-			if attrType == "ott" {
+			if isOtt {
 				err = appendErrors(err, wr.EndElem(name, Map))
 			}
 		}
