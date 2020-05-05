@@ -284,5 +284,5 @@ func (wr *JSONWriter) AddAsset(id string, categName string) error {
 	if err != nil {
 		return err
 	}
-	return fmt.Errorf("Categoria nao existente: inclua na aba 'categories'. Nome: [%s], sugestao de id: [%s] ", categName, (*uuid)[0].val)
+	return fmt.Errorf("Categoria nao existente: inclua na aba 'categories'. Nome: [%s], sugestao de id: [%s] ", categName, uuid[0].val)
 }

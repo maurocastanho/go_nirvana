@@ -635,6 +635,23 @@ func processGroupAttrs(_ string, json []interface{}, lines []lineT, wr Writer) (
 	return
 }
 
+func processVal(val string, vars map[string]string) string {
+	if val == "" || val[0:1] != "$" {
+		return val
+	}
+	result, ok := vars[val]
+	if ok {
+		return result
+	}
+	return val
+}
+
+func processVars(vars map[string]string, options map[string]string) {
+	for key, val := range vars {
+		options[key] = val
+	}
+}
+
 func processAttr(json jsonT, lines []lineT, wr Writer) (err []error) {
 	var name string
 	name, _ = json["Name"].(string)
@@ -647,7 +664,8 @@ func processAttr(json jsonT, lines []lineT, wr Writer) (err []error) {
 		vtype, _ := json["type"].(string)
 		procVals, err2 := Process(function, lines, json, options)
 		err = appendErrors(err, err2)
-		for _, procVal := range *procVals {
+		for _, procVal := range procVals {
+			processVars(procVal.vars, options)
 			if attrType == "ott" {
 				err = appendErrors(err, wr.StartElem(name, Map))
 			}
@@ -659,7 +677,7 @@ func processAttr(json jsonT, lines []lineT, wr Writer) (err []error) {
 			var err1 error
 			f2, okf2 := json["function2"]
 			if !okf2 || f2 != "set_var" {
-				err1 = wr.WriteAttr(name, procVal.val, vtype, attrType)
+				err1 = wr.WriteAttr(name, processVal(procVal.val, procVal.vars), vtype, attrType)
 			}
 			if err1 != nil {
 				err = appendErrors(err, err1)
@@ -699,7 +717,7 @@ func processSingleAttr(nameElem string, json jsonT, lines []lineT, commonAttrs m
 		isOtt = elType == "ott"
 	}
 
-	var procVals *[]ResultsT
+	var procVals []ResultsT
 	if ok {
 		vtype, _ := json["type"].(string)
 		procVals, err = Process(filterFunc, lines, json, options)
@@ -708,7 +726,7 @@ func processSingleAttr(nameElem string, json jsonT, lines []lineT, commonAttrs m
 		}
 		done := false
 		var err2 error
-		for _, procVal := range *procVals {
+		for _, procVal := range procVals {
 			if isOtt {
 				at, oka := json["attrs"]
 				var attrs []interface{}
@@ -832,7 +850,7 @@ func processSingleElement(json jsonT, lines []lineT, wr Writer) (err []error) {
 			err = appendErrors(err, err2)
 			return
 		}
-		for _, procVal := range *procVals {
+		for _, procVal := range procVals {
 			err1 := wr.Write(procVal.val)
 			if err1 != nil {
 				err = appendErrors(err, err1)
