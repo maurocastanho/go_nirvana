@@ -74,12 +74,16 @@
                         {
                             "Name": "metadata",
                             "attrs": [
-                                {"Name": "assetID", "at_type": "ott", "function": "assetid", "suffix_number": 1, "prefix": "Provider"},
+                                {"Name": "assetID", "at_type": "ott", "function": "assetid_ott", "suffix_number": 1, "prefix": "Provider"},
                                 {"Name": "providerID", "at_type": "ott", "field": "Provider id", "function": "field"},
                                 {"Name": "showType", "at_type": "ott", "Value": "movie", "function": "fixed"},
                                 {"Name": "title",
                                     "attrs": [{"Name": "language", "Value": "pt", "function": "fixed"}],
                                     "at_type": "ott", "field": "Título em Português", "maxlength": "254", "function": "field"
+                                },
+                                {"Name": "title",
+                                    "attrs": [{"Name": "language", "field": "Língua Original", "function": "field"}],
+                                    "at_type": "ott", "field": "Título Original", "maxlength": "254", "function": "field", "filter": "Língua_Original!='pt"
                                 },
                                 {"Name": "shortTitle",
                                     "attrs": [{"Name": "language", "Value": "pt", "function": "fixed"}],
@@ -87,7 +91,7 @@
                                 },
                                 {"Name": "reducedTitle",
                                     "attrs": [{"Name": "language", "Value": "pt", "function": "fixed"}],
-                                    "at_type": "ott", "field": "Título em Português", "maxlength": "19", "function": "field"
+                                    "at_type": "ott", "field": "Título em Português", "maxlength": "100", "function": "field"
                                 },
                                 {"Name": "summary",
                                     "attrs": [{"Name": "language", "Value": "pt", "function": "fixed"}],
@@ -104,15 +108,11 @@
                                 {"Name": "release_year", "at_type": "ott", "field": "Ano", "function": "field"},
                                 {"Name": "countryRegionCode", "at_type": "ott", "field": "País de Origem", "function": "field"},
 
-                                {"Name": "title",
-                                    "attrs": [{"Name": "name", "Value": "Nirvana", "function": "fixed"}],
-                                    "at_type": "ott", "Value": "", "function": "fixed"
-                                },
                                 {"Name": "person",
                                     "attrs": [
-                                        {"Name": "mname", "Value": "$person", "function": "middle_name"},
-                                        {"Name": "fname", "Value": "$person", "function": "first_name"},
-                                        {"Name": "lname", "Value": "$person", "function": "last_name"},
+                                        {"Name": "mname", "Value": "$person", "maxlength": "50", "function": "middle_name"},
+                                        {"Name": "fname", "Value": "$person", "maxlength": "50", "function": "first_name"},
+                                        {"Name": "lname", "Value": "$person", "maxlength": "50", "function": "last_name"},
                                         {"Name": "role", "Value": "actor", "function": "fixed"}
                                     ],
                                     "at_type": "ott",
@@ -120,9 +120,9 @@
                                 },
                                 {"Name": "person",
                                     "attrs": [
-                                        {"Name": "mname", "Value": "$person", "function": "middle_name"},
-                                        {"Name": "fname", "Value": "$person", "function": "first_name"},
-                                        {"Name": "lname", "Value": "$person", "function": "last_name"},
+                                        {"Name": "mname", "Value": "$person", "maxlength": "50", "function": "middle_name"},
+                                        {"Name": "fname", "Value": "$person", "maxlength": "50", "function": "first_name"},
+                                        {"Name": "lname", "Value": "$person", "maxlength": "50", "function": "last_name"},
                                         {"Name": "role", "Value": "director", "function": "fixed"}
                                     ],
                                     "at_type": "ott",
@@ -158,7 +158,7 @@
                         },
                         {
                             "Name": "businessMetadata",
-                            "single_attrs": [
+                            "attrs": [
                                 {"Name": "suggestedPrice", "at_type": "ott", "Value": "0.0", "function": "fixed"},
                                 {"Name": "currency_iso3166-2", "at_type": "ott", "Value": "BR", "function": "fixed"},
                                 {"Name": "billingID", "at_type": "ott", "Value": "movie", "function": "fixed"},
@@ -167,9 +167,9 @@
                         },
                         {
                             "Name": "rightsMetadata",
-                            "single_attrs": [
-                                {"Name": "licensingWindowStart", "at_type": "ott", "Value": "2015-09-15T06:00:00", "function": "fixed"},
-                                {"Name": "licensingWindowEnd-2", "at_type": "ott", "Value": "2015-09-15T06:00:00", "function": "fixed"},
+                            "attrs": [
+                                {"Name": "licensingWindowStart", "at_type": "ott", "Value": "2020-09-15T06:00:00", "function": "fixed"},
+                                {"Name": "licensingWindowEnd-2", "at_type": "ott", "Value": "2020-09-15T06:00:00", "function": "fixed"},
                                 {"Name": "availabilityWindowStart", "at_type": "ott", "Value": "2015-09-15T06:00:00", "function": "fixed"},
                                 {"Name": "availabilityWindowEnd", "at_type": "ott", "Value": "2015-09-15T06:00:00", "function": "fixed"},
                                 {"Name": "daystoLastChance", "at_type": "ott", "Value": "0", "function": "fixed"},
@@ -180,54 +180,42 @@
                         {
                             "Name": "asset",
                             "attrs": [
-                                {"Name": "Verb", "Value": "", "function": "fixed"},
                                 {"Name": "type", "Value": "feature", "function": "fixed"},
-                                {"Name": "asset_name", "Value": "Asset Name", "function": "fixed"}
+                                {"Name": "asset_name", "field": "Título em Português", "function": "field"}
                             ],
                             "elements": [
                                 {
                                     "Name": "metadata",
-                                    "elements": [
-                                        {
-                                            "Name": "",
-                                            "single_attrs": [
-                                                {"Name": "assetID", "at_type": "ott", "Value": "11232", "function": "fixed"},
-                                                {"Name": "providerID", "at_type": "ott", "Value": "NIR", "function": "fixed"},
-                                                {"Name": "HD", "at_type": "ott", "Value": "true", "function": "fixed"},
-                                                {"Name": "language_iso639", "at_type": "ott", "Value": "en", "function": "fixed"},
-                                                {"Name": "subtitleLanguage_iso639", "at_type": "ott", "Value": "pt", "function": "fixed"},
-                                                {"Name": "rating", "at_type": "ott", "Value": "", "function": "fixed"},
-                                                {"Name": "audio", "at_type": "ott", "Value": "Dolby Digital 5.1", "function": "fixed"}
-                                            ]
-                                        }
+                                    "attrs": [
+                                        {"Name": "assetID", "at_type": "ott", "function": "assetid_ott", "suffix_number": 1, "prefix": "Provider"},
+                                        {"Name": "providerID", "at_type": "ott", "field": "Provider id", "function": "field"},
+                                        {"Name": "audio", "at_type": "ott", "field": "Movie Audio Type", "function": "field"},
+                                        {"Name": "HD", "at_type": "ott", "function": "eval", "expression": "Formato != 'SD'"}
                                     ]
                                 },
-                                {"Name": "content", "at_type": "ott", "Value": "xxxx.mpd", "function": "fixed"}
+                                {
+                                "attrs":[{"Name": "content", "at_type": "ott", "field": "ID", "function": "field"}]
+                                }
                             ]
                         },
                         {
                             "Name": "asset",
                             "attrs": [
                                 {"Name": "type", "Value": "trailer", "function": "fixed"},
-                                {"Name": "asset_name", "Value": "Asset Name", "function": "fixed"}
+                                {"Name": "asset_name", "field": "Título em Português", "function": "field"}
                             ],
                             "elements": [
                                 {
                                     "Name": "metadata",
-                                    "elements": [
-                                        {
-                                            "Name": "",
-                                            "single_attrs": [
-                                                {"Name": "assetID", "at_type": "ott", "Value": "11233", "function": "fixed"},
-                                                {"Name": "providerID", "at_type": "ott", "Value": "NIR", "function": "fixed"},
-                                                {"Name": "language_iso639", "at_type": "ott", "Value": "en", "function": "fixed"},
-                                                {"Name": "subtitleLanguage_iso639", "at_type": "ott", "Value": "pt", "function": "fixed"},
-                                                {"Name": "rating", "at_type": "ott", "Value": "", "function": "fixed"}
-                                            ]
-                                        }
+                                    "attrs": [
+                                        {"Name": "assetID", "at_type": "ott", "function": "assetid_ott", "suffix_number": 1, "prefix": "Provider"},
+                                        {"Name": "providerID", "at_type": "ott", "field": "Provider id", "function": "field"},
+                                        {"Name": "audio", "at_type": "ott", "field": "Trailer Audio Type", "function": "field"}
                                     ]
                                 },
-                                {"Name": "content", "at_type": "ott", "Value": "xxxx.mpd", "function": "fixed"}
+                                {
+                                    "attrs":[{"Name": "content", "at_type": "ott", "field": "Trailer ID", "function": "field"}]
+                                }
                             ]
                         }
                     ],

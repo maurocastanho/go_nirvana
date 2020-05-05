@@ -83,6 +83,7 @@ func InitFunctions() {
 		"middle_name":     MiddleName,
 		"last_name":       LastName,
 		"set_var":         SetVar,
+		"assetid_ott":     AssetIDOtt,
 	}
 }
 
@@ -324,6 +325,24 @@ func AssetID(value string, line lineT, json jsonT, options optionsT) ([]ResultsT
 	return []ResultsT{NewResult(result)}, nil
 }
 
+// AssetIDOtt returns the Asset ID for the ott format
+func AssetIDOtt(value string, line lineT, _ jsonT, options optionsT) ([]ResultsT, error) {
+	if value != "" {
+		return []ResultsT{NewResult(value)}, nil
+	}
+
+	timestamp, ok := options["timestamp"]
+	if !ok || timestamp == "" {
+		return ERR, fmt.Errorf("timestamp nao encontrada (timestamp): [%v]", options)
+	}
+	fileNum, ok := line["file_number"]
+	if !ok || fileNum == "" {
+		return ERR, fmt.Errorf("numero do arquivo nao encontrado (file_number): [%v]", line)
+	}
+	result := fmt.Sprintf("%s%03s", timestamp, fileNum)
+	return []ResultsT{NewResult(result)}, nil
+}
+
 // EpisodeID returns the Episode ID, make of (season number | episode number)
 func EpisodeID(value string, line lineT, _ jsonT, options optionsT) ([]ResultsT, error) {
 	if value != "" {
@@ -454,7 +473,7 @@ func Eval(value string, line lineT, json jsonT, _ optionsT) ([]ResultsT, error) 
 		result = fmt.Sprintf("Erro na expressao [%s] com parametros [%#v]", expr, params)
 		fmt.Print(result)
 	}
-	return []ResultsT{NewResult(result.(string))}, err
+	return []ResultsT{NewResult(fmt.Sprintf("%v", result))}, err
 }
 
 // FilterCondition returns an empty string if a condition is false, but continues the processing if it is true
