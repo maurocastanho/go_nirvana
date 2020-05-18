@@ -183,27 +183,29 @@ func main() {
 	// Generate MPD
 	var presetdash1 map[string]interface{}
 	encoding = profiles["encodings"].(map[string]interface{})
-	dashJ := encoding["mp4dash"].(map[string]interface{})
-	dashT := dashJ["template"].([]interface{})
-	replacer := strings.NewReplacer(
-		"%i", inFile,
-		"%a", assetID,
-		"%d", outDir,
-		"%t", tempDir,
-		"%A", strings.Join(audioOut, " "),
-		"%V", strings.Join(videoOut, " "),
-		"%o", path.Join(outDir, path.Base(inFile)))
-	err = applyTemplate(presetdash1, dashT, replacer)
-	if err != nil {
-		logError(err)
-		return
-	}
-	mp4dashExe := path.Join(options["mp4box_dir"].(string), options["mp4dash_exe"].(string))
-	flatB, err := buildCommand(mp4dashExe, dashT)
-	err = execCommand(flatB)
-	if err != nil {
-		logError(err)
-		return
+	dashJ, okDash := encoding["mp4dash"].(map[string]interface{})
+	if okDash {
+		dashT := dashJ["template"].([]interface{})
+		replacer := strings.NewReplacer(
+			"%i", inFile,
+			"%a", assetID,
+			"%d", outDir,
+			"%t", tempDir,
+			"%A", strings.Join(audioOut, " "),
+			"%V", strings.Join(videoOut, " "),
+			"%o", path.Join(outDir, path.Base(inFile)))
+		err = applyTemplate(presetdash1, dashT, replacer)
+		if err != nil {
+			logError(err)
+			return
+		}
+		mp4dashExe := path.Join(options["mp4box_dir"].(string), options["mp4dash_exe"].(string))
+		flatB, err := buildCommand(mp4dashExe, dashT)
+		err = execCommand(flatB)
+		if err != nil {
+			logError(err)
+			return
+		}
 	}
 	log("\n=== Processo de encoding terminado ===")
 }

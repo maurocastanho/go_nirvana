@@ -87,7 +87,6 @@
                 {"audio layer": "3", "channelout": "o20", "-b:a": "96k", "-ac": "2", "-ar": "48000", "suffix": "_hd_20_%l.m4a"},
                 {"audio layer": "4", "channelout": "o51", "-b:a": "256k", "-ac": "6", "-ar": "48000", "suffix": "_hd_51_%l.m4a"}
             ]
-        },
-        "mp4dash": {"template": ["--no-split", "--use-segment-list", "--no-media", {"--mpd-name": "%a.mpd"}, "--force", {"-o": "%d"}, "%A", "%V"]}
+        }
     }
 }
