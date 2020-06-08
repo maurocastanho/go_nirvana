@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="82d27ca0-c3c6-4bc0-96c3-ea16129bd406" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../uuidgen/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../uuidgen/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../uuidgen/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../uuidgen/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../uuidgen/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../uuidgen/.idea/uuidgen.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../uuidgen/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../uuidgen/.idea/watcherTasks.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../uuidgen/main_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../media_encoder/claro_crf_capped_new.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../media_encoder/claro_crf_capped_new.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/../go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample/assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/../sample/assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../xls2xml" beforeDir="false" afterPath="$PROJECT_DIR$/../xls2xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../xls2xml.exe" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+      </list>
+    </option>
+  </component>
+  <component name="GOROOT" path="/usr/lib/go" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="GoLibraries">
+    <option name="indexEntireGoPath" value="false" />
+  </component>
+  <component name="ProjectId" id="1cm1chh58EvYFw3jETDA30suV4h" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="DefaultGoTemplateProperty" value="Go File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="add_unversioned_files" value="true" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../media_encoder" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
+      <module name="uuidgen" />
+      <working_directory value="$PROJECT_DIR$/" />
+      <go_parameters value="-i" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/" />
+      <package value="uuidgen" />
+      <directory value="$PROJECT_DIR$/" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
+      <module name="uuidgen" />
+      <working_directory value="$PROJECT_DIR$/" />
+      <go_parameters value="-i" />
+      <framework value="gotest" />
+      <kind value="DIRECTORY" />
+      <package value="uuidgen" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/" />
+      <method v="2" />
+    </configuration>
+    <configuration name="gobench xls2xml" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="uuidgen" />
+      <working_directory value="$PROJECT_DIR$/.." />
+      <framework value="gobench" />
+      <kind value="DIRECTORY" />
+      <package value="uuidgen" />
+      <directory value="$PROJECT_DIR$/.." />
+      <filePath value="$PROJECT_DIR$/" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Test.gobench xls2xml" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="VgoProject">
+    <integration-enabled>true</integration-enabled>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="754" y="376" width="406" height="329" key="#Go_Modules" timestamp="1591119592720">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="754" y="376" width="406" height="329" key="#Go_Modules/0.0.1920.1080@0.0.1920.1080" timestamp="1591119592720" />
+    <state x="704" y="408" width="505" height="266" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1591119880636">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="704" y="408" width="505" height="266" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1080@0.0.1920.1080" timestamp="1591119880636" />
+    <state x="742" y="298" width="430" height="486" key="FileChooserDialogImpl" timestamp="1591120546408">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="742" y="298" width="430" height="486" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1591120546408" />
+    <state width="1876" height="287" key="GridCell.Tab.0.bottom" timestamp="1591123835802">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1876" height="287" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1591123835802" />
+    <state width="1876" height="287" key="GridCell.Tab.0.center" timestamp="1591123835802">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1876" height="287" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1591123835802" />
+    <state width="1876" height="287" key="GridCell.Tab.0.left" timestamp="1591123835802">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1876" height="287" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1591123835802" />
+    <state width="1876" height="287" key="GridCell.Tab.0.right" timestamp="1591123835802">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1876" height="287" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1591123835802" />
+    <state x="455" y="176" key="SettingsEditor" timestamp="1591119292565">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="455" y="176" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1591119292565" />
+  </component>
+</project>

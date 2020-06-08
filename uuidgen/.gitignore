@@ -1,0 +1,13 @@
+*.zip
+.~lock*
+*.debug
+core.*
+*.log
+*.exe
+*.dll
+*.so
+*.dylib
+/vendor/
+/Godeps/
+*~
+uuidgen

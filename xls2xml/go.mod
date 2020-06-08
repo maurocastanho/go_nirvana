@@ -1,6 +1,6 @@
 module xls2xml
 
-go 1.13
+go 1.14
 
 require (
 	github.com/Knetic/govaluate v3.0.0+incompatible
