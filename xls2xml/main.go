@@ -52,46 +52,11 @@ type Writer interface {
 	EndMap()
 }
 
-// type Ams struct {
-// 	Provider     string `xml:"Provider,attr"`
-// 	Product      string `xml:"Product,attr"`
-// 	AssetName    string `xml:"Asset_Name,attr"`
-// 	VersionMajor int    `xml:"Version_Major,attr"`
-// 	VersionMinor int    `xml:"Version_Minor,attr"`
-// 	Description  string `xml:"Description,attr"`
-// 	CreationDate string `xml:"Creation_Date,attr"`
-// 	ProviderID   string `xml:"Provider_ID,attr"`
-// 	AssetID      string `xml:"Asset_ID,attr"`
-// 	AssetClass   string `xml:"Asset_Class,attr"`
-// }
-// type AppData struct {
-// 	App   string `xml:"App,attr"`
-// 	Name  string `xml:"name,attr"`
-// 	Value string `xml:"value,attr"`
-// }
-// type Metadata struct {
-// 	Ams      Ams       `xml:"AMS,allowempty"`
-// 	AppDatas []AppData `xml:"App_Data"`
-// }
-// type Content struct {
-// 	Value string `xml:"value,attr"`
-// }
-// type Asset struct {
-// 	Metadata Metadata `xml:"Metadata"`
-// 	Content  `xml:"Content,omitempty"`
-// }
-// type Adi struct {
-// 	Xmlns    string   `xml:"xmlns,attr"`
-// 	Metadata Metadata `xml:"Metadata"`
-// 	Assets   []Asset  `xml:"Asset"`
-// }
-
 var options map[string]string
 
 const errSuffix = "_ERRO"
 
 func main() {
-
 	InitFunctions()
 	options = make(map[string]string)
 
@@ -312,6 +277,7 @@ func main() {
 	os.Exit(success)
 }
 
+// Reads the spreadsheet as an array of map[<line name>] = <value>
 func readSheetIdx(f *xlsx.Spreadsheet, sheetIdx int) []map[string]string {
 	header := make([]string, 0)
 	lines := make([]map[string]string, 0)
@@ -326,14 +292,36 @@ func readSheetIdx(f *xlsx.Spreadsheet, sheetIdx int) []map[string]string {
 	//// Add formatting to xlsx
 	//styleID := f.AddStyles(redBold)
 
+	// Removes blank lines at the end of sheet
 	lines = readSheet(sheet, header, lines, idx)
-	return lines
+	lenLines := len(lines)
+	lastLine := lenLines - 1
+	for ; lastLine >= 0; lastLine-- {
+		if !blankLine(lines[lastLine]) {
+			fmt.Printf("input: %d lines\n", lastLine)
+			break
+		}
+	}
+	return lines[:lastLine+1]
 }
 
+// Returns true if a line has all fields blank
+func blankLine(line map[string]string) bool {
+	for k, v := range line {
+		if k != "file_number" && v != "" {
+			fmt.Printf("===>>> %v - %v\n", k, v)
+			return false
+		}
+	}
+	return true
+}
+
+// Reads the spreadsheet as an array of map[<line name>] = <value>
 func readSheet(sheet xlsx.Sheet, header []string, lines []map[string]string, idx int) []map[string]string {
 	ncols, nrows := sheet.Dimension()
 	for row := 0; row < nrows; row++ {
 		if row == 0 {
+			// row 0 == header
 			var col int
 			for col = 0; col < ncols; col++ {
 				colCell := sheet.Cell(col, row)
@@ -366,6 +354,7 @@ func readSheet(sheet xlsx.Sheet, header []string, lines []map[string]string, idx
 	return lines
 }
 
+// Reads config file
 func readConfig(confFile string) map[string]interface{} {
 	file, err := os.Open(confFile)
 	if err != nil {
@@ -389,6 +378,7 @@ func readConfig(confFile string) map[string]interface{} {
 	return json
 }
 
+// Factory for creating the writer
 func createWriter(outType string, filename string, sheetname string, ncols int, nlines int) Writer {
 	var writer Writer
 	switch outType {
@@ -403,6 +393,7 @@ func createWriter(outType string, filename string, sheetname string, ncols int, 
 	return writer
 }
 
+// Process the config file against the lines of the sheet
 func process(json jsonT, lines []lineT, wr Writer) (err error) {
 	err = wr.OpenOutput()
 	if err != nil {
@@ -438,6 +429,7 @@ func process(json jsonT, lines []lineT, wr Writer) (err error) {
 	return
 }
 
+// Process a JSON map element
 func processMap(json jsonT, lines []lineT, wr Writer) (err2 []error) {
 	var name string
 	name, hasName := json["Name"].(string)
@@ -578,6 +570,7 @@ func processMap(json jsonT, lines []lineT, wr Writer) (err2 []error) {
 	return
 }
 
+// Process option section in the JSON
 func processOptions(json jsonT) error {
 	for k, v := range json {
 		switch vv := v.(type) {
@@ -590,6 +583,7 @@ func processOptions(json jsonT) error {
 	return nil
 }
 
+// Process attr element in the JSON
 func processAttrs(_ string, json []interface{}, lines []lineT, wr Writer) (err2 []error) {
 	for _, v := range json {
 		switch vv := v.(type) {
@@ -610,6 +604,7 @@ func processAttrs(_ string, json []interface{}, lines []lineT, wr Writer) (err2 
 	return
 }
 
+// Process group of attrs in the JSON
 func processGroupAttrs(_ string, json []interface{}, lines []lineT, wr Writer) (err2 []error) {
 	err2 = appendErrors(err2, wr.StartElem("a", MapArray))
 	if len(err2) > 0 {
@@ -635,6 +630,7 @@ func processGroupAttrs(_ string, json []interface{}, lines []lineT, wr Writer) (
 	return
 }
 
+// Process a simple value
 func processVal(val string, vars map[string]string) string {
 	if val == "" || val[0:1] != "$" {
 		return val
@@ -646,12 +642,14 @@ func processVal(val string, vars map[string]string) string {
 	return val
 }
 
+// Process option vars
 func processVars(vars map[string]string, options map[string]string) {
 	for key, val := range vars {
 		options[key] = val
 	}
 }
 
+// Process attr element
 func processAttr(json jsonT, lines []lineT, wr Writer) (err []error) {
 	var name string
 	name, _ = json["Name"].(string)
@@ -692,6 +690,7 @@ func processAttr(json jsonT, lines []lineT, wr Writer) (err []error) {
 	return
 }
 
+// Process single attrs = one attr per line
 func processSingleAttrs(name string, json []interface{}, lines []lineT, commonAttrs map[string]interface{}, wr Writer) (err2 []error) {
 	for _, v := range json {
 		switch vv := v.(type) {
@@ -755,6 +754,7 @@ func processSingleAttr(nameElem string, json jsonT, lines []lineT, commonAttrs m
 	return
 }
 
+// Write element to output
 func writeElem(wr Writer, attrs []interface{}, lines []lineT, name string, procVal string) (error, bool) {
 	processed := processAttrs(name, attrs, lines, wr)
 	if len(processed) == 0 {
@@ -904,5 +904,3 @@ func closeSheet(file *xlsx.Spreadsheet) {
 		logError(err)
 	}
 }
-
-//func field(idx string)
