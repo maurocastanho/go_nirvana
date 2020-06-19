@@ -507,9 +507,9 @@ func FilterCondition(value string, line lineT, json jsonT, options optionsT) ([]
 		return ERR, err
 	}
 	if cond {
-		funcName, ok1 := json["function2"].(string)
+		funcName, ok1 := json["function"].(string)
 		if !ok1 {
-			return ERR, fmt.Errorf("condicao sem elemento 'function2' na linha %v", json)
+			return ERR, fmt.Errorf("condicao sem elemento 'function' na linha %v", json)
 		}
 		function, ok2 := FunctionDict[funcName]
 		if !ok2 {

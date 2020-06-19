@@ -57,8 +57,7 @@ var options map[string]string
 const errSuffix = "_ERRO"
 
 func main() {
-	InitFunctions()
-	options = make(map[string]string)
+	Init()
 
 	inputXls := ""
 	confFile := ""
@@ -275,6 +274,11 @@ func main() {
 	}
 	log("Fim.")
 	os.Exit(success)
+}
+
+func Init() {
+	InitFunctions()
+	options = make(map[string]string)
 }
 
 // Reads the spreadsheet as an array of map[<line name>] = <value>
