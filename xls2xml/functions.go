@@ -50,41 +50,41 @@ var functionDict map[string]func(string, lineT, jsonT, optionsT) ([]resultsT, er
 // InitFunctions maps the user functions
 func initFunctions() {
 	functionDict = map[string]func(string, lineT, jsonT, optionsT) ([]resultsT, error){
-		"fixed":           fixed,
-		"field":           fieldTrunc,
-		"field_raw":       fieldRaw,
-		"field_validated": fieldValidated,
-		"field_noacc":     fieldNoAccents,
-		"field_trim":      fieldTrim,
-		"field_no_quotes": fieldNoQuotes,
-		"field_money":     fieldMoney,
-		"field_date":      fieldDate,
-		"field_suffix":    suffix,
 		"assetid":         assetID,
-		"episode_id":      episodeID,
-		"date":            date,
-		"convert_date":    convertDate,
-		"timestamp":       utc,
-		"seconds":         seconds,
-		"surname_name":    surnameName,
-		"condition":       condition,
-		"filter":          filterCondition,
-		"option":          option,
-		"eval":            eval,
-		"split":           split,
-		"uuid":            genUUID,
-		"map":             mapField,
-		"convert":         convert,
-		"janela_repasse":  janelaRepasse,
+		"assetid_ott":     assetIDOtt,
 		"attr_map":        attrMap,
 		"box_technology":  boxTechnology,
-		"empty":           emptyFunc,
-		"first_name":      firstName,
-		"middle_name":     middleName,
-		"last_name":       lastName,
-		"set_var":         setVar,
-		"assetid_ott":     assetIDOtt,
+		"condition":       condition,
+		"convert":         convert,
+		"convert_date":    convertDate,
+		"date":            date,
 		"date_ott":        dateRFC3339,
+		"empty":           emptyFunc,
+		"episode_id":      episodeID,
+		"eval":            eval,
+		"field":           fieldTrunc,
+		"field_date":      fieldDate,
+		"field_money":     fieldMoney,
+		"field_no_quotes": fieldNoQuotes,
+		"field_noacc":     fieldNoAccents,
+		"field_raw":       fieldRaw,
+		"field_suffix":    suffix,
+		"field_trim":      fieldTrim,
+		"field_validated": fieldValidated,
+		"filter":          filterCondition,
+		"first_name":      firstName,
+		"fixed":           fixed,
+		"janela_repasse":  janelaRepasse,
+		"last_name":       lastName,
+		"map":             mapField,
+		"middle_name":     middleName,
+		"option":          option,
+		"seconds":         seconds,
+		"set_var":         setVar,
+		"split":           split,
+		"surname_name":    surnameName,
+		"timestamp":       utc,
+		"uuid":            genUUID,
 	}
 }
 
@@ -369,9 +369,13 @@ func episodeID(value string, line lineT, _ jsonT, options optionsT) ([]resultsT,
 }
 
 // Date returns the present date, formatted
-func date(value string, _ lineT, _ jsonT, _ optionsT) ([]resultsT, error) {
+func date(value string, _ lineT, _ jsonT, options optionsT) ([]resultsT, error) {
 	if value != "" {
 		return []resultsT{newResult(value)}, nil
+	}
+	crDate := options["creationDate"]
+	if crDate != "" {
+		return []resultsT{newResult(crDate)}, nil
 	}
 	return []resultsT{newResult(formatDate(time.Now()))}, nil
 }

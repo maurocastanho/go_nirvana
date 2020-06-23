@@ -98,16 +98,12 @@ func main() {
 		logError(err)
 		os.Exit(2)
 	}
-
 	defer closeSheet(f)
-
 	sheetIdx := 0
 	lines := readSheetIdx(f, sheetIdx)
 	//fmt.Printf("--==>>> %#v\n", lines)
-
 	json := readConfig(confFile)
 	initVars(json)
-
 	success := processSpreadSheet(json, outType, f, outDir, lines, err)
 	if success == 0 {
 		log("------------------------------------")

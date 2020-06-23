@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"math"
+	"time"
 
 	xw "github.com/shabbyrobe/xmlwriter"
 	"golang.org/x/text/encoding/charmap"
@@ -24,6 +25,7 @@ type xmlWriter struct {
 	ec       *xw.ErrCollector
 	status   int
 	testing  bool
+	time     time.Time
 }
 
 // StartMap starts a map element
@@ -79,14 +81,14 @@ func (wr *xmlWriter) WriteAttr(name string, value string, vtype string, attrType
 	case "int":
 		val = value
 	case "time":
-		time, err := toTimeSeconds(value)
+		sec, err := toTimeSeconds(value)
 		if err != nil {
 			//fmt.Printf("%s *--------> %#v\n", name, val)
 			val = ERRS
 			break
 		}
-		hours := time / 3600
-		minutes := int64(math.Ceil((float64(time) - float64(hours)*3600) / 60))
+		hours := sec / 3600
+		minutes := int64(math.Ceil((float64(sec) - float64(hours)*3600) / 60))
 		val = fmt.Sprintf("%02d:%02d", hours, minutes)
 	case "time_s":
 		sec, err := toTimeSeconds(value)
@@ -209,5 +211,4 @@ func (wr *xmlWriter) getBuffer() []byte {
 
 // WriteExtras writes additional files
 func (wr *xmlWriter) WriteExtras() {
-
 }
