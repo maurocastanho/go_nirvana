@@ -15,44 +15,45 @@ const (
 	commentS = 1
 )
 
-// XMLWriter writes XML files
-type XMLWriter struct {
+// xmlWriter writes XML files
+type xmlWriter struct {
 	fileName string
 	systemID string
 	w        *xw.Writer
 	b        *bytes.Buffer
 	ec       *xw.ErrCollector
 	status   int
+	testing  bool
 }
 
 // StartMap starts a map element
-func (wr *XMLWriter) StartMap() {
+func (wr *xmlWriter) StartMap() {
 
 }
 
 // EndMap closes a map element
-func (wr *XMLWriter) EndMap() {
+func (wr *xmlWriter) EndMap() {
 
 }
 
 // NewXMLWriter creates a new struct
-func NewXMLWriter(filename string, systemID string) *XMLWriter {
-	w := XMLWriter{fileName: filename, systemID: systemID}
+func newXMLWriter(filename string, systemID string) *xmlWriter {
+	w := xmlWriter{fileName: filename, systemID: systemID, testing: false}
 	return &w
 }
 
 // Suffix returns the output file extension
-func (wr *XMLWriter) Suffix() string {
+func (wr *xmlWriter) Suffix() string {
 	return ".xml"
 }
 
 // Filename returns the output file name
-func (wr *XMLWriter) Filename() string {
+func (wr *xmlWriter) Filename() string {
 	return wr.fileName
 }
 
 // StartElem starts a XML element
-func (wr *XMLWriter) StartElem(name string, _ ElemType) error {
+func (wr *xmlWriter) StartElem(name string, _ elemType) error {
 	wr.ec.Do(wr.w.StartElem(xw.Elem{Name: name}))
 	if wr.ec.Err != nil {
 		return fmt.Errorf(wr.ec.Error())
@@ -60,7 +61,7 @@ func (wr *XMLWriter) StartElem(name string, _ ElemType) error {
 	return nil
 }
 
-func (wr *XMLWriter) Write(value string) error {
+func (wr *xmlWriter) Write(value string) error {
 	wr.ec.Do(wr.w.WriteText(value))
 	if wr.ec.Err != nil {
 		return fmt.Errorf(wr.ec.Error())
@@ -69,7 +70,7 @@ func (wr *XMLWriter) Write(value string) error {
 }
 
 // WriteAttr adds an attribute to the current XML attribute
-func (wr *XMLWriter) WriteAttr(name string, value string, vtype string, attrType string) error {
+func (wr *xmlWriter) WriteAttr(name string, value string, vtype string, attrType string) error {
 	ERRS := "#ERRO#"
 	var val string
 	switch vtype {
@@ -78,9 +79,9 @@ func (wr *XMLWriter) WriteAttr(name string, value string, vtype string, attrType
 	case "int":
 		val = value
 	case "time":
-		time, err := ToTimeSeconds(value)
+		time, err := toTimeSeconds(value)
 		if err != nil {
-			fmt.Printf("%s *--------> %#v\n", name, val)
+			//fmt.Printf("%s *--------> %#v\n", name, val)
 			val = ERRS
 			break
 		}
@@ -88,17 +89,17 @@ func (wr *XMLWriter) WriteAttr(name string, value string, vtype string, attrType
 		minutes := int64(math.Ceil((float64(time) - float64(hours)*3600) / 60))
 		val = fmt.Sprintf("%02d:%02d", hours, minutes)
 	case "time_s":
-		sec, err := ToTimeSeconds(value)
+		sec, err := toTimeSeconds(value)
 		if err != nil {
-			fmt.Printf("%s *--------> %#v\n", name, val)
+			//fmt.Printf("%s *--------> %#v\n", name, val)
 			val = ERRS
 			break
 		}
 		val = fmt.Sprintf("%d", sec)
 	case "time_m":
-		sec, err := ToTimeSeconds(value)
+		sec, err := toTimeSeconds(value)
 		if err != nil {
-			fmt.Printf("%s *--------> %#v\n", name, val)
+			//fmt.Printf("%s *--------> %#v\n", name, val)
 			val = ERRS
 			break
 		}
@@ -131,7 +132,7 @@ func (wr *XMLWriter) WriteAttr(name string, value string, vtype string, attrType
 }
 
 // EndElem closes a XML element
-func (wr *XMLWriter) EndElem(name string, _ ElemType) error {
+func (wr *xmlWriter) EndElem(name string, _ elemType) error {
 	wr.ec.Do(wr.w.EndElem(name))
 	if wr.ec.Err != nil {
 		return fmt.Errorf(wr.ec.Error())
@@ -140,7 +141,7 @@ func (wr *XMLWriter) EndElem(name string, _ ElemType) error {
 }
 
 // StartComment marks the start of a comment section
-func (wr *XMLWriter) StartComment(name string) error {
+func (wr *xmlWriter) StartComment(name string) error {
 	wr.status = commentS
 	wr.ec.Do(wr.w.WriteRaw(fmt.Sprintf("\n<!-- %s\n", name)))
 	if wr.ec.Err != nil {
@@ -151,7 +152,7 @@ func (wr *XMLWriter) StartComment(name string) error {
 }
 
 // EndComment closes a comment section
-func (wr *XMLWriter) EndComment(_ string) error {
+func (wr *xmlWriter) EndComment(_ string) error {
 	wr.status = normalS
 	wr.ec.Do(wr.w.WriteRaw(" -->\n"))
 	if wr.ec.Err != nil {
@@ -162,7 +163,7 @@ func (wr *XMLWriter) EndComment(_ string) error {
 }
 
 // OpenOutput prepares to write a XML file
-func (wr *XMLWriter) OpenOutput() (err error) {
+func (wr *xmlWriter) OpenOutput() (err error) {
 	encod := charmap.ISO8859_1.NewEncoder()
 	wr.b = &bytes.Buffer{}
 	wr.w = xw.OpenEncoding(wr.b, "ISO-8859-1", encod, xw.WithIndentString("\t"))
@@ -185,10 +186,13 @@ func (wr *XMLWriter) OpenOutput() (err error) {
 }
 
 // WriteAndClose write all data to the extenal file
-func (wr *XMLWriter) WriteAndClose(filename string) (err error) {
+func (wr *xmlWriter) WriteAndClose(filename string) (err error) {
 	err = wr.w.EndAllFlush()
 	if err != nil {
 		err = fmt.Errorf("ERRO ao criar arquivo [%#v]: %v", filename, err)
+		return
+	}
+	if wr.testing {
 		return
 	}
 	err = ioutil.WriteFile(filename, wr.b.Bytes(), 0644)
@@ -199,7 +203,11 @@ func (wr *XMLWriter) WriteAndClose(filename string) (err error) {
 	return
 }
 
+func (wr *xmlWriter) getBuffer() []byte {
+	return wr.b.Bytes()
+}
+
 // WriteExtras writes additional files
-func (wr *XMLWriter) WriteExtras() {
+func (wr *xmlWriter) WriteExtras() {
 
 }

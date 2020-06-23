@@ -16,16 +16,16 @@ import (
 
 // Element types
 const (
-	Single   = 0
-	Map      = iota
-	Array    = iota
-	Empty    = iota
-	MapNoarr = iota
-	MapArray = iota
+	singleT   = 0
+	mapT      = iota
+	arrayT    = iota
+	emptyT    = iota
+	mapNoArrT = iota
+	mapArrayT = iota
 )
 
 // Dateformat is the default date format
-const Dateformat = "01-02-06"
+const dateformat = "01-02-06"
 
 type lineT map[string]string
 
@@ -33,15 +33,15 @@ type jsonT map[string]interface{}
 type optionsT map[string]string
 
 // ElemType element types
-type ElemType int
+type elemType int
 
 // Writer controls output
-type Writer interface {
+type writer interface {
 	Filename() string
 	Suffix() string
 	OpenOutput() error
-	StartElem(string, ElemType) error
-	EndElem(string, ElemType) error
+	StartElem(string, elemType) error
+	EndElem(string, elemType) error
 	StartComment(string) error
 	EndComment(string) error
 	Write(string) error
@@ -57,8 +57,6 @@ var options map[string]string
 const errSuffix = "_ERRO"
 
 func main() {
-	Init()
-
 	inputXls := ""
 	confFile := ""
 	outType := ""
@@ -72,21 +70,14 @@ func main() {
 	flag.Parse()
 
 	if inputXls == "" {
-		logError(fmt.Errorf("arquivo XLS deve ser especificado na linha de comando"))
-		flag.Usage()
-		os.Exit(1)
+		exitWithError("arquivo XLS deve ser especificado na linha de comando", 1)
 	}
 	if confFile == "" {
-		logError(fmt.Errorf("arquivo JSON de configuracao deve ser especificado na linha de comando"))
-		flag.Usage()
-		os.Exit(1)
+		exitWithError("arquivo JSON de configuracao deve ser especificado na linha de comando", 1)
 	}
 	if outType != "xml" && outType != "json" {
-		logError(fmt.Errorf("tipo de arquivo de saida invalido: outType = [%s]", outType))
-		flag.Usage()
-		os.Exit(1)
+		exitWithError(fmt.Sprintf("tipo de arquivo de saida invalido: outType = [%s]", outType), 1)
 	}
-
 	if outDir != "" {
 		st, err := os.Stat(outDir)
 		if err != nil || !st.IsDir() {
@@ -94,7 +85,6 @@ func main() {
 			os.Exit(1)
 		}
 	}
-
 	if outType == "json" {
 		if inpPrefix == "" {
 			logError(fmt.Errorf("input_prefix e' obrigatorio para tipo JSON"))
@@ -108,6 +98,7 @@ func main() {
 		logError(err)
 		os.Exit(2)
 	}
+
 	defer closeSheet(f)
 
 	sheetIdx := 0
@@ -115,25 +106,31 @@ func main() {
 	//fmt.Printf("--==>>> %#v\n", lines)
 
 	json := readConfig(confFile)
+	initVars(json)
 
-	opts := json["options"].([]interface{})
-	for _, el := range opts {
-		// fmt.Printf(">>>> %T\n", el)
-		m := el.(map[string]interface{})
-		name := m["Name"].(string)
-		value := m["Value"].(string)
-		options[name] = value
+	success := processSpreadSheet(json, outType, f, outDir, lines, err)
+	if success == 0 {
+		log("------------------------------------")
+		log("Processamento terminado com sucesso.")
+		log("------------------------------------")
+	} else {
+		log("*******************************************")
+		log("*    ATENCAO: ERROS NO PROCESSAMENTO      *")
+		log("*******************************************")
 	}
-	options["timestamp"] = Timestamp()
+	os.Exit(success)
+}
+
+func processSpreadSheet(json map[string]interface{}, outType string, f *xlsx.Spreadsheet, outDir string, lines []map[string]string, err error) int {
 	filenameField, ok := options["filename_field"]
 	if !ok || filenameField == "" {
 		logError(fmt.Errorf("ERRO ao procurar filename_field nas options [%#v]", options))
-		return
+		return 2
 	}
 	nameField, ok := options["name_field"]
 	if !ok || nameField == "" {
 		logError(fmt.Errorf("ERRO ao procurar name_field nas options [%#v]", options))
-		return
+		return 2
 	}
 	idField, _ := options["id_field"]
 
@@ -145,42 +142,45 @@ func main() {
 
 	// fmt.Printf("--> %v\n", objmap)
 	success := 0
-	lastName := ""
+	lName := ""
 	filePath := ""
 	var curr lineT
 	name := ""
 
 	jsonXls, okXls := json["xls_output"]
 	JsonXlsMap := jsonXls.(map[string]interface{})
-	var rs *ReportSheet
+	var rs *reportSheet
 
-	var wrCateg *JSONWriter
+	var wrCateg *jsonWriter
 	if outType == "json" {
 		categLines := readSheetIdx(f, 2)
-		wrCateg = NewJSONWriter(outDir, categLines)
+		wrCateg = newJSONWriter(outDir, categLines)
 	}
 	nLines := len(lines)
+	log("------------------------------")
+	log("Iniciando geracao de arquivos:")
+	log("------------------------------")
 	for i := 0; i < nLines; {
-		log(fmt.Sprintf("Processando linha %d... ", i+1))
+		log(fmt.Sprintf("Processando linha %d...", i+1))
 		var pack []lineT
 		j := i
 		// Groups lines with the same filename or empty filename
 		for ; j < nLines; j++ {
 			curr = lines[j]
 			name = curr[nameField]
-			if lastName == "" {
-				lastName = name
+			if lName == "" {
+				lName = name
 			}
-			if name != "" && name != lastName {
+			if name != "" && name != lName {
 				break
 			}
 			pack = append(pack, curr)
 		}
 		i = j
 		// fmt.Printf("== %v\n", pack)
-		filePath = path.Base(lastName)
+		filePath = path.Base(lName)
 		filePath = strings.TrimSuffix(filePath, path.Ext(filePath))
-		filePath = ReplaceAllNonAlpha(filePath)
+		filePath = replaceAllNonAlpha(filePath)
 		if filePath == "" {
 			logError(fmt.Errorf("ERRO ao procurar filename linha [%#v], field [%v]", curr, filenameField))
 			log("#ERRO FILENAME#")
@@ -189,12 +189,12 @@ func main() {
 		filePath = path.Join(outDir, filePath)
 		log(fmt.Sprintf("Arquivo: %s", filePath))
 		wr := createWriter(outType, filePath, "", 0, 0)
-		err = process(json, pack, wr)
+		err = processLines(json, pack, wr)
 		if err != nil {
 			logError(err)
 			success = -1
 		}
-		lastName = name
+		lName = name
 
 		// publisher output
 		if okXls {
@@ -219,7 +219,7 @@ func main() {
 			xlsFilepath := path.Join(outDir, xlsFile)
 			if rs == nil {
 				nCols := len(jsonCols)
-				rs = NewReportSheet(xlsFilepath, sheetName, nCols, nLines)
+				rs = newReportSheet(xlsFilepath, sheetName, nCols, nLines)
 				err = rs.OpenOutput()
 				if err != nil {
 					logError(err)
@@ -227,7 +227,7 @@ func main() {
 				}
 			}
 			processAttrs("", jsonCols, pack, rs)
-			rs.NewLine()
+			rs.newLine()
 			//_, err = fmt.Fprintf(os.Stderr, "%s\n", filename)
 			//if err != nil {
 			//	logError(err)
@@ -246,19 +246,20 @@ func main() {
 			log("Processando categorias...")
 			for k := range pack {
 				categ1 := pack[k][categField1]
-				err = wrCateg.AddAsset(pack[k][idField], categ1)
+				err = wrCateg.addAsset(pack[k][idField], categ1)
 				if err != nil {
 					logError(err)
 					success = -1
 				}
 				categ2 := pack[k][categField2]
-				err = wrCateg.AddAsset(pack[k][idField], categ2)
+				err = wrCateg.addAsset(pack[k][idField], categ2)
 				if err != nil {
 					logError(err)
 					success = -1
 				}
 			}
 		}
+		log("------------------------------------")
 	}
 	if success == 0 {
 		if rs != nil {
@@ -267,18 +268,29 @@ func main() {
 		if wrCateg != nil {
 			wrCateg.WriteExtras()
 		}
-	} else {
-		log("*******************************************")
-		log("*    ATENCAO: ERROS NO PROCESSAMENTO      *")
-		log("*******************************************")
 	}
-	log("Fim.")
-	os.Exit(success)
+	return success
 }
 
-func Init() {
-	InitFunctions()
+func exitWithError(errMessage string, errCode int) {
+	logError(fmt.Errorf(errMessage))
+	flag.Usage()
+	os.Exit(errCode)
+}
+
+func initVars(json map[string]interface{}) {
+	initFunctions()
 	options = make(map[string]string)
+	opts := json["options"].([]interface{})
+	for _, el := range opts {
+		// fmt.Printf(">>>> %T\n", el)
+		m := el.(map[string]interface{})
+		name := m["Name"].(string)
+		value := m["Value"].(string)
+		options[name] = value
+	}
+	options["timestamp"] = timestamp()
+
 }
 
 // Reads the spreadsheet as an array of map[<line name>] = <value>
@@ -302,7 +314,7 @@ func readSheetIdx(f *xlsx.Spreadsheet, sheetIdx int) []map[string]string {
 	lastLine := lenLines - 1
 	for ; lastLine >= 0; lastLine-- {
 		if !blankLine(lines[lastLine]) {
-			fmt.Printf("input: %d lines\n", lastLine)
+			fmt.Printf("input: %d lines\n", lastLine+1)
 			break
 		}
 	}
@@ -313,7 +325,7 @@ func readSheetIdx(f *xlsx.Spreadsheet, sheetIdx int) []map[string]string {
 func blankLine(line map[string]string) bool {
 	for k, v := range line {
 		if k != "file_number" && v != "" {
-			fmt.Printf("===>>> %v - %v\n", k, v)
+			// fmt.Printf("===>>> %v - %v\n", k, v)
 			return false
 		}
 	}
@@ -346,7 +358,7 @@ func readSheet(sheet xlsx.Sheet, header []string, lines []map[string]string, idx
 				if err1 != nil || !strings.HasPrefix(header[col], "Data") {
 					cellF = strings.TrimSpace(colCell.String())
 				} else {
-					cellF = x.UTC().Format(Dateformat)
+					cellF = x.UTC().Format(dateformat)
 				}
 				//fmt.Printf("+++> %s\n", cellF)
 				line[header[col]] = cellF
@@ -383,22 +395,22 @@ func readConfig(confFile string) map[string]interface{} {
 }
 
 // Factory for creating the writer
-func createWriter(outType string, filename string, sheetname string, ncols int, nlines int) Writer {
-	var writer Writer
+func createWriter(outType string, filename string, sheetname string, ncols int, nlines int) writer {
+	var wr writer
 	switch outType {
 	case "xml":
 		systemID := options["doctype_system"]
-		writer = NewXMLWriter(filename, systemID)
+		wr = newXMLWriter(filename, systemID)
 	case "json":
-		writer = NewJSONWriter(filename, nil)
+		wr = newJSONWriter(filename, nil)
 	case "report":
-		writer = NewReportSheet(filename, sheetname, ncols, nlines)
+		wr = newReportSheet(filename, sheetname, ncols, nlines)
 	}
-	return writer
+	return wr
 }
 
 // Process the config file against the lines of the sheet
-func process(json jsonT, lines []lineT, wr Writer) (err error) {
+func processLines(json jsonT, lines []lineT, wr writer) (err error) {
 	err = wr.OpenOutput()
 	if err != nil {
 		return err
@@ -434,7 +446,7 @@ func process(json jsonT, lines []lineT, wr Writer) (err error) {
 }
 
 // Process a JSON map element
-func processMap(json jsonT, lines []lineT, wr Writer) (err2 []error) {
+func processMap(json jsonT, lines []lineT, wr writer) (err2 []error) {
 	var name string
 	name, hasName := json["Name"].(string)
 	if !hasName {
@@ -445,7 +457,7 @@ func processMap(json jsonT, lines []lineT, wr Writer) (err2 []error) {
 	commonAttrs, _ := json["common_attrs"].(map[string]interface{})
 	filter, okFilter := json["filter"].(string)
 	if okFilter {
-		filterOk, err := EvalCondition(filter, lines[0])
+		filterOk, err := evalCondition(filter, lines[0])
 		if err != nil {
 			err2 = append(err2, err)
 			return
@@ -454,7 +466,7 @@ func processMap(json jsonT, lines []lineT, wr Writer) (err2 []error) {
 			return
 		}
 	}
-	var elType ElemType = Map
+	var elType elemType = mapT
 	_, onlyValues := json["only_values"]
 	_, noArr := json["no_array"]
 	_, okValattr := json["elem_val"]
@@ -465,14 +477,14 @@ func processMap(json jsonT, lines []lineT, wr Writer) (err2 []error) {
 	if okEl {
 		elements = el.([]interface{})
 		if len(elements) == 0 {
-			elType = Empty
+			elType = emptyT
 		} else {
 			if okValattr {
-				elType = Array
+				elType = arrayT
 			} else if noArr {
-				elType = MapNoarr
+				elType = mapNoArrT
 			} else {
-				elType = Map
+				elType = mapT
 			}
 		}
 		//log(fmt.Sprintf("ELEMENTS %s [%v] %d", name, elements, len(elements)))
@@ -480,7 +492,7 @@ func processMap(json jsonT, lines []lineT, wr Writer) (err2 []error) {
 		el, okElArray = json["elements_array"]
 		if okElArray {
 			elements = el.([]interface{})
-			elType = Array
+			elType = arrayT
 		}
 	}
 
@@ -588,7 +600,7 @@ func processOptions(json jsonT) error {
 }
 
 // Process attr element in the JSON
-func processAttrs(_ string, json []interface{}, lines []lineT, wr Writer) (err2 []error) {
+func processAttrs(_ string, json []interface{}, lines []lineT, wr writer) (err2 []error) {
 	for _, v := range json {
 		switch vv := v.(type) {
 		case map[string]interface{}:
@@ -609,8 +621,8 @@ func processAttrs(_ string, json []interface{}, lines []lineT, wr Writer) (err2 
 }
 
 // Process group of attrs in the JSON
-func processGroupAttrs(_ string, json []interface{}, lines []lineT, wr Writer) (err2 []error) {
-	err2 = appendErrors(err2, wr.StartElem("a", MapArray))
+func processGroupAttrs(_ string, json []interface{}, lines []lineT, wr writer) (err2 []error) {
+	err2 = appendErrors(err2, wr.StartElem("a", mapArrayT))
 	if len(err2) > 0 {
 		return
 	}
@@ -630,7 +642,7 @@ func processGroupAttrs(_ string, json []interface{}, lines []lineT, wr Writer) (
 			err2 = appendErrors(err2, processAttr(vv, lines, wr)...)
 		}
 	}
-	err2 = appendErrors(err2, wr.EndElem("a", MapArray))
+	err2 = appendErrors(err2, wr.EndElem("a", mapArrayT))
 	return
 }
 
@@ -654,7 +666,7 @@ func processVars(vars map[string]string, options map[string]string) {
 }
 
 // Process attr element
-func processAttr(json jsonT, lines []lineT, wr Writer) (err []error) {
+func processAttr(json jsonT, lines []lineT, wr writer) (err []error) {
 	var name string
 	name, _ = json["Name"].(string)
 	attrType, _ := json["at_type"].(string)
@@ -664,13 +676,13 @@ func processAttr(json jsonT, lines []lineT, wr Writer) (err []error) {
 	}
 	if ok {
 		vtype, _ := json["type"].(string)
-		procVals, err2 := Process(function, lines, json, options)
+		procVals, err2 := process(function, lines, json, options)
 		err = appendErrors(err, err2)
 		for _, procVal := range procVals {
 			processVars(procVal.vars, options)
 			isOtt := attrType == "ott"
 			if isOtt {
-				err = appendErrors(err, wr.StartElem(name, Map))
+				err = appendErrors(err, wr.StartElem(name, mapT))
 			}
 			at, okA := json["attrs"]
 			if okA {
@@ -687,15 +699,15 @@ func processAttr(json jsonT, lines []lineT, wr Writer) (err []error) {
 				return
 			}
 			if isOtt {
-				err = appendErrors(err, wr.EndElem(name, Map))
+				err = appendErrors(err, wr.EndElem(name, mapT))
 			}
 		}
 	}
 	return
 }
 
-// Process single attrs = one attr per line
-func processSingleAttrs(name string, json []interface{}, lines []lineT, commonAttrs map[string]interface{}, wr Writer) (err2 []error) {
+// Process singleT attrs = one attr per line
+func processSingleAttrs(name string, json []interface{}, lines []lineT, commonAttrs map[string]interface{}, wr writer) (err2 []error) {
 	for _, v := range json {
 		switch vv := v.(type) {
 		case map[string]interface{}:
@@ -705,7 +717,7 @@ func processSingleAttrs(name string, json []interface{}, lines []lineT, commonAt
 	return
 }
 
-func processSingleAttr(nameElem string, json jsonT, lines []lineT, commonAttrs map[string]interface{}, wr Writer) (err error) {
+func processSingleAttr(nameElem string, json jsonT, lines []lineT, commonAttrs map[string]interface{}, wr writer) (err error) {
 	var name string
 	name, ok := json["Name"].(string)
 	_, okf := json["filter"].(string)
@@ -721,10 +733,10 @@ func processSingleAttr(nameElem string, json jsonT, lines []lineT, commonAttrs m
 		isOtt = elType == "ott"
 	}
 
-	var procVals []ResultsT
+	var procVals []resultsT
 	if ok {
 		vtype, _ := json["type"].(string)
-		procVals, err = Process(filterFunc, lines, json, options)
+		procVals, err = process(filterFunc, lines, json, options)
 		if err != nil {
 			return err
 		}
@@ -759,12 +771,12 @@ func processSingleAttr(nameElem string, json jsonT, lines []lineT, commonAttrs m
 }
 
 // Write element to output
-func writeElem(wr Writer, attrs []interface{}, lines []lineT, name string, procVal string) (error, bool) {
+func writeElem(wr writer, attrs []interface{}, lines []lineT, name string, procVal string) (error, bool) {
 	processed := processAttrs(name, attrs, lines, wr)
 	if len(processed) == 0 {
 		return nil, false
 	}
-	err := wr.StartElem(name, Single)
+	err := wr.StartElem(name, singleT)
 	if err != nil {
 		return nil, true
 	}
@@ -777,16 +789,16 @@ func writeElem(wr Writer, attrs []interface{}, lines []lineT, name string, procV
 	if procVal != "" {
 		err1 := wr.Write(procVal)
 		if err1 != nil {
-			_ = wr.EndElem(name, Single)
+			_ = wr.EndElem(name, singleT)
 			return err1, true
 		}
 	}
-	err2 := wr.EndElem(name, Single)
+	err2 := wr.EndElem(name, singleT)
 	return err2, false
 }
 
-func writeAttr(wr Writer, nameElem string, commonAttrs map[string]interface{}, name string, procVal string, vtype string, attrType string) (error, bool) {
-	err := wr.StartElem(nameElem, Single)
+func writeAttr(wr writer, nameElem string, commonAttrs map[string]interface{}, name string, procVal string, vtype string, attrType string) (error, bool) {
+	err := wr.StartElem(nameElem, singleT)
 	if err != nil {
 		return nil, true
 	}
@@ -804,14 +816,14 @@ func writeAttr(wr Writer, nameElem string, commonAttrs map[string]interface{}, n
 	if err != nil {
 		return nil, true
 	}
-	err = wr.EndElem(nameElem, Single)
+	err = wr.EndElem(nameElem, singleT)
 	if err != nil {
 		return nil, true
 	}
 	return nil, false
 }
 
-func processArray(_ string, json []interface{}, lines []lineT, wr Writer) (err2 []error) {
+func processArray(_ string, json []interface{}, lines []lineT, wr writer) (err2 []error) {
 	//fmt.Printf(">>>%s<<<\n", nameElem)
 	// w.StartElem(xw.Elem{Name: nameElem})
 	for _, v := range json {
@@ -828,7 +840,7 @@ func processArray(_ string, json []interface{}, lines []lineT, wr Writer) (err2 
 	return
 }
 
-func processSingleElements(_ string, json []interface{}, lines []lineT, wr Writer) (err2 []error) {
+func processSingleElements(_ string, json []interface{}, lines []lineT, wr writer) (err2 []error) {
 	for _, v := range json {
 		switch vv := v.(type) {
 		case map[string]interface{}:
@@ -843,14 +855,14 @@ func processSingleElements(_ string, json []interface{}, lines []lineT, wr Write
 	return
 }
 
-func processSingleElement(json jsonT, lines []lineT, wr Writer) (err []error) {
+func processSingleElement(json jsonT, lines []lineT, wr writer) (err []error) {
 	var name string
 	name, _ = json["Name"].(string)
 	function, ok := json["function"].(string)
 	if ok {
-		procVals, err2 := Process(function, lines, json, options)
+		procVals, err2 := process(function, lines, json, options)
 		err = appendErrors(err, err2)
-		err2 = wr.StartElem(name, Single)
+		err2 = wr.StartElem(name, singleT)
 		if err2 != nil {
 			err = appendErrors(err, err2)
 			return
@@ -859,11 +871,11 @@ func processSingleElement(json jsonT, lines []lineT, wr Writer) (err []error) {
 			err1 := wr.Write(procVal.val)
 			if err1 != nil {
 				err = appendErrors(err, err1)
-				_ = wr.EndElem(name, Single)
+				_ = wr.EndElem(name, singleT)
 				return
 			}
 		}
-		err2 = wr.EndElem(name, Single)
+		err2 = wr.EndElem(name, singleT)
 		if err2 != nil {
 			err = appendErrors(err, err2)
 			return

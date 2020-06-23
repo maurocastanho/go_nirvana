@@ -200,10 +200,10 @@ func main() {
 			return
 		}
 		mp4dashExe := path.Join(options["mp4box_dir"].(string), options["mp4dash_exe"].(string))
-		flatB, err := buildCommand(mp4dashExe, dashT)
-		err = execCommand(flatB)
-		if err != nil {
-			logError(err)
+		flatB, err2 := buildCommand(mp4dashExe, dashT)
+		err2 = execCommand(flatB)
+		if err2 != nil {
+			logError(err2)
 			return
 		}
 	}

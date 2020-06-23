@@ -13,46 +13,46 @@ import (
 
 var consolidated interface{}
 
-// JSONWriter represents a writer to a JSON file
-type JSONWriter struct {
+// jsonWriter represents a writer to a JSON file
+type jsonWriter struct {
 	fileName   string
 	root       interface{}
 	st         stack.Stack
 	categLines []map[string]string
 }
 
-// NewJSONWriter creates a new struct
-func NewJSONWriter(filename string, categLines []map[string]string) *JSONWriter {
-	w := JSONWriter{fileName: filename, categLines: categLines}
+// newJSONWriter creates a new struct
+func newJSONWriter(filename string, categLines []map[string]string) *jsonWriter {
+	w := jsonWriter{fileName: filename, categLines: categLines}
 	w.initCateg()
 	return &w
 }
 
 // Suffix returns output file suffix
-func (wr *JSONWriter) Suffix() string {
+func (wr *jsonWriter) Suffix() string {
 	return ".json"
 }
 
 // Filename returns output filename
-func (wr *JSONWriter) Filename() string {
+func (wr *jsonWriter) Filename() string {
 	return wr.fileName
 }
 
 // StartMap starts a map element
-func (wr *JSONWriter) StartMap() {
-	wr.getElement("", Map)
+func (wr *jsonWriter) StartMap() {
+	wr.getElement("", mapT)
 }
 
 // EndMap closes a map element
-func (wr *JSONWriter) EndMap() {
-	err := wr.EndElem("", Map)
+func (wr *jsonWriter) EndMap() {
+	err := wr.EndElem("", mapT)
 	if err != nil {
 		logError(err)
 	}
 }
 
 // StartElem starts a JSON element
-func (wr *JSONWriter) StartElem(name string, elType ElemType) error {
+func (wr *jsonWriter) StartElem(name string, elType elemType) error {
 	//fmt.Printf("%s -> %v\n", name, elType)
 	el := wr.getElement(name, elType)
 	wr.st.Push(el)
@@ -61,16 +61,16 @@ func (wr *JSONWriter) StartElem(name string, elType ElemType) error {
 }
 
 // getElement returns a new variable for a given element
-func (wr *JSONWriter) getElement(name string, elType ElemType) interface{} {
+func (wr *jsonWriter) getElement(name string, elType elemType) interface{} {
 	var el interface{}
 	switch elType {
-	case Map, MapNoarr, MapArray:
+	case mapT, mapNoArrT, mapArrayT:
 		el = make(map[string]interface{})
-	case Array:
+	case arrayT:
 		el = make([]interface{}, 0)
-	case Single:
+	case singleT:
 		el = name
-	case Empty:
+	case emptyT:
 		el = nil
 
 	default:
@@ -79,9 +79,9 @@ func (wr *JSONWriter) getElement(name string, elType ElemType) interface{} {
 }
 
 // insertElement inserts a new elemnt into the structure
-func (wr *JSONWriter) insertElement(name string, elem interface{}, elType ElemType) {
+func (wr *jsonWriter) insertElement(name string, elem interface{}, elType elemType) {
 	var el interface{}
-	if elType == Map || elem == nil {
+	if elType == mapT || elem == nil {
 		arr := make([]interface{}, 0)
 		if elem != nil {
 			arr = append(arr, elem)
@@ -113,12 +113,12 @@ func (wr *JSONWriter) insertElement(name string, elem interface{}, elType ElemTy
 	}
 }
 
-func (wr *JSONWriter) Write(_ string) error {
+func (wr *jsonWriter) Write(_ string) error {
 	return nil
 }
 
 // WriteAttr writes a subelement
-func (wr *JSONWriter) WriteAttr(name string, value string, vtype string, _ string) error {
+func (wr *jsonWriter) WriteAttr(name string, value string, vtype string, _ string) error {
 	current := wr.st.Peek()
 	if current == nil {
 		wr.root = value
@@ -132,21 +132,21 @@ func (wr *JSONWriter) WriteAttr(name string, value string, vtype string, _ strin
 				val, err := strconv.Atoi(value)
 				if err != nil {
 					fmt.Printf("%s *--------> %#v\n", name, val)
-					c[name] = ERR
+					c[name] = errMsg
 					break
 				}
 				c[name] = val
 			case "timestamp":
-				var val, err = ToTimestamp(value)
+				var val, err = toTimestamp(value)
 				if err != nil {
 					fmt.Printf("%s *--------> %#v\n", name, val)
-					c[name] = ERR
+					c[name] = errMsg
 					break
 				}
 				c[name] = val
 			case "boolean":
 				if value != "true" && value != "false" {
-					c[name] = ERR
+					c[name] = errMsg
 					break
 				}
 				c[name] = value == "true"
@@ -168,7 +168,7 @@ func (wr *JSONWriter) WriteAttr(name string, value string, vtype string, _ strin
 }
 
 // EndElem closes a JSON element
-func (wr *JSONWriter) EndElem(name string, elType ElemType) error {
+func (wr *jsonWriter) EndElem(name string, elType elemType) error {
 	//fmt.Printf("End: %s\n", name)
 	el := wr.st.Pop()
 	wr.insertElement(name, el, elType)
@@ -177,22 +177,22 @@ func (wr *JSONWriter) EndElem(name string, elType ElemType) error {
 }
 
 // StartComment marks the start of a comment section
-func (wr *JSONWriter) StartComment(_ string) error {
+func (wr *jsonWriter) StartComment(_ string) error {
 	return nil
 }
 
 // EndComment closes a comment section
-func (wr *JSONWriter) EndComment(_ string) error {
+func (wr *jsonWriter) EndComment(_ string) error {
 	return nil
 }
 
 // OpenOutput opens a new output file
-func (wr *JSONWriter) OpenOutput() error {
+func (wr *jsonWriter) OpenOutput() error {
 	return nil
 }
 
 // WriteAndClose writes the structure in an external file
-func (wr *JSONWriter) WriteAndClose(_ string) error {
+func (wr *jsonWriter) WriteAndClose(_ string) error {
 
 	if consolidated == nil {
 		consolidated = wr.root
@@ -214,7 +214,7 @@ func (wr *JSONWriter) WriteAndClose(_ string) error {
 }
 
 // WriteExtras writes additional files
-func (wr *JSONWriter) WriteExtras() {
+func (wr *jsonWriter) WriteExtras() {
 	if wr.categLines == nil {
 		return
 	}
@@ -236,7 +236,7 @@ func (wr *JSONWriter) WriteExtras() {
 	}
 }
 
-func (wr *JSONWriter) initCateg() map[string]interface{} {
+func (wr *jsonWriter) initCateg() map[string]interface{} {
 	root := make(map[string]interface{})
 	cat := make([]map[string]interface{}, 0)
 	for _, line := range wr.categLines {
@@ -268,7 +268,7 @@ func (wr *JSONWriter) initCateg() map[string]interface{} {
 }
 
 // AddAsset adds an asset to the categories list
-func (wr *JSONWriter) AddAsset(id string, categName string) error {
+func (wr *jsonWriter) addAsset(id string, categName string) error {
 	r := wr.root.(map[string]interface{})
 	categs := r["categories"].([]map[string]interface{})
 	for _, categ := range categs {
@@ -280,7 +280,7 @@ func (wr *JSONWriter) AddAsset(id string, categName string) error {
 			return nil
 		}
 	}
-	uuid, err := UUID("", nil, nil, nil)
+	uuid, err := genUUID("", nil, nil, nil)
 	if err != nil {
 		return err
 	}

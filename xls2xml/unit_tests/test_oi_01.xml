@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<assetPackages xmlns:date="http://exslt.org/dates-and-times" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="VODmetadata.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" formatVersion="1.0">
+	<assetPackage name="Nirvana" verb="" product="SVOD" providerName="OnDemand" providerId="ODG" type="SVOD" asset="A Música da Minha Vida">
+		<metadata>
+			<assetID>200611134912003</assetID>
+			<providerID>warner.com</providerID>
+			<showType>movie</showType>
+			<title language="pt">A Música da Minha Vida</title>
+			<title language="en">Blinded by the Light</title>
+			<shortTitle language="pt">A Música da Minha Vida</shortTitle>
+			<reducedTitle language="pt">A Música da Minha Vida</reducedTitle>
+			<summary language="pt">Do escritor, diretor e produtor Gurinder Chadha, Driblando o Destino, temos o drama A Música da Minha Vida, baseado nas músicas e letras inspiradoras das canções atemporais de Bruce Springsteen.</summary>
+			<shortSummary language="pt">Do escritor, diretor e produtor Gurinder Chadha, Driblando o Destino, temos o drama A Música da Minha Vida, baseado nas músicas e letras inspiradoras das canções atemporais de Bruce Springsteen.</shortSummary>
+			<episodeNumber/>
+			<cgmsaLevel>copynever</cgmsaLevel>
+			<rating>12</rating>
+			<runTimeMinutes>118</runTimeMinutes>
+			<release_year>2019</release_year>
+			<countryRegionCode>USA</countryRegionCode>
+			<person mname="" fname="Viveik" lname="Kalra" role="actor"/>
+			<person mname="" fname="Hayley" lname="Atwell" role="actor"/>
+			<person mname="" fname="Rob" lname="Brydon" role="actor"/>
+			<person mname="" fname="Kulvinder" lname="Ghir" role="actor"/>
+			<person mname="" fname="Nell" lname="Williams" role="actor"/>
+			<person mname="" fname="Aaron" lname="Phagura" role="actor"/>
+			<person mname="" fname="Gurinder" lname="Chadha" role="director"/>
+			<studio>Warner Bros</studio>
+			<studioDisplayName>Warner Bros</studioDisplayName>
+			<category>MSEPGC_MV_Musical</category>
+			<autoDeploy>false</autoDeploy>
+			<autoImport>false</autoImport>
+			<categorization>
+				<category1 name="MSEPGC_MV_Musical"/>
+			</categorization>
+			<genre>MSEPGC_MV_Musical</genre>
+			<additionalInfo name="A Música da Minha Vida">
+				<value param="RentableOn">OI_IPTV,OI_PC,OI_Mobile,OI_DTH</value>
+				<value param="DownloadableOn">OI_IPTV,OI_PC,OI_Mobile,OI_DTH</value>
+				<value param="CountryGrantRestriction">BR</value>
+				<value param="ISPGrantRestriction"/>
+				<value param="ReasonCode"/>
+			</additionalInfo>
+		</metadata>
+		<businessMetadata>
+			<suggestedPrice>0.0</suggestedPrice>
+			<currency_iso3166-2>BR</currency_iso3166-2>
+			<billingID>movie</billingID>
+		</businessMetadata>
+		<rightsMetadata>
+			<licensingWindowStart>2021-10-16T00:00:00Z</licensingWindowStart>
+			<licensingWindowEnd-2>2044-12-31T00:00:00Z</licensingWindowEnd-2>
+		</rightsMetadata>
+		<asset type="feature" asset_name="A Música da Minha Vida">
+			<metadata>
+				<assetID>200611134912003</assetID>
+				<providerID>warner.com</providerID>
+				<audio>Dolby 5.1</audio>
+				<HD>true</HD>
+				<language_iso639>en</language_iso639>
+				<subtitleLanguage_iso639>pt</subtitleLanguage_iso639>
+				<rating value="12" rating_system="DJCTQ"/>
+			</metadata>
+			<content>blinded_by_the_light_dvb.ts</content>
+		</asset>
+		<asset type="trailer" asset_name="A Música da Minha Vida">
+			<metadata>
+				<assetID>200611134912003</assetID>
+				<providerID>warner.com</providerID>
+				<audio>Dolby 5.1</audio>
+				<rating value="12" rating_system="DJCTQ"/>
+			</metadata>
+			<content>blinded_by_the_light_dvb_trailer.ts</content>
+		</asset>
+<!-- DTH
+<businessRule>0</businessRule>
+		<UserNibble2>2</UserNibble2>
+		<audioLanguage>en;pt</audioLanguage>
+		<soundType>Surround Sound</soundType> -->
+</assetPackage>
+</assetPackages>

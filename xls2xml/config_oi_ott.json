@@ -83,7 +83,7 @@
                                 },
                                 {"Name": "title",
                                     "attrs": [{"Name": "language", "field": "Língua Original", "function": "field"}],
-                                    "at_type": "ott", "field": "Título Original", "maxlength": "254", "function": "filter", "function2": "field", "filter": "Língua_Original != 'pt'"
+                                    "at_type": "ott", "field": "Título Original", "maxlength": "254", "function": "field", "filter": "Língua_Original != 'pt'"
                                 },
                                 {"Name": "shortTitle",
                                     "attrs": [{"Name": "language", "Value": "pt", "function": "fixed"}],
@@ -213,8 +213,8 @@
                                         {"Name": "audio", "at_type": "ott", "field": "Movie Audio Type", "function": "field"},
                                         {"Name": "HD", "at_type": "ott", "function": "eval", "expression": "Formato != 'SD'"},
                                         {"Name": "language_iso639", "at_type": "ott", "field": "Língua Original", "function": "field"},
-                                        {"Name": "language_iso639", "at_type": "ott", "field": "Dublado", "function": "filter", "function2": "field", "filter":  "Dublado != 'não'"},
-                                        {"Name": "subtitleLanguage_iso639", "at_type": "ott", "field": "Legendado", "function": "filter", "function2": "field", "filter": "Legendado != 'não'"},
+                                        {"Name": "language_iso639", "at_type": "ott", "field": "Dublado", "function": "field", "filter":  "Dublado != 'não'"},
+                                        {"Name": "subtitleLanguage_iso639", "at_type": "ott", "field": "Legendado", "function": "field", "filter": "Legendado != 'não'"},
                                         {"Name": "rating",
                                             "attrs": [
                                                 {"Name": "value", "field": "Classificação Etária", "function": "field"},

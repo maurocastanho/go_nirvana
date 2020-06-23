@@ -14,7 +14,7 @@ import (
 )
 
 // ReportSheet represents the sheet generated for the provider
-type ReportSheet struct {
+type reportSheet struct {
 	filepath    string
 	sheetName   string
 	xlsFile     *xlsx.Spreadsheet
@@ -30,18 +30,18 @@ type ReportSheet struct {
 }
 
 // StartMap starts a map element
-func (rs *ReportSheet) StartMap() {
+func (rs *reportSheet) StartMap() {
 
 }
 
 // EndMap closes a map element
-func (rs *ReportSheet) EndMap() {
+func (rs *reportSheet) EndMap() {
 
 }
 
 // NewReportSheet creates a new struct
-func NewReportSheet(filename string, sheetName string, nCols int, nLines int) *ReportSheet {
-	rs := ReportSheet{
+func newReportSheet(filename string, sheetName string, nCols int, nLines int) *reportSheet {
+	rs := reportSheet{
 		filepath:   filename,
 		sheetName:  sheetName,
 		numCols:    nCols,
@@ -52,7 +52,7 @@ func NewReportSheet(filename string, sheetName string, nCols int, nLines int) *R
 }
 
 // OpenOutput opens the output file for writing
-func (rs *ReportSheet) OpenOutput() (err error) {
+func (rs *reportSheet) OpenOutput() (err error) {
 	st, err := os.Stat(rs.filepath)
 	if err == nil {
 		if st.IsDir() {
@@ -113,16 +113,16 @@ func (rs *ReportSheet) OpenOutput() (err error) {
 }
 
 // StartElem is unused
-func (rs *ReportSheet) StartElem(_ string, _ ElemType) error {
+func (rs *reportSheet) StartElem(_ string, _ elemType) error {
 	return nil
 }
 
 // EndElem is unused
-func (rs *ReportSheet) EndElem(_ string, _ ElemType) error {
+func (rs *reportSheet) EndElem(_ string, _ elemType) error {
 	return nil
 }
 
-func (rs *ReportSheet) writeCell(col int, row int, value interface{}, style styles.DirectStyleID) error {
+func (rs *reportSheet) writeCell(col int, row int, value interface{}, style styles.DirectStyleID) error {
 	cell := rs.sheet.Cell(col, row)
 	cell.SetStyles(style)
 	if cell == nil {
@@ -132,12 +132,12 @@ func (rs *ReportSheet) writeCell(col int, row int, value interface{}, style styl
 	return nil
 }
 
-func (rs *ReportSheet) Write(_ string) error {
+func (rs *reportSheet) Write(_ string) error {
 	return nil
 }
 
 // WriteAttr writes a new attribute as a sheet cell
-func (rs *ReportSheet) WriteAttr(name string, value string, vtype string, _ string) error {
+func (rs *reportSheet) WriteAttr(name string, value string, vtype string, _ string) error {
 	//fmt.Printf("name:[%v], value:[%v], vtype:[%v]\n", name, value, vtype)
 	style := rs.bodyStyle
 	ERRS := "#ERRO#"
@@ -161,7 +161,7 @@ func (rs *ReportSheet) WriteAttr(name string, value string, vtype string, _ stri
 		val = v
 		style = rs.moneyStyle
 	case "time":
-		time, err := ToTimeSeconds(value)
+		time, err := toTimeSeconds(value)
 		if err != nil {
 			fmt.Printf("%s *--------> %#v\n", name, val)
 			val = ERRS
@@ -171,7 +171,7 @@ func (rs *ReportSheet) WriteAttr(name string, value string, vtype string, _ stri
 		minutes := int64(math.Ceil((float64(time) - float64(hours)*3600) / 60))
 		val = fmt.Sprintf("%02d:%02d", hours, minutes)
 	case "time_s":
-		sec, err := ToTimeSeconds(value)
+		sec, err := toTimeSeconds(value)
 		if err != nil {
 			fmt.Printf("%s *--------> %#v\n", name, val)
 			val = ERRS
@@ -204,7 +204,7 @@ func (rs *ReportSheet) WriteAttr(name string, value string, vtype string, _ stri
 }
 
 // WriteAndClose writes the xls file and closes it
-func (rs *ReportSheet) WriteAndClose(_ string) (err error) {
+func (rs *reportSheet) WriteAndClose(_ string) (err error) {
 	err = rs.xlsFile.SaveAs(rs.filepath)
 	if err != nil {
 		return
@@ -216,7 +216,7 @@ func (rs *ReportSheet) WriteAndClose(_ string) (err error) {
 	return
 }
 
-func (rs *ReportSheet) processColumns(_ string, json []interface{}, lines []lineT, wr Writer) (err2 []error) {
+func (rs *reportSheet) processColumns(_ string, json []interface{}, lines []lineT, wr writer) (err2 []error) {
 	for _, v := range json {
 		switch vv := v.(type) {
 		case map[string]interface{}:
@@ -226,11 +226,11 @@ func (rs *ReportSheet) processColumns(_ string, json []interface{}, lines []line
 	return
 }
 
-func (rs *ReportSheet) processColumn(json jsonT, lines []lineT, _ Writer) (err []error) {
+func (rs *reportSheet) processColumn(json jsonT, lines []lineT, _ writer) (err []error) {
 	name := json["Name"].(string)
 	function, ok := json["function"].(string)
 	if ok {
-		procVals, err2 := Process(function, lines, json, options)
+		procVals, err2 := process(function, lines, json, options)
 		err = appendErrors(err, err2)
 		for _, procVal := range procVals {
 			fmt.Printf("%s: %#v\n", name, procVal.val)
@@ -240,31 +240,31 @@ func (rs *ReportSheet) processColumn(json jsonT, lines []lineT, _ Writer) (err [
 }
 
 // StartComment marks the start of a comment section
-func (rs *ReportSheet) StartComment(_ string) error {
+func (rs *reportSheet) StartComment(_ string) error {
 	return nil
 }
 
 // EndComment closes a comment section
-func (rs *ReportSheet) EndComment(_ string) error {
+func (rs *reportSheet) EndComment(_ string) error {
 	return nil
 }
 
 // Filename returns the output file name
-func (rs *ReportSheet) Filename() string {
+func (rs *reportSheet) Filename() string {
 	return rs.filepath
 }
 
 // Suffix returns the output file extension
-func (rs *ReportSheet) Suffix() string {
+func (rs *reportSheet) Suffix() string {
 	return ".xlsx"
 }
 
 // NewLine sets the output to a new line in the current sheet
-func (rs *ReportSheet) NewLine() {
+func (rs *reportSheet) newLine() {
 	rs.currentRow++
 	rs.currentCol = 0
 }
 
 // WriteExtras writes additional files
-func (rs *ReportSheet) WriteExtras() {
+func (rs *reportSheet) WriteExtras() {
 }
