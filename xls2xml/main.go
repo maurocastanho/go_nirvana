@@ -57,6 +57,8 @@ var options map[string]string
 const errSuffix = "_ERRO"
 
 func main() {
+	success := 0
+	defer func() { os.Exit(success) }()
 	inputXls := ""
 	confFile := ""
 	outType := ""
@@ -70,25 +72,30 @@ func main() {
 	flag.Parse()
 
 	if inputXls == "" {
-		exitWithError("arquivo XLS deve ser especificado na linha de comando", 1)
+		success = exitWithError("arquivo XLS deve ser especificado na linha de comando", 1)
+		return
 	}
 	if confFile == "" {
-		exitWithError("arquivo JSON de configuracao deve ser especificado na linha de comando", 1)
+		success = exitWithError("arquivo JSON de configuracao deve ser especificado na linha de comando", 1)
+		return
 	}
 	if outType != "xml" && outType != "json" {
-		exitWithError(fmt.Sprintf("tipo de arquivo de saida invalido: outType = [%s]", outType), 1)
+		success = exitWithError(fmt.Sprintf("tipo de arquivo de saida invalido: outType = [%s]", outType), 1)
+		return
 	}
 	if outDir != "" {
 		st, err := os.Stat(outDir)
 		if err != nil || !st.IsDir() {
 			logError(fmt.Errorf("diretorio [%s] nao e' valido", outDir))
-			os.Exit(1)
+			success = 1
+			return
 		}
 	}
 	if outType == "json" {
 		if inpPrefix == "" {
 			logError(fmt.Errorf("input_prefix e' obrigatorio para tipo JSON"))
-			os.Exit(1)
+			success = 1
+			return
 		}
 		options["inpPrefix"] = inpPrefix
 	}
@@ -96,7 +103,8 @@ func main() {
 	f, err := xlsx.Open(inputXls)
 	if err != nil {
 		logError(err)
-		os.Exit(2)
+		success = 2
+		return
 	}
 	defer closeSheet(f)
 	sheetIdx := 0
@@ -104,7 +112,7 @@ func main() {
 	//fmt.Printf("--==>>> %#v\n", lines)
 	json := readConfig(confFile)
 	initVars(json)
-	success := processSpreadSheet(json, outType, f, outDir, lines, err)
+	success = processSpreadSheet(json, outType, f, outDir, lines, err)
 	if success == 0 {
 		log("------------------------------------")
 		log("Processamento terminado com sucesso.")
@@ -114,7 +122,12 @@ func main() {
 		log("*    ATENCAO: ERROS NO PROCESSAMENTO      *")
 		log("*******************************************")
 	}
-	os.Exit(success)
+}
+
+func exitWithError(errMessage string, errCode int) int {
+	logError(fmt.Errorf(errMessage))
+	flag.Usage()
+	return errCode
 }
 
 func processSpreadSheet(json map[string]interface{}, outType string, f *xlsx.Spreadsheet, outDir string, lines []map[string]string, err error) int {
@@ -266,12 +279,6 @@ func processSpreadSheet(json map[string]interface{}, outType string, f *xlsx.Spr
 		}
 	}
 	return success
-}
-
-func exitWithError(errMessage string, errCode int) {
-	logError(fmt.Errorf(errMessage))
-	flag.Usage()
-	os.Exit(errCode)
 }
 
 func initVars(json map[string]interface{}) {
