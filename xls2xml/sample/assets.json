@@ -2,38 +2,38 @@
   "assets": [
     {
       "adult": false,
-      "available_from": 1586908800000,
-      "available_to": 1649980800000,
-      "duration": 2170999,
+      "available_from": 1593043200000,
+      "available_to": 1798675200000,
+      "duration": 1421000,
       "genres": [
         "Show"
       ],
-      "id": "2fcf1839-81c0-46f2-98b7-738bcb401cc3",
+      "id": "198413c7-3d35-4c6d-9714-f80e92e9b7d0",
       "images": [
         {
-          "id": "8167cd52-6246-4095-b3d9-9989fef55591",
-          "location": "shows/20190514_esl_exalta_now_hd_fv_poster.jpg",
+          "id": "e2830250-d3bf-451a-ba3b-d4ec3ce1da19",
+          "location": "shows/ariana_grande_poster.jpg",
           "type": "vod_poster"
         },
         {
-          "id": "5a05445a-bd32-494b-93f7-efe0b0516047",
-          "location": "shows/20190514_esl_exalta_now_hd_fv_landscape.jpg",
+          "id": "8b841c15-a02f-4a23-b4d2-d4eb409becbe",
+          "location": "shows/ariana_grande_landscape.jpg",
           "type": "vod_background"
         }
       ],
       "medias": [
         {
           "audio_languages": [
-            "por"
+            "eng"
           ],
-          "id": "2fcf1839-81c0-46f2-98b7-738bcb401cc3",
-          "location": "shows/20190514_esl_exalta_now_hd_fv.ts",
+          "id": "198413c7-3d35-4c6d-9714-f80e92e9b7d0",
+          "location": "shows/ariana_grande.mp4",
           "metadata": {},
           "subtitles_languages": [
-            "não"
+            "por"
           ],
-          "technology": "TS",
-          "title": "Exalta",
+          "technology": "MP4",
+          "title": "Ariana Grande",
           "type": "MEDIA"
         }
       ],
@@ -41,45 +41,160 @@
         "actors": [
           ""
         ],
-        "country": "BRA",
+        "country": "USA",
+        "directors": [
+          ""
+        ],
+        "release_year": "2016",
+        "rights": [],
+        "summary": [
+          "Show da cantora Ariana Grande"
+        ]
+      },
+      "morality_level": 0,
+      "synopsis": {
+        "por": "Ariana Grande se apresenta em Las Vegas, a cantora canta todos os seus sucessos. O show conta com participação especial de Zedd."
+      },
+      "title": {
+        "por": "Ariana Grande"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1593043200000,
+      "available_to": 1798675200000,
+      "duration": 2959000,
+      "genres": [
+        "Show"
+      ],
+      "id": "a05123b8-03a2-4f22-b006-3a5ec2906520",
+      "images": [
+        {
+          "id": "511b88f6-e9d2-4117-8c01-81168ec53bf0",
+          "location": "shows/ben_harper_relentless_7_poster.jpg",
+          "type": "vod_poster"
+        },
+        {
+          "id": "dd58290e-680a-4718-bac3-22db2ffdc11f",
+          "location": "shows/ben_harper_relentless_7_landscape.jpg",
+          "type": "vod_background"
+        }
+      ],
+      "medias": [
+        {
+          "audio_languages": [
+            "eng"
+          ],
+          "id": "a05123b8-03a2-4f22-b006-3a5ec2906520",
+          "location": "shows/ben_harper_relentless_7.mp4",
+          "metadata": {},
+          "subtitles_languages": [
+            "por"
+          ],
+          "technology": "MP4",
+          "title": "Ben Harper and the Innocent Criminals",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          ""
+        ],
+        "country": "USA",
+        "directors": [
+          ""
+        ],
+        "release_year": "2016",
+        "rights": [],
+        "summary": [
+          "Show do cantor Ben Harper"
+        ]
+      },
+      "morality_level": 0,
+      "synopsis": {
+        "por": "Ben Harper se apresenta em um show intimista com sua banda Relentless7 ao vivo no festival South by Soutwest."
+      },
+      "title": {
+        "por": "Ben Harper and the Innocent Criminals"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1593043200000,
+      "available_to": 1798675200000,
+      "duration": 1767000,
+      "genres": [
+        "Show"
+      ],
+      "id": "f902ab69-f44f-4e87-83d6-67999fe1db74",
+      "images": [
+        {
+          "id": "0d938c5d-5bcf-49ab-a133-30f9e5eb912f",
+          "location": "shows/billie_eilish_poster.jpg",
+          "type": "vod_poster"
+        },
+        {
+          "id": "9d91c03e-aed3-42ca-82b4-d2616f1cc66d",
+          "location": "shows/billie_eilish_landscape.jpg",
+          "type": "vod_background"
+        }
+      ],
+      "medias": [
+        {
+          "audio_languages": [
+            "eng"
+          ],
+          "id": "f902ab69-f44f-4e87-83d6-67999fe1db74",
+          "location": "shows/billie_eilish.ts",
+          "metadata": {},
+          "subtitles_languages": [
+            "por"
+          ],
+          "technology": "TS",
+          "title": "Billie Eilish",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          ""
+        ],
+        "country": "GBR",
         "directors": [
           ""
         ],
         "release_year": "2019",
         "rights": [],
         "summary": [
-          "Show do grupo Exaltasamba"
+          "Show da cantora Billie Eilish"
         ]
       },
       "morality_level": 0,
-      "season_episode_number": "",
-      "season_id": "1050c358-badd-41fd-87e2-a05c34dfcf9f",
-      "series_id": "48118913-0f24-468f-ad2e-4699c35346d0",
       "synopsis": {
-        "por": "Confira os lançamentos do Exalta, além dos grandes sucessos dos mais de 30 anos de carreira do grupo, com conteúdos exclusivos, nesse show inédito!"
+        "por": "Billie Eilish, a cantora revelação, vencedora de diversos prêmios Grammy se apresenta na Inglaterra, e canta seus grande sucesso bad guy"
       },
       "title": {
-        "por": "Exalta"
+        "por": "Billie Eilish"
       }
     },
     {
       "adult": false,
-      "available_from": 1586908800000,
-      "available_to": 1649980800000,
-      "duration": 5290999,
+      "available_from": 1593043200000,
+      "available_to": 1798675200000,
+      "duration": 5259999,
       "genres": [
         "Show"
       ],
-      "id": "73020910-f14a-4453-a9e3-a5255f5b73b3",
+      "id": "908faf37-1b89-4df2-9aa2-30090d334aa1",
       "images": [
         {
-          "id": "e902b1dc-658a-4e45-9d6c-b8b71fd640a1",
-          "location": "shows/30_seconds_to_mars_hd_poster.jpg",
+          "id": "e78227ce-f53a-4af8-bf66-3a29af2467e5",
+          "location": "shows/britney_spears_poster.jpg",
           "type": "vod_poster"
         },
         {
-          "id": "e4d36bd0-62ef-42f9-b82d-cfe9dd6edcf1",
-          "location": "shows/30_seconds_to_mars_hd_landscape.jpg",
+          "id": "21f1566c-8f13-4aee-89db-afee7de4efb2",
+          "location": "shows/britney_spears_landscape.jpg",
           "type": "vod_background"
         }
       ],
@@ -88,324 +203,14 @@
           "audio_languages": [
             "eng"
           ],
-          "id": "73020910-f14a-4453-a9e3-a5255f5b73b3",
-          "location": "shows/30_seconds_to_mars_hd.ts",
-          "metadata": {},
-          "subtitles_languages": [
-            "por"
-          ],
-          "technology": "TS",
-          "title": "30 Seconds To Mars",
-          "type": "MEDIA"
-        }
-      ],
-      "metadata": {
-        "actors": [
-          ""
-        ],
-        "country": "GBR",
-        "directors": [
-          ""
-        ],
-        "release_year": "2015",
-        "rights": [],
-        "summary": [
-          "30 Seconds To Mars"
-        ]
-      },
-      "morality_level": 0,
-      "season_episode_number": "",
-      "season_id": "5ab42918-029b-4e08-8bf6-8887c0ef7c4b",
-      "series_id": "ea4f7c00-85dd-444a-b157-142a6b71ddb9",
-      "synopsis": {
-        "por": "Jared Leto leva os fãs à loucura em um show com muita interação com o público, onde a banda toca seus grandes sucessos. Show realizado em Londres."
-      },
-      "title": {
-        "por": "30 Seconds To Mars"
-      }
-    },
-    {
-      "adult": false,
-      "available_from": 1586908800000,
-      "available_to": 1649980800000,
-      "duration": 4700000,
-      "genres": [
-        "Show"
-      ],
-      "id": "8c7e300d-41b7-46a5-ba2e-992b333ac9ac",
-      "images": [
-        {
-          "id": "1d7112d4-752c-4c95-813f-223af5fc0350",
-          "location": "shows/a_ha_switzerland_sd_4x3_poster.jpg",
-          "type": "vod_poster"
-        },
-        {
-          "id": "227498e3-9360-4faf-bad8-8040991df481",
-          "location": "shows/a_ha_switzerland_sd_4x3_landscape.jpg",
-          "type": "vod_background"
-        }
-      ],
-      "medias": [
-        {
-          "audio_languages": [
-            "eng"
-          ],
-          "id": "8c7e300d-41b7-46a5-ba2e-992b333ac9ac",
-          "location": "shows/a_ha_switzerland_sd_4x3.ts",
-          "metadata": {},
-          "subtitles_languages": [
-            "por"
-          ],
-          "technology": "TS",
-          "title": "A-Ha",
-          "type": "MEDIA"
-        }
-      ],
-      "metadata": {
-        "actors": [
-          ""
-        ],
-        "country": "USA",
-        "directors": [
-          ""
-        ],
-        "release_year": "2012",
-        "rights": [],
-        "summary": [
-          "Show do grupo A-HA"
-        ]
-      },
-      "morality_level": 0,
-      "season_episode_number": "",
-      "season_id": "a237f50d-53a0-49b4-9571-46db531a8005",
-      "series_id": "5a22ed76-ecf8-4abe-8011-f8d7ad350c3c",
-      "synopsis": {
-        "por": "A-HA foi uma famosa banda norueguesa de synthpop, New wave e Pop Rock, veja sua grande apresentação, e ouça seus maiores sucessos."
-      },
-      "title": {
-        "por": "A-Ha"
-      }
-    },
-    {
-      "adult": false,
-      "available_from": 1586908800000,
-      "available_to": 1649980800000,
-      "duration": 3213000,
-      "genres": [
-        "Show"
-      ],
-      "id": "f660badf-b6cd-4544-96cc-dece1affc9c1",
-      "images": [
-        {
-          "id": "db4f5a79-1c8c-4b30-84bf-c312025c8a05",
-          "location": "shows/avril_lavigne_calgary_hd_poster.jpg",
-          "type": "vod_poster"
-        },
-        {
-          "id": "992f5915-c63d-4481-b18c-f06dbdf8e8c6",
-          "location": "shows/avril_lavigne_calgary_hd_landscape.jpg",
-          "type": "vod_background"
-        }
-      ],
-      "medias": [
-        {
-          "audio_languages": [
-            "eng"
-          ],
-          "id": "f660badf-b6cd-4544-96cc-dece1affc9c1",
-          "location": "shows/avril_lavigne_calgary_hd.ts",
-          "metadata": {},
-          "subtitles_languages": [
-            "por"
-          ],
-          "technology": "TS",
-          "title": "Avril Lavigne",
-          "type": "MEDIA"
-        }
-      ],
-      "metadata": {
-        "actors": [
-          ""
-        ],
-        "country": "USA",
-        "directors": [
-          ""
-        ],
-        "release_year": "2015",
-        "rights": [],
-        "summary": [
-          "Show da cantora Avril Lavigne"
-        ]
-      },
-      "morality_level": 0,
-      "season_episode_number": "",
-      "season_id": "eac9268c-fecb-4159-ac07-9b08f301ceb6",
-      "series_id": "c744f075-71b4-400e-8417-ed5c2ecbee16",
-      "synopsis": {
-        "por": "Avril Lavigne volta ao seu país, para fazer um show e cantar todos os seus sucessos. Show realizado em Calgary no Canadá"
-      },
-      "title": {
-        "por": "Avril Lavigne"
-      }
-    },
-    {
-      "adult": false,
-      "available_from": 1586908800000,
-      "available_to": 1649980800000,
-      "duration": 2916000,
-      "genres": [
-        "Show"
-      ],
-      "id": "be98fb4a-5083-4452-ae00-6f29d123d516",
-      "images": [
-        {
-          "id": "e443910c-9629-4c3c-8473-667851b6e38f",
-          "location": "shows/beatles_washington_1964_sd_16x9_poster.jpg",
-          "type": "vod_poster"
-        },
-        {
-          "id": "6c40b463-d8aa-4477-aea4-a71f52b0a9b0",
-          "location": "shows/beatles_washington_1964_sd_16x9_landscape.jpg",
-          "type": "vod_background"
-        }
-      ],
-      "medias": [
-        {
-          "audio_languages": [
-            "eng"
-          ],
-          "id": "be98fb4a-5083-4452-ae00-6f29d123d516",
-          "location": "shows/beatles_washington_1964_sd_16x9.mp4",
+          "id": "908faf37-1b89-4df2-9aa2-30090d334aa1",
+          "location": "shows/britney_spears.mp4",
           "metadata": {},
           "subtitles_languages": [
             "por"
           ],
           "technology": "MP4",
-          "title": "The Beatles - Washington Tour",
-          "type": "MEDIA"
-        }
-      ],
-      "metadata": {
-        "actors": [
-          ""
-        ],
-        "country": "USA",
-        "directors": [
-          ""
-        ],
-        "release_year": "1964",
-        "rights": [],
-        "summary": [
-          "Apresentação histórica da banda mais famosa de todos os tempos THE BEATLES"
-        ]
-      },
-      "morality_level": 0,
-      "season_episode_number": "",
-      "season_id": "a76954be-86f7-4803-9ed9-f5f7e6fe08e0",
-      "series_id": "c261e97a-2f2c-46ae-a138-f121682f637f",
-      "synopsis": {
-        "por": "THE BEATLES se apresenta em Washington, shows com entrevistas e imagens históricas e recuperadas"
-      },
-      "title": {
-        "por": "The Beatles - Washington Tour"
-      }
-    },
-    {
-      "adult": false,
-      "available_from": 1586908800000,
-      "available_to": 1649980800000,
-      "duration": 4827999,
-      "genres": [
-        "Show"
-      ],
-      "id": "44a28c07-62a6-4057-a215-540265a947dc",
-      "images": [
-        {
-          "id": "8e52eecc-510d-4ce4-ac9a-377d6805ccf9",
-          "location": "shows/beck_hd_poster.jpg",
-          "type": "vod_poster"
-        },
-        {
-          "id": "219ae69f-26b5-49e1-94bd-f40a76b60885",
-          "location": "shows/beck_hd_landscape.jpg",
-          "type": "vod_background"
-        }
-      ],
-      "medias": [
-        {
-          "audio_languages": [
-            "eng"
-          ],
-          "id": "44a28c07-62a6-4057-a215-540265a947dc",
-          "location": "shows/beck_hd.ts",
-          "metadata": {},
-          "subtitles_languages": [
-            "por"
-          ],
-          "technology": "TS",
-          "title": "Beck",
-          "type": "MEDIA"
-        }
-      ],
-      "metadata": {
-        "actors": [
-          ""
-        ],
-        "country": "USA",
-        "directors": [
-          ""
-        ],
-        "release_year": "2015",
-        "rights": [],
-        "summary": [
-          "Show de Beck"
-        ]
-      },
-      "morality_level": 0,
-      "season_episode_number": "",
-      "season_id": "50fa0c92-fb37-4419-8ccb-b4f0e82c89db",
-      "series_id": "ea685fdd-b440-4950-ab25-11f690c23515",
-      "synopsis": {
-        "por": "Beck volta para Londres depois de 17 anos para fazer um show que percorre todos os grandes sucessos de sua carreira. Show realizado na Roundhouse em Londres."
-      },
-      "title": {
-        "por": "Beck"
-      }
-    },
-    {
-      "adult": false,
-      "available_from": 1586908800000,
-      "available_to": 1649980800000,
-      "duration": 6501999,
-      "genres": [
-        "Show"
-      ],
-      "id": "e64c97c4-2c9c-4606-a103-2944a4c74ffa",
-      "images": [
-        {
-          "id": "888b680e-c9ef-462a-b884-654cae97a1db",
-          "location": "shows/black_sabbath_poster.jpg",
-          "type": "vod_poster"
-        },
-        {
-          "id": "593731de-9457-4bab-8905-ea4c266c40ca",
-          "location": "shows/black_sabbath_landscape.jpg",
-          "type": "vod_background"
-        }
-      ],
-      "medias": [
-        {
-          "audio_languages": [
-            "eng"
-          ],
-          "id": "e64c97c4-2c9c-4606-a103-2944a4c74ffa",
-          "location": "shows/black_sabbath.ts",
-          "metadata": {},
-          "subtitles_languages": [
-            "por"
-          ],
-          "technology": "TS",
-          "title": "BLACK SABBATH",
+          "title": "Britney Spears",
           "type": "MEDIA"
         }
       ],
@@ -417,41 +222,38 @@
         "directors": [
           ""
         ],
-        "release_year": "2012",
+        "release_year": "2016",
         "rights": [],
         "summary": [
-          "Show da banda Black Sabbath"
+          "Show da cantora Britney Spears"
         ]
       },
       "morality_level": 0,
-      "season_episode_number": "",
-      "season_id": "50e99eae-582e-4a2d-8272-44684b97ed97",
-      "series_id": "1fdcc3ad-04ff-4220-9f6c-8c2c19481b27",
       "synopsis": {
-        "por": "Black Sabbath com Ozzy Osbourne fazem um show em Birmingham na Inglaterra, e cantam seus sucessos como Paranoid, e vários outros desde o seu primeiro álbum."
+        "por": "Britney Spears prova porque é chamada de Princesa do Pop com esse show cheio de efeitos especiais, muitos bailarinos todos os sucessos atuais e do início de sua carreira, show realizado em Londres, Inglarterra."
       },
       "title": {
-        "por": "BLACK SABBATH"
+        "por": "Britney Spears"
       }
     },
     {
       "adult": false,
-      "available_from": 1586908800000,
-      "available_to": 1649980800000,
-      "duration": 4245999,
+      "available_from": 1593043200000,
+      "available_to": 1798675200000,
+      "duration": 3643000,
       "genres": [
         "Show"
       ],
-      "id": "71425974-47b1-4824-a919-05bc59d530f2",
+      "id": "97fd0e06-5304-48f0-bbc7-47e16ad9910d",
       "images": [
         {
-          "id": "80ccbb3a-b05e-481c-a1ac-90cc40bd64d8",
-          "location": "shows/bob_marley_sd_poster.jpg",
+          "id": "cf6090b5-6367-4136-9808-d713548d1722",
+          "location": "shows/david_guetta_miami_poster.jpg",
           "type": "vod_poster"
         },
         {
-          "id": "7806bc47-f574-4d24-bdab-d0a37cbf3f5f",
-          "location": "shows/bob_marley_sd_landscape.jpg",
+          "id": "a3ab2fde-eacb-477b-acef-105a69286d1e",
+          "location": "shows/david_guetta_miami_landscape.jpg",
           "type": "vod_background"
         }
       ],
@@ -460,200 +262,250 @@
           "audio_languages": [
             "eng"
           ],
-          "id": "71425974-47b1-4824-a919-05bc59d530f2",
-          "location": "shows/bob_marley_sd.ts",
-          "metadata": {},
-          "subtitles_languages": [
-            "por"
-          ],
-          "technology": "TS",
-          "title": "Bob Marley",
-          "type": "MEDIA"
-        }
-      ],
-      "metadata": {
-        "actors": [
-          ""
-        ],
-        "country": "USA",
-        "directors": [
-          ""
-        ],
-        "release_year": "1977",
-        "rights": [],
-        "summary": [
-          "Show de Bob Marley"
-        ]
-      },
-      "morality_level": 0,
-      "season_episode_number": "",
-      "season_id": "924b1438-7abf-4661-a42c-d0752e9fa4ff",
-      "series_id": "fdf36257-548c-499f-a908-64858c9229ba",
-      "synopsis": {
-        "por": "Bob Marley, um dos músicos mais influentes dos últimso tempos em um show com The Wailers em Londres em 1977"
-      },
-      "title": {
-        "por": "Bob Marley"
-      }
-    },
-    {
-      "adult": false,
-      "available_from": 1586908800000,
-      "available_to": 1649980800000,
-      "duration": 2023000,
-      "genres": [
-        "Show"
-      ],
-      "id": "c6e42a22-9517-41ba-a40a-7791c2dfad0c",
-      "images": [
-        {
-          "id": "e275a221-9972-4b35-b2b5-7d0b16c92a99",
-          "location": "shows/celine_dion_sd_16x9_poster.jpg",
-          "type": "vod_poster"
-        },
-        {
-          "id": "a3182c58-f56c-46cc-8b29-3308260fa637",
-          "location": "shows/celine_dion_sd_16x9_landscape.jpg",
-          "type": "vod_background"
-        }
-      ],
-      "medias": [
-        {
-          "audio_languages": [
-            "eng"
-          ],
-          "id": "c6e42a22-9517-41ba-a40a-7791c2dfad0c",
-          "location": "shows/celine_dion_sd_16x9.ts",
-          "metadata": {},
-          "subtitles_languages": [
-            "por"
-          ],
-          "technology": "TS",
-          "title": "Céline Dion",
-          "type": "MEDIA"
-        }
-      ],
-      "metadata": {
-        "actors": [
-          ""
-        ],
-        "country": "USA",
-        "directors": [
-          ""
-        ],
-        "release_year": "2007",
-        "rights": [],
-        "summary": [
-          "Show da cantora Celine Dion"
-        ]
-      },
-      "morality_level": 0,
-      "season_episode_number": "",
-      "season_id": "2957db5b-1431-45e3-b3e7-43ed3bfedcd7",
-      "series_id": "a10e2449-1f78-4fba-a9e4-86db262c72e8",
-      "synopsis": {
-        "por": "Céline Dion, uma das maiores vozes da atualidade canta seus maiores sucessos como My Heart Will Go On, em um belo show com a participação de Andrea Bocelli."
-      },
-      "title": {
-        "por": "Céline Dion"
-      }
-    },
-    {
-      "adult": false,
-      "available_from": 1586908800000,
-      "available_to": 1649980800000,
-      "duration": 1950999,
-      "genres": [
-        "Show"
-      ],
-      "id": "692164bd-aea0-4596-a1b0-dcb2102cb16d",
-      "images": [
-        {
-          "id": "d849f9c8-44be-40de-a6fe-82be124248d1",
-          "location": "shows/charlie_puth_poster.jpg",
-          "type": "vod_poster"
-        },
-        {
-          "id": "4c0b1cca-17f8-4a36-ac37-facce6dac4ae",
-          "location": "shows/charlie_puth_landscape.jpg",
-          "type": "vod_background"
-        }
-      ],
-      "medias": [
-        {
-          "audio_languages": [
-            "eng"
-          ],
-          "id": "692164bd-aea0-4596-a1b0-dcb2102cb16d",
-          "location": "shows/charlie_puth.ts",
-          "metadata": {},
-          "subtitles_languages": [
-            "por"
-          ],
-          "technology": "TS",
-          "title": "Charlie Puth",
-          "type": "MEDIA"
-        }
-      ],
-      "metadata": {
-        "actors": [
-          ""
-        ],
-        "country": "GBR",
-        "directors": [
-          ""
-        ],
-        "release_year": "2015",
-        "rights": [],
-        "summary": [
-          "Show de Charlie Puth"
-        ]
-      },
-      "morality_level": 0,
-      "season_episode_number": "",
-      "season_id": "9a512a67-fa29-4d95-aa4d-111e5a433389",
-      "series_id": "494e3d82-2185-4c96-8397-d1872fb9ae4b",
-      "synopsis": {
-        "por": "Charlie Puth canta o seus maiores sucessos, e explica como começou a sua carreira e alcançou a fama tão jovem, em um belo show em Londres."
-      },
-      "title": {
-        "por": "Charlie Puth"
-      }
-    },
-    {
-      "adult": false,
-      "available_from": 1586908800000,
-      "available_to": 1649980800000,
-      "duration": 8399999,
-      "genres": [
-        "Show"
-      ],
-      "id": "8003a3a9-6706-4ecf-b689-2b930941da0b",
-      "images": [
-        {
-          "id": "bb6c6e30-15aa-4813-8f1b-119cf9742bbb",
-          "location": "shows/foo_fighters_wasting_ass_poster.jpg",
-          "type": "vod_poster"
-        },
-        {
-          "id": "23e740c1-92a5-4c46-8efc-6e810efd67ad",
-          "location": "shows/foo_fighters_wasting_ass_landscape.jpg",
-          "type": "vod_background"
-        }
-      ],
-      "medias": [
-        {
-          "audio_languages": [
-            "eng"
-          ],
-          "id": "8003a3a9-6706-4ecf-b689-2b930941da0b",
-          "location": "shows/foo_fighters_wasting_ass.mp4",
+          "id": "97fd0e06-5304-48f0-bbc7-47e16ad9910d",
+          "location": "shows/david_guetta_miami.mp4",
           "metadata": {},
           "subtitles_languages": [
             "por"
           ],
           "technology": "MP4",
-          "title": "Foo Fighters",
+          "title": "David Guetta",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          ""
+        ],
+        "country": "USA",
+        "directors": [
+          ""
+        ],
+        "release_year": "2016",
+        "rights": [],
+        "summary": [
+          "Show do DJ David Guetta"
+        ]
+      },
+      "morality_level": 0,
+      "synopsis": {
+        "por": "David Guetta apresenta os seus grandes hits em Miami, no Ultra Music Festival"
+      },
+      "title": {
+        "por": "David Guetta"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1593043200000,
+      "available_to": 1798675200000,
+      "duration": 6224999,
+      "genres": [
+        "Show"
+      ],
+      "id": "5a5b5752-e9b7-476c-b165-12e22528a88d",
+      "images": [
+        {
+          "id": "a33a5cfb-8b74-4aba-88e6-f3ce7c6f5a02",
+          "location": "shows/ed_sheeran_poster.jpg",
+          "type": "vod_poster"
+        },
+        {
+          "id": "014b940a-2b49-4712-b055-4584a716a06d",
+          "location": "shows/ed_sheeran_landscape.jpg",
+          "type": "vod_background"
+        }
+      ],
+      "medias": [
+        {
+          "audio_languages": [
+            "eng"
+          ],
+          "id": "5a5b5752-e9b7-476c-b165-12e22528a88d",
+          "location": "shows/ed_sheeran.mp4",
+          "metadata": {},
+          "subtitles_languages": [
+            "por"
+          ],
+          "technology": "MP4",
+          "title": "Ed Sheeran",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          ""
+        ],
+        "country": "GBR",
+        "directors": [
+          ""
+        ],
+        "release_year": "2014",
+        "rights": [],
+        "summary": [
+          "Show de Ed Sheeran"
+        ]
+      },
+      "morality_level": 0,
+      "synopsis": {
+        "por": "Ed Sheeran leva seu público à loucura cantando seus grandes sucessos como Thinking Out Loud, Sing, Don't, I See Fire e muito mais"
+      },
+      "title": {
+        "por": "Ed Sheeran"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1593043200000,
+      "available_to": 1798675200000,
+      "duration": 1930999,
+      "genres": [
+        "Show"
+      ],
+      "id": "63470e58-70ff-4c63-b6fe-e28b59a39f3d",
+      "images": [
+        {
+          "id": "73b5e0a2-8a54-4f95-8ab3-922278c89d81",
+          "location": "shows/fifth_harmony_poster.jpg",
+          "type": "vod_poster"
+        },
+        {
+          "id": "71bdf13f-49ee-4bf6-9fd3-8825d943fc5e",
+          "location": "shows/fifth_harmony_landscape.jpg",
+          "type": "vod_background"
+        }
+      ],
+      "medias": [
+        {
+          "audio_languages": [
+            "eng"
+          ],
+          "id": "63470e58-70ff-4c63-b6fe-e28b59a39f3d",
+          "location": "shows/fifth_harmony.mp4",
+          "metadata": {},
+          "subtitles_languages": [
+            "por"
+          ],
+          "technology": "MP4",
+          "title": "Fifth Harmony + Shawn Mendes",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          ""
+        ],
+        "country": "USA",
+        "directors": [
+          ""
+        ],
+        "release_year": "2015",
+        "rights": [],
+        "summary": [
+          "Show do grupo Fifth Harmony e do do cantor  Shawn Mendes"
+        ]
+      },
+      "morality_level": 0,
+      "synopsis": {
+        "por": "Veja apresentações da banda Fifth Harmony e também do cantor Shawn Mendes, em Nova Iorque nos Estados Unidos."
+      },
+      "title": {
+        "por": "Fifth Harmony + Shawn Mendes"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1593043200000,
+      "available_to": 1798675200000,
+      "duration": 4035000,
+      "genres": [
+        "Show"
+      ],
+      "id": "580683a0-525b-46a9-b810-3414a07729db",
+      "images": [
+        {
+          "id": "076b1dc5-b4b2-4df2-8663-66886cd4a4a7",
+          "location": "shows/jessie_j_poster.jpg",
+          "type": "vod_poster"
+        },
+        {
+          "id": "88043d04-70a1-4f77-af27-1311475778e9",
+          "location": "shows/jessie_j_landscape.jpg",
+          "type": "vod_background"
+        }
+      ],
+      "medias": [
+        {
+          "audio_languages": [
+            "eng"
+          ],
+          "id": "580683a0-525b-46a9-b810-3414a07729db",
+          "location": "shows/jessie_j.mp4",
+          "metadata": {},
+          "subtitles_languages": [
+            "por"
+          ],
+          "technology": "MP4",
+          "title": "Jessie J",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          ""
+        ],
+        "country": "DEU",
+        "directors": [
+          ""
+        ],
+        "release_year": "2011",
+        "rights": [],
+        "summary": [
+          "Show da cantora Jessie J"
+        ]
+      },
+      "morality_level": 0,
+      "synopsis": {
+        "por": "Jessie J canta, conversa com a platéia e assina autógrafos e canta todos seus sucessos em um show descoladíssimo na Alemanha para o New Pop Festival."
+      },
+      "title": {
+        "por": "Jessie J"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1593043200000,
+      "available_to": 1798675200000,
+      "duration": 3384999,
+      "genres": [
+        "Show"
+      ],
+      "id": "87a6663b-bcbf-4bf0-b572-1fba9217c2c7",
+      "images": [
+        {
+          "id": "d51e2940-a435-43d1-9ffc-69ce2b7bc7b6",
+          "location": "shows/katy_perry_poster.jpg",
+          "type": "vod_poster"
+        },
+        {
+          "id": "395cd0b4-8864-475f-96e5-42d589954465",
+          "location": "shows/katy_perry_landscape.jpg",
+          "type": "vod_background"
+        }
+      ],
+      "medias": [
+        {
+          "audio_languages": [
+            "eng"
+          ],
+          "id": "87a6663b-bcbf-4bf0-b572-1fba9217c2c7",
+          "location": "shows/katy_perry.mov",
+          "metadata": {},
+          "subtitles_languages": [
+            "por"
+          ],
+          "technology": "TS",
+          "title": "Katy Perry",
           "type": "MEDIA"
         }
       ],
@@ -668,38 +520,35 @@
         "release_year": "2017",
         "rights": [],
         "summary": [
-          "Show da banda Foo Fighters"
+          "Show de Katy Perry"
         ]
       },
-      "morality_level": 12,
-      "season_episode_number": "",
-      "season_id": "f71461aa-0a7b-4b26-9fcd-89be960491f1",
-      "series_id": "883241d3-ade7-4519-be97-b86a7d8907e4",
+      "morality_level": 0,
       "synopsis": {
-        "por": "Foo Fighters canta sucessos de todos os seus álbuns em show na Inglaterra. Veja sucessos como Wheels, These days, Times Like These e muito mais."
+        "por": "Katy Perry se apresenta em Glastonbury, na Inglaterra, para milhares de fãs. A cantora canta os maioress sucessos de sua carreira  como Roar, Dark Horse e Firework. Além de seus novos lançamentos Swish Swish e Chained To The Rhytm e muito mais."
       },
       "title": {
-        "por": "Foo Fighters"
+        "por": "Katy Perry"
       }
     },
     {
       "adult": false,
-      "available_from": 1586908800000,
-      "available_to": 1649980800000,
-      "duration": 4460000,
+      "available_from": 1593043200000,
+      "available_to": 1798675200000,
+      "duration": 2760999,
       "genres": [
         "Show"
       ],
-      "id": "e6c68b97-ccf7-4767-9dc2-b1263df5e7e8",
+      "id": "57755e5c-072f-4e9b-87bd-c2f3c0275228",
       "images": [
         {
-          "id": "86b38633-8d45-48ec-a331-948ff7896140",
-          "location": "shows/george_harrison_dark_horse_sd_16x9_poster.jpg",
+          "id": "6e290491-72e4-400d-ab4d-829d49d7a861",
+          "location": "shows/lana_del_rey_poster.jpg",
           "type": "vod_poster"
         },
         {
-          "id": "268c9cb1-45f9-4b9d-a1b9-33fa8c4b8ea7",
-          "location": "shows/george_harrison_dark_horse_sd_16x9_landscape.jpg",
+          "id": "6c2cef8f-539d-402d-907f-29fe5a3173ad",
+          "location": "shows/lana_del_rey_landscape.jpg",
           "type": "vod_background"
         }
       ],
@@ -708,14 +557,73 @@
           "audio_languages": [
             "eng"
           ],
-          "id": "e6c68b97-ccf7-4767-9dc2-b1263df5e7e8",
-          "location": "shows/george_harrison_dark_horse_sd_16x9.mp4",
+          "id": "57755e5c-072f-4e9b-87bd-c2f3c0275228",
+          "location": "shows/lana_del_rey.mp4",
           "metadata": {},
           "subtitles_languages": [
             "por"
           ],
           "technology": "MP4",
-          "title": "George Harrison - Dark Horse",
+          "title": "Lana Del Rey",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          ""
+        ],
+        "country": "GBR",
+        "directors": [
+          ""
+        ],
+        "release_year": "2014",
+        "rights": [],
+        "summary": [
+          "Show da Lana Del Rey"
+        ]
+      },
+      "morality_level": 0,
+      "synopsis": {
+        "por": "Lana Del rey faz um show para se sentir próxima de seus fãs, na belíssima casa Roundhouse em Londres."
+      },
+      "title": {
+        "por": "Lana Del Rey"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1593043200000,
+      "available_to": 1798675200000,
+      "duration": 1204000,
+      "genres": [
+        "Show"
+      ],
+      "id": "fa366555-05a1-47c3-8261-d9600a23d05e",
+      "images": [
+        {
+          "id": "f3b7e914-59ce-4213-8c7c-53dfc52afc98",
+          "location": "shows/nick_jonas_poster.jpg",
+          "type": "vod_poster"
+        },
+        {
+          "id": "25ad47bc-189e-4490-8308-e8dd75d070bd",
+          "location": "shows/nick_jonas_landscape.jpg",
+          "type": "vod_background"
+        }
+      ],
+      "medias": [
+        {
+          "audio_languages": [
+            "eng"
+          ],
+          "id": "fa366555-05a1-47c3-8261-d9600a23d05e",
+          "location": "shows/nick_jonas.mp4",
+          "metadata": {},
+          "subtitles_languages": [
+            "por"
+          ],
+          "technology": "MP4",
+          "title": "Nick Jonas",
           "type": "MEDIA"
         }
       ],
@@ -727,41 +635,38 @@
         "directors": [
           ""
         ],
-        "release_year": "2000",
+        "release_year": "2015",
         "rights": [],
         "summary": [
-          "Show de George Harrison"
+          "Show de Nick Jonas"
         ]
       },
       "morality_level": 0,
-      "season_episode_number": "",
-      "season_id": "17d0eaff-64ed-49ff-a619-6bdd804321d5",
-      "series_id": "a38311e5-4ea0-4e63-babd-7652182fed61",
       "synopsis": {
-        "por": "George Harrison em entrevistas e apresentações com imagens recuperadas e históricas cantando seus sucessos de sua carreira solo em uma turnê pelos Estados Unidos"
+        "por": "Nick Jonas encanta seus fãs e canta os sucessos do seu álbum mais novo, em um belo show em Nova Iorque nos Estados Unidos"
       },
       "title": {
-        "por": "George Harrison - Dark Horse"
+        "por": "Nick Jonas"
       }
     },
     {
       "adult": false,
-      "available_from": 1586908800000,
-      "available_to": 1649980800000,
-      "duration": 6636999,
+      "available_from": 1593043200000,
+      "available_to": 1798675200000,
+      "duration": 5093999,
       "genres": [
         "Show"
       ],
-      "id": "4ff419db-3f8f-4871-a310-7f154d7b8859",
+      "id": "b7c342f5-c22b-4ffe-9960-dcad29c92bac",
       "images": [
         {
-          "id": "07eb476a-152c-487d-a053-8007e3f439e2",
-          "location": "shows/iron_maiden_hd_poster.jpg",
+          "id": "0babb71b-67a7-4206-a108-d4af534c42ec",
+          "location": "shows/one_direction_2013_poster.jpg",
           "type": "vod_poster"
         },
         {
-          "id": "f84bb833-8dc9-45e2-890f-6bf5a87ff684",
-          "location": "shows/iron_maiden_hd_landscape.jpg",
+          "id": "5d33eec9-5670-454a-a4dc-6e3f13352833",
+          "location": "shows/one_direction_2013_landscape.jpg",
           "type": "vod_background"
         }
       ],
@@ -770,76 +675,14 @@
           "audio_languages": [
             "eng"
           ],
-          "id": "4ff419db-3f8f-4871-a310-7f154d7b8859",
-          "location": "shows/iron_maiden_hd.ts",
+          "id": "b7c342f5-c22b-4ffe-9960-dcad29c92bac",
+          "location": "shows/one_direction_2013.mp4",
           "metadata": {},
           "subtitles_languages": [
             "por"
           ],
-          "technology": "TS",
-          "title": "Iron Maiden",
-          "type": "MEDIA"
-        }
-      ],
-      "metadata": {
-        "actors": [
-          ""
-        ],
-        "country": "DEU",
-        "directors": [
-          ""
-        ],
-        "release_year": "2014",
-        "rights": [],
-        "summary": [
-          "Show da banda Iron Maiden"
-        ]
-      },
-      "morality_level": 0,
-      "season_episode_number": "",
-      "season_id": "e779e178-c784-42a6-80af-5d4700f2ecbc",
-      "series_id": "22d30bc1-7c8b-472f-9544-5a5df3c3d545",
-      "synopsis": {
-        "por": "Iron Maiden leva uma multidão à loucura em um show que passeia por todo o repertório de uma das bandas mais antigas ainda em atividade. Show realizado na Alemanha."
-      },
-      "title": {
-        "por": "Iron Maiden"
-      }
-    },
-    {
-      "adult": false,
-      "available_from": 1586908800000,
-      "available_to": 1649980800000,
-      "duration": 4932999,
-      "genres": [
-        "Show"
-      ],
-      "id": "64dcbcde-8cde-45c1-b580-42f66c7c940b",
-      "images": [
-        {
-          "id": "8d68ddd6-2b99-4689-b7c9-32d293838623",
-          "location": "shows/kings_of_leon_poster.jpg",
-          "type": "vod_poster"
-        },
-        {
-          "id": "ec32957a-b22f-4547-a492-2adef6ede01e",
-          "location": "shows/kings_of_leon_landscape.jpg",
-          "type": "vod_background"
-        }
-      ],
-      "medias": [
-        {
-          "audio_languages": [
-            "eng"
-          ],
-          "id": "64dcbcde-8cde-45c1-b580-42f66c7c940b",
-          "location": "shows/kings_of_leon.ts",
-          "metadata": {},
-          "subtitles_languages": [
-            "por"
-          ],
-          "technology": "TS",
-          "title": "Kings of Leon",
+          "technology": "MP4",
+          "title": "One Direction",
           "type": "MEDIA"
         }
       ],
@@ -854,38 +697,35 @@
         "release_year": "2013",
         "rights": [],
         "summary": [
-          "Show da banda Kings of Leon"
+          "Show do grupo One Direction"
         ]
       },
       "morality_level": 0,
-      "season_episode_number": "",
-      "season_id": "2dda0bec-7a14-4665-a445-699a4814ce51",
-      "series_id": "21fc4740-d64a-470d-9907-f8c746b57ee3",
       "synopsis": {
-        "por": "Kings of Leons, cantam para seus fãs e encantam a platéia com um show especial, em Londres na Inglaterra."
+        "por": "Harry, Liam, Louis, Liam e Zayn fazem um show de tirar o fôlego de todas as fãs. A banda se apresentou em Londres na Inglaterra, e cantou todos os seus sucessos."
       },
       "title": {
-        "por": "Kings of Leon"
+        "por": "One Direction"
       }
     },
     {
       "adult": false,
-      "available_from": 1586908800000,
-      "available_to": 1649980800000,
-      "duration": 7187000,
+      "available_from": 1593043200000,
+      "available_to": 1798675200000,
+      "duration": 5907999,
       "genres": [
         "Show"
       ],
-      "id": "b6ea38ea-d62c-4329-891f-eb34afac6144",
+      "id": "16b03f49-1d8e-42fc-bdbc-0a7ec60697a9",
       "images": [
         {
-          "id": "5969b905-2c62-46c8-9f2d-bb665fab8b59",
-          "location": "shows/Kylie_minogue_aphrodite_hd_poster.jpg",
+          "id": "ed977cd7-2e62-4270-b587-54789862c66d",
+          "location": "shows/paul_simon_roundhouse_poster.jpg",
           "type": "vod_poster"
         },
         {
-          "id": "077e2397-c258-4f1d-97d6-1dfca1e2d946",
-          "location": "shows/Kylie_minogue_aphrodite_hd_landscape.jpg",
+          "id": "e96759aa-9d52-4d16-a5fa-4b93f6012374",
+          "location": "shows/paul_simon_roundhouse_landscape.jpg",
           "type": "vod_background"
         }
       ],
@@ -894,200 +734,14 @@
           "audio_languages": [
             "eng"
           ],
-          "id": "b6ea38ea-d62c-4329-891f-eb34afac6144",
-          "location": "shows/Kylie_minogue_aphrodite_hd.ts",
-          "metadata": {},
-          "subtitles_languages": [
-            "por"
-          ],
-          "technology": "TS",
-          "title": "Kylie Minogue - Aphrodite",
-          "type": "MEDIA"
-        }
-      ],
-      "metadata": {
-        "actors": [
-          ""
-        ],
-        "country": "USA",
-        "directors": [
-          ""
-        ],
-        "release_year": "2012",
-        "rights": [],
-        "summary": [
-          "Show da cantora Kylie Minogue"
-        ]
-      },
-      "morality_level": 0,
-      "season_episode_number": "",
-      "season_id": "3a6f7e33-eadc-43d5-9ece-05d8fef6d076",
-      "series_id": "cfeba539-15b9-4ba6-94cc-4e746c32dbe1",
-      "synopsis": {
-        "por": "Kylie Minogue se apresenta em Londres em um show com muitos efeitos especiais, trocas de figurinos e apresentaçõs muito especiais."
-      },
-      "title": {
-        "por": "Kylie Minogue - Aphrodite"
-      }
-    },
-    {
-      "adult": false,
-      "available_from": 1586908800000,
-      "available_to": 1649980800000,
-      "duration": 5022000,
-      "genres": [
-        "Show"
-      ],
-      "id": "655c8192-af0d-48b5-92de-4dda343489e7",
-      "images": [
-        {
-          "id": "014dcf3a-f914-4aa9-a4e2-2cf458451a33",
-          "location": "shows/lennon_musicdoc_sd_16x9_poster.jpg",
-          "type": "vod_poster"
-        },
-        {
-          "id": "375d1f03-6535-4ae2-8cec-a36c602c0086",
-          "location": "shows/lennon_musicdoc_sd_16x9_landscape.jpg",
-          "type": "vod_background"
-        }
-      ],
-      "medias": [
-        {
-          "audio_languages": [
-            "eng"
-          ],
-          "id": "655c8192-af0d-48b5-92de-4dda343489e7",
-          "location": "shows/lennon_musicdoc_sd_16x9.mp4",
+          "id": "16b03f49-1d8e-42fc-bdbc-0a7ec60697a9",
+          "location": "shows/paul_simon_roundhouse.mp4",
           "metadata": {},
           "subtitles_languages": [
             "por"
           ],
           "technology": "MP4",
-          "title": "Lennon - MusicDoc",
-          "type": "MEDIA"
-        }
-      ],
-      "metadata": {
-        "actors": [
-          ""
-        ],
-        "country": "USA",
-        "directors": [
-          ""
-        ],
-        "release_year": "1978",
-        "rights": [],
-        "summary": [
-          "Show de John Lennon"
-        ]
-      },
-      "morality_level": 0,
-      "season_episode_number": "",
-      "season_id": "7913a0d7-7801-4614-bb8d-a28120216e74",
-      "series_id": "ac474469-e34a-491a-9f80-0a854f9260de",
-      "synopsis": {
-        "por": "John Lennon em apresentações com imagens recuperadas e históricas cantando seus sucessos de sua carreira solo"
-      },
-      "title": {
-        "por": "Lennon - MusicDoc"
-      }
-    },
-    {
-      "adult": false,
-      "available_from": 1586908800000,
-      "available_to": 1649980800000,
-      "duration": 6254999,
-      "genres": [
-        "Show"
-      ],
-      "id": "fdbc123d-3845-4349-8819-dba380a513a4",
-      "images": [
-        {
-          "id": "162454fa-0b8e-485b-b242-97e5ed104f85",
-          "location": "shows/lenny_kravitz_hd_poster.jpg",
-          "type": "vod_poster"
-        },
-        {
-          "id": "a81b4f21-4dbe-4def-bb04-9124fdf441ea",
-          "location": "shows/lenny_kravitz_hd_landscape.jpg",
-          "type": "vod_background"
-        }
-      ],
-      "medias": [
-        {
-          "audio_languages": [
-            "eng"
-          ],
-          "id": "fdbc123d-3845-4349-8819-dba380a513a4",
-          "location": "shows/lenny_kravitz_hd.ts",
-          "metadata": {},
-          "subtitles_languages": [
-            "por"
-          ],
-          "technology": "TS",
-          "title": "Lenny Kravitz",
-          "type": "MEDIA"
-        }
-      ],
-      "metadata": {
-        "actors": [
-          ""
-        ],
-        "country": "USA",
-        "directors": [
-          ""
-        ],
-        "release_year": "2014",
-        "rights": [],
-        "summary": [
-          "Show do cantor Lenny Kravitz"
-        ]
-      },
-      "morality_level": 0,
-      "season_episode_number": "",
-      "season_id": "13da6066-bd32-47ab-ad7e-092710120927",
-      "series_id": "b1903395-5557-4ef7-9a4e-84f0952165c9",
-      "synopsis": {
-        "por": "Lenny Kravitz canta sucessos de sua carreira desde 1991 até os sucessos mais atuais."
-      },
-      "title": {
-        "por": "Lenny Kravitz"
-      }
-    },
-    {
-      "adult": false,
-      "available_from": 1586908800000,
-      "available_to": 1649980800000,
-      "duration": 4737000,
-      "genres": [
-        "Show"
-      ],
-      "id": "10ffb92d-4a3b-44ae-8920-91de74afea78",
-      "images": [
-        {
-          "id": "00979250-8f44-46d9-b7c6-7b01ff6acd69",
-          "location": "shows/lionel_richie_hd_poster.jpg",
-          "type": "vod_poster"
-        },
-        {
-          "id": "51c485e5-b88d-4f71-b410-c85e9b12fd9b",
-          "location": "shows/lionel_richie_hd_landscape.jpg",
-          "type": "vod_background"
-        }
-      ],
-      "medias": [
-        {
-          "audio_languages": [
-            "eng"
-          ],
-          "id": "10ffb92d-4a3b-44ae-8920-91de74afea78",
-          "location": "shows/lionel_richie_hd.ts",
-          "metadata": {},
-          "subtitles_languages": [
-            "por"
-          ],
-          "technology": "TS",
-          "title": "Lionel Richie",
+          "title": "Paul Simon",
           "type": "MEDIA"
         }
       ],
@@ -1099,41 +753,38 @@
         "directors": [
           ""
         ],
-        "release_year": "2015",
+        "release_year": "2011",
         "rights": [],
         "summary": [
-          "Show do cantor Lionel Richie"
+          "Show do cantor Paul Simon"
         ]
       },
       "morality_level": 0,
-      "season_episode_number": "",
-      "season_id": "35c30f87-b635-4c18-9475-b932ad8313d4",
-      "series_id": "78ad6c32-4d29-43c9-af8c-7e9b62c62ca7",
       "synopsis": {
-        "por": "Lionel Richie encanta seu público, na Inglaterra, cantando seus sucessos da carreira solo, também como grandes hits de The Commodores"
+        "por": "Paul Simon faz um passeio por sua longa carreira, cantando suas músicas preferidas de seu extenso repertório."
       },
       "title": {
-        "por": "Lionel Richie"
+        "por": "Paul Simon"
       }
     },
     {
       "adult": false,
-      "available_from": 1586908800000,
-      "available_to": 1649980800000,
-      "duration": 2062999,
+      "available_from": 1593043200000,
+      "available_to": 1798675200000,
+      "duration": 7044000,
       "genres": [
         "Show"
       ],
-      "id": "07030fe9-c7a4-4ffe-aa6c-66096aca462f",
+      "id": "68dd9cd2-1270-4e5d-b1c4-1aa8208c2840",
       "images": [
         {
-          "id": "289df92d-179e-4a8c-8188-83fc9a6f5977",
-          "location": "shows/madonna_sd_16x9_poster.jpg",
+          "id": "3641d109-cf9d-491d-833e-500ce57f98d7",
+          "location": "shows/the_black_eyed_peas_poster.jpg",
           "type": "vod_poster"
         },
         {
-          "id": "dde24177-f6a2-4dea-9cee-6c7fa235c7c6",
-          "location": "shows/madonna_sd_16x9_landscape.jpg",
+          "id": "746ce173-53c9-456d-80e8-163ee1ab09af",
+          "location": "shows/the_black_eyed_peas_landscape.jpg",
           "type": "vod_background"
         }
       ],
@@ -1142,14 +793,14 @@
           "audio_languages": [
             "eng"
           ],
-          "id": "07030fe9-c7a4-4ffe-aa6c-66096aca462f",
-          "location": "shows/madonna_sd_16x9.ts",
+          "id": "68dd9cd2-1270-4e5d-b1c4-1aa8208c2840",
+          "location": "shows/the_black_eyed_peas.mp4",
           "metadata": {},
           "subtitles_languages": [
             "por"
           ],
-          "technology": "TS",
-          "title": "Madonna",
+          "technology": "MP4",
+          "title": "The Black Eyed Peas",
           "type": "MEDIA"
         }
       ],
@@ -1164,38 +815,35 @@
         "release_year": "2010",
         "rights": [],
         "summary": [
-          "Show da cantora Madonna"
+          "Show da banda The Black Eyed Peas"
         ]
       },
       "morality_level": 0,
-      "season_episode_number": "",
-      "season_id": "9fbfcff3-79bd-42a7-a556-76c29cadf71b",
-      "series_id": "3f518db8-834c-46af-bc4c-5a9356d7b1ae",
       "synopsis": {
-        "por": "Madonna faz um show especial em Nova Iorque, para celebrar sua longa carreira, e conta com a participação de outras estrelas como Justin Timberlake"
+        "por": "The Black Eyed Peas, no show mais importante de suas carreiras, com grandes efeitos especiais e participações especiais de muitos convidados, entre eles Slash do Guns and Roses. Show realizado na cidade natal da banda, Los Angeles."
       },
       "title": {
-        "por": "Madonna"
+        "por": "The Black Eyed Peas"
       }
     },
     {
       "adult": false,
-      "available_from": 1586908800000,
-      "available_to": 1649980800000,
-      "duration": 4638000,
+      "available_from": 1593043200000,
+      "available_to": 1798675200000,
+      "duration": 5464000,
       "genres": [
         "Show"
       ],
-      "id": "b2029b41-9264-40b2-bed3-6f6b822cf987",
+      "id": "23c97cc4-269c-4a6e-a84c-ff75236c8d0b",
       "images": [
         {
-          "id": "e82921de-e466-461a-9e18-ef75e97e4e2a",
-          "location": "shows/mariah_carey_usa_hd_poster.jpg",
+          "id": "cc4ed018-7c78-4282-b261-af1da07abcc3",
+          "location": "shows/tiesto_miami_2016_poster.jpg",
           "type": "vod_poster"
         },
         {
-          "id": "68c40c6d-a93f-4b01-8337-de1b069ac98b",
-          "location": "shows/mariah_carey_usa_hd_landscape.jpg",
+          "id": "b3ceb09e-81e5-4039-9ba8-300ed0287ebd",
+          "location": "shows/tiesto_miami_2016_landscape.jpg",
           "type": "vod_background"
         }
       ],
@@ -1204,14 +852,14 @@
           "audio_languages": [
             "eng"
           ],
-          "id": "b2029b41-9264-40b2-bed3-6f6b822cf987",
-          "location": "shows/mariah_carey_usa_hd.mov",
+          "id": "23c97cc4-269c-4a6e-a84c-ff75236c8d0b",
+          "location": "shows/tiesto_miami_2016.mp4",
           "metadata": {},
           "subtitles_languages": [
             "por"
           ],
-          "technology": "TS",
-          "title": "Mariah Carey",
+          "technology": "MP4",
+          "title": "Tiesto",
           "type": "MEDIA"
         }
       ],
@@ -1223,41 +871,38 @@
         "directors": [
           ""
         ],
-        "release_year": "2006",
+        "release_year": "2016",
         "rights": [],
         "summary": [
-          "Show da cantora Mariah Carey"
+          "Show do DJ Tiesto"
         ]
       },
       "morality_level": 0,
-      "season_episode_number": "",
-      "season_id": "ca899e86-2777-4a57-8f67-c8aca1c470db",
-      "series_id": "bfd9f7f6-3be2-4d0f-b9fd-2cbc365176c6",
       "synopsis": {
-        "por": "Mariah Carey se apresenta am Anaheim, na Califórnia. A cantora apresenta seus maiores sucessos e conta também com a participação especial da banda Boyz II Men."
+        "por": "Tiesto se apresenta no Ultra Music Festival em Miami em um show com diversos convidados especiais. Veja Tiesto se apresentando com The Chainsmokers; VASSY; Oliver Heldens, DallasK e muito mais..."
       },
       "title": {
-        "por": "Mariah Carey"
+        "por": "Tiesto"
       }
     },
     {
       "adult": false,
-      "available_from": 1586908800000,
-      "available_to": 1649980800000,
-      "duration": 6613999,
+      "available_from": 1593043200000,
+      "available_to": 1798675200000,
+      "duration": 2180000,
       "genres": [
         "Show"
       ],
-      "id": "61712e32-9586-49ae-b755-68091a07e3ab",
+      "id": "f09e0f8e-8b1b-479f-a766-dad5ad71c626",
       "images": [
         {
-          "id": "f83e647b-3280-4a1f-90c2-32b55387c8a8",
-          "location": "shows/matchbox_twenty_poster.jpg",
+          "id": "bc155210-7de0-44c0-ab80-68292f39e387",
+          "location": "shows/zz_top_poster.jpg",
           "type": "vod_poster"
         },
         {
-          "id": "b36af61a-cd12-45f3-b2c0-a8f793c65ea8",
-          "location": "shows/matchbox_twenty_landscape.jpg",
+          "id": "b345cb44-c7d5-493d-8239-7fe5a346f8db",
+          "location": "shows/zz_top_landscape.jpg",
           "type": "vod_background"
         }
       ],
@@ -1266,14 +911,14 @@
           "audio_languages": [
             "eng"
           ],
-          "id": "61712e32-9586-49ae-b755-68091a07e3ab",
-          "location": "shows/matchbox_twenty.ts",
+          "id": "f09e0f8e-8b1b-479f-a766-dad5ad71c626",
+          "location": "shows/zz_top.mp4",
           "metadata": {},
           "subtitles_languages": [
             "por"
           ],
-          "technology": "TS",
-          "title": "Matchbox 20",
+          "technology": "MP4",
+          "title": "ZZ Top",
           "type": "MEDIA"
         }
       ],
@@ -1285,41 +930,38 @@
         "directors": [
           ""
         ],
-        "release_year": "2012",
+        "release_year": "2016",
         "rights": [],
         "summary": [
-          "Show da banda Matchbox 20"
+          "Show da banda ZZ Top"
         ]
       },
       "morality_level": 0,
-      "season_episode_number": "",
-      "season_id": "564a3a6a-6b57-4e46-bb15-5a34ce7a768c",
-      "series_id": "fbe4af03-5e9e-44e0-b29c-4fe80359155d",
       "synopsis": {
-        "por": "Matchbox 20 leva os seus fãs por um passeio em sua carreira, cantando músicas do começo de sua carreira nos anos 90, até seus mais novos lançamentos, em um show em Londres, na inglaterra."
+        "por": "That Little Ol' Band from Texas, como são chamados, ZZ Top se apresenta na Inglaterra para uma imensa plateia"
       },
       "title": {
-        "por": "Matchbox 20"
+        "por": "ZZ Top"
       }
     },
     {
       "adult": false,
-      "available_from": 1586908800000,
-      "available_to": 1649980800000,
-      "duration": 5409000,
+      "available_from": 1593043200000,
+      "available_to": 1798675200000,
+      "duration": 2678000,
       "genres": [
         "Show"
       ],
-      "id": "aba2ccd1-7b7b-4611-a447-e3f364800971",
+      "id": "a610a282-2d63-4f82-b5d1-9ad320db37cb",
       "images": [
         {
-          "id": "33dd9358-05f2-4f1c-b3ae-a8d6a8cbcc86",
-          "location": "shows/michael_bolton_london_hd_poster.jpg",
+          "id": "71314a8d-8e8b-492b-b65f-9d9b839b9280",
+          "location": "shows/shakira_poster.jpg",
           "type": "vod_poster"
         },
         {
-          "id": "ce1176f3-c71b-4792-8ea1-403ea7299ec4",
-          "location": "shows/michael_bolton_london_hd_landscape.jpg",
+          "id": "138984d2-655a-4fe5-9d87-0fefb5e0260e",
+          "location": "shows/shakira_landscape.jpg",
           "type": "vod_background"
         }
       ],
@@ -1328,14 +970,14 @@
           "audio_languages": [
             "eng"
           ],
-          "id": "aba2ccd1-7b7b-4611-a447-e3f364800971",
-          "location": "shows/michael_bolton_london_hd.mov",
+          "id": "a610a282-2d63-4f82-b5d1-9ad320db37cb",
+          "location": "shows/shakira.mp4",
           "metadata": {},
           "subtitles_languages": [
             "por"
           ],
-          "technology": "TS",
-          "title": "Michael Bolton",
+          "technology": "MP4",
+          "title": "Shakira",
           "type": "MEDIA"
         }
       ],
@@ -1344,106 +986,41 @@
           ""
         ],
         "country": "GBR",
-        "directors": [
-          ""
-        ],
-        "release_year": "2010",
-        "rights": [],
-        "summary": [
-          "Show do cantor Michael Bolton"
-        ]
-      },
-      "morality_level": 0,
-      "season_episode_number": "",
-      "season_id": "b57d6fb8-a7e3-46d1-9370-e4bbaa86b5fb",
-      "series_id": "0bc9de8d-6287-4e71-9a98-b2c1ea6a9702",
-      "synopsis": {
-        "por": "Michael Bolton se apresenta no Royal Albert Hall em Londres na Inglaterra. O cantor canta sucessos que percorrer toda a sua carreira, desde seu primeiro sucesso até os hits atuais."
-      },
-      "title": {
-        "por": "Michael Bolton"
-      }
-    },
-    {
-      "adult": false,
-      "available_from": 1586908800000,
-      "available_to": 1649980800000,
-      "duration": 2972999,
-      "genres": [
-        "Show"
-      ],
-      "id": "dd3f75a2-c9a2-41dd-86cf-87ff5c09af4c",
-      "images": [
-        {
-          "id": "72ae714a-1f2d-4766-bbc1-276ff6d4d2e2",
-          "location": "shows/o_melhor_de_bee_gees_poster.jpg",
-          "type": "vod_poster"
-        },
-        {
-          "id": "3c68441b-72a3-4500-b829-5c2f968c2156",
-          "location": "shows/o_melhor_de_bee_gees_landscape.jpg",
-          "type": "vod_background"
-        }
-      ],
-      "medias": [
-        {
-          "audio_languages": [
-            "eng"
-          ],
-          "id": "dd3f75a2-c9a2-41dd-86cf-87ff5c09af4c",
-          "location": "shows/o_melhor_de_bee_gees.ts",
-          "metadata": {},
-          "subtitles_languages": [
-            "por"
-          ],
-          "technology": "TS",
-          "title": "O Melhor dos Bee Gees",
-          "type": "MEDIA"
-        }
-      ],
-      "metadata": {
-        "actors": [
-          ""
-        ],
-        "country": "BRA",
         "directors": [
           ""
         ],
         "release_year": "2015",
         "rights": [],
         "summary": [
-          "Especial que acompanha a trajetória da banda de irmãos mais famosa do mundo, BEE GEES."
+          "Show da Shakira"
         ]
       },
       "morality_level": 0,
-      "season_episode_number": "",
-      "season_id": "2ef0ea82-f141-41b4-8e22-3e24b4f79751",
-      "series_id": "7f386dff-d92c-4896-b6ad-8ffd39927f96",
       "synopsis": {
-        "por": "Você irá acompanhar a trajetória de sucesso dos irmãos Gibbs, os BEE GEES e também seus sucessos inesquecíveis com seus melhores hits, tudo isto em versões ao vivo e clipes."
+        "por": "Shakira se apresenta para uma platéia animada, e não deixa nada a desejar ao apresentar seus números de dança, no festival de Glastonbury na Inglaterra."
       },
       "title": {
-        "por": "O Melhor dos Bee Gees"
+        "por": "Shakira"
       }
     },
     {
       "adult": false,
-      "available_from": 1586908800000,
-      "available_to": 1649980800000,
-      "duration": 7767999,
+      "available_from": 1593043200000,
+      "available_to": 1798675200000,
+      "duration": 1443000,
       "genres": [
         "Show"
       ],
-      "id": "0f5213b4-00d4-4a2e-b07e-02c2c84ae603",
+      "id": "dc9d4e77-2ee4-4eca-bde2-8241030c351a",
       "images": [
         {
-          "id": "1829820d-4b16-4e1c-9c57-81c8cae71560",
-          "location": "shows/paul_mccartney_rockshow_2013_hd_51_poster.jpg",
+          "id": "545ee3b5-c5d2-49d1-a640-0572a533b455",
+          "location": "shows/pharrell_williams_germany_2017_poster.jpg",
           "type": "vod_poster"
         },
         {
-          "id": "c6e14ed0-0b97-4fb5-aa00-06efa2e2fd2e",
-          "location": "shows/paul_mccartney_rockshow_2013_hd_51_landscape.jpg",
+          "id": "3fcdbd05-60f4-4d9b-9892-74b97f6b3bb3",
+          "location": "shows/pharrell_williams_germany_2017_landscape.jpg",
           "type": "vod_background"
         }
       ],
@@ -1452,510 +1029,14 @@
           "audio_languages": [
             "eng"
           ],
-          "id": "0f5213b4-00d4-4a2e-b07e-02c2c84ae603",
-          "location": "shows/paul_mccartney_rockshow_2013_hd_51.mp4",
+          "id": "dc9d4e77-2ee4-4eca-bde2-8241030c351a",
+          "location": "shows/pharrell_williams_germany_2017.mp4",
           "metadata": {},
           "subtitles_languages": [
             "por"
           ],
           "technology": "MP4",
-          "title": "Paul McCartney - RockShow",
-          "type": "MEDIA"
-        }
-      ],
-      "metadata": {
-        "actors": [
-          ""
-        ],
-        "country": "USA",
-        "directors": [
-          ""
-        ],
-        "release_year": "2013",
-        "rights": [],
-        "summary": [
-          "Show de Paul McCartney and The Wings"
-        ]
-      },
-      "morality_level": 0,
-      "season_episode_number": "",
-      "season_id": "33ace871-1b6a-4a04-ae3e-86d72e4df618",
-      "series_id": "b5e6894b-6e8a-43c1-8297-e5e1115c2513",
-      "synopsis": {
-        "por": "Paul McCartney em apresentação com imagens recuperadas e históricas cantando seus sucessos de sua carreira solo"
-      },
-      "title": {
-        "por": "Paul McCartney - RockShow"
-      }
-    },
-    {
-      "adult": false,
-      "available_from": 1586908800000,
-      "available_to": 1649980800000,
-      "duration": 2701999,
-      "genres": [
-        "Show"
-      ],
-      "id": "82003ae8-f94a-4a87-ba8c-1a6fce6f3a6f",
-      "images": [
-        {
-          "id": "2aeb02e5-9bb9-42be-baaf-9ccf67625e07",
-          "location": "shows/play_hits_1_bilhao_poster.jpg",
-          "type": "vod_poster"
-        },
-        {
-          "id": "5e0f779a-1279-40c7-9e4b-df56149558c7",
-          "location": "shows/play_hits_1_bilhao_landscape.jpg",
-          "type": "vod_background"
-        }
-      ],
-      "medias": [
-        {
-          "audio_languages": [
-            "eng"
-          ],
-          "id": "82003ae8-f94a-4a87-ba8c-1a6fce6f3a6f",
-          "location": "shows/play_hits_1_bilhao.ts",
-          "metadata": {},
-          "subtitles_languages": [
-            "por"
-          ],
-          "technology": "TS",
-          "title": "Play Hits - Artista com 1 bilhão de views",
-          "type": "MEDIA"
-        }
-      ],
-      "metadata": {
-        "actors": [
-          ""
-        ],
-        "country": "BRA",
-        "directors": [
-          ""
-        ],
-        "release_year": "2016",
-        "rights": [],
-        "summary": [
-          "Playlist com uma seleção das melhores músicas"
-        ]
-      },
-      "morality_level": 0,
-      "season_episode_number": "",
-      "season_id": "e2056bd5-f55b-4a8d-9c2d-cc4e734c4fef",
-      "series_id": "58bb8fb3-f03d-4876-a529-e471fb52ebff",
-      "synopsis": {
-        "por": "Veja as performances das músicas: Happy - Pharrell Williams; Thinking out loud - Ed Sheeran; Rolling in the Deep - Adele; Waka Waka - Shakira; Let Her Go - Passenger; Hot 'n' cold - Katy Perry; We are never getting back together - Taylor Swif; See You Again - Charlie Puth; Burn - Ellie Goulding; One more night - Maroon 5; The Hills - The Weeknd."
-      },
-      "title": {
-        "por": "Play Hits - Artista com 1 bilhão de views"
-      }
-    },
-    {
-      "adult": false,
-      "available_from": 1586908800000,
-      "available_to": 1649980800000,
-      "duration": 2709000,
-      "genres": [
-        "Show"
-      ],
-      "id": "bb47cb52-644c-4599-a9d2-99b0fcca14c0",
-      "images": [
-        {
-          "id": "85c81529-f0a8-4690-8fd7-3f624dde3c0a",
-          "location": "shows/play_hits_boys_poster.jpg",
-          "type": "vod_poster"
-        },
-        {
-          "id": "0298ee3c-584f-4efc-91ab-f3cf96ac64d6",
-          "location": "shows/play_hits_boys_landscape.jpg",
-          "type": "vod_background"
-        }
-      ],
-      "medias": [
-        {
-          "audio_languages": [
-            "eng"
-          ],
-          "id": "bb47cb52-644c-4599-a9d2-99b0fcca14c0",
-          "location": "shows/play_hits_boys.ts",
-          "metadata": {},
-          "subtitles_languages": [
-            "por"
-          ],
-          "technology": "TS",
-          "title": "Play Hits - Boys",
-          "type": "MEDIA"
-        }
-      ],
-      "metadata": {
-        "actors": [
-          ""
-        ],
-        "country": "BRA",
-        "directors": [
-          ""
-        ],
-        "release_year": "2016",
-        "rights": [],
-        "summary": [
-          "Playlist com uma seleção das melhores músicas"
-        ]
-      },
-      "morality_level": 0,
-      "season_episode_number": "",
-      "season_id": "82e41044-a528-4dd1-a9cf-d266e999eac2",
-      "series_id": "ccc1899c-1251-4fcd-8345-0b950deb8593",
-      "synopsis": {
-        "por": "Veja as performances das músicas: Best Song Ever do One Direction, See You Again de Charlie Puth, Mirrors de Justin Timberlake e muito mais"
-      },
-      "title": {
-        "por": "Play Hits - Boys"
-      }
-    },
-    {
-      "adult": false,
-      "available_from": 1586908800000,
-      "available_to": 1649980800000,
-      "duration": 2848000,
-      "genres": [
-        "Show"
-      ],
-      "id": "0094c7b2-d38e-49fd-8ba8-01098ba589f3",
-      "images": [
-        {
-          "id": "39856ca7-d04e-4fda-aef6-6031282893d1",
-          "location": "shows/play_hits_brit_invasion_2_poster.jpg",
-          "type": "vod_poster"
-        },
-        {
-          "id": "52925309-4583-42aa-bc74-05d041b4e722",
-          "location": "shows/play_hits_brit_invasion_2_landscape.jpg",
-          "type": "vod_background"
-        }
-      ],
-      "medias": [
-        {
-          "audio_languages": [
-            "eng"
-          ],
-          "id": "0094c7b2-d38e-49fd-8ba8-01098ba589f3",
-          "location": "shows/play_hits_brit_invasion_2.ts",
-          "metadata": {},
-          "subtitles_languages": [
-            "por"
-          ],
-          "technology": "TS",
-          "title": "Play Hits -British Invasion I",
-          "type": "MEDIA"
-        }
-      ],
-      "metadata": {
-        "actors": [
-          ""
-        ],
-        "country": "BRA",
-        "directors": [
-          ""
-        ],
-        "release_year": "2016",
-        "rights": [],
-        "summary": [
-          "Playlist com uma seleção das melhores músicas"
-        ]
-      },
-      "morality_level": 0,
-      "season_episode_number": "",
-      "season_id": "7c6120d7-7fb9-49bc-864d-f8c097ad705c",
-      "series_id": "838156d2-cf84-41b5-8dba-409fddf8b6cf",
-      "synopsis": {
-        "por": "Veja as performances das músicas: Elton John – The Bitch Is Back, U2 – Sunday Blood Sunday, Artic Monkeys – Do I Wanna Know?, Muse – Supermassive Black Hole,  Oasis – Wonderwall, Robert Plant – Rainbow, Take That – Back For Good, The Killers – Somebody Told Me,  The Who – Who Are You,  U2 - One,  Elton John – Saturday Night’s Alright For Fighting"
-      },
-      "title": {
-        "por": "Play Hits -British Invasion I"
-      }
-    },
-    {
-      "adult": false,
-      "available_from": 1586908800000,
-      "available_to": 1649980800000,
-      "duration": 2822999,
-      "genres": [
-        "Show"
-      ],
-      "id": "9457559b-ecf1-43fa-83c3-1b9dde3c9730",
-      "images": [
-        {
-          "id": "711d9eac-a498-4056-bef2-bb9fb7e72391",
-          "location": "shows/play_hits_divas_do_pop_poster.jpg",
-          "type": "vod_poster"
-        },
-        {
-          "id": "ecdff5ef-d7de-4dc9-9194-822940a02199",
-          "location": "shows/play_hits_divas_do_pop_landscape.jpg",
-          "type": "vod_background"
-        }
-      ],
-      "medias": [
-        {
-          "audio_languages": [
-            "eng"
-          ],
-          "id": "9457559b-ecf1-43fa-83c3-1b9dde3c9730",
-          "location": "shows/play_hits_divas_do_pop.ts",
-          "metadata": {},
-          "subtitles_languages": [
-            "por"
-          ],
-          "technology": "TS",
-          "title": "Play Hits - Divas do Pop",
-          "type": "MEDIA"
-        }
-      ],
-      "metadata": {
-        "actors": [
-          ""
-        ],
-        "country": "BRA",
-        "directors": [
-          ""
-        ],
-        "release_year": "2016",
-        "rights": [],
-        "summary": [
-          "Playlist com uma seleção das melhores músicas"
-        ]
-      },
-      "morality_level": 0,
-      "season_episode_number": "",
-      "season_id": "9ceddb26-80e1-4fd3-a892-d213bfe6151e",
-      "series_id": "4b31eaf6-409e-4c21-ba6f-6da7cda33bee",
-      "synopsis": {
-        "por": "Veja as performances das músicas: Someone like you - Adele; Single Ladies - Beyoncé; California Gurls - Katy Perry; Just Dance - Lady Gaga; 4 minutes - Madonna; Summertime Sadness - Lana Del Rey; Just Fine - Mary J Blige; Umbrella - Rihanna; Rehab - Amy Winehouse; Whenever, wherever - Shakira; Oops!.. I did it again - Britney Spears."
-      },
-      "title": {
-        "por": "Play Hits - Divas do Pop"
-      }
-    },
-    {
-      "adult": false,
-      "available_from": 1586908800000,
-      "available_to": 1649980800000,
-      "duration": 2821999,
-      "genres": [
-        "Show"
-      ],
-      "id": "eecb89fb-6d07-44f7-8e08-59b750e57ffb",
-      "images": [
-        {
-          "id": "f15ac063-24f3-4c2b-9ae2-de10bd8fa150",
-          "location": "shows/play_hits_galas_poster.jpg",
-          "type": "vod_poster"
-        },
-        {
-          "id": "e831f214-82c2-454f-9719-7e7d9f7c35d4",
-          "location": "shows/play_hits_galas_landscape.jpg",
-          "type": "vod_background"
-        }
-      ],
-      "medias": [
-        {
-          "audio_languages": [
-            "eng"
-          ],
-          "id": "eecb89fb-6d07-44f7-8e08-59b750e57ffb",
-          "location": "shows/play_hits_galas.ts",
-          "metadata": {},
-          "subtitles_languages": [
-            "por"
-          ],
-          "technology": "TS",
-          "title": "Play Hits - Galãs",
-          "type": "MEDIA"
-        }
-      ],
-      "metadata": {
-        "actors": [
-          ""
-        ],
-        "country": "BRA",
-        "directors": [
-          ""
-        ],
-        "release_year": "2016",
-        "rights": [],
-        "summary": [
-          "Playlist com uma seleção das melhores músicas"
-        ]
-      },
-      "morality_level": 0,
-      "season_episode_number": "",
-      "season_id": "6a7a0573-8508-44af-90fe-894e0fc2c10d",
-      "series_id": "2bc1350f-8cdb-4159-b183-807e50217405",
-      "synopsis": {
-        "por": "Veja as performances das músicas:Maroon 5 – Maps; Coldplay - Charlie Brown; U2 – Vertigo; Jack Johnson - I got you; Kasabian - Velociraptor! ; Ed Sheeran – Drunk; Bon Jovi - You give love a bad name; Sam Smith- Lay me down; 30 Seconds To Mars - This is War; Justin Timberlake - Sexy Back"
-      },
-      "title": {
-        "por": "Play Hits - Galãs"
-      }
-    },
-    {
-      "adult": false,
-      "available_from": 1586908800000,
-      "available_to": 1649980800000,
-      "duration": 2845999,
-      "genres": [
-        "Show"
-      ],
-      "id": "2c811e4d-538c-4551-b73f-8ba9b152e031",
-      "images": [
-        {
-          "id": "86657e7a-b903-442f-8cbd-9067d37649ef",
-          "location": "shows/play_hits_gods_of_rock_poster.jpg",
-          "type": "vod_poster"
-        },
-        {
-          "id": "be630592-c808-4b91-8d51-4089162e448e",
-          "location": "shows/play_hits_gods_of_rock_landscape.jpg",
-          "type": "vod_background"
-        }
-      ],
-      "medias": [
-        {
-          "audio_languages": [
-            "eng"
-          ],
-          "id": "2c811e4d-538c-4551-b73f-8ba9b152e031",
-          "location": "shows/play_hits_gods_of_rock.ts",
-          "metadata": {},
-          "subtitles_languages": [
-            "por"
-          ],
-          "technology": "TS",
-          "title": "Play Hits - Gods of Rock",
-          "type": "MEDIA"
-        }
-      ],
-      "metadata": {
-        "actors": [
-          ""
-        ],
-        "country": "BRA",
-        "directors": [
-          ""
-        ],
-        "release_year": "2016",
-        "rights": [],
-        "summary": [
-          "Playlist com uma seleção das melhores músicas"
-        ]
-      },
-      "morality_level": 0,
-      "season_episode_number": "",
-      "season_id": "a218e593-6384-4677-9ffb-a964a12975d5",
-      "series_id": "c6d79c7e-cd10-48cb-b9a9-ac84bf37da19",
-      "synopsis": {
-        "por": "Veja as performances das músicas: AC/DC - Back in Black; Foo Fighters -Walk, Metallica - Seek And destroy; Kiss- Rock and Roll All Nite, Angus Young- Guitar Solo; Foo Fighters - The Pretender; Metallica- Master of Puppets, Kiss - Black Diamond; AC/DC- TNT; Foo Fighters – Best Of You; AC/DC- Highway To hell."
-      },
-      "title": {
-        "por": "Play Hits - Gods of Rock"
-      }
-    },
-    {
-      "adult": false,
-      "available_from": 1586908800000,
-      "available_to": 1649980800000,
-      "duration": 2709000,
-      "genres": [
-        "Show"
-      ],
-      "id": "c2a36362-7166-4e30-8488-44601e759be4",
-      "images": [
-        {
-          "id": "9b400e52-0019-41ac-b861-94a279a06202",
-          "location": "shows/play_hits_love_songs_poster.jpg",
-          "type": "vod_poster"
-        },
-        {
-          "id": "f95da2ab-d822-4311-93c3-13dea772e245",
-          "location": "shows/play_hits_love_songs_landscape.jpg",
-          "type": "vod_background"
-        }
-      ],
-      "medias": [
-        {
-          "audio_languages": [
-            "eng"
-          ],
-          "id": "c2a36362-7166-4e30-8488-44601e759be4",
-          "location": "shows/play_hits_love_songs.ts",
-          "metadata": {},
-          "subtitles_languages": [
-            "por"
-          ],
-          "technology": "TS",
-          "title": "Play Hits - Love Songs",
-          "type": "MEDIA"
-        }
-      ],
-      "metadata": {
-        "actors": [
-          ""
-        ],
-        "country": "BRA",
-        "directors": [
-          ""
-        ],
-        "release_year": "2016",
-        "rights": [],
-        "summary": [
-          "Playlist com uma seleção das melhores músicas"
-        ]
-      },
-      "morality_level": 0,
-      "season_episode_number": "",
-      "season_id": "c8ab418e-e694-4a19-8666-500ea4afacda",
-      "series_id": "7ad60873-767e-456d-89a2-f25ed3600bce",
-      "synopsis": {
-        "por": "Veja as performances das músicas: Amy Winehouse – Back to Black; Calvin Harris feat. John Newman – Blame; Coldplay – Viva la Vida; Ed Sheeran – Sing; Ellie Goulding – Love Me Like You Do; One Direction – Little Things; Florence and the Machine – Dog Days Are Over; Jessie J – Domino; Duffy – Mercy; Sam Smith - I’m Not the Only One."
-      },
-      "title": {
-        "por": "Play Hits - Love Songs"
-      }
-    },
-    {
-      "adult": false,
-      "available_from": 1586908800000,
-      "available_to": 1649980800000,
-      "duration": 3114999,
-      "genres": [
-        "Show"
-      ],
-      "id": "37beace1-1f72-40ab-a652-94e57031f53b",
-      "images": [
-        {
-          "id": "24b0d770-d77c-4f62-b1ae-013a44f1cf53",
-          "location": "shows/ramones_sd_poster.jpg",
-          "type": "vod_poster"
-        },
-        {
-          "id": "4bf0ad0f-f3da-48cf-8b2d-07e9077a1a73",
-          "location": "shows/ramones_sd_landscape.jpg",
-          "type": "vod_background"
-        }
-      ],
-      "medias": [
-        {
-          "audio_languages": [
-            "eng"
-          ],
-          "id": "37beace1-1f72-40ab-a652-94e57031f53b",
-          "location": "shows/ramones_sd.ts",
-          "metadata": {},
-          "subtitles_languages": [
-            "por"
-          ],
-          "technology": "TS",
-          "title": "Ramones",
+          "title": "Pharrell Williams",
           "type": "MEDIA"
         }
       ],
@@ -1967,41 +1048,38 @@
         "directors": [
           ""
         ],
-        "release_year": "1978",
+        "release_year": "2017",
         "rights": [],
         "summary": [
-          "Show da banda Ramones"
+          "Show do cantor Pharrell Williams"
         ]
       },
       "morality_level": 0,
-      "season_episode_number": "",
-      "season_id": "012d8680-34fe-40f2-8593-ed9c4eecc162",
-      "series_id": "593aecc5-0faf-43c3-a294-b0701401395e",
       "synopsis": {
-        "por": "Ramones, pioneiros do movimento punk, em uam apresentação com a formação original na Alemanha."
+        "por": "Pharrell Williams canta todos os seus grandes sucessos como Happy, Freedom, Get Lucky e também seus lançamentos como Feels."
       },
       "title": {
-        "por": "Ramones"
+        "por": "Pharrell Williams"
       }
     },
     {
       "adult": false,
-      "available_from": 1586908800000,
-      "available_to": 1649980800000,
-      "duration": 6917999,
+      "available_from": 1593043200000,
+      "available_to": 1798675200000,
+      "duration": 3493999,
       "genres": [
         "Show"
       ],
-      "id": "5b9a6a25-926c-4c07-b01a-1c0d3288d388",
+      "id": "09154df9-9c2d-4ea5-92be-c4ad17fe4843",
       "images": [
         {
-          "id": "c4ad89e8-4d21-4ded-9d5d-aaf70a774ff6",
-          "location": "shows/red_hot_bonnaroo_hd_poster.jpg",
+          "id": "6244a874-365a-483e-9a7e-c448e0b9ab28",
+          "location": "shows/amy_winehouse_poster.jpg",
           "type": "vod_poster"
         },
         {
-          "id": "1cc9127c-8fef-4813-bfea-7818a98a8e15",
-          "location": "shows/red_hot_bonnaroo_hd_landscape.jpg",
+          "id": "4142ab6b-962c-4bfa-ac1e-334763bd0f35",
+          "location": "shows/amy_winehouse_landscape.jpg",
           "type": "vod_background"
         }
       ],
@@ -2010,262 +1088,14 @@
           "audio_languages": [
             "eng"
           ],
-          "id": "5b9a6a25-926c-4c07-b01a-1c0d3288d388",
-          "location": "shows/red_hot_bonnaroo_hd.ts",
-          "metadata": {},
-          "subtitles_languages": [
-            "por"
-          ],
-          "technology": "TS",
-          "title": "Red Hot Chilli Peppers - Ao Vivo em Bonnaroo",
-          "type": "MEDIA"
-        }
-      ],
-      "metadata": {
-        "actors": [
-          ""
-        ],
-        "country": "USA",
-        "directors": [
-          ""
-        ],
-        "release_year": "2012",
-        "rights": [],
-        "summary": [
-          "Show da banda Red Hot Chilli Peppers"
-        ]
-      },
-      "morality_level": 0,
-      "season_episode_number": "",
-      "season_id": "f9b42e06-ff2e-4ef3-9c21-12eebc36540d",
-      "series_id": "4126b839-790f-4bc6-a096-75a95c136874",
-      "synopsis": {
-        "por": "A banda Red Hot Chilli Peppers toca todos os grandes sucessos de sua carreira e prestam um tributo à música em todas as suas formas."
-      },
-      "title": {
-        "por": "Red Hot Chilli Peppers - Ao Vivo em Bonnaroo"
-      }
-    },
-    {
-      "adult": false,
-      "available_from": 1586908800000,
-      "available_to": 1649980800000,
-      "duration": 3037999,
-      "genres": [
-        "Show"
-      ],
-      "id": "9752aaa0-b748-4bde-a5d2-46fc161b74b3",
-      "images": [
-        {
-          "id": "3a663428-0f72-455f-8270-8b01c1dca497",
-          "location": "shows/rem_sd_poster.jpg",
-          "type": "vod_poster"
-        },
-        {
-          "id": "5c7e00b2-0168-42c3-b3bc-263ef69341d7",
-          "location": "shows/rem_sd_landscape.jpg",
-          "type": "vod_background"
-        }
-      ],
-      "medias": [
-        {
-          "audio_languages": [
-            "eng"
-          ],
-          "id": "9752aaa0-b748-4bde-a5d2-46fc161b74b3",
-          "location": "shows/rem_sd.ts",
-          "metadata": {},
-          "subtitles_languages": [
-            "por"
-          ],
-          "technology": "TS",
-          "title": "REM",
-          "type": "MEDIA"
-        }
-      ],
-      "metadata": {
-        "actors": [
-          ""
-        ],
-        "country": "GBR",
-        "directors": [
-          ""
-        ],
-        "release_year": "2010",
-        "rights": [],
-        "summary": [
-          "Show do grupo REM"
-        ]
-      },
-      "morality_level": 0,
-      "season_episode_number": "",
-      "season_id": "1d6b442f-d8e7-49a6-b1e0-d67370e9798e",
-      "series_id": "9b5a1e21-1e75-438d-824d-451098d2e4e4",
-      "synopsis": {
-        "por": "Michael Stipe, Peter Buck, Mike Mills e Bill Berry fazem um grande show nos Estados Unidos, e cantam grandes sucessos da banda."
-      },
-      "title": {
-        "por": "REM"
-      }
-    },
-    {
-      "adult": false,
-      "available_from": 1586908800000,
-      "available_to": 1649980800000,
-      "duration": 3061999,
-      "genres": [
-        "Show"
-      ],
-      "id": "df0da2fd-e0b4-4e2a-8f14-ac17d949e75e",
-      "images": [
-        {
-          "id": "95265b4e-dc21-4b22-aaff-f600d5c2eae6",
-          "location": "shows/rihanna_vegas_hd_poster.jpg",
-          "type": "vod_poster"
-        },
-        {
-          "id": "315a4376-2549-42f0-a26f-3cb2b2bba0f4",
-          "location": "shows/rihanna_vegas_hd_landscape.jpg",
-          "type": "vod_background"
-        }
-      ],
-      "medias": [
-        {
-          "audio_languages": [
-            "eng"
-          ],
-          "id": "df0da2fd-e0b4-4e2a-8f14-ac17d949e75e",
-          "location": "shows/rihanna_vegas_hd.ts",
-          "metadata": {},
-          "subtitles_languages": [
-            "por"
-          ],
-          "technology": "TS",
-          "title": "Rihanna",
-          "type": "MEDIA"
-        }
-      ],
-      "metadata": {
-        "actors": [
-          ""
-        ],
-        "country": "USA",
-        "directors": [
-          ""
-        ],
-        "release_year": "2012",
-        "rights": [],
-        "summary": [
-          "Show da cantora Rihanna"
-        ]
-      },
-      "morality_level": 0,
-      "season_episode_number": "",
-      "season_id": "7102f9b7-8ecf-4be2-ab29-4c57b117b19a",
-      "series_id": "71730a31-b80e-4a9a-a0fc-4b5f0091aff8",
-      "synopsis": {
-        "por": "Rihanna canta em Las Vegas os seus maiores sucessos, numa performance com muita dança."
-      },
-      "title": {
-        "por": "Rihanna"
-      }
-    },
-    {
-      "adult": false,
-      "available_from": 1586908800000,
-      "available_to": 1649980800000,
-      "duration": 7059000,
-      "genres": [
-        "Show"
-      ],
-      "id": "23ef2251-2381-407a-a92a-1f36796c5900",
-      "images": [
-        {
-          "id": "06a80171-9f97-4af3-8b3a-f41d8a4e5d7e",
-          "location": "shows/ringo_at_ryman_sd_poster.jpg",
-          "type": "vod_poster"
-        },
-        {
-          "id": "472335bd-6fc3-4c4c-a7b8-5635ef418e77",
-          "location": "shows/ringo_at_ryman_sd_landscape.jpg",
-          "type": "vod_background"
-        }
-      ],
-      "medias": [
-        {
-          "audio_languages": [
-            "eng"
-          ],
-          "id": "23ef2251-2381-407a-a92a-1f36796c5900",
-          "location": "shows/ringo_at_ryman_sd.mp4",
+          "id": "09154df9-9c2d-4ea5-92be-c4ad17fe4843",
+          "location": "shows/amy_winehouse.mp4",
           "metadata": {},
           "subtitles_languages": [
             "por"
           ],
           "technology": "MP4",
-          "title": "Ringo At Ryman",
-          "type": "MEDIA"
-        }
-      ],
-      "metadata": {
-        "actors": [
-          ""
-        ],
-        "country": "USA",
-        "directors": [
-          ""
-        ],
-        "release_year": "2013",
-        "rights": [],
-        "summary": [
-          "Show de Ringo Starr"
-        ]
-      },
-      "morality_level": 0,
-      "season_episode_number": "",
-      "season_id": "f9eac0cc-567a-498a-9af1-e27638d13949",
-      "series_id": "395931cb-b726-4988-a436-de9e39ba6683",
-      "synopsis": {
-        "por": "Apresentação histórica com imagens recuperadas de Ringo Starr"
-      },
-      "title": {
-        "por": "Ringo At Ryman"
-      }
-    },
-    {
-      "adult": false,
-      "available_from": 1586908800000,
-      "available_to": 1649980800000,
-      "duration": 3376000,
-      "genres": [
-        "Show"
-      ],
-      "id": "692cbea3-484b-4bc4-a041-3348cc490f21",
-      "images": [
-        {
-          "id": "87b4b04f-6c9b-49c7-99ce-c25709b8b4c5",
-          "location": "shows/scorpions_hd_poster.jpg",
-          "type": "vod_poster"
-        },
-        {
-          "id": "06cc5275-0d1d-4b83-a5c4-2f00c4bde2af",
-          "location": "shows/scorpions_hd_landscape.jpg",
-          "type": "vod_background"
-        }
-      ],
-      "medias": [
-        {
-          "audio_languages": [
-            "eng"
-          ],
-          "id": "692cbea3-484b-4bc4-a041-3348cc490f21",
-          "location": "shows/scorpions_hd.ts",
-          "metadata": {},
-          "subtitles_languages": [
-            "por"
-          ],
-          "technology": "TS",
-          "title": "Scorpions",
+          "title": "Amy Winehouse",
           "type": "MEDIA"
         }
       ],
@@ -2277,41 +1107,38 @@
         "directors": [
           ""
         ],
-        "release_year": "2010",
+        "release_year": "2007",
         "rights": [],
         "summary": [
-          "Show da banda Scorpions"
+          "Show de AMY WINEHOUSE"
         ]
       },
       "morality_level": 0,
-      "season_episode_number": "",
-      "season_id": "d9493d95-91ed-41db-8025-0edb61d14cee",
-      "series_id": "e299955a-d737-40a8-b1cb-30cb3e750448",
       "synopsis": {
-        "por": "Scorpions fazem um grande show recheado de seus grandes hits."
+        "por": "AMY WINEHOUSE canta seus amiores sucessos, e de seus artistas preferidos em um show emblemático de sua breve, porém bem sucedida carreria"
       },
       "title": {
-        "por": "Scorpions"
+        "por": "Amy Winehouse"
       }
     },
     {
       "adult": false,
-      "available_from": 1586908800000,
-      "available_to": 1649980800000,
-      "duration": 4410000,
+      "available_from": 1593043200000,
+      "available_to": 1798675200000,
+      "duration": 2126000,
       "genres": [
         "Show"
       ],
-      "id": "a35284fe-070a-4826-a2b9-c82fac3c0290",
+      "id": "4a49df2d-5d2f-4153-a2bd-5f3206c2a81d",
       "images": [
         {
-          "id": "ca6e22cf-1915-4d08-a5ba-ec4d78f08297",
-          "location": "shows/shania_twain_las_vegas_2014_hd_poster.jpg",
+          "id": "73919a7b-d74b-4f8a-9239-6f1aea056201",
+          "location": "shows/calvin_harris_and_zedd_hd_poster.jpg",
           "type": "vod_poster"
         },
         {
-          "id": "689b9753-aa8b-4ca2-a55d-153024ed82f3",
-          "location": "shows/shania_twain_las_vegas_2014_hd_landscape.jpg",
+          "id": "bdf567ff-da90-4268-8e2a-ccc6472b7352",
+          "location": "shows/calvin_harris_and_zedd_hd_landscape.jpg",
           "type": "vod_background"
         }
       ],
@@ -2320,14 +1147,14 @@
           "audio_languages": [
             "eng"
           ],
-          "id": "a35284fe-070a-4826-a2b9-c82fac3c0290",
-          "location": "shows/shania_twain_las_vegas_2014_hd.mov",
+          "id": "4a49df2d-5d2f-4153-a2bd-5f3206c2a81d",
+          "location": "shows/calvin_harris_and_zedd_hd.mp4",
           "metadata": {},
           "subtitles_languages": [
             "por"
           ],
-          "technology": "TS",
-          "title": "Shania Twain",
+          "technology": "MP4",
+          "title": "Zedd + Calvin Harris",
           "type": "MEDIA"
         }
       ],
@@ -2339,41 +1166,38 @@
         "directors": [
           ""
         ],
-        "release_year": "2014",
+        "release_year": "2015",
         "rights": [],
         "summary": [
-          "Show da cantora Shania Twain"
+          "Show do DJ Zedd e show do DJ Calvin Harris"
         ]
       },
       "morality_level": 0,
-      "season_episode_number": "",
-      "season_id": "5cf2c6f6-8dde-4c54-9820-ba05b6d6491f",
-      "series_id": "e10857d2-c08e-4fdb-84e0-7e819a353c12",
       "synopsis": {
-        "por": "Shania Twain se apresenta em uma super produção em Las Vegas, com muitos efeitos especiais, mudanças de cenários e muitos sucessos."
+        "por": "Veja apresentações dos DJs Zedd e também Calvin Harris em Nova Iorque nos Estados unidos."
       },
       "title": {
-        "por": "Shania Twain"
+        "por": "Zedd + Calvin Harris"
       }
     },
     {
       "adult": false,
-      "available_from": 1586908800000,
-      "available_to": 1649980800000,
-      "duration": 5201999,
+      "available_from": 1593043200000,
+      "available_to": 1798675200000,
+      "duration": 4565000,
       "genres": [
         "Show"
       ],
-      "id": "e63bb23b-deed-4afd-b1e9-07a0bcb0fa7f",
+      "id": "b3ca45ad-ad0c-4696-9b90-4a578eee567e",
       "images": [
         {
-          "id": "887e062a-9c8d-47fd-9dec-fc47012f8534",
-          "location": "shows/slipknot_hd_poster.jpg",
+          "id": "633f5a20-7ed3-4ecd-a86b-34333de28554",
+          "location": "shows/deadmau5_2014_poster.jpg",
           "type": "vod_poster"
         },
         {
-          "id": "1390d98d-64be-405e-b506-bb723da61569",
-          "location": "shows/slipknot_hd_landscape.jpg",
+          "id": "edfeba80-5d11-4e16-80c8-19c1df0c0cb8",
+          "location": "shows/deadmau5_2014_landscape.jpg",
           "type": "vod_background"
         }
       ],
@@ -2382,76 +1206,14 @@
           "audio_languages": [
             "eng"
           ],
-          "id": "e63bb23b-deed-4afd-b1e9-07a0bcb0fa7f",
-          "location": "shows/slipknot_hd.ts",
+          "id": "b3ca45ad-ad0c-4696-9b90-4a578eee567e",
+          "location": "shows/deadmau5_2014.mp4",
           "metadata": {},
           "subtitles_languages": [
             "por"
           ],
-          "technology": "TS",
-          "title": "Slipknot",
-          "type": "MEDIA"
-        }
-      ],
-      "metadata": {
-        "actors": [
-          ""
-        ],
-        "country": "DEU",
-        "directors": [
-          ""
-        ],
-        "release_year": "2008",
-        "rights": [],
-        "summary": [
-          "Show da banda Slipknot"
-        ]
-      },
-      "morality_level": 0,
-      "season_episode_number": "",
-      "season_id": "a56f074e-49f3-4d60-8846-6f034ed13d38",
-      "series_id": "d8d05783-2fc8-4ef8-b80d-6cb5fb83054d",
-      "synopsis": {
-        "por": "Em comemoração à sua carreira, Slipknot se apresenta na Alemanha, num show com vários sucessos, e até batendo um recorde mundial juntamente com sua plateia."
-      },
-      "title": {
-        "por": "Slipknot"
-      }
-    },
-    {
-      "adult": false,
-      "available_from": 1586908800000,
-      "available_to": 1649980800000,
-      "duration": 3820999,
-      "genres": [
-        "Show"
-      ],
-      "id": "997bc45a-f4cb-4b83-a112-daaddeba5571",
-      "images": [
-        {
-          "id": "74b2ea78-a47b-48a0-b87e-0b453837b724",
-          "location": "shows/take_that_hd_poster.jpg",
-          "type": "vod_poster"
-        },
-        {
-          "id": "cb9415a2-6d5a-4dda-9c6e-178291416d47",
-          "location": "shows/take_that_hd_landscape.jpg",
-          "type": "vod_background"
-        }
-      ],
-      "medias": [
-        {
-          "audio_languages": [
-            "eng"
-          ],
-          "id": "997bc45a-f4cb-4b83-a112-daaddeba5571",
-          "location": "shows/take_that_hd.ts",
-          "metadata": {},
-          "subtitles_languages": [
-            "por"
-          ],
-          "technology": "TS",
-          "title": "Take That",
+          "technology": "MP4",
+          "title": "Deadmau5",
           "type": "MEDIA"
         }
       ],
@@ -2466,38 +1228,35 @@
         "release_year": "2015",
         "rights": [],
         "summary": [
-          "Show do grupoTake That"
+          "Show do DJ Deadmau5"
         ]
       },
       "morality_level": 0,
-      "season_episode_number": "",
-      "season_id": "fc2a28ae-8e1a-45ea-8894-36ef7a405df7",
-      "series_id": "a261e712-9902-47ac-9068-cf9eae73b721",
       "synopsis": {
-        "por": "Take That canta todas as músicas que os alçaram à fama nos anos 90, com 3 de seus cinco integrantes originais, em um belo show na Inglaterra."
+        "por": "Deadmau5 toca em Londres suas músicas de house progressivo. O DJ leva o público à loucura com as suas composições."
       },
       "title": {
-        "por": "Take That"
+        "por": "Deadmau5"
       }
     },
     {
       "adult": false,
-      "available_from": 1586908800000,
-      "available_to": 1649980800000,
-      "duration": 6748000,
+      "available_from": 1593043200000,
+      "available_to": 1798675200000,
+      "duration": 4035000,
       "genres": [
         "Show"
       ],
-      "id": "9b89dbe0-b53f-4618-9f13-ca568545fdce",
+      "id": "aae4f070-d965-42e1-87f4-3a6d3343ae5d",
       "images": [
         {
-          "id": "7fcb58fb-7738-4f6f-94fc-0998404d3402",
-          "location": "shows/the_chemical_brothers_hd_poster.jpg",
+          "id": "f42b6c2f-0775-4b5c-8bbf-f08981a8532f",
+          "location": "shows/florence_and_the_machine_poster.jpg",
           "type": "vod_poster"
         },
         {
-          "id": "8c5fa481-2c5a-48fd-a367-8888ff11dcb2",
-          "location": "shows/the_chemical_brothers_hd_landscape.jpg",
+          "id": "ce6d9bd1-c854-45ba-b7ee-ebbe665ecbc7",
+          "location": "shows/florence_and_the_machine_landscape.jpg",
           "type": "vod_background"
         }
       ],
@@ -2506,14 +1265,73 @@
           "audio_languages": [
             "eng"
           ],
-          "id": "9b89dbe0-b53f-4618-9f13-ca568545fdce",
-          "location": "shows/the_chemical_brothers_hd.ts",
+          "id": "aae4f070-d965-42e1-87f4-3a6d3343ae5d",
+          "location": "shows/florence_and_the_machine.mp4",
           "metadata": {},
           "subtitles_languages": [
             "por"
           ],
-          "technology": "TS",
-          "title": "The Chemical Brothers",
+          "technology": "MP4",
+          "title": "Florence and the Machine",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          ""
+        ],
+        "country": "USA",
+        "directors": [
+          ""
+        ],
+        "release_year": "2011",
+        "rights": [],
+        "summary": [
+          "Show da cantora Jessie J"
+        ]
+      },
+      "morality_level": 0,
+      "synopsis": {
+        "por": "Florence encanta a platéia cantando seus maiores sucessos em um grande show no Canadá para o Bestival Festival."
+      },
+      "title": {
+        "por": "Florence and the Machine"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1593043200000,
+      "available_to": 1798675200000,
+      "duration": 2486999,
+      "genres": [
+        "Show"
+      ],
+      "id": "dd7224e3-de2e-41b7-8c25-878f1bb5b6e8",
+      "images": [
+        {
+          "id": "e22f8205-143b-4d5a-bf51-86ee11477778",
+          "location": "shows/duffy_london_poster.jpg",
+          "type": "vod_poster"
+        },
+        {
+          "id": "6723e409-6b33-47f5-9299-1e524727df13",
+          "location": "shows/duffy_london_landscape.jpg",
+          "type": "vod_background"
+        }
+      ],
+      "medias": [
+        {
+          "audio_languages": [
+            "eng"
+          ],
+          "id": "dd7224e3-de2e-41b7-8c25-878f1bb5b6e8",
+          "location": "shows/duffy_london.mp4",
+          "metadata": {},
+          "subtitles_languages": [
+            "por"
+          ],
+          "technology": "MP4",
+          "title": "Duffy",
           "type": "MEDIA"
         }
       ],
@@ -2528,38 +1346,35 @@
         "release_year": "2015",
         "rights": [],
         "summary": [
-          "Show de The Chemical Brothers"
+          "Show da cantora Duffy"
         ]
       },
       "morality_level": 0,
-      "season_episode_number": "",
-      "season_id": "08c2eb63-b64b-4eb3-995a-f6a0f9924b2f",
-      "series_id": "3206662b-f9d0-4e9c-8a16-5b4886dd4ccf",
       "synopsis": {
-        "por": "The Chemical Brothers colocam o público para cima, em um show muito especial em Londres, Inglaterra."
+        "por": "Duffy, faz um show muito melódico para seus fãs. Show realizado na Inglaterra."
       },
       "title": {
-        "por": "The Chemical Brothers"
+        "por": "Duffy"
       }
     },
     {
       "adult": false,
-      "available_from": 1586908800000,
-      "available_to": 1649980800000,
-      "duration": 2574999,
+      "available_from": 1593043200000,
+      "available_to": 1798675200000,
+      "duration": 4702000,
       "genres": [
         "Show"
       ],
-      "id": "8304c07d-a93e-4f73-a300-9de7e15a8863",
+      "id": "3c4664a3-ca21-40d0-aed4-23b6f8d9dd19",
       "images": [
         {
-          "id": "cf27b891-0ccd-425e-8171-31661663aa29",
-          "location": "shows/the_cure_ass_poster.jpg",
+          "id": "dd15fd64-5569-4651-85c5-2e1ef99558b8",
+          "location": "shows/gorillaz_poster.jpg",
           "type": "vod_poster"
         },
         {
-          "id": "28901bb5-e9b6-4e37-8cf2-c7bc22d7301c",
-          "location": "shows/the_cure_ass_landscape.jpg",
+          "id": "bad9d798-6fd6-45c8-94ef-e89e31eca57d",
+          "location": "shows/gorillaz_landscape.jpg",
           "type": "vod_background"
         }
       ],
@@ -2568,14 +1383,14 @@
           "audio_languages": [
             "eng"
           ],
-          "id": "8304c07d-a93e-4f73-a300-9de7e15a8863",
-          "location": "shows/the_cure_ass.mp4",
+          "id": "3c4664a3-ca21-40d0-aed4-23b6f8d9dd19",
+          "location": "shows/gorillaz.mp4",
           "metadata": {},
           "subtitles_languages": [
             "por"
           ],
           "technology": "MP4",
-          "title": "The Cure",
+          "title": "Gorillaz",
           "type": "MEDIA"
         }
       ],
@@ -2583,45 +1398,160 @@
         "actors": [
           ""
         ],
-        "country": "ITA",
+        "country": "GBR",
         "directors": [
           ""
         ],
-        "release_year": "2008",
+        "release_year": "2010",
         "rights": [],
         "summary": [
-          "Show da banda The Cure"
+          "Show da banda Gorillaz"
         ]
       },
       "morality_level": 0,
-      "season_episode_number": "",
-      "season_id": "d17de41b-8986-4b74-a8c7-f6ff8dfc1603",
-      "series_id": "295d1f07-0229-4d0c-8e84-b7b464b282eb",
       "synopsis": {
-        "por": "The Cure canta para seus fãs todos os sucessos da longa carreira da banda."
+        "por": "Gorillaz mostram o seu rosto em um show repleto de convidados especiais, entre eles o rapper Snoop Dogg."
       },
       "title": {
-        "por": "The Cure"
+        "por": "Gorillaz"
       }
     },
     {
       "adult": false,
-      "available_from": 1586908800000,
-      "available_to": 1649980800000,
-      "duration": 3055000,
+      "available_from": 1593043200000,
+      "available_to": 1798675200000,
+      "duration": 2679999,
       "genres": [
         "Show"
       ],
-      "id": "abb9c82e-709f-46c8-8737-f0120069729a",
+      "id": "f325f3d2-176e-47e7-83b4-12a5e9fd3b4f",
       "images": [
         {
-          "id": "6690b5e3-d74c-41e0-8625-4e6263ae0ef6",
-          "location": "shows/tiee_poster.jpg",
+          "id": "fcaef4a7-15aa-4cfd-8f60-c8370f319e66",
+          "location": "shows/lizzo_poster.jpg",
           "type": "vod_poster"
         },
         {
-          "id": "3bc15517-db0b-4f52-99d9-b8c58ed2ecc7",
-          "location": "shows/tiee_landscape.jpg",
+          "id": "a6b6fc00-9d44-4d3e-aa24-bcf7a2286b34",
+          "location": "shows/lizzo_landscape.jpg",
+          "type": "vod_background"
+        }
+      ],
+      "medias": [
+        {
+          "audio_languages": [
+            "eng"
+          ],
+          "id": "f325f3d2-176e-47e7-83b4-12a5e9fd3b4f",
+          "location": "shows/lizzo.mp4",
+          "metadata": {},
+          "subtitles_languages": [
+            "por"
+          ],
+          "technology": "MP4",
+          "title": "Lizzo",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          ""
+        ],
+        "country": "GBR",
+        "directors": [
+          ""
+        ],
+        "release_year": "2019",
+        "rights": [],
+        "summary": [
+          "Show da cantora Lizzo"
+        ]
+      },
+      "morality_level": 0,
+      "synopsis": {
+        "por": "Lizzo, a cantora sensação do momento, faz um show empoderado, com uma mensagem positiva e de feminismo. Com muita dança, se apresenta na Inglaterra"
+      },
+      "title": {
+        "por": "Lizzo"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1593043200000,
+      "available_to": 1798675200000,
+      "duration": 1262000,
+      "genres": [
+        "Show"
+      ],
+      "id": "5eee9d2d-8613-4bf2-94ed-df0210887241",
+      "images": [
+        {
+          "id": "aa820ae6-a384-4a78-996d-e4836364e87e",
+          "location": "shows/miley_cyrus_poster.jpg",
+          "type": "vod_poster"
+        },
+        {
+          "id": "38bad3d4-b6b8-468b-a67b-e586af003f31",
+          "location": "shows/miley_cyrus_landscape.jpg",
+          "type": "vod_background"
+        }
+      ],
+      "medias": [
+        {
+          "audio_languages": [
+            "eng"
+          ],
+          "id": "5eee9d2d-8613-4bf2-94ed-df0210887241",
+          "location": "shows/miley_cyrus.mp4",
+          "metadata": {},
+          "subtitles_languages": [
+            "por"
+          ],
+          "technology": "MP4",
+          "title": "Miley Cirus",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          ""
+        ],
+        "country": "GBR",
+        "directors": [
+          ""
+        ],
+        "release_year": "2019",
+        "rights": [],
+        "summary": [
+          "Show da cantora Miley Cyrus"
+        ]
+      },
+      "morality_level": 0,
+      "synopsis": {
+        "por": "Miley Cyrus, recebe grandes convidados em seu show na Inglaterra, como o grande Mark Ronson, Lil Nas X e seu pai Billy Ray Cyrus, e cantam grandes sucessos da carreira da cantora, e o novo hit do momento Old Town Road."
+      },
+      "title": {
+        "por": "Miley Cirus"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1593043200000,
+      "available_to": 1798675200000,
+      "duration": 3573000,
+      "genres": [
+        "Show"
+      ],
+      "id": "8f417eab-e81a-49bd-8770-bc881b267a27",
+      "images": [
+        {
+          "id": "6b07f33c-24bc-4791-9256-17613faf23a9",
+          "location": "shows/chitaozinho_e_xororo_40_anos_nova_geracao_poster.jpg",
+          "type": "vod_poster"
+        },
+        {
+          "id": "a9f24142-9f64-488d-9009-6a190098c0ed",
+          "location": "shows/chitaozinho_e_xororo_40_anos_nova_geracao_landscape.jpg",
           "type": "vod_background"
         }
       ],
@@ -2630,14 +1560,309 @@
           "audio_languages": [
             "por"
           ],
-          "id": "abb9c82e-709f-46c8-8737-f0120069729a",
-          "location": "shows/tiee.ts",
+          "id": "8f417eab-e81a-49bd-8770-bc881b267a27",
+          "location": "shows/chitaozinho_e_xororo_40_anos_nova_geracao.mp4",
+          "metadata": {},
+          "subtitles_languages": [
+            "não"
+          ],
+          "technology": "MP4",
+          "title": "Chitãozinho e Xororó - Nova Geração",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          ""
+        ],
+        "country": "BRA",
+        "directors": [
+          ""
+        ],
+        "release_year": "2015",
+        "rights": [],
+        "summary": [
+          "Show de CHITÃOZINHO e XORORÓ"
+        ]
+      },
+      "morality_level": 0,
+      "synopsis": {
+        "por": "CHITÃOZINHO e XORORÓ cantam com os novos nomes da música sertaneja, com LUAN SANTANA, JORGE E MATEUS, FERNANDO E SOROCABA, MARIA CECÍLIA E RODOLFO, GUILHERME E SANTIAGO, MICHEL TELÓ e muitos outros"
+      },
+      "title": {
+        "por": "Chitãozinho e Xororó - Nova Geração"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1593043200000,
+      "available_to": 1798675200000,
+      "duration": 5036999,
+      "genres": [
+        "Show"
+      ],
+      "id": "82bbd637-30f1-41c4-af62-bd0fb0e65d97",
+      "images": [
+        {
+          "id": "025a708a-e193-4c9f-9ee1-dbc0d569db6a",
+          "location": "shows/demonios_da_garoa_vem_cantar_comigo_poster.jpg",
+          "type": "vod_poster"
+        },
+        {
+          "id": "25fa8cc5-fb90-4c9b-bf91-d67de7a287df",
+          "location": "shows/demonios_da_garoa_vem_cantar_comigo_landscape.jpg",
+          "type": "vod_background"
+        }
+      ],
+      "medias": [
+        {
+          "audio_languages": [
+            "por"
+          ],
+          "id": "82bbd637-30f1-41c4-af62-bd0fb0e65d97",
+          "location": "shows/demonios_da_garoa_vem_cantar_comigo.mp4",
+          "metadata": {},
+          "subtitles_languages": [
+            "não"
+          ],
+          "technology": "MP4",
+          "title": "Demônios da Garoa- Vem Cantar Comigo",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          ""
+        ],
+        "country": "BRA",
+        "directors": [
+          ""
+        ],
+        "release_year": "2015",
+        "rights": [],
+        "summary": [
+          "Show do grupo DEMÔNIOS DA GAROA"
+        ]
+      },
+      "morality_level": 0,
+      "synopsis": {
+        "por": "DEMÔNIOS DA GAROA em um grande show com diversas participações especiais como de PÉRICLES, WANDO, DUDU NOBRE e ARNALDO ANTUNES, além de seus grandes sucessos"
+      },
+      "title": {
+        "por": "Demônios da Garoa- Vem Cantar Comigo"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1593043200000,
+      "available_to": 1798675200000,
+      "duration": 5242000,
+      "genres": [
+        "Show"
+      ],
+      "id": "2a0e4347-df18-4bf7-8af9-43a38496d429",
+      "images": [
+        {
+          "id": "379a345f-8c74-4ed7-ab76-ac3dadd27ddc",
+          "location": "shows/dudu_nobre_poster.jpg",
+          "type": "vod_poster"
+        },
+        {
+          "id": "db7eabb4-3cc4-4355-a0f7-8df92c4171f2",
+          "location": "shows/dudu_nobre_landscape.jpg",
+          "type": "vod_background"
+        }
+      ],
+      "medias": [
+        {
+          "audio_languages": [
+            "por"
+          ],
+          "id": "2a0e4347-df18-4bf7-8af9-43a38496d429",
+          "location": "shows/dudu_nobre.mp4",
+          "metadata": {},
+          "subtitles_languages": [
+            "não"
+          ],
+          "technology": "MP4",
+          "title": "Dudu Nobre",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          ""
+        ],
+        "country": "BRA",
+        "directors": [
+          ""
+        ],
+        "release_year": "2015",
+        "rights": [],
+        "summary": [
+          "Show de DUDU NOBRE"
+        ]
+      },
+      "morality_level": 0,
+      "synopsis": {
+        "por": "Show de DUDU NOBRE, com a presença de vários amigos da música, ARLINDO CRUZ, SEU JORGE, NEGUINHO DA BEIJA-FLOR, ZECA PAGODINHO, e muito mais"
+      },
+      "title": {
+        "por": "Dudu Nobre"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1593043200000,
+      "available_to": 1798675200000,
+      "duration": 2412999,
+      "genres": [
+        "Show"
+      ],
+      "id": "0ad91958-18b5-40a9-9509-682582d850d3",
+      "images": [
+        {
+          "id": "96d40236-8129-4892-a081-f4aacbd5845e",
+          "location": "shows/esl_inimigoshp_20191023_poster.jpg",
+          "type": "vod_poster"
+        },
+        {
+          "id": "b07a7b1b-95ad-460b-8f40-3ac42d3a5943",
+          "location": "shows/esl_inimigoshp_20191023_landscape.jpg",
+          "type": "vod_background"
+        }
+      ],
+      "medias": [
+        {
+          "audio_languages": [
+            "por"
+          ],
+          "id": "0ad91958-18b5-40a9-9509-682582d850d3",
+          "location": "shows/esl_inimigoshp_20191023.mov",
           "metadata": {},
           "subtitles_languages": [
             "não"
           ],
           "technology": "TS",
-          "title": "Tiee",
+          "title": "Inimigos da HP",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          ""
+        ],
+        "country": "BRA",
+        "directors": [
+          ""
+        ],
+        "release_year": "2019",
+        "rights": [],
+        "summary": [
+          "Show do grupo Inimigos da HP"
+        ]
+      },
+      "morality_level": 0,
+      "synopsis": {
+        "por": "Show do grupo Inimigos da HP"
+      },
+      "title": {
+        "por": "Inimigos da HP"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1593043200000,
+      "available_to": 1798675200000,
+      "duration": 1755000,
+      "genres": [
+        "Show"
+      ],
+      "id": "3fb0cb91-83bb-46fb-8ab6-d691469f7a9d",
+      "images": [
+        {
+          "id": "34721eed-ba24-4e22-acde-d23e202f564a",
+          "location": "shows/1_1_poster.jpg",
+          "type": "vod_poster"
+        },
+        {
+          "id": "47a643ed-accd-4c2c-99a7-bddac959855a",
+          "location": "shows/1_1_landscape.jpg",
+          "type": "vod_background"
+        }
+      ],
+      "medias": [
+        {
+          "audio_languages": [
+            "por"
+          ],
+          "id": "3fb0cb91-83bb-46fb-8ab6-d691469f7a9d",
+          "location": "shows/1_1.mov",
+          "metadata": {},
+          "subtitles_languages": [
+            "não"
+          ],
+          "technology": "TS",
+          "title": "1+1",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          ""
+        ],
+        "country": "BRA",
+        "directors": [
+          ""
+        ],
+        "release_year": "2019",
+        "rights": [],
+        "summary": [
+          "Show de 1+1"
+        ]
+      },
+      "morality_level": 0,
+      "synopsis": {
+        "por": "Show de 1+1"
+      },
+      "title": {
+        "por": "1+1"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1593043200000,
+      "available_to": 1798675200000,
+      "duration": 2940000,
+      "genres": [
+        "Show"
+      ],
+      "id": "ab7cc690-4695-4892-8c9d-ef00480d2714",
+      "images": [
+        {
+          "id": "53762426-7af0-40a9-9e53-f82768dd7fe8",
+          "location": "shows/20180828_esl_batanga_cia_poster.jpg",
+          "type": "vod_poster"
+        },
+        {
+          "id": "ec94ce2b-7c8b-4e86-9b2c-f5301a36b610",
+          "location": "shows/20180828_esl_batanga_cia_landscape.jpg",
+          "type": "vod_background"
+        }
+      ],
+      "medias": [
+        {
+          "audio_languages": [
+            "por"
+          ],
+          "id": "ab7cc690-4695-4892-8c9d-ef00480d2714",
+          "location": "shows/20180828_esl_batanga_cia.mov",
+          "metadata": {},
+          "subtitles_languages": [
+            "não"
+          ],
+          "technology": "TS",
+          "title": "Batanga \u0026 Cia",
           "type": "MEDIA"
         }
       ],
@@ -2652,54 +1877,51 @@
         "release_year": "2018",
         "rights": [],
         "summary": [
-          "Tiee se apresentou no Estúdio Showlivre, dia 11 de outubro de 2018"
+          "Show de Batanga \u0026 Cia"
         ]
       },
       "morality_level": 0,
-      "season_episode_number": "",
-      "season_id": "57a9b643-fd96-4e5b-aea8-26e77fa87c60",
-      "series_id": "5429e3e5-44fb-467a-9b6f-827f39c68a73",
       "synopsis": {
-        "por": "Tiee se apresentou no Estúdio Showlivre, dia 11 de outubro de 2018"
+        "por": "Show de Batanga \u0026 Cia"
       },
       "title": {
-        "por": "Tiee"
+        "por": "Batanga \u0026 Cia"
       }
     },
     {
       "adult": false,
-      "available_from": 1586908800000,
-      "available_to": 1649980800000,
-      "duration": 3987999,
+      "available_from": 1593043200000,
+      "available_to": 1798675200000,
+      "duration": 3673000,
       "genres": [
         "Show"
       ],
-      "id": "dd08b033-b43b-4105-99a9-f06651774781",
+      "id": "60d5ebe1-275a-4838-a6f2-528016acc8d1",
       "images": [
         {
-          "id": "bf234544-be8f-48c3-9286-56ceb8b42dac",
-          "location": "shows/tony_bennet_hd_poster.jpg",
+          "id": "2d28376c-fa66-4d47-98a7-79465cece343",
+          "location": "shows/bonde_do_forro_poster.jpg",
           "type": "vod_poster"
         },
         {
-          "id": "4779c2e9-3e77-409f-9ae4-0eb3d837aee4",
-          "location": "shows/tony_bennet_hd_landscape.jpg",
+          "id": "87bb51cb-7a1e-45fa-8073-380d251bcd09",
+          "location": "shows/bonde_do_forro_landscape.jpg",
           "type": "vod_background"
         }
       ],
       "medias": [
         {
           "audio_languages": [
-            "eng"
-          ],
-          "id": "dd08b033-b43b-4105-99a9-f06651774781",
-          "location": "shows/tony_bennet_hd.ts",
-          "metadata": {},
-          "subtitles_languages": [
             "por"
           ],
-          "technology": "TS",
-          "title": "Tony Bennett",
+          "id": "60d5ebe1-275a-4838-a6f2-528016acc8d1",
+          "location": "shows/bonde_do_forro.mp4",
+          "metadata": {},
+          "subtitles_languages": [
+            "não"
+          ],
+          "technology": "MP4",
+          "title": "Bonde do Forró",
           "type": "MEDIA"
         }
       ],
@@ -2707,61 +1929,58 @@
         "actors": [
           ""
         ],
-        "country": "GBR",
+        "country": "BRA",
         "directors": [
           ""
         ],
         "release_year": "2015",
         "rights": [],
         "summary": [
-          "Show de Tony Bennett"
+          "Show do Bonde do Forró"
         ]
       },
       "morality_level": 0,
-      "season_episode_number": "",
-      "season_id": "c9032b93-cc1a-4d5f-a189-5efd283ed467",
-      "series_id": "2232e4ec-7ded-4ea2-8ab3-5f89b819dd06",
       "synopsis": {
-        "por": "Tony Bennett comemora 60 anos de carreira com esse show. Canta todos os grandes sucessos de sua carreira, nesse belo show realizado em Londres."
+        "por": "Show do Bonde do Forró"
       },
       "title": {
-        "por": "Tony Bennett"
+        "por": "Bonde do Forró"
       }
     },
     {
       "adult": false,
-      "available_from": 1586908800000,
-      "available_to": 1649980800000,
-      "duration": 3076999,
+      "available_from": 1593043200000,
+      "available_to": 1798675200000,
+      "duration": 2592000,
       "genres": [
         "Show"
       ],
-      "id": "457bf881-2732-4ee7-a0f7-cf38ff593644",
+      "id": "c8621ac9-a446-4c1c-b438-ec65fad57294",
       "images": [
         {
-          "id": "0ff044ee-7325-4eaa-b391-b5e1946e4208",
-          "location": "shows/willie_nelson_hd_poster.jpg",
+          "id": "0a07adfa-544c-4dce-85b2-a46828f9c80f",
+          "location": "shows/braza_poster.jpg",
           "type": "vod_poster"
         },
         {
-          "id": "be33da40-1bd9-4310-80f5-e6e1348ab65c",
-          "location": "shows/willie_nelson_hd_landscape.jpg",
+          "id": "3a492118-3200-4c03-93f2-ae23b3f91783",
+          "location": "shows/braza_landscape.jpg",
           "type": "vod_background"
         }
       ],
       "medias": [
         {
           "audio_languages": [
-            "eng"
-          ],
-          "id": "457bf881-2732-4ee7-a0f7-cf38ff593644",
-          "location": "shows/willie_nelson_hd.ts",
-          "metadata": {},
-          "subtitles_languages": [
             "por"
           ],
+          "id": "c8621ac9-a446-4c1c-b438-ec65fad57294",
+          "location": "shows/braza.mov",
+          "metadata": {},
+          "subtitles_languages": [
+            "não"
+          ],
           "technology": "TS",
-          "title": "Willie Nelson",
+          "title": "Braza",
           "type": "MEDIA"
         }
       ],
@@ -2769,25 +1988,1143 @@
         "actors": [
           ""
         ],
-        "country": "GBR",
+        "country": "BRA",
+        "directors": [
+          ""
+        ],
+        "release_year": "2019",
+        "rights": [],
+        "summary": [
+          "Show de Braza"
+        ]
+      },
+      "morality_level": 0,
+      "synopsis": {
+        "por": "Show de Braza"
+      },
+      "title": {
+        "por": "Braza"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1593043200000,
+      "available_to": 1798675200000,
+      "duration": 2633999,
+      "genres": [
+        "Show"
+      ],
+      "id": "d6a7fa27-afff-4529-a74b-53fe716250eb",
+      "images": [
+        {
+          "id": "915a72d9-daac-4dd9-9725-991f9633a78f",
+          "location": "shows/caolaru_poster.jpg",
+          "type": "vod_poster"
+        },
+        {
+          "id": "4e7c5aaf-3716-4b0a-abae-b6801847d67c",
+          "location": "shows/caolaru_landscape.jpg",
+          "type": "vod_background"
+        }
+      ],
+      "medias": [
+        {
+          "audio_languages": [
+            "por"
+          ],
+          "id": "d6a7fa27-afff-4529-a74b-53fe716250eb",
+          "location": "shows/caolaru.mov",
+          "metadata": {},
+          "subtitles_languages": [
+            "não"
+          ],
+          "technology": "TS",
+          "title": "Cao Laru",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          ""
+        ],
+        "country": "BRA",
+        "directors": [
+          ""
+        ],
+        "release_year": "2019",
+        "rights": [],
+        "summary": [
+          "Show de Čao Laru"
+        ]
+      },
+      "morality_level": 0,
+      "synopsis": {
+        "por": "Show de Cao Laru"
+      },
+      "title": {
+        "por": "Cao Laru"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1593043200000,
+      "available_to": 1798675200000,
+      "duration": 2801000,
+      "genres": [
+        "Show"
+      ],
+      "id": "1839f6eb-32e2-4aa4-8714-7b3191bf1b9f",
+      "images": [
+        {
+          "id": "bc4638a5-e8af-4563-b374-1e5c06546097",
+          "location": "shows/coralvoicesoul_poster.jpg",
+          "type": "vod_poster"
+        },
+        {
+          "id": "52c79e17-85b9-4c40-bdbe-2482bdb6b4ae",
+          "location": "shows/coralvoicesoul_landscape.jpg",
+          "type": "vod_background"
+        }
+      ],
+      "medias": [
+        {
+          "audio_languages": [
+            "por"
+          ],
+          "id": "1839f6eb-32e2-4aa4-8714-7b3191bf1b9f",
+          "location": "shows/coralvoicesoul.mov",
+          "metadata": {},
+          "subtitles_languages": [
+            "não"
+          ],
+          "technology": "TS",
+          "title": "Coral Voice Soul",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          ""
+        ],
+        "country": "BRA",
+        "directors": [
+          ""
+        ],
+        "release_year": "2018",
+        "rights": [],
+        "summary": [
+          "Show do Coral Voice Soul"
+        ]
+      },
+      "morality_level": 0,
+      "synopsis": {
+        "por": "Show do Coral Voice Soul"
+      },
+      "title": {
+        "por": "Coral Voice Soul"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1593043200000,
+      "available_to": 1798675200000,
+      "duration": 2362000,
+      "genres": [
+        "Show"
+      ],
+      "id": "1de37d5c-337c-4cf4-bb27-0e9dfc66b69d",
+      "images": [
+        {
+          "id": "d5605228-4612-4e2a-9be8-466270c40992",
+          "location": "shows/20180926_esl_delacruz2_poster.jpg",
+          "type": "vod_poster"
+        },
+        {
+          "id": "5b0b199b-ca9f-4b0b-a41d-a4dab5ec2f5c",
+          "location": "shows/20180926_esl_delacruz2_landscape.jpg",
+          "type": "vod_background"
+        }
+      ],
+      "medias": [
+        {
+          "audio_languages": [
+            "por"
+          ],
+          "id": "1de37d5c-337c-4cf4-bb27-0e9dfc66b69d",
+          "location": "shows/20180926_esl_delacruz2.mov",
+          "metadata": {},
+          "subtitles_languages": [
+            "não"
+          ],
+          "technology": "TS",
+          "title": "Delacruz",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          ""
+        ],
+        "country": "BRA",
+        "directors": [
+          ""
+        ],
+        "release_year": "2018",
+        "rights": [],
+        "summary": [
+          "Show de Delacruz"
+        ]
+      },
+      "morality_level": 0,
+      "synopsis": {
+        "por": "Show de Delacruz"
+      },
+      "title": {
+        "por": "Delacruz"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1593043200000,
+      "available_to": 1798675200000,
+      "duration": 1857999,
+      "genres": [
+        "Show"
+      ],
+      "id": "c2ebed3d-ac33-47ff-9a5a-cd8ad5247ab6",
+      "images": [
+        {
+          "id": "6751c33b-1f77-412d-bfe9-d38667dd32df",
+          "location": "shows/diomedes_chinaski_poster.jpg",
+          "type": "vod_poster"
+        },
+        {
+          "id": "d109ec51-e50f-4a18-955c-9f6c287450fa",
+          "location": "shows/diomedes_chinaski_landscape.jpg",
+          "type": "vod_background"
+        }
+      ],
+      "medias": [
+        {
+          "audio_languages": [
+            "por"
+          ],
+          "id": "c2ebed3d-ac33-47ff-9a5a-cd8ad5247ab6",
+          "location": "shows/diomedes_chinaski.mov",
+          "metadata": {},
+          "subtitles_languages": [
+            "não"
+          ],
+          "technology": "TS",
+          "title": "Diomedes Chinaski",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          ""
+        ],
+        "country": "BRA",
+        "directors": [
+          ""
+        ],
+        "release_year": "2018",
+        "rights": [],
+        "summary": [
+          "Show de Diomedes Chinaski"
+        ]
+      },
+      "morality_level": 0,
+      "synopsis": {
+        "por": "Show de Diomedes Chinaski"
+      },
+      "title": {
+        "por": "Diomedes Chinaski"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1593043200000,
+      "available_to": 1798675200000,
+      "duration": 4985000,
+      "genres": [
+        "Show"
+      ],
+      "id": "dfe6c97c-6eeb-40ff-86b4-c26e221840d2",
+      "images": [
+        {
+          "id": "0c513747-08ca-4f02-99a7-d83816e51983",
+          "location": "shows/edson_e_hudson_faco_um_circo_pra_voce_ao_vivo_poster.jpg",
+          "type": "vod_poster"
+        },
+        {
+          "id": "1d7f29b2-370c-48ba-a418-3d62812b7103",
+          "location": "shows/edson_e_hudson_faco_um_circo_pra_voce_ao_vivo_landscape.jpg",
+          "type": "vod_background"
+        }
+      ],
+      "medias": [
+        {
+          "audio_languages": [
+            "por"
+          ],
+          "id": "dfe6c97c-6eeb-40ff-86b4-c26e221840d2",
+          "location": "shows/edson_e_hudson_faco_um_circo_pra_voce_ao_vivo.mp4",
+          "metadata": {},
+          "subtitles_languages": [
+            "não"
+          ],
+          "technology": "MP4",
+          "title": "Edson e Hudson - Faço um circo para você ao vivo",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          ""
+        ],
+        "country": "BRA",
         "directors": [
           ""
         ],
         "release_year": "2015",
         "rights": [],
         "summary": [
-          "Show de Willie Nelson"
+          "EDSON e HUDSON fazem um show belísismo no Circo Stankowich, recheado de sucessos e surpresas"
         ]
       },
       "morality_level": 0,
-      "season_episode_number": "",
-      "season_id": "b87c13cf-3613-4eb2-8d93-7fd2ffe07ccb",
-      "series_id": "fc3440af-f089-4180-be1a-86edf14d184c",
       "synopsis": {
-        "por": "Willie Nelson, canta rodeado de amigos e família todos os seus grandes sucessos e também músicas de seu novo álbum."
+        "por": "EDSON e HUDSON fazem um show belísismo no Circo Stankowich, recheado de sucessos e surpresas"
       },
       "title": {
-        "por": "Willie Nelson"
+        "por": "Edson e Hudson - Faço um circo para você ao vivo"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1593043200000,
+      "available_to": 1798675200000,
+      "duration": 1718999,
+      "genres": [
+        "Show"
+      ],
+      "id": "e20a7e6b-0371-4253-86d7-9b165f69247f",
+      "images": [
+        {
+          "id": "ec55ec90-9ebb-4cef-884f-eeae9bc82eb8",
+          "location": "shows/romero_20190123_poster.jpg",
+          "type": "vod_poster"
+        },
+        {
+          "id": "fa2a538b-8aba-4b1a-93db-ec3f67cfa7e5",
+          "location": "shows/romero_20190123_landscape.jpg",
+          "type": "vod_background"
+        }
+      ],
+      "medias": [
+        {
+          "audio_languages": [
+            "por"
+          ],
+          "id": "e20a7e6b-0371-4253-86d7-9b165f69247f",
+          "location": "shows/romero_20190123.mov",
+          "metadata": {},
+          "subtitles_languages": [
+            "não"
+          ],
+          "technology": "TS",
+          "title": "Romero",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          ""
+        ],
+        "country": "BRA",
+        "directors": [
+          ""
+        ],
+        "release_year": "2018",
+        "rights": [],
+        "summary": [
+          "Show de Romero"
+        ]
+      },
+      "morality_level": 0,
+      "synopsis": {
+        "por": "Show de Romero"
+      },
+      "title": {
+        "por": "Romero"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1593043200000,
+      "available_to": 1798675200000,
+      "duration": 2367999,
+      "genres": [
+        "Show"
+      ],
+      "id": "bc3fbf3d-7bc9-4ea4-b054-ac5af2ede0dd",
+      "images": [
+        {
+          "id": "8032a8c4-e0fa-4e6d-a3d5-e8c7f7c9c2b9",
+          "location": "shows/tequilababy_sl_201812_poster.jpg",
+          "type": "vod_poster"
+        },
+        {
+          "id": "b48add05-a7bf-4d8c-9c8a-bb125b53cb05",
+          "location": "shows/tequilababy_sl_201812_landscape.jpg",
+          "type": "vod_background"
+        }
+      ],
+      "medias": [
+        {
+          "audio_languages": [
+            "por"
+          ],
+          "id": "bc3fbf3d-7bc9-4ea4-b054-ac5af2ede0dd",
+          "location": "shows/tequilababy_sl_201812.mov",
+          "metadata": {},
+          "subtitles_languages": [
+            "não"
+          ],
+          "technology": "TS",
+          "title": "Tequila Baby",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          ""
+        ],
+        "country": "BRA",
+        "directors": [
+          ""
+        ],
+        "release_year": "2018",
+        "rights": [],
+        "summary": [
+          "Show de Tequila Baby"
+        ]
+      },
+      "morality_level": 0,
+      "synopsis": {
+        "por": "Show de Tequila Baby"
+      },
+      "title": {
+        "por": "Tequila Baby"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1593043200000,
+      "available_to": 1798675200000,
+      "duration": 2285000,
+      "genres": [
+        "Show"
+      ],
+      "id": "a3dbcb76-ed11-4b11-86af-1d19cb04d1e6",
+      "images": [
+        {
+          "id": "42b1aa7d-5430-4b51-a74d-d77af13ab2f3",
+          "location": "shows/uterco_sl_201812_poster.jpg",
+          "type": "vod_poster"
+        },
+        {
+          "id": "f3966c47-2bc9-45bb-a610-ea8008b45d8c",
+          "location": "shows/uterco_sl_201812_landscape.jpg",
+          "type": "vod_background"
+        }
+      ],
+      "medias": [
+        {
+          "audio_languages": [
+            "por"
+          ],
+          "id": "a3dbcb76-ed11-4b11-86af-1d19cb04d1e6",
+          "location": "shows/uterco_sl_201812.mov",
+          "metadata": {},
+          "subtitles_languages": [
+            "não"
+          ],
+          "technology": "TS",
+          "title": "Uterço",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          ""
+        ],
+        "country": "BRA",
+        "directors": [
+          ""
+        ],
+        "release_year": "2018",
+        "rights": [],
+        "summary": [
+          "Show de Uterço"
+        ]
+      },
+      "morality_level": 0,
+      "synopsis": {
+        "por": "Show de Uterço"
+      },
+      "title": {
+        "por": "Uterço"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1593043200000,
+      "available_to": 1798675200000,
+      "duration": 2277999,
+      "genres": [
+        "Show"
+      ],
+      "id": "9a013d49-9472-46ca-8517-0bc5204041ab",
+      "images": [
+        {
+          "id": "52be8dc0-d922-4c78-b486-0c4c5c079028",
+          "location": "shows/zudizilla_20191209_poster.jpg",
+          "type": "vod_poster"
+        },
+        {
+          "id": "9448408e-a022-410a-a9f7-ccd9dab3f29e",
+          "location": "shows/zudizilla_20191209_landscape.jpg",
+          "type": "vod_background"
+        }
+      ],
+      "medias": [
+        {
+          "audio_languages": [
+            "por"
+          ],
+          "id": "9a013d49-9472-46ca-8517-0bc5204041ab",
+          "location": "shows/zudizilla_20191209.mov",
+          "metadata": {},
+          "subtitles_languages": [
+            "não"
+          ],
+          "technology": "TS",
+          "title": "Zudizilla",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          ""
+        ],
+        "country": "BRA",
+        "directors": [
+          ""
+        ],
+        "release_year": "2019",
+        "rights": [],
+        "summary": [
+          "Show de Zudizilla"
+        ]
+      },
+      "morality_level": 0,
+      "synopsis": {
+        "por": "Show de Zudizilla"
+      },
+      "title": {
+        "por": "Zudizilla"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1593043200000,
+      "available_to": 1798675200000,
+      "duration": 5425999,
+      "genres": [
+        "Show"
+      ],
+      "id": "8333290e-c817-491d-b6ef-4dcde2812080",
+      "images": [
+        {
+          "id": "83930ea3-0efe-45ae-a6a2-1e280ccbe327",
+          "location": "shows/veraloca_1_poster.jpg",
+          "type": "vod_poster"
+        },
+        {
+          "id": "9a5a2d72-07ec-4bce-af0b-0070ead1b377",
+          "location": "shows/veraloca_1_landscape.jpg",
+          "type": "vod_background"
+        }
+      ],
+      "medias": [
+        {
+          "audio_languages": [
+            "por"
+          ],
+          "id": "8333290e-c817-491d-b6ef-4dcde2812080",
+          "location": "shows/veraloca_1.mp4",
+          "metadata": {},
+          "subtitles_languages": [
+            "não"
+          ],
+          "technology": "MP4",
+          "title": "Veraloca",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          ""
+        ],
+        "country": "BRA",
+        "directors": [
+          ""
+        ],
+        "release_year": "2015",
+        "rights": [],
+        "summary": [
+          "Show de Veraloca"
+        ]
+      },
+      "morality_level": 0,
+      "synopsis": {
+        "por": "Show de Veraloca"
+      },
+      "title": {
+        "por": "Veraloca"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1593043200000,
+      "available_to": 1798675200000,
+      "duration": 1394999,
+      "genres": [
+        "Show"
+      ],
+      "id": "2f87870c-5413-4222-8fe5-c60383584530",
+      "images": [
+        {
+          "id": "d4147bf2-e48b-4e51-9123-5899fc994b22",
+          "location": "shows/raffamoreira_poster.jpg",
+          "type": "vod_poster"
+        },
+        {
+          "id": "84a96048-2eae-452f-8dbb-954f9c0258e4",
+          "location": "shows/raffamoreira_landscape.jpg",
+          "type": "vod_background"
+        }
+      ],
+      "medias": [
+        {
+          "audio_languages": [
+            "por"
+          ],
+          "id": "2f87870c-5413-4222-8fe5-c60383584530",
+          "location": "shows/raffamoreira.mov",
+          "metadata": {},
+          "subtitles_languages": [
+            "não"
+          ],
+          "technology": "TS",
+          "title": "Raffa Moreira",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          ""
+        ],
+        "country": "BRA",
+        "directors": [
+          ""
+        ],
+        "release_year": "2018",
+        "rights": [],
+        "summary": [
+          "Show de Raffa Moreira"
+        ]
+      },
+      "morality_level": 0,
+      "synopsis": {
+        "por": "Show de Raffa Moreira"
+      },
+      "title": {
+        "por": "Raffa Moreira"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1593043200000,
+      "available_to": 1798675200000,
+      "duration": 1641999,
+      "genres": [
+        "Show"
+      ],
+      "id": "6d8b8fe3-5b33-4da4-8c4f-1c6553174937",
+      "images": [
+        {
+          "id": "193826c8-9cfd-4fc9-93ee-c68ea351efa4",
+          "location": "shows/periferia_a_massa_20190123_poster.jpg",
+          "type": "vod_poster"
+        },
+        {
+          "id": "98549dd9-4359-43d0-96c4-f5efbd141510",
+          "location": "shows/periferia_a_massa_20190123_landscape.jpg",
+          "type": "vod_background"
+        }
+      ],
+      "medias": [
+        {
+          "audio_languages": [
+            "por"
+          ],
+          "id": "6d8b8fe3-5b33-4da4-8c4f-1c6553174937",
+          "location": "shows/periferia_a_massa_20190123.mov",
+          "metadata": {},
+          "subtitles_languages": [
+            "não"
+          ],
+          "technology": "TS",
+          "title": "Periferia A Massa",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          ""
+        ],
+        "country": "BRA",
+        "directors": [
+          ""
+        ],
+        "release_year": "2018",
+        "rights": [],
+        "summary": [
+          "Show de Periferia A Massa"
+        ]
+      },
+      "morality_level": 0,
+      "synopsis": {
+        "por": "Show de Periferia A Massa"
+      },
+      "title": {
+        "por": "Periferia A Massa"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1593043200000,
+      "available_to": 1798675200000,
+      "duration": 2054999,
+      "genres": [
+        "Show"
+      ],
+      "id": "d14fd7af-0339-4de0-8093-59c85fab02b3",
+      "images": [
+        {
+          "id": "74f42956-c09c-41bf-a7ac-f17f5b21a85c",
+          "location": "shows/nocivoshomon_poster.jpg",
+          "type": "vod_poster"
+        },
+        {
+          "id": "24fc561b-dc58-41fe-9e58-60766b50efbb",
+          "location": "shows/nocivoshomon_landscape.jpg",
+          "type": "vod_background"
+        }
+      ],
+      "medias": [
+        {
+          "audio_languages": [
+            "por"
+          ],
+          "id": "d14fd7af-0339-4de0-8093-59c85fab02b3",
+          "location": "shows/nocivoshomon.mov",
+          "metadata": {},
+          "subtitles_languages": [
+            "não"
+          ],
+          "technology": "TS",
+          "title": "Nocivo Shomon",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          ""
+        ],
+        "country": "BRA",
+        "directors": [
+          ""
+        ],
+        "release_year": "2019",
+        "rights": [],
+        "summary": [
+          "Show de Nocivo Shomon"
+        ]
+      },
+      "morality_level": 0,
+      "synopsis": {
+        "por": "Show de Nocivo Shomon"
+      },
+      "title": {
+        "por": "Nocivo Shomon"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1593043200000,
+      "available_to": 1798675200000,
+      "duration": 4086999,
+      "genres": [
+        "Show"
+      ],
+      "id": "9b822f5c-5e74-488d-9ed4-375236ef3119",
+      "images": [
+        {
+          "id": "ee0fb106-416e-4af2-a1e1-2febf6992bf9",
+          "location": "shows/amado_batista_poster.jpg",
+          "type": "vod_poster"
+        },
+        {
+          "id": "8a59c997-1674-4ae4-8dc8-75c0f8e37551",
+          "location": "shows/amado_batista_landscape.jpg",
+          "type": "vod_background"
+        }
+      ],
+      "medias": [
+        {
+          "audio_languages": [
+            "por"
+          ],
+          "id": "9b822f5c-5e74-488d-9ed4-375236ef3119",
+          "location": "shows/amado_batista.mp4",
+          "metadata": {},
+          "subtitles_languages": [
+            "não"
+          ],
+          "technology": "MP4",
+          "title": "Amado Batista - O negócio da China",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          ""
+        ],
+        "country": "BRA",
+        "directors": [
+          ""
+        ],
+        "release_year": "2015",
+        "rights": [],
+        "summary": [
+          "Show de AMADO BATISTA"
+        ]
+      },
+      "morality_level": 0,
+      "synopsis": {
+        "por": "Amado Batista canta ao vivo para uma enorme platéia"
+      },
+      "title": {
+        "por": "Amado Batista - O negócio da China"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1593043200000,
+      "available_to": 1798675200000,
+      "duration": 3909000,
+      "genres": [
+        "Show"
+      ],
+      "id": "30b78b16-d2ae-4092-bc96-f74052d8c7e3",
+      "images": [
+        {
+          "id": "604336ea-f699-4cca-92b5-2f9be9413045",
+          "location": "shows/banda_calypso_15_anos_poster.jpg",
+          "type": "vod_poster"
+        },
+        {
+          "id": "549762d8-0fa5-4a0d-9e42-796cab6c8f14",
+          "location": "shows/banda_calypso_15_anos_landscape.jpg",
+          "type": "vod_background"
+        }
+      ],
+      "medias": [
+        {
+          "audio_languages": [
+            "por"
+          ],
+          "id": "30b78b16-d2ae-4092-bc96-f74052d8c7e3",
+          "location": "shows/banda_calypso_15_anos.mp4",
+          "metadata": {},
+          "subtitles_languages": [
+            "não"
+          ],
+          "technology": "MP4",
+          "title": "Banda Calypso",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          ""
+        ],
+        "country": "BRA",
+        "directors": [
+          ""
+        ],
+        "release_year": "2015",
+        "rights": [],
+        "summary": [
+          "Show da Banda CALYPSO"
+        ]
+      },
+      "morality_level": 0,
+      "synopsis": {
+        "por": "BANDA CALYPSO sempre com grandes apresentações ao vivo, arrasa mais uma vez em um show com a participação de AMADO BATISTA e REGINALDO ROSSI"
+      },
+      "title": {
+        "por": "Banda Calypso"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1593043200000,
+      "available_to": 1798675200000,
+      "duration": 2354000,
+      "genres": [
+        "Show"
+      ],
+      "id": "6dc6aae1-e1b9-4605-a144-e3d8554d07ef",
+      "images": [
+        {
+          "id": "460fdd66-2935-4cb2-ad80-5220e550431e",
+          "location": "shows/grupo_100_20191209_poster.jpg",
+          "type": "vod_poster"
+        },
+        {
+          "id": "3452d617-7ae0-47dc-a5fe-cc00e6930328",
+          "location": "shows/grupo_100_20191209_landscape.jpg",
+          "type": "vod_background"
+        }
+      ],
+      "medias": [
+        {
+          "audio_languages": [
+            "por"
+          ],
+          "id": "6dc6aae1-e1b9-4605-a144-e3d8554d07ef",
+          "location": "shows/grupo_100_20191209.mov",
+          "metadata": {},
+          "subtitles_languages": [
+            "não"
+          ],
+          "technology": "TS",
+          "title": "Grupo 100%",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          ""
+        ],
+        "country": "BRA",
+        "directors": [
+          ""
+        ],
+        "release_year": "2019",
+        "rights": [],
+        "summary": [
+          "Show do Grupo 100%"
+        ]
+      },
+      "morality_level": 0,
+      "synopsis": {
+        "por": "Show do Grupo 100%"
+      },
+      "title": {
+        "por": "Grupo 100%"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1593043200000,
+      "available_to": 1798675200000,
+      "duration": 5174000,
+      "genres": [
+        "Show"
+      ],
+      "id": "25c5dbb5-ef69-41c4-bb09-159991f8b712",
+      "images": [
+        {
+          "id": "e0df1256-f3ca-4772-89a0-d39f76c12e09",
+          "location": "shows/matogrosso_e_mathias_poster.jpg",
+          "type": "vod_poster"
+        },
+        {
+          "id": "e58928e0-db15-463e-8aa8-c8dc1ff307b7",
+          "location": "shows/matogrosso_e_mathias_landscape.jpg",
+          "type": "vod_background"
+        }
+      ],
+      "medias": [
+        {
+          "audio_languages": [
+            "por"
+          ],
+          "id": "25c5dbb5-ef69-41c4-bb09-159991f8b712",
+          "location": "shows/matogrosso_e_mathias.mp4",
+          "metadata": {},
+          "subtitles_languages": [
+            "não"
+          ],
+          "technology": "MP4",
+          "title": "Matogrosso e Mathias - Duas Gerações",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          ""
+        ],
+        "country": "BRA",
+        "directors": [
+          ""
+        ],
+        "release_year": "2015",
+        "rights": [],
+        "summary": [
+          "Show da dupla MATOGROSSO E MATHIAS"
+        ]
+      },
+      "morality_level": 0,
+      "synopsis": {
+        "por": "Matogrosso e Mathias fazem show com a presença de seus amigos AGNALDO TIMÓTEO, PÉRICLES, JOÃO CARREIRO E CAPATAZ, MARIA CECÍLIA E RODOLFO, LÉU, BRENNO E BARRETO"
+      },
+      "title": {
+        "por": "Matogrosso e Mathias - Duas Gerações"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1593043200000,
+      "available_to": 1798675200000,
+      "duration": 2574000,
+      "genres": [
+        "Show"
+      ],
+      "id": "587bfafb-cb3c-444f-b226-327d7b89a80b",
+      "images": [
+        {
+          "id": "14ac3b5e-5348-4297-b571-d504810bf5a8",
+          "location": "shows/teatro_magico_poster.jpg",
+          "type": "vod_poster"
+        },
+        {
+          "id": "a14c8382-40d5-4fa6-87ab-5dae9b99b6f1",
+          "location": "shows/teatro_magico_landscape.jpg",
+          "type": "vod_background"
+        }
+      ],
+      "medias": [
+        {
+          "audio_languages": [
+            "por"
+          ],
+          "id": "587bfafb-cb3c-444f-b226-327d7b89a80b",
+          "location": "shows/teatro_magico.mov",
+          "metadata": {},
+          "subtitles_languages": [
+            "não"
+          ],
+          "technology": "TS",
+          "title": "O Teatro Mágico",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          ""
+        ],
+        "country": "BRA",
+        "directors": [
+          ""
+        ],
+        "release_year": "2016",
+        "rights": [],
+        "summary": [
+          "Show do grupo O Teatro Mágico"
+        ]
+      },
+      "morality_level": 0,
+      "synopsis": {
+        "por": "Show do grupo O Teatro Mágico"
+      },
+      "title": {
+        "por": "O Teatro Mágico"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1593043200000,
+      "available_to": 1798675200000,
+      "duration": 5899000,
+      "genres": [
+        "Show"
+      ],
+      "id": "635ffc7b-afd3-4e15-aa45-a7489e0ab28d",
+      "images": [
+        {
+          "id": "5366fada-d66f-4c29-aa97-fc94cd6203e1",
+          "location": "shows/rick_e_renner_bom_de_danca_poster.jpg",
+          "type": "vod_poster"
+        },
+        {
+          "id": "7ddd0728-2497-4aaa-b71b-6b3e0ef6db6e",
+          "location": "shows/rick_e_renner_bom_de_danca_landscape.jpg",
+          "type": "vod_background"
+        }
+      ],
+      "medias": [
+        {
+          "audio_languages": [
+            "por"
+          ],
+          "id": "635ffc7b-afd3-4e15-aa45-a7489e0ab28d",
+          "location": "shows/rick_e_renner_bom_de_danca.mp4",
+          "metadata": {},
+          "subtitles_languages": [
+            "não"
+          ],
+          "technology": "MP4",
+          "title": "Rick e Renner - Bom de Dança",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          ""
+        ],
+        "country": "BRA",
+        "directors": [
+          ""
+        ],
+        "release_year": "2015",
+        "rights": [],
+        "summary": [
+          "Show da dupla RICK e RENNER"
+        ]
+      },
+      "morality_level": 0,
+      "synopsis": {
+        "por": "RICK e RENNER juntos cantam os seus maiores sucessos e colocam o público para dançar"
+      },
+      "title": {
+        "por": "Rick e Renner - Bom de Dança"
       }
     }
   ]

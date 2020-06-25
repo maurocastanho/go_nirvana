@@ -10,22 +10,17 @@
         "filename": "publicar_box.xls",
         "sheet": "Formulário",
         "columns": [
-            {"Name": "ASSET_ID", "function": "assetid", "suffix_number": 1, "prefix": "Provider"},
             {"Name": "ORIGINAL TITLE", "field": "Título Original", "function": "field_raw"},
             {"Name": "TÍTULO EM PORTUGUÊS", "field": "Título em Português", "function": "field_raw"},
             {"Name": "NOME DO EPISÓDIO", "field": "Título em Português do Episódio", "function": "field_raw"},
             {"Name": "TEMPORADA", "field": "Temporada", "function": "field_raw", "format": "0"},
             {"Name": "EPISÓDIO", "field": "Número do Episódio", "function": "field_raw", "format": "0"},
-            {"Name": "PRODUTO", "field": "Produto", "function": "field_raw"},
-            {"Name": "PROVEDOR", "field": "Provider", "function": "field_raw"},
             {"Name": "JANELA DE REPASSE", "field": "Billing ID", "function": "janela_repasse"},
             {"Name": "ESTÚDIO", "field": "Estúdio", "function": "field_raw"},
-            {"Name": "CANAL", "field": "Canal", "function": "field_raw"},
             {"Name": "CATEGORIA", "field": "Categoria", "function": "field_raw"},
             {"Name": "GÊNERO 1", "field": "Genero 1", "function": "field_raw"},
             {"Name": "GÊNERO 2", "field": "Genero 2", "function": "field_raw"},
             {"Name": "ANO DE PRODUÇÃO", "field": "Ano", "function": "field_raw", "format": "0"},
-            {"Name": "BOX OFFICE", "field": "Box Office", "function": "field_raw", "format": "#,##0.00"},
             {"Name": "RANKING", "field": "Ranking", "function": "field_raw", "format": "#,##0.0"},
             {"Name": "LÍNGUA ORIGINAL", "field": "Língua Original", "function": "field_raw"},
             {"Name": "RATING", "field": "Classificação Etária", "function": "field_raw", "format": "0"},
@@ -37,12 +32,9 @@
             {"Name": "LICENÇA INÍCIO", "field": "Data Início", "function": "field_date", "format": "DD/MM/YYYY"},
             {"Name": "LICENÇA FIM", "field": "Data Fim", "function": "field_date", "format": "DD/MM/YYYY"},
             {"Name": "TECNOLOGIA", "field": "Formato", "function": "field_raw"},
-            {"Name": "AUDIO", "field": "Audio", "function": "field_raw"},
+            {"Name": "AUDIO", "field": "Movie Audio Type", "function": "field_raw"},
             {"Name": "VERSAO", "field": "Versao", "function": "field_raw"},
             {"Name": "COBRANÇA", "field": "Cobrança", "function": "field", "format": "\"R$\" #,##0.00", "type": "money"},
-            {"Name": "DOWNLOAD TO GO", "field": "DOWNLOAD TO GO", "function": "field_raw"},
-            {"Name": "DIAS DE DOWNLOAD", "field": "DIAS DE DOWNLOAD", "function": "field_raw", "format": "0"},
-            {"Name": "PASTA FTP", "field": "PASTA FTP", "function": "field_raw"},
             {"Name": "BILLING ID", "field": "Billing ID", "function": "field_raw"}
         ]
     },
@@ -56,7 +48,7 @@
                         {
                             "Name": "title",
                             "no_array": "",
-                            "elements": [{"attrs": [{"Name": "por", "function": "field", "field": "Título"}]}]
+                            "elements": [{"attrs": [{"Name": "por", "function": "field", "field": "Título em Português"}]}]
                         },
                         {
                             "Name": "synopsis",
@@ -66,9 +58,9 @@
                         {"Name": "morality_level", "function": "field", "field": "Classificação Etária", "type": "int"},
                         {"Name": "adult", "function": "condition", "condition": "Classificação_Etária == 18", "if_true": "true", "if_false": "false", "type": "boolean"},
                         {"Name": "duration", "function": "field", "field": "Duração", "type": "timestamp"},
-                        {"Name": "series_id", "function": "uuid", "filter": "Número do Episódio != ''"},
-                        {"Name": "season_id", "function": "uuid", "filter": "Número do Episódio != ''"},
-                        {"Name": "season_episode_number", "function": "field", "field": "Número do Episódio", "filter": "Número do Episódio != ''"},
+                        {"Name": "series_id", "function": "uuid", "filter": "Número_do_Episódio != ''"},
+                        {"Name": "season_id", "function": "uuid", "filter": "Número_do_Episódio != ''"},
+                        {"Name": "season_episode_number", "function": "field", "field": "Número do Episódio", "filter": "Número_do_Episódio != ''"},
                         {
                             "Name": "genres",
                             "elem_val": "",
@@ -156,7 +148,7 @@
                                     "group_attrs": [
                                         {"Name": "id", "function": "field", "field": "uuid_box"},
                                         {"Name": "type", "function": "fixed", "Value": "MEDIA"},
-                                        {"Name": "title", "function": "field", "field": "Título"},
+                                        {"Name": "title", "function": "field", "field": "Título em Português"},
                                         {"Name": "location", "function": "field_suffix", "field": "ID", "suffix": ""},
                                         {"Name": "technology", "function": "box_technology", "field": "ID"},
                                         {

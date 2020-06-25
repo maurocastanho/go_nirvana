@@ -168,9 +168,11 @@ func fieldDate(value string, line lineT, json jsonT, options optionsT) ([]result
 	if err != nil {
 		return errMsg, err
 	}
-	t, err := parseDate(value)
-	if err != nil {
-		return errMsg, err
+	t, err2 := parseDate(value)
+	if err2 != nil {
+		fieldName, _ := getValue("field", json)
+		err3 := fmt.Errorf("erro no campo '%s': [%s]", fieldName, err2.Error())
+		return errMsg, err3
 	}
 	value = formatDate(t)
 	return []resultsT{newResult(value)}, err
@@ -413,8 +415,9 @@ func dateRFC3339(value string, line lineT, json jsonT, options optionsT) ([]resu
 	if err != nil {
 		return errMsg, err
 	}
-	t, err := time.Parse("01-02-06", field[0].val)
-	if err != nil {
+	val := field[0].val
+	t, err2 := time.Parse("01-02-06", val)
+	if err2 != nil {
 		return errMsg, err
 	}
 	return []resultsT{newResult(t.Format(time.RFC3339))}, nil
@@ -1018,7 +1021,7 @@ func uuids() string {
 }
 
 func timeToUTCTimestamp(t time.Time) int64 {
-	fmt.Printf("::: %#v", t.Format("15:04:05"))
+	//fmt.Printf("::: %#v", t.Format("15:04:05"))
 	return t.UnixNano() / int64(time.Millisecond)
 }
 

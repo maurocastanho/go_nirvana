@@ -57,8 +57,9 @@ var options map[string]string
 const errSuffix = "_ERRO"
 
 func main() {
+	options = make(map[string]string)
 	success := 0
-	defer func() { os.Exit(success) }()
+	// defer func() { os.Exit(success) }()
 	inputXls := ""
 	confFile := ""
 	outType := ""
@@ -91,14 +92,6 @@ func main() {
 			return
 		}
 	}
-	if outType == "json" {
-		if inpPrefix == "" {
-			logError(fmt.Errorf("input_prefix e' obrigatorio para tipo JSON"))
-			success = 1
-			return
-		}
-		options["inpPrefix"] = inpPrefix
-	}
 
 	f, err := xlsx.Open(inputXls)
 	if err != nil {
@@ -112,6 +105,14 @@ func main() {
 	//fmt.Printf("--==>>> %#v\n", lines)
 	json := readConfig(confFile)
 	initVars(json)
+	if outType == "json" {
+		if inpPrefix == "" {
+			logError(fmt.Errorf("input_prefix e' obrigatorio para tipo JSON"))
+			success = 1
+			return
+		}
+		options["inpPrefix"] = inpPrefix
+	}
 	success = processSpreadSheet(json, outType, f, outDir, lines, err)
 	if success == 0 {
 		log("------------------------------------")
@@ -235,7 +236,12 @@ func processSpreadSheet(json map[string]interface{}, outType string, f *xlsx.Spr
 					break
 				}
 			}
-			processAttrs("", jsonCols, pack, rs)
+			errs := processAttrs("", jsonCols, pack, rs)
+			if len(errs) > 0 {
+				for _, errA := range errs {
+					log(fmt.Sprintf("ERRO: [%s]", errA.Error()))
+				}
+			}
 			rs.newLine()
 			//_, err = fmt.Fprintf(os.Stderr, "%s\n", filename)
 			//if err != nil {
@@ -338,7 +344,8 @@ func blankLine(line map[string]string) bool {
 // Reads the spreadsheet as an array of map[<line name>] = <value>
 func readSheet(sheet xlsx.Sheet, header []string, lines []map[string]string, idx int) []map[string]string {
 	ncols, nrows := sheet.Dimension()
-	for row := 0; row < nrows; row++ {
+	empty := 0
+	for row := 0; row < nrows && empty < 10; row++ {
 		if row == 0 {
 			// row 0 == header
 			var col int
@@ -365,6 +372,13 @@ func readSheet(sheet xlsx.Sheet, header []string, lines []map[string]string, idx
 				}
 				//fmt.Printf("+++> %s\n", cellF)
 				line[header[col]] = cellF
+				if col == 0 {
+					if cellF != "" {
+						empty = 0
+					} else {
+						empty++
+					}
+				}
 			}
 			line["file_number"] = fmt.Sprintf("%d", idx)
 			idx++
@@ -674,38 +688,49 @@ func processAttr(json jsonT, lines []lineT, wr writer) (err []error) {
 	name, _ = json["Name"].(string)
 	attrType, _ := json["at_type"].(string)
 	function, ok := json["function"].(string)
-	if function == "empty" {
+	if !ok || function == "empty" {
 		return
 	}
-	if ok {
-		vtype, _ := json["type"].(string)
-		procVals, err2 := process(function, lines, json, options)
-		err = appendErrors(err, err2)
-		for _, procVal := range procVals {
-			processVars(procVal.vars, options)
-			isOtt := attrType == "ott"
-			if isOtt {
-				err = appendErrors(err, wr.StartElem(name, mapT))
-			}
-			at, okA := json["attrs"]
-			if okA {
-				attrs := at.([]interface{})
-				err = appendErrors(err, processAttrs(name, attrs, lines, wr)...)
-			}
-			var err1 error
-			f2, okf2 := json["function2"]
-			if !okf2 || f2 != "set_var" {
-				err1 = wr.WriteAttr(name, processVal(procVal.val, procVal.vars), vtype, attrType)
-			}
-			if err1 != nil {
-				err = appendErrors(err, err1)
-				return
-			}
-			if isOtt {
-				err = appendErrors(err, wr.EndElem(name, mapT))
-			}
+	filter, okFilter := json["filter"].(string)
+	if okFilter {
+		filterOk, err3 := evalCondition(filter, lines[0])
+		if err3 != nil {
+			err = append(err, err3)
+			return
+		}
+		if !filterOk {
+			return
 		}
 	}
+
+	vtype, _ := json["type"].(string)
+	procVals, err2 := process(function, lines, json, options)
+	err = appendErrors(err, err2)
+	for _, procVal := range procVals {
+		processVars(procVal.vars, options)
+		isOtt := attrType == "ott"
+		if isOtt {
+			err = appendErrors(err, wr.StartElem(name, mapT))
+		}
+		at, okA := json["attrs"]
+		if okA {
+			attrs := at.([]interface{})
+			err = appendErrors(err, processAttrs(name, attrs, lines, wr)...)
+		}
+		var err1 error
+		f2, okf2 := json["function2"]
+		if !okf2 || f2 != "set_var" {
+			err1 = wr.WriteAttr(name, processVal(procVal.val, procVal.vars), vtype, attrType)
+		}
+		if err1 != nil {
+			err = appendErrors(err, err1)
+			return
+		}
+		if isOtt {
+			err = appendErrors(err, wr.EndElem(name, mapT))
+		}
+	}
+
 	return
 }
 
