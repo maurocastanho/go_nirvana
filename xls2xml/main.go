@@ -64,12 +64,10 @@ func main() {
 	confFile := ""
 	outType := ""
 	outDir := ""
-	inpPrefix := ""
 	flag.StringVar(&inputXls, "xls", "", "Arquivo XLS de entrada")
 	flag.StringVar(&confFile, "config", "", "Arquivo JSON de configuracao")
 	flag.StringVar(&outType, "outtype", "xml", "Tipo de output (xml ou json). Default: xml")
 	flag.StringVar(&outDir, "outdir", "", "Diretorio de saida")
-	flag.StringVar(&inpPrefix, "input_prefix", "", "Prefixo para os arquivos de media (diretorio)")
 	flag.Parse()
 
 	if inputXls == "" {
@@ -102,17 +100,8 @@ func main() {
 	defer closeSheet(f)
 	sheetIdx := 0
 	lines := readSheetIdx(f, sheetIdx)
-	//fmt.Printf("--==>>> %#v\n", lines)
 	json := readConfig(confFile)
 	initVars(json)
-	if outType == "json" {
-		if inpPrefix == "" {
-			logError(fmt.Errorf("input_prefix e' obrigatorio para tipo JSON"))
-			success = 1
-			return
-		}
-		options["inpPrefix"] = inpPrefix
-	}
 	success = processSpreadSheet(json, outType, f, outDir, lines, err)
 	if success == 0 {
 		log("------------------------------------")

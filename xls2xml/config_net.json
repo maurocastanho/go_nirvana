@@ -61,7 +61,7 @@
                             "attrs": [
                                 {"Name": "Provider", "field": "Provider", "function": "field"},
                                 {"Name": "Product", "Value": "", "function": "fixed"},
-                                {"Name": "Asset_Name", "maxlength": "45", "field": "Título em Português", "function": "field_suffix", "suffix": "_Package"},
+                                {"Name": "Asset_Name", "maxlength": "42", "field": "Título em Português", "function": "field_suffix", "suffix": "_Package"},
                                 {"Name": "Version_Major", "Value": "1", "function": "fixed"},
                                 {"Name": "Version_Minor", "Value": "0", "function": "fixed"},
                                 {"Name": "Description", "field": "Título em Português", "function": "field"},

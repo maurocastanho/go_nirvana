@@ -275,7 +275,10 @@ func suffix(value string, line lineT, json jsonT, options optionsT) ([]resultsT,
 	if extIdx > 0 {
 		noacc = noacc[0:extIdx]
 	}
-	prefix, _ := options["inpPrefix"]
+	prefix, _ := line["subpasta"]
+	if prefix != "" {
+		prefix += "/"
+	}
 	val := replaceAllNonAlpha(noacc)
 	val, err = truncateSuffix(val, suf, line, json, options)
 	if err != nil {
