@@ -73,12 +73,12 @@
                             "elements_array": [
                                 {"group_attrs":[
                                     {"Name": "id", "function": "field", "field": "uuid_poster"},
-                                    {"Name": "type", "function": "fixed", "Value": "vod_poster"},
+                                    {"Name": "type", "function": "fixed", "Value": "vod-poster"},
                                     {"Name": "location", "function": "field_suffix", "field": "ID", "suffix":  "_poster.jpg"}
                                 ]},
                                 {"group_attrs":[
                                     {"Name": "id", "function": "field", "field": "uuid_landscape"},
-                                    {"Name": "type", "function": "fixed", "Value": "vod_background"},
+                                    {"Name": "type", "function": "fixed", "Value": "vod-background"},
                                     {"Name": "location", "function": "field_suffix", "field": "ID", "suffix":  "_landscape.jpg"}
                                 ]}
                             ]

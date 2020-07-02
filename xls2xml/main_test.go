@@ -179,69 +179,128 @@ func TestCondition(t *testing.T) {
 func TestXmlNet(t *testing.T) {
 	json := readConfig("config_net.json")
 	initVars(json)
-	var expected string = "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n<!DOCTYPE ADI SYSTEM \"ADI.DTD\">\n" +
-		"<ADI xmlns=\"http://www.eventis.nl/PRODIS/ADI\">\n\t<Metadata>\n\t\t<AMS Provider=\"WARNER\" Product=\"\" Asset_Name=\"Friends_Package\" " +
+	expected := "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n<!DOCTYPE ADI SYSTEM \"ADI.DTD\">\n" +
+		"<ADI xmlns=\"http://www.eventis.nl/PRODIS/ADI\">\n" +
+		"\t<Metadata>\n" +
+		"\t\t<AMS Provider=\"WARNER\" Product=\"\" Asset_Name=\"Friends_Package\" " +
 		"Version_Major=\"1\" Version_Minor=\"0\" Description=\"Friends\" Creation_Date=\"2020-06-19\" Provider_ID=\"warner.com\" " +
-		"Asset_ID=\"WARN1200619015447001\" Asset_Class=\"package\"/>\n\t\t<App_Data App=\"MOD\" Name=\"Metadata_Spec_Version\" Value=\"CableLabsVOD1.1\"/>" +
-		"\n\t</Metadata>\n\t<Asset>\n\t\t<Metadata>\n\t\t\t<AMS Provider=\"WARNER\" Product=\"\" Asset_Name=\"Friends_Title\" Version_Major=\"1\" " +
+		"Asset_ID=\"WARN1200619015447001\" Asset_Class=\"package\"/>\n" +
+		"\t\t<App_Data App=\"MOD\" Name=\"Metadata_Spec_Version\" Value=\"CableLabsVOD1.1\"/>" +
+		"\n" +
+		"\t</Metadata>\n" +
+		"\t<Asset>\n" +
+		"\t\t<Metadata>\n" +
+		"\t\t\t<AMS Provider=\"WARNER\" Product=\"\" Asset_Name=\"Friends_Title\" Version_Major=\"1\" " +
 		"Version_Minor=\"0\" Description=\"Friends\" Creation_Date=\"2020-06-19\" Provider_ID=\"warner.com\" Asset_ID=\"WARN2200619015447001\" " +
-		"Asset_Class=\"title\"/>\n\t\t\t<App_Data App=\"MOD\" Name=\"Type\" Value=\"title\"/>\n\t\t\t<App_Data App=\"MOD\" Name=\"Title_Sort_Name\" " +
-		"Value=\"Friends\"/>\n\t\t\t<App_Data App=\"MOD\" Name=\"Title_Brief\" Value=\"Friends\"/>\n\t\t\t<App_Data App=\"MOD\" Name=\"Title\" " +
-		"Value=\"Friends\"/>\n\t\t\t<App_Data App=\"MOD\" Name=\"Episode_Name\" Value=\"Aquele onde tudo começou\"/>\n\t\t\t<App_Data App=\"MOD\" " +
-		"Name=\"Episode_ID\" Value=\"01001\"/>\n\t\t\t<App_Data App=\"MOD\" Name=\"Summary_Long\" Value=\"Depois que Rachel abandona o noivo no altar, " +
-		"ela vai morar com Monica e descobre que não é fácil ser independente, principalmente quando não pode contar com o cartão de crédito do papai\"/>" +
-		"\n\t\t\t<App_Data App=\"MOD\" Name=\"Summary_Medium\" Value=\"Depois que Rachel abandona o noivo no altar, ela vai morar com Monica e descobre que" +
-		" não é fácil ser independente, principalmente quando não pode contar com o cartão de crédito do papai\"/>\n\t\t\t<App_Data App=\"MOD\" " +
+		"Asset_Class=\"title\"/>\n" +
+		"\t\t\t<App_Data App=\"MOD\" Name=\"Type\" Value=\"title\"/>\n" +
+		"\t\t\t<App_Data App=\"MOD\" Name=\"Title_Sort_Name\" Value=\"Friends\"/>\n" +
+		"\t\t\t<App_Data App=\"MOD\" Name=\"Title_Brief\" Value=\"Friends\"/>\n" +
+		"\t\t\t<App_Data App=\"MOD\" Name=\"Title\" Value=\"Friends\"/>\n" +
+		"\t\t\t<App_Data App=\"MOD\" Name=\"Episode_Name\" Value=\"Aquele onde tudo começou\"/>\n" +
+		"\t\t\t<App_Data App=\"MOD\" Name=\"Episode_ID\" Value=\"01001\"/>\n" +
+		"\t\t\t<App_Data App=\"MOD\" Name=\"Summary_Long\" Value=\"Depois que Rachel abandona o noivo no altar, " +
+		"ela vai morar com Monica e descobre que não é fácil ser independente, principalmente quando não pode contar com o cartão de crédito do papai\"/>\n" +
+		"\t\t\t<App_Data App=\"MOD\" Name=\"Summary_Medium\" Value=\"Depois que Rachel abandona o noivo no altar, ela vai morar com Monica e descobre que" +
+		" não é fácil ser independente, principalmente quando não pode contar com o cartão de crédito do papai\"/>\n" +
+		"\t\t\t<App_Data App=\"MOD\" " +
 		"Name=\"Summary_Short\" Value=\"Depois que Rachel abandona o noivo no altar, ela vai morar com Monica e descobre que não é fácil ser independente," +
-		" principalmente quando não pode contar com o cartão de crédito do papai\"/>\n\t\t\t<App_Data App=\"MOD\" Name=\"Rating\" Value=\"12\"/>\n\t\t\t" +
-		"<App_Data App=\"MOD\" Name=\"Closed_Captioning\" Value=\"N\"/>\n\t\t\t<App_Data App=\"MOD\" Name=\"Run_Time\" Value=\"1369\"/>\n\t\t\t" +
-		"<App_Data App=\"MOD\" Name=\"Display_Run_Time\" Value=\"00:23\"/>\n\t\t\t<App_Data App=\"MOD\" Name=\"Year\" Value=\"1994\"/>\n\t\t\t" +
-		"<App_Data App=\"MOD\" Name=\"Country_of_Origin\" Value=\"USA\"/>\n\t\t\t<App_Data App=\"MOD\" Name=\"Studio\" Value=\"Warner Home Video\"/>\n\t\t\t" +
-		"<App_Data App=\"MOD\" Name=\"Studio_Name\" Value=\"Warner Home Video\"/>\n\t\t\t" +
-		"<App_Data App=\"MOD\" Name=\"Actors_Display\" Value=\"Jennifer Aniston, Courteney Cox, Lisa Kudrow, Matt LeBlanc, Matthew Perry, David Schwimmer\"/>" +
-		"\n\t\t\t<App_Data App=\"MOD\" Name=\"Actors\" Value=\"Aniston, Jennifer\"/>\n\t\t\t<App_Data App=\"MOD\" Name=\"Actors\" Value=\"Cox, Courteney\"/>" +
-		"\n\t\t\t<App_Data App=\"MOD\" Name=\"Actors\" Value=\"Kudrow, Lisa\"/>\n\t\t\t<App_Data App=\"MOD\" Name=\"Actors\" Value=\"LeBlanc, Matt\"/>\n\t\t\t" +
-		"<App_Data App=\"MOD\" Name=\"Actors\" Value=\"Perry, Matthew\"/>\n\t\t\t<App_Data App=\"MOD\" Name=\"Actors\" Value=\"Schwimmer, David\"/>\n\t\t\t" +
-		"<App_Data App=\"MOD\" Name=\"Director\" Value=\"Burrows, James\"/>\n\t\t\t<App_Data App=\"MOD\" Name=\"Director_Display\"" +
-		" Value=\"James Burrows\"/>\n\t\t\t<App_Data App=\"MOD\" Name=\"Category\" Value=\"Série\"/>\n\t\t\t<App_Data App=\"MOD\" Name=\"Genre\"" +
-		" Value=\"Comédia\"/>\n\t\t\t<App_Data App=\"MOD\" Name=\"Box_Office\" Value=\"\"/>\n\t\t\t<App_Data App=\"MOD\" Name=\"Billing_ID\"" +
-		" Value=\"WBH2S\"/>\n\t\t\t<App_Data App=\"MOD\" Name=\"Licensing_Window_Start\" Value=\"2020-06-10\"/>\n\t\t\t<App_Data App=\"MOD\"" +
-		" Name=\"Licensing_Window_End\" Value=\"2049-12-31\"/>\n\t\t\t<App_Data App=\"MOD\" Name=\"Preview_Period\" Value=\"0\"/>\n\t\t\t" +
-		"<App_Data App=\"MOD\" Name=\"Provider_QA_Contact\" Value=\"MediaCenter\"/>\n\t\t\t<App_Data App=\"MOD\" Name=\"Contract_Name\" Value=\"Friends\"/>\n\t\t\t" +
-		"<App_Data App=\"MOD\" Name=\"Suggested_Price\" Value=\"1.49\"/>\n\t\t</Metadata>\n\t\t<Asset>\n\t\t\t<Metadata>\n\t\t\t\t" +
-		"<AMS Provider=\"WARNER\" Product=\"\" Asset_Name=\"Friends_Movie\" Version_Major=\"1\" Version_Minor=\"0\" Creation_Date=\"2020-06-19\" " +
-		"Description=\"Friends\" Provider_ID=\"warner.com\" Asset_ID=\"WARN3200619015447001\" Asset_Class=\"movie\"/>\n\t\t\t\t" +
-		"<App_Data App=\"MOD\" Name=\"Type\" Value=\"movie\"/>\n\t\t\t\t<App_Data App=\"MOD\" Name=\"Screen_Format\" Value=\"Widescreen\"/>\n\t\t\t\t" +
-		"<App_Data App=\"MOD\" Name=\"HDContent\" Value=\"Y\"/>\n\t\t\t\t<App_Data App=\"MOD\" Name=\"Bit_Rate\" Value=\"8000\"/>\n\t\t\t\t" +
-		"<App_Data App=\"MOD\" Name=\"Watermarking\" Value=\"N\"/>\n\t\t\t\t<App_Data App=\"MOD\" Name=\"Audio_Type\" Value=\"Stereo\"/>\n\t\t\t\t" +
-		"<App_Data App=\"MOD\" Name=\"Viewing_Can_Be_Resumed\" Value=\"Y\"/>\n\t\t\t\t<App_Data App=\"MOD\" Name=\"CGMS_A\" Value=\"3\"/>\n\t\t\t\t" +
-		"<App_Data App=\"MOD\" Name=\"Languages\" Value=\"en\"/>\n\t\t\t\t<App_Data App=\"MOD\" Name=\"Languages\" Value=\"pt\"/>\n\t\t\t\t" +
-		"<App_Data App=\"MOD\" Name=\"Subtitle_Languages\" Value=\"pt\"/>\n\t\t\t\t<App_Data App=\"MOD\" Name=\"Content_FileSize\" Value=\"1814458124\"/>\n\t\t\t\t" +
-		"<App_Data App=\"MOD\" Name=\"Content_CheckSum\" Value=\"609A5FBB1D0301719462BB798886D43F\"/>\n\t\t\t</Metadata>\n\t\t\t" +
-		"<Content Value=\"friends_s01ep01_hd_da_20_dvb.ts\"/>\n\t\t</Asset>\n\t\t<Asset>\n\t\t\t<Metadata>\n\t\t\t\t" +
-		"<AMS Provider=\"WARNER\" Product=\"\" Asset_Name=\"Friends_Poster\" Version_Major=\"1\" Version_Minor=\"0\" Creation_Date=\"2020-06-19\" " +
-		"Description=\"Friends\" Provider_ID=\"warner.com\" Asset_ID=\"WARN4200619015447001\" Asset_Class=\"poster\"/>\n\t\t\t\t" +
-		"<App_Data App=\"MOD\" Name=\"Type\" Value=\"poster\"/>\n\t\t\t\t<App_Data App=\"MOD\" Name=\"Content_FileSize\" Value=\"56725\"/>\n\t\t\t\t" +
-		"<App_Data App=\"MOD\" Name=\"Content_CheckSum\" Value=\"EDCB1162F24A29692343BBC415ECB528\"/>\n\t\t\t</Metadata>\n\t\t\t" +
-		"<Content Value=\"friends_s01ep01_hd_da_20_dvb.jpg\"/>\n\t\t</Asset>\n\t</Asset>\n</ADI>\n"
+		" principalmente quando não pode contar com o cartão de crédito do papai\"/>\n" +
+		"\t\t\t<App_Data App=\"MOD\" Name=\"Rating\" Value=\"12\"/>\n" +
+		"\t\t\t<App_Data App=\"MOD\" Name=\"Closed_Captioning\" Value=\"N\"/>\n" +
+		"\t\t\t<App_Data App=\"MOD\" Name=\"Run_Time\" Value=\"1369\"/>\n" +
+		"\t\t\t<App_Data App=\"MOD\" Name=\"Display_Run_Time\" Value=\"00:23\"/>\n" +
+		"\t\t\t<App_Data App=\"MOD\" Name=\"Year\" Value=\"1994\"/>\n" +
+		"\t\t\t<App_Data App=\"MOD\" Name=\"Country_of_Origin\" Value=\"USA\"/>\n" +
+		"\t\t\t<App_Data App=\"MOD\" Name=\"Studio\" Value=\"Warner Home Video\"/>\n" +
+		"\t\t\t<App_Data App=\"MOD\" Name=\"Studio_Name\" Value=\"Warner Home Video\"/>\n" +
+		"\t\t\t<App_Data App=\"MOD\" Name=\"Actors_Display\" Value=\"Jennifer Aniston, Courteney Cox, Lisa Kudrow, Matt LeBlanc, Matthew Perry, David Schwimmer\"/>\n" +
+		"\t\t\t<App_Data App=\"MOD\" Name=\"Actors\" Value=\"Aniston, Jennifer\"/>\n" +
+		"\t\t\t<App_Data App=\"MOD\" Name=\"Actors\" Value=\"Cox, Courteney\"/>\n" +
+		"\t\t\t<App_Data App=\"MOD\" Name=\"Actors\" Value=\"Kudrow, Lisa\"/>\n" +
+		"\t\t\t<App_Data App=\"MOD\" Name=\"Actors\" Value=\"LeBlanc, Matt\"/>\n" +
+		"\t\t\t<App_Data App=\"MOD\" Name=\"Actors\" Value=\"Perry, Matthew\"/>\n" +
+		"\t\t\t<App_Data App=\"MOD\" Name=\"Actors\" Value=\"Schwimmer, David\"/>\n" +
+		"\t\t\t<App_Data App=\"MOD\" Name=\"Director\" Value=\"Burrows, James\"/>\n" +
+		"\t\t\t<App_Data App=\"MOD\" Name=\"Director_Display\" Value=\"James Burrows\"/>\n" +
+		"\t\t\t<App_Data App=\"MOD\" Name=\"Category\" Value=\"Série\"/>\n" +
+		"\t\t\t<App_Data App=\"MOD\" Name=\"Genre\" Value=\"Comédia\"/>\n" +
+		"\t\t\t<App_Data App=\"MOD\" Name=\"Box_Office\" Value=\"\"/>\n" +
+		"\t\t\t<App_Data App=\"MOD\" Name=\"Billing_ID\" Value=\"WBH2S\"/>\n" +
+		"\t\t\t<App_Data App=\"MOD\" Name=\"Licensing_Window_Start\" Value=\"2020-06-10\"/>\n" +
+		"\t\t\t<App_Data App=\"MOD\" Name=\"Licensing_Window_End\" Value=\"2049-12-31\"/>\n" +
+		"\t\t\t<App_Data App=\"MOD\" Name=\"Preview_Period\" Value=\"0\"/>\n" +
+		"\t\t\t<App_Data App=\"MOD\" Name=\"Provider_QA_Contact\" Value=\"MediaCenter\"/>\n" +
+		"\t\t\t<App_Data App=\"MOD\" Name=\"Contract_Name\" Value=\"Friends\"/>\n" +
+		"\t\t\t<App_Data App=\"MOD\" Name=\"Suggested_Price\" Value=\"1.49\"/>\n" +
+		"\t\t</Metadata>\n" +
+		"\t\t<Asset>\n" +
+		"\t\t\t<Metadata>\n" +
+		"\t\t\t\t<AMS Provider=\"WARNER\" Product=\"\" Asset_Name=\"Friends_Movie\" Version_Major=\"1\" Version_Minor=\"0\" Creation_Date=\"2020-06-19\" " +
+		"Description=\"Friends\" Provider_ID=\"warner.com\" Asset_ID=\"WARN3200619015447001\" Asset_Class=\"movie\"/>\n" +
+		"\t\t\t\t<App_Data App=\"MOD\" Name=\"Type\" Value=\"movie\"/>\n" +
+		"\t\t\t\t<App_Data App=\"MOD\" Name=\"Screen_Format\" Value=\"Widescreen\"/>\n" +
+		"\t\t\t\t<App_Data App=\"MOD\" Name=\"HDContent\" Value=\"Y\"/>\n" +
+		"\t\t\t\t<App_Data App=\"MOD\" Name=\"Bit_Rate\" Value=\"8000\"/>\n" +
+		"\t\t\t\t<App_Data App=\"MOD\" Name=\"Watermarking\" Value=\"N\"/>\n" +
+		"\t\t\t\t<App_Data App=\"MOD\" Name=\"Audio_Type\" Value=\"Stereo\"/>\n" +
+		"\t\t\t\t<App_Data App=\"MOD\" Name=\"Viewing_Can_Be_Resumed\" Value=\"Y\"/>\n" +
+		"\t\t\t\t<App_Data App=\"MOD\" Name=\"CGMS_A\" Value=\"3\"/>\n" +
+		"\t\t\t\t<App_Data App=\"MOD\" Name=\"Languages\" Value=\"en\"/>\n" +
+		"\t\t\t\t<App_Data App=\"MOD\" Name=\"Languages\" Value=\"pt\"/>\n" +
+		"\t\t\t\t<App_Data App=\"MOD\" Name=\"Subtitle_Languages\" Value=\"pt\"/>\n" +
+		"\t\t\t\t<App_Data App=\"MOD\" Name=\"Content_FileSize\" Value=\"1814458124\"/>\n" +
+		"\t\t\t\t<App_Data App=\"MOD\" Name=\"Content_CheckSum\" Value=\"609A5FBB1D0301719462BB798886D43F\"/>\n" +
+		"\t\t\t</Metadata>\n" +
+		"\t\t\t<Content Value=\"friends_s01ep01_hd_da_20_dvb.ts\"/>\n" +
+		"\t\t</Asset>\n" +
+		"\t\t<Asset>\n" +
+		"\t\t\t<Metadata>\n" +
+		"\t\t\t\t<AMS Provider=\"WARNER\" Product=\"\" Asset_Name=\"Friends_Poster\" Version_Major=\"1\" Version_Minor=\"0\" Creation_Date=\"2020-06-19\" " +
+		"Description=\"Friends\" Provider_ID=\"warner.com\" Asset_ID=\"WARN4200619015447001\" Asset_Class=\"poster\"/>\n" +
+		"\t\t\t\t<App_Data App=\"MOD\" Name=\"Type\" Value=\"poster\"/>\n" +
+		"\t\t\t\t<App_Data App=\"MOD\" Name=\"Content_FileSize\" Value=\"56725\"/>\n" +
+		"\t\t\t\t<App_Data App=\"MOD\" Name=\"Content_CheckSum\" Value=\"EDCB1162F24A29692343BBC415ECB528\"/>\n" +
+		"\t\t\t</Metadata>\n" +
+		"\t\t\t<Content Value=\"friends_s01ep01_hd_da_20_dvb.jpg\"/>\n" +
+		"\t\t</Asset>\n" +
+		"\t</Asset>\n</ADI>\n"
 
 	lines := [][]string{
 		{"Provider", "Provider id", "Título Original", "Título em Português", "Título em Português do Episódio",
-			"Temporada", "Número do Episódio", "Categoria", "Ano", "Bilheteria", "Ranking", "Língua Original", "Estúdio",
-			"Classificação Etária", "Genero 1", "Genero 2", "Elenco", "Diretor", "País de Origem", "Sinopse EPG", "Sinopse Resumo",
+			"Temporada", "Número do Episódio", "Categoria", "Ano",
+			"Bilheteria", "Ranking", "Língua Original", "Estúdio",
+			"Classificação Etária", "Genero 1", "Genero 2", "Elenco",
+			"Diretor", "País de Origem",
+			"Sinopse EPG",
+			"Sinopse Resumo",
 			"Duração", "Data início no NOW", "Data Fim no NOW", "Formato", "Audio", "Legendado", "Dublado",
-			"Billing ID", "Extradata 1", "Extradata 2", "Produto", "Janela Repasse", "Canal", "Box Office", "Versao",
-			"Cobrança", "ID", "Movie Size", "Movie MD5", "Poster Size", "Poster MD5", "DOWNLOAD TO GO", "DIAS DE DOWNLOAD",
-			"PASTA FTP", "Movie Audio Type", "Trailer ID", "Trailer Size", "Trailer MD5", "Duração Trailer", "Trailer Audio Type"},
-		{"WARNER", "warner.com", "Friends", "Friends", "Aquele onde tudo começou", "1", "1", "Série", "1994",
-			"1000000", "9", "en", "Warner Home Video", "12", "Comédia", "Programa",
-			"Jennifer Aniston, Courteney Cox, Lisa Kudrow, Matt LeBlanc, Matthew Perry, David Schwimmer", "James Burrows", "USA",
+			"Billing ID", "Extradata 1", "Extradata 2", "Produto", "Janela Repasse",
+			"Canal", "Box Office", "Versao",
+			"Cobrança", "ID",
+			"Movie Size", "Movie MD5",
+			"Poster Size", "Poster MD5",
+			"DOWNLOAD TO GO", "DIAS DE DOWNLOAD",
+			"PASTA FTP", "Movie Audio Type",
+			"Trailer ID", "Trailer Size", "Trailer MD5", "Duração Trailer", "Trailer Audio Type"},
+
+		{"WARNER", "warner.com", "Friends", "Friends", "Aquele onde tudo começou",
+			"1", "1", "Série", "1994",
+			"1000000", "9", "en", "Warner Home Video",
+			"12", "Comédia", "Programa",
+			"Jennifer Aniston, Courteney Cox, Lisa Kudrow, Matt LeBlanc, Matthew Perry, David Schwimmer",
+			"James Burrows", "USA",
 			"Depois que Rachel abandona o noivo no altar, ela vai morar com Monica e descobre que não é fácil ser independente, principalmente quando não pode contar com o cartão de crédito do papai",
 			"Depois que Rachel abandona o noivo no altar, ela vai morar com Monica e descobre que não é fácil ser independente, principalmente quando não pode contar com o cartão de crédito do papai",
-			"0.01584490740740740741", "06-10-20", "12-31-49", "HD", "en,pt", "pt", "não", "WBH2S", "", "", "TVOD - Catálogo", "S",
-			"Nirvana - Catálogo", "200000", "Multi-language", "1.49", "friends_s01ep01_hd_da_20_dvb.ts",
-			"1814458124", "609A5FBB1D0301719462BB798886D43F", "56725", "EDCB1162F24A29692343BBC415ECB528", "não", "0",
-			"\\rhome\\nirvana\\warner_series_20200608\\dvb\\friends_s01ep01_hd_da_20_dvb", "Stereo"},
+			"0.01584490740740740741", "06-10-20", "12-31-49", "HD", "en,pt", "pt", "não",
+			"WBH2S", "", "", "TVOD - Catálogo", "S",
+			"Nirvana - Catálogo", "200000", "Multi-language",
+			"1.49", "friends_s01ep01_hd_da_20_dvb.ts",
+			"1814458124", "609A5FBB1D0301719462BB798886D43F",
+			"56725", "EDCB1162F24A29692343BBC415ECB528",
+			"não", "0",
+			"\\rhome\\nirvana\\warner_series_20200608\\dvb\\friends_s01ep01_hd_da_20_dvb", "Stereo",
+			"", "", "", "", ""},
 	}
 	lenLine1 := len(lines[1])
 	//fmt.Printf("%#v\n%#v\n%d %d", lines[0], lines[1], len(lines[0]), lenLine1)
@@ -270,6 +329,152 @@ func TestXmlNet(t *testing.T) {
 		assert.Equal(t, expected, res2)
 	}
 	//
+}
+
+func TestXmlOiOtt(t *testing.T) {
+	json := readConfig("config_oi_ott.json")
+	initVars(json)
+	expected := "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n" +
+		"<assetPackages xmlns:date=\"http://exslt.org/dates-and-times\" " +
+		"xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xsi:noNamespaceSchemaLocation=\"VODmetadata.xsd\" " +
+		"xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" formatVersion=\"1.0\">\n" +
+		"\t<assetPackage name=\"Nirvana\" verb=\"\" product=\"SVOD\" providerName=\"OnDemand\" providerId=\"ODG\" type=\"SVOD\" " +
+		"asset=\"A Música da Minha Vida\">\n" +
+		"\t\t<metadata>\n" +
+		"\t\t\t<assetID>200702102255001</assetID>\n" +
+		"\t\t\t<providerID>warner.com</providerID>\n" +
+		"\t\t\t<showType>movie</showType>\n" +
+		"\t\t\t<title language=\"pt\">A Música da Minha Vida</title>\n" +
+		"\t\t\t<title language=\"en\">Blinded by the Light</title>\n" +
+		"\t\t\t<shortTitle language=\"pt\">A Música da Minha Vida</shortTitle>\n" +
+		"\t\t\t<reducedTitle language=\"pt\">A Música da Minha Vida</reducedTitle>\n" +
+		"\t\t\t<summary language=\"pt\">Do escritor, diretor e produtor Gurinder Chadha, Driblando o Destino, temos o drama A " +
+		"Música da Minha Vida, baseado nas músicas e letras inspiradoras das canções atemporais de Bruce Springsteen.</summary>\n" +
+		"\t\t\t<shortSummary language=\"pt\">Do escritor, diretor e produtor Gurinder Chadha, Driblando o Destino, temos o drama A " +
+		"Música da Minha Vida, baseado nas músicas e letras inspiradoras das canções atemporais de Bruce Springsteen.</shortSummary>\n" +
+		"\t\t\t<episodeNumber/>\n" +
+		"\t\t\t<cgmsaLevel>copynever</cgmsaLevel>\n" +
+		"\t\t\t<rating>12</rating>\n" +
+		"\t\t\t<runTimeMinutes>23</runTimeMinutes>\n" +
+		"\t\t\t<release_year>2019</release_year>\n" +
+		"\t\t\t<countryRegionCode>USA</countryRegionCode>\n" +
+		"\t\t\t<person mname=\"\" fname=\"Viveik\" lname=\"Kalra\" role=\"actor\"/>\n" +
+		"\t\t\t<person mname=\"\" fname=\"Hayley\" lname=\"Atwell\" role=\"actor\"/>\n" +
+		"\t\t\t<person mname=\"\" fname=\"Rob\" lname=\"Brydon\" role=\"actor\"/>\n" +
+		"\t\t\t<person mname=\"\" fname=\"Kulvinder\" lname=\"Ghir\" role=\"actor\"/>\n" +
+		"\t\t\t<person mname=\"\" fname=\"Nell\" lname=\"Williams\" role=\"actor\"/>\n" +
+		"\t\t\t<person mname=\"\" fname=\"Aaron\" lname=\"Phagura\" role=\"actor\"/>\n" +
+		"\t\t\t<person mname=\"\" fname=\"Gurinder\" lname=\"Chadha\" role=\"director\"/>\n" +
+		"\t\t\t<studio>Warner Bros</studio>\n" +
+		"\t\t\t<studioDisplayName>Warner Bros</studioDisplayName>\n\t\t\t<category>MSEPGC_MV_Musical</category>\n" +
+		"\t\t\t<autoDeploy>false</autoDeploy>\n" +
+		"\t\t\t<autoImport>false</autoImport>\n" +
+		"\t\t\t<categorization>\n" +
+		"\t\t\t\t<category1 name=\"MSEPGC_MV_Musical\"/>\n" +
+		"\t\t\t\t<category2 name=\"MSEPGC_MV_Musical\"/>\n" +
+		"\t\t\t</categorization>\n" +
+		"\t\t\t<genre>MSEPGC_MV_Musical</genre>\n" +
+		"\t\t\t<additionalInfo name=\"A Música da Minha Vida\">\n" +
+		"\t\t\t\t<value param=\"RentableOn\">OI_IPTV,OI_PC,OI_Mobile,OI_DTH</value>\n" +
+		"\t\t\t\t<value param=\"DownloadableOn\">OI_IPTV,OI_PC,OI_Mobile,OI_DTH</value>\n" +
+		"\t\t\t\t<value param=\"CountryGrantRestriction\">BR</value>\n" +
+		"\t\t\t\t<value param=\"ISPGrantRestriction\"/>\n" +
+		"\t\t\t\t<value param=\"ReasonCode\"/>\n" +
+		"\t\t\t</additionalInfo>\n" +
+		"\t\t</metadata>\n" +
+		"\t\t<businessMetadata>\n" +
+		"\t\t\t<suggestedPrice>0.0</suggestedPrice>\n" +
+		"\t\t\t<currency_iso3166-2>BR</currency_iso3166-2>\n" +
+		"\t\t\t<billingID>movie</billingID>\n" +
+		"\t\t</businessMetadata>\n" +
+		"\t\t<rightsMetadata>\n" +
+		"\t\t\t<licensingWindowStart>2021-10-16T00:00:00Z</licensingWindowStart>\n" +
+		"\t\t\t<licensingWindowEnd-2>2044-12-31T00:00:00Z</licensingWindowEnd-2>\n\t\t</rightsMetadata>\n" +
+		"\t\t<asset type=\"feature\" asset_name=\"A Música da Minha Vida\">\n" +
+		"\t\t\t<metadata>\n" +
+		"\t\t\t\t<assetID>200702102255001</assetID>\n" +
+		"\t\t\t\t<providerID>warner.com</providerID>\n" +
+		"\t\t\t\t<audio>Dolby 5.1</audio>\n" +
+		"\t\t\t\t<HD>true</HD>\n" +
+		"\t\t\t\t<language_iso639>en</language_iso639>\n" +
+		"\t\t\t\t<language_iso639>pt</language_iso639>\n" +
+		"\t\t\t\t<rating value=\"12\" rating_system=\"DJCTQ\"/>\n" +
+		"\t\t\t</metadata>\n" +
+		"\t\t\t<content>blindedbythelight_dub_ptbr.ts</content>\n" +
+		"\t\t</asset>\n" +
+		"\t\t<asset type=\"trailer\" asset_name=\"A Música da Minha Vida\">\n" +
+		"\t\t\t<metadata>\n" +
+		"\t\t\t\t<assetID>200702102255001</assetID>\n" +
+		"\t\t\t\t<providerID>warner.com</providerID>\n" +
+		"\t\t\t\t<audio>Dolby 5.1</audio>\n" +
+		"\t\t\t\t<rating value=\"12\" rating_system=\"DJCTQ\"/>\n" +
+		"\t\t\t</metadata>\n" +
+		"\t\t\t<content>blindedbythelight_dub_ptbr_trailer.ts</content>\n" +
+		"\t\t</asset>\n<!-- DTH\n<businessRule>0</businessRule>\n" +
+		"\t\t<UserNibble2>2</UserNibble2>\n" +
+		"\t\t<audioLanguage>en</audioLanguage>\n" +
+		"\t\t<soundType>Surround Sound</soundType> -->\n</assetPackage>\n</assetPackages>\n"
+
+	lines := [][]string{
+		{"Show Type", "Provider", "Codigo Categoria 1", "Codigo Categoria 2", "Business rule id", "UserNibble2",
+			"Provider id", "Título Original", "Título em Português", "Título em Português do Episódio", "Temporada",
+			"Número do Episódio", "Categoria", "Ano", "Bilheteria", "Ranking", "Língua Original", "Estúdio",
+			"Classificação Etária", "Genero 1", "Genero 2",
+			"Elenco",
+			"Diretor", "País de Origem",
+			"Sinopse EPG",
+			"Sinopse Resumo",
+			"Duração", "Data Início", "Data Fim", "Formato", "Audio", "Legendado", "Dublado",
+			"Billing ID", "Extradata 1", "Extradata 2", "Produto", "Janela Repasse", "Canal", "Box Office", "Versao",
+			"Cobrança", "ID", "Movie Size", "Movie MD5",
+			"Poster Size", "Poster MD5", "DOWNLOAD TO GO",
+			"DIAS DE DOWNLOAD", "PASTA FTP", "Movie Audio Type",
+			"Trailer ID", "Trailer Size", "Trailer MD5",
+			"Duração Trailer", "Trailer Audio Type"},
+
+		{"Movie", "WARNER", "MSEPGC_MV_Musical", "MSEPGC_MV_Musical", "0", "2",
+			"warner.com", "Blinded by the Light", "A Música da Minha Vida", "", "",
+			"", "Filme", "2019", "5000000", "9", "en", "Warner Bros",
+			"12", "Drama", "Comédia",
+			"Viveik Kalra, Hayley Atwell, Rob Brydon, Kulvinder Ghir, Nell Williams, Aaron Phagura",
+			"Gurinder Chadha", "USA",
+			"Do escritor, diretor e produtor Gurinder Chadha, Driblando o Destino, temos o drama A Música da Minha Vida, " +
+				"baseado nas músicas e letras inspiradoras das canções atemporais de Bruce Springsteen.",
+			"Do escritor, diretor e produtor Gurinder Chadha, Driblando o Destino, temos o drama A Música da Minha Vida, " +
+				"baseado nas músicas e letras das canções atemporais de Bruce Springsteen.",
+			"0.01584490740740740741", "10-16-21", "12-31-44", "HD", "en", "não", "pt",
+			"WBH2L", "", "", "TVOD - Catálogo", "L", "Nirvana - Catálogo", "500000", "Dublado",
+			"6.9", "blindedbythelight_dub_ptbr.ts", "7063535812", "6C985805922D3E8A1994A5ED674B641B",
+			"80586", "D8D855B9FEE9D206223856E64C8DED01", "não",
+			"0", "\\rhome\\nirvana\\warner_20200114", "Dolby 5.1",
+			"blindedbythelight_dub_ptbr_trailer.ts", "144207844", "4DEC3B668C6DD1A5994E053587E4658B",
+			"12:02:24", "Dolby 5.1"},
+	}
+	lenLine1 := len(lines[1])
+	//fmt.Printf("%#v\n%#v\n%d %d", lines[0], lines[1], len(lines[0]), lenLine1)
+
+	var maplines lineT = make(map[string]string)
+	for i := range lines[0] {
+		val := ""
+		if i < lenLine1 {
+			val = lines[1][i]
+		}
+		maplines[lines[0][i]] = val
+	}
+	maplines["file_number"] = "1"
+	options["timestamp"] = "200702102255"
+	options["creationDate"] = "2020-06-19"
+	//fmt.Printf("%#v\n", maplines)
+	xmlWr := newXMLWriter("unit_tests.json", "")
+	xmlWr.testing = true
+	err := processLines(json, []lineT{maplines}, xmlWr)
+	if err != nil {
+		t.Error(err)
+		return
+	}
+	result := xmlWr.getBuffer()
+	res2 := decodeISO88599ToUTF8(result) // converting from windows encoding to UTF-8
+	assert.Equal(t, expected, res2)
 }
 
 func decodeISO88599ToUTF8(bytes []byte) string {

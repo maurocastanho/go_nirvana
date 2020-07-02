@@ -13,12 +13,12 @@
         {
           "id": "e2830250-d3bf-451a-ba3b-d4ec3ce1da19",
           "location": "shows/ariana_grande_poster.jpg",
-          "type": "vod_poster"
+          "type": "vod-poster"
         },
         {
           "id": "8b841c15-a02f-4a23-b4d2-d4eb409becbe",
           "location": "shows/ariana_grande_landscape.jpg",
-          "type": "vod_background"
+          "type": "vod-background"
         }
       ],
       "medias": [
@@ -72,12 +72,12 @@
         {
           "id": "511b88f6-e9d2-4117-8c01-81168ec53bf0",
           "location": "shows/ben_harper_relentless_7_poster.jpg",
-          "type": "vod_poster"
+          "type": "vod-poster"
         },
         {
           "id": "dd58290e-680a-4718-bac3-22db2ffdc11f",
           "location": "shows/ben_harper_relentless_7_landscape.jpg",
-          "type": "vod_background"
+          "type": "vod-background"
         }
       ],
       "medias": [
@@ -131,12 +131,12 @@
         {
           "id": "0d938c5d-5bcf-49ab-a133-30f9e5eb912f",
           "location": "shows/billie_eilish_poster.jpg",
-          "type": "vod_poster"
+          "type": "vod-poster"
         },
         {
           "id": "9d91c03e-aed3-42ca-82b4-d2616f1cc66d",
           "location": "shows/billie_eilish_landscape.jpg",
-          "type": "vod_background"
+          "type": "vod-background"
         }
       ],
       "medias": [
@@ -190,12 +190,12 @@
         {
           "id": "e78227ce-f53a-4af8-bf66-3a29af2467e5",
           "location": "shows/britney_spears_poster.jpg",
-          "type": "vod_poster"
+          "type": "vod-poster"
         },
         {
           "id": "21f1566c-8f13-4aee-89db-afee7de4efb2",
           "location": "shows/britney_spears_landscape.jpg",
-          "type": "vod_background"
+          "type": "vod-background"
         }
       ],
       "medias": [
@@ -249,12 +249,12 @@
         {
           "id": "cf6090b5-6367-4136-9808-d713548d1722",
           "location": "shows/david_guetta_miami_poster.jpg",
-          "type": "vod_poster"
+          "type": "vod-poster"
         },
         {
           "id": "a3ab2fde-eacb-477b-acef-105a69286d1e",
           "location": "shows/david_guetta_miami_landscape.jpg",
-          "type": "vod_background"
+          "type": "vod-background"
         }
       ],
       "medias": [
@@ -308,12 +308,12 @@
         {
           "id": "a33a5cfb-8b74-4aba-88e6-f3ce7c6f5a02",
           "location": "shows/ed_sheeran_poster.jpg",
-          "type": "vod_poster"
+          "type": "vod-poster"
         },
         {
           "id": "014b940a-2b49-4712-b055-4584a716a06d",
           "location": "shows/ed_sheeran_landscape.jpg",
-          "type": "vod_background"
+          "type": "vod-background"
         }
       ],
       "medias": [
@@ -367,12 +367,12 @@
         {
           "id": "73b5e0a2-8a54-4f95-8ab3-922278c89d81",
           "location": "shows/fifth_harmony_poster.jpg",
-          "type": "vod_poster"
+          "type": "vod-poster"
         },
         {
           "id": "71bdf13f-49ee-4bf6-9fd3-8825d943fc5e",
           "location": "shows/fifth_harmony_landscape.jpg",
-          "type": "vod_background"
+          "type": "vod-background"
         }
       ],
       "medias": [
@@ -426,12 +426,12 @@
         {
           "id": "076b1dc5-b4b2-4df2-8663-66886cd4a4a7",
           "location": "shows/jessie_j_poster.jpg",
-          "type": "vod_poster"
+          "type": "vod-poster"
         },
         {
           "id": "88043d04-70a1-4f77-af27-1311475778e9",
           "location": "shows/jessie_j_landscape.jpg",
-          "type": "vod_background"
+          "type": "vod-background"
         }
       ],
       "medias": [
@@ -485,12 +485,12 @@
         {
           "id": "d51e2940-a435-43d1-9ffc-69ce2b7bc7b6",
           "location": "shows/katy_perry_poster.jpg",
-          "type": "vod_poster"
+          "type": "vod-poster"
         },
         {
           "id": "395cd0b4-8864-475f-96e5-42d589954465",
           "location": "shows/katy_perry_landscape.jpg",
-          "type": "vod_background"
+          "type": "vod-background"
         }
       ],
       "medias": [
@@ -544,12 +544,12 @@
         {
           "id": "6e290491-72e4-400d-ab4d-829d49d7a861",
           "location": "shows/lana_del_rey_poster.jpg",
-          "type": "vod_poster"
+          "type": "vod-poster"
         },
         {
           "id": "6c2cef8f-539d-402d-907f-29fe5a3173ad",
           "location": "shows/lana_del_rey_landscape.jpg",
-          "type": "vod_background"
+          "type": "vod-background"
         }
       ],
       "medias": [
@@ -603,12 +603,12 @@
         {
           "id": "f3b7e914-59ce-4213-8c7c-53dfc52afc98",
           "location": "shows/nick_jonas_poster.jpg",
-          "type": "vod_poster"
+          "type": "vod-poster"
         },
         {
           "id": "25ad47bc-189e-4490-8308-e8dd75d070bd",
           "location": "shows/nick_jonas_landscape.jpg",
-          "type": "vod_background"
+          "type": "vod-background"
         }
       ],
       "medias": [
@@ -662,12 +662,12 @@
         {
           "id": "0babb71b-67a7-4206-a108-d4af534c42ec",
           "location": "shows/one_direction_2013_poster.jpg",
-          "type": "vod_poster"
+          "type": "vod-poster"
         },
         {
           "id": "5d33eec9-5670-454a-a4dc-6e3f13352833",
           "location": "shows/one_direction_2013_landscape.jpg",
-          "type": "vod_background"
+          "type": "vod-background"
         }
       ],
       "medias": [
@@ -721,12 +721,12 @@
         {
           "id": "ed977cd7-2e62-4270-b587-54789862c66d",
           "location": "shows/paul_simon_roundhouse_poster.jpg",
-          "type": "vod_poster"
+          "type": "vod-poster"
         },
         {
           "id": "e96759aa-9d52-4d16-a5fa-4b93f6012374",
           "location": "shows/paul_simon_roundhouse_landscape.jpg",
-          "type": "vod_background"
+          "type": "vod-background"
         }
       ],
       "medias": [
@@ -780,12 +780,12 @@
         {
           "id": "3641d109-cf9d-491d-833e-500ce57f98d7",
           "location": "shows/the_black_eyed_peas_poster.jpg",
-          "type": "vod_poster"
+          "type": "vod-poster"
         },
         {
           "id": "746ce173-53c9-456d-80e8-163ee1ab09af",
           "location": "shows/the_black_eyed_peas_landscape.jpg",
-          "type": "vod_background"
+          "type": "vod-background"
         }
       ],
       "medias": [
@@ -839,12 +839,12 @@
         {
           "id": "cc4ed018-7c78-4282-b261-af1da07abcc3",
           "location": "shows/tiesto_miami_2016_poster.jpg",
-          "type": "vod_poster"
+          "type": "vod-poster"
         },
         {
           "id": "b3ceb09e-81e5-4039-9ba8-300ed0287ebd",
           "location": "shows/tiesto_miami_2016_landscape.jpg",
-          "type": "vod_background"
+          "type": "vod-background"
         }
       ],
       "medias": [
@@ -898,12 +898,12 @@
         {
           "id": "bc155210-7de0-44c0-ab80-68292f39e387",
           "location": "shows/zz_top_poster.jpg",
-          "type": "vod_poster"
+          "type": "vod-poster"
         },
         {
           "id": "b345cb44-c7d5-493d-8239-7fe5a346f8db",
           "location": "shows/zz_top_landscape.jpg",
-          "type": "vod_background"
+          "type": "vod-background"
         }
       ],
       "medias": [
@@ -957,12 +957,12 @@
         {
           "id": "71314a8d-8e8b-492b-b65f-9d9b839b9280",
           "location": "shows/shakira_poster.jpg",
-          "type": "vod_poster"
+          "type": "vod-poster"
         },
         {
           "id": "138984d2-655a-4fe5-9d87-0fefb5e0260e",
           "location": "shows/shakira_landscape.jpg",
-          "type": "vod_background"
+          "type": "vod-background"
         }
       ],
       "medias": [
@@ -1016,12 +1016,12 @@
         {
           "id": "545ee3b5-c5d2-49d1-a640-0572a533b455",
           "location": "shows/pharrell_williams_germany_2017_poster.jpg",
-          "type": "vod_poster"
+          "type": "vod-poster"
         },
         {
           "id": "3fcdbd05-60f4-4d9b-9892-74b97f6b3bb3",
           "location": "shows/pharrell_williams_germany_2017_landscape.jpg",
-          "type": "vod_background"
+          "type": "vod-background"
         }
       ],
       "medias": [
@@ -1075,12 +1075,12 @@
         {
           "id": "6244a874-365a-483e-9a7e-c448e0b9ab28",
           "location": "shows/amy_winehouse_poster.jpg",
-          "type": "vod_poster"
+          "type": "vod-poster"
         },
         {
           "id": "4142ab6b-962c-4bfa-ac1e-334763bd0f35",
           "location": "shows/amy_winehouse_landscape.jpg",
-          "type": "vod_background"
+          "type": "vod-background"
         }
       ],
       "medias": [
@@ -1134,12 +1134,12 @@
         {
           "id": "73919a7b-d74b-4f8a-9239-6f1aea056201",
           "location": "shows/calvin_harris_and_zedd_hd_poster.jpg",
-          "type": "vod_poster"
+          "type": "vod-poster"
         },
         {
           "id": "bdf567ff-da90-4268-8e2a-ccc6472b7352",
           "location": "shows/calvin_harris_and_zedd_hd_landscape.jpg",
-          "type": "vod_background"
+          "type": "vod-background"
         }
       ],
       "medias": [
@@ -1193,12 +1193,12 @@
         {
           "id": "633f5a20-7ed3-4ecd-a86b-34333de28554",
           "location": "shows/deadmau5_2014_poster.jpg",
-          "type": "vod_poster"
+          "type": "vod-poster"
         },
         {
           "id": "edfeba80-5d11-4e16-80c8-19c1df0c0cb8",
           "location": "shows/deadmau5_2014_landscape.jpg",
-          "type": "vod_background"
+          "type": "vod-background"
         }
       ],
       "medias": [
@@ -1252,12 +1252,12 @@
         {
           "id": "f42b6c2f-0775-4b5c-8bbf-f08981a8532f",
           "location": "shows/florence_and_the_machine_poster.jpg",
-          "type": "vod_poster"
+          "type": "vod-poster"
         },
         {
           "id": "ce6d9bd1-c854-45ba-b7ee-ebbe665ecbc7",
           "location": "shows/florence_and_the_machine_landscape.jpg",
-          "type": "vod_background"
+          "type": "vod-background"
         }
       ],
       "medias": [
@@ -1311,12 +1311,12 @@
         {
           "id": "e22f8205-143b-4d5a-bf51-86ee11477778",
           "location": "shows/duffy_london_poster.jpg",
-          "type": "vod_poster"
+          "type": "vod-poster"
         },
         {
           "id": "6723e409-6b33-47f5-9299-1e524727df13",
           "location": "shows/duffy_london_landscape.jpg",
-          "type": "vod_background"
+          "type": "vod-background"
         }
       ],
       "medias": [
@@ -1370,12 +1370,12 @@
         {
           "id": "dd15fd64-5569-4651-85c5-2e1ef99558b8",
           "location": "shows/gorillaz_poster.jpg",
-          "type": "vod_poster"
+          "type": "vod-poster"
         },
         {
           "id": "bad9d798-6fd6-45c8-94ef-e89e31eca57d",
           "location": "shows/gorillaz_landscape.jpg",
-          "type": "vod_background"
+          "type": "vod-background"
         }
       ],
       "medias": [
@@ -1429,12 +1429,12 @@
         {
           "id": "fcaef4a7-15aa-4cfd-8f60-c8370f319e66",
           "location": "shows/lizzo_poster.jpg",
-          "type": "vod_poster"
+          "type": "vod-poster"
         },
         {
           "id": "a6b6fc00-9d44-4d3e-aa24-bcf7a2286b34",
           "location": "shows/lizzo_landscape.jpg",
-          "type": "vod_background"
+          "type": "vod-background"
         }
       ],
       "medias": [
@@ -1488,12 +1488,12 @@
         {
           "id": "aa820ae6-a384-4a78-996d-e4836364e87e",
           "location": "shows/miley_cyrus_poster.jpg",
-          "type": "vod_poster"
+          "type": "vod-poster"
         },
         {
           "id": "38bad3d4-b6b8-468b-a67b-e586af003f31",
           "location": "shows/miley_cyrus_landscape.jpg",
-          "type": "vod_background"
+          "type": "vod-background"
         }
       ],
       "medias": [
@@ -1547,12 +1547,12 @@
         {
           "id": "6b07f33c-24bc-4791-9256-17613faf23a9",
           "location": "shows/chitaozinho_e_xororo_40_anos_nova_geracao_poster.jpg",
-          "type": "vod_poster"
+          "type": "vod-poster"
         },
         {
           "id": "a9f24142-9f64-488d-9009-6a190098c0ed",
           "location": "shows/chitaozinho_e_xororo_40_anos_nova_geracao_landscape.jpg",
-          "type": "vod_background"
+          "type": "vod-background"
         }
       ],
       "medias": [
@@ -1606,12 +1606,12 @@
         {
           "id": "025a708a-e193-4c9f-9ee1-dbc0d569db6a",
           "location": "shows/demonios_da_garoa_vem_cantar_comigo_poster.jpg",
-          "type": "vod_poster"
+          "type": "vod-poster"
         },
         {
           "id": "25fa8cc5-fb90-4c9b-bf91-d67de7a287df",
           "location": "shows/demonios_da_garoa_vem_cantar_comigo_landscape.jpg",
-          "type": "vod_background"
+          "type": "vod-background"
         }
       ],
       "medias": [
@@ -1665,12 +1665,12 @@
         {
           "id": "379a345f-8c74-4ed7-ab76-ac3dadd27ddc",
           "location": "shows/dudu_nobre_poster.jpg",
-          "type": "vod_poster"
+          "type": "vod-poster"
         },
         {
           "id": "db7eabb4-3cc4-4355-a0f7-8df92c4171f2",
           "location": "shows/dudu_nobre_landscape.jpg",
-          "type": "vod_background"
+          "type": "vod-background"
         }
       ],
       "medias": [
@@ -1724,12 +1724,12 @@
         {
           "id": "96d40236-8129-4892-a081-f4aacbd5845e",
           "location": "shows/esl_inimigoshp_20191023_poster.jpg",
-          "type": "vod_poster"
+          "type": "vod-poster"
         },
         {
           "id": "b07a7b1b-95ad-460b-8f40-3ac42d3a5943",
           "location": "shows/esl_inimigoshp_20191023_landscape.jpg",
-          "type": "vod_background"
+          "type": "vod-background"
         }
       ],
       "medias": [
@@ -1783,12 +1783,12 @@
         {
           "id": "34721eed-ba24-4e22-acde-d23e202f564a",
           "location": "shows/1_1_poster.jpg",
-          "type": "vod_poster"
+          "type": "vod-poster"
         },
         {
           "id": "47a643ed-accd-4c2c-99a7-bddac959855a",
           "location": "shows/1_1_landscape.jpg",
-          "type": "vod_background"
+          "type": "vod-background"
         }
       ],
       "medias": [
@@ -1842,12 +1842,12 @@
         {
           "id": "53762426-7af0-40a9-9e53-f82768dd7fe8",
           "location": "shows/20180828_esl_batanga_cia_poster.jpg",
-          "type": "vod_poster"
+          "type": "vod-poster"
         },
         {
           "id": "ec94ce2b-7c8b-4e86-9b2c-f5301a36b610",
           "location": "shows/20180828_esl_batanga_cia_landscape.jpg",
-          "type": "vod_background"
+          "type": "vod-background"
         }
       ],
       "medias": [
@@ -1901,12 +1901,12 @@
         {
           "id": "2d28376c-fa66-4d47-98a7-79465cece343",
           "location": "shows/bonde_do_forro_poster.jpg",
-          "type": "vod_poster"
+          "type": "vod-poster"
         },
         {
           "id": "87bb51cb-7a1e-45fa-8073-380d251bcd09",
           "location": "shows/bonde_do_forro_landscape.jpg",
-          "type": "vod_background"
+          "type": "vod-background"
         }
       ],
       "medias": [
@@ -1960,12 +1960,12 @@
         {
           "id": "0a07adfa-544c-4dce-85b2-a46828f9c80f",
           "location": "shows/braza_poster.jpg",
-          "type": "vod_poster"
+          "type": "vod-poster"
         },
         {
           "id": "3a492118-3200-4c03-93f2-ae23b3f91783",
           "location": "shows/braza_landscape.jpg",
-          "type": "vod_background"
+          "type": "vod-background"
         }
       ],
       "medias": [
@@ -2019,12 +2019,12 @@
         {
           "id": "915a72d9-daac-4dd9-9725-991f9633a78f",
           "location": "shows/caolaru_poster.jpg",
-          "type": "vod_poster"
+          "type": "vod-poster"
         },
         {
           "id": "4e7c5aaf-3716-4b0a-abae-b6801847d67c",
           "location": "shows/caolaru_landscape.jpg",
-          "type": "vod_background"
+          "type": "vod-background"
         }
       ],
       "medias": [
@@ -2078,12 +2078,12 @@
         {
           "id": "bc4638a5-e8af-4563-b374-1e5c06546097",
           "location": "shows/coralvoicesoul_poster.jpg",
-          "type": "vod_poster"
+          "type": "vod-poster"
         },
         {
           "id": "52c79e17-85b9-4c40-bdbe-2482bdb6b4ae",
           "location": "shows/coralvoicesoul_landscape.jpg",
-          "type": "vod_background"
+          "type": "vod-background"
         }
       ],
       "medias": [
@@ -2137,12 +2137,12 @@
         {
           "id": "d5605228-4612-4e2a-9be8-466270c40992",
           "location": "shows/20180926_esl_delacruz2_poster.jpg",
-          "type": "vod_poster"
+          "type": "vod-poster"
         },
         {
           "id": "5b0b199b-ca9f-4b0b-a41d-a4dab5ec2f5c",
           "location": "shows/20180926_esl_delacruz2_landscape.jpg",
-          "type": "vod_background"
+          "type": "vod-background"
         }
       ],
       "medias": [
@@ -2196,12 +2196,12 @@
         {
           "id": "6751c33b-1f77-412d-bfe9-d38667dd32df",
           "location": "shows/diomedes_chinaski_poster.jpg",
-          "type": "vod_poster"
+          "type": "vod-poster"
         },
         {
           "id": "d109ec51-e50f-4a18-955c-9f6c287450fa",
           "location": "shows/diomedes_chinaski_landscape.jpg",
-          "type": "vod_background"
+          "type": "vod-background"
         }
       ],
       "medias": [
@@ -2255,12 +2255,12 @@
         {
           "id": "0c513747-08ca-4f02-99a7-d83816e51983",
           "location": "shows/edson_e_hudson_faco_um_circo_pra_voce_ao_vivo_poster.jpg",
-          "type": "vod_poster"
+          "type": "vod-poster"
         },
         {
           "id": "1d7f29b2-370c-48ba-a418-3d62812b7103",
           "location": "shows/edson_e_hudson_faco_um_circo_pra_voce_ao_vivo_landscape.jpg",
-          "type": "vod_background"
+          "type": "vod-background"
         }
       ],
       "medias": [
@@ -2314,12 +2314,12 @@
         {
           "id": "ec55ec90-9ebb-4cef-884f-eeae9bc82eb8",
           "location": "shows/romero_20190123_poster.jpg",
-          "type": "vod_poster"
+          "type": "vod-poster"
         },
         {
           "id": "fa2a538b-8aba-4b1a-93db-ec3f67cfa7e5",
           "location": "shows/romero_20190123_landscape.jpg",
-          "type": "vod_background"
+          "type": "vod-background"
         }
       ],
       "medias": [
@@ -2373,12 +2373,12 @@
         {
           "id": "8032a8c4-e0fa-4e6d-a3d5-e8c7f7c9c2b9",
           "location": "shows/tequilababy_sl_201812_poster.jpg",
-          "type": "vod_poster"
+          "type": "vod-poster"
         },
         {
           "id": "b48add05-a7bf-4d8c-9c8a-bb125b53cb05",
           "location": "shows/tequilababy_sl_201812_landscape.jpg",
-          "type": "vod_background"
+          "type": "vod-background"
         }
       ],
       "medias": [
@@ -2432,12 +2432,12 @@
         {
           "id": "42b1aa7d-5430-4b51-a74d-d77af13ab2f3",
           "location": "shows/uterco_sl_201812_poster.jpg",
-          "type": "vod_poster"
+          "type": "vod-poster"
         },
         {
           "id": "f3966c47-2bc9-45bb-a610-ea8008b45d8c",
           "location": "shows/uterco_sl_201812_landscape.jpg",
-          "type": "vod_background"
+          "type": "vod-background"
         }
       ],
       "medias": [
@@ -2491,12 +2491,12 @@
         {
           "id": "52be8dc0-d922-4c78-b486-0c4c5c079028",
           "location": "shows/zudizilla_20191209_poster.jpg",
-          "type": "vod_poster"
+          "type": "vod-poster"
         },
         {
           "id": "9448408e-a022-410a-a9f7-ccd9dab3f29e",
           "location": "shows/zudizilla_20191209_landscape.jpg",
-          "type": "vod_background"
+          "type": "vod-background"
         }
       ],
       "medias": [
@@ -2550,12 +2550,12 @@
         {
           "id": "83930ea3-0efe-45ae-a6a2-1e280ccbe327",
           "location": "shows/veraloca_1_poster.jpg",
-          "type": "vod_poster"
+          "type": "vod-poster"
         },
         {
           "id": "9a5a2d72-07ec-4bce-af0b-0070ead1b377",
           "location": "shows/veraloca_1_landscape.jpg",
-          "type": "vod_background"
+          "type": "vod-background"
         }
       ],
       "medias": [
@@ -2609,12 +2609,12 @@
         {
           "id": "d4147bf2-e48b-4e51-9123-5899fc994b22",
           "location": "shows/raffamoreira_poster.jpg",
-          "type": "vod_poster"
+          "type": "vod-poster"
         },
         {
           "id": "84a96048-2eae-452f-8dbb-954f9c0258e4",
           "location": "shows/raffamoreira_landscape.jpg",
-          "type": "vod_background"
+          "type": "vod-background"
         }
       ],
       "medias": [
@@ -2668,12 +2668,12 @@
         {
           "id": "193826c8-9cfd-4fc9-93ee-c68ea351efa4",
           "location": "shows/periferia_a_massa_20190123_poster.jpg",
-          "type": "vod_poster"
+          "type": "vod-poster"
         },
         {
           "id": "98549dd9-4359-43d0-96c4-f5efbd141510",
           "location": "shows/periferia_a_massa_20190123_landscape.jpg",
-          "type": "vod_background"
+          "type": "vod-background"
         }
       ],
       "medias": [
@@ -2727,12 +2727,12 @@
         {
           "id": "74f42956-c09c-41bf-a7ac-f17f5b21a85c",
           "location": "shows/nocivoshomon_poster.jpg",
-          "type": "vod_poster"
+          "type": "vod-poster"
         },
         {
           "id": "24fc561b-dc58-41fe-9e58-60766b50efbb",
           "location": "shows/nocivoshomon_landscape.jpg",
-          "type": "vod_background"
+          "type": "vod-background"
         }
       ],
       "medias": [
@@ -2786,12 +2786,12 @@
         {
           "id": "ee0fb106-416e-4af2-a1e1-2febf6992bf9",
           "location": "shows/amado_batista_poster.jpg",
-          "type": "vod_poster"
+          "type": "vod-poster"
         },
         {
           "id": "8a59c997-1674-4ae4-8dc8-75c0f8e37551",
           "location": "shows/amado_batista_landscape.jpg",
-          "type": "vod_background"
+          "type": "vod-background"
         }
       ],
       "medias": [
@@ -2845,12 +2845,12 @@
         {
           "id": "604336ea-f699-4cca-92b5-2f9be9413045",
           "location": "shows/banda_calypso_15_anos_poster.jpg",
-          "type": "vod_poster"
+          "type": "vod-poster"
         },
         {
           "id": "549762d8-0fa5-4a0d-9e42-796cab6c8f14",
           "location": "shows/banda_calypso_15_anos_landscape.jpg",
-          "type": "vod_background"
+          "type": "vod-background"
         }
       ],
       "medias": [
@@ -2904,12 +2904,12 @@
         {
           "id": "460fdd66-2935-4cb2-ad80-5220e550431e",
           "location": "shows/grupo_100_20191209_poster.jpg",
-          "type": "vod_poster"
+          "type": "vod-poster"
         },
         {
           "id": "3452d617-7ae0-47dc-a5fe-cc00e6930328",
           "location": "shows/grupo_100_20191209_landscape.jpg",
-          "type": "vod_background"
+          "type": "vod-background"
         }
       ],
       "medias": [
@@ -2963,12 +2963,12 @@
         {
           "id": "e0df1256-f3ca-4772-89a0-d39f76c12e09",
           "location": "shows/matogrosso_e_mathias_poster.jpg",
-          "type": "vod_poster"
+          "type": "vod-poster"
         },
         {
           "id": "e58928e0-db15-463e-8aa8-c8dc1ff307b7",
           "location": "shows/matogrosso_e_mathias_landscape.jpg",
-          "type": "vod_background"
+          "type": "vod-background"
         }
       ],
       "medias": [
@@ -3022,12 +3022,12 @@
         {
           "id": "14ac3b5e-5348-4297-b571-d504810bf5a8",
           "location": "shows/teatro_magico_poster.jpg",
-          "type": "vod_poster"
+          "type": "vod-poster"
         },
         {
           "id": "a14c8382-40d5-4fa6-87ab-5dae9b99b6f1",
           "location": "shows/teatro_magico_landscape.jpg",
-          "type": "vod_background"
+          "type": "vod-background"
         }
       ],
       "medias": [
@@ -3081,12 +3081,12 @@
         {
           "id": "5366fada-d66f-4c29-aa97-fc94cd6203e1",
           "location": "shows/rick_e_renner_bom_de_danca_poster.jpg",
-          "type": "vod_poster"
+          "type": "vod-poster"
         },
         {
           "id": "7ddd0728-2497-4aaa-b71b-6b3e0ef6db6e",
           "location": "shows/rick_e_renner_bom_de_danca_landscape.jpg",
-          "type": "vod_background"
+          "type": "vod-background"
         }
       ],
       "medias": [

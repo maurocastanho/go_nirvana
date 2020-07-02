@@ -713,13 +713,11 @@ func processAttr(json jsonT, lines []lineT, wr writer) (err []error) {
 		}
 		if err1 != nil {
 			err = appendErrors(err, err1)
-			return
 		}
 		if isOtt {
 			err = appendErrors(err, wr.EndElem(name, mapT))
 		}
 	}
-
 	return
 }
 

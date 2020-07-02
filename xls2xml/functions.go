@@ -44,6 +44,8 @@ func newResultVars(val string, key string, value string) resultsT {
 	return result
 }
 
+var errorString = []resultsT{newResult("#ERRO#")}
+
 // FunctionDict is the relation between the operation name and the function
 var functionDict map[string]func(string, lineT, jsonT, optionsT) ([]resultsT, error)
 
@@ -90,10 +92,10 @@ func initFunctions() {
 
 // Process processLines one element from json config
 func process(funcName string, lines []lineT, json jsonT, options optionsT) ([]resultsT, error) {
-	ERR := []resultsT{newResult("#ERRO#")}
+
 	// fmt.Printf("=> %s\n", funcName)
 	if funcName == "" {
-		return ERR, fmt.Errorf("'function' nao especificada")
+		return errorString, fmt.Errorf("'function' nao especificada")
 	}
 	function, ok := functionDict[funcName]
 	if !ok {
@@ -259,18 +261,15 @@ func suffix(value string, line lineT, json jsonT, options optionsT) ([]resultsT,
 	if err != nil {
 		return errMsg, err
 	}
-
 	// fmt.Printf("-->> %v\n", field)
 	noacc, err := removeAccents(field[0].val)
 	if err != nil {
 		return errMsg, err
 	}
-
 	suf, _ := json["suffix"].(string)
 	if suf == "" {
 		suf = path.Ext(noacc)
 	}
-
 	extIdx := strings.LastIndex(noacc, ".")
 	if extIdx > 0 {
 		noacc = noacc[0:extIdx]
@@ -335,7 +334,6 @@ func assetIDOtt(value string, line lineT, _ jsonT, options optionsT) ([]resultsT
 	if value != "" {
 		return []resultsT{newResult(value)}, nil
 	}
-
 	timest, ok := options["timestamp"]
 	if !ok || timest == "" {
 		return errMsg, fmt.Errorf("timestamp nao encontrada (timestamp): [%v]", options)
@@ -421,7 +419,7 @@ func dateRFC3339(value string, line lineT, json jsonT, options optionsT) ([]resu
 	val := field[0].val
 	t, err2 := time.Parse("01-02-06", val)
 	if err2 != nil {
-		return errMsg, err
+		return errMsg, err2
 	}
 	return []resultsT{newResult(t.Format(time.RFC3339))}, nil
 }
@@ -489,14 +487,13 @@ func eval(value string, line lineT, json jsonT, _ optionsT) ([]resultsT, error) 
 		params[removeSpaces(k)] = v
 	}
 	result, err := expression.Evaluate(params)
+	if err != nil {
+		return errorString, fmt.Errorf("erro na expressao [%s] com parametros [%#v]", expr, params)
+	}
 	if result == nil {
 		result = ""
 	}
-	if err != nil {
-		result = fmt.Sprintf("Erro na expressao [%s] com parametros [%#v]", expr, params)
-		fmt.Print(result)
-	}
-	return []resultsT{newResult(fmt.Sprintf("%v", result))}, err
+	return []resultsT{newResult(fmt.Sprintf("%v", result))}, nil
 }
 
 // FilterCondition returns an empty string if a condition is false, but continues the processing if it is true
@@ -666,7 +663,6 @@ func utc(value string, line lineT, json jsonT, options optionsT) ([]resultsT, er
 	}
 	utcTime := timeToUTCTimestamp(dat)
 	result := fmt.Sprintf("%d", utcTime)
-
 	return []resultsT{newResult(result)}, nil
 }
 
@@ -959,9 +955,6 @@ func formatDate(t time.Time) string {
 func parseDate(dateStr string) (time.Time, error) {
 	// Mon Jan 2 15:04:05 MST 2006
 	result, err := time.Parse("01-02-06", dateStr)
-	if err != nil {
-		fmt.Printf("ERRO: %v\n", dateStr)
-	}
 	return result, err
 }
 

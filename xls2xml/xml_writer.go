@@ -72,7 +72,7 @@ func (wr *xmlWriter) Write(value string) error {
 }
 
 // WriteAttr adds an attribute to the current XML attribute
-func (wr *xmlWriter) WriteAttr(name string, value string, vtype string, attrType string) error {
+func (wr *xmlWriter) WriteAttr(name string, value string, vtype string, attrType string) (err2 error) {
 	ERRS := "#ERRO#"
 	var val string
 	switch vtype {
@@ -83,8 +83,7 @@ func (wr *xmlWriter) WriteAttr(name string, value string, vtype string, attrType
 	case "time":
 		sec, err := toTimeSeconds(value)
 		if err != nil {
-			//fmt.Printf("%s *--------> %#v\n", name, val)
-			val = ERRS
+			val, err2 = ERRS, fmt.Errorf("ERRO: Falha na conversao de campo para HH:MM (%s): [%s]", name, value)
 			break
 		}
 		hours := sec / 3600
@@ -93,28 +92,25 @@ func (wr *xmlWriter) WriteAttr(name string, value string, vtype string, attrType
 	case "time_s":
 		sec, err := toTimeSeconds(value)
 		if err != nil {
-			//fmt.Printf("%s *--------> %#v\n", name, val)
-			val = ERRS
+			val, err2 = ERRS, fmt.Errorf("ERRO: Falha na conversao de tempo para segundos (%s): [%s]", name, value)
 			break
 		}
 		val = fmt.Sprintf("%d", sec)
 	case "time_m":
 		sec, err := toTimeSeconds(value)
 		if err != nil {
-			//fmt.Printf("%s *--------> %#v\n", name, val)
-			val = ERRS
+			val, err2 = ERRS, fmt.Errorf("ERRO: Falha na conversao de tempo para minutos (%s): [%s]", name, value)
 			break
 		}
 		min := int64(math.Ceil(float64(sec) / 60.0))
 		val = fmt.Sprintf("%d", min)
 	case "boolean":
 		if value != "true" && value != "false" {
-			val = ERRS
+			val, err2 = ERRS, fmt.Errorf("ERRO: Valor booleano deve ser 'true' ou 'false' (%s): [%s]", name, value)
 			break
 		}
 		val = value
 	}
-
 	if attrType == "ott" {
 		if val != "" {
 			wr.ec.Do(
@@ -130,7 +126,7 @@ func (wr *xmlWriter) WriteAttr(name string, value string, vtype string, attrType
 			return fmt.Errorf(wr.ec.Error())
 		}
 	}
-	return nil
+	return
 }
 
 // EndElem closes a XML element
@@ -150,7 +146,6 @@ func (wr *xmlWriter) StartComment(name string) error {
 		return fmt.Errorf(wr.ec.Error())
 	}
 	return nil
-
 }
 
 // EndComment closes a comment section
@@ -161,7 +156,6 @@ func (wr *xmlWriter) EndComment(_ string) error {
 		return fmt.Errorf(wr.ec.Error())
 	}
 	return nil
-
 }
 
 // OpenOutput prepares to write a XML file
