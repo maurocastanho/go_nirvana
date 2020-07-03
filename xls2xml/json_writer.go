@@ -24,7 +24,10 @@ type jsonWriter struct {
 // newJSONWriter creates a new struct
 func newJSONWriter(filename string, categLines []map[string]string) *jsonWriter {
 	w := jsonWriter{fileName: filename, categLines: categLines}
-	w.initCateg()
+	_, err := w.initCateg()
+	if err != nil {
+		panic("ERRO: " + err.Error())
+	}
 	return &w
 }
 
@@ -236,16 +239,29 @@ func (wr *jsonWriter) WriteExtras() {
 	}
 }
 
-func (wr *jsonWriter) initCateg() map[string]interface{} {
+func (wr *jsonWriter) initCateg() (map[string]interface{}, error) {
 	root := make(map[string]interface{})
 	cat := make([]map[string]interface{}, 0)
+	fmt.Printf("#v\n", wr.categLines)
 	for _, line := range wr.categLines {
 		el := make(map[string]interface{})
+		id, ok := line["id"]
+		if !ok || id == "" {
+			name, ok2 := line["name"]
+			if ok2 {
+				fmt.Printf("WARNING: categoria [%s] nao existente na aba 'categories'", name)
+			}
+			continue
+		}
 		el["id"] = line["id"]
 		elName := make(map[string]interface{})
 		strNames := strings.Split(line["name"], "|")
 		for _, l := range strNames {
 			vals := strings.Split(l, ":")
+			if len(vals) < 2 {
+				err := fmt.Errorf("erro ao ler categoria, valor invalido [%s]", l)
+				return nil, err
+			}
 			elName[vals[0]] = vals[1]
 		}
 		el["name"] = elName
@@ -264,11 +280,14 @@ func (wr *jsonWriter) initCateg() map[string]interface{} {
 	}
 	root["categories"] = cat
 	wr.root = root
-	return root
+	return root, nil
 }
 
 // AddAsset adds an asset to the categories list
 func (wr *jsonWriter) addAsset(id string, categName string) error {
+	if categName == "" {
+		return nil
+	}
 	r := wr.root.(map[string]interface{})
 	categs := r["categories"].([]map[string]interface{})
 	for _, categ := range categs {

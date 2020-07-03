@@ -98,8 +98,7 @@ func main() {
 		return
 	}
 	defer closeSheet(f)
-	sheetIdx := 0
-	lines := readSheetIdx(f, sheetIdx)
+	lines := readSheetIdx(f, "dados")
 	json := readConfig(confFile)
 	initVars(json)
 	success = processSpreadSheet(json, outType, f, outDir, lines, err)
@@ -152,7 +151,7 @@ func processSpreadSheet(json map[string]interface{}, outType string, f *xlsx.Spr
 
 	var wrCateg *jsonWriter
 	if outType == "json" {
-		categLines := readSheetIdx(f, 2)
+		categLines := readSheetIdx(f, "categories")
 		wrCateg = newJSONWriter(outDir, categLines)
 	}
 	nLines := len(lines)
@@ -250,12 +249,20 @@ func processSpreadSheet(json map[string]interface{}, outType string, f *xlsx.Spr
 			log("Processando categorias...")
 			for k := range pack {
 				categ1 := pack[k][categField1]
+				if categ1 == "" {
+					success = -2
+					logError(fmt.Errorf("categoria 1 em branco na linha [%v]", pack[k]))
+				}
 				err = wrCateg.addAsset(pack[k][idField], categ1)
 				if err != nil {
 					logError(err)
 					success = -1
 				}
 				categ2 := pack[k][categField2]
+				if categ1 == "" {
+					success = -2
+					logError(fmt.Errorf("categoria 2 em branco na linha [%v]", pack[k]))
+				}
 				err = wrCateg.addAsset(pack[k][idField], categ2)
 				if err != nil {
 					logError(err)
@@ -292,13 +299,12 @@ func initVars(json map[string]interface{}) {
 }
 
 // Reads the spreadsheet as an array of map[<line name>] = <value>
-func readSheetIdx(f *xlsx.Spreadsheet, sheetIdx int) []map[string]string {
+func readSheetIdx(f *xlsx.Spreadsheet, sName string) []map[string]string {
 	header := make([]string, 0)
 	lines := make([]map[string]string, 0)
 	// Get all the rows in the Sheet1.
 	idx := 1
-	sheet := f.Sheet(sheetIdx)
-
+	sheet := f.SheetByName(sName)
 	//redBold := styles.New(
 	//	styles.NumberFormatID(15),
 	//)

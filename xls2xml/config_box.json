@@ -28,7 +28,6 @@
             {"Name": "DIRETOR", "field": "Diretor", "function": "field_raw"},
             {"Name": "PAÍS DE ORIGEM", "field": "País de Origem", "function": "field_raw"},
             {"Name": "SINOPSE", "field": "Sinopse EPG", "function": "field_raw"},
-            {"Name": "DURAÇÃO", "field": "Duração", "function": "field", "format": "HH:MM:SS", "type": "time_s"},
             {"Name": "LICENÇA INÍCIO", "field": "Data Início", "function": "field_date", "format": "DD/MM/YYYY"},
             {"Name": "LICENÇA FIM", "field": "Data Fim", "function": "field_date", "format": "DD/MM/YYYY"},
             {"Name": "TECNOLOGIA", "field": "Formato", "function": "field_raw"},

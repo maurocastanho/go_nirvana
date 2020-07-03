@@ -1,0 +1,289 @@
+{
+    "options": [
+        {"Name": "name_field", "Value": "ID"},
+        {"Name": "filename_field", "Value": "ID"},
+        {"Name": "owner", "Value": "gvt"},
+        {"Name": "doctype", "Value": "ADI"},
+        {"Name": "doctype_system", "Value": "ADI.DTD"},
+        {"Name": "season_field", "Value": "Temporada"},
+        {"Name": "episode_field", "Value": "Número do Episódio"}
+    ],
+    "xls_output": {
+        "filename": "publicar_net.xls",
+        "sheet": "Formulário",
+        "columns": [
+            {"Name": "ASSET_ID", "function": "assetid", "suffix_number": 1, "prefix": "Provider"},
+            {"Name": "ORIGINAL TITLE", "field": "Título Original", "function": "field_raw"},
+            {"Name": "TÍTULO EM PORTUGUÊS", "field": "Título em Português", "function": "field_raw"},
+            {"Name": "NOME DO EPISÓDIO", "field": "Título em Português do Episódio", "function": "field_raw"},
+            {"Name": "TEMPORADA", "field": "Temporada", "function": "field_raw", "format": "0"},
+            {"Name": "EPISÓDIO", "field": "Número do Episódio", "function": "field_raw", "format": "0"},
+            {"Name": "PRODUTO", "field": "Produto", "function": "field_raw"},
+            {"Name": "PROVEDOR", "field": "Provider", "function": "field_raw"},
+            {"Name": "JANELA DE REPASSE", "field": "Billing ID", "function": "janela_repasse"},
+            {"Name": "ESTÚDIO", "field": "Estúdio", "function": "field_raw"},
+            {"Name": "CANAL", "field": "Canal", "function": "field_raw"},
+            {"Name": "CATEGORIA", "field": "Categoria", "function": "field_raw"},
+            {"Name": "GÊNERO 1", "field": "Genero 1", "function": "field_raw"},
+            {"Name": "GÊNERO 2", "field": "Genero 2", "function": "field_raw"},
+            {"Name": "ANO DE PRODUÇÃO", "field": "Ano", "function": "field_raw", "format": "0"},
+            {"Name": "BOX OFFICE", "field": "Box Office", "function": "field_raw", "format": "#,##0.00"},
+            {"Name": "RANKING", "field": "Ranking", "function": "field_raw", "format": "#,##0.0"},
+            {"Name": "LÍNGUA ORIGINAL", "field": "Língua Original", "function": "field_raw"},
+            {"Name": "RATING", "field": "Classificação Etária", "function": "field_raw", "format": "0"},
+            {"Name": "ELENCO", "field": "Elenco", "function": "field_raw"},
+            {"Name": "DIRETOR", "field": "Diretor", "function": "field_raw"},
+            {"Name": "PAÍS DE ORIGEM", "field": "País de Origem", "function": "field_raw"},
+            {"Name": "SINOPSE", "field": "Sinopse EPG", "function": "field_raw"},
+            {"Name": "DURAÇÃO", "field": "Duração", "function": "field", "format": "HH:MM:SS", "type": "time_s"},
+            {"Name": "LICENÇA INÍCIO", "field": "Data início no NOW", "function": "field_date", "format": "DD/MM/YYYY"},
+            {"Name": "LICENÇA FIM", "field": "Data Fim no NOW", "function": "field_date", "format": "DD/MM/YYYY"},
+            {"Name": "TECNOLOGIA", "field": "Formato", "function": "field_raw"},
+            {"Name": "AUDIO", "field": "Audio", "function": "field_raw"},
+            {"Name": "VERSAO", "field": "Versao", "function": "field_raw"},
+            {"Name": "COBRANÇA", "field": "Cobrança", "function": "field", "format": "\"R$\" #,##0.00", "type": "money"},
+            {"Name": "DOWNLOAD TO GO", "field": "DOWNLOAD TO GO", "function": "field_raw"},
+            {"Name": "DIAS DE DOWNLOAD", "field": "DIAS DE DOWNLOAD", "function": "field_raw", "format": "0"},
+            {"Name": "PASTA FTP", "field": "PASTA FTP", "function": "field_raw"},
+            {"Name": "BILLING ID", "field": "Billing ID", "function": "field_raw"}
+        ]
+    },
+    "elements": [
+        {
+            "Name": "ADI",
+            "attrs": [{"Name": "xmlns", "Value": "http://www.eventis.nl/PRODIS/ADI", "function": "fixed"}],
+            "elements": [
+                {
+                    "Name": "Metadata",
+                    "elements": [
+                        {
+                            "Name": "AMS",
+                            "attrs": [
+                                {"Name": "Provider", "field": "Provider", "function": "field"},
+                                {"Name": "Product", "Value": "", "function": "fixed"},
+                                {"Name": "Asset_Name", "maxlength": "42", "field": "Título em Português", "function": "field_suffix", "suffix": "_Package"},
+                                {"Name": "Version_Major", "Value": "1", "function": "fixed"},
+                                {"Name": "Version_Minor", "Value": "0", "function": "fixed"},
+                                {"Name": "Description", "field": "Título em Português", "function": "field"},
+                                {"Name": "Creation_Date", "function": "date"},
+                                {"Name": "Provider_ID", "field": "Provider id", "function": "field"},
+                                {"Name": "Asset_ID", "function": "assetid", "suffix_number": 1, "prefix": "Provider"},
+                                {"Name": "Asset_Class", "Value": "package", "function": "fixed"}
+                            ]
+                        },
+                        {"Name": "App_Data", "common_attrs": {"App": "MOD"},"single_attrs": [{"Name": "Metadata_Spec_Version", "Value": "CableLabsVOD1.1", "function": "fixed"}]}
+                    ]
+                },
+                {
+                    "Name": "Asset",
+                    "elements": [
+                        {
+                            "Name": "Metadata",
+                            "options": {"Name": "section", "Value": "title"},
+                            "elements": [
+                                {
+                                    "Name": "AMS",
+                                    "attrs": [
+                                        {"Name": "Provider", "field": "Provider", "function": "field"},
+                                        {"Name": "Product", "Value": "", "function": "fixed"},
+                                        {"Name": "Asset_Name", "maxlength": "42", "field": "Título em Português", "function": "field_suffix", "suffix": "_Title"},
+                                        {"Name": "Version_Major", "Value": "1", "function": "fixed"},
+                                        {"Name": "Version_Minor", "Value": "0", "function": "fixed"},
+                                        {"Name": "Description", "field": "Título em Português", "function": "field"},
+                                        {"Name": "Creation_Date", "function": "date"},
+                                        {"Name": "Provider_ID", "field": "Provider id", "function": "field"},
+                                        {"Name": "Asset_ID", "function": "assetid", "suffix_number": 2, "prefix": "Provider"},
+                                        {"Name": "Asset_Class", "Value": "title", "function": "fixed"}
+                                    ]
+                                },
+                                {
+                                    "Name": "App_Data",
+                                    "common_attrs": {"App": "MOD"},
+                                    "single_attrs": [
+                                        {"Name": "Type", "Value": "title", "function": "fixed"},
+                                        {"Name": "Title_Sort_Name", "field": "Título em Português", "maxlength": "22", "function": "field"},
+                                        {"Name": "Title_Brief", "field": "Título em Português", "maxlength": "19", "function": "field"},
+                                        {"Name": "Title", "field": "Título em Português", "maxlength": "54", "function": "field"},
+                                        {"Name": "Episode_Name", "field": "Título em Português do Episódio", "maxlength": "128", "function": "field", "filter": "Temporada != ''"},
+                                        {"Name": "Episode_ID", "function": "episode_id", "filter": "Temporada != ''"},
+                                        {"Name": "Summary_Long", "target_language": "pt-BR", "maxlength": "1024", "field": "Sinopse EPG", "function": "field_no_quotes"},
+                                        {"Name": "Summary_Medium", "target_language": "pt-BR", "maxlength": "1024", "field": "Sinopse EPG", "function": "field_no_quotes"},
+                                        {"Name": "Summary_Short", "target_language": "pt-BR", "maxlength": "256", "field": "Sinopse EPG", "function": "field_no_quotes"},
+                                        {"Name": "Rating", "Options": "1,10,12,14,16,18,ER", "field": "Classificação Etária", "function": "field_validated"},
+                                        {"Name": "ExtraData_1", "field": "Extradata 1", "function": "field", "filter": "Extradata_1 != ''"},
+                                        {"Name": "ExtraData_2", "field": "Extradata 2", "function": "field", "filter": "Extradata_2 != ''"},
+                                        {"Name": "ExtraData_4", "Value": "1", "function": "fixed", "filter": "Formato == '4K'"},
+                                        {"Name": "Closed_Captioning", "Value": "N", "function": "fixed"},
+                                        {"Name": "Run_Time", "field": "Duração", "function": "field", "type": "time_s"},
+                                        {"Name": "Display_Run_Time","field": "Duração", "function": "field", "type": "time"},
+                                        {"Name": "Year", "field": "Ano", "function": "field"},
+                                        {
+                                            "Name": "Country_of_Origin",
+                                            "Options": "ARG,AUS,AUT,BEL,BOL,BRA,CAN,CHE,CHI,CHL,CHN,COL,CZE,DEU,DNK,ESP,FRA,GBR,HKG,IND,IRL,ITA,JAM,JPN,MEX,NLD,NOR,NZL,PRT,RUS,SWE,URY,USA",
+                                            "field": "País de Origem",
+                                            "function": "field_validated"
+                                        },
+                                        {"Name": "Studio", "maxlength": "22", "field": "Estúdio", "function": "field"},
+                                        {"Name": "Studio_Name", "maxlength": "22", "field": "Estúdio", "function": "field"},
+                                        {"Name": "Actors_Display", "field": "Elenco", "function": "field"},
+                                        {"Name": "Actors", "field": "Elenco", "function": "split", "function2": "surname_name"},
+                                        {"Name": "Director", "field": "Diretor", "function": "surname_name"},
+                                        {"Name": "Director_Display", "field": "Diretor", "function": "field"},
+                                        {"Name": "Category", "field": "Categoria", "function": "field"},
+                                        {"Name": "Genre", "target_language": "pt-BR", "field": "Genero 1", "function": "field"},
+                                        {"Name": "Box_Office", "Value": "", "function": "fixed"},
+                                        {"Name": "Billing_ID", "field": "Billing ID", "function": "field"},
+                                        {"Name": "Licensing_Window_Start", "field": "Data início no NOW", "function": "field_date"},
+                                        {"Name": "Licensing_Window_End", "field": "Data Fim no NOW", "function": "field_date"},
+                                        {"Name": "Preview_Period", "Value": "0", "function": "fixed"},
+                                        {"Name": "Provider_QA_Contact", "Value": "MediaCenter", "function": "fixed"},
+                                        {"Name": "Contract_Name", "field": "Título Original", "function": "field"},
+                                        {"Name": "Suggested_Price", "field": "Cobrança", "function": "field_money"}
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "Name": "Asset",
+                            "elements": [
+                                {
+                                    "Name": "Metadata",
+                                    "options": {"Name": "section", "Value": "movie"},
+                                    "elements": [
+                                        {
+                                            "Name": "AMS",
+                                            "attrs": [
+                                                {"Name": "Provider", "field": "Provider", "function": "field"},
+                                                {"Name": "Product", "Value": "", "function": "fixed"},
+                                                {"Name": "Asset_Name", "maxlength": "42", "field": "Título em Português", "function": "field_suffix", "suffix": "_Movie"},
+                                                {"Name": "Version_Major", "Value": "1", "function": "fixed"},
+                                                {"Name": "Version_Minor", "Value": "0", "function": "fixed"},
+                                                {"Name": "Creation_Date", "function": "date"},
+                                                {"Name": "Description", "field": "Título em Português", "function": "field"},
+                                                {"Name": "Provider_ID", "field": "Provider id", "function": "field"},
+                                                {"Name": "Asset_ID", "function": "assetid", "suffix_number": 3, "prefix": "Provider"},
+                                                {"Name": "Asset_Class", "Value": "movie", "function": "fixed"}
+                                            ]
+                                        },
+                                        {
+                                            "Name": "App_Data",
+                                            "common_attrs": {"App": "MOD"},
+                                            "single_attrs": [
+                                                {"Name": "Type", "Value": "movie", "function": "fixed"},
+                                                {"Name": "Screen_Format", "Value": "Standard", "function": "fixed", "filter": "Formato=='SD'"},
+                                                {"Name": "HDContent", "Value": "N", "function": "fixed", "filter": "Formato=='SD'"},
+                                                {"Name": "Bit_Rate", "Value": "2500", "function": "fixed", "filter": "Formato=='SD'"},
+                                                {"Name": "Screen_Format", "Value": "Widescreen", "function": "fixed", "filter": "Formato=='HD'"},
+                                                {"Name": "HDContent", "Value": "Y", "function": "fixed", "filter": "Formato=='HD'"},
+                                                {"Name": "Bit_Rate", "Value": "8000", "function": "fixed", "filter": "Formato=='HD'"},
+                                                {"Name": "Screen_Format", "Value": "Widescreen", "function": "fixed", "filter": "Formato=='4K'"},
+                                                {"Name": "Encoding_Type", "Value": "STB_4K", "function": "fixed", "filter": "Formato=='4K'"},
+                                                {"Name": "Resolution", "Value": "4K", "function": "fixed", "filter": "Formato=='4K'"},
+                                                {"Name": "DynamicRange", "Value": "HDR", "function": "fixed", "filter": "Formato=='4K'"},
+                                                {"Name": "Bit_Rate", "Value": "18000", "function": "fixed", "filter": "Formato=='4K'"},
+                                                {"Name": "Watermarking", "Value": "N", "function": "fixed"},
+                                                {"Name": "Audio_Type", "Options": "Mono,Dolby 5.1,Stereo", "field": "Movie Audio Type", "function": "field_validated"},
+                                                {"Name": "Viewing_Can_Be_Resumed", "Value": "Y", "function": "fixed"},
+                                                {"Name": "CGMS_A", "Value": "3", "function": "fixed"},
+                                                {"Name": "Languages", "Value": "pt", "function": "fixed", "filter": "Dublado == 'pt'"},
+                                                {
+                                                    "Name": "Languages",
+                                                    "Options": "cs,da,de,en,es,fr,ga,hi,hu,it,ja,ko,nl,pt,ru,sv,tr,uk,vi,zh,não",
+                                                    "field": "Audio",
+                                                    "function": "split",
+                                                    "function2": "field_validated",
+                                                    "filter": "Dublado != 'pt'"
+                                                },
+                                                {"Name": "Dubbed_Languages", "Value": "pt", "function": "fixed", "filter": "Audio != 'pt' && Dublado == 'pt'"},
+                                                {"Name": "Subtitle_Languages", "Value": "pt", "function": "fixed", "filter": "Audio != 'pt' && Legendado == 'pt'"},
+                                                {"Name": "Content_FileSize", "field": "Movie Size", "function": "field"},
+                                                {"Name": "Content_CheckSum", "field": "Movie MD5", "function": "field"}
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {"Name": "Content", "attrs": [{"Name": "Value", "field": "ID", "function": "field_suffix", "suffix": ".ts"}]}
+                            ]
+                        },
+                        {
+                            "Name": "Asset",
+                            "elements": [
+                                {
+                                    "Name": "Metadata",
+                                    "options": {"Name": "section", "Value": "poster"},
+                                    "elements": [
+                                        {
+                                            "Name": "AMS",
+                                            "attrs": [
+                                                {"Name": "Provider", "field": "Provider", "function": "field"},
+                                                {"Name": "Product", "Value": "", "function": "fixed"},
+                                                {"Name": "Asset_Name", "maxlength": "42", "field": "Título em Português", "function": "field_suffix", "suffix": "_Poster"},
+                                                {"Name": "Version_Major", "Value": "1", "function": "fixed"},
+                                                {"Name": "Version_Minor", "Value": "0", "function": "fixed"},
+                                                {"Name": "Creation_Date", "function": "date"},
+                                                {"Name": "Description", "field": "Título em Português", "function": "field"},
+                                                {"Name": "Provider_ID", "field": "Provider id", "function": "field"},
+                                                {"Name": "Asset_ID", "function": "assetid", "suffix_number": 4, "prefix": "Provider"},
+                                                {"Name": "Asset_Class", "Value": "poster", "function": "fixed"}
+                                            ]
+                                        },
+                                        {
+                                            "Name": "App_Data",
+                                            "common_attrs": {"App": "MOD"},
+                                            "single_attrs": [
+                                                {"Name": "Type", "Value": "poster", "function": "fixed"},
+                                                {"Name": "Content_FileSize", "field": "Poster Size", "function": "field"},
+                                                {"Name": "Content_CheckSum", "field": "Poster MD5", "function": "field"}
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {"Name": "Content", "attrs": [{"Name": "Value", "field": "ID", "function": "field_suffix", "suffix": ".jpg"}]}
+                            ]
+                        },
+                        {
+                            "Name": "Asset",
+                            "filter": "Trailer_ID != ''",
+                            "elements": [
+                                {
+                                    "Name": "Metadata",
+                                    "options": {"Name": "section", "Value": "preview"},
+                                    "elements": [
+                                        {
+                                            "Name": "AMS",
+                                            "attrs": [
+                                                {"Name": "Provider", "field": "Provider", "function": "field"},
+                                                {"Name": "Product", "Value": "", "function": "fixed"},
+                                                {"Name": "Asset_Name", "Value": "", "maxlength": "42", "field": "Título em Português", "function": "field_suffix", "suffix": "_Preview"},
+                                                {"Name": "Version_Major", "Value": "1", "function": "fixed"},
+                                                {"Name": "Version_Minor", "Value": "0", "function": "fixed"},
+                                                {"Name": "Creation_Date", "Value": "", "field": "", "function": "date"},
+                                                {"Name": "Description", "Value": "", "field": "Título em Português", "function": "field"},
+                                                {"Name": "Provider_ID", "field": "Provider id", "function": "field"},
+                                                {"Name": "Asset_ID", "function": "assetid", "suffix_number": 5, "prefix": "Provider"},
+                                                {"Name": "Asset_Class", "Value": "preview", "function": "fixed"}
+                                            ]
+                                        },
+                                        {
+                                            "Name": "App_Data",
+                                            "common_attrs": {"App": "MOD"},
+                                            "single_attrs": [
+                                                {"Name": "Type", "Value": "preview", "function": "fixed"},
+                                                {"Name": "Rating", "Options": "1,10,12,14,16,18,ER", "field": "Classificação Etária", "function": "field_validated"},
+                                                {"Name": "Run_Time", "field": "Duração Trailer", "function": "field", "type": "time_s"},
+                                                {"Name": "Audio_Type", "field": "Trailer Audio Type", "function": "field"},
+                                                {"Name": "Content_FileSize", "field": "Trailer Size", "function": "field"},
+                                                {"Name": "Content_CheckSum", "field": "Trailer MD5", "function": "field"}
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {"Name": "Content", "attrs": [{"Name": "Value", "field": "ID", "function": "field_suffix", "suffix": "_trailer.ts"}]}
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
