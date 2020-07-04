@@ -17,7 +17,6 @@
             {"Name": "EPISÓDIO", "field": "Número do Episódio", "function": "field_raw", "format": "0"},
             {"Name": "JANELA DE REPASSE", "field": "Billing ID", "function": "janela_repasse"},
             {"Name": "ESTÚDIO", "field": "Estúdio", "function": "field_raw"},
-            {"Name": "CATEGORIA", "field": "Categoria", "function": "field_raw"},
             {"Name": "GÊNERO 1", "field": "Genero 1", "function": "field_raw"},
             {"Name": "GÊNERO 2", "field": "Genero 2", "function": "field_raw"},
             {"Name": "ANO DE PRODUÇÃO", "field": "Ano", "function": "field_raw", "format": "0"},

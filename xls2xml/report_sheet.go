@@ -266,5 +266,6 @@ func (rs *reportSheet) newLine() {
 }
 
 // WriteExtras writes additional files
-func (rs *reportSheet) WriteExtras() {
+func (rs *reportSheet) WriteExtras() ([]byte, []byte, error) {
+	return nil, nil, nil
 }

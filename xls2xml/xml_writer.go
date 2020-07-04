@@ -204,5 +204,6 @@ func (wr *xmlWriter) getBuffer() []byte {
 }
 
 // WriteExtras writes additional files
-func (wr *xmlWriter) WriteExtras() {
+func (wr *xmlWriter) WriteExtras() ([]byte, []byte, error) {
+	return nil, nil, nil
 }
