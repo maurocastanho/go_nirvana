@@ -68,8 +68,7 @@ func main() {
 	success := 0
 	var err error
 	defer func() {
-		msg := recover()
-		if msg != nil {
+		if msg := recover(); msg != nil {
 			success = -4
 			logError(fmt.Errorf("%v", msg))
 		}
@@ -124,7 +123,6 @@ func main() {
 			return
 		}
 	}
-
 	var sheet *xlsx.Spreadsheet
 	if sheet, err = xlsx.Open(inputXls); err != nil {
 		return
@@ -141,9 +139,6 @@ func main() {
 	}
 	initVars(json)
 	success, err = processSpreadSheet(json, outType, sheet, outDir, lines)
-	if err != nil {
-		return
-	}
 }
 
 func exitWithError(errMessage string, errCode int) int {
@@ -352,22 +347,18 @@ func initVars(json map[string]interface{}) {
 		options[name] = value
 	}
 	options["timestamp"] = timestamp()
-
 }
 
 // Reads the spreadsheet as an array of map[<line name>] = <value>
 func readSheetByName(f *xlsx.Spreadsheet, sName string) ([]lineT, error) {
 	header := make([]string, 0)
-	lines := make([]lineT, 0)
 	// Get all the rows in the Sheet1.
 	idx := 1
 	var sheet xlsx.Sheet
 	if sheet = f.SheetByName(sName); sheet == nil {
-		return lines, fmt.Errorf("aba nao existente na planilha: [%s]", sName)
+		return nil, fmt.Errorf("aba nao existente na planilha: [%s]", sName)
 	}
-	// Removes blank lines at the end of sheet
-	lines = readSheet(sheet, header, lines, idx)
-	return lines, nil
+	return readSheet(sheet, header, idx)
 }
 
 // Returns true if a line has all fields blank
@@ -392,15 +383,14 @@ func contains(s []string, e string) bool {
 }
 
 // readSheet reads the spreadsheet as an array of map[<line name>] = <value>
-func readSheet(sheet xlsx.Sheet, header []string, lines []lineT, idx int) []lineT {
+func readSheet(sheet xlsx.Sheet, header []string, idx int) ([]lineT, error) {
 	ncols, nrows := 100, 1000 // sheet.Dimension()
 	empty := 0
 	// row 0 == header
 	var col int
 	// Seeking last header column
 	for col = ncols - 1; col >= 0; col-- {
-		colCell := sheet.Cell(col, 0)
-		if colCell.String() != "" {
+		if colCell := sheet.Cell(col, 0); colCell.String() != "" {
 			break
 		}
 	}
@@ -410,12 +400,13 @@ func readSheet(sheet xlsx.Sheet, header []string, lines []lineT, idx int) []line
 		colCell := sheet.Cell(col, 0)
 		hName := strings.TrimSpace(colCell.String())
 		if contains(header, hName) {
-			panic(fmt.Sprintf("Header da planilha duplicado: [%s]", hName))
+			return nil, fmt.Errorf("Header da planilha duplicado: [%s]", hName)
 		}
 		header = append(header, hName)
 	}
 	ncols = col
 	// Reading other lines
+	lines := make([]lineT, 0)
 	line := make(map[string]string)
 	for row := 1; row < nrows && empty < 10; row++ {
 		for c := 0; c < ncols; c++ {
@@ -454,7 +445,7 @@ func readSheet(sheet xlsx.Sheet, header []string, lines []lineT, idx int) []line
 			idx++
 		}
 	}
-	return lines
+	return lines, nil
 }
 
 // Reads config file
@@ -513,7 +504,7 @@ func processLines(json jsonT, lines []lineT, wr writer) (err error) {
 	if err3 != nil {
 		fileOut = wrongFile
 	}
-	// Remove previous file
+	// Remove previous file(s)
 	_ = os.Remove(rightFile)
 	_ = os.Remove(wrongFile)
 	// Write new file
@@ -599,10 +590,8 @@ func processMap(json jsonT, lines []lineT, wr writer) (err2 []error) {
 		sAttrs := sAux.([]interface{})
 		err2 = appendErrors(err2, processSingleAttrs(name, sAttrs, lines, commonAttrs, wr)...)
 	}
-	if len(elements) > 0 {
-		if okEl || okElArray {
-			err2 = appendErrors(err2, processArray(name, elements, lines, wr)...)
-		}
+	if len(elements) > 0 && (okEl || okElArray) {
+		err2 = appendErrors(err2, processArray(name, elements, lines, wr)...)
 	}
 	// Comment section
 	if co, ok := json["comments"]; ok {
@@ -732,8 +721,8 @@ func processVal(val string, vars map[string]string) string {
 	return val
 }
 
-// Process option vars
-func processVars(vars map[string]string, options map[string]string) {
+// populate option vars
+func populateOptions(vars map[string]string, options map[string]string) {
 	for key, val := range vars {
 		options[key] = val
 	}
@@ -746,10 +735,11 @@ func processAttr(json jsonT, lines []lineT, wr writer) (err []error) {
 	attrType, _ := json["at_type"].(string)
 	function, ok := json["function"].(string)
 	if !ok {
+		// element does not have "function" attribute
 		return []error{fmt.Errorf("elemento [%s] nao tem 'function'", name)}
 	}
-	if !ok || function == "empty" {
-		// element does not have "function" attribute
+	if function == "empty" {
+		// function empty does nothing
 		return
 	}
 	// process filter
@@ -760,15 +750,15 @@ func processAttr(json jsonT, lines []lineT, wr writer) (err []error) {
 			err = append(err, err3)
 			return
 		} else if !filterAllow {
-			// filter expression excludes element
+			// filter expression excludes element: do nothing
 			return
 		}
 	}
-	vtype, _ := json["type"].(string)
+	// process function
 	procVals, err2 := process(function, lines, json, options)
 	err = appendErrors(err, err2)
 	for _, procVal := range procVals {
-		processVars(procVal.vars, options)
+		populateOptions(procVal.vars, options)
 		isOtt := attrType == "ott"
 		if isOtt {
 			// Ott type open a new element, line <elem>x<elem>
@@ -779,8 +769,8 @@ func processAttr(json jsonT, lines []lineT, wr writer) (err []error) {
 			err = appendErrors(err, processAttrs(name, attrs, lines, wr)...)
 		}
 		if f2, okf2 := json["function2"]; !okf2 || f2 != "set_var" {
-			if err1 := wr.WriteAttr(name,
-				processVal(procVal.val, procVal.vars), vtype, attrType); err1 != nil {
+			vtype, _ := json["type"].(string)
+			if err1 := wr.WriteAttr(name, processVal(procVal.val, procVal.vars), vtype, attrType); err1 != nil {
 				err = appendErrors(err, err1)
 			}
 		}
@@ -804,55 +794,52 @@ func processSingleAttrs(name string, json []interface{}, lines []lineT, commonAt
 }
 
 func processSingleAttr(nameElem string, json jsonT, lines []lineT, commonAttrs map[string]interface{}, wr writer) (err error) {
-	var name string
-	name, ok := json["Name"].(string)
-	_, okf := json["filter"].(string)
-	var filterFunc string
-	if okf {
-		filterFunc = "filter"
+	_, okFil := json["filter"].(string)
+	var function string
+	var okFun bool
+	if okFil {
+		function, okFun = "filter", true
 	} else {
-		filterFunc, ok = json["function"].(string)
+		function, okFun = json["function"].(string)
 	}
+	var procVals []resultsT
+	name, _ := json["Name"].(string)
+	if !okFun {
+		value, _ := json["Value"].(string)
+		err = fmt.Errorf("erro no atributo %s, value [%s]", name, value)
+	}
+	procVals, err = process(function, lines, json, options)
+	if err != nil {
+		return err
+	}
+	var err2 error
 	isOtt := false
 	elType, okt := json["at_type"].(string)
 	if okt {
+		// tests if attribute is of ott type
 		isOtt = elType == "ott"
 	}
-
-	var procVals []resultsT
-	if ok {
-		vtype, _ := json["type"].(string)
-		procVals, err = process(filterFunc, lines, json, options)
-		if err != nil {
-			return err
-		}
-		done := false
-		var err2 error
-		for _, procVal := range procVals {
-			if isOtt {
-				at, oka := json["attrs"]
-				var attrs []interface{}
-				if oka {
-					attrs = at.([]interface{})
-				}
-				err2, done = writeElem(wr, attrs, lines, name, procVal.val)
-			} else {
-				err2, done = writeAttr(wr, nameElem, commonAttrs, name, procVal.val, vtype, elType)
+	done := false
+	for _, procVal := range procVals {
+		if isOtt {
+			at, oka := json["attrs"]
+			var attrs []interface{}
+			if oka {
+				attrs = at.([]interface{})
 			}
-			if done {
-				return err2
-			}
+			err2, done = writeElem(wr, attrs, lines, name, procVal.val)
+		} else {
+			vtype, _ := json["type"].(string)
+			err2, done = writeAttr(wr, nameElem, commonAttrs, name, procVal.val, vtype, elType)
 		}
-		attrs, oka := json["single_attrs"].([]interface{})
-		if oka {
-			processAttrs("", attrs, lines, wr)
-			return nil
+		if done {
+			return err2
 		}
-
-		return
 	}
-	value, _ := json["Value"].(string)
-	err = fmt.Errorf("erro no atributo %s, value [%s]", name, value)
+	if attrs, ok := json["single_attrs"].([]interface{}); ok {
+		processAttrs("", attrs, lines, wr)
+		return nil
+	}
 	return
 }
 
@@ -930,8 +917,7 @@ func processSingleElements(_ string, json []interface{}, lines []lineT, wr write
 	for _, v := range json {
 		switch vv := v.(type) {
 		case map[string]interface{}:
-			_, ok := vv["elements2"]
-			if ok {
+			if _, ok := vv["elements2"]; ok {
 				err2 = appendErrors(err2, processMap(vv, lines, wr)...)
 				continue
 			}
@@ -941,31 +927,28 @@ func processSingleElements(_ string, json []interface{}, lines []lineT, wr write
 	return
 }
 
-func processSingleElement(json jsonT, lines []lineT, wr writer) (err []error) {
+func processSingleElement(json jsonT, lines []lineT, wr writer) (errs []error) {
 	var name string
 	name, _ = json["Name"].(string)
 	function, ok := json["function"].(string)
-	if ok {
-		procVals, err2 := process(function, lines, json, options)
-		err = appendErrors(err, err2)
-		err2 = wr.StartElem(name, singleT)
-		if err2 != nil {
-			err = appendErrors(err, err2)
-			return
+	if !ok {
+		return []error{fmt.Errorf("elemento sem atributo 'function': [%s]", name)}
+	}
+	procVals, err := process(function, lines, json, options)
+	if err != nil {
+		return appendErrors(errs, err)
+	}
+	if err = wr.StartElem(name, singleT); err != nil {
+		return appendErrors(errs, err)
+	}
+	for _, procVal := range procVals {
+		if err1 := wr.Write(procVal.val); err1 != nil {
+			_ = wr.EndElem(name, singleT)
+			return appendErrors(errs, err1)
 		}
-		for _, procVal := range procVals {
-			err1 := wr.Write(procVal.val)
-			if err1 != nil {
-				err = appendErrors(err, err1)
-				_ = wr.EndElem(name, singleT)
-				return
-			}
-		}
-		err2 = wr.EndElem(name, singleT)
-		if err2 != nil {
-			err = appendErrors(err, err2)
-			return
-		}
+	}
+	if err = wr.EndElem(name, singleT); err != nil {
+		return appendErrors(errs, err)
 	}
 	return
 }
@@ -1001,8 +984,7 @@ func appendErrors(result []error, errors ...error) []error {
 }
 
 func closeSheet(file *xlsx.Spreadsheet) {
-	err := file.Close()
-	if err != nil {
+	if err := file.Close(); err != nil {
 		logError(err)
 	}
 }
