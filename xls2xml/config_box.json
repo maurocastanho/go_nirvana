@@ -1,7 +1,7 @@
 {
     "options": [
         {"Name": "filename_field", "Value": "ID"},
-        {"Name": "name_field", "Value": "Título Original"},
+        {"Name": "name_field", "Value": "uuid_box"},
         {"Name": "id_field", "Value": "uuid_box"},
         {"Name": "categ_field1", "Value": "Genero 1"},
         {"Name": "categ_field2", "Value": "Genero 2"}
@@ -46,10 +46,12 @@
                         {
                             "Name": "title",
                             "no_array": "",
+                            "function": "empty",
                             "elements": [{"attrs": [{"Name": "por", "function": "field", "field": "Título em Português"}]}]
                         },
                         {
                             "Name": "synopsis",
+                            "function": "empty",
                             "no_array": "",
                             "elements": [{"attrs": [{"Name": "por", "function": "field", "field": "Sinopse EPG"}]}]
                         },
@@ -61,6 +63,7 @@
                         {"Name": "season_episode_number", "function": "field", "field": "Número do Episódio", "filter": "Número_do_Episódio != ''"},
                         {
                             "Name": "genres",
+                            "function": "empty",
                             "elem_val": "",
                             "elements": [{"attrs": [{"Name": "genres", "function": "field", "field": "Genero 1"}]}]
                         },
@@ -68,24 +71,29 @@
                         {"Name": "available_to", "function": "timestamp", "field": "Data Fim", "type": "int"},
                         {
                             "Name": "images",
+                            "function": "empty",
                             "elements_array": [
-                                {"group_attrs":[
-                                    {"Name": "id", "function": "field", "field": "uuid_poster"},
-                                    {"Name": "type", "function": "fixed", "Value": "vod-poster"},
-                                    {"Name": "location", "function": "field_suffix", "field": "ID", "suffix":  "_poster.jpg"}
-                                ]},
-                                {"group_attrs":[
-                                    {"Name": "id", "function": "field", "field": "uuid_landscape"},
-                                    {"Name": "type", "function": "fixed", "Value": "vod-background"},
-                                    {"Name": "location", "function": "field_suffix", "field": "ID", "suffix":  "_landscape.jpg"}
-                                ]}
+                                {
+                                    "group_attrs":[
+                                        {"Name": "id", "function": "field", "field": "uuid_poster"},
+                                        {"Name": "type", "function": "fixed", "Value": "vod-poster"},
+                                        {"Name": "location", "function": "field_suffix", "field": "ID", "suffix":  "_poster.jpg"}
+                                    ]
+                                },
+                                {
+                                    "group_attrs":[
+                                        {"Name": "id", "function": "field", "field": "uuid_landscape"},
+                                        {"Name": "type", "function": "fixed", "Value": "vod-background"},
+                                        {"Name": "location", "function": "field_suffix", "field": "ID", "suffix":  "_landscape.jpg"}
+                                    ]
+                                }
                             ]
 
                         },
                         {
                             "Name": "metadata",
                             "no_array": "",
-
+                            "function": "empty",
                             "elements": [
                                 {
                                     "attrs": [
@@ -109,12 +117,8 @@
                                         },
                                         {
                                             "Name": "summary",
-                                            "function": "field",
-                                            "field": "Sinopse Resumo"
-                                        },
-                                        {
-                                            "Name": "summary",
                                             "elem_val": "",
+                                            "function": "empty",
                                             "elements": [
                                                 {"attrs": [{"Name": "summary",
                                                 "function": "field",
@@ -124,6 +128,7 @@
                                         {
                                             "Name": "actors",
                                             "elem_val": "",
+                                            "function": "empty",
                                             "elements": [{"attrs": [{"Name": "actors",
                                                 "function2": "field",
                                                 "function": "split", "field": "Elenco"}]}]
@@ -131,6 +136,7 @@
                                         {
                                             "Name": "directors",
                                             "elem_val": "",
+                                            "function": "empty",
                                             "elements": [{"attrs": [{"Name": "actors",
                                                 "function2": "field",
                                                 "function": "split", "field": "Diretor"}]}]
@@ -141,6 +147,7 @@
                         ]},
                         {
                             "Name": "medias",
+                            "function": "empty",
                             "elements_array": [
                                 {
                                     "group_attrs": [

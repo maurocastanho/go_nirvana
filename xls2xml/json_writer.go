@@ -24,23 +24,18 @@ type jsonWriter struct {
 }
 
 // newJSONWriter creates a new struct
-func newJSONWriter(filename string, categLines []lineT, serieLines []lineT, jType int) *jsonWriter {
+func newJSONWriter(filename string, categLines []lineT, serieLines []lineT, jType int) (*jsonWriter, error) {
+	var err error
 	w := jsonWriter{fileName: filename, categLines: categLines, serieLines: serieLines}
 	switch jType {
 	case assetsT:
-		return &w
+		return &w, nil
 	case categsT:
-		_, err := w.initCateg()
-		if err != nil {
-			panic("ERRO: " + err.Error())
-		}
+		_, err = w.initCateg()
 	case seriesT:
-		_, err := w.initSeries()
-		if err != nil {
-			panic("ERRO: " + err.Error())
-		}
+		_, err = w.initSeries()
 	}
-	return &w
+	return &w, err
 }
 
 // Suffix returns output file suffix

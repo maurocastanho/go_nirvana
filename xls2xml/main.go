@@ -66,11 +66,16 @@ const errSuffix = "_ERRO"
 
 func main() {
 	success := 0
+	var err error
 	defer func() {
 		msg := recover()
 		if msg != nil {
 			success = -4
 			logError(fmt.Errorf("%v", msg))
+		}
+		if err != nil {
+			success = -3
+			logError(err)
 		}
 		if success == 0 {
 			log("--------------------------------------")
@@ -120,23 +125,24 @@ func main() {
 		}
 	}
 
-	f, err := xlsx.Open(inputXls)
-	if err != nil {
-		logError(err)
-		success = 2
+	var sheet *xlsx.Spreadsheet
+	if sheet, err = xlsx.Open(inputXls); err != nil {
 		return
 	}
-	defer closeSheet(f)
+	defer closeSheet(sheet)
 	var lines []lineT
-	lines, err = readSheetByName(f, "dados")
+	lines, err = readSheetByName(sheet, "dados")
 	if err != nil {
-		panic(err)
+		return
 	}
-	json := readConfig(confFile)
+	var json map[string]interface{}
+	if json, err = readConfig(confFile); err != nil {
+		return
+	}
 	initVars(json)
-	success, err = processSpreadSheet(json, outType, f, outDir, lines)
+	success, err = processSpreadSheet(json, outType, sheet, outDir, lines)
 	if err != nil {
-		logError(err)
+		return
 	}
 }
 
@@ -168,7 +174,6 @@ func processSpreadSheet(json map[string]interface{}, outType string, f *xlsx.Spr
 	filePath := ""
 	var curr lineT
 	name := ""
-
 	jsonXls, okXls := json["xls_output"]
 	JsonXlsMap := jsonXls.(map[string]interface{})
 	var rs *reportSheet
@@ -179,16 +184,18 @@ func processSpreadSheet(json map[string]interface{}, outType string, f *xlsx.Spr
 	var err error
 	if outType == "json" {
 		// Read categories sheet for Box format
-		categLines, err = readSheetByName(f, "categories")
-		if err != nil {
+		if categLines, err = readSheetByName(f, "categories"); err != nil {
 			return -1, err
 		}
-		serieLines, err = readSheetByName(f, "series")
-		if err != nil {
+		if serieLines, err = readSheetByName(f, "series"); err != nil {
 			return -1, err
 		}
-		wrCateg = newJSONWriter(outDir, categLines, nil, categsT)
-		wrSeries = newJSONWriter(outDir, nil, serieLines, seriesT)
+		if wrCateg, err = newJSONWriter(outDir, categLines, nil, categsT); err != nil {
+			return -1, err
+		}
+		if wrSeries, err = newJSONWriter(outDir, nil, serieLines, seriesT); err != nil {
+			return -1, err
+		}
 	}
 	nLines := len(lines)
 	log("------------------------------")
@@ -212,9 +219,8 @@ func processSpreadSheet(json map[string]interface{}, outType string, f *xlsx.Spr
 		}
 		i = j
 		// fmt.Printf("== %v\n", pack)
-		filePath = path.Base(lName)
+		filePath = replaceAllNonAlpha(path.Base(lName))
 		filePath = strings.TrimSuffix(filePath, path.Ext(filePath))
-		filePath = replaceAllNonAlpha(filePath)
 		if filePath == "" {
 			logError(fmt.Errorf("ERRO ao procurar filename na linha [%#v], field [%v]", curr, filenameField))
 			log("#ERRO FILENAME#")
@@ -222,9 +228,13 @@ func processSpreadSheet(json map[string]interface{}, outType string, f *xlsx.Spr
 		}
 		filePath = path.Join(outDir, filePath)
 		log(fmt.Sprintf("Arquivo: %s", filePath))
-		wr := createWriter(outType, filePath, "", 0, 0, categLines, serieLines, assetsT)
-		err = processLines(json, pack, wr)
+		var wr writer
+		wr, err = createWriter(outType, filePath, "", 0, 0, categLines, serieLines, assetsT)
 		if err != nil {
+			return -1, err
+		}
+		if err = processLines(json, pack, wr); err != nil {
+			// Do not stop: log error and continue to other files
 			logError(err)
 			success = -1
 		}
@@ -233,27 +243,23 @@ func processSpreadSheet(json map[string]interface{}, outType string, f *xlsx.Spr
 		// publisher output
 		if okXls {
 			suc := 0
-			suc, rs, err = processPublisherXLS(JsonXlsMap, outDir, rs, nLines, pack)
-			if suc < 0 {
+			if suc, rs, err = processPublisherXLS(JsonXlsMap, outDir, rs, nLines, pack); suc < 0 {
 				success = suc
 			}
 		}
 		if rs != nil && okXls {
 			log("Escrevendo " + filePath)
-			err = rs.WriteAndClose("")
-			if err != nil {
+			if err = rs.WriteAndClose(""); err != nil {
 				return -1, err
 			}
 		}
 		if wrCateg != nil {
-			suc := processCategs(pack, categField1, wrCateg, idField, categField2)
-			if suc < 0 {
+			if suc := processCategs(pack, categField1, wrCateg, idField, categField2); suc < 0 {
 				success = suc
 			}
 		}
 		if wrSeries != nil {
-			suc := processSeries(pack, categField1, wrCateg, idField, categField2)
-			if suc < 0 {
+			if suc := processSeries(pack, categField1, wrCateg, idField, categField2); suc < 0 {
 				success = suc
 			}
 		}
@@ -261,20 +267,17 @@ func processSpreadSheet(json map[string]interface{}, outType string, f *xlsx.Spr
 	}
 	if success == 0 {
 		if rs != nil {
-			_, _, err = rs.WriteExtras()
-			if err != nil {
+			if _, _, err = rs.WriteExtras(); err != nil {
 				return -1, err
 			}
 		}
 		if wrCateg != nil {
-			_, _, err = wrCateg.WriteExtras()
-			if err != nil {
+			if _, _, err = wrCateg.WriteExtras(); err != nil {
 				return -1, err
 			}
 		}
 		if wrSeries != nil {
-			_, _, err = wrSeries.WriteExtras()
-			if err != nil {
+			if _, _, err = wrSeries.WriteExtras(); err != nil {
 				return -1, err
 			}
 		}
@@ -283,6 +286,7 @@ func processSpreadSheet(json map[string]interface{}, outType string, f *xlsx.Spr
 }
 
 func processPublisherXLS(JsonXlsMap map[string]interface{}, outDir string, rs *reportSheet, nLines int, pack []lineT) (int, *reportSheet, error) {
+	var err error
 	success := 0
 	jsonCols, okCols := JsonXlsMap["columns"].([]interface{})
 	if !okCols {
@@ -299,15 +303,14 @@ func processPublisherXLS(JsonXlsMap map[string]interface{}, outDir string, rs *r
 	xlsFilepath := path.Join(outDir, xlsFile)
 	if rs == nil {
 		nCols := len(jsonCols)
-		rs = newReportSheet(xlsFilepath, sheetName, nCols, nLines)
-		err := rs.OpenOutput()
-		if err != nil {
-			logError(err)
+		if rs, err = newReportSheet(xlsFilepath, sheetName, nCols, nLines); err != nil {
+			return -1, nil, err
+		}
+		if err = rs.OpenOutput(); err != nil {
 			return -1, nil, err
 		}
 	}
-	errs := processAttrs("", jsonCols, pack, rs)
-	if len(errs) > 0 {
+	if errs := processAttrs("", jsonCols, pack, rs); len(errs) > 0 {
 		success = -3
 		for _, errA := range errs {
 			log(fmt.Sprintf("ERRO: [%s]", errA.Error()))
@@ -358,17 +361,10 @@ func readSheetByName(f *xlsx.Spreadsheet, sName string) ([]lineT, error) {
 	lines := make([]lineT, 0)
 	// Get all the rows in the Sheet1.
 	idx := 1
-	sheet := f.SheetByName(sName)
-	if sheet == nil {
+	var sheet xlsx.Sheet
+	if sheet = f.SheetByName(sName); sheet == nil {
 		return lines, fmt.Errorf("aba nao existente na planilha: [%s]", sName)
 	}
-	//redBold := styles.New(
-	//	styles.NumberFormatID(15),
-	//)
-	//
-	//// Add formatting to xlsx
-	//styleID := f.AddStyles(redBold)
-
 	// Removes blank lines at the end of sheet
 	lines = readSheet(sheet, header, lines, idx)
 	return lines, nil
@@ -385,6 +381,7 @@ func blankLine(line map[string]string) bool {
 	return true
 }
 
+// contains tests if an array contains a given string
 func contains(s []string, e string) bool {
 	for _, a := range s {
 		if a == e {
@@ -394,7 +391,7 @@ func contains(s []string, e string) bool {
 	return false
 }
 
-// Reads the spreadsheet as an array of map[<line name>] = <value>
+// readSheet reads the spreadsheet as an array of map[<line name>] = <value>
 func readSheet(sheet xlsx.Sheet, header []string, lines []lineT, idx int) []lineT {
 	ncols, nrows := 100, 1000 // sheet.Dimension()
 	empty := 0
@@ -461,53 +458,49 @@ func readSheet(sheet xlsx.Sheet, header []string, lines []lineT, idx int) []line
 }
 
 // Reads config file
-func readConfig(confFile string) map[string]interface{} {
-	file, err := os.Open(confFile)
-	if err != nil {
-		logError(err)
-		os.Exit(3)
+func readConfig(confFile string) (map[string]interface{}, error) {
+	var err error
+	var file *os.File
+	var buf []byte
+	if file, err = os.Open(confFile); err != nil {
+		return nil, err
 	}
-	buf, err := ioutil.ReadAll(file)
-	if err != nil {
-		logError(err)
-		os.Exit(3)
+	if buf, err = ioutil.ReadAll(file); err != nil {
+		return nil, err
 	}
 	newBuf := latinToUTF8(buf)
 	// Unmarshal JSON file to data structure
 	var json map[string]interface{}
-	err = js.Unmarshal([]byte(newBuf), &json)
-	if err != nil {
-		logError(err)
-		os.Exit(4)
+	if err = js.Unmarshal([]byte(newBuf), &json); err != nil {
+		return nil, err
 	}
-	return json
+	return json, nil
 }
 
 // Factory for creating the writer
-func createWriter(outType string, filename string, sheetname string, ncols int, nlines int, linesCateg []lineT, linesSeries []lineT, jType int) writer {
+func createWriter(outType string, filename string, sheetname string, ncols int, nlines int, linesCateg []lineT, linesSeries []lineT, jType int) (writer, error) {
+	var err error
 	var wr writer
 	switch outType {
 	case "xml":
 		systemID := options["doctype_system"]
-		wr = newXMLWriter(filename, systemID)
+		wr, err = newXMLWriter(filename, systemID)
 	case "json":
-		wr = newJSONWriter(filename, linesCateg, linesSeries, jType)
+		wr, err = newJSONWriter(filename, linesCateg, linesSeries, jType)
 	case "report":
-		wr = newReportSheet(filename, sheetname, ncols, nlines)
+		wr, err = newReportSheet(filename, sheetname, ncols, nlines)
 	}
-	return wr
+	return wr, err
 }
 
 // Process the config file against the lines of the sheet
 func processLines(json jsonT, lines []lineT, wr writer) (err error) {
-	err = wr.OpenOutput()
-	if err != nil {
+	if err = wr.OpenOutput(); err != nil {
 		return err
 	}
 	// fmt.Println("----------")
 	var err3 error
-	err2 := processMap(json, lines, wr)
-	if err2 != nil {
+	if err2 := processMap(json, lines, wr); err2 != nil {
 		errs := ""
 		for _, e := range err2 {
 			errs = errs + fmt.Sprintf("[%s]\n", e)
@@ -524,8 +517,7 @@ func processLines(json jsonT, lines []lineT, wr writer) (err error) {
 	_ = os.Remove(rightFile)
 	_ = os.Remove(wrongFile)
 	// Write new file
-	err1 := wr.WriteAndClose(fileOut)
-	if err1 != nil {
+	if err1 := wr.WriteAndClose(fileOut); err1 != nil {
 		err = err1
 		return
 	}
@@ -538,21 +530,22 @@ func processLines(json jsonT, lines []lineT, wr writer) (err error) {
 // Process a JSON map element
 func processMap(json jsonT, lines []lineT, wr writer) (err2 []error) {
 	var name string
-	name, hasName := json["Name"].(string)
-	if !hasName {
+	var hasName bool
+	if name, hasName = json["Name"].(string); !hasName {
 		if name != "" {
 			log(fmt.Sprintf("name not found: [%s]\n", name))
 		}
 	}
 	commonAttrs, _ := json["common_attrs"].(map[string]interface{})
-	filter, okFilter := json["filter"].(string)
-	if okFilter {
+	// Test if there is a filter expression
+	if filter, ok := json["filter"].(string); ok {
 		filterOk, err := evalCondition(filter, lines[0])
 		if err != nil {
 			err2 = append(err2, err)
 			return
 		}
 		if !filterOk {
+			// filter element
 			return
 		}
 	}
@@ -579,8 +572,7 @@ func processMap(json jsonT, lines []lineT, wr writer) (err2 []error) {
 		}
 		//log(fmt.Sprintf("ELEMENTS %s [%v] %d", name, elements, len(elements)))
 	} else {
-		el, okElArray = json["elements_array"]
-		if okElArray {
+		if el, okElArray = json["elements_array"]; okElArray {
 			elements = el.([]interface{})
 			elType = arrayT
 		}
@@ -595,13 +587,11 @@ func processMap(json jsonT, lines []lineT, wr writer) (err2 []error) {
 		}
 	}
 	// Default Attributes
-	at, ok := json["attrs"]
-	if ok {
+	if at, ok := json["attrs"]; ok {
 		attrs := at.([]interface{})
 		err2 = appendErrors(err2, processAttrs(name, attrs, lines, wr)...)
 	}
-	atgr, okA := json["group_attrs"]
-	if okA {
+	if atgr, ok := json["group_attrs"]; ok {
 		attrs := atgr.([]interface{})
 		err2 = appendErrors(err2, processGroupAttrs(name, attrs, lines, wr)...)
 	}
@@ -615,17 +605,14 @@ func processMap(json jsonT, lines []lineT, wr writer) (err2 []error) {
 		}
 	}
 	// Comment section
-	co, okComm := json["comments"]
-	if okComm {
-		err := wr.StartComment("DTH")
-		if err != nil {
+	if co, ok := json["comments"]; ok {
+		if err := wr.StartComment("DTH"); err != nil {
 			err2 = appendErrors(err2, err)
 			return
 		}
 		comm := co.([]interface{})
 		err2 = appendErrors(err2, processSingleElements(name, comm, lines, wr)...)
-		err = wr.EndComment("DTH")
-		if err != nil {
+		if err := wr.EndComment("DTH"); err != nil {
 			err2 = appendErrors(err2, err)
 			return
 		}
@@ -666,8 +653,7 @@ func processMap(json jsonT, lines []lineT, wr writer) (err2 []error) {
 		}
 	}
 	if isMap {
-		err := wr.EndElem(name, elType)
-		if err != nil {
+		if err := wr.EndElem(name, elType); err != nil {
 			err2 = appendErrors(err2, err)
 			return
 		}
@@ -694,13 +680,11 @@ func processAttrs(_ string, json []interface{}, lines []lineT, wr writer) (err2 
 		switch vv := v.(type) {
 		case map[string]interface{}:
 			err2 = appendErrors(err2, processAttr(vv, lines, wr)...)
-			_, okEl := vv["elements"]
-			if okEl {
+			if _, okEl := vv["elements"]; okEl {
 				err2 = appendErrors(err2, processMap(vv, lines, wr)...)
 				continue
 			}
-			_, okElArr := vv["elements_array"]
-			if okElArr {
+			if _, okElArr := vv["elements_array"]; okElArr {
 				err2 = appendErrors(err2, processMap(vv, lines, wr)...)
 				continue
 			}
@@ -711,20 +695,18 @@ func processAttrs(_ string, json []interface{}, lines []lineT, wr writer) (err2 
 
 // Process group of attrs in the JSON
 func processGroupAttrs(_ string, json []interface{}, lines []lineT, wr writer) (err2 []error) {
-	err2 = appendErrors(err2, wr.StartElem("a", mapArrayT))
-	if len(err2) > 0 {
+	if err := wr.StartElem("a", mapArrayT); err != nil {
+		err2 = appendErrors(err2, err)
 		return
 	}
 	for _, v := range json {
 		switch vv := v.(type) {
 		case map[string]interface{}:
-			_, okEl := vv["elements"]
-			if okEl {
+			if _, okEl := vv["elements"]; okEl {
 				err2 = appendErrors(err2, processMap(vv, lines, wr)...)
 				continue
 			}
-			_, okElArr := vv["elements_array"]
-			if okElArr {
+			if _, okElArr := vv["elements_array"]; okElArr {
 				err2 = appendErrors(err2, processMap(vv, lines, wr)...)
 				continue
 			}
@@ -738,12 +720,15 @@ func processGroupAttrs(_ string, json []interface{}, lines []lineT, wr writer) (
 // Process a simple value
 func processVal(val string, vars map[string]string) string {
 	if val == "" || val[0:1] != "$" {
+		// value does not begin with "$": do nothing
 		return val
 	}
 	result, ok := vars[val]
 	if ok {
+		// found a variable named val, return its value
 		return result
 	}
+	// variable not found, returns original value
 	return val
 }
 
@@ -760,21 +745,25 @@ func processAttr(json jsonT, lines []lineT, wr writer) (err []error) {
 	name, _ = json["Name"].(string)
 	attrType, _ := json["at_type"].(string)
 	function, ok := json["function"].(string)
+	if !ok {
+		return []error{fmt.Errorf("elemento [%s] nao tem 'function'", name)}
+	}
 	if !ok || function == "empty" {
+		// element does not have "function" attribute
 		return
 	}
-	filter, okFilter := json["filter"].(string)
-	if okFilter {
-		filterOk, err3 := evalCondition(filter, lines[0])
-		if err3 != nil {
+	// process filter
+	if filter, okFilter := json["filter"].(string); okFilter {
+		// there is a filter expression: evaluate
+		if filterAllow, err3 := evalCondition(filter, lines[0]); err3 != nil {
+			// error in condition
 			err = append(err, err3)
 			return
-		}
-		if !filterOk {
+		} else if !filterAllow {
+			// filter expression excludes element
 			return
 		}
 	}
-
 	vtype, _ := json["type"].(string)
 	procVals, err2 := process(function, lines, json, options)
 	err = appendErrors(err, err2)
@@ -785,18 +774,15 @@ func processAttr(json jsonT, lines []lineT, wr writer) (err []error) {
 			// Ott type open a new element, line <elem>x<elem>
 			err = appendErrors(err, wr.StartElem(name, mapT))
 		}
-		at, okA := json["attrs"]
-		if okA {
+		if at, okA := json["attrs"]; okA {
 			attrs := at.([]interface{})
 			err = appendErrors(err, processAttrs(name, attrs, lines, wr)...)
 		}
-		var err1 error
-		f2, okf2 := json["function2"]
-		if !okf2 || f2 != "set_var" {
-			err1 = wr.WriteAttr(name, processVal(procVal.val, procVal.vars), vtype, attrType)
-		}
-		if err1 != nil {
-			err = appendErrors(err, err1)
+		if f2, okf2 := json["function2"]; !okf2 || f2 != "set_var" {
+			if err1 := wr.WriteAttr(name,
+				processVal(procVal.val, procVal.vars), vtype, attrType); err1 != nil {
+				err = appendErrors(err, err1)
+			}
 		}
 		if isOtt {
 			// Closes ott element

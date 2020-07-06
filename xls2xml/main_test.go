@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"testing"
 	"time"
 
@@ -177,7 +178,10 @@ func TestCondition(t *testing.T) {
 }
 
 func TestXmlNet(t *testing.T) {
-	json := readConfig("config_net.json")
+	json, err := readConfig("config_net.json")
+	if err != nil {
+		t.Error(err)
+	}
 	initVars(json)
 	expected := "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n<!DOCTYPE ADI SYSTEM \"ADI.DTD\">\n" +
 		"<ADI xmlns=\"http://www.eventis.nl/PRODIS/ADI\">\n" +
@@ -317,9 +321,12 @@ func TestXmlNet(t *testing.T) {
 	options["timestamp"] = "200619015447"
 	options["creationDate"] = "2020-06-19"
 	//fmt.Printf("%#v\n", maplines)
-	xmlWr := newXMLWriter("unit_tests.json", "ADI.DTD")
+	xmlWr, err := newXMLWriter("unit_tests.json", "ADI.DTD")
+	if err != nil {
+		t.Error(err)
+	}
 	xmlWr.testing = true
-	err := processLines(json, []lineT{maplines}, xmlWr)
+	err = processLines(json, []lineT{maplines}, xmlWr)
 	if err != nil {
 		t.Error(err)
 	}
@@ -331,7 +338,10 @@ func TestXmlNet(t *testing.T) {
 }
 
 func TestXmlOiOtt(t *testing.T) {
-	json := readConfig("config_oi_ott.json")
+	json, err := readConfig("config_oi_ott.json")
+	if err != nil {
+		t.Error(err)
+	}
 	initVars(json)
 	expected := "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n" +
 		"<assetPackages xmlns:date=\"http://exslt.org/dates-and-times\" " +
@@ -464,9 +474,12 @@ func TestXmlOiOtt(t *testing.T) {
 	options["timestamp"] = "200702102255"
 	options["creationDate"] = "2020-06-19"
 	//fmt.Printf("%#v\n", maplines)
-	xmlWr := newXMLWriter("unit_tests.json", "")
+	xmlWr, err := newXMLWriter("unit_tests.json", "")
+	if err != nil {
+		t.Error(err)
+	}
 	xmlWr.testing = true
-	err := processLines(json, []lineT{maplines}, xmlWr)
+	err = processLines(json, []lineT{maplines}, xmlWr)
 	if err != nil {
 		t.Error(err)
 		return
@@ -477,7 +490,10 @@ func TestXmlOiOtt(t *testing.T) {
 }
 
 func TestXmlVivo(t *testing.T) {
-	json := readConfig("config_vivo.json")
+	json, err := readConfig("config_vivo.json")
+	if err != nil {
+		t.Error(err)
+	}
 	initVars(json)
 	expected := "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n<!DOCTYPE ADI SYSTEM \"ADI.DTD\">\n" +
 		"<ADI xmlns=\"http://www.eventis.nl/PRODIS/ADI\">\n" +
@@ -617,9 +633,12 @@ func TestXmlVivo(t *testing.T) {
 	options["timestamp"] = "200619015447"
 	options["creationDate"] = "2020-06-19"
 	//fmt.Printf("%#v\n", maplines)
-	xmlWr := newXMLWriter("unit_tests.json", "ADI.DTD")
+	xmlWr, err := newXMLWriter("unit_tests.json", "ADI.DTD")
+	if err != nil {
+		t.Error(err)
+	}
 	xmlWr.testing = true
-	err := processLines(json, []lineT{maplines}, xmlWr)
+	err = processLines(json, []lineT{maplines}, xmlWr)
 	if err != nil {
 		t.Error(err)
 	}
@@ -632,7 +651,10 @@ func TestXmlVivo(t *testing.T) {
 }
 
 func TestXmlBox1(t *testing.T) {
-	json := readConfig("config_box.json")
+	json, err := readConfig("config_box.json")
+	if err != nil {
+		t.Error(err)
+	}
 	initVars(json)
 	expectedAssets := "{\n" +
 		"  \"assets\": [\n" +
@@ -825,13 +847,19 @@ func TestXmlBox1(t *testing.T) {
 	options["timestamp"] = "200702102255"
 	options["creationDate"] = "2020-06-19"
 	//fmt.Printf("%#v\n", maplines)
-	jsonWr := newJSONWriter("unit_tests_assets.json", categLine, nil, assetsT)
-	jsonWr.testing = true
-	err := processLines(json, []lineT{maplines}, jsonWr)
+	jsonWr, err := newJSONWriter("unit_tests_assets.json", categLine, nil, assetsT)
 	if err != nil {
 		t.Error(err)
 	}
-	categWr := newJSONWriter("unit_tests_categs.json", categLine, nil, categsT)
+	jsonWr.testing = true
+	err = processLines(json, []lineT{maplines}, jsonWr)
+	if err != nil {
+		t.Error(err)
+	}
+	categWr, err := newJSONWriter("unit_tests_categs.json", categLine, nil, categsT)
+	if err != nil {
+		t.Error(err)
+	}
 	categWr.testing = true
 	categWr.processCategPack(maplines, "uuid_box", "Genero 1", "Genero 2")
 	bufAssets, bufCategs, err := categWr.WriteExtras()
@@ -840,6 +868,255 @@ func TestXmlBox1(t *testing.T) {
 	}
 	assetRes := string(bufAssets) // converting from windows encoding to UTF-8
 	categRes := string(bufCategs) // converting from windows encoding to UTF-8
+	assert.JSONEq(t, expectedAssets, assetRes)
+	assert.JSONEq(t, expectedCategs, categRes)
+}
+
+func xTestXmlBox2(t *testing.T) {
+	json, err := readConfig("config_box.json")
+	if err != nil {
+		t.Error(err)
+	}
+	initVars(json)
+	expectedAssets := "{\n" +
+		"  \"assets\": [\n" +
+		"    {\n" +
+		"      \"adult\": false,\n" +
+		"      \"available_from\": 1593043200000,\n" +
+		"      \"available_to\": 1798675200000,\n      \"duration\": 1421000,\n" +
+		"      \"genres\": [\n" +
+		"        \"Show\"\n" +
+		"      ],\n" +
+		"      \"id\": \"198413c7-3d35-4c6d-9714-f80e92e9b7d0\",\n" +
+		"      \"images\": [\n" +
+		"        {\n" +
+		"          \"id\": \"e2830250-d3bf-451a-ba3b-d4ec3ce1da19\",\n" +
+		"          \"location\": \"shows/ariana_grande_poster.jpg\",\n" +
+		"          \"type\": \"vod-poster\"\n" +
+		"        },\n" +
+		"        {\n" +
+		"          \"id\": \"8b841c15-a02f-4a23-b4d2-d4eb409becbe\",\n" +
+		"          \"location\": \"shows/ariana_grande_landscape.jpg\",\n" +
+		"          \"type\": \"vod-background\"\n" +
+		"        }\n" +
+		"      ],\n" +
+		"      \"medias\": [\n" +
+		"        {\n" +
+		"          \"audio_languages\": [\n" +
+		"            \"eng\"\n" +
+		"          ],\n" +
+		"          \"id\": \"198413c7-3d35-4c6d-9714-f80e92e9b7d0\",\n" +
+		"          \"location\": \"shows/ariana_grande.mp4\",\n" +
+		"          \"metadata\": {},\n" +
+		"          \"subtitles_languages\": [\n" +
+		"            \"por\"\n          ],\n" +
+		"          \"technology\": \"MP4\",\n" +
+		"          \"title\": \"Ariana Grande\",\n" +
+		"          \"type\": \"MEDIA\"\n" +
+		"        }\n" +
+		"      ],\n" +
+		"      \"metadata\": {\n" +
+		"        \"actors\": [\n" +
+		"          \"\"\n" +
+		"        ],\n" +
+		"        \"country\": \"USA\",\n" +
+		"        \"directors\": [\n" +
+		"          \"\"\n" +
+		"        ],\n" +
+		"        \"release_year\": \"2016\",\n" +
+		"        \"rights\": [],\n" +
+		"        \"summary\": [\n" +
+		"          \"Show da cantora Ariana Grande\"\n" +
+		"        ]\n" +
+		"      },\n" +
+		"      \"morality_level\": 0,\n" +
+		"      \"synopsis\": {\n" +
+		"        \"por\": \"Ariana Grande se apresenta em Las Vegas, a cantora canta todos os seus sucessos." +
+		" O show conta com participação especial de Zedd.\"\n" +
+		"      },\n" +
+		"      \"title\": {\n" +
+		"        \"por\": \"Ariana Grande\"\n" +
+		"      }\n" +
+		"    }\n" +
+		"  ]\n" +
+		"}"
+
+	expectedCategs := "{\n" +
+		"  \"categories\": [\n" +
+		"    {\n" +
+		"      \"adult\": false,\n" +
+		"      \"assets\": [\n" +
+		"        \"198413c7-3d35-4c6d-9714-f80e92e9b7d0\"\n" +
+		"      ],\n" +
+		"      \"downloadable\": false,\n" +
+		"      \"hidden\": false,\n" +
+		"      \"id\": \"d7d4b94e-6055-4400-8325-c7f754830573\",\n" +
+		"      \"images\": [],\n" +
+		"      \"metadata\": {},\n" +
+		"      \"morality_level\": \"0\",\n" +
+		"      \"name\": {\n" +
+		"        \"eng\": \"Show\",\n" +
+		"        \"por\": \"Show\"\n" +
+		"      },\n" +
+		"      \"offline\": false,\n" +
+		"      \"parent_id\": \"\",\n" +
+		"      \"parental_control\": false\n" +
+		"    },\n" +
+		"    {\n" +
+		"      \"adult\": false,\n" +
+		"      \"assets\": [\n" +
+		"        \"198413c7-3d35-4c6d-9714-f80e92e9b7d0\"\n" +
+		"      ],\n" +
+		"      \"downloadable\": false,\n" +
+		"      \"hidden\": false,\n" +
+		"      \"id\": \"2f7c576a-7212-4af7-ac90-cbd6df1e5f94\",\n" +
+		"      \"images\": [],\n" +
+		"      \"metadata\": {},\n" +
+		"      \"morality_level\": \"0\",\n" +
+		"      \"name\": {\n" +
+		"        \"eng\": \"Music\",\n" +
+		"        \"por\": \"Música\"\n" +
+		"      },\n" +
+		"      \"offline\": false,\n" +
+		"      \"parent_id\": \"\",\n" +
+		"      \"parental_control\": false\n" +
+		"    }\n" +
+		"  ]\n" +
+		"}"
+
+	lines := [][]string{
+		{"uuid_box", "uuid_trailer",
+			"uuid_poster",
+			"uuid_landscape", "uuid_thumb",
+			"Título Original",
+			"Título em Português",
+			"Numero Temporada", "Número do Episódio", "Título em Português do Episódio", "Temporada",
+			"ID", "Movie Size", "Movie MD5",
+			"Poster Size", "Poster MD5",
+			"Versao", "Língua Original ", "Linguagem Áudio", "Linguagem Legenda",
+			"Categoria", "Ano", "Bilheteria", "Ranking",
+			"Estúdio", "Classificação Etária", "Genero 1", "Genero 2",
+			"Elenco", "Diretor",
+			"País de Origem",
+			"Sinopse EPG",
+			"Sinopse Resumo",
+			"Duração",
+			"Data Início", "Data Fim",
+			"Formato",
+			"Provider ID", "Billing ID", "Cobrança",
+			"Movie Audio Type",
+			"Trailer ID", "Trailer Size", "Trailer MD5", "Duração Trailer", "Trailer Audio Type",
+			"subpasta",
+		},
+		{
+			"198413c7-3d35-4c6d-9714-f80e92e9b7d0", "5c8d732a-d702-4000-9fce-7bd882fcaaaf",
+			"e2830250-d3bf-451a-ba3b-d4ec3ce1da19",
+			"8b841c15-a02f-4a23-b4d2-d4eb409becbe", "cfea92ec-3ce3-463c-b8e7-1cdbee532964",
+			"Ariana Grande - Live in New York",
+			"Ariana Grande",
+			"1", "1", "Ep 1", "Estreia",
+			"ariana_grande_s1e1.mp4", "", "",
+			"", "",
+			"Legendado", "eng", "eng", "por",
+			"Música", "2016", "1000000", "9",
+			"Media Solutions", "0", "Show", "Música",
+			"", "",
+			"USA",
+			"Ariana Grande se apresenta em Las Vegas, a cantora canta todos os seus sucessos. " +
+				"O show conta com participação especial de Zedd.",
+			"Show da cantora Ariana Grande",
+			"0:23:41",
+			"06-25-20", "12-31-26",
+			"HD",
+			"", "", "",
+			"stereo",
+			"", "", "", "", "",
+			"shows",
+		},
+		{
+			"198413c7-3d35-4c6d-9714-f80e92e9b7d1", "5c8d732a-d702-4000-9fce-7bd882fcaaa0",
+			"e2830250-d3bf-451a-ba3b-d4ec3ce1da1a",
+			"8b841c15-a02f-4a23-b4d2-d4eb409becbe", "cfea92ec-3ce3-463c-b8e7-1cdbee532965",
+			"Ariana Grande - Live in New York",
+			"Ariana Grande",
+			"1", "2", "Ep 1", "Estreia",
+			"ariana_grande_s1e2.mp4", "", "",
+			"", "",
+			"Legendado", "eng", "eng", "por",
+			"Música", "2016", "1000000", "9",
+			"Media Solutions", "0", "Show", "Música",
+			"", "",
+			"USA",
+			"Ariana Grande se apresenta em Las Vegas, a cantora canta todos os seus sucessos. " +
+				"O show conta com participação especial de Zedd.",
+			"Show da cantora Ariana Grande",
+			"0:23:41",
+			"06-25-20", "12-31-26",
+			"HD",
+			"", "", "",
+			"stereo",
+			"", "", "", "", "",
+			"shows",
+		},
+	}
+	lenLine1 := len(lines[1])
+	//fmt.Printf("%#v\n%#v\n%d %d", lines[0], lines[1], len(lines[0]), lenLine1)
+	var maplines lineT = make(map[string]string)
+	for i := range lines[0] {
+		val := ""
+		if i < lenLine1 {
+			val = lines[1][i]
+		}
+		maplines[lines[0][i]] = val
+	}
+
+	categs := [][]string{
+		{"id", "name", "hidden", "morality_level",
+			"parental_control", "adult", "downloadable", "offline"},
+		{"d7d4b94e-6055-4400-8325-c7f754830573", "por:Show|eng:Show",
+			"false", "0", "false", "false", "false", "false"},
+		{"2f7c576a-7212-4af7-ac90-cbd6df1e5f94", "por:Música|eng:Music",
+			"false", "0", "false", "false", "false", "false"},
+	}
+
+	lenLineCat := len(categs[1])
+	categLine := make([]lineT, 3, 3)
+	for iLin := 1; iLin < 3; iLin++ {
+		categLine[iLin-1] = make(map[string]string)
+		for i := range categs[0] {
+			val := ""
+			if i < lenLineCat {
+				val = categs[iLin][i]
+			}
+			categLine[iLin-1][categs[0][i]] = val
+		}
+	}
+	maplines["file_number"] = "1"
+	options["timestamp"] = "200702102255"
+	options["creationDate"] = "2020-06-19"
+	//fmt.Printf("%#v\n", maplines)
+	jsonWr, err := newJSONWriter("unit_tests_assets.json", categLine, nil, assetsT)
+	if err != nil {
+		t.Error(err)
+	}
+	jsonWr.testing = true
+	err = processLines(json, []lineT{maplines}, jsonWr)
+	if err != nil {
+		t.Error(err)
+	}
+	categWr, err := newJSONWriter("unit_tests_categs.json", categLine, nil, categsT)
+	if err != nil {
+		t.Error(err)
+	}
+	categWr.testing = true
+	categWr.processCategPack(maplines, "uuid_box", "Genero 1", "Genero 2")
+	bufAssets, bufCategs, err := categWr.WriteExtras()
+	if err != nil {
+		t.Error(err)
+	}
+	assetRes := string(bufAssets) // converting from windows encoding to UTF-8
+	categRes := string(bufCategs) // converting from windows encoding to UTF-8
+	fmt.Printf("%s\n", assetRes)
 	assert.JSONEq(t, expectedAssets, assetRes)
 	assert.JSONEq(t, expectedCategs, categRes)
 }

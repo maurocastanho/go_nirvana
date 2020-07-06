@@ -40,7 +40,7 @@ func (rs *reportSheet) EndMap() {
 }
 
 // NewReportSheet creates a new struct
-func newReportSheet(filename string, sheetName string, nCols int, nLines int) *reportSheet {
+func newReportSheet(filename string, sheetName string, nCols int, nLines int) (*reportSheet, error) {
 	rs := reportSheet{
 		filepath:   filename,
 		sheetName:  sheetName,
@@ -48,7 +48,7 @@ func newReportSheet(filename string, sheetName string, nCols int, nLines int) *r
 		numLines:   nLines + 1,
 		currentRow: 1,
 	}
-	return &rs
+	return &rs, nil
 }
 
 // OpenOutput opens the output file for writing

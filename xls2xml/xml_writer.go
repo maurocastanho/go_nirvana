@@ -39,9 +39,9 @@ func (wr *xmlWriter) EndMap() {
 }
 
 // NewXMLWriter creates a new struct
-func newXMLWriter(filename string, systemID string) *xmlWriter {
+func newXMLWriter(filename string, systemID string) (*xmlWriter, error) {
 	w := xmlWriter{fileName: filename, systemID: systemID, testing: false}
-	return &w
+	return &w, nil
 }
 
 // Suffix returns the output file extension
