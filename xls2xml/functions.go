@@ -271,7 +271,11 @@ func suffix(forceVal string, line lineT, json jsonT, options optionsT) ([]result
 	if prefix != "" && !strings.HasSuffix(prefix, "/") {
 		prefix += "/"
 	}
-	val, errS := truncateSuffix(replaceAllNonAlpha(noacc), suf, line, json, options)
+	alpha, errR := replaceAllNonAlpha(noacc)
+	if errR != nil {
+		return errorMessage, errR
+	}
+	val, errS := truncateSuffix(alpha, suf, line, json, options)
 	if errS != nil {
 		return errorMessage, errS
 	}
@@ -900,12 +904,12 @@ func removeAccents(val string) (string, error) {
 }
 
 // ReplaceAllNonAlpha Replaces all non-alphanumeric characters with a "_"
-func replaceAllNonAlpha(val string) string {
+func replaceAllNonAlpha(val string) (string, error) {
 	reg, err := regexp.Compile("[^A-Za-z0-9]+")
 	if err != nil {
-		panic(err.Error())
+		return "", err
 	}
-	return reg.ReplaceAllString(val, "_")
+	return reg.ReplaceAllString(val, "_"), nil
 }
 
 func formatMoney(val string) (string, error) {

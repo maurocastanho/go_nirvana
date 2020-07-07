@@ -30,13 +30,13 @@ type reportSheet struct {
 }
 
 // StartMap starts a map element
-func (rs *reportSheet) StartMap() {
-
+func (rs *reportSheet) StartMap() error {
+	return nil
 }
 
 // EndMap closes a map element
-func (rs *reportSheet) EndMap() {
-
+func (rs *reportSheet) EndMap() error {
+	return nil
 }
 
 // NewReportSheet creates a new struct

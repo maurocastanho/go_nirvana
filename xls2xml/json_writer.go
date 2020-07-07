@@ -49,16 +49,15 @@ func (wr *jsonWriter) Filename() string {
 }
 
 // StartMap starts a map element
-func (wr *jsonWriter) StartMap() {
+func (wr *jsonWriter) StartMap() error {
 	wr.getElement("", mapT)
+	return nil
 }
 
 // EndMap closes a map element
-func (wr *jsonWriter) EndMap() {
+func (wr *jsonWriter) EndMap() error {
 	err := wr.EndElem("", mapT)
-	if err != nil {
-		logError(err)
-	}
+	return err
 }
 
 // StartElem starts a JSON element
@@ -89,7 +88,7 @@ func (wr *jsonWriter) getElement(name string, elType elemType) interface{} {
 }
 
 // insertElement inserts a new element into the structure
-func (wr *jsonWriter) insertElement(name string, elem interface{}, elType elemType) {
+func (wr *jsonWriter) insertElement(name string, elem interface{}, elType elemType) error {
 	var el interface{}
 	if elType == mapT || elem == nil {
 		arr := make([]interface{}, 0)
@@ -116,11 +115,12 @@ func (wr *jsonWriter) insertElement(name string, elem interface{}, elType elemTy
 			wr.st.Push(c)
 			//fmt.Printf("** %#v\n", c)
 		case interface{}:
-			panic(fmt.Sprintf("ERRO: InsertElement(interface{}): %#v\n", c))
+			return fmt.Errorf("ERRO: InsertElement(interface{}): %#v\n", c)
 		default:
 			//fmt.Printf("**** %#v\n", c)
 		}
 	}
+	return nil
 }
 
 func (wr *jsonWriter) Write(_ string) error {
@@ -181,9 +181,7 @@ func (wr *jsonWriter) WriteAttr(name string, value string, vtype string, _ strin
 func (wr *jsonWriter) EndElem(name string, elType elemType) error {
 	//fmt.Printf("End: %s\n", name)
 	el := wr.st.Pop()
-	wr.insertElement(name, el, elType)
-
-	return nil
+	return wr.insertElement(name, el, elType)
 }
 
 // StartComment marks the start of a comment section

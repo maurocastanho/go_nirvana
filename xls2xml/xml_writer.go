@@ -29,13 +29,13 @@ type xmlWriter struct {
 }
 
 // StartMap starts a map element
-func (wr *xmlWriter) StartMap() {
-
+func (wr *xmlWriter) StartMap() error {
+	return nil
 }
 
 // EndMap closes a map element
-func (wr *xmlWriter) EndMap() {
-
+func (wr *xmlWriter) EndMap() error {
+	return nil
 }
 
 // NewXMLWriter creates a new struct

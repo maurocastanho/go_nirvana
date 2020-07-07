@@ -56,8 +56,8 @@ type writer interface {
 	WriteAttr(string, string, string, string) error
 	WriteAndClose(string) error
 	WriteExtras() ([]byte, []byte, error)
-	StartMap()
-	EndMap()
+	StartMap() error
+	EndMap() error
 }
 
 var options map[string]string
@@ -102,7 +102,7 @@ func main() {
 	flag.StringVar(&outType, "outtype", "xml", "Tipo de output (xml ou json). Default: xml")
 	flag.StringVar(&outDir, "outdir", "", "Diretorio de saida")
 	flag.Parse()
-
+	// test command line parameters
 	if inputXls == "" {
 		success = exitWithError("arquivo XLS deve ser especificado na linha de comando", 1)
 		return
@@ -116,29 +116,34 @@ func main() {
 		return
 	}
 	if outDir != "" {
-		st, err := os.Stat(outDir)
-		if err != nil || !st.IsDir() {
+		st, errS := os.Stat(outDir)
+		if errS != nil || !st.IsDir() {
 			logError(fmt.Errorf("diretorio [%s] nao e' valido", outDir))
 			success = 1
 			return
 		}
 	}
-	var sheet *xlsx.Spreadsheet
-	if sheet, err = xlsx.Open(inputXls); err != nil {
+	// open input xls file and read main sheet
+	var spreadSheet *xlsx.Spreadsheet
+	if spreadSheet, err = xlsx.Open(inputXls); err != nil {
 		return
 	}
-	defer closeSheet(sheet)
+	defer closeSheet(spreadSheet)
 	var lines []lineT
-	lines, err = readSheetByName(sheet, "dados")
+	lines, err = readSheetByName(spreadSheet, "dados")
 	if err != nil {
+		success = 1
 		return
 	}
+	// read config file
 	var json map[string]interface{}
 	if json, err = readConfig(confFile); err != nil {
+		success = 1
 		return
 	}
+	// init option vars
 	initVars(json)
-	success, err = processSpreadSheet(json, outType, sheet, outDir, lines)
+	success, err = processSpreadSheet(json, outType, spreadSheet, outDir, lines)
 }
 
 func exitWithError(errMessage string, errCode int) int {
@@ -214,9 +219,10 @@ func processSpreadSheet(json map[string]interface{}, outType string, f *xlsx.Spr
 		}
 		i = j
 		// fmt.Printf("== %v\n", pack)
-		filePath = replaceAllNonAlpha(path.Base(lName))
-		filePath = strings.TrimSuffix(filePath, path.Ext(filePath))
-		if filePath == "" {
+		if filePath, err = replaceAllNonAlpha(path.Base(lName)); err != nil {
+			return -1, err
+		}
+		if filePath = strings.TrimSuffix(filePath, path.Ext(filePath)); filePath == "" {
 			logError(fmt.Errorf("ERRO ao procurar filename na linha [%#v], field [%v]", curr, filenameField))
 			log("#ERRO FILENAME#")
 			continue
@@ -224,8 +230,8 @@ func processSpreadSheet(json map[string]interface{}, outType string, f *xlsx.Spr
 		filePath = path.Join(outDir, filePath)
 		log(fmt.Sprintf("Arquivo: %s", filePath))
 		var wr writer
-		wr, err = createWriter(outType, filePath, "", 0, 0, categLines, serieLines, assetsT)
-		if err != nil {
+		if wr, err = createWriter(outType, filePath, "", 0, 0,
+			categLines, serieLines, assetsT); err != nil {
 			return -1, err
 		}
 		if err = processLines(json, pack, wr); err != nil {
@@ -238,14 +244,14 @@ func processSpreadSheet(json map[string]interface{}, outType string, f *xlsx.Spr
 		// publisher output
 		if okXls {
 			suc := 0
-			if suc, rs, err = processPublisherXLS(JsonXlsMap, outDir, rs, nLines, pack); suc < 0 {
+			if suc, rs, err = processPublisherXLS(JsonXlsMap, outDir, nLines, pack); suc < 0 {
 				success = suc
 			}
-		}
-		if rs != nil && okXls {
-			log("Escrevendo " + filePath)
-			if err = rs.WriteAndClose(""); err != nil {
-				return -1, err
+			if rs != nil {
+				log("Escrevendo " + filePath)
+				if err = rs.WriteAndClose(""); err != nil {
+					return -1, err
+				}
 			}
 		}
 		if wrCateg != nil {
@@ -280,7 +286,8 @@ func processSpreadSheet(json map[string]interface{}, outType string, f *xlsx.Spr
 	return success, err
 }
 
-func processPublisherXLS(JsonXlsMap map[string]interface{}, outDir string, rs *reportSheet, nLines int, pack []lineT) (int, *reportSheet, error) {
+func processPublisherXLS(JsonXlsMap map[string]interface{}, outDir string, nLines int, pack []lineT) (int, *reportSheet, error) {
+	var rs *reportSheet
 	var err error
 	success := 0
 	jsonCols, okCols := JsonXlsMap["columns"].([]interface{})
@@ -296,14 +303,12 @@ func processPublisherXLS(JsonXlsMap map[string]interface{}, outDir string, rs *r
 		return -1, nil, fmt.Errorf("elemento 'sheet' nao existe em xls_output no arquivo json")
 	}
 	xlsFilepath := path.Join(outDir, xlsFile)
-	if rs == nil {
-		nCols := len(jsonCols)
-		if rs, err = newReportSheet(xlsFilepath, sheetName, nCols, nLines); err != nil {
-			return -1, nil, err
-		}
-		if err = rs.OpenOutput(); err != nil {
-			return -1, nil, err
-		}
+	nCols := len(jsonCols)
+	if rs, err = newReportSheet(xlsFilepath, sheetName, nCols, nLines); err != nil {
+		return -1, nil, err
+	}
+	if err = rs.OpenOutput(); err != nil {
+		return -1, nil, err
 	}
 	if errs := processAttrs("", jsonCols, pack, rs); len(errs) > 0 {
 		success = -3
@@ -335,6 +340,7 @@ func processSeries(pack []lineT, categField1 string, wrCateg *jsonWriter, idFiel
 	return success
 }
 
+// init option vars
 func initVars(json map[string]interface{}) {
 	initFunctions()
 	options = make(map[string]string)
@@ -400,7 +406,7 @@ func readSheet(sheet xlsx.Sheet, header []string, idx int) ([]lineT, error) {
 		colCell := sheet.Cell(col, 0)
 		hName := strings.TrimSpace(colCell.String())
 		if contains(header, hName) {
-			return nil, fmt.Errorf("Header da planilha duplicado: [%s]", hName)
+			return nil, fmt.Errorf("header da planilha duplicado: [%s]", hName)
 		}
 		header = append(header, hName)
 	}
