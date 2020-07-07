@@ -363,7 +363,8 @@ func readSheetByName(f *xlsx.Spreadsheet, sName string) ([]lineT, error) {
 	// Get all the rows in the Sheet1.
 	idx := 1
 	var sheet xlsx.Sheet
-	if sheet = f.SheetByName(sName); sheet == nil {
+	// reads sheet in stream mode (much faster)
+	if sheet = f.SheetByName(sName, xlsx.SheetModeStream); sheet == nil {
 		return nil, fmt.Errorf("aba nao existente na planilha: [%s]", sName)
 	}
 	return readSheet(sheet, header, idx)
@@ -392,7 +393,7 @@ func contains(s []string, e string) bool {
 
 // readSheet reads the spreadsheet as an array of map[<line name>] = <value>
 func readSheet(sheet xlsx.Sheet, header []string, idx int) ([]lineT, error) {
-	ncols, nrows := 100, 1000 // sheet.Dimension()
+	ncols, nrows := sheet.Dimension()
 	empty := 0
 	// row 0 == header
 	var col int
@@ -412,12 +413,11 @@ func readSheet(sheet xlsx.Sheet, header []string, idx int) ([]lineT, error) {
 		}
 		header = append(header, hName)
 	}
-	ncols = col
 	// Reading other lines
 	lines := make([]lineT, 0)
 	line := make(map[string]string)
-	for row := 1; row < nrows && empty < 10; row++ {
-		for c := 0; c < ncols; c++ {
+	for row := 1; row < nrows && empty < 5; row++ {
+		for c := 0; c < lastCol+1; c++ {
 			colCell := sheet.Cell(c, row)
 			cellF := ""
 			x, err1 := colCell.Date()
@@ -453,6 +453,8 @@ func readSheet(sheet xlsx.Sheet, header []string, idx int) ([]lineT, error) {
 			idx++
 		}
 	}
+	log(fmt.Sprintf("Aba [%s]: %d linhas, %d colunas. Lidas: %d linhas, %d colunas.",
+		sheet.Name(), nrows, ncols, idx, lastCol+1))
 	return lines, nil
 }
 
