@@ -88,9 +88,8 @@ func initFunctions() {
 	}
 }
 
-// Process processLines one element from json config
+// Process process one element from json config
 func process(funcName string, lines []lineT, json jsonT, options optionsT) ([]resultsT, error) {
-
 	// fmt.Printf("=> %s\n", funcName)
 	if funcName == "" {
 		return errorMessage, fmt.Errorf("'function' nao especificada")
@@ -130,25 +129,25 @@ func fixed(forceVal string, _ lineT, json jsonT, _ optionsT) ([]resultsT, error)
 
 // FieldMoney returns field formatted as money
 func fieldMoney(forceVal string, line lineT, json jsonT, options optionsT) ([]resultsT, error) {
-	val, err := getField(forceVal, "Name", line, json, options)
-	if err != nil {
-		return errorMessage, err
+	val, errF := getField(forceVal, "Name", line, json, options)
+	if errF != nil {
+		return errorMessage, errF
 	}
-	result, err2 := formatMoney(val)
-	if err2 != nil {
-		return errorMessage, err2
+	result, errM := formatMoney(val)
+	if errM != nil {
+		return errorMessage, errM
 	}
 	return []resultsT{newResult(result)}, nil
 }
 
 // Field returns field from line after truncating max size
 func fieldTrunc(forceVal string, line lineT, json jsonT, options optionsT) ([]resultsT, error) {
-	value, err := getField(forceVal, "Name", line, json, options)
-	if err != nil {
-		return errorMessage, err
+	value, errF := getField(forceVal, "Name", line, json, options)
+	if errF != nil {
+		return errorMessage, errF
 	}
-	value, err = truncate(value, line, json, options)
-	return []resultsT{newResult(value)}, err
+	result, errT := truncate(value, line, json, options)
+	return []resultsT{newResult(result)}, errT
 }
 
 // FieldRaw returns field without further processing
@@ -159,16 +158,16 @@ func fieldRaw(forceVal string, line lineT, json jsonT, options optionsT) ([]resu
 
 // FieldDate returns a date field after formatting
 func fieldDate(forceVal string, line lineT, json jsonT, options optionsT) ([]resultsT, error) {
-	value, err := getField(forceVal, "Name", line, json, options)
-	if err != nil {
-		return errorMessage, err
+	value, errF := getField(forceVal, "Name", line, json, options)
+	if errF != nil {
+		return errorMessage, errF
 	}
-	t, err2 := parseDate(value)
-	if err2 != nil {
+	t, errD := parseDate(value)
+	if errD != nil {
 		fieldName, _ := getValue("field", json)
-		return errorMessage, fmt.Errorf("erro no campo '%s': [%s]", fieldName, err2.Error())
+		return errorMessage, fmt.Errorf("erro no campo '%s': [%s]", fieldName, errD.Error())
 	}
-	return []resultsT{newResult(formatDate(t))}, err
+	return []resultsT{newResult(formatDate(t))}, errD
 }
 
 func getField(forceVal string, _ string, line lineT, json jsonT, _ optionsT) (string, error) {
@@ -275,12 +274,23 @@ func suffix(forceVal string, line lineT, json jsonT, options optionsT) ([]result
 	if errR != nil {
 		return errorMessage, errR
 	}
-	val, errS := truncateSuffix(alpha, suf, line, json, options)
-	if errS != nil {
-		return errorMessage, errS
+	var middle string
+	maxS, err := getValue("maxlength", json)
+	if err == nil {
+		// have size limit: truncate string
+		max, errAt := strconv.Atoi(maxS)
+		if errAt != nil {
+			return errorMessage, fmt.Errorf("valor nao numerico em maxlenght: [%v]", maxS)
+		}
+		middle, errAt = truncateSuffix(alpha, suf, max)
+		if errAt != nil {
+			return errorMessage, errAt
+		}
+	} else {
+		// if err != nil, do not have size limit: do nothing
+		middle = alpha
 	}
-	result := fmt.Sprintf("%s%s%s", prefix, val, suf)
-	//	fmt.Printf("-->> %v\n", result)
+	result := fmt.Sprintf("%s%s%s", prefix, middle, suf)
 	return []resultsT{newResult(result)}, nil
 }
 
@@ -297,22 +307,10 @@ func assetID(forceVal string, line lineT, json jsonT, options optionsT) ([]resul
 	if !okP || prov == "" {
 		return errorMessage, fmt.Errorf("provider assetid nao encontrado (provider): [%v]", line)
 	}
-	provider := strings.ToUpper(removeSpaces(prov))
-	leng := len(provider)
-	if leng > 4 {
-		provider = provider[0:4]
-	} else {
-		// repeats last character until length = 4
-		last := provider[leng-1]
-		for i := leng; i < 4; i++ {
-			provider += string([]byte{last})
-		}
-	}
 	suffixF, okS := json["suffix_number"].(float64)
 	if !okS {
 		return errorMessage, fmt.Errorf("numero do sufixo do assetid (suffix_number) nao encontrado: [%v]", json)
 	}
-	suf := int(suffixF)
 	timest := options["timestamp"]
 	if !ok || timest == "" {
 		return errorMessage, fmt.Errorf("timestamp nao encontrada (timestamp): [%v]", options)
@@ -321,8 +319,21 @@ func assetID(forceVal string, line lineT, json jsonT, options optionsT) ([]resul
 	if !okN || fileNum == "" {
 		return errorMessage, fmt.Errorf("numero do arquivo nao encontrado (file_number): [%v]", line)
 	}
-	result := fmt.Sprintf("%s%d%s%03s", provider, suf, timest, fileNum)
+	result := buildAssetID(prov, suffixF, timest, fileNum)
 	return []resultsT{newResult(result)}, nil
+}
+
+func buildAssetID(prov string, suffixF float64, timest string, fileNum string) string {
+	provider := strings.ToUpper(removeSpaces(prov))
+	if leng := len(provider); leng < 5 {
+		// pads with last character so length = 4
+		last := provider[leng-1]
+		provider = provider + string([]byte{last, last, last, last})
+	}
+	provider = provider[0:4]
+	suf := int(suffixF)
+	result := fmt.Sprintf("%s%d%s%03s", provider, suf, timest, fileNum)
+	return result
 }
 
 // AssetIDOtt returns the Asset ID for the ott format
@@ -370,7 +381,7 @@ func episodeID(forceVal string, line lineT, _ jsonT, options optionsT) ([]result
 // Date returns the present date, formatted
 func date(forceVal string, _ lineT, _ jsonT, options optionsT) ([]resultsT, error) {
 	if forceVal != "" {
-		return []resultsT{newResult(forceVal)}, nil
+		return []resultsT{newResult(forceVal)}, nil // TODO
 	}
 	crDate := options["creationDate"]
 	if crDate != "" {
@@ -474,16 +485,16 @@ func eval(value string, line lineT, json jsonT, _ optionsT) ([]resultsT, error) 
 			return strings.ReplaceAll(orig, from, to), nil
 		},
 	}
-	expression, err := govaluate.NewEvaluableExpressionWithFunctions(expr, functions)
-	if err != nil {
+	expression, errV := govaluate.NewEvaluableExpressionWithFunctions(expr, functions)
+	if errV != nil {
 		return errorMessage, fmt.Errorf("expressao invalida (%v) na linha", expr)
 	}
 	params := make(map[string]interface{})
 	for k, v := range line {
 		params[removeSpaces(k)] = v
 	}
-	result, err := expression.Evaluate(params)
-	if err != nil {
+	result, errE := expression.Evaluate(params)
+	if errE != nil {
 		return errorMessage, fmt.Errorf("erro na expressao [%s] com parametros [%#v]", expr, params)
 	}
 	if result == nil {
@@ -529,19 +540,20 @@ func filterCondition(forceVal string, line lineT, json jsonT, options optionsT) 
 
 // Split splits a list of arguments and calls a function for each one of those
 func split(forceVal string, line lineT, json jsonT, options optionsT) ([]resultsT, error) {
-	funcName, ok := json["function2"].(string)
-	if !ok {
+	funcName, okF := json["function2"].(string)
+	if !okF {
 		return errorMessage, fmt.Errorf("elemento '%s' inexistente na linha %v", "function2", line)
 	}
-	func2, ok := functionDict[funcName]
-	if !ok {
+	func2, okD := functionDict[funcName]
+	if !okD {
 		return errorMessage, fmt.Errorf("funcao2 '%s' invalida na linha", json)
 	}
 	var field string
 	var err error
 	if funcName == "fixed" {
-		field = json["Value"].(string)
-		if !ok {
+		var okV bool
+		field, okV = json["Value"].(string)
+		if !okV {
 			return errorMessage, fmt.Errorf("funcao fixed precisa de elemento 'value' na linha %v", line)
 		}
 	} else {
@@ -554,9 +566,9 @@ func split(forceVal string, line lineT, json jsonT, options optionsT) ([]results
 	values := strings.Split(field, ",")
 	for _, val := range values {
 		val = strings.TrimSpace(val)
-		res, err1 := func2(val, line, json, options)
-		if err1 != nil {
-			return errorMessage, err1
+		res, err2 := func2(val, line, json, options)
+		if err2 != nil {
+			return errorMessage, err2
 		}
 		result = append(result, res...)
 	}
@@ -565,22 +577,22 @@ func split(forceVal string, line lineT, json jsonT, options optionsT) ([]results
 
 // MapField returns a map with a field for key and other for value
 func mapField(forceVal string, line lineT, json jsonT, options optionsT) ([]resultsT, error) {
-	key, err := getField(forceVal, "field1", line, json, options)
-	if err != nil {
-		return errorMessage, err
+	key, errF := getField(forceVal, "field1", line, json, options)
+	if errF != nil {
+		return errorMessage, errF
 	}
-	val, err := getField("", "field2", line, json, options) // TODO forceVal does not work here
-	if err != nil {
-		return errorMessage, err
+	val, errG := getField("", "field2", line, json, options) // TODO forceVal does not work here
+	if errG != nil {
+		return errorMessage, errG
 	}
 	return []resultsT{newResult(key), newResult(val)}, nil
 }
 
 // AttrMap returns a map with a field for attribute name and other for value
 func attrMap(forceVal string, line lineT, json jsonT, options optionsT) ([]resultsT, error) {
-	key, err := getField(forceVal, "attr_list", line, json, options)
-	if err != nil {
-		return errorMessage, err
+	key, errF := getField(forceVal, "attr_list", line, json, options)
+	if errF != nil {
+		return errorMessage, errF
 	}
 	//values := strings.Split(key, ",")
 	//attrs, ok := json["attrs"].([]interface{})
@@ -608,11 +620,10 @@ func attrMap(forceVal string, line lineT, json jsonT, options optionsT) ([]resul
 	//		attrMap[name], err = Process(fun, line, json, options)
 	//	}
 	//}
-	val, err := getField(forceVal, "field2", line, json, options)
-	if err != nil {
-		return errorMessage, err
+	val, errG := getField(forceVal, "field2", line, json, options)
+	if errG != nil {
+		return errorMessage, errG
 	}
-
 	return []resultsT{newResult(key), newResult(val)}, nil
 }
 
@@ -622,13 +633,13 @@ func convert(forceVal string, line lineT, json jsonT, options optionsT) ([]resul
 	if err != nil {
 		return errorMessage, err
 	}
-	from, ok := json["from"].(string)
-	if !ok {
-		return errorMessage, err
+	from, okF := json["from"].(string)
+	if !okF {
+		return errorMessage, fmt.Errorf("elemento 'from' faltando com function 'convert': [%v]", json)
 	}
-	to, ok := json["to"].(string)
-	if !ok {
-		return errorMessage, err
+	to, okT := json["to"].(string)
+	if !okT {
+		return errorMessage, fmt.Errorf("elemento 'to' faltando com function 'convert': [%v]", json)
 	}
 	fArr := strings.Split(from, ",")
 	tArr := strings.Split(to, ",")
@@ -639,7 +650,6 @@ func convert(forceVal string, line lineT, json jsonT, options optionsT) ([]resul
 	for i, fr := range fArr {
 		cMap[fr] = tArr[i]
 	}
-
 	val, ok := cMap[key]
 	if !ok {
 		return errorMessage, fmt.Errorf("valor [%s] nao consta da string 'from' no elemento 'convert'", key)
@@ -649,16 +659,15 @@ func convert(forceVal string, line lineT, json jsonT, options optionsT) ([]resul
 
 // Utc returns a date in UTC format
 func utc(forceVal string, line lineT, json jsonT, options optionsT) ([]resultsT, error) {
-	val, err := getField(forceVal, "field", line, json, options)
-	if err != nil {
-		return errorMessage, err
+	val, errM := getField(forceVal, "field", line, json, options)
+	if errM != nil {
+		return errorMessage, errM
 	}
-	dat, err := parseDate(val)
-	if err != nil {
-		return errorMessage, err
+	dat, errP := parseDate(val)
+	if errP != nil {
+		return errorMessage, errP
 	}
-	utcTime := timeToUTCTimestamp(dat)
-	result := fmt.Sprintf("%d", utcTime)
+	result := fmt.Sprintf("%d", timeToUTCTimestamp(dat))
 	return []resultsT{newResult(result)}, nil
 }
 
@@ -678,22 +687,25 @@ func evalCondition(expr string, line lineT) (bool, error) {
 	for k, v := range line {
 		params[removeSpaces(k)] = v
 	}
-	result, err := expression.Evaluate(params)
+	result, errE := expression.Evaluate(params)
+	if errE != nil {
+		return false, errE
+	}
 	if result == nil {
 		return false, fmt.Errorf("expressao invalida (%v), parametros (%v)", expr, params)
 	}
-	return result.(bool), err
+	return result.(bool), nil
 }
 
 // Seconds returns the total seconds from a time
 func seconds(forceVal string, line lineT, json jsonT, options optionsT) ([]resultsT, error) {
-	field, err := fieldTrunc(forceVal, line, json, options)
-	if err != nil {
-		return errorMessage, err
+	field, errT := fieldTrunc(forceVal, line, json, options)
+	if errT != nil {
+		return errorMessage, errT
 	}
-	t, err := time.Parse("03:04:05", field[0].val)
-	if err != nil {
-		return errorMessage, err
+	t, errP := time.Parse("03:04:05", field[0].val)
+	if errP != nil {
+		return errorMessage, errP
 	}
 	return []resultsT{newResult(formatHMS(t))}, nil
 }
@@ -714,19 +726,24 @@ func surnameName(forceVal string, line lineT, json jsonT, options optionsT) ([]r
 	if result == "" {
 		return []resultsT{newResult("")}, nil
 	}
+	// split names
 	names := strings.Split(result, " ")
 	length := len(names)
+	if length == 1 {
+		// only one name
+		return []resultsT{newResult(names[0])}, nil
+	}
 	var newName strings.Builder
+	// write second to last names
 	for i := 1; i < length; i++ {
 		if i > 1 {
 			newName.WriteString(" ")
 		}
 		newName.WriteString(names[i])
 	}
-	newName.WriteString(", ")
-	newName.WriteString(names[0])
-	result = newName.String()
-	return []resultsT{newResult(result)}, nil
+	// write first name
+	newName.WriteString(", " + names[0])
+	return []resultsT{newResult(newName.String())}, nil
 }
 
 // genUUID returns a random uuid number
@@ -740,12 +757,12 @@ func option(forceVal string, _ lineT, json jsonT, options optionsT) ([]resultsT,
 	if forceVal != "" {
 		return []resultsT{newResult(forceVal)}, nil
 	}
-	optField, ok := json["field"].(string)
-	if !ok {
+	optField, okF := json["field"].(string)
+	if !okF {
 		return errorMessage, fmt.Errorf("elemento '%s' inexistente na linha", "field")
 	}
-	val, ok := options[optField]
-	if !ok {
+	val, okO := options[optField]
+	if !okO {
 		return errorMessage, fmt.Errorf("elemento '%s' inexistente nas options [%v]", optField, options)
 	}
 	return []resultsT{newResult(val)}, nil
@@ -803,15 +820,7 @@ func undefined(value string, _ lineT, _ jsonT, _ optionsT) ([]resultsT, error) {
 
 // FirstName returns the first name of a composite name
 func firstName(forceVal string, _ lineT, json jsonT, _ optionsT) ([]resultsT, error) {
-	if forceVal != "" {
-		return []resultsT{newResult(forceVal)}, nil
-	}
-	value := ""
-	val, _ := json["Value"].(string)
-	if val != "" && val[0:1] == "$" {
-		value = options[val]
-	}
-	names := strings.Split(value, " ")
+	names := getNames(forceVal, json)
 	result := ""
 	if len(names) >= 1 {
 		result = names[0]
@@ -821,15 +830,7 @@ func firstName(forceVal string, _ lineT, json jsonT, _ optionsT) ([]resultsT, er
 
 // LastName returns the first name of a composite name
 func lastName(forceVal string, _ lineT, json jsonT, _ optionsT) ([]resultsT, error) {
-	if forceVal != "" {
-		return []resultsT{newResult(forceVal)}, nil
-	}
-	value := ""
-	val, _ := json["Value"].(string)
-	if val != "" && val[0:1] == "$" {
-		value = options[val]
-	}
-	names := strings.Split(value, " ")
+	names := getNames(forceVal, json)
 	result := ""
 	length := len(names)
 	if length > 1 {
@@ -840,21 +841,30 @@ func lastName(forceVal string, _ lineT, json jsonT, _ optionsT) ([]resultsT, err
 
 // MiddleName returns the first name of a composite name
 func middleName(forceVal string, _ lineT, json jsonT, _ optionsT) ([]resultsT, error) {
-	if forceVal != "" {
-		return []resultsT{newResult(forceVal)}, nil
-	}
-	val, _ := json["Value"].(string)
-	value := ""
-	if val != "" && val[0:1] == "$" {
-		value = options[val]
-	}
-	names := strings.Split(value, " ")
+	names := getNames(forceVal, json)
 	result := ""
 	length := len(names)
 	if length > 2 {
 		result = names[1]
 	}
 	return []resultsT{newResult(result)}, nil
+}
+
+// getNames splits the names from a composite name
+func getNames(forceVal string, json jsonT) []string {
+	value := ""
+	if forceVal != "" {
+		value = forceVal
+	} else {
+		val, _ := json["Value"].(string)
+		if val != "" && val[0:1] == "$" {
+			value = options[val]
+		} else {
+			value = val
+		}
+	}
+	names := strings.Split(removeExtraSpaces(value), " ")
+	return names
 }
 
 ///////////////////////////////
@@ -954,15 +964,8 @@ func parseDate(dateStr string) (time.Time, error) {
 	return result, err
 }
 
-func truncateSuffix(value string, suffix string, _ lineT, json jsonT, _ optionsT) (string, error) {
-	val, err := getValue("maxlength", json)
-	if val == "" || err != nil {
-		return value, nil
-	}
-	max, errA := strconv.Atoi(val)
-	if errA != nil {
-		return errorMessage[0].val, fmt.Errorf("valor nao numerico em maxlenght: [%v]", val)
-	}
+// truncates element in max chars, preserving suffix
+func truncateSuffix(value string, suffix string, max int) (string, error) {
 	valLen := len(value)
 	sufLen := len(suffix)
 	if valLen+sufLen <= max {
@@ -1033,6 +1036,7 @@ func toTimestamp(value string) (int64, error) {
 	//is serial format?
 	serial, err := strconv.ParseFloat(value, 64)
 	if err != nil {
+		// conversion from float failed: try to convert from string
 		t, err2 := time.Parse("15:04:05", value)
 		if err2 != nil {
 			return -1, err

@@ -177,6 +177,127 @@ func TestCondition(t *testing.T) {
 	}
 }
 
+func TestSurnameName(t *testing.T) {
+	t1, err := surnameName(" ", nil, nil, nil)
+	if err != nil {
+		t.Error(err)
+	}
+	assert.Equal(t, []resultsT{newResult("")}, t1)
+	t1, err = surnameName("first", nil, nil, nil)
+	if err != nil {
+		t.Error(err)
+	}
+	assert.Equal(t, []resultsT{newResult("first")}, t1)
+	t1, err = surnameName("first second", nil, nil, nil)
+	if err != nil {
+		t.Error(err)
+	}
+	assert.Equal(t, []resultsT{newResult("second, first")}, t1)
+	t1, err = surnameName("first second third", nil, nil, nil)
+	if err != nil {
+		t.Error(err)
+	}
+	assert.Equal(t, []resultsT{newResult("second third, first")}, t1)
+	t1, err = surnameName("first second third fourth", nil, nil, nil)
+	if err != nil {
+		t.Error(err)
+	}
+	assert.Equal(t, []resultsT{newResult("second third fourth, first")}, t1)
+}
+
+func TestFirstname(t *testing.T) {
+	t1, err := firstName(" ", nil, nil, nil)
+	if err != nil {
+		t.Error(err)
+	}
+	assert.Equal(t, []resultsT{newResult("")}, t1)
+	t1, err = firstName("first", nil, nil, nil)
+	if err != nil {
+		t.Error(err)
+	}
+	assert.Equal(t, []resultsT{newResult("first")}, t1)
+	t1, err = firstName("first second", nil, nil, nil)
+	if err != nil {
+		t.Error(err)
+	}
+	assert.Equal(t, []resultsT{newResult("first")}, t1)
+	t1, err = firstName("first second third", nil, nil, nil)
+	if err != nil {
+		t.Error(err)
+	}
+	assert.Equal(t, []resultsT{newResult("first")}, t1)
+	t1, err = firstName("first second third fourth", nil, nil, nil)
+	if err != nil {
+		t.Error(err)
+	}
+	assert.Equal(t, []resultsT{newResult("first")}, t1)
+}
+
+func TestLastname(t *testing.T) {
+	t1, err := lastName(" ", nil, nil, nil)
+	if err != nil {
+		t.Error(err)
+	}
+	assert.Equal(t, []resultsT{newResult("")}, t1)
+	t1, err = lastName("first", nil, nil, nil)
+	if err != nil {
+		t.Error(err)
+	}
+	assert.Equal(t, []resultsT{newResult("")}, t1)
+	t1, err = lastName("first second", nil, nil, nil)
+	if err != nil {
+		t.Error(err)
+	}
+	assert.Equal(t, []resultsT{newResult("second")}, t1)
+	t1, err = lastName("first second third", nil, nil, nil)
+	if err != nil {
+		t.Error(err)
+	}
+	assert.Equal(t, []resultsT{newResult("third")}, t1)
+	t1, err = lastName("first second third fourth", nil, nil, nil)
+	if err != nil {
+		t.Error(err)
+	}
+	assert.Equal(t, []resultsT{newResult("fourth")}, t1)
+}
+
+func TestMiddlename(t *testing.T) {
+	t1, err := middleName(" ", nil, nil, nil)
+	if err != nil {
+		t.Error(err)
+	}
+	assert.Equal(t, []resultsT{newResult("")}, t1)
+	t1, err = middleName("first", nil, nil, nil)
+	if err != nil {
+		t.Error(err)
+	}
+	assert.Equal(t, []resultsT{newResult("")}, t1)
+	t1, err = middleName("first second", nil, nil, nil)
+	if err != nil {
+		t.Error(err)
+	}
+	assert.Equal(t, []resultsT{newResult("")}, t1)
+	t1, err = middleName("first second third", nil, nil, nil)
+	if err != nil {
+		t.Error(err)
+	}
+	assert.Equal(t, []resultsT{newResult("second")}, t1)
+	t1, err = middleName("first second third fourth", nil, nil, nil)
+	if err != nil {
+		t.Error(err)
+	}
+	assert.Equal(t, []resultsT{newResult("second")}, t1)
+}
+
+func TestBuildAssetID(t *testing.T) {
+	aID := buildAssetID("ABCD", 7, "200702102255", "1")
+	assert.Equal(t, "ABCD7200702102255001", aID)
+	aID = buildAssetID("A", 7, "200702102255", "1")
+	assert.Equal(t, "AAAA7200702102255001", aID)
+	aID = buildAssetID("ABCDEF", 7, "200702102255", "1")
+	assert.Equal(t, "ABCD7200702102255001", aID)
+}
+
 func TestXmlNet(t *testing.T) {
 	json, err := readConfig("config_net.json")
 	if err != nil {

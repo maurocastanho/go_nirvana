@@ -174,9 +174,7 @@ func processSpreadSheet(json map[string]interface{}, outType string, f *xlsx.Spr
 	filePath := ""
 	var curr lineT
 	name := ""
-	jsonXls, okXls := json["xls_output"]
-	JsonXlsMap := jsonXls.(map[string]interface{})
-	var rs *reportSheet
+	var repSheet *reportSheet
 	var wrCateg *jsonWriter
 	var wrSeries *jsonWriter
 	var categLines []lineT
@@ -240,16 +238,16 @@ func processSpreadSheet(json map[string]interface{}, outType string, f *xlsx.Spr
 			success = -1
 		}
 		lName = name
-
 		// publisher output
-		if okXls {
+		if jsonXls, hasPubOutput := json["xls_output"]; hasPubOutput {
+			JsonXlsMap := jsonXls.(map[string]interface{})
 			suc := 0
-			if suc, rs, err = processPublisherXLS(JsonXlsMap, outDir, nLines, pack); suc < 0 {
+			if suc, repSheet, err = processPublisherXLS(JsonXlsMap, outDir, nLines, pack); suc < 0 {
 				success = suc
 			}
-			if rs != nil {
+			if repSheet != nil {
 				log("Escrevendo " + filePath)
-				if err = rs.WriteAndClose(""); err != nil {
+				if err = repSheet.WriteAndClose(""); err != nil {
 					return -1, err
 				}
 			}
@@ -267,17 +265,21 @@ func processSpreadSheet(json map[string]interface{}, outType string, f *xlsx.Spr
 		log("------------------------------------")
 	}
 	if success == 0 {
-		if rs != nil {
-			if _, _, err = rs.WriteExtras(); err != nil {
+		// Main file successfully processed, process other outputs
+		if repSheet != nil {
+			// publisher report
+			if _, _, err = repSheet.WriteExtras(); err != nil {
 				return -1, err
 			}
 		}
 		if wrCateg != nil {
+			// categories.json
 			if _, _, err = wrCateg.WriteExtras(); err != nil {
 				return -1, err
 			}
 		}
 		if wrSeries != nil {
+			// series.json
 			if _, _, err = wrSeries.WriteExtras(); err != nil {
 				return -1, err
 			}
