@@ -199,8 +199,8 @@ func processSpreadSheet(json map[string]interface{}, outType string, f *xlsx.Spr
 	for i := 0; i < nLines; {
 		log(fmt.Sprintf("Processando linha %d...", i+1))
 		var pack []lineT
-		j := i
 		// Groups lines with the same filename or empty filename
+		j := i
 		for ; j < nLines; j++ {
 			curr = lines[j]
 			name = curr[nameField]
@@ -630,7 +630,6 @@ func processMap(json jsonT, lines []lineT, wr writer) (err2 []error) {
 		case []interface{}:
 			// fmt.Printf("%s:", k)
 			// fmt.Printf("(%T)", v)
-			// fmt.Println()
 			// fmt.Printf("---> %s\n", name)
 		case map[string]interface{}:
 			switch k {
