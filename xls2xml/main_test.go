@@ -611,9 +611,9 @@ func TestXmlOiOtt(t *testing.T) {
 }
 
 func TestXmlVivo(t *testing.T) {
-	json, err := readConfig("config_vivo.json")
-	if err != nil {
-		t.Error(err)
+	json, errC := readConfig("config_vivo.json")
+	if errC != nil {
+		t.Error(errC)
 	}
 	initVars(json)
 	expected := "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n<!DOCTYPE ADI SYSTEM \"ADI.DTD\">\n" +
@@ -754,13 +754,12 @@ func TestXmlVivo(t *testing.T) {
 	options["timestamp"] = "200619015447"
 	options["creationDate"] = "2020-06-19"
 	//fmt.Printf("%#v\n", maplines)
-	xmlWr, err := newXMLWriter("unit_tests.json", "ADI.DTD")
-	if err != nil {
-		t.Error(err)
+	xmlWr, errX := newXMLWriter("unit_tests.json", "ADI.DTD")
+	if errX != nil {
+		t.Error(errX)
 	}
 	xmlWr.testing = true
-	err = processLines(json, []lineT{maplines}, xmlWr)
-	if err != nil {
+	if err := processLines(json, []lineT{maplines}, xmlWr); err != nil {
 		t.Error(err)
 	}
 	result := xmlWr.getBuffer()
@@ -772,9 +771,9 @@ func TestXmlVivo(t *testing.T) {
 }
 
 func TestXmlBox1(t *testing.T) {
-	json, err := readConfig("config_box.json")
-	if err != nil {
-		t.Error(err)
+	json, errCf := readConfig("config_box.json")
+	if errCf != nil {
+		t.Error(errCf)
 	}
 	initVars(json)
 	expectedAssets := "{\n" +
@@ -968,24 +967,23 @@ func TestXmlBox1(t *testing.T) {
 	options["timestamp"] = "200702102255"
 	options["creationDate"] = "2020-06-19"
 	//fmt.Printf("%#v\n", maplines)
-	jsonWr, err := newJSONWriter("unit_tests_assets.json", categLine, nil, assetsT)
-	if err != nil {
-		t.Error(err)
+	jsonWr, errA := newJSONWriter("unit_tests_assets.json", categLine, nil, assetsT)
+	if errA != nil {
+		t.Error(errA)
 	}
 	jsonWr.testing = true
-	err = processLines(json, []lineT{maplines}, jsonWr)
-	if err != nil {
+	if err := processLines(json, []lineT{maplines}, jsonWr); err != nil {
 		t.Error(err)
 	}
-	categWr, err := newJSONWriter("unit_tests_categs.json", categLine, nil, categsT)
-	if err != nil {
-		t.Error(err)
+	categWr, errC := newJSONWriter("unit_tests_categs.json", categLine, nil, categsT)
+	if errC != nil {
+		t.Error(errC)
 	}
 	categWr.testing = true
 	categWr.processCategPack(maplines, "uuid_box", "Genero 1", "Genero 2")
-	bufAssets, bufCategs, err := categWr.WriteExtras()
-	if err != nil {
-		t.Error(err)
+	bufAssets, bufCategs, errE := categWr.WriteExtras()
+	if errE != nil {
+		t.Error(errE)
 	}
 	assetRes := string(bufAssets) // converting from windows encoding to UTF-8
 	categRes := string(bufCategs) // converting from windows encoding to UTF-8
@@ -994,9 +992,9 @@ func TestXmlBox1(t *testing.T) {
 }
 
 func xTestXmlBox2(t *testing.T) {
-	json, err := readConfig("config_box.json")
-	if err != nil {
-		t.Error(err)
+	json, errConf := readConfig("config_box.json")
+	if errConf != nil {
+		t.Error(errConf)
 	}
 	initVars(json)
 	expectedAssets := "{\n" +
@@ -1216,24 +1214,23 @@ func xTestXmlBox2(t *testing.T) {
 	options["timestamp"] = "200702102255"
 	options["creationDate"] = "2020-06-19"
 	//fmt.Printf("%#v\n", maplines)
-	jsonWr, err := newJSONWriter("unit_tests_assets.json", categLine, nil, assetsT)
-	if err != nil {
-		t.Error(err)
+	jsonWr, errA := newJSONWriter("unit_tests_assets.json", categLine, nil, assetsT)
+	if errA != nil {
+		t.Error(errA)
 	}
 	jsonWr.testing = true
-	err = processLines(json, []lineT{maplines}, jsonWr)
-	if err != nil {
+	if err := processLines(json, []lineT{maplines}, jsonWr); err != nil {
 		t.Error(err)
 	}
-	categWr, err := newJSONWriter("unit_tests_categs.json", categLine, nil, categsT)
-	if err != nil {
-		t.Error(err)
+	categWr, errC := newJSONWriter("unit_tests_categs.json", categLine, nil, categsT)
+	if errC != nil {
+		t.Error(errC)
 	}
 	categWr.testing = true
 	categWr.processCategPack(maplines, "uuid_box", "Genero 1", "Genero 2")
-	bufAssets, bufCategs, err := categWr.WriteExtras()
-	if err != nil {
-		t.Error(err)
+	bufAssets, bufCategs, errE := categWr.WriteExtras()
+	if errE != nil {
+		t.Error(errE)
 	}
 	assetRes := string(bufAssets) // converting from windows encoding to UTF-8
 	categRes := string(bufCategs) // converting from windows encoding to UTF-8

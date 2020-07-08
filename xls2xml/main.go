@@ -9,10 +9,9 @@ import (
 	"path"
 	"strings"
 
-	"github.com/plandem/xlsx"
-
-	// "github.com/mgutz/ansi"
 	"flag"
+
+	"github.com/plandem/xlsx"
 )
 
 // Element types
@@ -252,6 +251,7 @@ func processSpreadSheet(json map[string]interface{}, outType string, f *xlsx.Spr
 				}
 			}
 		}
+		// extra files
 		if wrCateg != nil {
 			if suc := processCategs(pack, categField1, wrCateg, idField, categField2); suc < 0 {
 				success = suc
@@ -867,7 +867,6 @@ func writeElem(wr writer, attrs []interface{}, lines []lineT, name string, procV
 	if len(err3) > 0 {
 		return err3[0], true
 	}
-
 	if procVal != "" {
 		err1 := wr.Write(procVal)
 		if err1 != nil {
@@ -972,13 +971,11 @@ func latinToUTF8(buffer []byte) string {
 }
 
 func logError(err error) {
-	// phosphorize := ansi.ColorFunc("red")
 	msg := fmt.Sprintf("ERRO: %v\n", err.Error())
 	log(msg)
 }
 
 func log(msg string) {
-	// phosphorize := ansi.ColorFunc("red")
 	_, _ = fmt.Fprintln(os.Stderr, msg)
 }
 

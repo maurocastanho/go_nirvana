@@ -4,10 +4,29 @@
     <inspection_tool class="CheckDtdRefs" enabled="false" level="ERROR" enabled_by_default="false" />
     <inspection_tool class="CheckTagEmptyBody" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="CheckXmlFileWithXercesValidator" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="GoBuildTag" enabled="true" level="ERROR" enabled_by_default="true" />
     <inspection_tool class="GoCommentStart" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="GoDeferGo" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="GoDeferInLoop" enabled="true" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="GoDivisionByZero" enabled="true" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="GoErrorsAs" enabled="true" level="ERROR" enabled_by_default="true" />
     <inspection_tool class="GoExportedElementShouldHaveComment" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
-    <inspection_tool class="GoShadowedVar" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="GoImportUsedAsName" enabled="true" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="GoLoopClosure" enabled="true" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="GoNilness" enabled="true" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="GoPrintFunctions" enabled="true" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="GoReservedWordUsedAsName" enabled="true" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="GoShadowedVar" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="GoShift" enabled="true" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="GoStandardMethods" enabled="true" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="GoStringsReplaceCount" enabled="true" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="GoStructTag" enabled="true" level="ERROR" enabled_by_default="true" />
     <inspection_tool class="GoUnnecessarilyExportedIdentifiers" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="GoUnusedCallResult" enabled="true" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="GoVetAtomic" enabled="true" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="GoVetCopyLock" enabled="true" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="GoVetUnmarshal" enabled="true" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="GoVetUnsafePointer" enabled="true" level="ERROR" enabled_by_default="true" />
     <inspection_tool class="GrazieInspection" enabled="false" level="TYPO" enabled_by_default="false" />
     <inspection_tool class="InconsistentLineSeparators" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="LanguageDetectionInspection" enabled="false" level="WARNING" enabled_by_default="false" />
