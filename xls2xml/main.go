@@ -60,6 +60,8 @@ type writer interface {
 }
 
 var options map[string]string
+var rs *reportSheet
+var xlsFilePath string
 
 const errSuffix = "_ERRO"
 
@@ -69,7 +71,13 @@ func main() {
 	defer func() {
 		if msg := recover(); msg != nil {
 			success = -4
-			logError(fmt.Errorf("%v", msg))
+			switch msg.(type) {
+			case string:
+				logError(fmt.Errorf("%v", msg))
+			case error:
+				logError(msg.(error))
+			}
+
 		}
 		if err != nil {
 			success = -3
@@ -143,6 +151,7 @@ func main() {
 	// init option vars
 	initVars(json)
 	success, err = processSpreadSheet(json, outType, spreadSheet, outDir, lines)
+	log(fmt.Sprintf("Gravado arquivo de report: %s", xlsFilePath))
 }
 
 func exitWithError(errMessage string, errCode int) int {
@@ -173,7 +182,6 @@ func processSpreadSheet(json map[string]interface{}, outType string, f *xlsx.Spr
 	filePath := ""
 	var curr lineT
 	name := ""
-	var repSheet *reportSheet
 	var wrCateg *jsonWriter
 	var wrSeries *jsonWriter
 	var categLines []lineT
@@ -231,6 +239,7 @@ func processSpreadSheet(json map[string]interface{}, outType string, f *xlsx.Spr
 			categLines, serieLines, assetsT); err != nil {
 			return -1, err
 		}
+		log("Escrevendo " + filePath)
 		if err = processLines(json, pack, wr); err != nil {
 			// Do not stop: log error and continue to other files
 			logError(err)
@@ -240,13 +249,15 @@ func processSpreadSheet(json map[string]interface{}, outType string, f *xlsx.Spr
 		// publisher output
 		if jsonXls, hasPubOutput := json["xls_output"]; hasPubOutput {
 			JsonXlsMap := jsonXls.(map[string]interface{})
-			suc := 0
-			if suc, repSheet, err = processPublisherXLS(JsonXlsMap, outDir, nLines, pack); suc < 0 {
+			var suc int
+			xlsFilePath, suc, err = processPublisherXLS(JsonXlsMap, outDir, nLines, pack)
+			if err != nil {
+				return -1, err
+			} else if suc != 0 {
 				success = suc
 			}
-			if repSheet != nil {
-				log("Escrevendo " + filePath)
-				if err = repSheet.WriteAndClose(""); err != nil {
+			if rs != nil {
+				if err = rs.WriteAndClose(""); err != nil {
 					return -1, err
 				}
 			}
@@ -266,9 +277,9 @@ func processSpreadSheet(json map[string]interface{}, outType string, f *xlsx.Spr
 	}
 	if success == 0 {
 		// Main file successfully processed, process other outputs
-		if repSheet != nil {
+		if rs != nil {
 			// publisher report
-			if _, _, err = repSheet.WriteExtras(); err != nil {
+			if _, _, err = rs.WriteExtras(); err != nil {
 				return -1, err
 			}
 		}
@@ -288,29 +299,30 @@ func processSpreadSheet(json map[string]interface{}, outType string, f *xlsx.Spr
 	return success, err
 }
 
-func processPublisherXLS(JsonXlsMap map[string]interface{}, outDir string, nLines int, pack []lineT) (int, *reportSheet, error) {
-	var rs *reportSheet
+func processPublisherXLS(JsonXlsMap map[string]interface{}, outDir string, nLines int, pack []lineT) (string, int, error) {
 	var err error
 	success := 0
-	jsonCols, okCols := JsonXlsMap["columns"].([]interface{})
-	if !okCols {
-		return -1, nil, fmt.Errorf("elemento 'columns' nao existe em xls_output no arquivo json")
-	}
 	xlsFile, ok := JsonXlsMap["filename"].(string)
 	if !ok {
-		return -1, nil, fmt.Errorf("elemento 'filename' nao existe em xls_output no arquivo json")
+		return "", -1, fmt.Errorf("elemento 'filename' nao existe em xls_output no arquivo json")
 	}
-	sheetName, ok := JsonXlsMap["sheet"].(string)
-	if !ok {
-		return -1, nil, fmt.Errorf("elemento 'sheet' nao existe em xls_output no arquivo json")
+	jsonCols, okCols := JsonXlsMap["columns"].([]interface{})
+	if !okCols {
+		return "", -1, fmt.Errorf("elemento 'columns' nao existe em xls_output no arquivo json")
+	}
+	sheetName, okS := JsonXlsMap["sheet"].(string)
+	if !okS {
+		return "", -1, fmt.Errorf("elemento 'sheet' nao existe em xls_output no arquivo json")
 	}
 	xlsFilepath := path.Join(outDir, xlsFile)
-	nCols := len(jsonCols)
-	if rs, err = newReportSheet(xlsFilepath, sheetName, nCols, nLines); err != nil {
-		return -1, nil, err
-	}
-	if err = rs.OpenOutput(); err != nil {
-		return -1, nil, err
+	if rs == nil {
+		nCols := len(jsonCols)
+		if rs, err = newReportSheet(xlsFilepath, sheetName, nCols, nLines); err != nil {
+			return xlsFilepath, -1, err
+		}
+		if err = rs.OpenOutput(); err != nil {
+			return xlsFilepath, -1, err
+		}
 	}
 	if errs := processAttrs("", jsonCols, pack, rs); len(errs) > 0 {
 		success = -3
@@ -319,7 +331,7 @@ func processPublisherXLS(JsonXlsMap map[string]interface{}, outDir string, nLine
 		}
 	}
 	rs.newLine()
-	return success, rs, nil
+	return xlsFilepath, success, nil
 }
 
 func processCategs(pack []lineT, categField1 string, wrCateg *jsonWriter, idField string, categField2 string) int {

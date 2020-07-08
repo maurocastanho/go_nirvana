@@ -27,6 +27,7 @@ type reportSheet struct {
 	bodyStyle   styles.DirectStyleID
 	timeStyle   styles.DirectStyleID
 	moneyStyle  styles.DirectStyleID
+	opened      bool
 }
 
 // StartMap starts a map element
@@ -41,28 +42,30 @@ func (rs *reportSheet) EndMap() error {
 
 // NewReportSheet creates a new struct
 func newReportSheet(filename string, sheetName string, nCols int, nLines int) (*reportSheet, error) {
-	rs := reportSheet{
+	rSheet := reportSheet{
 		filepath:   filename,
 		sheetName:  sheetName,
 		numCols:    nCols,
 		numLines:   nLines + 1,
 		currentRow: 1,
+		opened:     false,
 	}
-	return &rs, nil
+	return &rSheet, nil
 }
 
 // OpenOutput opens the output file for writing
-func (rs *reportSheet) OpenOutput() (err error) {
+func (rs *reportSheet) OpenOutput() error {
+	if rs.opened {
+		return nil
+	}
+	rs.opened = true
 	st, err := os.Stat(rs.filepath)
 	if err == nil {
 		if st.IsDir() {
-			err = fmt.Errorf("arquivo [%s] nao pode ser aberto pois e' um diretorio", rs.filepath)
-			return
+			return fmt.Errorf("arquivo [%s] nao pode ser aberto pois e' um diretorio", rs.filepath)
 		}
-		err2 := os.Remove(rs.filepath)
-		if err2 != nil {
-			err = fmt.Errorf("arquivo [%s] nao pode ser sobrescrito", rs.filepath)
-			return
+		if errR := os.Remove(rs.filepath); errR != nil {
+			return fmt.Errorf("arquivo [%s] nao pode ser sobrescrito", rs.filepath)
 		}
 	}
 	err = nil
@@ -75,7 +78,6 @@ func (rs *reportSheet) OpenOutput() (err error) {
 	for i := 0; i < rs.numCols; i++ {
 		rs.sheet.Col(i).SetOptions(co)
 	}
-
 	// Add styles
 	redBold := styles.New(
 		styles.Fill.Color("#a0a0a0"),
@@ -85,14 +87,12 @@ func (rs *reportSheet) OpenOutput() (err error) {
 		styles.Font.Bold,
 	)
 	rs.headerStyle = rs.xlsFile.AddStyles(redBold)
-
 	bodyStyle := styles.New(
 		styles.Fill.Color("#ffffff"),
 		styles.Fill.Background("#ffffff"),
 		styles.Fill.Type(styles.PatternTypeSolid),
 	)
 	rs.bodyStyle = rs.xlsFile.AddStyles(bodyStyle)
-
 	timeStyle := styles.New(
 		styles.Fill.Color("#ffffff"),
 		styles.Fill.Background("#ffffff"),
@@ -100,7 +100,6 @@ func (rs *reportSheet) OpenOutput() (err error) {
 		styles.NumberFormat("HH:MM:SS"),
 	)
 	rs.timeStyle = rs.xlsFile.AddStyles(timeStyle)
-
 	moneyStyle := styles.New(
 		styles.Fill.Color("#ffffff"),
 		styles.Fill.Background("#ffffff"),
@@ -108,8 +107,7 @@ func (rs *reportSheet) OpenOutput() (err error) {
 		styles.NumberFormat("\"R$\" #,##0.00"),
 	)
 	rs.moneyStyle = rs.xlsFile.AddStyles(moneyStyle)
-
-	return
+	return nil
 }
 
 // StartElem is unused
@@ -186,7 +184,6 @@ func (rs *reportSheet) WriteAttr(name string, value string, vtype string, _ stri
 		}
 		val = value
 	}
-
 	if rs.currentRow == 1 {
 		err := rs.writeCell(rs.currentCol, 0, name, rs.headerStyle)
 		if err != nil {
@@ -204,39 +201,14 @@ func (rs *reportSheet) WriteAttr(name string, value string, vtype string, _ stri
 }
 
 // WriteAndClose writes the xls file and closes it
-func (rs *reportSheet) WriteAndClose(_ string) (err error) {
-	err = rs.xlsFile.SaveAs(rs.filepath)
-	if err != nil {
-		return
+func (rs *reportSheet) WriteAndClose(_ string) error {
+	if err := rs.xlsFile.SaveAs(rs.filepath); err != nil {
+		return err
 	}
-	err = rs.xlsFile.Close()
-	if err != nil {
-		return
+	if err := rs.xlsFile.Close(); err != nil {
+		return err
 	}
-	return
-}
-
-func (rs *reportSheet) processColumns(_ string, json []interface{}, lines []lineT, wr writer) (err2 []error) {
-	for _, v := range json {
-		switch vv := v.(type) {
-		case map[string]interface{}:
-			err2 = appendErrors(err2, rs.processColumn(vv, lines, wr)...)
-		}
-	}
-	return
-}
-
-func (rs *reportSheet) processColumn(json jsonT, lines []lineT, _ writer) (err []error) {
-	name := json["Name"].(string)
-	function, ok := json["function"].(string)
-	if ok {
-		procVals, err2 := process(function, lines, json, options)
-		err = appendErrors(err, err2)
-		for _, procVal := range procVals {
-			fmt.Printf("%s: %#v\n", name, procVal.val)
-		}
-	}
-	return
+	return nil
 }
 
 // StartComment marks the start of a comment section
@@ -269,3 +241,26 @@ func (rs *reportSheet) newLine() {
 func (rs *reportSheet) WriteExtras() ([]byte, []byte, error) {
 	return nil, nil, nil
 }
+
+//func (rs *reportSheet) processColumns(_ string, json []interface{}, lines []lineT, wr writer) (err2 []error) {
+//	for _, v := range json {
+//		switch vv := v.(type) {
+//		case map[string]interface{}:
+//			err2 = appendErrors(err2, rs.processColumn(vv, lines, wr)...)
+//		}
+//	}
+//	return
+//}
+//
+//func (rs *reportSheet) processColumn(json jsonT, lines []lineT, _ writer) []error {
+//	if function, ok := json["function"].(string); ok {
+//		if _, err := process(function, lines, json, options); err != nil {
+//			return []error{err}
+//		}
+//		//name := json["Name"].(string)
+//		//for _, procVal := range procVals {
+//		//	fmt.Printf("%s: %#v\n", name, procVal.val)
+//		//}
+//	}
+//	return nil
+//}

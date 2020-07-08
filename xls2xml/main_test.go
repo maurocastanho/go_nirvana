@@ -299,9 +299,9 @@ func TestBuildAssetID(t *testing.T) {
 }
 
 func TestXmlNet(t *testing.T) {
-	json, err := readConfig("config_net.json")
-	if err != nil {
-		t.Error(err)
+	json, errCf := readConfig("config_net.json")
+	if errCf != nil {
+		t.Error(errCf)
 	}
 	initVars(json)
 	expected := "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n<!DOCTYPE ADI SYSTEM \"ADI.DTD\">\n" +
@@ -442,26 +442,23 @@ func TestXmlNet(t *testing.T) {
 	options["timestamp"] = "200619015447"
 	options["creationDate"] = "2020-06-19"
 	//fmt.Printf("%#v\n", maplines)
-	xmlWr, err := newXMLWriter("unit_tests.json", "ADI.DTD")
-	if err != nil {
-		t.Error(err)
+	xmlWr, errW := newXMLWriter("unit_tests.json", "ADI.DTD")
+	if errW != nil {
+		t.Error(errW)
 	}
 	xmlWr.testing = true
-	err = processLines(json, []lineT{maplines}, xmlWr)
-	if err != nil {
+	if err := processLines(json, []lineT{maplines}, xmlWr); err != nil {
 		t.Error(err)
 	}
 	result := xmlWr.getBuffer()
 	res2 := decodeISO88599ToUTF8(result) // converting from windows encoding to UTF-8
-	if res2 != expected {
-		assert.Equal(t, expected, res2)
-	}
+	assert.Equal(t, expected, res2)
 }
 
 func TestXmlOiOtt(t *testing.T) {
-	json, err := readConfig("config_oi_ott.json")
-	if err != nil {
-		t.Error(err)
+	json, errCf := readConfig("config_oi_ott.json")
+	if errCf != nil {
+		t.Error(errCf)
 	}
 	initVars(json)
 	expected := "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n" +
@@ -595,13 +592,12 @@ func TestXmlOiOtt(t *testing.T) {
 	options["timestamp"] = "200702102255"
 	options["creationDate"] = "2020-06-19"
 	//fmt.Printf("%#v\n", maplines)
-	xmlWr, err := newXMLWriter("unit_tests.json", "")
-	if err != nil {
-		t.Error(err)
+	xmlWr, errW := newXMLWriter("unit_tests.json", "")
+	if errW != nil {
+		t.Error(errW)
 	}
 	xmlWr.testing = true
-	err = processLines(json, []lineT{maplines}, xmlWr)
-	if err != nil {
+	if err := processLines(json, []lineT{maplines}, xmlWr); err != nil {
 		t.Error(err)
 		return
 	}
@@ -764,10 +760,7 @@ func TestXmlVivo(t *testing.T) {
 	}
 	result := xmlWr.getBuffer()
 	res2 := decodeISO88599ToUTF8(result) // converting from windows encoding to UTF-8
-	if res2 != expected {
-		assert.Equal(t, expected, res2)
-	}
-	//
+	assert.Equal(t, expected, res2)
 }
 
 func TestXmlBox1(t *testing.T) {
@@ -991,7 +984,7 @@ func TestXmlBox1(t *testing.T) {
 	assert.JSONEq(t, expectedCategs, categRes)
 }
 
-func xTestXmlBox2(t *testing.T) {
+func TestXmlBoxSeries(t *testing.T) {
 	json, errConf := readConfig("config_box.json")
 	if errConf != nil {
 		t.Error(errConf)
