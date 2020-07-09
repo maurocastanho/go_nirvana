@@ -217,14 +217,11 @@ func (wr *jsonWriter) WriteAndClose(_ string) error {
 	return nil
 }
 
-// WriteExtras writes additional files
-func (wr *jsonWriter) WriteExtras() (bufAssets []byte, bufCategs []byte, err error) {
-	if wr.categLines == nil {
-		return
-	}
+// WriteConsolidated writes additional files
+func (wr *jsonWriter) WriteConsolidated(mode int) (bufAssets []byte, bufCategs []byte, bufSeries []byte, err error) {
 	bufAssets, err = js.MarshalIndent(consolidated, "", "  ")
 	if err != nil {
-		return nil, nil, err
+		return
 	}
 	if !wr.testing {
 		fileAssets := path.Join(wr.fileName, "assets.json")
@@ -232,23 +229,42 @@ func (wr *jsonWriter) WriteExtras() (bufAssets []byte, bufCategs []byte, err err
 		err = ioutil.WriteFile(fileAssets, bufAssets, 0644)
 		if err != nil {
 			err = fmt.Errorf("ERRO ao criar arquivo [%#v]: %v", fileAssets, err)
-			return nil, nil, err
+			return
 		}
 	}
-	bufCategs, err = js.MarshalIndent(wr.root, "", "  ")
-	if err != nil {
-		return nil, nil, err
-	}
-	if !wr.testing {
-		fileCateg := path.Join(wr.fileName, "categories.json")
-		log("Writing " + fileCateg)
-		err = ioutil.WriteFile(fileCateg, bufCategs, 0644)
+	if mode == 1 {
+		if wr.categLines == nil {
+			return
+		}
+		bufCategs, err = js.MarshalIndent(wr.root, "", "  ")
 		if err != nil {
-			err = fmt.Errorf("ERRO ao criar arquivo [%#v]: %v", fileCateg, err)
-			return nil, nil, err
+			return
+		}
+		if !wr.testing {
+			fileCateg := path.Join(wr.fileName, "categories.json")
+			log("Writing " + fileCateg)
+			err = ioutil.WriteFile(fileCateg, bufCategs, 0644)
+			if err != nil {
+				err = fmt.Errorf("ERRO ao criar arquivo [%#v]: %v", fileCateg, err)
+				return
+			}
+		}
+	} else if mode == 2 {
+		bufSeries, err = js.MarshalIndent(wr.root, "", "  ")
+		if err != nil {
+			return
+		}
+		if !wr.testing {
+			fileSeries := path.Join(wr.fileName, "series.json")
+			log("Writing " + fileSeries)
+			err = ioutil.WriteFile(fileSeries, bufSeries, 0644)
+			if err != nil {
+				err = fmt.Errorf("ERRO ao criar arquivo [%#v]: %v", fileSeries, err)
+				return
+			}
 		}
 	}
-	return bufAssets, bufCategs, nil
+	return
 }
 
 func (wr *jsonWriter) initCateg() (map[string]interface{}, error) {
@@ -301,27 +317,24 @@ func (wr *jsonWriter) initSeries() (map[string]interface{}, error) {
 	fmt.Printf("Series: [%#v]\n", wr.serieLines)
 	for _, line := range wr.serieLines {
 		el := make(map[string]interface{})
+		name, _ := line["title"]
 		id, ok := line["id"]
 		if !ok || id == "" {
-			name, ok2 := line["name"]
-			if ok2 {
-				fmt.Printf("WARNING: serie [%s] nao existente na aba 'series'", name)
-			}
-			continue
+			return nil, fmt.Errorf("serie [%s] nao existente na aba 'series'", name)
 		}
 		el["id"] = line["id"]
 		elName := make(map[string]interface{})
-		strNames := strings.Split(line["name"], "|")
+		strNames := strings.Split(line["title"], "|")
 		for _, l := range strNames {
 			vals := strings.Split(l, ":")
 			if len(vals) < 2 {
-				err := fmt.Errorf("erro ao ler serie, valor invalido [%s]", l)
+				err := fmt.Errorf("erro ao ler serie, valor invalido [%s]", name)
 				return nil, err
 			}
 			elName[vals[0]] = vals[1]
 		}
 		el["external_ids"] = make([]interface{}, 0)
-		el["title"] = line["title"]
+		el["title"] = elName
 		el["synopsys"] = line["synopsys"]
 		el["images"] = make([]interface{}, 0)
 		el["seasons"] = make([]interface{}, 0)
@@ -332,13 +345,13 @@ func (wr *jsonWriter) initSeries() (map[string]interface{}, error) {
 	return root, nil
 }
 
-// addToCateg adds an asset to the categories list
-func (wr *jsonWriter) addToCateg(id string, categName string) error {
+// addToCategories adds an asset to the categories list
+func (wr *jsonWriter) addToCategories(id string, categName string, rootEl string) error {
 	if categName == "" {
 		return nil
 	}
 	r := wr.root.(map[string]interface{})
-	categs := r["categories"].([]map[string]interface{})
+	categs := r[rootEl].([]map[string]interface{})
 	for _, categ := range categs {
 		name := categ["name"].(map[string]interface{})["por"]
 		if name == categName {
@@ -355,7 +368,7 @@ func (wr *jsonWriter) addToCateg(id string, categName string) error {
 	return fmt.Errorf("Categoria nao existente: inclua na aba 'categories'. Nome: [%s], sugestao de id: [%s] ", categName, uuid[0].val)
 }
 
-// addToSeries adds an asset to the categories list
+// addToSeries adds an asset to the series list
 func (wr *jsonWriter) addToSeries(id string, serieName string) error {
 	if serieName == "" {
 		return nil
@@ -363,7 +376,7 @@ func (wr *jsonWriter) addToSeries(id string, serieName string) error {
 	r := wr.root.(map[string]interface{})
 	series := r["series"].([]map[string]interface{})
 	for _, serie := range series {
-		name := serie["name"].(map[string]interface{})["por"]
+		name := serie["title"].(map[string]interface{})["por"]
 		if name == serieName {
 			assets := serie["assets"].([]interface{})
 			assets = append(assets, id)
@@ -371,11 +384,7 @@ func (wr *jsonWriter) addToSeries(id string, serieName string) error {
 			return nil
 		}
 	}
-	uuid, err := genUUID("", nil, nil, nil)
-	if err != nil {
-		return err
-	}
-	return fmt.Errorf("Serie nao existente: inclua na aba 'series'. Nome: [%s], sugestao de id: [%s] ", serieName, uuid[0].val)
+	return nil
 }
 
 // IMPORTANT: JsonWriter must be created separately for the categories file - do not use this method for the assets file
@@ -386,7 +395,7 @@ func (wr *jsonWriter) processCategPack(row lineT, idField string, categField1 st
 		success = -2
 		logError(fmt.Errorf("categoria 1 em branco na linha [%v]", row))
 	}
-	err := wr.addToCateg(row[idField], categ1)
+	err := wr.addToCategories(row[idField], categ1, "categories")
 	if err != nil {
 		logError(err)
 		success = -1
@@ -396,7 +405,7 @@ func (wr *jsonWriter) processCategPack(row lineT, idField string, categField1 st
 		success = -2
 		logError(fmt.Errorf("categoria 2 em branco na linha [%v]", row))
 	}
-	err = wr.addToCateg(row[idField], categ2)
+	err = wr.addToCategories(row[idField], categ2, "categories")
 	if err != nil {
 		logError(err)
 		success = -1
@@ -405,24 +414,10 @@ func (wr *jsonWriter) processCategPack(row lineT, idField string, categField1 st
 }
 
 // IMPORTANT: JsonWriter must be created separately for the series file - do not use this method for the assets file
-func (wr *jsonWriter) processSeriesPack(row lineT, idField string, categField1 string, categField2 string) int {
+func (wr *jsonWriter) processSeriesPack(row lineT, idField string, categField1 string) int {
 	success := 0
-	categ1 := row[categField1]
-	if categ1 == "" {
-		success = -2
-		logError(fmt.Errorf("categoria 1 em branco na linha [%v]", row))
-	}
-	err := wr.addToCateg(row[idField], categ1)
-	if err != nil {
-		logError(err)
-		success = -1
-	}
-	categ2 := row[categField2]
-	if categ1 == "" {
-		success = -2
-		logError(fmt.Errorf("categoria 2 em branco na linha [%v]", row))
-	}
-	err = wr.addToCateg(row[idField], categ2)
+	nEpis := row[categField1]
+	err := wr.addToSeries(row[idField], nEpis)
 	if err != nil {
 		logError(err)
 		success = -1

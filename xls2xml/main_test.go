@@ -461,86 +461,87 @@ func TestXmlOiOtt(t *testing.T) {
 		t.Error(errCf)
 	}
 	initVars(json)
-	expected := "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n" +
-		"<assetPackages xmlns:date=\"http://exslt.org/dates-and-times\" " +
-		"xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xsi:noNamespaceSchemaLocation=\"VODmetadata.xsd\" " +
-		"xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" formatVersion=\"1.0\">\n" +
-		"\t<assetPackage name=\"Nirvana\" verb=\"\" product=\"SVOD\" providerName=\"OnDemand\" providerId=\"ODG\" type=\"SVOD\" " +
-		"asset=\"A Música da Minha Vida\">\n" +
-		"\t\t<metadata>\n" +
-		"\t\t\t<assetID>200702102255001</assetID>\n" +
-		"\t\t\t<providerID>warner.com</providerID>\n" +
-		"\t\t\t<showType>movie</showType>\n" +
-		"\t\t\t<title language=\"pt\">A Música da Minha Vida</title>\n" +
-		"\t\t\t<title language=\"en\">Blinded by the Light</title>\n" +
-		"\t\t\t<shortTitle language=\"pt\">A Música da Minha Vida</shortTitle>\n" +
-		"\t\t\t<reducedTitle language=\"pt\">A Música da Minha Vida</reducedTitle>\n" +
-		"\t\t\t<summary language=\"pt\">Do escritor, diretor e produtor Gurinder Chadha, Driblando o Destino, temos o drama A " +
-		"Música da Minha Vida, baseado nas músicas e letras inspiradoras das canções atemporais de Bruce Springsteen.</summary>\n" +
-		"\t\t\t<shortSummary language=\"pt\">Do escritor, diretor e produtor Gurinder Chadha, Driblando o Destino, temos o drama A " +
-		"Música da Minha Vida, baseado nas músicas e letras inspiradoras das canções atemporais de Bruce Springsteen.</shortSummary>\n" +
-		"\t\t\t<episodeNumber/>\n" +
-		"\t\t\t<cgmsaLevel>copynever</cgmsaLevel>\n" +
-		"\t\t\t<rating>12</rating>\n" +
-		"\t\t\t<runTimeMinutes>23</runTimeMinutes>\n" +
-		"\t\t\t<release_year>2019</release_year>\n" +
-		"\t\t\t<countryRegionCode>USA</countryRegionCode>\n" +
-		"\t\t\t<person mname=\"\" fname=\"Viveik\" lname=\"Kalra\" role=\"actor\"/>\n" +
-		"\t\t\t<person mname=\"\" fname=\"Hayley\" lname=\"Atwell\" role=\"actor\"/>\n" +
-		"\t\t\t<person mname=\"\" fname=\"Rob\" lname=\"Brydon\" role=\"actor\"/>\n" +
-		"\t\t\t<person mname=\"\" fname=\"Kulvinder\" lname=\"Ghir\" role=\"actor\"/>\n" +
-		"\t\t\t<person mname=\"\" fname=\"Nell\" lname=\"Williams\" role=\"actor\"/>\n" +
-		"\t\t\t<person mname=\"\" fname=\"Aaron\" lname=\"Phagura\" role=\"actor\"/>\n" +
-		"\t\t\t<person mname=\"\" fname=\"Gurinder\" lname=\"Chadha\" role=\"director\"/>\n" +
-		"\t\t\t<studio>Warner Bros</studio>\n" +
-		"\t\t\t<studioDisplayName>Warner Bros</studioDisplayName>\n\t\t\t<category>MSEPGC_MV_Musical</category>\n" +
-		"\t\t\t<autoDeploy>false</autoDeploy>\n" +
-		"\t\t\t<autoImport>false</autoImport>\n" +
-		"\t\t\t<categorization>\n" +
-		"\t\t\t\t<category1 name=\"MSEPGC_MV_Musical\"/>\n" +
-		"\t\t\t\t<category2 name=\"MSEPGC_MV_Musical\"/>\n" +
-		"\t\t\t</categorization>\n" +
-		"\t\t\t<genre>MSEPGC_MV_Musical</genre>\n" +
-		"\t\t\t<additionalInfo name=\"A Música da Minha Vida\">\n" +
-		"\t\t\t\t<value param=\"RentableOn\">OI_IPTV,OI_PC,OI_Mobile,OI_DTH</value>\n" +
-		"\t\t\t\t<value param=\"DownloadableOn\">OI_IPTV,OI_PC,OI_Mobile,OI_DTH</value>\n" +
-		"\t\t\t\t<value param=\"CountryGrantRestriction\">BR</value>\n" +
-		"\t\t\t\t<value param=\"ISPGrantRestriction\"/>\n" +
-		"\t\t\t\t<value param=\"ReasonCode\"/>\n" +
-		"\t\t\t</additionalInfo>\n" +
-		"\t\t</metadata>\n" +
-		"\t\t<businessMetadata>\n" +
-		"\t\t\t<suggestedPrice>0.0</suggestedPrice>\n" +
-		"\t\t\t<currency_iso3166-2>BR</currency_iso3166-2>\n" +
-		"\t\t\t<billingID>movie</billingID>\n" +
-		"\t\t</businessMetadata>\n" +
-		"\t\t<rightsMetadata>\n" +
-		"\t\t\t<licensingWindowStart>2021-10-16T00:00:00Z</licensingWindowStart>\n" +
-		"\t\t\t<licensingWindowEnd-2>2044-12-31T00:00:00Z</licensingWindowEnd-2>\n\t\t</rightsMetadata>\n" +
-		"\t\t<asset type=\"feature\" asset_name=\"A Música da Minha Vida\">\n" +
-		"\t\t\t<metadata>\n" +
-		"\t\t\t\t<assetID>200702102255001</assetID>\n" +
-		"\t\t\t\t<providerID>warner.com</providerID>\n" +
-		"\t\t\t\t<audio>Dolby 5.1</audio>\n" +
-		"\t\t\t\t<HD>true</HD>\n" +
-		"\t\t\t\t<language_iso639>en</language_iso639>\n" +
-		"\t\t\t\t<language_iso639>pt</language_iso639>\n" +
-		"\t\t\t\t<rating value=\"12\" rating_system=\"DJCTQ\"/>\n" +
-		"\t\t\t</metadata>\n" +
-		"\t\t\t<content>blindedbythelight_dub_ptbr.ts</content>\n" +
-		"\t\t</asset>\n" +
-		"\t\t<asset type=\"trailer\" asset_name=\"A Música da Minha Vida\">\n" +
-		"\t\t\t<metadata>\n" +
-		"\t\t\t\t<assetID>200702102255001</assetID>\n" +
-		"\t\t\t\t<providerID>warner.com</providerID>\n" +
-		"\t\t\t\t<audio>Dolby 5.1</audio>\n" +
-		"\t\t\t\t<rating value=\"12\" rating_system=\"DJCTQ\"/>\n" +
-		"\t\t\t</metadata>\n" +
-		"\t\t\t<content>blindedbythelight_dub_ptbr_trailer.ts</content>\n" +
-		"\t\t</asset>\n<!-- DTH\n<businessRule>0</businessRule>\n" +
-		"\t\t<UserNibble2>2</UserNibble2>\n" +
-		"\t\t<audioLanguage>en</audioLanguage>\n" +
-		"\t\t<soundType>Surround Sound</soundType> -->\n</assetPackage>\n</assetPackages>\n"
+	expected :=
+		"<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n" +
+			"<assetPackages xmlns:date=\"http://exslt.org/dates-and-times\" " +
+			"xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xsi:noNamespaceSchemaLocation=\"VODmetadata.xsd\" " +
+			"xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" formatVersion=\"1.0\">\n" +
+			"\t<assetPackage name=\"Nirvana\" verb=\"\" product=\"SVOD\" providerName=\"OnDemand\" providerId=\"ODG\" type=\"SVOD\" " +
+			"asset=\"A Música da Minha Vida\">\n" +
+			"\t\t<metadata>\n" +
+			"\t\t\t<assetID>200702102255001</assetID>\n" +
+			"\t\t\t<providerID>warner.com</providerID>\n" +
+			"\t\t\t<showType>movie</showType>\n" +
+			"\t\t\t<title language=\"pt\">A Música da Minha Vida</title>\n" +
+			"\t\t\t<title language=\"en\">Blinded by the Light</title>\n" +
+			"\t\t\t<shortTitle language=\"pt\">A Música da Minha Vida</shortTitle>\n" +
+			"\t\t\t<reducedTitle language=\"pt\">A Música da Minha Vida</reducedTitle>\n" +
+			"\t\t\t<summary language=\"pt\">Do escritor, diretor e produtor Gurinder Chadha, Driblando o Destino, temos o drama A " +
+			"Música da Minha Vida, baseado nas músicas e letras inspiradoras das canções atemporais de Bruce Springsteen.</summary>\n" +
+			"\t\t\t<shortSummary language=\"pt\">Do escritor, diretor e produtor Gurinder Chadha, Driblando o Destino, temos o drama A " +
+			"Música da Minha Vida, baseado nas músicas e letras inspiradoras das canções atemporais de Bruce Springsteen.</shortSummary>\n" +
+			"\t\t\t<episodeNumber/>\n" +
+			"\t\t\t<cgmsaLevel>copynever</cgmsaLevel>\n" +
+			"\t\t\t<rating>12</rating>\n" +
+			"\t\t\t<runTimeMinutes>23</runTimeMinutes>\n" +
+			"\t\t\t<release_year>2019</release_year>\n" +
+			"\t\t\t<countryRegionCode>USA</countryRegionCode>\n" +
+			"\t\t\t<person mname=\"\" fname=\"Viveik\" lname=\"Kalra\" role=\"actor\"/>\n" +
+			"\t\t\t<person mname=\"\" fname=\"Hayley\" lname=\"Atwell\" role=\"actor\"/>\n" +
+			"\t\t\t<person mname=\"\" fname=\"Rob\" lname=\"Brydon\" role=\"actor\"/>\n" +
+			"\t\t\t<person mname=\"\" fname=\"Kulvinder\" lname=\"Ghir\" role=\"actor\"/>\n" +
+			"\t\t\t<person mname=\"\" fname=\"Nell\" lname=\"Williams\" role=\"actor\"/>\n" +
+			"\t\t\t<person mname=\"\" fname=\"Aaron\" lname=\"Phagura\" role=\"actor\"/>\n" +
+			"\t\t\t<person mname=\"\" fname=\"Gurinder\" lname=\"Chadha\" role=\"director\"/>\n" +
+			"\t\t\t<studio>Warner Bros</studio>\n" +
+			"\t\t\t<studioDisplayName>Warner Bros</studioDisplayName>\n\t\t\t<category>MSEPGC_MV_Musical</category>\n" +
+			"\t\t\t<autoDeploy>false</autoDeploy>\n" +
+			"\t\t\t<autoImport>false</autoImport>\n" +
+			"\t\t\t<categorization>\n" +
+			"\t\t\t\t<category1 name=\"MSEPGC_MV_Musical\"/>\n" +
+			"\t\t\t\t<category2 name=\"MSEPGC_MV_Musical\"/>\n" +
+			"\t\t\t</categorization>\n" +
+			"\t\t\t<genre>MSEPGC_MV_Musical</genre>\n" +
+			"\t\t\t<additionalInfo name=\"A Música da Minha Vida\">\n" +
+			"\t\t\t\t<value param=\"RentableOn\">OI_IPTV,OI_PC,OI_Mobile,OI_DTH</value>\n" +
+			"\t\t\t\t<value param=\"DownloadableOn\">OI_IPTV,OI_PC,OI_Mobile,OI_DTH</value>\n" +
+			"\t\t\t\t<value param=\"CountryGrantRestriction\">BR</value>\n" +
+			"\t\t\t\t<value param=\"ISPGrantRestriction\"/>\n" +
+			"\t\t\t\t<value param=\"ReasonCode\"/>\n" +
+			"\t\t\t</additionalInfo>\n" +
+			"\t\t</metadata>\n" +
+			"\t\t<businessMetadata>\n" +
+			"\t\t\t<suggestedPrice>0.0</suggestedPrice>\n" +
+			"\t\t\t<currency_iso3166-2>BR</currency_iso3166-2>\n" +
+			"\t\t\t<billingID>movie</billingID>\n" +
+			"\t\t</businessMetadata>\n" +
+			"\t\t<rightsMetadata>\n" +
+			"\t\t\t<licensingWindowStart>2021-10-16T00:00:00Z</licensingWindowStart>\n" +
+			"\t\t\t<licensingWindowEnd-2>2044-12-31T00:00:00Z</licensingWindowEnd-2>\n\t\t</rightsMetadata>\n" +
+			"\t\t<asset type=\"feature\" asset_name=\"A Música da Minha Vida\">\n" +
+			"\t\t\t<metadata>\n" +
+			"\t\t\t\t<assetID>200702102255001</assetID>\n" +
+			"\t\t\t\t<providerID>warner.com</providerID>\n" +
+			"\t\t\t\t<audio>Dolby 5.1</audio>\n" +
+			"\t\t\t\t<HD>true</HD>\n" +
+			"\t\t\t\t<language_iso639>en</language_iso639>\n" +
+			"\t\t\t\t<language_iso639>pt</language_iso639>\n" +
+			"\t\t\t\t<rating value=\"12\" rating_system=\"DJCTQ\"/>\n" +
+			"\t\t\t</metadata>\n" +
+			"\t\t\t<content>blindedbythelight_dub_ptbr.ts</content>\n" +
+			"\t\t</asset>\n" +
+			"\t\t<asset type=\"trailer\" asset_name=\"A Música da Minha Vida\">\n" +
+			"\t\t\t<metadata>\n" +
+			"\t\t\t\t<assetID>200702102255001</assetID>\n" +
+			"\t\t\t\t<providerID>warner.com</providerID>\n" +
+			"\t\t\t\t<audio>Dolby 5.1</audio>\n" +
+			"\t\t\t\t<rating value=\"12\" rating_system=\"DJCTQ\"/>\n" +
+			"\t\t\t</metadata>\n" +
+			"\t\t\t<content>blindedbythelight_dub_ptbr_trailer.ts</content>\n" +
+			"\t\t</asset>\n<!-- DTH\n<businessRule>0</businessRule>\n" +
+			"\t\t<UserNibble2>2</UserNibble2>\n" +
+			"\t\t<audioLanguage>en</audioLanguage>\n" +
+			"\t\t<soundType>Surround Sound</soundType> -->\n</assetPackage>\n</assetPackages>\n"
 
 	lines := [][]string{
 		{"Show Type", "Provider", "Codigo Categoria 1", "Codigo Categoria 2", "Business rule id", "UserNibble2",
@@ -973,18 +974,199 @@ func TestXmlBox1(t *testing.T) {
 		t.Error(errC)
 	}
 	categWr.testing = true
-	categWr.processCategPack(maplines, "uuid_box", "Genero 1", "Genero 2")
-	bufAssets, bufCategs, errE := categWr.WriteExtras()
+	//categWr.processCategPack(maplines, "uuid_box", "Genero 1", "Genero 2")
+	bufAssets, bufCategs, bufSeries, errE := categWr.WriteConsolidated(1)
 	if errE != nil {
 		t.Error(errE)
 	}
+	t.Log(bufSeries)
 	assetRes := string(bufAssets) // converting from windows encoding to UTF-8
 	categRes := string(bufCategs) // converting from windows encoding to UTF-8
 	assert.JSONEq(t, expectedAssets, assetRes)
 	assert.JSONEq(t, expectedCategs, categRes)
 }
 
-func TestXmlBoxSeries(t *testing.T) {
+func xTestXmlBoxCategories(t *testing.T) {
+	expectedCategs := "{\n" +
+		"  \"categories\": [\n" +
+		"    {\n" +
+		"      \"adult\": false,\n" +
+		"      \"assets\": [\n" +
+		"        \"198413c7-3d35-4c6d-9714-f80e92e9b7d0\"\n" +
+		"      ],\n" +
+		"      \"downloadable\": false,\n" +
+		"      \"hidden\": false,\n" +
+		"      \"id\": \"d7d4b94e-6055-4400-8325-c7f754830573\",\n" +
+		"      \"images\": [],\n" +
+		"      \"metadata\": {},\n" +
+		"      \"morality_level\": \"0\",\n" +
+		"      \"name\": {\n" +
+		"        \"eng\": \"Show\",\n" +
+		"        \"por\": \"Show\"\n" +
+		"      },\n" +
+		"      \"offline\": false,\n" +
+		"      \"parent_id\": \"\",\n" +
+		"      \"parental_control\": false\n" +
+		"    },\n" +
+		"    {\n" +
+		"      \"adult\": false,\n" +
+		"      \"assets\": [\n" +
+		"        \"198413c7-3d35-4c6d-9714-f80e92e9b7d0\"\n" +
+		"      ],\n" +
+		"      \"downloadable\": false,\n" +
+		"      \"hidden\": false,\n" +
+		"      \"id\": \"2f7c576a-7212-4af7-ac90-cbd6df1e5f94\",\n" +
+		"      \"images\": [],\n" +
+		"      \"metadata\": {},\n" +
+		"      \"morality_level\": \"0\",\n" +
+		"      \"name\": {\n" +
+		"        \"eng\": \"Music\",\n" +
+		"        \"por\": \"Música\"\n" +
+		"      },\n" +
+		"      \"offline\": false,\n" +
+		"      \"parent_id\": \"\",\n" +
+		"      \"parental_control\": false\n" +
+		"    }\n" +
+		"  ]\n" +
+		"}"
+
+	lines := [][]string{
+		{"uuid_box", "uuid_trailer",
+			"uuid_poster",
+			"uuid_landscape", "uuid_thumb",
+			"Título Original",
+			"Título em Português",
+			"Numero Temporada", "Número do Episódio", "Título em Português do Episódio", "Temporada",
+			"ID", "Movie Size", "Movie MD5",
+			"Poster Size", "Poster MD5",
+			"Versao", "Língua Original ", "Linguagem Áudio", "Linguagem Legenda",
+			"Categoria", "Ano", "Bilheteria", "Ranking",
+			"Estúdio", "Classificação Etária", "Genero 1", "Genero 2",
+			"Elenco", "Diretor",
+			"País de Origem",
+			"Sinopse EPG",
+			"Sinopse Resumo",
+			"Duração",
+			"Data Início", "Data Fim",
+			"Formato",
+			"Provider ID", "Billing ID", "Cobrança",
+			"Movie Audio Type",
+			"Trailer ID", "Trailer Size", "Trailer MD5", "Duração Trailer", "Trailer Audio Type",
+			"subpasta",
+		},
+		{
+			"198413c7-3d35-4c6d-9714-f80e92e9b7d0", "5c8d732a-d702-4000-9fce-7bd882fcaaaf",
+			"e2830250-d3bf-451a-ba3b-d4ec3ce1da19",
+			"8b841c15-a02f-4a23-b4d2-d4eb409becbe", "cfea92ec-3ce3-463c-b8e7-1cdbee532964",
+			"Ariana Grande - Live in New York",
+			"Ariana Grande",
+			"1", "1", "Ep 1", "Estreia",
+			"ariana_grande_s1e1.mp4", "", "",
+			"", "",
+			"Legendado", "eng", "eng", "por",
+			"Música", "2016", "1000000", "9",
+			"Media Solutions", "0", "Show", "Música",
+			"", "",
+			"USA",
+			"Ariana Grande se apresenta em Las Vegas, a cantora canta todos os seus sucessos. " +
+				"O show conta com participação especial de Zedd.",
+			"Show da cantora Ariana Grande",
+			"0:23:41",
+			"06-25-20", "12-31-26",
+			"HD",
+			"", "", "",
+			"stereo",
+			"", "", "", "", "",
+			"shows",
+		},
+		{
+			"198413c7-3d35-4c6d-9714-f80e92e9b7d1", "5c8d732a-d702-4000-9fce-7bd882fcaaa0",
+			"e2830250-d3bf-451a-ba3b-d4ec3ce1da1a",
+			"8b841c15-a02f-4a23-b4d2-d4eb409becbe", "cfea92ec-3ce3-463c-b8e7-1cdbee532965",
+			"Ariana Grande - Live in New York",
+			"Ariana Grande",
+			"1", "2", "Ep 1", "Estreia",
+			"ariana_grande_s1e2.mp4", "", "",
+			"", "",
+			"Legendado", "eng", "eng", "por",
+			"Música", "2016", "1000000", "9",
+			"Media Solutions", "0", "Show", "Música",
+			"", "",
+			"USA",
+			"Ariana Grande se apresenta em Las Vegas, a cantora canta todos os seus sucessos. " +
+				"O show conta com participação especial de Zedd.",
+			"Show da cantora Ariana Grande",
+			"0:23:41",
+			"06-25-20", "12-31-26",
+			"HD",
+			"", "", "",
+			"stereo",
+			"", "", "", "", "",
+			"shows",
+		},
+	}
+
+	categs := [][]string{
+		{"id", "name", "hidden", "morality_level",
+			"parental_control", "adult", "downloadable", "offline"},
+		{"d7d4b94e-6055-4400-8325-c7f754830573", "por:Show|eng:Show",
+			"false", "0", "false", "false", "false", "false"},
+		{"2f7c576a-7212-4af7-ac90-cbd6df1e5f94", "por:Música|eng:Music",
+			"false", "0", "false", "false", "false", "false"},
+	}
+
+	json, errConf := readConfig("config_box_categories.json")
+	if errConf != nil {
+		t.Error(errConf)
+	}
+	initVars(json)
+
+	lenLine1 := len(lines[1])
+	//fmt.Printf("%#v\n%#v\n%d %d", lines[0], lines[1], len(lines[0]), lenLine1)
+	var maplines lineT = make(map[string]string)
+	for i := range lines[0] {
+		val := ""
+		if i < lenLine1 {
+			val = lines[1][i]
+		}
+		maplines[lines[0][i]] = val
+	}
+
+	lenLineCat := len(categs[1])
+	categLines := make([]lineT, 2, 2)
+	for iLin := 1; iLin < 3; iLin++ {
+		categLines[iLin-1] = make(map[string]string)
+		for i := range categs[0] {
+			val := ""
+			if i < lenLineCat {
+				val = categs[iLin][i]
+			}
+			categLines[iLin-1][categs[0][i]] = val
+		}
+	}
+	maplines["file_number"] = "1"
+	options["timestamp"] = "200702102255"
+	options["creationDate"] = "2020-06-19"
+	//fmt.Printf("%#v\n", maplines)
+	categWr, errC := newJSONWriter("unit_tests_categs.json", categLines, nil, categsT)
+	if errC != nil {
+		t.Error(errC)
+	}
+	categWr.testing = true
+	if err := processLines(json, categLines, categWr); err != nil {
+		t.Error(err)
+	}
+	//	categWr.processCategPack(maplines, "uuid_box", "Genero 1", "Genero 2")
+	bufCategs, _, _, errE := categWr.WriteConsolidated(1)
+	if errE != nil {
+		t.Error(errE)
+	}
+	categRes := string(bufCategs) // converting from windows encoding to UTF-8
+	t.Log(categRes)
+	assert.JSONEq(t, expectedCategs, categRes)
+}
+
+func xTestXmlBoxSeries(t *testing.T) {
 	json, errConf := readConfig("config_box.json")
 	if errConf != nil {
 		t.Error(errConf)
@@ -1220,11 +1402,12 @@ func TestXmlBoxSeries(t *testing.T) {
 		t.Error(errC)
 	}
 	categWr.testing = true
-	categWr.processCategPack(maplines, "uuid_box", "Genero 1", "Genero 2")
-	bufAssets, bufCategs, errE := categWr.WriteExtras()
+	//	categWr.processCategPack(maplines, "uuid_box", "Genero 1", "Genero 2")
+	bufAssets, bufCategs, bufSeries, errE := categWr.WriteConsolidated(1)
 	if errE != nil {
 		t.Error(errE)
 	}
+	t.Log(bufSeries)
 	assetRes := string(bufAssets) // converting from windows encoding to UTF-8
 	categRes := string(bufCategs) // converting from windows encoding to UTF-8
 	fmt.Printf("%s\n", assetRes)

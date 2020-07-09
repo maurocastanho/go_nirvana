@@ -203,7 +203,7 @@ func (wr *xmlWriter) getBuffer() []byte {
 	return wr.b.Bytes()
 }
 
-// WriteExtras writes additional files
-func (wr *xmlWriter) WriteExtras() ([]byte, []byte, error) {
-	return nil, nil, nil
+// WriteConsolidated writes additional files
+func (wr *xmlWriter) WriteConsolidated(int) ([]byte, []byte, []byte, error) {
+	return nil, nil, nil, nil
 }

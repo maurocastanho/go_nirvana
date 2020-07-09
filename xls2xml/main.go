@@ -54,7 +54,7 @@ type writer interface {
 	Write(string) error
 	WriteAttr(string, string, string, string) error
 	WriteAndClose(string) error
-	WriteExtras() ([]byte, []byte, error)
+	WriteConsolidated(int) ([]byte, []byte, []byte, error)
 	StartMap() error
 	EndMap() error
 }
@@ -69,16 +69,6 @@ func main() {
 	success := 0
 	var err error
 	defer func() {
-		if msg := recover(); msg != nil {
-			success = -4
-			switch msg.(type) {
-			case string:
-				logError(fmt.Errorf("%v", msg))
-			case error:
-				logError(msg.(error))
-			}
-
-		}
 		if err != nil {
 			success = -3
 			logError(err)
@@ -169,9 +159,6 @@ func processSpreadSheet(json map[string]interface{}, outType string, f *xlsx.Spr
 	if !okN || nameField == "" {
 		return 2, fmt.Errorf("ERRO ao procurar name_field nas options [%#v]", options)
 	}
-	idField, _ := options["id_field"]
-	categField1, _ := options["categ_field1"]
-	categField2, _ := options["categ_field2"]
 
 	// fmt.Printf("**> [%v]: %#v\n", filenameField, options)
 	// fmt.Printf("***> [%v]: %#v\n", filename, line)
@@ -182,7 +169,10 @@ func processSpreadSheet(json map[string]interface{}, outType string, f *xlsx.Spr
 	filePath := ""
 	var curr lineT
 	name := ""
-	var wrCateg *jsonWriter
+	idField, _ := options["id_field"]
+	categField1, _ := options["categ_field1"]
+	categField2, _ := options["categ_field2"]
+	var wrCategs *jsonWriter
 	var wrSeries *jsonWriter
 	var categLines []lineT
 	var serieLines []lineT
@@ -195,7 +185,8 @@ func processSpreadSheet(json map[string]interface{}, outType string, f *xlsx.Spr
 		if serieLines, err = readSheetByName(f, "series"); err != nil {
 			return -1, err
 		}
-		if wrCateg, err = newJSONWriter(outDir, categLines, nil, categsT); err != nil {
+		// TODO usar createwriter
+		if wrCategs, err = newJSONWriter(outDir, categLines, nil, categsT); err != nil {
 			return -1, err
 		}
 		if wrSeries, err = newJSONWriter(outDir, nil, serieLines, seriesT); err != nil {
@@ -262,14 +253,8 @@ func processSpreadSheet(json map[string]interface{}, outType string, f *xlsx.Spr
 				}
 			}
 		}
-		// extra files
-		if wrCateg != nil {
-			if suc := processCategs(pack, categField1, wrCateg, idField, categField2); suc < 0 {
-				success = suc
-			}
-		}
 		if wrSeries != nil {
-			if suc := processSeries(pack, categField1, wrCateg, idField, categField2); suc < 0 {
+			if suc := processSeries(pack, categField1, wrSeries, idField, categField2); suc < 0 {
 				success = suc
 			}
 		}
@@ -279,19 +264,24 @@ func processSpreadSheet(json map[string]interface{}, outType string, f *xlsx.Spr
 		// Main file successfully processed, process other outputs
 		if rs != nil {
 			// publisher report
-			if _, _, err = rs.WriteExtras(); err != nil {
+			if _, _, _, err = rs.WriteConsolidated(0); err != nil {
 				return -1, err
 			}
 		}
-		if wrCateg != nil {
+		if wrCategs != nil || wrSeries != nil {
+			// extra files
+			if suc := processCategs(lines, categField1, wrCategs, idField, categField2); suc < 0 {
+				success = suc
+			}
+			if suc := processSeries(lines, "series", wrSeries, "id", categField2); suc < 0 {
+				success = suc
+			}
+
 			// categories.json
-			if _, _, err = wrCateg.WriteExtras(); err != nil {
+			if _, _, _, err = wrCategs.WriteConsolidated(1); err != nil {
 				return -1, err
 			}
-		}
-		if wrSeries != nil {
-			// series.json
-			if _, _, err = wrSeries.WriteExtras(); err != nil {
+			if _, _, _, err = wrSeries.WriteConsolidated(2); err != nil {
 				return -1, err
 			}
 		}
@@ -349,7 +339,7 @@ func processSeries(pack []lineT, categField1 string, wrCateg *jsonWriter, idFiel
 	success := 0
 	for k := range pack {
 		row := pack[k]
-		success = wrCateg.processSeriesPack(row, idField, categField1, categField2)
+		success = wrCateg.processSeriesPack(row, idField, "Número do Episódio") // TODO parametrizar
 	}
 	return success
 }

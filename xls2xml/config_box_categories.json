@@ -1,0 +1,46 @@
+{
+    "options": [
+        {"Name": "id_field", "Value": "id"}
+    ],
+    "elements": [
+        {
+            "Name": "categories",
+            "elements": [
+                {
+                    "attrs": [
+                        {"Name": "id", "function": "field", "field": "id"},
+                        {"Name": "downloadable", "function": "field", "field": "downloadable"},
+                        {"Name": "hidden", "function": "field", "field": "hidden"},
+                        {
+                            "Name": "images",
+                            "function": "empty",
+                            "elements": [
+                            ]
+                        },
+                        {
+                            "Name": "metadata", "no_array": "",
+                            "function": "empty",
+                            "elements": [
+                                {
+                                    "attrs": [
+                                    ]
+                                }
+                            ]
+                        },
+                        {"Name": "morality_level", "function": "field", "field": "morality_level"},
+                        {
+                            "Name": "name",
+                            "function": "empty",
+                            "no_array": "",
+                            "elements": [{"attrs": [{"Name": "por", "function": "map_string", "field": "name"}]}]
+                        },
+                        {"Name": "offline", "function": "field", "field": "offline"},
+                        {"Name": "parental_control", "function": "field", "field": "parental_control"},
+                        {"Name": "parent_id", "function": "fixed", "Value": ""}
+                    ]
+                }
+
+            ]
+        }
+    ]
+}

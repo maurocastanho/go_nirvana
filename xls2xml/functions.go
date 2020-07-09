@@ -85,6 +85,7 @@ func initFunctions() {
 		"surname_name":    surnameName,
 		"timestamp":       utc,
 		"uuid":            genUUID,
+		"map_string":      mapString,
 	}
 }
 
@@ -586,6 +587,20 @@ func mapField(forceVal string, line lineT, json jsonT, options optionsT) ([]resu
 		return errorMessage, errG
 	}
 	return []resultsT{newResult(key), newResult(val)}, nil
+}
+
+// MapField returns a map with a field for key and other for value
+func mapString(forceVal string, line lineT, json jsonT, options optionsT) ([]resultsT, error) {
+	_, errF := getField(forceVal, "field", line, json, options)
+	if errF != nil {
+		return errorMessage, errF
+	}
+	result := make([]resultsT, 0, 0)
+	result = append(result, newResult("por"))
+	result = append(result, newResult("Música"))
+	result = append(result, newResult("eng"))
+	result = append(result, newResult("Music"))
+	return result, nil
 }
 
 // AttrMap returns a map with a field for attribute name and other for value

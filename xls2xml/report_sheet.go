@@ -237,9 +237,9 @@ func (rs *reportSheet) newLine() {
 	rs.currentCol = 0
 }
 
-// WriteExtras writes additional files
-func (rs *reportSheet) WriteExtras() ([]byte, []byte, error) {
-	return nil, nil, nil
+// WriteConsolidated writes additional files
+func (rs *reportSheet) WriteConsolidated(_ int) ([]byte, []byte, []byte, error) {
+	return nil, nil, nil, nil
 }
 
 //func (rs *reportSheet) processColumns(_ string, json []interface{}, lines []lineT, wr writer) (err2 []error) {
