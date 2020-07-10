@@ -7,6 +7,7 @@ import (
 	"math"
 	"os"
 	"path"
+	"runtime/debug"
 	"strings"
 
 	"flag"
@@ -69,6 +70,15 @@ func main() {
 	success := 0
 	var err error
 	defer func() {
+		if msg := recover(); msg != nil {
+			success = -4
+			switch msg.(type) {
+			case string:
+				logError(fmt.Errorf("%v\n", msg))
+			case error:
+				logError(fmt.Errorf("%v:\n%v\n", msg, string(debug.Stack())))
+			}
+		}
 		if err != nil {
 			success = -3
 			logError(err)
@@ -253,11 +263,6 @@ func processSpreadSheet(json map[string]interface{}, outType string, f *xlsx.Spr
 				}
 			}
 		}
-		if wrSeries != nil {
-			if suc := processSeries(pack, categField1, wrSeries, idField, categField2); suc < 0 {
-				success = suc
-			}
-		}
 		log("------------------------------------")
 	}
 	if success == 0 {
@@ -270,10 +275,15 @@ func processSpreadSheet(json map[string]interface{}, outType string, f *xlsx.Spr
 		}
 		if wrCategs != nil || wrSeries != nil {
 			// extra files
-			if suc := processCategs(lines, categField1, wrCategs, idField, categField2); suc < 0 {
+			suc, errors := processCategs(lines, categField1, wrCategs, idField, categField2)
+			if len(errors) > 0 {
+				return -1, errors[0] // TODO retornar todos os erros
+			} else if suc != 0 {
 				success = suc
 			}
-			if suc := processSeries(lines, "series", wrSeries, "id", categField2); suc < 0 {
+			if suc, errors = processSeries(lines, wrSeries, "id"); len(errors) > 0 {
+				return -1, errors[0] // TODO retornar todos os erros
+			} else if suc != 0 {
 				success = suc
 			}
 
@@ -324,24 +334,36 @@ func processPublisherXLS(JsonXlsMap map[string]interface{}, outDir string, nLine
 	return xlsFilepath, success, nil
 }
 
-func processCategs(pack []lineT, categField1 string, wrCateg *jsonWriter, idField string, categField2 string) int {
+func processCategs(pack []lineT, categField1 string, wrCateg *jsonWriter, idField string, categField2 string) (int, []error) {
 	log("Processando categorias...")
 	success := 0
+	errors := make([]error, 0, 0)
 	for k := range pack {
 		row := pack[k]
-		success = wrCateg.processCategPack(row, idField, categField1, categField2)
+		succ, err := wrCateg.processCategPack(row, idField, categField1, categField2)
+		if err != nil {
+			return succ, appendErrors(errors, err)
+		}
+		if succ != 0 {
+			success = succ
+		}
 	}
-	return success
+	return success, errors
 }
 
-func processSeries(pack []lineT, categField1 string, wrCateg *jsonWriter, idField string, categField2 string) int {
+func processSeries(pack []lineT, wrSeries *jsonWriter, idField string) (int, []error) {
 	log("Processando series...")
-	success := 0
+	errors := make([]error, 0, 0)
 	for k := range pack {
 		row := pack[k]
-		success = wrCateg.processSeriesPack(row, idField, "Número do Episódio") // TODO parametrizar
+		success, err := wrSeries.processSeriesPack(row, idField, "Número do Episódio") // TODO parametrizar
+		if err != nil {
+			errors = appendErrors(errors, err)
+			return success, errors
+		}
 	}
-	return success
+	wrSeries.cleanSeries()
+	return 0, errors
 }
 
 // init option vars
@@ -486,7 +508,10 @@ func createWriter(outType string, filename string, sheetname string, ncols int, 
 	var wr writer
 	switch outType {
 	case "xml":
-		systemID := options["doctype_system"]
+		systemID, ok := options["doctype_system"]
+		if !ok {
+			return nil, fmt.Errorf("acrescente a opcao 'doctype_system' no arquivo de config")
+		}
 		wr, err = newXMLWriter(filename, systemID)
 	case "json":
 		wr, err = newJSONWriter(filename, linesCateg, linesSeries, jType)

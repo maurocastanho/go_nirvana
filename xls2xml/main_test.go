@@ -578,18 +578,8 @@ func TestXmlOiOtt(t *testing.T) {
 			"blindedbythelight_dub_ptbr_trailer.ts", "144207844", "4DEC3B668C6DD1A5994E053587E4658B",
 			"12:02:24", "Dolby 5.1"},
 	}
-	lenLine1 := len(lines[1])
-	//fmt.Printf("%#v\n%#v\n%d %d", lines[0], lines[1], len(lines[0]), lenLine1)
-
-	var maplines lineT = make(map[string]string)
-	for i := range lines[0] {
-		val := ""
-		if i < lenLine1 {
-			val = lines[1][i]
-		}
-		maplines[lines[0][i]] = val
-	}
-	maplines["file_number"] = "1"
+	maplines := makeLines(lines)
+	maplines[0]["file_number"] = "1"
 	options["timestamp"] = "200702102255"
 	options["creationDate"] = "2020-06-19"
 	//fmt.Printf("%#v\n", maplines)
@@ -598,7 +588,7 @@ func TestXmlOiOtt(t *testing.T) {
 		t.Error(errW)
 	}
 	xmlWr.testing = true
-	if err := processLines(json, []lineT{maplines}, xmlWr); err != nil {
+	if err := processLines(json, maplines, xmlWr); err != nil {
 		t.Error(err)
 		return
 	}
@@ -736,18 +726,8 @@ func TestXmlVivo(t *testing.T) {
 			"\\rhome\\nirvana\\warner_series_20200608\\dvb\\friends_s01ep01_hd_da_20_dvb", "Stereo",
 			"", "", "", "", ""},
 	}
-	lenLine1 := len(lines[1])
-	//fmt.Printf("%#v\n%#v\n%d %d", lines[0], lines[1], len(lines[0]), lenLine1)
-
-	var maplines lineT = make(map[string]string)
-	for i := range lines[0] {
-		val := ""
-		if i < lenLine1 {
-			val = lines[1][i]
-		}
-		maplines[lines[0][i]] = val
-	}
-	maplines["file_number"] = "1"
+	maplines := makeLines(lines)
+	maplines[0]["file_number"] = "1"
 	options["timestamp"] = "200619015447"
 	options["creationDate"] = "2020-06-19"
 	//fmt.Printf("%#v\n", maplines)
@@ -756,7 +736,7 @@ func TestXmlVivo(t *testing.T) {
 		t.Error(errX)
 	}
 	xmlWr.testing = true
-	if err := processLines(json, []lineT{maplines}, xmlWr); err != nil {
+	if err := processLines(json, maplines, xmlWr); err != nil {
 		t.Error(err)
 	}
 	result := xmlWr.getBuffer()
@@ -833,49 +813,6 @@ func TestXmlBox1(t *testing.T) {
 		"  ]\n" +
 		"}"
 
-	expectedCategs := "{\n" +
-		"  \"categories\": [\n" +
-		"    {\n" +
-		"      \"adult\": false,\n" +
-		"      \"assets\": [\n" +
-		"        \"198413c7-3d35-4c6d-9714-f80e92e9b7d0\"\n" +
-		"      ],\n" +
-		"      \"downloadable\": false,\n" +
-		"      \"hidden\": false,\n" +
-		"      \"id\": \"d7d4b94e-6055-4400-8325-c7f754830573\",\n" +
-		"      \"images\": [],\n" +
-		"      \"metadata\": {},\n" +
-		"      \"morality_level\": \"0\",\n" +
-		"      \"name\": {\n" +
-		"        \"eng\": \"Show\",\n" +
-		"        \"por\": \"Show\"\n" +
-		"      },\n" +
-		"      \"offline\": false,\n" +
-		"      \"parent_id\": \"\",\n" +
-		"      \"parental_control\": false\n" +
-		"    },\n" +
-		"    {\n" +
-		"      \"adult\": false,\n" +
-		"      \"assets\": [\n" +
-		"        \"198413c7-3d35-4c6d-9714-f80e92e9b7d0\"\n" +
-		"      ],\n" +
-		"      \"downloadable\": false,\n" +
-		"      \"hidden\": false,\n" +
-		"      \"id\": \"2f7c576a-7212-4af7-ac90-cbd6df1e5f94\",\n" +
-		"      \"images\": [],\n" +
-		"      \"metadata\": {},\n" +
-		"      \"morality_level\": \"0\",\n" +
-		"      \"name\": {\n" +
-		"        \"eng\": \"Music\",\n" +
-		"        \"por\": \"Música\"\n" +
-		"      },\n" +
-		"      \"offline\": false,\n" +
-		"      \"parent_id\": \"\",\n" +
-		"      \"parental_control\": false\n" +
-		"    }\n" +
-		"  ]\n" +
-		"}"
-
 	lines := [][]string{
 		{"uuid_box", "uuid_trailer",
 			"uuid_poster",
@@ -925,16 +862,54 @@ func TestXmlBox1(t *testing.T) {
 			"", "", "", "", "",
 			"shows"},
 	}
-	lenLine1 := len(lines[1])
-	//fmt.Printf("%#v\n%#v\n%d %d", lines[0], lines[1], len(lines[0]), lenLine1)
-	var maplines lineT = make(map[string]string)
-	for i := range lines[0] {
-		val := ""
-		if i < lenLine1 {
-			val = lines[1][i]
-		}
-		maplines[lines[0][i]] = val
-	}
+
+	expectedCategs := "{\n" +
+		"  \"categories\": [\n" +
+		"    {\n" +
+		"      \"adult\": false,\n" +
+		"      \"assets\": [\n" +
+		"        \"198413c7-3d35-4c6d-9714-f80e92e9b7d0\"\n" +
+		"      ],\n" +
+		"      \"downloadable\": false,\n" +
+		"      \"hidden\": false,\n" +
+		"      \"id\": \"d7d4b94e-6055-4400-8325-c7f754830573\",\n" +
+		"      \"images\": [],\n" +
+		"      \"metadata\": {},\n" +
+		"      \"morality_level\": \"0\",\n" +
+		"      \"name\": {\n" +
+		"        \"eng\": \"Show\",\n" +
+		"        \"por\": \"Show\"\n" +
+		"      },\n" +
+		"      \"offline\": false,\n" +
+		"      \"parent_id\": \"\",\n" +
+		"      \"parental_control\": false\n" +
+		"    },\n" +
+		"    {\n" +
+		"      \"adult\": false,\n" +
+		"      \"assets\": [\n" +
+		"        \"198413c7-3d35-4c6d-9714-f80e92e9b7d0\"\n" +
+		"      ],\n" +
+		"      \"downloadable\": false,\n" +
+		"      \"hidden\": false,\n" +
+		"      \"id\": \"2f7c576a-7212-4af7-ac90-cbd6df1e5f94\",\n" +
+		"      \"images\": [],\n" +
+		"      \"metadata\": {},\n" +
+		"      \"morality_level\": \"0\",\n" +
+		"      \"name\": {\n" +
+		"        \"eng\": \"Music\",\n" +
+		"        \"por\": \"Música\"\n" +
+		"      },\n" +
+		"      \"offline\": false,\n" +
+		"      \"parent_id\": \"\",\n" +
+		"      \"parental_control\": false\n" +
+		"    }\n" +
+		"  ]\n" +
+		"}"
+
+	expectedSeries := "{}"
+
+	alines := makeLines(lines)
+	alines[0]["file_number"] = "1"
 
 	categs := [][]string{
 		{"id", "name", "hidden", "morality_level",
@@ -945,45 +920,91 @@ func TestXmlBox1(t *testing.T) {
 			"false", "0", "false", "false", "false", "false"},
 	}
 
-	lenLineCat := len(categs[1])
-	categLine := make([]lineT, 3, 3)
-	for iLin := 1; iLin < 3; iLin++ {
-		categLine[iLin-1] = make(map[string]string)
-		for i := range categs[0] {
-			val := ""
-			if i < lenLineCat {
-				val = categs[iLin][i]
-			}
-			categLine[iLin-1][categs[0][i]] = val
-		}
+	series := [][]string{
+		{"id", "title", "synopsis"},
+		{"3d0666d2-0d6e-4687-b37b-1f65e173f889", "por:A Lista|eng:The List", "A melhor série de contagem regressiva de esportes. Com temas icônicos focados nos momentos e indivíduos mais memoráveis do esporte"},
 	}
-	maplines["file_number"] = "1"
+
+	categLines := makeLines(categs)
+	seriesLines := makeLines(series)
+
 	options["timestamp"] = "200702102255"
 	options["creationDate"] = "2020-06-19"
-	//fmt.Printf("%#v\n", maplines)
-	jsonWr, errA := newJSONWriter("unit_tests_assets.json", categLine, nil, assetsT)
+	//fmt.Printf("%#v\n", alines)
+	jsonWr, errA := newJSONWriter("unit_tests_assets.json", categLines, nil, assetsT)
 	if errA != nil {
 		t.Error(errA)
 	}
 	jsonWr.testing = true
-	if err := processLines(json, []lineT{maplines}, jsonWr); err != nil {
+	if err := processLines(json, alines, jsonWr); err != nil {
 		t.Error(err)
 	}
-	categWr, errC := newJSONWriter("unit_tests_categs.json", categLine, nil, categsT)
-	if errC != nil {
-		t.Error(errC)
+
+	wrCategs, err := newJSONWriter("", categLines, nil, categsT)
+	if err != nil {
+		t.Error(err)
 	}
-	categWr.testing = true
-	//categWr.processCategPack(maplines, "uuid_box", "Genero 1", "Genero 2")
-	bufAssets, bufCategs, bufSeries, errE := categWr.WriteConsolidated(1)
+	wrCategs.testing = true
+	// extra files
+	if suc, errors := processCategs(alines, "Genero 1", wrCategs, "uuid_box", "Genero 2"); len(errors) > 0 {
+		t.Error(errors)
+	} else if suc != 0 {
+		t.Error("fail")
+	}
+
+	wrSeries, errS := newJSONWriter("", nil, seriesLines, seriesT)
+	if errS != nil {
+		t.Error(errS)
+	}
+	wrSeries.testing = true
+	if suc, errors := processSeries(alines, wrSeries, "id"); suc != 0 {
+		t.Error(errors)
+	} else if suc != 0 {
+		t.Error("fail")
+	}
+
+	// categories.json
+	if _, _, _, err = wrCategs.WriteConsolidated(1); err != nil {
+		t.Error(err)
+	}
+	if _, _, _, err = wrSeries.WriteConsolidated(2); err != nil {
+		t.Error(err)
+	}
+	//categWr.processCategPack(alines, "uuid_box", "Genero 1", "Genero 2")
+	bufAssets, bufCategs, _, errE := wrCategs.WriteConsolidated(1)
 	if errE != nil {
 		t.Error(errE)
 	}
-	t.Log(bufSeries)
-	assetRes := string(bufAssets) // converting from windows encoding to UTF-8
-	categRes := string(bufCategs) // converting from windows encoding to UTF-8
+	_, _, bufSeries, errC := wrSeries.WriteConsolidated(2)
+	if errC != nil {
+		t.Error(errC)
+	}
+	t.Log(string(bufCategs))
+	t.Log(string(bufSeries))
+	assetRes := string(bufAssets)  // converting from windows encoding to UTF-8
+	categRes := string(bufCategs)  // converting from windows encoding to UTF-8
+	seriesRes := string(bufSeries) // converting from windows encoding to UTF-8
 	assert.JSONEq(t, expectedAssets, assetRes)
 	assert.JSONEq(t, expectedCategs, categRes)
+	assert.JSONEq(t, expectedSeries, seriesRes)
+}
+
+// Transforms spreadsheet rows in []map[string]string
+func makeLines(lines [][]string) []lineT {
+	nLines := len(lines)
+	lenLineCat := len(lines[1])
+	arrLines := make([]lineT, nLines-1, nLines-1)
+	for iLin := 1; iLin < nLines; iLin++ {
+		arrLines[iLin-1] = make(map[string]string)
+		for i := range lines[0] {
+			val := ""
+			if i < lenLineCat {
+				val = lines[iLin][i]
+			}
+			arrLines[iLin-1][lines[0][i]] = val
+		}
+	}
+	return arrLines
 }
 
 func xTestXmlBoxCategories(t *testing.T) {
@@ -1121,30 +1142,11 @@ func xTestXmlBoxCategories(t *testing.T) {
 	}
 	initVars(json)
 
-	lenLine1 := len(lines[1])
-	//fmt.Printf("%#v\n%#v\n%d %d", lines[0], lines[1], len(lines[0]), lenLine1)
-	var maplines lineT = make(map[string]string)
-	for i := range lines[0] {
-		val := ""
-		if i < lenLine1 {
-			val = lines[1][i]
-		}
-		maplines[lines[0][i]] = val
-	}
+	maplines := makeLines(lines)
+	maplines[0]["file_number"] = "1"
 
-	lenLineCat := len(categs[1])
-	categLines := make([]lineT, 2, 2)
-	for iLin := 1; iLin < 3; iLin++ {
-		categLines[iLin-1] = make(map[string]string)
-		for i := range categs[0] {
-			val := ""
-			if i < lenLineCat {
-				val = categs[iLin][i]
-			}
-			categLines[iLin-1][categs[0][i]] = val
-		}
-	}
-	maplines["file_number"] = "1"
+	categLines := makeLines(categs)
+
 	options["timestamp"] = "200702102255"
 	options["creationDate"] = "2020-06-19"
 	//fmt.Printf("%#v\n", maplines)
@@ -1353,17 +1355,9 @@ func xTestXmlBoxSeries(t *testing.T) {
 			"shows",
 		},
 	}
-	lenLine1 := len(lines[1])
 	//fmt.Printf("%#v\n%#v\n%d %d", lines[0], lines[1], len(lines[0]), lenLine1)
-	var maplines lineT = make(map[string]string)
-	for i := range lines[0] {
-		val := ""
-		if i < lenLine1 {
-			val = lines[1][i]
-		}
-		maplines[lines[0][i]] = val
-	}
-
+	maplines := makeLines(lines)
+	maplines[0]["file_number"] = "1"
 	categs := [][]string{
 		{"id", "name", "hidden", "morality_level",
 			"parental_control", "adult", "downloadable", "offline"},
@@ -1372,32 +1366,19 @@ func xTestXmlBoxSeries(t *testing.T) {
 		{"2f7c576a-7212-4af7-ac90-cbd6df1e5f94", "por:Música|eng:Music",
 			"false", "0", "false", "false", "false", "false"},
 	}
-
-	lenLineCat := len(categs[1])
-	categLine := make([]lineT, 3, 3)
-	for iLin := 1; iLin < 3; iLin++ {
-		categLine[iLin-1] = make(map[string]string)
-		for i := range categs[0] {
-			val := ""
-			if i < lenLineCat {
-				val = categs[iLin][i]
-			}
-			categLine[iLin-1][categs[0][i]] = val
-		}
-	}
-	maplines["file_number"] = "1"
+	categLines := makeLines(categs)
 	options["timestamp"] = "200702102255"
 	options["creationDate"] = "2020-06-19"
 	//fmt.Printf("%#v\n", maplines)
-	jsonWr, errA := newJSONWriter("unit_tests_assets.json", categLine, nil, assetsT)
+	jsonWr, errA := newJSONWriter("unit_tests_assets.json", categLines, nil, assetsT)
 	if errA != nil {
 		t.Error(errA)
 	}
 	jsonWr.testing = true
-	if err := processLines(json, []lineT{maplines}, jsonWr); err != nil {
+	if err := processLines(json, maplines, jsonWr); err != nil {
 		t.Error(err)
 	}
-	categWr, errC := newJSONWriter("unit_tests_categs.json", categLine, nil, categsT)
+	categWr, errC := newJSONWriter("unit_tests_categs.json", categLines, nil, categsT)
 	if errC != nil {
 		t.Error(errC)
 	}

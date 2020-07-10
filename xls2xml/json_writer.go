@@ -388,39 +388,33 @@ func (wr *jsonWriter) addToSeries(id string, serieName string) error {
 }
 
 // IMPORTANT: JsonWriter must be created separately for the categories file - do not use this method for the assets file
-func (wr *jsonWriter) processCategPack(row lineT, idField string, categField1 string, categField2 string) int {
-	success := 0
-	categ1 := row[categField1]
-	if categ1 == "" {
-		success = -2
-		logError(fmt.Errorf("categoria 1 em branco na linha [%v]", row))
+func (wr *jsonWriter) processCategPack(row lineT, idField string, categField1 string, categField2 string) (int, error) {
+	categ1, ok1 := row[categField1]
+	if !ok1 {
+		return -2, fmt.Errorf("categoria 1 em branco na linha [%v]", row)
 	}
-	err := wr.addToCategories(row[idField], categ1, "categories")
-	if err != nil {
-		logError(err)
-		success = -1
+	if err := wr.addToCategories(row[idField], categ1, "categories"); err != nil {
+		return -1, err
 	}
-	categ2 := row[categField2]
-	if categ1 == "" {
-		success = -2
-		logError(fmt.Errorf("categoria 2 em branco na linha [%v]", row))
+	categ2, ok2 := row[categField2]
+	if !ok2 {
+		return 0, nil // categ 2 can be empty
 	}
-	err = wr.addToCategories(row[idField], categ2, "categories")
-	if err != nil {
-		logError(err)
-		success = -1
+	if err := wr.addToCategories(row[idField], categ2, "categories"); err != nil {
+		return -1, err
 	}
-	return success
+	return 0, nil
 }
 
 // IMPORTANT: JsonWriter must be created separately for the series file - do not use this method for the assets file
-func (wr *jsonWriter) processSeriesPack(row lineT, idField string, categField1 string) int {
-	success := 0
-	nEpis := row[categField1]
+func (wr *jsonWriter) processSeriesPack(row lineT, idField string, idEpisodeField string) (int, error) {
+	nEpis := row[idEpisodeField]
 	err := wr.addToSeries(row[idField], nEpis)
 	if err != nil {
-		logError(err)
-		success = -1
+		return -1, err
 	}
-	return success
+	return 0, err
+}
+
+func (wr *jsonWriter) cleanSeries() {
 }
