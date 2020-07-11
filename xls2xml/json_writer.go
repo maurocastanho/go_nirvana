@@ -204,10 +204,10 @@ func (wr *jsonWriter) WriteAndClose(_ string) error {
 	if consolidated == nil {
 		consolidated = wr.root
 	} else {
-		arrCons := consolidated.(map[string]interface{})["assets"].([]interface{})
-		arrNew := wr.root.(map[string]interface{})["assets"].([]interface{})[0]
-		consolidated.(map[string]interface{})["assets"] = append(arrCons, arrNew)
-		wr.root = consolidated
+		//arrCons := consolidated.(map[string]interface{})["assets"].([]interface{})
+		//arrNew := wr.root.(map[string]interface{})["assets"].([]interface{})[0]
+		//consolidated.(map[string]interface{})["assets"] = append(arrCons, arrNew)
+		//wr.root = consolidated
 	}
 	//result, err := js.MarshalIndent(wr.root, "", "  ")
 	//if err != nil {

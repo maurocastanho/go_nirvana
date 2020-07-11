@@ -10,10 +10,33 @@ import (
 	"golang.org/x/text/encoding/charmap"
 )
 
-//var line = map[string]string{
-//	"id":   "1",
-//	"name": "2",
+func decodeISO88599ToUTF8(bytes []byte) string {
+	encoded, _ := charmap.ISO8859_9.NewDecoder().Bytes(bytes)
+	return string(encoded[:])
+}
+
+//func encodeUTF8ToISO88599(bytes []byte) string {
+//	encoded, _ := charmap.ISO8859_9.NewEncoder().Bytes(bytes)
+//	return string(encoded[:])
 //}
+
+// Transforms spreadsheet rows in []map[string]string
+func makeLines(lines [][]string) []lineT {
+	nLines := len(lines)
+	lenLineCat := len(lines[1])
+	arrLines := make([]lineT, nLines-1, nLines-1)
+	for iLin := 1; iLin < nLines; iLin++ {
+		arrLines[iLin-1] = make(map[string]string)
+		for i := range lines[0] {
+			val := ""
+			if i < lenLineCat {
+				val = lines[iLin][i]
+			}
+			arrLines[iLin-1][lines[0][i]] = val
+		}
+	}
+	return arrLines
+}
 
 func TestFunctionDict(t *testing.T) {
 	// x := FunctionDict["fixed"]
@@ -744,7 +767,7 @@ func TestXmlVivo(t *testing.T) {
 	assert.Equal(t, expected, res2)
 }
 
-func TestXmlBox1(t *testing.T) {
+func TestXmlBoxAssets(t *testing.T) {
 	json, errCf := readConfig("config_box.json")
 	if errCf != nil {
 		t.Error(errCf)
@@ -906,8 +929,6 @@ func TestXmlBox1(t *testing.T) {
 		"  ]\n" +
 		"}"
 
-	expectedSeries := "{}"
-
 	alines := makeLines(lines)
 	alines[0]["file_number"] = "1"
 
@@ -920,13 +941,7 @@ func TestXmlBox1(t *testing.T) {
 			"false", "0", "false", "false", "false", "false"},
 	}
 
-	series := [][]string{
-		{"id", "title", "synopsis"},
-		{"3d0666d2-0d6e-4687-b37b-1f65e173f889", "por:A Lista|eng:The List", "A melhor série de contagem regressiva de esportes. Com temas icônicos focados nos momentos e indivíduos mais memoráveis do esporte"},
-	}
-
 	categLines := makeLines(categs)
-	seriesLines := makeLines(series)
 
 	options["timestamp"] = "200702102255"
 	options["creationDate"] = "2020-06-19"
@@ -952,22 +967,8 @@ func TestXmlBox1(t *testing.T) {
 		t.Error("fail")
 	}
 
-	wrSeries, errS := newJSONWriter("", nil, seriesLines, seriesT)
-	if errS != nil {
-		t.Error(errS)
-	}
-	wrSeries.testing = true
-	if suc, errors := processSeries(alines, wrSeries, "id"); suc != 0 {
-		t.Error(errors)
-	} else if suc != 0 {
-		t.Error("fail")
-	}
-
 	// categories.json
 	if _, _, _, err = wrCategs.WriteConsolidated(1); err != nil {
-		t.Error(err)
-	}
-	if _, _, _, err = wrSeries.WriteConsolidated(2); err != nil {
 		t.Error(err)
 	}
 	//categWr.processCategPack(alines, "uuid_box", "Genero 1", "Genero 2")
@@ -975,36 +976,10 @@ func TestXmlBox1(t *testing.T) {
 	if errE != nil {
 		t.Error(errE)
 	}
-	_, _, bufSeries, errC := wrSeries.WriteConsolidated(2)
-	if errC != nil {
-		t.Error(errC)
-	}
-	t.Log(string(bufCategs))
-	t.Log(string(bufSeries))
-	assetRes := string(bufAssets)  // converting from windows encoding to UTF-8
-	categRes := string(bufCategs)  // converting from windows encoding to UTF-8
-	seriesRes := string(bufSeries) // converting from windows encoding to UTF-8
+	assetRes := string(bufAssets) // converting from windows encoding to UTF-8
+	categRes := string(bufCategs) // converting from windows encoding to UTF-8
 	assert.JSONEq(t, expectedAssets, assetRes)
 	assert.JSONEq(t, expectedCategs, categRes)
-	assert.JSONEq(t, expectedSeries, seriesRes)
-}
-
-// Transforms spreadsheet rows in []map[string]string
-func makeLines(lines [][]string) []lineT {
-	nLines := len(lines)
-	lenLineCat := len(lines[1])
-	arrLines := make([]lineT, nLines-1, nLines-1)
-	for iLin := 1; iLin < nLines; iLin++ {
-		arrLines[iLin-1] = make(map[string]string)
-		for i := range lines[0] {
-			val := ""
-			if i < lenLineCat {
-				val = lines[iLin][i]
-			}
-			arrLines[iLin-1][lines[0][i]] = val
-		}
-	}
-	return arrLines
 }
 
 func xTestXmlBoxCategories(t *testing.T) {
@@ -1164,7 +1139,6 @@ func xTestXmlBoxCategories(t *testing.T) {
 		t.Error(errE)
 	}
 	categRes := string(bufCategs) // converting from windows encoding to UTF-8
-	t.Log(categRes)
 	assert.JSONEq(t, expectedCategs, categRes)
 }
 
@@ -1174,112 +1148,112 @@ func xTestXmlBoxSeries(t *testing.T) {
 		t.Error(errConf)
 	}
 	initVars(json)
-	expectedAssets := "{\n" +
-		"  \"assets\": [\n" +
-		"    {\n" +
-		"      \"adult\": false,\n" +
-		"      \"available_from\": 1593043200000,\n" +
-		"      \"available_to\": 1798675200000,\n      \"duration\": 1421000,\n" +
-		"      \"genres\": [\n" +
-		"        \"Show\"\n" +
-		"      ],\n" +
-		"      \"id\": \"198413c7-3d35-4c6d-9714-f80e92e9b7d0\",\n" +
-		"      \"images\": [\n" +
-		"        {\n" +
-		"          \"id\": \"e2830250-d3bf-451a-ba3b-d4ec3ce1da19\",\n" +
-		"          \"location\": \"shows/ariana_grande_poster.jpg\",\n" +
-		"          \"type\": \"vod-poster\"\n" +
-		"        },\n" +
-		"        {\n" +
-		"          \"id\": \"8b841c15-a02f-4a23-b4d2-d4eb409becbe\",\n" +
-		"          \"location\": \"shows/ariana_grande_landscape.jpg\",\n" +
-		"          \"type\": \"vod-background\"\n" +
-		"        }\n" +
-		"      ],\n" +
-		"      \"medias\": [\n" +
-		"        {\n" +
-		"          \"audio_languages\": [\n" +
-		"            \"eng\"\n" +
-		"          ],\n" +
-		"          \"id\": \"198413c7-3d35-4c6d-9714-f80e92e9b7d0\",\n" +
-		"          \"location\": \"shows/ariana_grande.mp4\",\n" +
-		"          \"metadata\": {},\n" +
-		"          \"subtitles_languages\": [\n" +
-		"            \"por\"\n          ],\n" +
-		"          \"technology\": \"MP4\",\n" +
-		"          \"title\": \"Ariana Grande\",\n" +
-		"          \"type\": \"MEDIA\"\n" +
-		"        }\n" +
-		"      ],\n" +
-		"      \"metadata\": {\n" +
-		"        \"actors\": [\n" +
-		"          \"\"\n" +
-		"        ],\n" +
-		"        \"country\": \"USA\",\n" +
-		"        \"directors\": [\n" +
-		"          \"\"\n" +
-		"        ],\n" +
-		"        \"release_year\": \"2016\",\n" +
-		"        \"rights\": [],\n" +
-		"        \"summary\": [\n" +
-		"          \"Show da cantora Ariana Grande\"\n" +
-		"        ]\n" +
-		"      },\n" +
-		"      \"morality_level\": 0,\n" +
-		"      \"synopsis\": {\n" +
-		"        \"por\": \"Ariana Grande se apresenta em Las Vegas, a cantora canta todos os seus sucessos." +
-		" O show conta com participação especial de Zedd.\"\n" +
-		"      },\n" +
-		"      \"title\": {\n" +
-		"        \"por\": \"Ariana Grande\"\n" +
-		"      }\n" +
-		"    }\n" +
-		"  ]\n" +
-		"}"
-
-	expectedCategs := "{\n" +
-		"  \"categories\": [\n" +
-		"    {\n" +
-		"      \"adult\": false,\n" +
-		"      \"assets\": [\n" +
-		"        \"198413c7-3d35-4c6d-9714-f80e92e9b7d0\"\n" +
-		"      ],\n" +
-		"      \"downloadable\": false,\n" +
-		"      \"hidden\": false,\n" +
-		"      \"id\": \"d7d4b94e-6055-4400-8325-c7f754830573\",\n" +
-		"      \"images\": [],\n" +
-		"      \"metadata\": {},\n" +
-		"      \"morality_level\": \"0\",\n" +
-		"      \"name\": {\n" +
-		"        \"eng\": \"Show\",\n" +
-		"        \"por\": \"Show\"\n" +
-		"      },\n" +
-		"      \"offline\": false,\n" +
-		"      \"parent_id\": \"\",\n" +
-		"      \"parental_control\": false\n" +
-		"    },\n" +
-		"    {\n" +
-		"      \"adult\": false,\n" +
-		"      \"assets\": [\n" +
-		"        \"198413c7-3d35-4c6d-9714-f80e92e9b7d0\"\n" +
-		"      ],\n" +
-		"      \"downloadable\": false,\n" +
-		"      \"hidden\": false,\n" +
-		"      \"id\": \"2f7c576a-7212-4af7-ac90-cbd6df1e5f94\",\n" +
-		"      \"images\": [],\n" +
-		"      \"metadata\": {},\n" +
-		"      \"morality_level\": \"0\",\n" +
-		"      \"name\": {\n" +
-		"        \"eng\": \"Music\",\n" +
-		"        \"por\": \"Música\"\n" +
-		"      },\n" +
-		"      \"offline\": false,\n" +
-		"      \"parent_id\": \"\",\n" +
-		"      \"parental_control\": false\n" +
-		"    }\n" +
-		"  ]\n" +
-		"}"
-
+	//expectedAssets := "{\n" +
+	//	"  \"assets\": [\n" +
+	//	"    {\n" +
+	//	"      \"adult\": false,\n" +
+	//	"      \"available_from\": 1593043200000,\n" +
+	//	"      \"available_to\": 1798675200000,\n      \"duration\": 1421000,\n" +
+	//	"      \"genres\": [\n" +
+	//	"        \"Show\"\n" +
+	//	"      ],\n" +
+	//	"      \"id\": \"198413c7-3d35-4c6d-9714-f80e92e9b7d0\",\n" +
+	//	"      \"images\": [\n" +
+	//	"        {\n" +
+	//	"          \"id\": \"e2830250-d3bf-451a-ba3b-d4ec3ce1da19\",\n" +
+	//	"          \"location\": \"shows/ariana_grande_poster.jpg\",\n" +
+	//	"          \"type\": \"vod-poster\"\n" +
+	//	"        },\n" +
+	//	"        {\n" +
+	//	"          \"id\": \"8b841c15-a02f-4a23-b4d2-d4eb409becbe\",\n" +
+	//	"          \"location\": \"shows/ariana_grande_landscape.jpg\",\n" +
+	//	"          \"type\": \"vod-background\"\n" +
+	//	"        }\n" +
+	//	"      ],\n" +
+	//	"      \"medias\": [\n" +
+	//	"        {\n" +
+	//	"          \"audio_languages\": [\n" +
+	//	"            \"eng\"\n" +
+	//	"          ],\n" +
+	//	"          \"id\": \"198413c7-3d35-4c6d-9714-f80e92e9b7d0\",\n" +
+	//	"          \"location\": \"shows/ariana_grande.mp4\",\n" +
+	//	"          \"metadata\": {},\n" +
+	//	"          \"subtitles_languages\": [\n" +
+	//	"            \"por\"\n          ],\n" +
+	//	"          \"technology\": \"MP4\",\n" +
+	//	"          \"title\": \"Ariana Grande\",\n" +
+	//	"          \"type\": \"MEDIA\"\n" +
+	//	"        }\n" +
+	//	"      ],\n" +
+	//	"      \"metadata\": {\n" +
+	//	"        \"actors\": [\n" +
+	//	"          \"\"\n" +
+	//	"        ],\n" +
+	//	"        \"country\": \"USA\",\n" +
+	//	"        \"directors\": [\n" +
+	//	"          \"\"\n" +
+	//	"        ],\n" +
+	//	"        \"release_year\": \"2016\",\n" +
+	//	"        \"rights\": [],\n" +
+	//	"        \"summary\": [\n" +
+	//	"          \"Show da cantora Ariana Grande\"\n" +
+	//	"        ]\n" +
+	//	"      },\n" +
+	//	"      \"morality_level\": 0,\n" +
+	//	"      \"synopsis\": {\n" +
+	//	"        \"por\": \"Ariana Grande se apresenta em Las Vegas, a cantora canta todos os seus sucessos." +
+	//	" O show conta com participação especial de Zedd.\"\n" +
+	//	"      },\n" +
+	//	"      \"title\": {\n" +
+	//	"        \"por\": \"Ariana Grande\"\n" +
+	//	"      }\n" +
+	//	"    }\n" +
+	//	"  ]\n" +
+	//	"}"
+	//
+	//expectedCategs := "{\n" +
+	//	"  \"categories\": [\n" +
+	//	"    {\n" +
+	//	"      \"adult\": false,\n" +
+	//	"      \"assets\": [\n" +
+	//	"        \"198413c7-3d35-4c6d-9714-f80e92e9b7d0\"\n" +
+	//	"      ],\n" +
+	//	"      \"downloadable\": false,\n" +
+	//	"      \"hidden\": false,\n" +
+	//	"      \"id\": \"d7d4b94e-6055-4400-8325-c7f754830573\",\n" +
+	//	"      \"images\": [],\n" +
+	//	"      \"metadata\": {},\n" +
+	//	"      \"morality_level\": \"0\",\n" +
+	//	"      \"name\": {\n" +
+	//	"        \"eng\": \"Show\",\n" +
+	//	"        \"por\": \"Show\"\n" +
+	//	"      },\n" +
+	//	"      \"offline\": false,\n" +
+	//	"      \"parent_id\": \"\",\n" +
+	//	"      \"parental_control\": false\n" +
+	//	"    },\n" +
+	//	"    {\n" +
+	//	"      \"adult\": false,\n" +
+	//	"      \"assets\": [\n" +
+	//	"        \"198413c7-3d35-4c6d-9714-f80e92e9b7d0\"\n" +
+	//	"      ],\n" +
+	//	"      \"downloadable\": false,\n" +
+	//	"      \"hidden\": false,\n" +
+	//	"      \"id\": \"2f7c576a-7212-4af7-ac90-cbd6df1e5f94\",\n" +
+	//	"      \"images\": [],\n" +
+	//	"      \"metadata\": {},\n" +
+	//	"      \"morality_level\": \"0\",\n" +
+	//	"      \"name\": {\n" +
+	//	"        \"eng\": \"Music\",\n" +
+	//	"        \"por\": \"Música\"\n" +
+	//	"      },\n" +
+	//	"      \"offline\": false,\n" +
+	//	"      \"parent_id\": \"\",\n" +
+	//	"      \"parental_control\": false\n" +
+	//	"    }\n" +
+	//	"  ]\n" +
+	//	"}"
+	//
 	lines := [][]string{
 		{"uuid_box", "uuid_trailer",
 			"uuid_poster",
@@ -1384,24 +1358,43 @@ func xTestXmlBoxSeries(t *testing.T) {
 	}
 	categWr.testing = true
 	//	categWr.processCategPack(maplines, "uuid_box", "Genero 1", "Genero 2")
-	bufAssets, bufCategs, bufSeries, errE := categWr.WriteConsolidated(1)
+}
+
+func TestXmlBoxSeriesX(t *testing.T) {
+	json, errConf := readConfig("config_box_series.json")
+	if errConf != nil {
+		t.Error(errConf)
+	}
+	initVars(json)
+	expectedAssets := "{\n" +
+		"}"
+
+	lines := [][]string{
+		{"id", "title", "synopsis", "season", "season synopsis"},
+		{"3d0666d2-0d6e-4687-b37b-1f65e173f889", "por:A Lista|eng:The List", "A melhor série de contagem regressiva de esportes. Com temas icônicos focados nos momentos e indivíduos mais memoráveis do esporte",
+			"A melhor série de contagem regressiva de esportes. Com temas icônicos focados nos momentos e indivíduos mais memoráveis do esporte.", "1", "Primeira temporada\n"},
+		{"3d0666d2-0d6e-4687-b37b-1f65e173f889", "por:A Lista|eng:The List", "A melhor série de contagem regressiva de esportes. Com temas icônicos focados nos momentos e indivíduos mais memoráveis do esporte",
+			"A melhor série de contagem regressiva de esportes. Com temas icônicos focados nos momentos e indivíduos mais memoráveis do esporte.", "2", "Segunda temporada\n"},
+	}
+	maplines := makeLines(lines)
+	maplines[0]["file_number"] = "1"
+	options["timestamp"] = "200702102255"
+	options["creationDate"] = "2020-06-19"
+	//fmt.Printf("%#v\n", maplines)
+	jsonWr, errA := newJSONWriter("", nil, nil, seriesT)
+	if errA != nil {
+		t.Error(errA)
+	}
+	jsonWr.testing = true
+	if err := processLines(json, maplines, jsonWr); err != nil {
+		t.Error(err)
+	}
+	//	categWr.processCategPack(maplines, "uuid_box", "Genero 1", "Genero 2")
+	bufAssets, _, _, errE := jsonWr.WriteConsolidated(2)
 	if errE != nil {
 		t.Error(errE)
 	}
-	t.Log(bufSeries)
 	assetRes := string(bufAssets) // converting from windows encoding to UTF-8
-	categRes := string(bufCategs) // converting from windows encoding to UTF-8
 	fmt.Printf("%s\n", assetRes)
 	assert.JSONEq(t, expectedAssets, assetRes)
-	assert.JSONEq(t, expectedCategs, categRes)
 }
-
-func decodeISO88599ToUTF8(bytes []byte) string {
-	encoded, _ := charmap.ISO8859_9.NewDecoder().Bytes(bytes)
-	return string(encoded[:])
-}
-
-//func encodeUTF8ToISO88599(bytes []byte) string {
-//	encoded, _ := charmap.ISO8859_9.NewEncoder().Bytes(bytes)
-//	return string(encoded[:])
-//}

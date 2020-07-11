@@ -5,7 +5,6 @@ go 1.14
 require (
 	github.com/Knetic/govaluate v3.0.0+incompatible
 	github.com/davecgh/go-spew v1.1.1 // indirect
-	github.com/fatih/color v1.9.0 // indirect
 	github.com/golang-collections/collections v0.0.0-20130729185459-604e922904d3
 	github.com/kr/pretty v0.1.0 // indirect
 	github.com/plandem/xlsx v1.0.4

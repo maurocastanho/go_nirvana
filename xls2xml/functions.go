@@ -130,7 +130,7 @@ func fixed(forceVal string, _ lineT, json jsonT, _ optionsT) ([]resultsT, error)
 
 // FieldMoney returns field formatted as money
 func fieldMoney(forceVal string, line lineT, json jsonT, options optionsT) ([]resultsT, error) {
-	val, errF := getField(forceVal, "Name", line, json, options)
+	val, errF := getField(forceVal, "", line, json, options)
 	if errF != nil {
 		return errorMessage, errF
 	}
@@ -143,7 +143,7 @@ func fieldMoney(forceVal string, line lineT, json jsonT, options optionsT) ([]re
 
 // Field returns field from line after truncating max size
 func fieldTrunc(forceVal string, line lineT, json jsonT, options optionsT) ([]resultsT, error) {
-	value, errF := getField(forceVal, "Name", line, json, options)
+	value, errF := getField(forceVal, "", line, json, options)
 	if errF != nil {
 		return errorMessage, errF
 	}
@@ -153,13 +153,13 @@ func fieldTrunc(forceVal string, line lineT, json jsonT, options optionsT) ([]re
 
 // FieldRaw returns field without further processing
 func fieldRaw(forceVal string, line lineT, json jsonT, options optionsT) ([]resultsT, error) {
-	value, err := getField(forceVal, "Name", line, json, options)
+	value, err := getField(forceVal, "", line, json, options)
 	return []resultsT{newResult(value)}, err
 }
 
 // FieldDate returns a date field after formatting
 func fieldDate(forceVal string, line lineT, json jsonT, options optionsT) ([]resultsT, error) {
-	value, errF := getField(forceVal, "Name", line, json, options)
+	value, errF := getField(forceVal, "", line, json, options)
 	if errF != nil {
 		return errorMessage, errF
 	}
@@ -171,12 +171,17 @@ func fieldDate(forceVal string, line lineT, json jsonT, options optionsT) ([]res
 	return []resultsT{newResult(formatDate(t))}, errD
 }
 
-func getField(forceVal string, _ string, line lineT, json jsonT, _ optionsT) (string, error) {
+func getField(forceVal string, fieldN string, line lineT, json jsonT, _ optionsT) (string, error) {
 	// fmt.Printf("field=%#v, json=%#v, line=%#v, options=%#v\n", field, json, line, options)
 	if forceVal != "" {
 		return forceVal, nil
 	}
-	fieldName, err := getValue("field", json)
+	fieldName := fieldN
+	if fieldName == "" {
+		fieldName = "field"
+	}
+	var err error
+	fieldName, err = getValue(fieldName, json)
 	if err != nil {
 		return errorMessage[0].val, err
 	}
@@ -210,7 +215,7 @@ func fieldValidated(forceVal string, line lineT, json jsonT, options optionsT) (
 
 // FieldNoAccents returns the field after replacing accented characters for its non-accented correspondents
 func fieldNoAccents(forceVal string, line lineT, json jsonT, options optionsT) ([]resultsT, error) {
-	f, err := getField(forceVal, "Name", line, json, options)
+	f, err := getField(forceVal, "", line, json, options)
 	if err != nil {
 		return errorMessage, err
 	}
@@ -224,7 +229,7 @@ func fieldNoAccents(forceVal string, line lineT, json jsonT, options optionsT) (
 
 // FieldTrim returns the field after removing spaces from left and right
 func fieldTrim(forceVal string, line lineT, json jsonT, options optionsT) ([]resultsT, error) {
-	field, err := getField(forceVal, "Name", line, json, options)
+	field, err := getField(forceVal, "", line, json, options)
 	if err != nil {
 		return errorMessage, err
 	}
@@ -238,7 +243,7 @@ func fieldTrim(forceVal string, line lineT, json jsonT, options optionsT) ([]res
 
 // FieldNoQuotes removes all quotation symbols from the field and returns it
 func fieldNoQuotes(forceVal string, line lineT, json jsonT, options optionsT) ([]resultsT, error) {
-	field, errG := getField(forceVal, "Name", line, json, options)
+	field, errG := getField(forceVal, "", line, json, options)
 	if errG != nil {
 		return errorMessage, errG
 	}
@@ -558,7 +563,7 @@ func split(forceVal string, line lineT, json jsonT, options optionsT) ([]results
 			return errorMessage, fmt.Errorf("funcao fixed precisa de elemento 'value' na linha %v", line)
 		}
 	} else {
-		field, err = getField(forceVal, "field", line, json, options)
+		field, err = getField(forceVal, "", line, json, options)
 		if err != nil {
 			return errorMessage, err
 		}
@@ -591,7 +596,7 @@ func mapField(forceVal string, line lineT, json jsonT, options optionsT) ([]resu
 
 // MapField returns a map with a field for key and other for value
 func mapString(forceVal string, line lineT, json jsonT, options optionsT) ([]resultsT, error) {
-	_, errF := getField(forceVal, "field", line, json, options)
+	_, errF := getField(forceVal, "", line, json, options)
 	if errF != nil {
 		return errorMessage, errF
 	}
@@ -644,7 +649,7 @@ func attrMap(forceVal string, line lineT, json jsonT, options optionsT) ([]resul
 
 // Convert maps an element of a string array unto another
 func convert(forceVal string, line lineT, json jsonT, options optionsT) ([]resultsT, error) {
-	key, err := getField(forceVal, "field", line, json, options)
+	key, err := getField(forceVal, "", line, json, options)
 	if err != nil {
 		return errorMessage, err
 	}
@@ -674,7 +679,7 @@ func convert(forceVal string, line lineT, json jsonT, options optionsT) ([]resul
 
 // Utc returns a date in UTC format
 func utc(forceVal string, line lineT, json jsonT, options optionsT) ([]resultsT, error) {
-	val, errM := getField(forceVal, "field", line, json, options)
+	val, errM := getField(forceVal, "", line, json, options)
 	if errM != nil {
 		return errorMessage, errM
 	}
@@ -788,7 +793,7 @@ func janelaRepasse(forceVal string, line lineT, json jsonT, options optionsT) ([
 	if forceVal != "" {
 		return []resultsT{newResult(forceVal)}, nil
 	}
-	billId, err := getField(forceVal, "field", line, json, options)
+	billId, err := getField(forceVal, "", line, json, options)
 	if err != nil {
 		return errorMessage, err
 	}
@@ -805,7 +810,7 @@ func boxTechnology(forceVal string, line lineT, json jsonT, options optionsT) ([
 	if forceVal != "" {
 		return []resultsT{newResult(forceVal)}, nil
 	}
-	filename, err := getField(forceVal, "field", line, json, options)
+	filename, err := getField(forceVal, "", line, json, options)
 	if err != nil {
 		return errorMessage, err
 	}
