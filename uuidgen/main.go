@@ -8,12 +8,15 @@ import (
 )
 
 func main() {
-
 	columns := -1
 	lines := -1
-	flag.IntVar(&columns, "l", 1, "Linhas")
-	flag.IntVar(&lines, "c", 1, "Colunas")
+	flag.IntVar(&columns, "c", 0, "Linhas")
+	flag.IntVar(&lines, "l", 0, "Colunas")
 	flag.Parse()
+	if columns <= 0 || lines <= 0 {
+		flag.Usage()
+		return
+	}
 	for l := 0; l < lines; l++ {
 		for c := 0; c < columns; c++ {
 			if c > 0 {
