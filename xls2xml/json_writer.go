@@ -315,14 +315,24 @@ func (wr *jsonWriter) initSeries() (map[string]interface{}, error) {
 	root := make(map[string]interface{})
 	cat := make([]map[string]interface{}, 0)
 	fmt.Printf("Series: [%#v]\n", wr.serieLines)
+	current := make(map[string]interface{})
+	currentId := ""
 	for _, line := range wr.serieLines {
-		el := make(map[string]interface{})
+		toAppend := true
 		name, _ := line["title"]
 		id, ok := line["id"]
 		if !ok || id == "" {
 			return nil, fmt.Errorf("serie [%s] nao existente na aba 'series'", name)
 		}
-		el["id"] = line["id"]
+		var el map[string]interface{}
+		if id != currentId {
+			el = make(map[string]interface{})
+			current = el
+			toAppend = currentId != ""
+			currentId = id
+		}
+		el = current
+		el["id"] = id
 		elName := make(map[string]interface{})
 		strNames := strings.Split(line["title"], "|")
 		for _, l := range strNames {
@@ -335,14 +345,42 @@ func (wr *jsonWriter) initSeries() (map[string]interface{}, error) {
 		}
 		el["external_ids"] = make([]interface{}, 0)
 		el["title"] = elName
-		el["synopsys"] = line["synopsys"]
+		el["synopsys"] = splitLangName(line["synopsis"])
 		el["images"] = make([]interface{}, 0)
-		el["seasons"] = make([]interface{}, 0)
-		cat = append(cat, el)
+		elSeas, okS := el["seasons"].([]interface{})
+		if !okS {
+			elSeas = make([]interface{}, 0)
+		}
+		elSeasM := make(map[string]interface{})
+		elSeasM["id"] = line["id season"]
+		elSeasM["season_number"] = line["season"]
+		titleEls := splitLangName(line["title"])
+		elSeasM["title"] = titleEls
+		elSeasM["synopsis"] = splitLangName(line["season synopsis"])
+		elSeas = append(elSeas, elSeasM)
+		el["seasons"] = elSeas
+		if toAppend {
+			cat = append(cat, el)
+		}
 	}
 	root["series"] = cat
 	wr.root = root
 	return root, nil
+}
+
+func splitLangName(str string) map[string]string {
+	listLang := strings.Split(str, "|")
+	result := make(map[string]string)
+	for _, langEl := range listLang {
+		langSplit := strings.Split(langEl, ":")
+		if len(langSplit) != 2 {
+			return map[string]string{"###ERRO###": "ERRO"}
+		}
+		lang := langSplit[0]
+		text := langSplit[1]
+		result[lang] = text
+	}
+	return result
 }
 
 // addToCategories adds an asset to the categories list

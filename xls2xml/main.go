@@ -804,7 +804,7 @@ func processAttr(json jsonT, lines []lineT, wr writer) (err []error) {
 			attrs := at.([]interface{})
 			err = appendErrors(err, processAttrs(name, attrs, lines, wr)...)
 		}
-		if f2, okf2 := json["function2"]; !okf2 || f2 != "set_var" {
+		if f2, okf2 := json["function2"]; !okf2 || f2 != "set_var" { // test set_var
 			vtype, _ := json["type"].(string)
 			if err1 := wr.WriteAttr(name, processVal(procVal.val, procVal.vars), vtype, attrType); err1 != nil {
 				err = appendErrors(err, err1)

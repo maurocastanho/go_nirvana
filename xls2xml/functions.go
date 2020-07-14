@@ -544,7 +544,7 @@ func filterCondition(forceVal string, line lineT, json jsonT, options optionsT) 
 	return []resultsT{}, nil
 }
 
-// Split splits a list of arguments and calls a function for each one of those
+// Split splits a list of arguments and calls a function on each one
 func split(forceVal string, line lineT, json jsonT, options optionsT) ([]resultsT, error) {
 	funcName, okF := json["function2"].(string)
 	if !okF {
