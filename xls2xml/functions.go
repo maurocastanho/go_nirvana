@@ -317,7 +317,7 @@ func assetID(forceVal string, line lineT, json jsonT, options optionsT) ([]resul
 	if !okS {
 		return errorMessage, fmt.Errorf("numero do sufixo do assetid (suffix_number) nao encontrado: [%v]", json)
 	}
-	timest := options["timestamp"]
+	timest := options["options"]["timestamp"]
 	if !ok || timest == "" {
 		return errorMessage, fmt.Errorf("timestamp nao encontrada (timestamp): [%v]", options)
 	}
@@ -347,7 +347,7 @@ func assetIDOtt(forceVal string, line lineT, _ jsonT, options optionsT) ([]resul
 	if forceVal != "" {
 		return []resultsT{newResult(forceVal)}, nil
 	}
-	timest, okT := options["timestamp"]
+	timest, okT := options["options"]["timestamp"]
 	if !okT || timest == "" {
 		return errorMessage, fmt.Errorf("timestamp nao encontrada (timestamp): [%v]", options)
 	}
@@ -364,7 +364,7 @@ func episodeID(forceVal string, line lineT, _ jsonT, options optionsT) ([]result
 	if forceVal != "" {
 		return []resultsT{newResult(forceVal)}, nil
 	}
-	fSeason, okF := options["season_field"]
+	fSeason, okF := options["options"]["season_field"]
 	if !okF || fSeason == "" {
 		return errorMessage, fmt.Errorf("config para campo 'season_field' nao encontrado: [%v]", options)
 	}
@@ -372,7 +372,7 @@ func episodeID(forceVal string, line lineT, _ jsonT, options optionsT) ([]result
 	if !okS || season == "" {
 		return errorMessage, fmt.Errorf("temporada do episode_id nao encontrada (%v): [%v]", fSeason, line)
 	}
-	fEpisodeID, okEid := options["episode_field"]
+	fEpisodeID, okEid := options["options"]["episode_field"]
 	if !okEid || fEpisodeID == "" {
 		return errorMessage, fmt.Errorf("config para campo 'episode_field' nao encontrado: [%v]", options)
 	}
@@ -389,7 +389,7 @@ func date(forceVal string, _ lineT, _ jsonT, options optionsT) ([]resultsT, erro
 	if forceVal != "" {
 		return []resultsT{newResult(forceVal)}, nil // TODO
 	}
-	crDate := options["creationDate"]
+	crDate := options["options"]["creationDate"]
 	if crDate != "" {
 		return []resultsT{newResult(crDate)}, nil
 	}
@@ -781,7 +781,7 @@ func option(forceVal string, _ lineT, json jsonT, options optionsT) ([]resultsT,
 	if !okF {
 		return errorMessage, fmt.Errorf("elemento '%s' inexistente na linha", "field")
 	}
-	val, okO := options[optField]
+	val, okO := options["options"][optField]
 	if !okO {
 		return errorMessage, fmt.Errorf("elemento '%s' inexistente nas options [%v]", optField, options)
 	}
@@ -878,7 +878,7 @@ func getNames(forceVal string, json jsonT) []string {
 	} else {
 		val, _ := json["Value"].(string)
 		if val != "" && val[0:1] == "$" {
-			value = options[val]
+			value = options["options"][val]
 		} else {
 			value = val
 		}

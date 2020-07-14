@@ -3,6 +3,10 @@
         {"Name": "filename_field", "Value": "ID"},
         {"Name": "name_field", "Value": "uuid_box"},
         {"Name": "id_field", "Value": "uuid_box"},
+        {"Name": "series_id_field", "Value": "id"},
+        {"Name": "series_title_field", "Value": "title"},
+        {"Name": "season_id_field", "Value": "id season"},
+        {"Name": "season_num_field", "Value": "season"},
         {"Name": "categ_field1", "Value": "Genero 1"},
         {"Name": "categ_field2", "Value": "Genero 2"}
     ],

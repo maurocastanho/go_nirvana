@@ -462,8 +462,8 @@ func TestXmlNet(t *testing.T) {
 		maplines[lines[0][i]] = val
 	}
 	maplines["file_number"] = "1"
-	options["timestamp"] = "200619015447"
-	options["creationDate"] = "2020-06-19"
+	options["options"]["timestamp"] = "200619015447"
+	options["options"]["creationDate"] = "2020-06-19"
 	//fmt.Printf("%#v\n", maplines)
 	xmlWr, errW := newXMLWriter("unit_tests.json", "ADI.DTD")
 	if errW != nil {
@@ -603,8 +603,8 @@ func TestXmlOiOtt(t *testing.T) {
 	}
 	maplines := makeLines(lines)
 	maplines[0]["file_number"] = "1"
-	options["timestamp"] = "200702102255"
-	options["creationDate"] = "2020-06-19"
+	options["options"]["timestamp"] = "200702102255"
+	options["options"]["creationDate"] = "2020-06-19"
 	//fmt.Printf("%#v\n", maplines)
 	xmlWr, errW := newXMLWriter("unit_tests.json", "")
 	if errW != nil {
@@ -751,8 +751,8 @@ func TestXmlVivo(t *testing.T) {
 	}
 	maplines := makeLines(lines)
 	maplines[0]["file_number"] = "1"
-	options["timestamp"] = "200619015447"
-	options["creationDate"] = "2020-06-19"
+	options["options"]["timestamp"] = "200619015447"
+	options["options"]["creationDate"] = "2020-06-19"
 	//fmt.Printf("%#v\n", maplines)
 	xmlWr, errX := newXMLWriter("unit_tests.json", "ADI.DTD")
 	if errX != nil {
@@ -943,8 +943,8 @@ func TestXmlBoxAssets(t *testing.T) {
 
 	categLines := makeLines(categs)
 
-	options["timestamp"] = "200702102255"
-	options["creationDate"] = "2020-06-19"
+	options["options"]["timestamp"] = "200702102255"
+	options["options"]["creationDate"] = "2020-06-19"
 	//fmt.Printf("%#v\n", alines)
 	jsonWr, errA := newJSONWriter("unit_tests_assets.json", categLines, nil, assetsT)
 	if errA != nil {
@@ -1122,8 +1122,8 @@ func xTestXmlBoxCategories(t *testing.T) {
 
 	categLines := makeLines(categs)
 
-	options["timestamp"] = "200702102255"
-	options["creationDate"] = "2020-06-19"
+	options["options"]["timestamp"] = "200702102255"
+	options["options"]["creationDate"] = "2020-06-19"
 	//fmt.Printf("%#v\n", maplines)
 	categWr, errC := newJSONWriter("unit_tests_categs.json", categLines, nil, categsT)
 	if errC != nil {
@@ -1341,8 +1341,8 @@ func xTestXmlBoxSeries(t *testing.T) {
 			"false", "0", "false", "false", "false", "false"},
 	}
 	categLines := makeLines(categs)
-	options["timestamp"] = "200702102255"
-	options["creationDate"] = "2020-06-19"
+	options["options"]["timestamp"] = "200702102255"
+	options["options"]["creationDate"] = "2020-06-19"
 	//fmt.Printf("%#v\n", maplines)
 	jsonWr, errA := newJSONWriter("unit_tests_assets.json", categLines, nil, assetsT)
 	if errA != nil {
@@ -1378,8 +1378,8 @@ func TestXmlBoxSeriesX(t *testing.T) {
 	}
 	maplines := makeLines(lines)
 	maplines[0]["file_number"] = "1"
-	options["timestamp"] = "200702102255"
-	options["creationDate"] = "2020-06-19"
+	options["options"]["timestamp"] = "200702102255"
+	options["options"]["creationDate"] = "2020-06-19"
 	//fmt.Printf("%#v\n", maplines)
 	jsonWr, errA := newJSONWriter("", nil, nil, seriesT)
 	if errA != nil {

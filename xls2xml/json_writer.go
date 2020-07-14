@@ -456,3 +456,51 @@ func (wr *jsonWriter) processSeriesPack(row lineT, idField string, idEpisodeFiel
 
 func (wr *jsonWriter) cleanSeries() {
 }
+
+func populateSerieIds(lines []lineT, options optionsT) error {
+	options["series"] = make(map[string]string)
+	idF, okO := options["options"]["series_id_field"]
+	if !okO {
+		return fmt.Errorf("opcao 'season_id_field' nao encontrada")
+	}
+	titleF, okT := options["options"]["series_title_field"]
+	if !okT {
+		return fmt.Errorf("opcao 'series_title_field' nao encontrada")
+	}
+	nSeasonF, okN := options["options"]["season_num_field"]
+	if !okN {
+		return fmt.Errorf("opcao 'season_num_field' nao encontrada")
+	}
+	idSeasonF, okI := options["options"]["season_id_field"]
+	if !okI {
+		return fmt.Errorf("opcao 'season_id_field' nao encontrada")
+	}
+	options["series"] = make(map[string]string)
+	for _, line := range lines {
+		id, ok1 := line[idF]
+		if !ok1 {
+			return fmt.Errorf("campo '%s' nao encontrado na planilha de series", idF)
+		}
+		title, ok2 := line[titleF]
+		if !ok2 {
+			return fmt.Errorf("campo '%s' nao encontrado na planilha de series", titleF)
+		}
+		sNames := splitLangName(title)
+		titlePor, ok := sNames["por"]
+		if !ok {
+			return fmt.Errorf("serie '%s' nao tem nome em portugues", titleF)
+		}
+		nSeason, ok3 := line[nSeasonF]
+		if !ok3 {
+			return fmt.Errorf("campo '%s' nao encontrado na planilha de series", nSeason)
+		}
+		idSeason, ok4 := line[idSeasonF]
+		if !ok4 {
+			return fmt.Errorf("campo '%s' nao encontrado na planilha de series", idSeasonF)
+		}
+		idSerie := fmt.Sprintf("%s|%s", titlePor, nSeason)
+		valSerie := fmt.Sprintf("%s|%s", id, idSeason)
+		options["series"][idSerie] = valSerie
+	}
+	return nil
+}

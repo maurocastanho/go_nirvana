@@ -38,7 +38,7 @@ const dateformat = "01-02-06"
 type lineT map[string]string
 
 type jsonT map[string]interface{}
-type optionsT map[string]string
+type optionsT map[string]map[string]string
 
 // ElemType element types
 type elemType int
@@ -60,7 +60,7 @@ type writer interface {
 	EndMap() error
 }
 
-var options map[string]string
+var options map[string]map[string]string
 var rs *reportSheet
 var xlsFilePath string
 
@@ -98,7 +98,6 @@ func main() {
 	log("-------------------------")
 	log(" Iniciando processamento ")
 	log("-------------------------")
-	options = make(map[string]string)
 	// defer func() { os.Exit(success) }()
 	inputXls := ""
 	confFile := ""
@@ -161,11 +160,11 @@ func exitWithError(errMessage string, errCode int) int {
 }
 
 func processSpreadSheet(json map[string]interface{}, outType string, f *xlsx.Spreadsheet, outDir string, lines []lineT) (int, error) {
-	filenameField, ok := options["filename_field"]
+	filenameField, ok := options["options"]["filename_field"]
 	if !ok || filenameField == "" {
 		return 2, fmt.Errorf("ERRO ao procurar filename_field nas options [%#v]", options)
 	}
-	nameField, okN := options["name_field"]
+	nameField, okN := options["options"]["name_field"]
 	if !okN || nameField == "" {
 		return 2, fmt.Errorf("ERRO ao procurar name_field nas options [%#v]", options)
 	}
@@ -179,9 +178,9 @@ func processSpreadSheet(json map[string]interface{}, outType string, f *xlsx.Spr
 	filePath := ""
 	var curr lineT
 	name := ""
-	idField, _ := options["id_field"]
-	categField1, _ := options["categ_field1"]
-	categField2, _ := options["categ_field2"]
+	idField, _ := options["options"]["id_field"]
+	categField1, _ := options["options"]["categ_field1"]
+	categField2, _ := options["options"]["categ_field2"]
 	var wrCategs *jsonWriter
 	var wrSeries *jsonWriter
 	var categLines []lineT
@@ -193,6 +192,9 @@ func processSpreadSheet(json map[string]interface{}, outType string, f *xlsx.Spr
 			return -1, err
 		}
 		if serieLines, err = readSheetByName(f, "series"); err != nil {
+			return -1, err
+		}
+		if err = populateSerieIds(serieLines, options); err != nil {
 			return -1, err
 		}
 		// TODO usar createwriter
@@ -369,16 +371,17 @@ func processSeries(pack []lineT, wrSeries *jsonWriter, idField string) (int, []e
 // init option vars
 func initVars(json map[string]interface{}) {
 	initFunctions()
-	options = make(map[string]string)
+	options = make(optionsT)
+	options["options"] = make(map[string]string)
 	opts := json["options"].([]interface{})
 	for _, el := range opts {
 		// fmt.Printf(">>>> %T\n", el)
 		m := el.(map[string]interface{})
 		name := m["Name"].(string)
 		value := m["Value"].(string)
-		options[name] = value
+		options["options"][name] = value
 	}
-	options["timestamp"] = timestamp()
+	options["options"]["timestamp"] = timestamp()
 }
 
 // Reads the spreadsheet as an array of map[<line name>] = <value>
@@ -508,7 +511,7 @@ func createWriter(outType string, filename string, sheetname string, ncols int, 
 	var wr writer
 	switch outType {
 	case "xml":
-		systemID, ok := options["doctype_system"]
+		systemID, ok := options["options"]["doctype_system"]
 		if !ok {
 			return nil, fmt.Errorf("acrescente a opcao 'doctype_system' no arquivo de config")
 		}
@@ -691,7 +694,7 @@ func processOptions(json jsonT) error {
 	for k, v := range json {
 		switch vv := v.(type) {
 		case string:
-			options[k] = vv
+			options["options"][k] = vv
 		default:
 			return fmt.Errorf("opcao tem que ser string, chave: [%s]", k)
 		}
@@ -758,9 +761,9 @@ func processVal(val string, vars map[string]string) string {
 }
 
 // populate option vars
-func populateOptions(vars map[string]string, options map[string]string) {
-	for key, val := range vars {
-		options[key] = val
+func populateOptions(vars map[string]string, options optionsT, key string) {
+	for name, val := range vars {
+		options[key][name] = val
 	}
 }
 
@@ -794,7 +797,7 @@ func processAttr(json jsonT, lines []lineT, wr writer) (err []error) {
 	procVals, err2 := process(function, lines, json, options)
 	err = appendErrors(err, err2)
 	for _, procVal := range procVals {
-		populateOptions(procVal.vars, options)
+		populateOptions(procVal.vars, options, "options")
 		isOtt := attrType == "ott"
 		if isOtt {
 			// Ott type open a new element, line <elem>x<elem>
