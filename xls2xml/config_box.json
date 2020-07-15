@@ -65,8 +65,8 @@
                         {"Name": "morality_level", "function": "field", "field": "Classificação Etária", "type": "int"},
                         {"Name": "adult", "function": "condition", "condition": "Classificação_Etária == 18", "if_true": "true", "if_false": "false", "type": "boolean"},
                         {"Name": "duration", "function": "field", "field": "Duração", "type": "timestamp"},
-                        {"Name": "series_id", "function": "uuid", "filter": "Número_do_Episódio != ''"},
-                        {"Name": "season_id", "function": "uuid", "filter": "Número_do_Episódio != ''"},
+                        {"Name": "series_id", "function": "series_id", "field": "Título em Português", "filter": "Número_do_Episódio != ''"},
+                        {"Name": "season_id", "function": "season_id", "field": "Título em Português", "filter": "Número_do_Episódio != ''"},
                         {"Name": "season_episode_number", "function": "field", "field": "Número do Episódio", "filter": "Número_do_Episódio != ''"},
                         {
                             "Name": "genres",

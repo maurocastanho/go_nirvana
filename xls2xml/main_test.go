@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"testing"
 	"time"
 
@@ -1125,6 +1126,7 @@ func TestXmlBoxCategories(t *testing.T) {
 
 	options["options"]["timestamp"] = "200702102255"
 	options["options"]["creationDate"] = "2020-06-19"
+
 	//fmt.Printf("%#v\n", assetLines)
 	assetsWr, errA := newJSONWriter("", nil, nil, assetsT)
 	if errA != nil {
@@ -1277,20 +1279,23 @@ func TestXmlBoxSeriesX(t *testing.T) {
 	initVars(json)
 
 	assetsL := [][]string{
-		{"uuid_box", "uuid_trailer", "uuid_poster", "uuid_landscape", "uuid_thumb", "Título Original", "Título em Português", "Título em Português do Episódio",
+		{"uuid_box", "uuid_trailer", "uuid_poster", "uuid_landscape", "uuid_thumb",
+			"Título Original", "Título em Português", "Título em Português do Episódio",
 			"Temporada", "Número do Episódio", "ID", "subpasta", "Versao", "Língua Original ", "Linguagem Áudio", "Linguagem Legenda", "Ano", "Bilheteria", "Ranking",
 			"Estúdio", "Classificação Etária", "Genero 1", "Genero 2", "Elenco", "Diretor", "País de Origem", "Sinopse EPG", "Sinopse Resumo",
 			"Duração", "Data Início", "Data Fim", "Formato", "Provider ID", "Billing ID", "Cobrança", "Movie Audio Type"},
 		{"9dcccf62-1dee-44f3-87e8-f19433bbfe59", "84a7933b-f4ad-4817-9473-64f33340a72e", "58b6618b-7637-43b0-8ad9-9b7891ba6eec",
 			"39e9811a-8666-454a-ac97-0c422c5fdedf", "73832553-e594-479d-974d-a0c3c78941d7",
-			"The Shortlist", "A Lista", "", "1", "1", "a_lista_01.mp4", "sports", "Legendado", "eng", "eng", "por", "2018",
+			"The Shortlist", "A Lista", "",
+			"1", "1", "a_lista_01.mp4", "sports", "Legendado", "eng", "eng", "por", "2018",
 			"1000000", "9", " INVERLEIGH", "0", "Documentário", "Esportes", "", "Evan Harding", "AUS",
 			"A dez maiores histórias no estilo de Davi contra Golias. Os azarados, os favoritos e os milagres.",
 			"A melhor série de contagem regressiva de esportes. Com temas icônicos focados nos momentos e indivíduos mais memoráveis do esporte.",
 			"0.017615740740741", "06-25-20", "12-31-26", "HD", "", "", "", "stereo"},
 		{"37cbb97d-815c-45f7-a927-6fa2e04512ba", "650dcfca-35bd-4b3c-b0b6-a3c68409804d", "072356bc-d774-4e79-a05d-4e5c52dc56d9",
 			"099905ad-8c10-4d4f-ac87-e856d24d7d0e", "bb90a382-0385-4c3d-9f18-8a77f78d2bd0",
-			"The Shortlist", "A Lista", "", "1", "2", "a_lista_02.mp4", "sports", "Legendado", "eng", "eng", "por", "2018",
+			"The Shortlist", "A Lista", "",
+			"1", "2", "a_lista_02.mp4", "sports", "Legendado", "eng", "eng", "por", "2018",
 			"1000000", "9", " INVERLEIGH", "0", "Documentário", "Esportes", "", "Evan Harding", "AUS",
 			"A lista dos dez maiores atletas que mudaram o esporte, pioneiros e inovadores, eles deixaram a sua marca.",
 			"A melhor série de contagem regressiva de esportes. Com temas icônicos focados nos momentos e indivíduos mais memoráveis do esporte.",
@@ -1434,17 +1439,20 @@ func TestXmlBoxSeriesX(t *testing.T) {
 	options["options"]["creationDate"] = "2020-06-19"
 
 	seriesLines := makeLines(seriesL)
+	if err := populateSerieIds(seriesLines, options); err != nil {
+		t.Error(err)
+	}
 
 	//fmt.Printf("%#v\n", maplines)
-	jsonWr, errA := newJSONWriter("", nil, nil, assetsT)
+	jsonWr, errA := newJSONWriter("", nil, seriesLines, assetsT)
 	if errA != nil {
 		t.Error(errA)
 	}
 	jsonWr.testing = true
 
-	seriesWr, errA := newJSONWriter("", nil, seriesLines, seriesT)
-	if errA != nil {
-		t.Error(errA)
+	seriesWr, errS := newJSONWriter("", nil, seriesLines, seriesT)
+	if errS != nil {
+		t.Error(errS)
 	}
 	seriesWr.testing = true
 
@@ -1463,6 +1471,7 @@ func TestXmlBoxSeriesX(t *testing.T) {
 	}
 	assetRes := string(bufAssets)  // converting from windows encoding to UTF-8
 	seriesRes := string(bufSeries) // converting from windows encoding to UTF-8
+	fmt.Printf("%s\n", assetRes)
 	assert.JSONEq(t, expectedAssets, assetRes)
 	assert.JSONEq(t, expectedSeries, seriesRes)
 }

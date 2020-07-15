@@ -86,6 +86,8 @@ func initFunctions() {
 		"timestamp":       utc,
 		"uuid":            genUUID,
 		"map_string":      mapString,
+		"series_id":       seriesId,
+		"season_id":       seasonId,
 	}
 }
 
@@ -359,7 +361,7 @@ func assetIDOtt(forceVal string, line lineT, _ jsonT, options optionsT) ([]resul
 	return []resultsT{newResult(result)}, nil
 }
 
-// EpisodeID returns the Episode ID, make of (season number | episode number)
+// episodeID returns the Episode ID, make of (season number | episode number)
 func episodeID(forceVal string, line lineT, _ jsonT, options optionsT) ([]resultsT, error) {
 	if forceVal != "" {
 		return []resultsT{newResult(forceVal)}, nil
@@ -382,6 +384,70 @@ func episodeID(forceVal string, line lineT, _ jsonT, options optionsT) ([]result
 	}
 	result := fmt.Sprintf("%02s%03s", season, episode)
 	return []resultsT{newResult(result)}, nil
+}
+
+func findInSerieMap(str1 string, str2 string, sData map[string]string) (string, string, error) {
+	for k, v := range sData {
+		names := strings.Split(k, "|")
+		if len(names) != 2 {
+			return "", "", fmt.Errorf("dado da serie invalidos: [%v]", k)
+		}
+		if names[0] == str1 && names[1] == str2 {
+			ids := strings.Split(v, "|")
+			if len(ids) != 2 {
+				return "", "", fmt.Errorf("dado da serie invalidos: [%v]", v)
+			}
+			return ids[0], ids[1], nil
+		}
+	}
+	return "", "", fmt.Errorf("serie nao encontrada, adicione na aba series: [%s][%s]", str1, str2)
+}
+
+// seriesId returns the serie Id from sheet "series"
+func seriesId(forceVal string, line lineT, json jsonT, options optionsT) ([]resultsT, error) {
+	idSerie, _, ts, err2, done := getSeries(forceVal, line, json, options)
+	if done {
+		return ts, err2
+	}
+	result := fmt.Sprintf("%s", idSerie)
+	return []resultsT{newResult(result)}, nil
+}
+
+// seasonId returns the season Id from sheet "series"
+func seasonId(forceVal string, line lineT, json jsonT, options optionsT) ([]resultsT, error) {
+	_, idSeason, ts, err2, done := getSeries(forceVal, line, json, options)
+	if done {
+		return ts, err2
+	}
+	result := fmt.Sprintf("%s", idSeason)
+	return []resultsT{newResult(result)}, nil
+}
+
+func getSeries(forceVal string, line lineT, json jsonT, options optionsT) (string, string, []resultsT, error, bool) {
+	if forceVal != "" {
+		return "", "", []resultsT{newResult(forceVal)}, nil, true
+	}
+	titleA, errF := getField(forceVal, "", line, json, options)
+	if errF != nil {
+		return "", "", errorMessage, errF, true
+	}
+	seasonS, okN := line["Número do Episódio"] // TODO move to config
+	if !okN {
+		return "", "", errorMessage, errF, true
+	}
+	fSeries, okF := options["options"]["series_id_field"]
+	if !okF || fSeries == "" {
+		return "", "", errorMessage, fmt.Errorf("config para campo 'series_id_field' nao encontrado: [%v]", options), true
+	}
+	seriesData, okO := options["series"]
+	if !okO {
+		return "", "", errorMessage, fmt.Errorf("nao ha' dados na aba 'series'"), true
+	}
+	idSeries, idSeason, err := findInSerieMap(titleA, seasonS, seriesData)
+	if err != nil {
+		return "", "", nil, err, true
+	}
+	return idSeries, idSeason, nil, nil, false
 }
 
 // Date returns the present date, formatted
