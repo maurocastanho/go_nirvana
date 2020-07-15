@@ -161,7 +161,7 @@ func (rs *reportSheet) WriteAttr(name string, value string, vtype string, _ stri
 	case "time":
 		time, err := toTimeSeconds(value)
 		if err != nil {
-			fmt.Printf("%s *--------> %#v\n", name, val)
+			log(fmt.Sprintf("%s *--------> %#v\n", name, val))
 			val = ERRS
 			break
 		}
@@ -171,7 +171,7 @@ func (rs *reportSheet) WriteAttr(name string, value string, vtype string, _ stri
 	case "time_s":
 		sec, err := toTimeSeconds(value)
 		if err != nil {
-			fmt.Printf("%s *--------> %#v\n", name, val)
+			log(fmt.Sprintf("%s *--------> %#v\n", name, val))
 			val = ERRS
 			break
 		}

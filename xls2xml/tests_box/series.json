@@ -1,0 +1,439 @@
+{
+  "series": [
+    {
+      "external_ids": [],
+      "id": "3d0666d2-0d6e-4687-b37b-1f65e173f889",
+      "images": [],
+      "seasons": [
+        {
+          "id": "3ee50673-3b99-4cf9-8fb2-1ad5223f4688",
+          "season_number": "1",
+          "synopsis": {
+            "eng": "First season",
+            "por": "Primeira temporada"
+          },
+          "title": {
+            "eng": "The List",
+            "por": "A Lista"
+          }
+        },
+        {
+          "id": "19e1327c-7c0f-491f-9ef0-0365641cb9a1",
+          "season_number": "2",
+          "synopsis": {
+            "eng": "Second Season",
+            "por": "Segunda temporada"
+          },
+          "title": {
+            "eng": "The List",
+            "por": "A Lista"
+          }
+        },
+        {
+          "id": "5980a7b0-a9e5-4368-8110-cd298a68e571",
+          "season_number": "3",
+          "synopsis": {
+            "eng": "Third season",
+            "por": "Terceira temporada"
+          },
+          "title": {
+            "eng": "The List",
+            "por": "A Lista"
+          }
+        },
+        {
+          "id": "6585739f-91e3-4cdc-a7dd-62af9dd6adbe",
+          "season_number": "4",
+          "synopsis": {
+            "eng": "Fourth Season",
+            "por": "Quarta temporada"
+          },
+          "title": {
+            "eng": "The List",
+            "por": "A Lista"
+          }
+        },
+        {
+          "id": "5980a7b0-a9e5-4368-8110-cd298a68e571",
+          "season_number": "5",
+          "synopsis": {
+            "eng": "Fifth season",
+            "por": "Quinta temporada"
+          },
+          "title": {
+            "eng": "The List",
+            "por": "A Lista"
+          }
+        },
+        {
+          "id": "6585739f-91e3-4cdc-a7dd-62af9dd6adbe",
+          "season_number": "6",
+          "synopsis": {
+            "eng": "Sixth Season",
+            "por": "Sexta temporada"
+          },
+          "title": {
+            "eng": "The List",
+            "por": "A Lista"
+          }
+        }
+      ],
+      "synopsys": {
+        "eng": "English Synopsis",
+        "por": "A melhor série de contagem regressiva de esportes. Com temas icônicos focados nos momentos e indivíduos mais memoráveis do esporte."
+      },
+      "title": {
+        "eng": "The List",
+        "por": "A Lista"
+      }
+    },
+    {
+      "external_ids": [],
+      "id": "3d0666d2-0d6e-4687-b37b-1f65e173f889",
+      "images": [],
+      "seasons": [
+        {
+          "id": "3ee50673-3b99-4cf9-8fb2-1ad5223f4688",
+          "season_number": "1",
+          "synopsis": {
+            "eng": "First season",
+            "por": "Primeira temporada"
+          },
+          "title": {
+            "eng": "The List",
+            "por": "A Lista"
+          }
+        },
+        {
+          "id": "19e1327c-7c0f-491f-9ef0-0365641cb9a1",
+          "season_number": "2",
+          "synopsis": {
+            "eng": "Second Season",
+            "por": "Segunda temporada"
+          },
+          "title": {
+            "eng": "The List",
+            "por": "A Lista"
+          }
+        },
+        {
+          "id": "5980a7b0-a9e5-4368-8110-cd298a68e571",
+          "season_number": "3",
+          "synopsis": {
+            "eng": "Third season",
+            "por": "Terceira temporada"
+          },
+          "title": {
+            "eng": "The List",
+            "por": "A Lista"
+          }
+        },
+        {
+          "id": "6585739f-91e3-4cdc-a7dd-62af9dd6adbe",
+          "season_number": "4",
+          "synopsis": {
+            "eng": "Fourth Season",
+            "por": "Quarta temporada"
+          },
+          "title": {
+            "eng": "The List",
+            "por": "A Lista"
+          }
+        },
+        {
+          "id": "5980a7b0-a9e5-4368-8110-cd298a68e571",
+          "season_number": "5",
+          "synopsis": {
+            "eng": "Fifth season",
+            "por": "Quinta temporada"
+          },
+          "title": {
+            "eng": "The List",
+            "por": "A Lista"
+          }
+        },
+        {
+          "id": "6585739f-91e3-4cdc-a7dd-62af9dd6adbe",
+          "season_number": "6",
+          "synopsis": {
+            "eng": "Sixth Season",
+            "por": "Sexta temporada"
+          },
+          "title": {
+            "eng": "The List",
+            "por": "A Lista"
+          }
+        }
+      ],
+      "synopsys": {
+        "eng": "English Synopsis",
+        "por": "A melhor série de contagem regressiva de esportes. Com temas icônicos focados nos momentos e indivíduos mais memoráveis do esporte."
+      },
+      "title": {
+        "eng": "The List",
+        "por": "A Lista"
+      }
+    },
+    {
+      "external_ids": [],
+      "id": "3d0666d2-0d6e-4687-b37b-1f65e173f889",
+      "images": [],
+      "seasons": [
+        {
+          "id": "3ee50673-3b99-4cf9-8fb2-1ad5223f4688",
+          "season_number": "1",
+          "synopsis": {
+            "eng": "First season",
+            "por": "Primeira temporada"
+          },
+          "title": {
+            "eng": "The List",
+            "por": "A Lista"
+          }
+        },
+        {
+          "id": "19e1327c-7c0f-491f-9ef0-0365641cb9a1",
+          "season_number": "2",
+          "synopsis": {
+            "eng": "Second Season",
+            "por": "Segunda temporada"
+          },
+          "title": {
+            "eng": "The List",
+            "por": "A Lista"
+          }
+        },
+        {
+          "id": "5980a7b0-a9e5-4368-8110-cd298a68e571",
+          "season_number": "3",
+          "synopsis": {
+            "eng": "Third season",
+            "por": "Terceira temporada"
+          },
+          "title": {
+            "eng": "The List",
+            "por": "A Lista"
+          }
+        },
+        {
+          "id": "6585739f-91e3-4cdc-a7dd-62af9dd6adbe",
+          "season_number": "4",
+          "synopsis": {
+            "eng": "Fourth Season",
+            "por": "Quarta temporada"
+          },
+          "title": {
+            "eng": "The List",
+            "por": "A Lista"
+          }
+        },
+        {
+          "id": "5980a7b0-a9e5-4368-8110-cd298a68e571",
+          "season_number": "5",
+          "synopsis": {
+            "eng": "Fifth season",
+            "por": "Quinta temporada"
+          },
+          "title": {
+            "eng": "The List",
+            "por": "A Lista"
+          }
+        },
+        {
+          "id": "6585739f-91e3-4cdc-a7dd-62af9dd6adbe",
+          "season_number": "6",
+          "synopsis": {
+            "eng": "Sixth Season",
+            "por": "Sexta temporada"
+          },
+          "title": {
+            "eng": "The List",
+            "por": "A Lista"
+          }
+        }
+      ],
+      "synopsys": {
+        "eng": "English Synopsis",
+        "por": "A melhor série de contagem regressiva de esportes. Com temas icônicos focados nos momentos e indivíduos mais memoráveis do esporte."
+      },
+      "title": {
+        "eng": "The List",
+        "por": "A Lista"
+      }
+    },
+    {
+      "external_ids": [],
+      "id": "3d0666d2-0d6e-4687-b37b-1f65e173f889",
+      "images": [],
+      "seasons": [
+        {
+          "id": "3ee50673-3b99-4cf9-8fb2-1ad5223f4688",
+          "season_number": "1",
+          "synopsis": {
+            "eng": "First season",
+            "por": "Primeira temporada"
+          },
+          "title": {
+            "eng": "The List",
+            "por": "A Lista"
+          }
+        },
+        {
+          "id": "19e1327c-7c0f-491f-9ef0-0365641cb9a1",
+          "season_number": "2",
+          "synopsis": {
+            "eng": "Second Season",
+            "por": "Segunda temporada"
+          },
+          "title": {
+            "eng": "The List",
+            "por": "A Lista"
+          }
+        },
+        {
+          "id": "5980a7b0-a9e5-4368-8110-cd298a68e571",
+          "season_number": "3",
+          "synopsis": {
+            "eng": "Third season",
+            "por": "Terceira temporada"
+          },
+          "title": {
+            "eng": "The List",
+            "por": "A Lista"
+          }
+        },
+        {
+          "id": "6585739f-91e3-4cdc-a7dd-62af9dd6adbe",
+          "season_number": "4",
+          "synopsis": {
+            "eng": "Fourth Season",
+            "por": "Quarta temporada"
+          },
+          "title": {
+            "eng": "The List",
+            "por": "A Lista"
+          }
+        },
+        {
+          "id": "5980a7b0-a9e5-4368-8110-cd298a68e571",
+          "season_number": "5",
+          "synopsis": {
+            "eng": "Fifth season",
+            "por": "Quinta temporada"
+          },
+          "title": {
+            "eng": "The List",
+            "por": "A Lista"
+          }
+        },
+        {
+          "id": "6585739f-91e3-4cdc-a7dd-62af9dd6adbe",
+          "season_number": "6",
+          "synopsis": {
+            "eng": "Sixth Season",
+            "por": "Sexta temporada"
+          },
+          "title": {
+            "eng": "The List",
+            "por": "A Lista"
+          }
+        }
+      ],
+      "synopsys": {
+        "eng": "English Synopsis",
+        "por": "A melhor série de contagem regressiva de esportes. Com temas icônicos focados nos momentos e indivíduos mais memoráveis do esporte."
+      },
+      "title": {
+        "eng": "The List",
+        "por": "A Lista"
+      }
+    },
+    {
+      "external_ids": [],
+      "id": "3d0666d2-0d6e-4687-b37b-1f65e173f889",
+      "images": [],
+      "seasons": [
+        {
+          "id": "3ee50673-3b99-4cf9-8fb2-1ad5223f4688",
+          "season_number": "1",
+          "synopsis": {
+            "eng": "First season",
+            "por": "Primeira temporada"
+          },
+          "title": {
+            "eng": "The List",
+            "por": "A Lista"
+          }
+        },
+        {
+          "id": "19e1327c-7c0f-491f-9ef0-0365641cb9a1",
+          "season_number": "2",
+          "synopsis": {
+            "eng": "Second Season",
+            "por": "Segunda temporada"
+          },
+          "title": {
+            "eng": "The List",
+            "por": "A Lista"
+          }
+        },
+        {
+          "id": "5980a7b0-a9e5-4368-8110-cd298a68e571",
+          "season_number": "3",
+          "synopsis": {
+            "eng": "Third season",
+            "por": "Terceira temporada"
+          },
+          "title": {
+            "eng": "The List",
+            "por": "A Lista"
+          }
+        },
+        {
+          "id": "6585739f-91e3-4cdc-a7dd-62af9dd6adbe",
+          "season_number": "4",
+          "synopsis": {
+            "eng": "Fourth Season",
+            "por": "Quarta temporada"
+          },
+          "title": {
+            "eng": "The List",
+            "por": "A Lista"
+          }
+        },
+        {
+          "id": "5980a7b0-a9e5-4368-8110-cd298a68e571",
+          "season_number": "5",
+          "synopsis": {
+            "eng": "Fifth season",
+            "por": "Quinta temporada"
+          },
+          "title": {
+            "eng": "The List",
+            "por": "A Lista"
+          }
+        },
+        {
+          "id": "6585739f-91e3-4cdc-a7dd-62af9dd6adbe",
+          "season_number": "6",
+          "synopsis": {
+            "eng": "Sixth Season",
+            "por": "Sexta temporada"
+          },
+          "title": {
+            "eng": "The List",
+            "por": "A Lista"
+          }
+        }
+      ],
+      "synopsys": {
+        "eng": "English Synopsis",
+        "por": "A melhor série de contagem regressiva de esportes. Com temas icônicos focados nos momentos e indivíduos mais memoráveis do esporte."
+      },
+      "title": {
+        "eng": "The List",
+        "por": "A Lista"
+      }
+    }
+  ]
+}

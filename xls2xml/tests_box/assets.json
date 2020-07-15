@@ -1,0 +1,376 @@
+{
+  "assets": [
+    {
+      "adult": false,
+      "available_from": 1593043200000,
+      "available_to": 1798675200000,
+      "duration": 1522022,
+      "genres": [
+        "Documentário"
+      ],
+      "id": "9dcccf62-1dee-44f3-87e8-f19433bbfe59",
+      "images": [
+        {
+          "id": "58b6618b-7637-43b0-8ad9-9b7891ba6eec",
+          "location": "sports/a_lista_01_poster.jpg",
+          "type": "vod-poster"
+        },
+        {
+          "id": "39e9811a-8666-454a-ac97-0c422c5fdedf",
+          "location": "sports/a_lista_01_landscape.jpg",
+          "type": "vod-background"
+        }
+      ],
+      "medias": [
+        {
+          "audio_languages": [
+            "eng"
+          ],
+          "id": "9dcccf62-1dee-44f3-87e8-f19433bbfe59",
+          "location": "sports/a_lista_01.mp4",
+          "metadata": {},
+          "subtitles_languages": [
+            "por"
+          ],
+          "technology": "MP4",
+          "title": "A Lista",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          ""
+        ],
+        "country": "AUS",
+        "directors": [
+          "Evan Harding"
+        ],
+        "release_year": "2018",
+        "rights": [],
+        "summary": [
+          "A melhor série de contagem regressiva de esportes. Com temas icônicos focados nos momentos e indivíduos mais memoráveis do esporte."
+        ]
+      },
+      "morality_level": 0,
+      "season_episode_number": "1",
+      "season_id": "3ee50673-3b99-4cf9-8fb2-1ad5223f4688",
+      "series_id": "3d0666d2-0d6e-4687-b37b-1f65e173f889",
+      "synopsis": {
+        "por": "A dez maiores histórias no estilo de Davi contra Golias. Os azarados, os favoritos e os milagres."
+      },
+      "title": {
+        "por": "A Lista"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1593043200000,
+      "available_to": 1798675200000,
+      "duration": 1529020,
+      "genres": [
+        "Documentário"
+      ],
+      "id": "37cbb97d-815c-45f7-a927-6fa2e04512ba",
+      "images": [
+        {
+          "id": "072356bc-d774-4e79-a05d-4e5c52dc56d9",
+          "location": "sports/a_lista_02_poster.jpg",
+          "type": "vod-poster"
+        },
+        {
+          "id": "099905ad-8c10-4d4f-ac87-e856d24d7d0e",
+          "location": "sports/a_lista_02_landscape.jpg",
+          "type": "vod-background"
+        }
+      ],
+      "medias": [
+        {
+          "audio_languages": [
+            "eng"
+          ],
+          "id": "37cbb97d-815c-45f7-a927-6fa2e04512ba",
+          "location": "sports/a_lista_02.mp4",
+          "metadata": {},
+          "subtitles_languages": [
+            "por"
+          ],
+          "technology": "MP4",
+          "title": "A Lista",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          ""
+        ],
+        "country": "AUS",
+        "directors": [
+          "Evan Harding"
+        ],
+        "release_year": "2018",
+        "rights": [],
+        "summary": [
+          "A melhor série de contagem regressiva de esportes. Com temas icônicos focados nos momentos e indivíduos mais memoráveis do esporte."
+        ]
+      },
+      "morality_level": 0,
+      "season_episode_number": "2",
+      "season_id": "19e1327c-7c0f-491f-9ef0-0365641cb9a1",
+      "series_id": "3d0666d2-0d6e-4687-b37b-1f65e173f889",
+      "synopsis": {
+        "por": "A lista dos dez maiores atletas que mudaram o esporte, pioneiros e inovadores, eles deixaram a sua marca."
+      },
+      "title": {
+        "por": "A Lista"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1593043200000,
+      "available_to": 1798675200000,
+      "duration": 1529020,
+      "genres": [
+        "Documentário"
+      ],
+      "id": "4c03e9ae-3efb-4f67-8309-8a7be633ee0a",
+      "images": [
+        {
+          "id": "59682ca8-9af9-4d87-8398-00f40801d03c",
+          "location": "sports/a_lista_03_poster.jpg",
+          "type": "vod-poster"
+        },
+        {
+          "id": "6497d73b-ca1d-4d65-917d-715c48ca4b58",
+          "location": "sports/a_lista_03_landscape.jpg",
+          "type": "vod-background"
+        }
+      ],
+      "medias": [
+        {
+          "audio_languages": [
+            "eng"
+          ],
+          "id": "4c03e9ae-3efb-4f67-8309-8a7be633ee0a",
+          "location": "sports/a_lista_03.mp4",
+          "metadata": {},
+          "subtitles_languages": [
+            "por"
+          ],
+          "technology": "MP4",
+          "title": "A Lista",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          ""
+        ],
+        "country": "AUS",
+        "directors": [
+          "Evan Harding"
+        ],
+        "release_year": "2018",
+        "rights": [],
+        "summary": [
+          "A melhor série de contagem regressiva de esportes. Com temas icônicos focados nos momentos e indivíduos mais memoráveis do esporte."
+        ]
+      },
+      "morality_level": 0,
+      "season_episode_number": "3",
+      "season_id": "5980a7b0-a9e5-4368-8110-cd298a68e571",
+      "series_id": "3d0666d2-0d6e-4687-b37b-1f65e173f889",
+      "synopsis": {
+        "por": "A lista com as dez transferencias de jogadores mais controversas da história do futebol"
+      },
+      "title": {
+        "por": "A Lista"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1593043200000,
+      "available_to": 1798675200000,
+      "duration": 1498003,
+      "genres": [
+        "Documentário"
+      ],
+      "id": "34c0907f-2800-48f2-8670-b6140d6d45cc",
+      "images": [
+        {
+          "id": "8268ed5b-db99-4908-acc4-750997d8a102",
+          "location": "sports/a_lista_04_poster.jpg",
+          "type": "vod-poster"
+        },
+        {
+          "id": "8c61f356-3677-4478-b44e-597be043016a",
+          "location": "sports/a_lista_04_landscape.jpg",
+          "type": "vod-background"
+        }
+      ],
+      "medias": [
+        {
+          "audio_languages": [
+            "eng"
+          ],
+          "id": "34c0907f-2800-48f2-8670-b6140d6d45cc",
+          "location": "sports/a_lista_04.mp4",
+          "metadata": {},
+          "subtitles_languages": [
+            "por"
+          ],
+          "technology": "MP4",
+          "title": "A Lista",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          ""
+        ],
+        "country": "AUS",
+        "directors": [
+          "Evan Harding"
+        ],
+        "release_year": "2018",
+        "rights": [],
+        "summary": [
+          "A melhor série de contagem regressiva de esportes. Com temas icônicos focados nos momentos e indivíduos mais memoráveis do esporte."
+        ]
+      },
+      "morality_level": 0,
+      "season_episode_number": "4",
+      "season_id": "6585739f-91e3-4cdc-a7dd-62af9dd6adbe",
+      "series_id": "3d0666d2-0d6e-4687-b37b-1f65e173f889",
+      "synopsis": {
+        "por": "A lista dos dez melhores estrangeiros da Premier League. Os executores, os inovadores e os divertidos"
+      },
+      "title": {
+        "por": "A Lista"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1593043200000,
+      "available_to": 1798675200000,
+      "duration": 1525996,
+      "genres": [
+        "Documentário"
+      ],
+      "id": "e43c6b2c-9cbd-4d54-8677-94ec2a743b77",
+      "images": [
+        {
+          "id": "05d8e568-dead-4a3f-a42d-f46a3ac30e10",
+          "location": "sports/a_lista_05_poster.jpg",
+          "type": "vod-poster"
+        },
+        {
+          "id": "8521d9d3-207c-4020-86d5-a41a55e7cf99",
+          "location": "sports/a_lista_05_landscape.jpg",
+          "type": "vod-background"
+        }
+      ],
+      "medias": [
+        {
+          "audio_languages": [
+            "eng"
+          ],
+          "id": "e43c6b2c-9cbd-4d54-8677-94ec2a743b77",
+          "location": "sports/a_lista_05.mp4",
+          "metadata": {},
+          "subtitles_languages": [
+            "por"
+          ],
+          "technology": "MP4",
+          "title": "A Lista",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          ""
+        ],
+        "country": "AUS",
+        "directors": [
+          "Evan Harding"
+        ],
+        "release_year": "2018",
+        "rights": [],
+        "summary": [
+          "A melhor série de contagem regressiva de esportes. Com temas icônicos focados nos momentos e indivíduos mais memoráveis do esporte."
+        ]
+      },
+      "morality_level": 0,
+      "season_episode_number": "5",
+      "season_id": "5980a7b0-a9e5-4368-8110-cd298a68e571",
+      "series_id": "3d0666d2-0d6e-4687-b37b-1f65e173f889",
+      "synopsis": {
+        "por": "A lista com os top dez maiores vilões do esporte, dos que as maldades estão relacionadas ao esporte"
+      },
+      "title": {
+        "por": "A Lista"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1593043200000,
+      "available_to": 1798675200000,
+      "duration": 1529020,
+      "genres": [
+        "Documentário"
+      ],
+      "id": "0d5363ff-b53f-4a9a-8ca7-49c72b9b5690",
+      "images": [
+        {
+          "id": "f0f84855-8f3f-45f0-8776-d9cc8266b5e3",
+          "location": "sports/a_lista_06_poster.jpg",
+          "type": "vod-poster"
+        },
+        {
+          "id": "efa66f60-ae29-4e66-91f5-78b1fda4f182",
+          "location": "sports/a_lista_06_landscape.jpg",
+          "type": "vod-background"
+        }
+      ],
+      "medias": [
+        {
+          "audio_languages": [
+            "eng"
+          ],
+          "id": "0d5363ff-b53f-4a9a-8ca7-49c72b9b5690",
+          "location": "sports/a_lista_06.mp4",
+          "metadata": {},
+          "subtitles_languages": [
+            "por"
+          ],
+          "technology": "MP4",
+          "title": "A Lista",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          ""
+        ],
+        "country": "AUS",
+        "directors": [
+          "Evan Harding"
+        ],
+        "release_year": "2018",
+        "rights": [],
+        "summary": [
+          "A melhor série de contagem regressiva de esportes. Com temas icônicos focados nos momentos e indivíduos mais memoráveis do esporte."
+        ]
+      },
+      "morality_level": 0,
+      "season_episode_number": "6",
+      "season_id": "6585739f-91e3-4cdc-a7dd-62af9dd6adbe",
+      "series_id": "3d0666d2-0d6e-4687-b37b-1f65e173f889",
+      "synopsis": {
+        "por": "A lista dos dez melhores times de clube da história do futebol"
+      },
+      "title": {
+        "por": "A Lista"
+      }
+    }
+  ]
+}

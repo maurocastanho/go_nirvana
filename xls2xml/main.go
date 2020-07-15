@@ -129,6 +129,11 @@ func main() {
 			return
 		}
 	}
+	log(fmt.Sprintf("Planilha de entrada: [%s]", inputXls))
+	log(fmt.Sprintf("Arquivo config: [%s]", confFile))
+	log(fmt.Sprintf("Diretorio de saida: [%s]", outDir))
+	log("-------------------------")
+
 	// open input xls file and read main sheet
 	var spreadSheet *xlsx.Spreadsheet
 	if spreadSheet, err = xlsx.Open(inputXls); err != nil {
@@ -149,8 +154,14 @@ func main() {
 	}
 	// init option vars
 	initVars(json)
-	success, err = processSpreadSheet(json, outType, spreadSheet, outDir, lines)
-	log(fmt.Sprintf("Gravado arquivo de report: %s", xlsFilePath))
+	if success == 0 {
+		success, err = processSpreadSheet(json, outType, spreadSheet, outDir, lines)
+		if err != nil {
+			logError(err)
+			return
+		}
+		log(fmt.Sprintf("Gravado arquivo de report: %s", xlsFilePath))
+	}
 }
 
 func exitWithError(errMessage string, errCode int) int {
