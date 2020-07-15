@@ -243,7 +243,7 @@ func processSpreadSheet(json map[string]interface{}, outType string, f *xlsx.Spr
 			return -1, err
 		}
 		log("Escrevendo " + filePath)
-		if err = processLines(json, pack, wr); err != nil {
+		if err = processAssets(json, pack, wr); err != nil {
 			// Do not stop: log error and continue to other files
 			logError(err)
 			success = -1
@@ -277,7 +277,7 @@ func processSpreadSheet(json map[string]interface{}, outType string, f *xlsx.Spr
 		}
 		if wrCategs != nil || wrSeries != nil {
 			// extra files
-			suc, errors := processCategs(lines, categField1, wrCategs, idField, categField2)
+			suc, errors := processCategs(lines, wrCategs, idField, categField1, categField2)
 			if len(errors) > 0 {
 				return -1, errors[0] // TODO retornar todos os erros
 			} else if suc != 0 {
@@ -336,7 +336,7 @@ func processPublisherXLS(JsonXlsMap map[string]interface{}, outDir string, nLine
 	return xlsFilepath, success, nil
 }
 
-func processCategs(pack []lineT, categField1 string, wrCateg *jsonWriter, idField string, categField2 string) (int, []error) {
+func processCategs(pack []lineT, wrCateg *jsonWriter, idField string, categField1 string, categField2 string) (int, []error) {
 	log("Processando categorias...")
 	success := 0
 	errors := make([]error, 0, 0)
@@ -525,7 +525,7 @@ func createWriter(outType string, filename string, sheetname string, ncols int, 
 }
 
 // Process the config file against the lines of the sheet
-func processLines(json jsonT, lines []lineT, wr writer) (err error) {
+func processAssets(json jsonT, lines []lineT, wr writer) (err error) {
 	if err = wr.OpenOutput(); err != nil {
 		return err
 	}

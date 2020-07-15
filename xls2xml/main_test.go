@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"testing"
 	"time"
 
@@ -470,7 +469,7 @@ func TestXmlNet(t *testing.T) {
 		t.Error(errW)
 	}
 	xmlWr.testing = true
-	if err := processLines(json, []lineT{maplines}, xmlWr); err != nil {
+	if err := processAssets(json, []lineT{maplines}, xmlWr); err != nil {
 		t.Error(err)
 	}
 	result := xmlWr.getBuffer()
@@ -611,7 +610,7 @@ func TestXmlOiOtt(t *testing.T) {
 		t.Error(errW)
 	}
 	xmlWr.testing = true
-	if err := processLines(json, maplines, xmlWr); err != nil {
+	if err := processAssets(json, maplines, xmlWr); err != nil {
 		t.Error(err)
 		return
 	}
@@ -759,7 +758,7 @@ func TestXmlVivo(t *testing.T) {
 		t.Error(errX)
 	}
 	xmlWr.testing = true
-	if err := processLines(json, maplines, xmlWr); err != nil {
+	if err := processAssets(json, maplines, xmlWr); err != nil {
 		t.Error(err)
 	}
 	result := xmlWr.getBuffer()
@@ -951,7 +950,7 @@ func TestXmlBoxAssets(t *testing.T) {
 		t.Error(errA)
 	}
 	jsonWr.testing = true
-	if err := processLines(json, alines, jsonWr); err != nil {
+	if err := processAssets(json, alines, jsonWr); err != nil {
 		t.Error(err)
 	}
 
@@ -961,16 +960,16 @@ func TestXmlBoxAssets(t *testing.T) {
 	}
 	wrCategs.testing = true
 	// extra files
-	if suc, errors := processCategs(alines, "Genero 1", wrCategs, "uuid_box", "Genero 2"); len(errors) > 0 {
+	if suc, errors := processCategs(alines, wrCategs, "uuid_box", "Genero 1", "Genero 2"); len(errors) > 0 {
 		t.Error(errors)
 	} else if suc != 0 {
 		t.Error("fail")
 	}
 
-	// categories.json
-	if _, _, _, err = wrCategs.WriteConsolidated(1); err != nil {
-		t.Error(err)
-	}
+	//// categories.json
+	//if _, _, _, err = wrCategs.WriteConsolidated(1); err != nil {
+	//	t.Error(err)
+	//}
 	//categWr.processCategPack(alines, "uuid_box", "Genero 1", "Genero 2")
 	bufAssets, bufCategs, _, errE := wrCategs.WriteConsolidated(1)
 	if errE != nil {
@@ -982,13 +981,14 @@ func TestXmlBoxAssets(t *testing.T) {
 	assert.JSONEq(t, expectedCategs, categRes)
 }
 
-func xTestXmlBoxCategories(t *testing.T) {
+func TestXmlBoxCategories(t *testing.T) {
 	expectedCategs := "{\n" +
 		"  \"categories\": [\n" +
 		"    {\n" +
 		"      \"adult\": false,\n" +
 		"      \"assets\": [\n" +
-		"        \"198413c7-3d35-4c6d-9714-f80e92e9b7d0\"\n" +
+		"        \"198413c7-3d35-4c6d-9714-f80e92e9b7d0\",\n" +
+		"		 \"198413c7-3d35-4c6d-9714-f80e92e9b7d1\"\n" +
 		"      ],\n" +
 		"      \"downloadable\": false,\n" +
 		"      \"hidden\": false,\n" +
@@ -1007,7 +1007,8 @@ func xTestXmlBoxCategories(t *testing.T) {
 		"    {\n" +
 		"      \"adult\": false,\n" +
 		"      \"assets\": [\n" +
-		"        \"198413c7-3d35-4c6d-9714-f80e92e9b7d0\"\n" +
+		"        \"198413c7-3d35-4c6d-9714-f80e92e9b7d0\",\n" +
+		"		 \"198413c7-3d35-4c6d-9714-f80e92e9b7d1\"\n" +
 		"      ],\n" +
 		"      \"downloadable\": false,\n" +
 		"      \"hidden\": false,\n" +
@@ -1026,7 +1027,7 @@ func xTestXmlBoxCategories(t *testing.T) {
 		"  ]\n" +
 		"}"
 
-	lines := [][]string{
+	aLines := [][]string{
 		{"uuid_box", "uuid_trailer",
 			"uuid_poster",
 			"uuid_landscape", "uuid_thumb",
@@ -1111,33 +1112,46 @@ func xTestXmlBoxCategories(t *testing.T) {
 			"false", "0", "false", "false", "false", "false"},
 	}
 
-	json, errConf := readConfig("config_box_categories.json")
+	json, errConf := readConfig("config_box.json")
 	if errConf != nil {
 		t.Error(errConf)
 	}
 	initVars(json)
 
-	maplines := makeLines(lines)
-	maplines[0]["file_number"] = "1"
+	assetLines := makeLines(aLines)
+	assetLines[0]["file_number"] = "1"
 
 	categLines := makeLines(categs)
 
 	options["options"]["timestamp"] = "200702102255"
 	options["options"]["creationDate"] = "2020-06-19"
-	//fmt.Printf("%#v\n", maplines)
+	//fmt.Printf("%#v\n", assetLines)
+	assetsWr, errA := newJSONWriter("", nil, nil, assetsT)
+	if errA != nil {
+		t.Error(errA)
+	}
+	assetsWr.testing = true
+
 	categWr, errC := newJSONWriter("unit_tests_categs.json", categLines, nil, categsT)
 	if errC != nil {
 		t.Error(errC)
 	}
 	categWr.testing = true
-	if err := processLines(json, categLines, categWr); err != nil {
+
+	if err := processAssets(json, assetLines, assetsWr); err != nil {
 		t.Error(err)
 	}
-	//	categWr.processCategPack(maplines, "uuid_box", "Genero 1", "Genero 2")
-	bufCategs, _, _, errE := categWr.WriteConsolidated(1)
+	if suc, errors := processCategs(assetLines, categWr, "uuid_box", "Genero 1", "Genero 2"); len(errors) > 0 {
+		t.Error(errors)
+	} else if suc < 0 {
+		t.Fail()
+	}
+	//	categWr.processCategPack(assetLines, )
+	_, bufCategs, _, errE := categWr.WriteConsolidated(1)
 	if errE != nil {
 		t.Error(errE)
 	}
+	//	fmt.Printf("%v", string(bufAssets))
 	categRes := string(bufCategs) // converting from windows encoding to UTF-8
 	assert.JSONEq(t, expectedCategs, categRes)
 }
@@ -1148,112 +1162,7 @@ func xTestXmlBoxSeries(t *testing.T) {
 		t.Error(errConf)
 	}
 	initVars(json)
-	//expectedAssets := "{\n" +
-	//	"  \"assets\": [\n" +
-	//	"    {\n" +
-	//	"      \"adult\": false,\n" +
-	//	"      \"available_from\": 1593043200000,\n" +
-	//	"      \"available_to\": 1798675200000,\n      \"duration\": 1421000,\n" +
-	//	"      \"genres\": [\n" +
-	//	"        \"Show\"\n" +
-	//	"      ],\n" +
-	//	"      \"id\": \"198413c7-3d35-4c6d-9714-f80e92e9b7d0\",\n" +
-	//	"      \"images\": [\n" +
-	//	"        {\n" +
-	//	"          \"id\": \"e2830250-d3bf-451a-ba3b-d4ec3ce1da19\",\n" +
-	//	"          \"location\": \"shows/ariana_grande_poster.jpg\",\n" +
-	//	"          \"type\": \"vod-poster\"\n" +
-	//	"        },\n" +
-	//	"        {\n" +
-	//	"          \"id\": \"8b841c15-a02f-4a23-b4d2-d4eb409becbe\",\n" +
-	//	"          \"location\": \"shows/ariana_grande_landscape.jpg\",\n" +
-	//	"          \"type\": \"vod-background\"\n" +
-	//	"        }\n" +
-	//	"      ],\n" +
-	//	"      \"medias\": [\n" +
-	//	"        {\n" +
-	//	"          \"audio_languages\": [\n" +
-	//	"            \"eng\"\n" +
-	//	"          ],\n" +
-	//	"          \"id\": \"198413c7-3d35-4c6d-9714-f80e92e9b7d0\",\n" +
-	//	"          \"location\": \"shows/ariana_grande.mp4\",\n" +
-	//	"          \"metadata\": {},\n" +
-	//	"          \"subtitles_languages\": [\n" +
-	//	"            \"por\"\n          ],\n" +
-	//	"          \"technology\": \"MP4\",\n" +
-	//	"          \"title\": \"Ariana Grande\",\n" +
-	//	"          \"type\": \"MEDIA\"\n" +
-	//	"        }\n" +
-	//	"      ],\n" +
-	//	"      \"metadata\": {\n" +
-	//	"        \"actors\": [\n" +
-	//	"          \"\"\n" +
-	//	"        ],\n" +
-	//	"        \"country\": \"USA\",\n" +
-	//	"        \"directors\": [\n" +
-	//	"          \"\"\n" +
-	//	"        ],\n" +
-	//	"        \"release_year\": \"2016\",\n" +
-	//	"        \"rights\": [],\n" +
-	//	"        \"summary\": [\n" +
-	//	"          \"Show da cantora Ariana Grande\"\n" +
-	//	"        ]\n" +
-	//	"      },\n" +
-	//	"      \"morality_level\": 0,\n" +
-	//	"      \"synopsis\": {\n" +
-	//	"        \"por\": \"Ariana Grande se apresenta em Las Vegas, a cantora canta todos os seus sucessos." +
-	//	" O show conta com participação especial de Zedd.\"\n" +
-	//	"      },\n" +
-	//	"      \"title\": {\n" +
-	//	"        \"por\": \"Ariana Grande\"\n" +
-	//	"      }\n" +
-	//	"    }\n" +
-	//	"  ]\n" +
-	//	"}"
-	//
-	//expectedCategs := "{\n" +
-	//	"  \"categories\": [\n" +
-	//	"    {\n" +
-	//	"      \"adult\": false,\n" +
-	//	"      \"assets\": [\n" +
-	//	"        \"198413c7-3d35-4c6d-9714-f80e92e9b7d0\"\n" +
-	//	"      ],\n" +
-	//	"      \"downloadable\": false,\n" +
-	//	"      \"hidden\": false,\n" +
-	//	"      \"id\": \"d7d4b94e-6055-4400-8325-c7f754830573\",\n" +
-	//	"      \"images\": [],\n" +
-	//	"      \"metadata\": {},\n" +
-	//	"      \"morality_level\": \"0\",\n" +
-	//	"      \"name\": {\n" +
-	//	"        \"eng\": \"Show\",\n" +
-	//	"        \"por\": \"Show\"\n" +
-	//	"      },\n" +
-	//	"      \"offline\": false,\n" +
-	//	"      \"parent_id\": \"\",\n" +
-	//	"      \"parental_control\": false\n" +
-	//	"    },\n" +
-	//	"    {\n" +
-	//	"      \"adult\": false,\n" +
-	//	"      \"assets\": [\n" +
-	//	"        \"198413c7-3d35-4c6d-9714-f80e92e9b7d0\"\n" +
-	//	"      ],\n" +
-	//	"      \"downloadable\": false,\n" +
-	//	"      \"hidden\": false,\n" +
-	//	"      \"id\": \"2f7c576a-7212-4af7-ac90-cbd6df1e5f94\",\n" +
-	//	"      \"images\": [],\n" +
-	//	"      \"metadata\": {},\n" +
-	//	"      \"morality_level\": \"0\",\n" +
-	//	"      \"name\": {\n" +
-	//	"        \"eng\": \"Music\",\n" +
-	//	"        \"por\": \"Música\"\n" +
-	//	"      },\n" +
-	//	"      \"offline\": false,\n" +
-	//	"      \"parent_id\": \"\",\n" +
-	//	"      \"parental_control\": false\n" +
-	//	"    }\n" +
-	//	"  ]\n" +
-	//	"}"
-	//
+
 	lines := [][]string{
 		{"uuid_box", "uuid_trailer",
 			"uuid_poster",
@@ -1349,7 +1258,7 @@ func xTestXmlBoxSeries(t *testing.T) {
 		t.Error(errA)
 	}
 	jsonWr.testing = true
-	if err := processLines(json, maplines, jsonWr); err != nil {
+	if err := processAssets(json, maplines, jsonWr); err != nil {
 		t.Error(err)
 	}
 	categWr, errC := newJSONWriter("unit_tests_categs.json", categLines, nil, categsT)
@@ -1361,40 +1270,199 @@ func xTestXmlBoxSeries(t *testing.T) {
 }
 
 func TestXmlBoxSeriesX(t *testing.T) {
-	json, errConf := readConfig("config_box_series.json")
+	json, errConf := readConfig("config_box.json")
 	if errConf != nil {
 		t.Error(errConf)
 	}
 	initVars(json)
+
+	assetsL := [][]string{
+		{"uuid_box", "uuid_trailer", "uuid_poster", "uuid_landscape", "uuid_thumb", "Título Original", "Título em Português", "Título em Português do Episódio",
+			"Temporada", "Número do Episódio", "ID", "subpasta", "Versao", "Língua Original ", "Linguagem Áudio", "Linguagem Legenda", "Ano", "Bilheteria", "Ranking",
+			"Estúdio", "Classificação Etária", "Genero 1", "Genero 2", "Elenco", "Diretor", "País de Origem", "Sinopse EPG", "Sinopse Resumo",
+			"Duração", "Data Início", "Data Fim", "Formato", "Provider ID", "Billing ID", "Cobrança", "Movie Audio Type"},
+		{"9dcccf62-1dee-44f3-87e8-f19433bbfe59", "84a7933b-f4ad-4817-9473-64f33340a72e", "58b6618b-7637-43b0-8ad9-9b7891ba6eec",
+			"39e9811a-8666-454a-ac97-0c422c5fdedf", "73832553-e594-479d-974d-a0c3c78941d7",
+			"The Shortlist", "A Lista", "", "1", "1", "a_lista_01.mp4", "sports", "Legendado", "eng", "eng", "por", "2018",
+			"1000000", "9", " INVERLEIGH", "0", "Documentário", "Esportes", "", "Evan Harding", "AUS",
+			"A dez maiores histórias no estilo de Davi contra Golias. Os azarados, os favoritos e os milagres.",
+			"A melhor série de contagem regressiva de esportes. Com temas icônicos focados nos momentos e indivíduos mais memoráveis do esporte.",
+			"0.017615740740741", "06-25-20", "12-31-26", "HD", "", "", "", "stereo"},
+		{"37cbb97d-815c-45f7-a927-6fa2e04512ba", "650dcfca-35bd-4b3c-b0b6-a3c68409804d", "072356bc-d774-4e79-a05d-4e5c52dc56d9",
+			"099905ad-8c10-4d4f-ac87-e856d24d7d0e", "bb90a382-0385-4c3d-9f18-8a77f78d2bd0",
+			"The Shortlist", "A Lista", "", "1", "2", "a_lista_02.mp4", "sports", "Legendado", "eng", "eng", "por", "2018",
+			"1000000", "9", " INVERLEIGH", "0", "Documentário", "Esportes", "", "Evan Harding", "AUS",
+			"A lista dos dez maiores atletas que mudaram o esporte, pioneiros e inovadores, eles deixaram a sua marca.",
+			"A melhor série de contagem regressiva de esportes. Com temas icônicos focados nos momentos e indivíduos mais memoráveis do esporte.",
+			"0.017696759259259", "06-25-20", "12-31-26", "HD", "", "", "", "stereo\n"},
+	}
+
 	expectedAssets := "{\n" +
+		"  \"assets\": [\n" +
+		"    {\n" +
+		"      \"adult\": false,\n" +
+		"      \"available_from\": 1593043200000,\n" +
+		"      \"available_to\": 1798675200000,\n" +
+		"      \"duration\": 1421000,\n" +
+		"      \"genres\": [\n" +
+		"        \"Show\"\n" +
+		"      ],\n" +
+		"      \"id\": \"198413c7-3d35-4c6d-9714-f80e92e9b7d0\",\n" +
+		"      \"images\": [\n" +
+		"        {\n" +
+		"          \"id\": \"e2830250-d3bf-451a-ba3b-d4ec3ce1da19\",\n" +
+		"          \"location\": \"shows/ariana_grande_poster.jpg\",\n" +
+		"          \"type\": \"vod-poster\"\n" +
+		"        },\n" +
+		"        {\n" +
+		"          \"id\": \"8b841c15-a02f-4a23-b4d2-d4eb409becbe\",\n" +
+		"          \"location\": \"shows/ariana_grande_landscape.jpg\",\n" +
+		"          \"type\": \"vod-background\"\n" +
+		"        }\n" +
+		"      ],\n" +
+		"      \"medias\": [\n" +
+		"        {\n" +
+		"          \"audio_languages\": [\n" +
+		"            \"eng\"\n" +
+		"          ],\n" +
+		"          \"id\": \"198413c7-3d35-4c6d-9714-f80e92e9b7d0\",\n" +
+		"          \"location\": \"shows/ariana_grande.mp4\",\n" +
+		"          \"metadata\": {},\n" +
+		"          \"subtitles_languages\": [\n" +
+		"            \"por\"\n" +
+		"          ],\n" +
+		"          \"technology\": \"MP4\",\n" +
+		"          \"title\": \"Ariana Grande\",\n" +
+		"          \"type\": \"MEDIA\"\n" +
+		"        }\n" +
+		"      ],\n" +
+		"      \"metadata\": {\n" +
+		"        \"actors\": [\n" +
+		"          \"\"\n" +
+		"        ],\n" +
+		"        \"country\": \"USA\",\n" +
+		"        \"directors\": [\n" +
+		"          \"\"\n" +
+		"        ],\n" +
+		"        \"release_year\": \"2016\",\n" +
+		"        \"rights\": [],\n" +
+		"        \"summary\": [\n" +
+		"          \"Show da cantora Ariana Grande\"\n" +
+		"        ]\n" +
+		"      },\n" +
+		"      \"morality_level\": 0,\n" +
+		"      \"synopsis\": {\n" +
+		"        \"por\": \"Ariana Grande se apresenta em Las Vegas, a cantora canta todos os seus sucessos. O show con" +
+		"ta com participação especial de Zedd.\"\n" +
+		"      },\n" +
+		"      \"title\": {\n" +
+		"        \"por\": \"Ariana Grande\"\n" +
+		"      }\n" +
+		"    }\n" +
+		"  ]\n" +
 		"}"
 
-	lines := [][]string{
-		{"id", "title", "synopsis", "season", "season synopsis"},
-		{"3d0666d2-0d6e-4687-b37b-1f65e173f889", "por:A Lista|eng:The List", "A melhor série de contagem regressiva de esportes. Com temas icônicos focados nos momentos e indivíduos mais memoráveis do esporte",
-			"A melhor série de contagem regressiva de esportes. Com temas icônicos focados nos momentos e indivíduos mais memoráveis do esporte.", "1", "Primeira temporada\n"},
-		{"3d0666d2-0d6e-4687-b37b-1f65e173f889", "por:A Lista|eng:The List", "A melhor série de contagem regressiva de esportes. Com temas icônicos focados nos momentos e indivíduos mais memoráveis do esporte",
-			"A melhor série de contagem regressiva de esportes. Com temas icônicos focados nos momentos e indivíduos mais memoráveis do esporte.", "2", "Segunda temporada\n"},
+	expectedSeries := "{\n" +
+		"  \"series\": [\n" +
+		"    {\n" +
+		"      \"external_ids\": [],\n" +
+		"      \"id\": \"3d0666d2-0d6e-4687-b37b-1f65e173f889\",\n" +
+		"      \"images\": [],\n" +
+		"      \"seasons\": [\n" +
+		"        {\n" +
+		"          \"id\": \"3ee50673-3b99-4cf9-8fb2-1ad5223f4688\",\n" +
+		"          \"season_number\": \"1\",\n" +
+		"          \"synopsis\": {\n" +
+		"            \"eng\": \"First season\",\n" +
+		"            \"por\": \"Primeira temporada\"\n" +
+		"          },\n          \"title\": {\n" +
+		"            \"eng\": \"The List\",\n" +
+		"            \"por\": \"A Lista\"\n" +
+		"          }\n" +
+		"        },\n" +
+		"        {\n" +
+		"          \"id\": \"19e1327c-7c0f-491f-9ef0-0365641cb9a1\",\n" +
+		"          \"season_number\": \"2\",\n" +
+		"          \"synopsis\": {\n" +
+		"            \"eng\": \"Second Season\",\n" +
+		"            \"por\": \"Segunda temporada\"\n" +
+		"          },\n" +
+		"          \"title\": {\n" +
+		"            \"eng\": \"The List\",\n" +
+		"            \"por\": \"A Lista\"\n" +
+		"          }\n" +
+		"        }\n" +
+		"      ],\n" +
+		"      \"synopsys\": {\n" +
+		"        \"eng\": \"English Synopsis\",\n" +
+		"        \"por\": \"A melhor série de contagem regressiva de esportes." +
+		" Com temas icônicos focados nos momentos e indivíduos mais memoráveis do esporte.\"\n" +
+		"      },\n" +
+		"      \"title\": {\n" +
+		"        \"eng\": \"The List\",\n" +
+		"        \"por\": \"A Lista\"\n" +
+		"      }\n" +
+		"    }\n" +
+		"  ]\n}"
+
+	seriesL := [][]string{
+		{"id", "title",
+			"synopsis",
+			"id season",
+			"season",
+			"season synopsis"},
+		{"3d0666d2-0d6e-4687-b37b-1f65e173f889",
+			"por:A Lista|eng:The List",
+			"por:A melhor série de contagem regressiva de esportes. Com temas icônicos focados nos momentos e indivíduos mais memoráveis do esporte.|" +
+				"eng:English Synopsis",
+			"3ee50673-3b99-4cf9-8fb2-1ad5223f4688",
+			"1",
+			"por:Primeira temporada|eng:First season",
+		},
+		{"3d0666d2-0d6e-4687-b37b-1f65e173f889",
+			"por:A Lista|eng:The List",
+			"por:A melhor série de contagem regressiva de esportes. Com temas icônicos focados nos momentos e indivíduos mais memoráveis do esporte.|" +
+				"eng:English Synopsis",
+			"19e1327c-7c0f-491f-9ef0-0365641cb9a1",
+			"2",
+			"por:Segunda temporada|eng:Second Season",
+		},
 	}
-	maplines := makeLines(lines)
+	maplines := makeLines(assetsL)
 	maplines[0]["file_number"] = "1"
 	options["options"]["timestamp"] = "200702102255"
 	options["options"]["creationDate"] = "2020-06-19"
+
+	seriesLines := makeLines(seriesL)
+
 	//fmt.Printf("%#v\n", maplines)
-	jsonWr, errA := newJSONWriter("", nil, nil, seriesT)
+	jsonWr, errA := newJSONWriter("", nil, nil, assetsT)
 	if errA != nil {
 		t.Error(errA)
 	}
 	jsonWr.testing = true
-	if err := processLines(json, maplines, jsonWr); err != nil {
+
+	seriesWr, errA := newJSONWriter("", nil, seriesLines, seriesT)
+	if errA != nil {
+		t.Error(errA)
+	}
+	seriesWr.testing = true
+
+	if err := processAssets(json, maplines, jsonWr); err != nil {
 		t.Error(err)
 	}
+	if suc, errors := processSeries(seriesLines, seriesWr, "id"); len(errors) > 0 {
+		t.Error(errors)
+	} else if suc != 0 {
+		t.Error("fail")
+	}
 	//	categWr.processCategPack(maplines, "uuid_box", "Genero 1", "Genero 2")
-	bufAssets, _, _, errE := jsonWr.WriteConsolidated(2)
+	bufAssets, _, bufSeries, errE := seriesWr.WriteConsolidated(2)
 	if errE != nil {
 		t.Error(errE)
 	}
-	assetRes := string(bufAssets) // converting from windows encoding to UTF-8
-	fmt.Printf("%s\n", assetRes)
+	assetRes := string(bufAssets)  // converting from windows encoding to UTF-8
+	seriesRes := string(bufSeries) // converting from windows encoding to UTF-8
 	assert.JSONEq(t, expectedAssets, assetRes)
+	assert.JSONEq(t, expectedSeries, seriesRes)
 }

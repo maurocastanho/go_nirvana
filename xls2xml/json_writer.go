@@ -429,7 +429,7 @@ func (wr *jsonWriter) addToSeries(id string, serieName string) error {
 func (wr *jsonWriter) processCategPack(row lineT, idField string, categField1 string, categField2 string) (int, error) {
 	categ1, ok1 := row[categField1]
 	if !ok1 {
-		return -2, fmt.Errorf("categoria 1 em branco na linha [%v]", row)
+		return -2, fmt.Errorf("categoria 1 [%s] em branco na linha [%v]", categField1, row)
 	}
 	if err := wr.addToCategories(row[idField], categ1, "categories"); err != nil {
 		return -1, err
