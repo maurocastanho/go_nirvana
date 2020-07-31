@@ -818,6 +818,7 @@ func TestXmlBoxAssets(t *testing.T) {
 		"        \"directors\": [\n" +
 		"          \"\"\n" +
 		"        ],\n" +
+		"        \"tvod_price\": 20,\n" +
 		"        \"release_year\": \"2016\",\n" +
 		"        \"rights\": [],\n" +
 		"        \"summary\": [\n" +
@@ -859,6 +860,7 @@ func TestXmlBoxAssets(t *testing.T) {
 			"Movie Audio Type",
 			"Trailer ID", "Trailer Size", "Trailer MD5", "Duração Trailer", "Trailer Audio Type",
 			"subpasta",
+			"preço",
 		},
 
 		{"198413c7-3d35-4c6d-9714-f80e92e9b7d0", "5c8d732a-d702-4000-9fce-7bd882fcaaaf",
@@ -883,7 +885,9 @@ func TestXmlBoxAssets(t *testing.T) {
 			"", "", "",
 			"stereo",
 			"", "", "", "", "",
-			"shows"},
+			"shows",
+			"20",
+		},
 	}
 
 	expectedCategs := "{\n" +
@@ -1051,6 +1055,7 @@ func TestXmlBoxCategories(t *testing.T) {
 			"Movie Audio Type",
 			"Trailer ID", "Trailer Size", "Trailer MD5", "Duração Trailer", "Trailer Audio Type",
 			"subpasta",
+			"preço",
 		},
 		{
 			"198413c7-3d35-4c6d-9714-f80e92e9b7d0", "5c8d732a-d702-4000-9fce-7bd882fcaaaf",
@@ -1058,7 +1063,7 @@ func TestXmlBoxCategories(t *testing.T) {
 			"8b841c15-a02f-4a23-b4d2-d4eb409becbe", "cfea92ec-3ce3-463c-b8e7-1cdbee532964",
 			"Ariana Grande - Live in New York",
 			"Ariana Grande",
-			"1", "1", "Ep 1", "Estreia",
+			"", "", "", "",
 			"ariana_grande_s1e1.mp4", "", "",
 			"", "",
 			"Legendado", "eng", "eng", "por",
@@ -1076,6 +1081,7 @@ func TestXmlBoxCategories(t *testing.T) {
 			"stereo",
 			"", "", "", "", "",
 			"shows",
+			"10",
 		},
 		{
 			"198413c7-3d35-4c6d-9714-f80e92e9b7d1", "5c8d732a-d702-4000-9fce-7bd882fcaaa0",
@@ -1083,7 +1089,7 @@ func TestXmlBoxCategories(t *testing.T) {
 			"8b841c15-a02f-4a23-b4d2-d4eb409becbe", "cfea92ec-3ce3-463c-b8e7-1cdbee532965",
 			"Ariana Grande - Live in New York",
 			"Ariana Grande",
-			"1", "2", "Ep 1", "Estreia",
+			"", "", "", "",
 			"ariana_grande_s1e2.mp4", "", "",
 			"", "",
 			"Legendado", "eng", "eng", "por",
@@ -1101,6 +1107,7 @@ func TestXmlBoxCategories(t *testing.T) {
 			"stereo",
 			"", "", "", "", "",
 			"shows",
+			"10",
 		},
 	}
 
@@ -1188,6 +1195,7 @@ func xTestXmlBoxSeries(t *testing.T) {
 			"Movie Audio Type",
 			"Trailer ID", "Trailer Size", "Trailer MD5", "Duração Trailer", "Trailer Audio Type",
 			"subpasta",
+			"preço",
 		},
 		{
 			"198413c7-3d35-4c6d-9714-f80e92e9b7d0", "5c8d732a-d702-4000-9fce-7bd882fcaaaf",
@@ -1213,6 +1221,7 @@ func xTestXmlBoxSeries(t *testing.T) {
 			"stereo",
 			"", "", "", "", "",
 			"shows",
+			"10",
 		},
 		{
 			"198413c7-3d35-4c6d-9714-f80e92e9b7d1", "5c8d732a-d702-4000-9fce-7bd882fcaaa0",
@@ -1238,6 +1247,7 @@ func xTestXmlBoxSeries(t *testing.T) {
 			"stereo",
 			"", "", "", "", "",
 			"shows",
+			"15",
 		},
 	}
 	//fmt.Printf("%#v\n%#v\n%d %d", lines[0], lines[1], len(lines[0]), lenLine1)
@@ -1283,7 +1293,8 @@ func TestXmlBoxSeriesX(t *testing.T) {
 			"Título Original", "Título em Português", "Título em Português do Episódio",
 			"Temporada", "Número do Episódio", "ID", "subpasta", "Versao", "Língua Original ", "Linguagem Áudio", "Linguagem Legenda", "Ano", "Bilheteria", "Ranking",
 			"Estúdio", "Classificação Etária", "Genero 1", "Genero 2", "Elenco", "Diretor", "País de Origem", "Sinopse EPG", "Sinopse Resumo",
-			"Duração", "Data Início", "Data Fim", "Formato", "Provider ID", "Billing ID", "Cobrança", "Movie Audio Type"},
+			"Duração", "Data Início", "Data Fim", "Formato", "Provider ID", "Billing ID", "Cobrança", "Movie Audio Type", "preço",
+		},
 		{"9dcccf62-1dee-44f3-87e8-f19433bbfe59", "84a7933b-f4ad-4817-9473-64f33340a72e", "58b6618b-7637-43b0-8ad9-9b7891ba6eec",
 			"39e9811a-8666-454a-ac97-0c422c5fdedf", "73832553-e594-479d-974d-a0c3c78941d7",
 			"The Shortlist", "A Lista", "",
@@ -1291,7 +1302,8 @@ func TestXmlBoxSeriesX(t *testing.T) {
 			"1000000", "9", " INVERLEIGH", "0", "Documentário", "Esportes", "", "Evan Harding", "AUS",
 			"A dez maiores histórias no estilo de Davi contra Golias. Os azarados, os favoritos e os milagres.",
 			"A melhor série de contagem regressiva de esportes. Com temas icônicos focados nos momentos e indivíduos mais memoráveis do esporte.",
-			"0.017615740740741", "06-25-20", "12-31-26", "HD", "", "", "", "stereo"},
+			"0.017615740740741", "06-25-20", "12-31-26", "HD", "", "", "", "stereo", "10",
+		},
 		{"37cbb97d-815c-45f7-a927-6fa2e04512ba", "650dcfca-35bd-4b3c-b0b6-a3c68409804d", "072356bc-d774-4e79-a05d-4e5c52dc56d9",
 			"099905ad-8c10-4d4f-ac87-e856d24d7d0e", "bb90a382-0385-4c3d-9f18-8a77f78d2bd0",
 			"The Shortlist", "A Lista", "",
@@ -1299,7 +1311,8 @@ func TestXmlBoxSeriesX(t *testing.T) {
 			"1000000", "9", " INVERLEIGH", "0", "Documentário", "Esportes", "", "Evan Harding", "AUS",
 			"A lista dos dez maiores atletas que mudaram o esporte, pioneiros e inovadores, eles deixaram a sua marca.",
 			"A melhor série de contagem regressiva de esportes. Com temas icônicos focados nos momentos e indivíduos mais memoráveis do esporte.",
-			"0.017696759259259", "06-25-20", "12-31-26", "HD", "", "", "", "stereo\n"},
+			"0.017696759259259", "06-25-20", "12-31-26", "HD", "", "", "", "stereo", "10",
+		},
 	}
 
 	expectedAssets := "{\n" +

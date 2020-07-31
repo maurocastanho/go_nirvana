@@ -147,8 +147,13 @@
                                             "elements": [{"attrs": [{"Name": "actors",
                                                 "function2": "field",
                                                 "function": "split", "field": "Diretor"}]}]
+                                        },
+                                        {
+                                            "Name": "tvod_price",
+                                            "function": "field",
+                                            "field": "preço",
+                                            "type": "int"
                                         }
-
                                     ]
                                 }
                         ]},

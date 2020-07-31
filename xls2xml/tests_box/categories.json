@@ -36,7 +36,9 @@
     },
     {
       "adult": false,
-      "assets": [],
+      "assets": [
+        "198413c7-3d35-4c6d-9714-f80e92e9b7d0"
+      ],
       "downloadable": false,
       "hidden": false,
       "id": "d7d4b94e-6055-4400-8325-c7f754830573",
@@ -53,7 +55,9 @@
     },
     {
       "adult": false,
-      "assets": [],
+      "assets": [
+        "198413c7-3d35-4c6d-9714-f80e92e9b7d0"
+      ],
       "downloadable": false,
       "hidden": false,
       "id": "2f7c576a-7212-4af7-ac90-cbd6df1e5f94",
@@ -63,156 +67,6 @@
       "name": {
         "eng": "Music",
         "por": "Música"
-      },
-      "offline": false,
-      "parent_id": "",
-      "parental_control": false
-    },
-    {
-      "adult": false,
-      "assets": [
-        "9dcccf62-1dee-44f3-87e8-f19433bbfe59",
-        "37cbb97d-815c-45f7-a927-6fa2e04512ba",
-        "4c03e9ae-3efb-4f67-8309-8a7be633ee0a",
-        "34c0907f-2800-48f2-8670-b6140d6d45cc",
-        "e43c6b2c-9cbd-4d54-8677-94ec2a743b77",
-        "0d5363ff-b53f-4a9a-8ca7-49c72b9b5690"
-      ],
-      "downloadable": false,
-      "hidden": false,
-      "id": "05ab388f-ecda-44f0-859e-34ba84fb8680",
-      "images": [],
-      "metadata": {},
-      "morality_level": "0",
-      "name": {
-        "eng": "Documentary",
-        "por": "Documentário"
-      },
-      "offline": false,
-      "parent_id": "",
-      "parental_control": false
-    },
-    {
-      "adult": false,
-      "assets": [
-        "9dcccf62-1dee-44f3-87e8-f19433bbfe59",
-        "37cbb97d-815c-45f7-a927-6fa2e04512ba",
-        "4c03e9ae-3efb-4f67-8309-8a7be633ee0a",
-        "34c0907f-2800-48f2-8670-b6140d6d45cc",
-        "e43c6b2c-9cbd-4d54-8677-94ec2a743b77",
-        "0d5363ff-b53f-4a9a-8ca7-49c72b9b5690"
-      ],
-      "downloadable": false,
-      "hidden": false,
-      "id": "131056f2-511d-440b-a9d9-e6bb7a9eed73",
-      "images": [],
-      "metadata": {},
-      "morality_level": "0",
-      "name": {
-        "eng": "Sports",
-        "por": "Esportes"
-      },
-      "offline": false,
-      "parent_id": "",
-      "parental_control": false
-    },
-    {
-      "adult": false,
-      "assets": [],
-      "downloadable": false,
-      "hidden": false,
-      "id": "739ea2b6-f0b8-41e2-8087-ab112a10040d",
-      "images": [],
-      "metadata": {},
-      "morality_level": "0",
-      "name": {
-        "eng": "Children",
-        "por": "Infantil"
-      },
-      "offline": false,
-      "parent_id": "",
-      "parental_control": false
-    },
-    {
-      "adult": false,
-      "assets": [],
-      "downloadable": false,
-      "hidden": false,
-      "id": "33bc86f1-94dd-4d4b-9997-d548ee0ada47",
-      "images": [],
-      "metadata": {},
-      "morality_level": "0",
-      "name": {
-        "eng": "Animation",
-        "por": "Animação"
-      },
-      "offline": false,
-      "parent_id": "",
-      "parental_control": false
-    },
-    {
-      "adult": false,
-      "assets": [],
-      "downloadable": false,
-      "hidden": false,
-      "id": "5a116c8c-b18f-457b-b68a-181d5cdc7edb",
-      "images": [],
-      "metadata": {},
-      "morality_level": "0",
-      "name": {
-        "eng": "Drama",
-        "por": "Drama"
-      },
-      "offline": false,
-      "parent_id": "",
-      "parental_control": false
-    },
-    {
-      "adult": false,
-      "assets": [],
-      "downloadable": false,
-      "hidden": false,
-      "id": "2423b2df-57ac-4c53-b7e7-1096c464b63e",
-      "images": [],
-      "metadata": {},
-      "morality_level": "0",
-      "name": {
-        "eng": "Family",
-        "por": "Família"
-      },
-      "offline": false,
-      "parent_id": "",
-      "parental_control": false
-    },
-    {
-      "adult": false,
-      "assets": [],
-      "downloadable": false,
-      "hidden": false,
-      "id": "d9907a00-955e-4cb9-b0db-5bc330705f49",
-      "images": [],
-      "metadata": {},
-      "morality_level": "0",
-      "name": {
-        "eng": "Romance",
-        "por": "Romance"
-      },
-      "offline": false,
-      "parent_id": "",
-      "parental_control": false
-    },
-    {
-      "adult": false,
-      "assets": [],
-      "downloadable": false,
-      "hidden": false,
-      "id": "807f0371-cf9e-4ec1-ba69-b962ad9cf820",
-      "images": [],
-      "metadata": {},
-      "morality_level": "0",
-      "name": {
-        "eng": "Action",
-        "por": "Ação"
       },
       "offline": false,
       "parent_id": "",
