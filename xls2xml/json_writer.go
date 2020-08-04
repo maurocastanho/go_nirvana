@@ -11,7 +11,7 @@ import (
 	"github.com/golang-collections/collections/stack"
 )
 
-var consolidated interface{}
+var consolidated interface{} // TODO refactor global var
 
 // jsonWriter represents a writer to a JSON file
 type jsonWriter struct {
@@ -208,7 +208,7 @@ func (wr *jsonWriter) OpenOutput() error {
 	return nil
 }
 
-// WriteAndClose writes the structure in an external file
+// WriteAndClose writes the structure to an external file
 func (wr *jsonWriter) WriteAndClose(_ string) error {
 	if consolidated == nil {
 		consolidated = wr.root
@@ -464,6 +464,11 @@ func (wr *jsonWriter) processSeriesPack(row lineT, idField string, idEpisodeFiel
 }
 
 func (wr *jsonWriter) cleanSeries() {
+}
+
+// Testing returns true if is running in a testing environment
+func (wr *jsonWriter) Testing() bool {
+	return wr.testing
 }
 
 func populateSerieIds(lines []lineT, options optionsT) error {

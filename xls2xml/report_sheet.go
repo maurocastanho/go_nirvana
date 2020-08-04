@@ -28,6 +28,7 @@ type reportSheet struct {
 	timeStyle   styles.DirectStyleID
 	moneyStyle  styles.DirectStyleID
 	opened      bool
+	testing     bool
 }
 
 // StartMap starts a map element
@@ -240,6 +241,11 @@ func (rs *reportSheet) newLine() {
 // WriteConsolidated writes additional files
 func (rs *reportSheet) WriteConsolidated(_ int) ([]byte, []byte, []byte, error) {
 	return nil, nil, nil, nil
+}
+
+// Testing returns true if is running in a testing environment
+func (wr *reportSheet) Testing() bool {
+	return wr.testing
 }
 
 //func (rs *reportSheet) processColumns(_ string, json []interface{}, lines []lineT, wr writer) (err2 []error) {
