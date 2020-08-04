@@ -146,6 +146,15 @@ func (wr *jsonWriter) WriteAttr(name string, value string, vtype string, _ strin
 					break
 				}
 				c[name] = val
+			case "float":
+				s, err := strconv.ParseFloat(value, 64)
+				if err != nil {
+					c[name] = errorMessage[0].val
+					log(fmt.Sprintf("ERRO: [%v]", err))
+					break
+				}
+				val := strconv.FormatFloat(s, 'f', 2, 32)
+				c[name] = val
 			case "timestamp":
 				var val, err = toTimestamp(value)
 				if err != nil {

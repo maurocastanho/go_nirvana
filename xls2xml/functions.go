@@ -274,7 +274,12 @@ func suffix(forceVal string, line lineT, json jsonT, options optionsT) ([]result
 		// remove original file extension
 		noacc = noacc[0:extIdx]
 	}
-	prefix, _ := line["subpasta"]
+	fieldPrefix, _ := json["field_prefix"].(string)
+	if fieldPrefix == "" {
+		// no suffix given: use file extension
+		fieldPrefix = "subpasta"
+	}
+	prefix, _ := line[fieldPrefix]
 	if prefix != "" && !strings.HasSuffix(prefix, "/") {
 		prefix += "/"
 	}

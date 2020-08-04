@@ -84,14 +84,14 @@
                                     "group_attrs":[
                                         {"Name": "id", "function": "field", "field": "uuid_poster"},
                                         {"Name": "type", "function": "fixed", "Value": "vod-poster"},
-                                        {"Name": "location", "function": "field_suffix", "field": "ID", "suffix":  "_poster.jpg"}
+                                        {"Name": "location", "function": "field_suffix", "field": "ID", "field_prefix": "subpasta", "suffix":  "_poster.jpg"}
                                     ]
                                 },
                                 {
                                     "group_attrs":[
                                         {"Name": "id", "function": "field", "field": "uuid_landscape"},
                                         {"Name": "type", "function": "fixed", "Value": "vod-background"},
-                                        {"Name": "location", "function": "field_suffix", "field": "ID", "suffix":  "_landscape.jpg"}
+                                        {"Name": "location", "function": "field_suffix", "field": "ID", "field_prefix": "subpasta", "suffix":  "_landscape.jpg"}
                                     ]
                                 }
                             ]
@@ -136,23 +136,27 @@
                                             "Name": "actors",
                                             "elem_val": "",
                                             "function": "empty",
-                                            "elements": [{"attrs": [{"Name": "actors",
+                                            "elements": [
+                                                {"attrs": [{"Name": "actors",
                                                 "function2": "field",
-                                                "function": "split", "field": "Elenco"}]}]
+                                                "function": "split", "field": "Elenco"}]}
+                                            ]
                                         },
                                         {
                                             "Name": "directors",
                                             "elem_val": "",
                                             "function": "empty",
-                                            "elements": [{"attrs": [{"Name": "actors",
+                                            "elements": [
+                                                {"attrs": [{"Name": "actors",
                                                 "function2": "field",
-                                                "function": "split", "field": "Diretor"}]}]
+                                                "function": "split", "field": "Diretor"}]}
+                                            ]
                                         },
                                         {
                                             "Name": "tvod_price",
                                             "function": "field",
                                             "field": "preço",
-                                            "type": "int"
+                                            "type": "float"
                                         }
                                     ]
                                 }
@@ -166,7 +170,7 @@
                                         {"Name": "id", "function": "field", "field": "uuid_box"},
                                         {"Name": "type", "function": "fixed", "Value": "MEDIA"},
                                         {"Name": "title", "function": "field", "field": "Título em Português"},
-                                        {"Name": "location", "function": "field_suffix", "field": "ID", "suffix": ""},
+                                        {"Name": "location", "function": "field_suffix", "field": "ID", "field_prefix": "subpasta", "suffix": ""},
                                         {"Name": "technology", "function": "box_technology", "field": "ID"},
                                         {
                                             "Name": "audio_languages",
@@ -175,6 +179,7 @@
                                                 {
                                                     "attrs": [
                                                         {
+                                                            "filter": "Linguagem_Áudio != '' && Linguagem_Áudio != 'não'",
                                                             "Name": "audio_languages1",
                                                             "function": "split",
                                                             "function2": "field",
@@ -193,10 +198,58 @@
                                                 {
                                                     "attrs": [
                                                         {
+                                                            "filter": "Linguagem_Legenda != '' && Linguagem_Legenda != 'não'",
                                                             "Name": "audio_languages1",
                                                             "function": "split",
                                                             "function2": "field",
                                                             "field": "Linguagem Legenda",
+                                                            "atype": "value"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+
+                                        },
+
+                                        {"Name": "metadata", "no_array": "", "elements": [{"attrs": []}]}
+                                    ]
+                                },
+                                {
+                                    "group_attrs": [
+                                        {"Name": "id", "function": "field", "field": "uuid_trailer"},
+                                        {"Name": "type", "function": "fixed", "Value": "TRAILER"},
+                                        {"Name": "title", "function": "field", "field": "Título em Português"},
+                                        {"Name": "location", "function": "field_suffix", "field": "Trailer ID", "field_prefix": "subpasta trailer", "suffix": ""},
+                                        {"Name": "technology", "function": "box_technology", "field": "Trailer ID"},
+                                        {
+                                            "Name": "audio_languages",
+                                            "elem_val": "",
+                                            "elements": [
+                                                {
+                                                    "attrs": [
+                                                        {
+                                                            "filter": "Linguagem_Trailer != '' && Linguagem_Trailer != 'não'",
+                                                            "function": "split",
+                                                            "function2": "field",
+                                                            "field": "Linguagem Trailer",
+                                                            "atype": "value"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+
+                                        },
+                                        {
+                                            "Name": "subtitles_languages",
+                                            "elem_val": "",
+                                            "elements": [
+                                                {
+                                                    "attrs": [
+                                                        {
+                                                            "filter": "Linguagem_Legenda_Trailer != '' && Linguagem_Legenda_Trailer != 'não'",
+                                                            "function": "split",
+                                                            "function2": "field",
+                                                            "field": "Linguagem Legenda Trailer",
                                                             "atype": "value"
                                                         }
                                                     ]
