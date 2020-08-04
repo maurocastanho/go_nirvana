@@ -899,7 +899,7 @@ func boxTechnology(forceVal string, line lineT, json jsonT, options optionsT) ([
 	case ".ism":
 		result = "HSS"
 	default:
-		return errorMessage, fmt.Errorf("tecnologia indeterminada para a extensao: [%s]", extension)
+		return errorMessage, fmt.Errorf("tecnologia indeterminada para a extensao: [%s]", filename)
 	}
 	return []resultsT{newResult(result)}, nil
 }

@@ -11,7 +11,7 @@ import (
 	"github.com/golang-collections/collections/stack"
 )
 
-var consolidated interface{}
+var consolidated interface{} // TODO refactor global var
 
 // jsonWriter represents a writer to a JSON file
 type jsonWriter struct {
@@ -147,10 +147,15 @@ func (wr *jsonWriter) WriteAttr(name string, value string, vtype string, _ strin
 				}
 				c[name] = val
 			case "float":
+				if value == "" {
+					log(fmt.Sprintf("ERRO field [%s]: [empty]", name))
+					c[name] = errorMessage[0].val
+					break
+				}
 				fl, err := strconv.ParseFloat(value, 64)
 				if err != nil {
 					c[name] = errorMessage[0].val
-					log(fmt.Sprintf("ERRO: [%v]", err))
+					log(fmt.Sprintf("ERRO field [%s]: [%v]", name, err))
 					break
 				}
 				//val := strconv.FormatFloat(fl, 'f', 2, 32)
@@ -208,7 +213,7 @@ func (wr *jsonWriter) OpenOutput() error {
 	return nil
 }
 
-// WriteAndClose writes the structure in an external file
+// WriteAndClose writes the structure to an external file
 func (wr *jsonWriter) WriteAndClose(_ string) error {
 	if consolidated == nil {
 		consolidated = wr.root
@@ -464,6 +469,11 @@ func (wr *jsonWriter) processSeriesPack(row lineT, idField string, idEpisodeFiel
 }
 
 func (wr *jsonWriter) cleanSeries() {
+}
+
+// Testing returns true if is running in a testing environment
+func (wr *jsonWriter) Testing() bool {
+	return wr.testing
 }
 
 func populateSerieIds(lines []lineT, options optionsT) error {

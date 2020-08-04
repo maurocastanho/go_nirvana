@@ -207,3 +207,8 @@ func (wr *xmlWriter) getBuffer() []byte {
 func (wr *xmlWriter) WriteConsolidated(int) ([]byte, []byte, []byte, error) {
 	return nil, nil, nil, nil
 }
+
+// Testing returns true if is running in a testing environment
+func (wr *xmlWriter) Testing() bool {
+	return wr.testing
+}

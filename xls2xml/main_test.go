@@ -430,7 +430,8 @@ func TestXmlNet(t *testing.T) {
 			"Poster Size", "Poster MD5",
 			"DOWNLOAD TO GO", "DIAS DE DOWNLOAD",
 			"PASTA FTP", "Movie Audio Type",
-			"Trailer ID", "Trailer Size", "Trailer MD5", "Duração Trailer", "Trailer Audio Type"},
+			"Trailer ID", "Trailer Size", "Trailer MD5", "Duração Trailer", "Trailer Audio Type",
+		},
 
 		{"WARNER", "warner.com", "Friends", "Friends", "Aquele onde tudo começou",
 			"1", "1", "Série", "1994",
@@ -986,6 +987,231 @@ func TestXmlBoxAssets(t *testing.T) {
 	assert.JSONEq(t, expectedCategs, categRes)
 }
 
+func TestXmlBoxAssetsTrailers(t *testing.T) {
+	json, errCf := readConfig("config_box.json")
+	if errCf != nil {
+		t.Error(errCf)
+	}
+	initVars(json)
+	expectedAssets := "{\n" +
+		"  \"assets\": [\n" +
+		"    {\n" +
+		"      \"adult\": false,\n" +
+		"      \"available_from\": 1593043200000,\n" +
+		"      \"available_to\": 1798675200000,\n      \"duration\": 1421000,\n" +
+		"      \"genres\": [\n" +
+		"        \"Show\"\n" +
+		"      ],\n" +
+		"      \"id\": \"198413c7-3d35-4c6d-9714-f80e92e9b7d0\",\n" +
+		"      \"images\": [\n" +
+		"        {\n" +
+		"          \"id\": \"e2830250-d3bf-451a-ba3b-d4ec3ce1da19\",\n" +
+		"          \"location\": \"shows/ariana_grande_poster.jpg\",\n" +
+		"          \"type\": \"vod-poster\"\n" +
+		"        },\n" +
+		"        {\n" +
+		"          \"id\": \"8b841c15-a02f-4a23-b4d2-d4eb409becbe\",\n" +
+		"          \"location\": \"shows/ariana_grande_landscape.jpg\",\n" +
+		"          \"type\": \"vod-background\"\n" +
+		"        }\n" +
+		"      ],\n" +
+		"      \"medias\": [\n" +
+		"        {\n" +
+		"          \"audio_languages\": [\n" +
+		"            \"eng\"\n" +
+		"          ],\n" +
+		"          \"id\": \"198413c7-3d35-4c6d-9714-f80e92e9b7d0\",\n" +
+		"          \"location\": \"shows/ariana_grande.mp4\",\n" +
+		"          \"metadata\": {},\n" +
+		"          \"subtitles_languages\": [\n" +
+		"            \"por\"\n" +
+		"          ],\n" +
+		"          \"technology\": \"MP4\",\n" +
+		"          \"title\": \"Ariana Grande\",\n" +
+		"          \"type\": \"MEDIA\"\n" +
+		"        }\n" +
+		"      ],\n" +
+		"      \"metadata\": {\n" +
+		"        \"actors\": [\n" +
+		"          \"\"\n" +
+		"        ],\n" +
+		"        \"country\": \"USA\",\n" +
+		"        \"directors\": [\n" +
+		"          \"\"\n" +
+		"        ],\n" +
+		"        \"tvod_price\": 20.00,\n" +
+		"        \"release_year\": \"2016\",\n" +
+		"        \"rights\": [],\n" +
+		"        \"summary\": [\n" +
+		"          \"Show da cantora Ariana Grande\"\n" +
+		"        ]\n" +
+		"      },\n" +
+		"      \"morality_level\": 0,\n" +
+		"      \"synopsis\": {\n" +
+		"        \"por\": \"Ariana Grande se apresenta em Las Vegas, a cantora canta todos os seus sucessos." +
+		" O show conta com participação especial de Zedd.\"\n" +
+		"      },\n" +
+		"      \"title\": {\n" +
+		"        \"por\": \"Ariana Grande\"\n" +
+		"      }\n" +
+		"    }\n" +
+		"  ]\n" +
+		"}"
+
+	lines := [][]string{
+		{"uuid_box", "uuid_trailer",
+			"uuid_poster",
+			"uuid_landscape", "uuid_thumb",
+			"Título Original",
+			"Título em Português",
+			"Numero Temporada", "Número do Episódio", "Título em Português do Episódio", "Temporada",
+			"ID", "Movie Size", "Movie MD5",
+			"Poster Size", "Poster MD5",
+			"Versao", "Língua Original ", "Linguagem Áudio", "Linguagem Legenda",
+			"Categoria", "Ano", "Bilheteria", "Ranking",
+			"Estúdio", "Classificação Etária", "Genero 1", "Genero 2",
+			"Elenco", "Diretor",
+			"País de Origem",
+			"Sinopse EPG",
+			"Sinopse Resumo",
+			"Duração",
+			"Data Início", "Data Fim",
+			"Formato",
+			"Provider ID", "Billing ID", "Cobrança",
+			"Movie Audio Type",
+			"Trailer ID", "Trailer Size", "Trailer MD5", "Duração Trailer", "Trailer Audio Type",
+			"subpasta",
+			"preço",
+			"Linguagem Trailer",
+			"Linguagem Legenda Trailer",
+			"subpasta trailer",
+		},
+		{"198413c7-3d35-4c6d-9714-f80e92e9b7d0", "5c8d732a-d702-4000-9fce-7bd882fcaaaf",
+			"e2830250-d3bf-451a-ba3b-d4ec3ce1da19",
+			"8b841c15-a02f-4a23-b4d2-d4eb409becbe", "cfea92ec-3ce3-463c-b8e7-1cdbee532964",
+			"Ariana Grande - Live in New York",
+			"Ariana Grande",
+			"", "", "", "",
+			"ariana_grande.mp4", "", "",
+			"", "",
+			"Legendado", "eng", "eng", "por",
+			"Música", "2016", "1000000", "9",
+			"Media Solutions", "0", "Show", "Música",
+			"", "",
+			"USA",
+			"Ariana Grande se apresenta em Las Vegas, a cantora canta todos os seus sucessos. " +
+				"O show conta com participação especial de Zedd.",
+			"Show da cantora Ariana Grande",
+			"0:23:41",
+			"06-25-20", "12-31-26",
+			"HD",
+			"", "", "",
+			"stereo",
+			"", "", "", "", "",
+			"shows",
+			"20",
+			"por", "eng", "warner/trailers",
+		},
+	}
+
+	expectedCategs := "{\n" +
+		"  \"categories\": [\n" +
+		"    {\n" +
+		"      \"adult\": false,\n" +
+		"      \"assets\": [\n" +
+		"        \"198413c7-3d35-4c6d-9714-f80e92e9b7d0\"\n" +
+		"      ],\n" +
+		"      \"downloadable\": false,\n" +
+		"      \"hidden\": false,\n" +
+		"      \"id\": \"d7d4b94e-6055-4400-8325-c7f754830573\",\n" +
+		"      \"images\": [],\n" +
+		"      \"metadata\": {},\n" +
+		"      \"morality_level\": \"0\",\n" +
+		"      \"name\": {\n" +
+		"        \"eng\": \"Show\",\n" +
+		"        \"por\": \"Show\"\n" +
+		"      },\n" +
+		"      \"offline\": false,\n" +
+		"      \"parent_id\": \"\",\n" +
+		"      \"parental_control\": false\n" +
+		"    },\n" +
+		"    {\n" +
+		"      \"adult\": false,\n" +
+		"      \"assets\": [\n" +
+		"        \"198413c7-3d35-4c6d-9714-f80e92e9b7d0\"\n" +
+		"      ],\n" +
+		"      \"downloadable\": false,\n" +
+		"      \"hidden\": false,\n" +
+		"      \"id\": \"2f7c576a-7212-4af7-ac90-cbd6df1e5f94\",\n" +
+		"      \"images\": [],\n" +
+		"      \"metadata\": {},\n" +
+		"      \"morality_level\": \"0\",\n" +
+		"      \"name\": {\n" +
+		"        \"eng\": \"Music\",\n" +
+		"        \"por\": \"Música\"\n" +
+		"      },\n" +
+		"      \"offline\": false,\n" +
+		"      \"parent_id\": \"\",\n" +
+		"      \"parental_control\": false\n" +
+		"    }\n" +
+		"  ]\n" +
+		"}"
+
+	alines := makeLines(lines)
+	alines[0]["file_number"] = "1"
+
+	categs := [][]string{
+		{"id", "name", "hidden", "morality_level",
+			"parental_control", "adult", "downloadable", "offline"},
+		{"d7d4b94e-6055-4400-8325-c7f754830573", "por:Show|eng:Show",
+			"false", "0", "false", "false", "false", "false"},
+		{"2f7c576a-7212-4af7-ac90-cbd6df1e5f94", "por:Música|eng:Music",
+			"false", "0", "false", "false", "false", "false"},
+	}
+
+	categLines := makeLines(categs)
+
+	options["options"]["timestamp"] = "200702102255"
+	options["options"]["creationDate"] = "2020-06-19"
+	//fmt.Printf("%#v\n", alines)
+	assetsWr, errA := newJSONWriter("unit_tests_assets.json", categLines, nil, assetsT)
+	if errA != nil {
+		t.Error(errA)
+	}
+	assetsWr.testing = true
+	consolidated = nil
+	if err := processAssets(json, alines, assetsWr); err != nil {
+		t.Error(err)
+	}
+
+	categsWr, err := newJSONWriter("", categLines, nil, categsT)
+	if err != nil {
+		t.Error(err)
+	}
+	categsWr.testing = true
+	// extra files
+	if suc, errors := processCategs(alines, categsWr, "uuid_box", "Genero 1", "Genero 2"); len(errors) > 0 {
+		t.Error(errors)
+	} else if suc != 0 {
+		t.Error("fail")
+	}
+
+	//// categories.json
+	//if _, _, _, err = categsWr.WriteConsolidated(1); err != nil {
+	//	t.Error(err)
+	//}
+	//categWr.processCategPack(alines, "uuid_box", "Genero 1", "Genero 2")
+	bufAssets, bufCategs, _, errE := categsWr.WriteConsolidated(1)
+	if errE != nil {
+		t.Error(errE)
+	}
+	assetRes := string(bufAssets) // converting from windows encoding to UTF-8
+	categRes := string(bufCategs) // converting from windows encoding to UTF-8
+	log(assetRes)
+	assert.JSONEq(t, expectedAssets, assetRes)
+	assert.JSONEq(t, expectedCategs, categRes)
+}
+
 func TestXmlBoxCategories(t *testing.T) {
 	expectedCategs := "{\n" +
 		"  \"categories\": [\n" +
@@ -1056,6 +1282,9 @@ func TestXmlBoxCategories(t *testing.T) {
 			"Trailer ID", "Trailer Size", "Trailer MD5", "Duração Trailer", "Trailer Audio Type",
 			"subpasta",
 			"preço",
+			"Linguagem Trailer",
+			"Linguagem Legenda Trailer",
+			"subpasta trailer",
 		},
 		{
 			"198413c7-3d35-4c6d-9714-f80e92e9b7d0", "5c8d732a-d702-4000-9fce-7bd882fcaaaf",
@@ -1082,6 +1311,7 @@ func TestXmlBoxCategories(t *testing.T) {
 			"", "", "", "", "",
 			"shows",
 			"10",
+			"", "", "",
 		},
 		{
 			"198413c7-3d35-4c6d-9714-f80e92e9b7d1", "5c8d732a-d702-4000-9fce-7bd882fcaaa0",
@@ -1108,6 +1338,7 @@ func TestXmlBoxCategories(t *testing.T) {
 			"", "", "", "", "",
 			"shows",
 			"10",
+			"", "", "",
 		},
 	}
 
@@ -1140,6 +1371,7 @@ func TestXmlBoxCategories(t *testing.T) {
 		t.Error(errA)
 	}
 	assetsWr.testing = true
+	consolidated = nil
 
 	categWr, errC := newJSONWriter("unit_tests_categs.json", categLines, nil, categsT)
 	if errC != nil {
@@ -1270,6 +1502,8 @@ func xTestXmlBoxSeries(t *testing.T) {
 		t.Error(errA)
 	}
 	jsonWr.testing = true
+	consolidated = nil
+
 	if err := processAssets(json, maplines, jsonWr); err != nil {
 		t.Error(err)
 	}
@@ -1289,11 +1523,31 @@ func TestXmlBoxSeriesX(t *testing.T) {
 	initVars(json)
 
 	assetsL := [][]string{
-		{"uuid_box", "uuid_trailer", "uuid_poster", "uuid_landscape", "uuid_thumb",
-			"Título Original", "Título em Português", "Título em Português do Episódio",
-			"Temporada", "Número do Episódio", "ID", "subpasta", "Versao", "Língua Original ", "Linguagem Áudio", "Linguagem Legenda", "Ano", "Bilheteria", "Ranking",
-			"Estúdio", "Classificação Etária", "Genero 1", "Genero 2", "Elenco", "Diretor", "País de Origem", "Sinopse EPG", "Sinopse Resumo",
-			"Duração", "Data Início", "Data Fim", "Formato", "Provider ID", "Billing ID", "Cobrança", "Movie Audio Type", "preço",
+		{"uuid_box", "uuid_trailer",
+			"uuid_poster",
+			"uuid_landscape", "uuid_thumb",
+			"Título Original",
+			"Título em Português",
+			"Numero Temporada", "Número do Episódio", "Título em Português do Episódio",
+			"ID",
+			"Versao", "Língua Original ", "Linguagem Áudio", "Linguagem Legenda",
+			"Categoria", "Ano", "Bilheteria", "Ranking",
+			"Estúdio", "Classificação Etária", "Genero 1", "Genero 2",
+			"Elenco", "Diretor",
+			"País de Origem",
+			"Sinopse EPG",
+			"Sinopse Resumo",
+			"Duração",
+			"Data Início", "Data Fim",
+			"Formato",
+			"Provider ID", "Billing ID", "Cobrança",
+			"Movie Audio Type",
+			"Trailer ID", "Trailer Size", "Trailer Audio Type",
+			"subpasta",
+			"preço",
+			"Linguagem Trailer",
+			"Linguagem Legenda Trailer",
+			"subpasta trailer",
 		},
 		{"9dcccf62-1dee-44f3-87e8-f19433bbfe59", "84a7933b-f4ad-4817-9473-64f33340a72e", "58b6618b-7637-43b0-8ad9-9b7891ba6eec",
 			"39e9811a-8666-454a-ac97-0c422c5fdedf", "73832553-e594-479d-974d-a0c3c78941d7",
@@ -1302,7 +1556,15 @@ func TestXmlBoxSeriesX(t *testing.T) {
 			"1000000", "9", " INVERLEIGH", "0", "Documentário", "Esportes", "", "Evan Harding", "AUS",
 			"A dez maiores histórias no estilo de Davi contra Golias. Os azarados, os favoritos e os milagres.",
 			"A melhor série de contagem regressiva de esportes. Com temas icônicos focados nos momentos e indivíduos mais memoráveis do esporte.",
-			"0.017615740740741", "06-25-20", "12-31-26", "HD", "", "", "", "stereo", "10",
+			"0.017615740740741", "06-25-20", "12-31-26", "HD",
+			"", "", "",
+			"stereo",
+			"", "", "",
+			"docs",
+			"10",
+			"",
+			"",
+			"docs/trailers",
 		},
 		{"37cbb97d-815c-45f7-a927-6fa2e04512ba", "650dcfca-35bd-4b3c-b0b6-a3c68409804d", "072356bc-d774-4e79-a05d-4e5c52dc56d9",
 			"099905ad-8c10-4d4f-ac87-e856d24d7d0e", "bb90a382-0385-4c3d-9f18-8a77f78d2bd0",
@@ -1311,7 +1573,15 @@ func TestXmlBoxSeriesX(t *testing.T) {
 			"1000000", "9", " INVERLEIGH", "0", "Documentário", "Esportes", "", "Evan Harding", "AUS",
 			"A lista dos dez maiores atletas que mudaram o esporte, pioneiros e inovadores, eles deixaram a sua marca.",
 			"A melhor série de contagem regressiva de esportes. Com temas icônicos focados nos momentos e indivíduos mais memoráveis do esporte.",
-			"0.017696759259259", "06-25-20", "12-31-26", "HD", "", "", "", "stereo", "10",
+			"0.017696759259259", "06-25-20", "12-31-26", "HD",
+			"", "", "",
+			"stereo",
+			"", "", "",
+			"docs",
+			"10",
+			"",
+			"",
+			"docs/trailers",
 		},
 	}
 
@@ -1457,11 +1727,12 @@ func TestXmlBoxSeriesX(t *testing.T) {
 	}
 
 	//fmt.Printf("%#v\n", maplines)
-	jsonWr, errA := newJSONWriter("", nil, seriesLines, assetsT)
+	assetsWr, errA := newJSONWriter("", nil, seriesLines, assetsT)
 	if errA != nil {
 		t.Error(errA)
 	}
-	jsonWr.testing = true
+	assetsWr.testing = true
+	consolidated = nil
 
 	seriesWr, errS := newJSONWriter("", nil, seriesLines, seriesT)
 	if errS != nil {
@@ -1469,7 +1740,7 @@ func TestXmlBoxSeriesX(t *testing.T) {
 	}
 	seriesWr.testing = true
 
-	if err := processAssets(json, maplines, jsonWr); err != nil {
+	if err := processAssets(json, maplines, assetsWr); err != nil {
 		t.Error(err)
 	}
 	if suc, errors := processSeries(seriesLines, seriesWr, "id"); len(errors) > 0 {

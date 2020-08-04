@@ -58,6 +58,7 @@ type writer interface {
 	WriteConsolidated(int) ([]byte, []byte, []byte, error)
 	StartMap() error
 	EndMap() error
+	Testing() bool
 }
 
 var options map[string]map[string]string
@@ -541,30 +542,33 @@ func processAssets(json jsonT, lines []lineT, wr writer) (err error) {
 		return err
 	}
 	// fmt.Println("----------")
-	var err3 error
+	var errProc error
 	if err2 := processMap(json, lines, wr); err2 != nil {
 		errs := ""
 		for _, e := range err2 {
 			errs = errs + fmt.Sprintf("[%s]\n", e)
 		}
-		err3 = fmt.Errorf("Erros ao processar linha [%#v]:\n\n%s----------", lines, errs)
+		errProc = fmt.Errorf("Erros ao processar linha [%#v]:\n\n%s----------", lines, errs)
 	}
 	rightFile := wr.Filename() + wr.Suffix()             // filename in case of success
 	wrongFile := wr.Filename() + errSuffix + wr.Suffix() // filename in case of errors
-	fileOut := rightFile
-	if err3 != nil {
+	var fileOut string
+	if errProc == nil {
+		fileOut = rightFile
+	} else {
 		fileOut = wrongFile
 	}
 	// Remove previous file(s)
-	_ = os.Remove(rightFile)
-	_ = os.Remove(wrongFile)
+	if !wr.Testing() {
+		_ = os.Remove(rightFile)
+		_ = os.Remove(wrongFile)
+	}
 	// Write new file
 	if err1 := wr.WriteAndClose(fileOut); err1 != nil {
-		err = err1
-		return
+		return err1
 	}
-	if err3 != nil {
-		err = err3
+	if errProc != nil {
+		err = errProc
 	}
 	return
 }
