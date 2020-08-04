@@ -215,6 +215,7 @@
                                     ]
                                 },
                                 {
+                                    "filter": "Trailer_ID != ''",
                                     "group_attrs": [
                                         {"Name": "id", "function": "field", "field": "uuid_trailer"},
                                         {"Name": "type", "function": "fixed", "Value": "TRAILER"},

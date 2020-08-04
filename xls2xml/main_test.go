@@ -818,7 +818,7 @@ func TestXmlBoxAssets(t *testing.T) {
 		"        \"directors\": [\n" +
 		"          \"\"\n" +
 		"        ],\n" +
-		"        \"tvod_price\": 20,\n" +
+		"        \"tvod_price\": 20.00,\n" +
 		"        \"release_year\": \"2016\",\n" +
 		"        \"rights\": [],\n" +
 		"        \"summary\": [\n" +
