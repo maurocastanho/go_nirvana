@@ -91,6 +91,7 @@ func main() {
 		} else {
 			log("*******************************************")
 			log("*    ATENCAO: ERROS NO PROCESSAMENTO      *")
+			log("*       VERIFIQUE MENSAGENS ACIMA         *")
 			log("*******************************************")
 		}
 
@@ -158,7 +159,6 @@ func main() {
 	if success == 0 {
 		success, err = processSpreadSheet(json, outType, spreadSheet, outDir, lines)
 		if err != nil {
-			logError(err)
 			return
 		}
 		log(fmt.Sprintf("Gravado arquivo de report: %s", xlsFilePath))

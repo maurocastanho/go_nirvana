@@ -359,7 +359,11 @@ func (wr *jsonWriter) initSeries() (map[string]interface{}, error) {
 		}
 		el["external_ids"] = make([]interface{}, 0)
 		el["title"] = elName
-		el["synopsys"] = splitLangName(line["synopsis"])
+		var err error
+		el["synopsys"], err = splitLangName(line["synopsis"])
+		if err != nil {
+			return nil, err
+		}
 		el["images"] = make([]interface{}, 0)
 		elSeas, okS := el["seasons"].([]interface{})
 		if !okS {
@@ -368,9 +372,15 @@ func (wr *jsonWriter) initSeries() (map[string]interface{}, error) {
 		elSeasM := make(map[string]interface{})
 		elSeasM["id"] = line["id season"]
 		elSeasM["season_number"] = line["season"]
-		titleEls := splitLangName(line["title"])
+		titleEls, err := splitLangName(line["title"])
+		if err != nil {
+			return nil, err
+		}
 		elSeasM["title"] = titleEls
-		elSeasM["synopsis"] = splitLangName(line["season synopsis"])
+		elSeasM["synopsis"], err = splitLangName(line["season synopsis"])
+		if err != nil {
+			return nil, err
+		}
 		elSeas = append(elSeas, elSeasM)
 		el["seasons"] = elSeas
 		if toAppend {
@@ -382,19 +392,20 @@ func (wr *jsonWriter) initSeries() (map[string]interface{}, error) {
 	return root, nil
 }
 
-func splitLangName(str string) map[string]string {
+func splitLangName(str string) (map[string]string, error) {
 	listLang := strings.Split(str, "|")
 	result := make(map[string]string)
 	for _, langEl := range listLang {
 		langSplit := strings.Split(langEl, ":")
-		if len(langSplit) != 2 {
-			return map[string]string{"###ERRO###": "ERRO"}
+		numEls := len(langSplit)
+		if numEls != 2 {
+			return nil, fmt.Errorf("Campo de linguagem tem %d elementos, deveria ter 2: [%s]", numEls, langEl)
 		}
 		lang := langSplit[0]
 		text := langSplit[1]
 		result[lang] = text
 	}
-	return result
+	return result, nil
 }
 
 // addToCategories adds an asset to the categories list
@@ -495,7 +506,7 @@ func populateSerieIds(lines []lineT, options optionsT) error {
 		return fmt.Errorf("opcao 'season_id_field' nao encontrada")
 	}
 	options["series"] = make(map[string]string)
-	for _, line := range lines {
+	for i, line := range lines {
 		id, ok1 := line[idF]
 		if !ok1 {
 			return fmt.Errorf("campo '%s' nao encontrado na planilha de series", idF)
@@ -504,7 +515,11 @@ func populateSerieIds(lines []lineT, options optionsT) error {
 		if !ok2 {
 			return fmt.Errorf("campo '%s' nao encontrado na planilha de series", titleF)
 		}
-		sNames := splitLangName(title)
+		sNames, err := splitLangName(title)
+		if err != nil {
+			// Sums 2 to line because array begins with 0 and there is a header column
+			return fmt.Errorf("erro na linha %d, coluna [%s]: %s", i+2, titleF, err.Error())
+		}
 		titlePor, ok := sNames["por"]
 		if !ok {
 			return fmt.Errorf("serie '%s' nao tem nome em portugues", titleF)
