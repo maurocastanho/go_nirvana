@@ -405,7 +405,7 @@ func findInSerieMap(str1 string, str2 string, sData map[string]string) (string, 
 			return ids[0], ids[1], nil
 		}
 	}
-	return "", "", fmt.Errorf("serie nao encontrada, adicione na aba series: [%s][%s]", str1, str2)
+	return "", "", fmt.Errorf("serie nao encontrada, adicione na aba series: [%s], temporada [%s]", str1, str2)
 }
 
 // seriesId returns the serie Id from sheet "series"
@@ -415,7 +415,7 @@ func seriesId(forceVal string, line lineT, json jsonT, options optionsT) ([]resu
 		return ts, err2
 	}
 	result := fmt.Sprintf("%s", idSerie)
-	return []resultsT{newResult(result)}, nil
+	return []resultsT{newResult(result)}, err2
 }
 
 // seasonId returns the season Id from sheet "series"
@@ -425,7 +425,7 @@ func seasonId(forceVal string, line lineT, json jsonT, options optionsT) ([]resu
 		return ts, err2
 	}
 	result := fmt.Sprintf("%s", idSeason)
-	return []resultsT{newResult(result)}, nil
+	return []resultsT{newResult(result)}, err2
 }
 
 func getSeries(forceVal string, line lineT, json jsonT, options optionsT) (string, string, []resultsT, error, bool) {
@@ -436,7 +436,7 @@ func getSeries(forceVal string, line lineT, json jsonT, options optionsT) (strin
 	if errF != nil {
 		return "", "", errorMessage, errF, true
 	}
-	seasonS, okN := line["Número do Episódio"] // TODO move to config
+	seasonS, okN := line["Temporada"] // TODO move to config
 	if !okN {
 		return "", "", errorMessage, errF, true
 	}

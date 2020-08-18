@@ -153,6 +153,7 @@
                                             ]
                                         },
                                         {
+                                            "filter": "preço != ''",
                                             "Name": "tvod_price",
                                             "function": "field",
                                             "field": "preço",

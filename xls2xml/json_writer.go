@@ -328,12 +328,13 @@ func (wr *jsonWriter) initCateg() (map[string]interface{}, error) {
 func (wr *jsonWriter) initSeries() (map[string]interface{}, error) {
 	root := make(map[string]interface{})
 	cat := make([]map[string]interface{}, 0)
-	fmt.Printf("Series: [%#v]\n", wr.serieLines)
+	//fmt.Printf("Series: [%#v]\n", wr.serieLines)
 	current := make(map[string]interface{})
 	currentId := ""
 	for _, line := range wr.serieLines {
 		toAppend := true
 		name, _ := line["title"]
+		//fmt.Printf("serie:[%s]\n", name)
 		id, ok := line["id"]
 		if !ok || id == "" {
 			return nil, fmt.Errorf("serie [%s] nao existente na aba 'series'", name)
