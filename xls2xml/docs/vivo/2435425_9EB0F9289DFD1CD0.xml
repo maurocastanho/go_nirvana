@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ADI>
+   <Metadata>
+      <AMS Asset_Class="package" Asset_ID="SONY2018091700000004" Asset_Name="BRA180917HotelTransilvânia3:FériasMonst_00_Package" Creation_Date="2018-09-17" Description="BRA180917HotelTransilvânia3:FériasMonstruosasDescription" Product="MOD" Provider="VU" Provider_ID="Sony" Version_Major="1" Version_Minor="0"/>
+      <App_Data App="MOD" Name="Metadata_Spec_Version" Value="CableLabsVOD1.0"/>
+   </Metadata>
+   <Asset>
+      <Metadata>
+         <AMS Asset_Class="title" Asset_ID="SONY2018091700000004" Asset_Name="BRA180917HotelTransilvânia3:FériasMons_01_Metadata" Creation_Date="2018-09-17" Description="BRA180917HotelTransilvânia3:FériasMonstruosasDescription" Product="MOD" Provider="VU" Provider_ID="Sony" Version_Major="1" Version_Minor="0"/>
+         <App_Data App="MOD" Name="Type" Value="title"/>
+         <App_Data App="MOD" Name="Content_Category" Value="Movies"/>
+         <App_Data App="MOD" Name="Commercial_Type" Value="TVOD"/>
+         <App_Data App="MOD" Name="TVOD_Type" Value="Launch"/>
+         <App_Data App="MOD" InstanceId="25" Name="Pricing_Group" Value="323"/>
+         <App_Data App="MOD" Name="Original_Title" Value="Hotel Transilvânia 3: Férias Monstruosas"/>
+         <App_Data App="MOD" Name="Rating" Target_Country="br" Value="L"/>
+         <App_Data App="MOD" Name="Run_Time" Value="01:37:00"/>
+         <App_Data App="MOD" Name="Preview_Period" Value="00:04:00"/>
+         <App_Data App="MOD" Name="Year" Value="2018"/>
+         <App_Data App="MOD" Name="Country_of_Origin" Value="us"/>
+         <App_Data App="MOD" Name="Studio" Value="Sony"/>
+         <App_Data App="MOD" Name="Studio_Name" Value="Sony"/>
+         <App_Data App="MOD" Name="Encoding_Profile" Value="widescreen"/>
+         <App_Data App="MOD" Name="Genre" Target_Language="pt-BR" Value="Cartoons"/>
+         <App_Data App="MOD" Name="Licensing_Window_Start" Value="2018-10-10"/>
+         <App_Data App="MOD" Name="Licensing_Window_End" Value="2018-10-30"/>
+         <App_Data App="MOD" Name="Title" Target_Language="pt-BR" Value="Hotel Transilvânia 3: Férias Monstruosas"/>
+         <App_Data App="MOD" Name="Summary_Short" Target_Language="pt-BR" Value="Solitário e infeliz, buscando um novo amor na internet, Dracula é surpreendido com um presente da querida filha: férias em um cruzeiro."/>
+         <App_Data App="MOD" Name="Summary_Medium" Target_Language="pt-BR" Value="Solitário e infeliz, buscando um novo amor na internet, Dracula é surpreendido com um presente da querida filha: férias em um cruzeiro."/>
+         <App_Data App="MOD" Name="Director" Value="Genndy Tartakovsky"/>
+         <App_Data App="MOD" Name="Billing_ID" Value="SONY03"/>
+         <App_Data App="MOD" Name="Actors" Value="Adam Sandler"/>
+         <App_Data App="MOD" Name="Actors" Value="Jim Gaffigan"/>
+         <App_Data App="MOD" Name="Actors" Value="Kathryn Hahn"/>
+         <App_Data App="MOD" Name="Actors" Value="Asher Blinkoff"/>
+         <App_Data App="MOD" Instance="25" Name="Device_Group_Inclusion" Value="stb_iptv"/>
+         <App_Data App="MOD" Instance="25" Name="Device_Group_Inclusion" Value="DTHVivo2"/>
+         <App_Data App="MOD" Instance="25" Name="Device_Group_Inclusion" Value="chromecast"/>
+         <App_Data App="MOD" Name="Movie_Type" Value="Movie"/>
+      </Metadata>
+      <Asset>
+         <Metadata>
+            <AMS Asset_Class="movie" Asset_ID="SONY2018091700000004" Asset_Name="BRA180917HotelTransilvânia3:FériasMonstru_02_Movie" Creation_Date="2018-09-17" Description="BRA180917HotelTransilvânia3:FériasMonstruosasDescription" Product="MOD" Provider="VU" Provider_ID="Sony" Version_Major="1" Version_Minor="0"/>
+            <App_Data App="MOD" Name="Type" Value="movie"/>
+            <App_Data App="MOD" Name="Audio_Type" Value="Stereo"/>
+            <App_Data App="MOD" Name="Screen_Format" Value="Widescreen"/>
+            <App_Data App="MOD" Name="Languages" Value="pt"/>
+            <App_Data App="MOD" Name="Content_FileSize" Value="23960997432"/>
+            <App_Data App="MOD" Name="Content_CheckSum" Value="1234abc"/>
+         </Metadata>
+         <Content Value="hoteltransylvania_3_dub_forced_ptbr.ts"/>
+      </Asset>
+      <Asset>
+         <Metadata>
+            <AMS Asset_Class="poster" Asset_ID="SONY2018091700000004" Asset_Name="BRA180917HotelTransilvânia3:FériasMonstr_04_Poster" Creation_Date="2018-09-17" Description="BRA180917HotelTransilvânia3:FériasMonstruosasDescription" Product="MOD" Provider="VU" Provider_ID="Sony" Version_Major="1" Version_Minor="0"/>
+            <App_Data App="MOD" Name="Type" Value="poster"/>
+            <App_Data App="MOD" Name="Image_Aspect_Ratio" Value="600x882"/>
+            <App_Data App="MOD" Name="Content_FileSize" Value="282791"/>
+            <App_Data App="MOD" Name="Content_CheckSum" Value="1234abc"/>
+         </Metadata>
+         <Content Value="hoteltransylvania_3_dub_forced_ptbr.jpg"/>
+      </Asset>
+   </Asset>
+</ADI>

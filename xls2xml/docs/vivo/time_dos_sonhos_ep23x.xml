@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ADI>
+    <Metadata>
+        <AMS Asset_Class="package" Asset_ID="NIRV2020061600000100" Asset_Name="BRA20200616TimedosSonhosEp23_00_Package" Creation_Date="2020-06-16" Description="BRA20200616TimedosSonhosEp23Description" Product="MOD" Provider="VU" Provider_ID="Nirvana" Version_Major="1" Version_Minor="0"/>
+        <App_Data App="MOD" Name="Metadata_Spec_Version" Value="CableLabsVOD1.1"/>
+    </Metadata>
+    <Asset>
+        <Metadata>
+            <AMS Asset_Class="title" Asset_ID="NIRV2020061600000100" Asset_Name="BRA20200616TimedosSonhosEp23_01_Metadata" Creation_Date="2020-06-16" Description="BRA20200616TimedosSonhosEp23Description" Product="MOD" Provider="VU" Provider_ID="Nirvana" Version_Major="1" Version_Minor="0"/>
+            <App_Data App="MOD" Name="Type" Value="title"/>
+            <App_Data App="MOD" Name="Content_Category" Value="Sports"/>
+            <App_Data App="MOD" Name="Pricing_Group" InstanceId="25" Value="291"/>
+            <App_Data App="MOD" Name="Billing_ID" Value="NIR23"/>
+            <App_Data App="MOD" Name="Commercial_Type" Value="TVOD"/>
+            <App_Data App="MOD" Name="TVOD_Type" Value="Catalogue"/>
+            <App_Data App="MOD" Name="Original_Title" Value="Time dos Sonhos Ep.23"/>
+            <App_Data App="MOD" Name="Rating" Target_Country="br" Value="L"/>
+            <App_Data App="MOD" Name="Run_Time" Value="00:25:43"/>
+            <App_Data App="MOD" Name="Year" Value="2019"/>
+            <App_Data App="MOD" Name="Country_of_Origin" Value="us"/>
+            <App_Data App="MOD" Name="Studio" Value="Nirvana"/>
+            <App_Data App="MOD" Name="Studio_Name" Value="Nirvana"/>
+            <App_Data App="MOD" Name="Encoding_Profile" Value="widescreen"/>
+            <App_Data App="MOD" Name="Genre" Target_Language="pt-BR" Value="Sports"/>
+            
+            
+            
+            <App_Data App="MOD" Name="Licensing_Window_Start" Value="2020-05-19"/>
+            <App_Data App="MOD" Name="Licensing_Window_End" Value="2024-12-31"/>
+            <App_Data App="MOD" Name="Title" Target_Language="pt-BR" Value="Time dos Sonhos Ep.23"/>
+            <App_Data App="MOD" Name="Summary_Short" Target_Language="pt-BR" Value="Rúgbi é o rei dos esportes na Nova Zelândia. Quais lendas do esporte são os melhores? Colin Meads ou Brodie Retallick? Kieran Read ou Zinzan Brooke? E as lendas que não chegaram a levantar a taça da Copa Webb Ellis, no programa que ousa sonhar."/>
+            <App_Data App="MOD" Name="Summary_Medium" Target_Language="pt-BR" Value="Rúgbi é o rei dos esportes na Nova Zelândia. Quais lendas do esporte são os melhores? Colin Meads ou Brodie Retallick? Kieran Read ou Zinzan Brooke? E as lendas que não chegaram a levantar a taça da Copa Webb Ellis, no programa que ousa sonhar."/>
+            
+            
+            
+            <App_Data App="MOD" Instance="25" Name="Device_Group_Inclusion" Value="mobile"/>
+            <App_Data App="MOD" Instance="25" Name="Device_Group_Inclusion" Value="pc"/>
+            <App_Data App="MOD" Instance="25" Name="Device_Group_Inclusion" Value="games"/>
+            <App_Data App="MOD" Instance="25" Name="Device_Group_Inclusion" Value="tablet"/>
+            <App_Data App="MOD" Instance="25" Name="Device_Group_Inclusion" Value="stb_iptv"/>
+            <App_Data App="MOD" Instance="25" Name="Device_Group_Inclusion" Value="DTHVivo2"/>
+            <App_Data App="MOD" Instance="25" Name="Device_Group_Inclusion" Value="chromecast"/>
+            <App_Data App="MOD" Instance="25" Name="Device_Group_Inclusion" Value="ctv"/>
+            <App_Data App="MOD" Instance="25" Name="Device_Type_Exclusion" Value="tvLg"/>
+            <App_Data App="MOD" Name="Movie_Type" Value="Episode"/>
+            <App_Data App="MOD" Name="Series_Asset_Id" Value="TIME2020061600000000"/>
+            <App_Data App="MOD" Name="Season_Asset_Id" Value="TIME2020061600000001"/>
+            <App_Data App="MOD" Name="Order" Value="23"/>
+        </Metadata>
+        <Asset>
+            <Metadata>
+                <AMS Asset_Class="movie" Asset_ID="NIRV2020061600000100" Asset_Name="BRA20200616TimedosSonhosEp23_02_movie" Creation_Date="2020-06-16" Description="BRA20200616TimedosSonhosEp23Description" Product="MOD" Provider="VU" Provider_ID="Nirvana" Version_Major="1" Version_Minor="0"/>
+                <App_Data App="MOD" Name="Type" Value="movie"/>
+                <App_Data App="MOD" Name="Audio_Type" Value="Stereo"/>
+                <App_Data App="MOD" Name="Screen_Format" Value="widescreen"/>
+                <App_Data App="MOD" Name="Languages" Value="en-US,pt-BR"/>
+                <App_Data App="MOD" Name="Content_FileSize" Value="1928954260"/>
+                <App_Data App="MOD" Name="Content_CheckSum" Value="1234abc"/>
+            </Metadata>
+            <Content Value="time_dos_sonhos_ep23.ts"/>
+        </Asset>
+
+
+        <Asset>
+            <Metadata>
+                <AMS Asset_Class="poster" Asset_ID="NIRV2020061600000100" Asset_Name="BRA20200616TimedosSonhosEp23_04_Poster" Creation_Date="2020-06-16" Description="BRA20200616TimedosSonhosEp23Description" Product="MOD" Provider="VU" Provider_ID="Nirvana" Version_Major="1" Version_Minor="0"/>
+                <App_Data App="MOD" Name="Type" Value="poster"/>
+                <App_Data App="MOD" Name="Image_Aspect_Ratio" Value="600x882"/>
+                <App_Data App="MOD" Name="Content_FileSize" Value="369948"/>
+                <App_Data App="MOD" Name="Content_CheckSum" Value="1234abc"/>
+            </Metadata>
+            <Content Value="time_dos_sonhos_ep23.jpg"/>
+        </Asset>
+
+
+
+    </Asset>
+</ADI>

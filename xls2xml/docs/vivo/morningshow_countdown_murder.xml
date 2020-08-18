@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ADI>
+    <Metadata>
+        <AMS Asset_Class="package" Asset_ID="SONY0020062500000001" Asset_Name="BRA20200625MistérioNaTv:ContagemRegre_00_Package" Creation_Date="2020-06-25" Description="BRA20200625MistérioNaTv:ContagemRegreDescription" Product="MOD" Provider="VU" Provider_ID="Sony" Version_Major="1" Version_Minor="0"/>
+        <App_Data App="MOD" Name="Metadata_Spec_Version" Value="CableLabsVOD1.1"/>
+    </Metadata>
+    <Asset>
+        <Metadata>
+            <AMS Asset_Class="title" Asset_ID="SONY0020062500000001" Asset_Name="BRA20200625MistérioNaTv:ContagemRegre_01_Metadata" Creation_Date="2020-06-25" Description="BRA20200625MistérioNaTv:ContagemRegreDescription" Product="MOD" Provider="VU" Provider_ID="Sony" Version_Major="1" Version_Minor="0"/>
+            <App_Data App="MOD" Name="Type" Value="title"/>
+            <App_Data App="MOD" Name="Content_Category" Value="Movies"/>
+            <App_Data App="MOD" Name="Pricing_Group" InstanceId="25" Value="309"/>
+            <App_Data App="MOD" Name="Billing_ID" Value="SONY01"/>
+            <App_Data App="MOD" Name="Commercial_Type" Value="TVOD"/>
+            <App_Data App="MOD" Name="TVOD_Type" Value="Launch"/>
+            <App_Data App="MOD" Name="Original_Title" Value="Mistério Na Tv: Contagem Regressiva"/>
+            <App_Data App="MOD" Name="Rating" Target_Country="br" Value="12"/>
+            <App_Data App="MOD" Name="Run_Time" Value="01:27:59"/>
+            <App_Data App="MOD" Name="Year" Value="2019"/>
+            <App_Data App="MOD" Name="Country_of_Origin" Value="us"/>
+            <App_Data App="MOD" Name="Studio" Value="Sony"/>
+            <App_Data App="MOD" Name="Studio_Name" Value="Sony"/>
+            <App_Data App="MOD" Name="Encoding_Profile" Value="widescreen"/>
+            <App_Data App="MOD" Name="Genre" Target_Language="pt-BR" Value="Drama"/>
+            
+            
+            
+            <App_Data App="MOD" Name="Licensing_Window_Start" Value="2020-06-03"/>
+            <App_Data App="MOD" Name="Licensing_Window_End" Value="2020-08-31"/>
+            <App_Data App="MOD" Name="Title" Target_Language="pt-BR" Value="Morning Show Mysteries: Countdown to murder"/>
+            <App_Data App="MOD" Name="Summary_Short" Target_Language="pt-BR" Value="Quando um querido dono de supermercado é assassinado de manhã cedo antes da abertura, a chef de TV e dona de restaurante Billie Blessings se envolve em uma investigação do que rapidamente parece ser o trabalho de um i"/>
+            <App_Data App="MOD" Name="Summary_Medium" Target_Language="pt-BR" Value="Quando um querido dono de supermercado é assassinado de manhã cedo antes da abertura, a chef de TV e dona de restaurante Billie Blessings se envolve em uma investigação do que rapidamente parece ser o trabalho de um i"/>
+            <App_Data App="MOD" Name="Director" Value="Kevin Fair"/>
+            <App_Data App="MOD" Name="Actors" Value="Holly Robinson Peete, Rick Fox"/>
+            <App_Data App="MOD" Name="Download2Play" Value="Yes"/>
+            <App_Data App="MOD" Instance="25" Name="Device_Group_Inclusion" Value="mobile"/>
+            <App_Data App="MOD" Instance="25" Name="Device_Group_Inclusion" Value="pc"/>
+            <App_Data App="MOD" Instance="25" Name="Device_Group_Inclusion" Value="games"/>
+            <App_Data App="MOD" Instance="25" Name="Device_Group_Inclusion" Value="tablet"/>
+            <App_Data App="MOD" Instance="25" Name="Device_Group_Inclusion" Value="stb_iptv"/>
+            
+            <App_Data App="MOD" Instance="25" Name="Device_Group_Inclusion" Value="chromecast"/>
+            <App_Data App="MOD" Instance="25" Name="Device_Group_Inclusion" Value="ctv"/>
+            <App_Data App="MOD" Instance="25" Name="Device_Type_Exclusion" Value="tvLg"/>
+            <App_Data App="MOD" Name="Movie_Type" Value="Movie"/>
+        </Metadata>
+        <Asset>
+            <Metadata>
+                <AMS Asset_Class="movie" Asset_ID="SONY0020062500000001" Asset_Name="BRA20200625MistérioNaTv:ContagemRegre_02_movie" Creation_Date="2020-06-25" Description="BRA20200625MistérioNaTv:ContagemRegreDescription" Product="MOD" Provider="VU" Provider_ID="Sony" Version_Major="1" Version_Minor="0"/>
+                <App_Data App="MOD" Name="Type" Value="movie"/>
+                <App_Data App="MOD" Name="Audio_Type" Value="Stereo"/>
+                <App_Data App="MOD" Name="Screen_Format" Value="widescreen"/>
+                <App_Data App="MOD" Name="Languages" Value="pt-BR"/>
+                <App_Data App="MOD" Name="Content_FileSize" Value="6600018992"/>
+                <App_Data App="MOD" Name="Content_CheckSum" Value="1234abc"/>
+            </Metadata>
+            <Content Value="morningshow_countdown_murder.ts"/>
+        </Asset>
+
+        <Asset>
+            <Metadata>
+                <AMS Asset_Class="preview" Asset_ID="SONY0020062500000001" Asset_Name="BRA20200625MistérioNaTv:ContagemRegre_02_preview" Creation_Date="2020-06-25" Description="BRA20200625MistérioNaTv:ContagemRegreDescription" Product="MOD" Provider="VU" Provider_ID="Sony" Version_Major="1" Version_Minor="0"/>
+                <App_Data App="MOD" Name="Type" Value="preview"/>
+                <App_Data App="MOD" Name="Audio_Type" Value="Stereo"/>
+                <App_Data App="MOD" Name="Screen_Format" Value="widescreen"/>
+                <App_Data App="MOD" Name="Languages" Value="pt-BR"/>
+                <App_Data App="MOD" Name="Content_FileSize" Value="40066372"/>
+                <App_Data App="MOD" Name="Content_CheckSum" Value="1234abc"/>
+            </Metadata>
+            <Content Value="morningshow_countdown_murder_trailer.ts"/>
+        </Asset>
+
+        <Asset>
+            <Metadata>
+                <AMS Asset_Class="poster" Asset_ID="SONY0020062500000001" Asset_Name="BRA20200625MistérioNaTv:ContagemRegre_04_Poster" Creation_Date="2020-06-25" Description="BRA20200625MistérioNaTv:ContagemRegreDescription" Product="MOD" Provider="VU" Provider_ID="Sony" Version_Major="1" Version_Minor="0"/>
+                <App_Data App="MOD" Name="Type" Value="poster"/>
+                <App_Data App="MOD" Name="Image_Aspect_Ratio" Value="600x882"/>
+                <App_Data App="MOD" Name="Content_FileSize" Value="333628"/>
+                <App_Data App="MOD" Name="Content_CheckSum" Value="1234abc"/>
+            </Metadata>
+            <Content Value="morningshow_countdown_murder.jpg"/>
+        </Asset>
+
+
+
+    </Asset>
+</ADI>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ADI>
+    <Metadata>
+        <AMS Asset_Class="package" Asset_ID="NIRV0020061000000118" Asset_Name="BRA20200617PerdendooSelinho_00_Package" Creation_Date="2020-06-17" Description="BRA20200617PerdendooSelinhoDescription" Product="MOD" Provider="VU" Provider_ID="Nirvana" Version_Major="1" Version_Minor="0"/>
+        <App_Data App="MOD" Name="Metadata_Spec_Version" Value="CableLabsVOD1.1"/>
+    </Metadata>
+    <Asset>
+        <Metadata>
+            <AMS Asset_Class="title" Asset_ID="NIRV0020061000000118" Asset_Name="BRA20200617PerdendooSelinho_01_Metadata" Creation_Date="2020-06-17" Description="BRA20200617PerdendooSelinhoDescription" Product="MOD" Provider="VU" Provider_ID="Nirvana" Version_Major="1" Version_Minor="0"/>
+            <App_Data App="MOD" Name="Type" Value="title"/>
+            <App_Data App="MOD" Name="Content_Category" Value="Movies"/>
+            <App_Data App="MOD" Name="Pricing_Group" InstanceId="25" Value="319"/>
+            <App_Data App="MOD" Name="Billing_ID" Value="NIR01"/>
+            <App_Data App="MOD" Name="Commercial_Type" Value="TVOD"/>
+            <App_Data App="MOD" Name="TVOD_Type" Value="Catalogue"/>
+            <App_Data App="MOD" Name="Original_Title" Value="Perdendo o Selinho"/>
+            <App_Data App="MOD" Name="Rating" Target_Country="br" Value="18+"/>
+            <App_Data App="MOD" Name="Run_Time" Value="01:39:29"/>
+            <App_Data App="MOD" Name="Year" Value="2015"/>
+            <App_Data App="MOD" Name="Country_of_Origin" Value="br"/>
+            <App_Data App="MOD" Name="Studio" Value="Nirvana"/>
+            <App_Data App="MOD" Name="Studio_Name" Value="Nirvana"/>
+            <App_Data App="MOD" Name="Encoding_Profile" Value="widescreen"/>
+            <App_Data App="MOD" Name="Genre" Target_Language="pt-BR" Value="Adult Movies"/>
+            
+            
+            
+            <App_Data App="MOD" Name="Licensing_Window_Start" Value="2020-05-01"/>
+            <App_Data App="MOD" Name="Licensing_Window_End" Value="2024-05-01"/>
+            <App_Data App="MOD" Name="Title" Target_Language="pt-BR" Value="Perdendo o Selinho"/>
+            <App_Data App="MOD" Name="Summary_Short" Target_Language="pt-BR" Value="Em Perdendo o Selinho, a deliciosa Caroline Miranda mostrou que está louca para começar a fuder de verdade! Ela resolveu perder o selinho diante das câmeras! A nossa morena gostosa mostrou não dispensa uma boa putaria, apesar de ser um pouco"/>
+            <App_Data App="MOD" Name="Summary_Medium" Target_Language="pt-BR" Value="Em Perdendo o Selinho, a deliciosa Caroline Miranda mostrou que está louca para começar a fuder de verdade! Ela resolveu perder o selinho diante das câmeras! A nossa morena gostosa mostrou não dispensa uma boa putaria, apesar de ser um pouco"/>
+            
+            <App_Data App="MOD" Name="Actors" Value="Caroline Miranda, Carlao, Marcellinha Moraes, Igor Picachu e Bianca Lopes"/>
+            
+            <App_Data App="MOD" Instance="25" Name="Device_Group_Inclusion" Value="mobile"/>
+            <App_Data App="MOD" Instance="25" Name="Device_Group_Inclusion" Value="pc"/>
+            <App_Data App="MOD" Instance="25" Name="Device_Group_Inclusion" Value="games"/>
+            <App_Data App="MOD" Instance="25" Name="Device_Group_Inclusion" Value="tablet"/>
+            <App_Data App="MOD" Instance="25" Name="Device_Group_Inclusion" Value="stb_iptv"/>
+            <App_Data App="MOD" Instance="25" Name="Device_Group_Inclusion" Value="DTHVivo2"/>
+            <App_Data App="MOD" Instance="25" Name="Device_Group_Inclusion" Value="chromecast"/>
+            <App_Data App="MOD" Instance="25" Name="Device_Group_Inclusion" Value="ctv"/>
+            <App_Data App="MOD" Instance="25" Name="Device_Type_Exclusion" Value="tvLg"/>
+            <App_Data App="MOD" Name="Movie_Type" Value="Movie"/>
+        </Metadata>
+        <Asset>
+            <Metadata>
+                <AMS Asset_Class="movie" Asset_ID="NIRV0020061000000118" Asset_Name="BRA20200617PerdendooSelinho_02_movie" Creation_Date="2020-06-17" Description="BRA20200617PerdendooSelinhoDescription" Product="MOD" Provider="VU" Provider_ID="Nirvana" Version_Major="1" Version_Minor="0"/>
+                <App_Data App="MOD" Name="Type" Value="movie"/>
+                <App_Data App="MOD" Name="Audio_Type" Value="Stereo"/>
+                <App_Data App="MOD" Name="Screen_Format" Value="widescreen"/>
+                <App_Data App="MOD" Name="Languages" Value="pt-BR"/>
+                <App_Data App="MOD" Name="Content_FileSize" Value="2440828064"/>
+                <App_Data App="MOD" Name="Content_CheckSum" Value="1234abc"/>
+            </Metadata>
+            <Content Value="3978_perdendooselinhox.ts"/>
+        </Asset>
+
+
+        <Asset>
+            <Metadata>
+                <AMS Asset_Class="poster" Asset_ID="NIRV0020061000000118" Asset_Name="BRA20200617PerdendooSelinho_04_Poster" Creation_Date="2020-06-17" Description="BRA20200617PerdendooSelinhoDescription" Product="MOD" Provider="VU" Provider_ID="Nirvana" Version_Major="1" Version_Minor="0"/>
+                <App_Data App="MOD" Name="Type" Value="poster"/>
+                <App_Data App="MOD" Name="Image_Aspect_Ratio" Value="600x882"/>
+                <App_Data App="MOD" Name="Content_FileSize" Value="199965"/>
+                <App_Data App="MOD" Name="Content_CheckSum" Value="1234abc"/>
+            </Metadata>
+            <Content Value="3978_perdendooselinhox.jpg"/>
+        </Asset>
+
+        <Asset>
+            <Metadata>
+                <AMS Asset_Class="landscape_wide_poster" Asset_ID="NIRV0020061000000118" Asset_Name="BRA20200617PerdendooSelinho_04_Poster" Creation_Date="2020-06-17" Description="BRA20200617PerdendooSelinhoDescription" Product="MOD" Provider="VU" Provider_ID="Nirvana" Version_Major="1" Version_Minor="0"/>
+                <App_Data App="MOD" Name="Type" Value="poster"/>
+                <App_Data App="MOD" Name="Image_Aspect_Ratio" Value="1920x1080"/>
+                <App_Data App="MOD" Name="Content_FileSize" Value="502663"/>
+                <App_Data App="MOD" Name="Content_CheckSum" Value="1234abc"/>
+            </Metadata>
+            <Content Value="3978_perdendooselinhox_landscape.jpg"/>
+        </Asset>
+
+
+    </Asset>
+</ADI>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ADI>
+    <Metadata>
+        <AMS Asset_Class="package" Asset_ID="DETE2020070600000001" Asset_Name="BRA20200706SandraaDetetiveEncantadaT0_00_Package" Creation_Date="2020-07-06" Description="BRA20200706SandraaDetetiveEncantadaT0Description" Product="MOD" Provider="VU" Provider_ID="Encripta" Version_Major="1" Version_Minor="0"/>
+        <App_Data App="MOD" Name="Metadata_Spec_Version" Value="CableLabsVOD1.1"/>
+    </Metadata>
+    <Asset>
+        <Metadata>
+            <AMS Asset_Class="title" Asset_ID="DETE2020070600000001" Asset_Name="BRA20200706SandraaDetetiveEncantadaT0_01_Metadata" Creation_Date="2020-07-06" Description="BRA20200706SandraaDetetiveEncantadaT0Description" Product="MOD" Provider="VU" Provider_ID="Encripta" Version_Major="1" Version_Minor="0"/>
+            <App_Data App="MOD" Name="Type" Value="title"/>
+            <App_Data App="MOD" Name="Original_Title" Value="Sandra, a Detetive Encantada T01"/>
+            <App_Data App="MOD" Name="Title" Target_Language="pt-BR" Value="Sandra, a Detetive Encantada T01"/>
+            <App_Data App="MOD" Name="Summary_Short" Target_Language="pt-BR" Value="Sandra, a Detetive Encantada"/>
+            <App_Data App="MOD" Name="Summary_Medium" Target_Language="pt-BR" Value="Sandra, a Detetive Encantada"/>
+            <App_Data App="MOD" Name="Rating" Target_Country="br" Value="L"/>
+            <App_Data App="MOD" Name="Run_Time" Value="00:00:00"/>
+            <App_Data App="MOD" Name="Year" Value="2020"/>
+            <App_Data App="MOD" Name="Country_of_Origin" Value="Espanha"/>
+            <App_Data App="MOD" Name="Studio_Name" Value="Encripta"/>
+            <App_Data App="MOD" Name="Studio_Code" Value="Encripta"/>
+            <App_Data App="MOD" Name="Content_Category" Value="LocalPrograms"/>
+            <App_Data App="MOD" Name="Commercial_Type" Value="CATCHUP"/>
+            <App_Data App="MOD" Name="Genre" Target_Language="pt-BR" Value="Cartoons"/>
+            
+            
+            
+            <App_Data App="MOD" Name="Licensing_Window_Start" Value="2020-06-18"/>
+            <App_Data App="MOD" Name="Licensing_Window_End" Value="2021-02-13"/>
+            <App_Data App="MOD" Instance="25" Name="Device_Group_Inclusion" Value="mobile"/>
+            <App_Data App="MOD" Instance="25" Name="Device_Group_Inclusion" Value="pc"/>
+            
+            <App_Data App="MOD" Instance="25" Name="Device_Group_Inclusion" Value="tablet"/>
+            <App_Data App="MOD" Instance="25" Name="Device_Group_Inclusion" Value="stb_iptv"/>
+            <App_Data App="MOD" Instance="25" Name="Device_Group_Inclusion" Value="DTHVivo2"/>
+            <App_Data App="MOD" Instance="25" Name="Device_Group_Inclusion" Value="chromecast"/>
+            <App_Data App="MOD" Instance="25" Name="Device_Group_Inclusion" Value="ctv"/>
+            
+            <App_Data App="MOD" Name="Movie_Type" Value="SEASON"/>
+            <App_Data App="MOD" Name="Order" Value="1"/>
+            <App_Data App="MOD" Name="Series_Asset_Id" Value="DETE2020070600000000"/>
+        </Metadata>
+        <Asset>
+            <Metadata>
+                <AMS Asset_Class="poster" Asset_ID="DETE2020070600000001" Asset_Name="BRA20200706SandraaDetetiveEncantadaT0_04_Poster" Creation_Date="2020-07-06" Description="BRA20200706SandraaDetetiveEncantadaT0Description" Product="MOD" Provider="VU" Provider_ID="Encripta" Version_Major="1" Version_Minor="0"/>
+                <App_Data App="MOD" Name="Type" Value="poster"/>
+                <App_Data App="MOD" Name="Image_Aspect_Ratio" Value="432x640"/>
+                <App_Data App="MOD" Name="Content_FileSize" Value="12938"/>
+                <App_Data App="MOD" Name="Content_CheckSum" Value="1234abc"/>
+            </Metadata>
+            <Content Value="default.jpg"/>
+        </Asset>
+
+    </Asset>
+</ADI>

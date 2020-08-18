@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ADI>
+    <Metadata>
+        <AMS Asset_Class="package" Asset_ID="WARN2020050500000008" Asset_Name="BRA20200505TheManFromUNCLE_00_Package" Creation_Date="2020-05-05" Description="BRA20200505TheManFromUNCLEDescription" Product="MOD" Provider="VU" Provider_ID="Warner Bros" Version_Major="1" Version_Minor="0"/>
+        <App_Data App="MOD" Name="Metadata_Spec_Version" Value="CableLabsVOD1.1"/>
+    </Metadata>
+    <Asset>
+        <Metadata>
+            <AMS Asset_Class="title" Asset_ID="WARN2020050500000008" Asset_Name="BRA20200505TheManFromUNCLE_01_Metadata" Creation_Date="2020-05-05" Description="BRA20200505TheManFromUNCLEDescription" Product="MOD" Provider="VU" Provider_ID="Warner Bros" Version_Major="1" Version_Minor="0"/>
+            <App_Data App="MOD" Name="Type" Value="title"/>
+            <App_Data App="MOD" Name="Content_Category" Value="Movies"/>
+            <App_Data App="MOD" Name="Pricing_Group" InstanceId="25" Value="327"/>
+            <App_Data App="MOD" Name="Billing_ID" Value="WBS05"/>
+            <App_Data App="MOD" Name="Commercial_Type" Value="TVOD"/>
+            <App_Data App="MOD" Name="TVOD_Type" Value="Catalogue"/>
+            <App_Data App="MOD" Name="Original_Title" Value=" The Man From U.N.C.L.E."/>
+            <App_Data App="MOD" Name="Rating" Target_Country="br" Value="12"/>
+            <App_Data App="MOD" Name="Run_Time" Value="01:56:27"/>
+            <App_Data App="MOD" Name="Year" Value="2015"/>
+            <App_Data App="MOD" Name="Country_of_Origin" Value="us"/>
+            <App_Data App="MOD" Name="Studio" Value="Warner Bros"/>
+            <App_Data App="MOD" Name="Studio_Name" Value="Warner Bros"/>
+            <App_Data App="MOD" Name="Encoding_Profile" Value="widescreen"/>
+            <App_Data App="MOD" Name="Genre" Target_Language="pt-BR" Value="Action"/>
+            
+            
+            
+            <App_Data App="MOD" Name="Licensing_Window_Start" Value="2020-01-01"/>
+            <App_Data App="MOD" Name="Licensing_Window_End" Value="2049-12-31"/>
+            <App_Data App="MOD" Name="Title" Target_Language="pt-BR" Value="O Agente da U.N.C.L.E."/>
+            <App_Data App="MOD" Name="Summary_Short" Target_Language="pt-BR" Value="Durante a guerra fria, os agentes Solo, CIA e Kuryakin, KGB unem-se para impedir que uma organização criminosa desestabilize a frágil balança do poder e crie uma catástrofe mundial."/>
+            <App_Data App="MOD" Name="Summary_Medium" Target_Language="pt-BR" Value="Durante a guerra fria, os agentes Solo, CIA e Kuryakin, KGB unem-se para impedir que uma organização criminosa desestabilize a frágil balança do poder e crie uma catástrofe mundial."/>
+            
+            <App_Data App="MOD" Name="Actors" Value="Henry Cavill, Armie Hammer, Alicia Vikander, Elizabeth Debicki, Jared Harris, Hugh Grant"/>
+            
+            <App_Data App="MOD" Instance="25" Name="Device_Group_Inclusion" Value="mobile"/>
+            <App_Data App="MOD" Instance="25" Name="Device_Group_Inclusion" Value="pc"/>
+            <App_Data App="MOD" Instance="25" Name="Device_Group_Inclusion" Value="games"/>
+            <App_Data App="MOD" Instance="25" Name="Device_Group_Inclusion" Value="tablet"/>
+            <App_Data App="MOD" Instance="25" Name="Device_Group_Inclusion" Value="stb_iptv"/>
+            <App_Data App="MOD" Instance="25" Name="Device_Group_Inclusion" Value="DTHVivo2"/>
+            <App_Data App="MOD" Instance="25" Name="Device_Group_Inclusion" Value="chromecast"/>
+            <App_Data App="MOD" Instance="25" Name="Device_Group_Inclusion" Value="ctv"/>
+            <App_Data App="MOD" Instance="25" Name="Device_Type_Exclusion" Value="tvLg"/>
+            <App_Data App="MOD" Name="Movie_Type" Value="Movie"/>
+        </Metadata>
+        <Asset>
+            <Metadata>
+                <AMS Asset_Class="movie" Asset_ID="WARN2020050500000008" Asset_Name="BRA20200505TheManFromUNCLE_02_movie" Creation_Date="2020-05-05" Description="BRA20200505TheManFromUNCLEDescription" Product="MOD" Provider="VU" Provider_ID="Warner Bros" Version_Major="1" Version_Minor="0"/>
+                <App_Data App="MOD" Name="Type" Value="movie"/>
+                <App_Data App="MOD" Name="Audio_Type" Value="Stereo"/>
+                <App_Data App="MOD" Name="Screen_Format" Value="widescreen"/>
+                <App_Data App="MOD" Name="Languages" Value="en-US,pt-BR"/>
+                <App_Data App="MOD" Name="Content_FileSize" Value="8732485508"/>
+                <App_Data App="MOD" Name="Content_CheckSum" Value="1234abc"/>
+            </Metadata>
+            <Content Value="man_from_uncle.ts"/>
+        </Asset>
+
+        <Asset>
+            <Metadata>
+                <AMS Asset_Class="preview" Asset_ID="WARN2020050500000008" Asset_Name="BRA20200505TheManFromUNCLE_02_preview" Creation_Date="2020-05-05" Description="BRA20200505TheManFromUNCLEDescription" Product="MOD" Provider="VU" Provider_ID="Warner Bros" Version_Major="1" Version_Minor="0"/>
+                <App_Data App="MOD" Name="Type" Value="preview"/>
+                <App_Data App="MOD" Name="Audio_Type" Value="Stereo"/>
+                <App_Data App="MOD" Name="Screen_Format" Value="widescreen"/>
+                <App_Data App="MOD" Name="Languages" Value="pt-BR"/>
+                <App_Data App="MOD" Name="Content_FileSize" Value="180205144"/>
+                <App_Data App="MOD" Name="Content_CheckSum" Value="1234abc"/>
+            </Metadata>
+            <Content Value="man_from_uncle_trailer.ts"/>
+        </Asset>
+
+        <Asset>
+            <Metadata>
+                <AMS Asset_Class="poster" Asset_ID="WARN2020050500000008" Asset_Name="BRA20200505TheManFromUNCLE_04_Poster" Creation_Date="2020-05-05" Description="BRA20200505TheManFromUNCLEDescription" Product="MOD" Provider="VU" Provider_ID="Warner Bros" Version_Major="1" Version_Minor="0"/>
+                <App_Data App="MOD" Name="Type" Value="poster"/>
+                <App_Data App="MOD" Name="Image_Aspect_Ratio" Value="600x882"/>
+                <App_Data App="MOD" Name="Content_FileSize" Value="349894"/>
+                <App_Data App="MOD" Name="Content_CheckSum" Value="1234abc"/>
+            </Metadata>
+            <Content Value="man_from_uncle.jpg"/>
+        </Asset>
+
+        <Asset>
+            <Metadata>
+                <AMS Asset_Class="landscape_wide_poster" Asset_ID="WARN2020050500000008" Asset_Name="BRA20200505TheManFromUNCLE_04_Poster" Creation_Date="2020-05-05" Description="BRA20200505TheManFromUNCLEDescription" Product="MOD" Provider="VU" Provider_ID="Warner Bros" Version_Major="1" Version_Minor="0"/>
+                <App_Data App="MOD" Name="Type" Value="poster"/>
+                <App_Data App="MOD" Name="Image_Aspect_Ratio" Value="1920x1080"/>
+                <App_Data App="MOD" Name="Content_FileSize" Value="940832"/>
+                <App_Data App="MOD" Name="Content_CheckSum" Value="1234abc"/>
+            </Metadata>
+            <Content Value="man_from_uncle_landscape.jpg"/>
+        </Asset>
+
+        <Asset>
+            <Metadata>
+                <AMS Asset_Class="subtitle" Product="MOD" Provider="VU" Asset_Name="BRA20200505TheManFromUNCLE_02_subtitle" Description="BRA20200505TheManFromUNCLEDescription" Provider_ID="Warner Bros" Creation_Date="2020-05-05" Version_Major="1" Version_Minor="0" Asset_ID="WARN2020050500000008"/>
+                <App_Data App="MOD" Name="Type" Value="subtitle"/>
+                <App_Data App="MOD" Name="Languages" Value="pt-BR"/>
+                <App_Data App="MOD" Name="Content_FileSize" Value="90191"/>
+            </Metadata>
+            <Content Value="man_from_uncle.srt"/>
+        </Asset>
+
+    </Asset>
+</ADI>

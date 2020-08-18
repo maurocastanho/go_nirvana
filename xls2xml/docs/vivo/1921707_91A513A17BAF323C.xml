@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ADI>
+   <Metadata>
+      <AMS Asset_Class="package" Asset_ID="WARN2018020600000209" Asset_Name="BRA180206TheGoonies_00_Package" Creation_Date="2018-02-06" Description="BRA180206TheGooniesDescription" Product="MOD" Provider="VU" Provider_ID="Warner" Version_Major="1" Version_Minor="0"/>
+      <App_Data App="MOD" Name="Metadata_Spec_Version" Value="CableLabsVOD1.0"/>
+   </Metadata>
+   <Asset>
+      <Metadata>
+         <AMS Asset_Class="title" Asset_ID="WARN2018020600000209" Asset_Name="BRA180206TheGoonies_01_Metadata" Creation_Date="2018-02-06" Description="BRA180206TheGooniesDescription" Product="MOD" Provider="VU" Provider_ID="Warner" Version_Major="1" Version_Minor="0"/>
+         <App_Data App="MOD" Name="Type" Value="title"/>
+         <App_Data App="MOD" Name="Content_Category" Value="Movies"/>
+         <App_Data App="MOD" Name="Commercial_Type" Value="TVOD"/>
+         <App_Data App="MOD" Name="TVOD_Type" Value="Catalogue"/>
+         <App_Data App="MOD" InstanceId="25" Name="Pricing_Group" Value="327"/>
+         <App_Data App="MOD" Name="Original_Title" Value="The Goonies"/>
+         <App_Data App="MOD" Name="Rating" Target_Country="br" Value="L"/>
+         <App_Data App="MOD" Name="Run_Time" Value="01:41:00"/>
+         <App_Data App="MOD" Name="Year" Value="1985"/>
+         <App_Data App="MOD" Name="Country_of_Origin" Value="us"/>
+         <App_Data App="MOD" Name="Studio" Value="Warner"/>
+         <App_Data App="MOD" Name="Studio_Name" Value="Warner"/>
+         <App_Data App="MOD" Name="Encoding_Profile" Value="widescreen"/>
+         <App_Data App="MOD" Name="Genre" Target_Language="pt-BR" Value="Comedy"/>
+         <App_Data App="MOD" Name="Licensing_Window_Start" Value="2018-01-18"/>
+         <App_Data App="MOD" Name="Licensing_Window_End" Value="2019-01-18"/>
+         <App_Data App="MOD" Name="Title" Target_Language="en-US" Value="The Goonies"/>
+         <App_Data App="MOD" Name="Title" Target_Language="pt-BR" Value="Os Goonies (Legendado)"/>
+         <App_Data App="MOD" Name="Summary_Short" Target_Language="pt-BR" Value="Da imaginação de Steven Spielberg, Os Goonies mergulha numa faixa de pequenos heróis valentes e indignados, uma surpresa ao redor de cada canto!"/>
+         <App_Data App="MOD" Name="Summary_Medium" Target_Language="pt-BR" Value="Da imaginação de Steven Spielberg, Os Goonies mergulha numa faixa de pequenos heróis valentes e indignados, uma surpresa ao redor de cada canto!"/>
+         <App_Data App="MOD" Name="Director" Value=" Richard Donner "/>
+         <App_Data App="MOD" Name="Billing_ID" Value="WBS05"/>
+         <App_Data App="MOD" Name="Actors" Value="Sean Astin"/>
+         <App_Data App="MOD" Name="Actors" Value="Josh Brolin"/>
+         <App_Data App="MOD" Name="Actors" Value="Corey Feldman"/>
+         <App_Data App="MOD" Instance="25" Name="Device_Group_Inclusion" Value="mobile"/>
+         <App_Data App="MOD" Instance="25" Name="Device_Group_Inclusion" Value="pc"/>
+         <App_Data App="MOD" Instance="25" Name="Device_Group_Inclusion" Value="tablet"/>
+         <App_Data App="MOD" Instance="25" Name="Device_Group_Inclusion" Value="stb_iptv"/>
+         <App_Data App="MOD" Instance="25" Name="Device_Group_Inclusion" Value="DTHVivo2"/>
+         <App_Data App="MOD" Name="Movie_Type" Value="Movie"/>
+      </Metadata>
+      <Asset>
+         <Metadata>
+            <AMS Asset_Class="movie" Asset_ID="WARN2018020600000209" Asset_Name="BRA180206TheGoonies_02_Movie" Creation_Date="2018-02-06" Description="BRA180206TheGooniesDescription" Product="MOD" Provider="VU" Provider_ID="Warner" Version_Major="1" Version_Minor="0"/>
+            <App_Data App="MOD" Name="Type" Value="movie"/>
+            <App_Data App="MOD" Name="Audio_Type" Value="Stereo"/>
+            <App_Data App="MOD" Name="Screen_Format" Value="Widescreen"/>
+            <App_Data App="MOD" Name="Languages" Value="pt"/>
+            <App_Data App="MOD" Name="Content_FileSize" Value="7390275488"/>
+            <App_Data App="MOD" Name="Content_CheckSum" Value="1234abc"/>
+         </Metadata>
+         <Content Value="goonies_sub_ptbr.ts"/>
+      </Asset>
+      <Asset>
+         <Metadata>
+            <AMS Asset_Class="poster" Asset_ID="WARN2018020600000209" Asset_Name="BRA180206TheGoonies_04_Poster" Creation_Date="2018-02-06" Description="BRA180206TheGooniesDescription" Product="MOD" Provider="VU" Provider_ID="Warner" Version_Major="1" Version_Minor="0"/>
+            <App_Data App="MOD" Name="Type" Value="poster"/>
+            <App_Data App="MOD" Name="Image_Aspect_Ratio" Value="600x882"/>
+            <App_Data App="MOD" Name="Content_FileSize" Value="112033"/>
+            <App_Data App="MOD" Name="Content_CheckSum" Value="1234abc"/>
+         </Metadata>
+         <Content Value="goonies_sub_ptbr.jpg"/>
+      </Asset>
+   </Asset>
+</ADI>
