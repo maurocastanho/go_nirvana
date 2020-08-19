@@ -430,8 +430,7 @@ func TestXmlNet(t *testing.T) {
 			"Poster Size", "Poster MD5",
 			"DOWNLOAD TO GO", "DIAS DE DOWNLOAD",
 			"PASTA FTP", "Movie Audio Type",
-			"Trailer ID", "Trailer Size", "Trailer MD5", "Duração Trailer", "Trailer Audio Type",
-		},
+			"Trailer ID", "Trailer Size", "Trailer MD5", "Duração Trailer", "Trailer Audio Type"},
 
 		{"WARNER", "warner.com", "Friends", "Friends", "Aquele onde tudo começou",
 			"1", "1", "Série", "1994",
@@ -1282,9 +1281,6 @@ func TestXmlBoxCategories(t *testing.T) {
 			"Trailer ID", "Trailer Size", "Trailer MD5", "Duração Trailer", "Trailer Audio Type",
 			"subpasta",
 			"preço",
-			"Linguagem Trailer",
-			"Linguagem Legenda Trailer",
-			"subpasta trailer",
 		},
 		{
 			"198413c7-3d35-4c6d-9714-f80e92e9b7d0", "5c8d732a-d702-4000-9fce-7bd882fcaaaf",
@@ -1311,7 +1307,6 @@ func TestXmlBoxCategories(t *testing.T) {
 			"", "", "", "", "",
 			"shows",
 			"10",
-			"", "", "",
 		},
 		{
 			"198413c7-3d35-4c6d-9714-f80e92e9b7d1", "5c8d732a-d702-4000-9fce-7bd882fcaaa0",
@@ -1338,7 +1333,6 @@ func TestXmlBoxCategories(t *testing.T) {
 			"", "", "", "", "",
 			"shows",
 			"10",
-			"", "", "",
 		},
 	}
 
@@ -1727,11 +1721,11 @@ func TestXmlBoxSeriesX(t *testing.T) {
 	}
 
 	//fmt.Printf("%#v\n", maplines)
-	assetsWr, errA := newJSONWriter("", nil, seriesLines, assetsT)
+	jsonWr, errA := newJSONWriter("", nil, seriesLines, assetsT)
 	if errA != nil {
 		t.Error(errA)
 	}
-	assetsWr.testing = true
+	jsonWr.testing = true
 	consolidated = nil
 
 	seriesWr, errS := newJSONWriter("", nil, seriesLines, seriesT)
@@ -1740,7 +1734,7 @@ func TestXmlBoxSeriesX(t *testing.T) {
 	}
 	seriesWr.testing = true
 
-	if err := processAssets(json, maplines, assetsWr); err != nil {
+	if err := processAssets(json, maplines, jsonWr); err != nil {
 		t.Error(err)
 	}
 	if suc, errors := processSeries(seriesLines, seriesWr, "id"); len(errors) > 0 {
