@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"testing"
 	"time"
 
@@ -1378,7 +1377,7 @@ func TestXmlBoxCategories(t *testing.T) {
 	}
 	if suc, errors := processCategs(assetLines, categWr, "uuid_box", "Genero 1", "Genero 2"); len(errors) > 0 {
 		t.Error(errors)
-	} else if suc < 0 {
+	} else if suc != 0 {
 		t.Fail()
 	}
 	//	categWr.processCategPack(assetLines, )
@@ -1509,7 +1508,7 @@ func xTestXmlBoxSeries(t *testing.T) {
 	//	categWr.processCategPack(maplines, "uuid_box", "Genero 1", "Genero 2")
 }
 
-func TestXmlBoxSeriesX(t *testing.T) {
+func TestXmlBoxSeries(t *testing.T) {
 	json, errConf := readConfig("config_box.json")
 	if errConf != nil {
 		t.Error(errConf)
@@ -1579,71 +1578,6 @@ func TestXmlBoxSeriesX(t *testing.T) {
 		},
 	}
 
-	expectedAssets := "{\n" +
-		"  \"assets\": [\n" +
-		"    {\n" +
-		"      \"adult\": false,\n" +
-		"      \"available_from\": 1593043200000,\n" +
-		"      \"available_to\": 1798675200000,\n" +
-		"      \"duration\": 1421000,\n" +
-		"      \"genres\": [\n" +
-		"        \"Show\"\n" +
-		"      ],\n" +
-		"      \"id\": \"198413c7-3d35-4c6d-9714-f80e92e9b7d0\",\n" +
-		"      \"images\": [\n" +
-		"        {\n" +
-		"          \"id\": \"e2830250-d3bf-451a-ba3b-d4ec3ce1da19\",\n" +
-		"          \"location\": \"shows/ariana_grande_poster.jpg\",\n" +
-		"          \"type\": \"vod-poster\"\n" +
-		"        },\n" +
-		"        {\n" +
-		"          \"id\": \"8b841c15-a02f-4a23-b4d2-d4eb409becbe\",\n" +
-		"          \"location\": \"shows/ariana_grande_landscape.jpg\",\n" +
-		"          \"type\": \"vod-background\"\n" +
-		"        }\n" +
-		"      ],\n" +
-		"      \"medias\": [\n" +
-		"        {\n" +
-		"          \"audio_languages\": [\n" +
-		"            \"eng\"\n" +
-		"          ],\n" +
-		"          \"id\": \"198413c7-3d35-4c6d-9714-f80e92e9b7d0\",\n" +
-		"          \"location\": \"shows/ariana_grande.mp4\",\n" +
-		"          \"metadata\": {},\n" +
-		"          \"subtitles_languages\": [\n" +
-		"            \"por\"\n" +
-		"          ],\n" +
-		"          \"technology\": \"MP4\",\n" +
-		"          \"title\": \"Ariana Grande\",\n" +
-		"          \"type\": \"MEDIA\"\n" +
-		"        }\n" +
-		"      ],\n" +
-		"      \"metadata\": {\n" +
-		"        \"actors\": [\n" +
-		"          \"\"\n" +
-		"        ],\n" +
-		"        \"country\": \"USA\",\n" +
-		"        \"directors\": [\n" +
-		"          \"\"\n" +
-		"        ],\n" +
-		"        \"release_year\": \"2016\",\n" +
-		"        \"rights\": [],\n" +
-		"        \"summary\": [\n" +
-		"          \"Show da cantora Ariana Grande\"\n" +
-		"        ]\n" +
-		"      },\n" +
-		"      \"morality_level\": 0,\n" +
-		"      \"synopsis\": {\n" +
-		"        \"por\": \"Ariana Grande se apresenta em Las Vegas, a cantora canta todos os seus sucessos. O show con" +
-		"ta com participação especial de Zedd.\"\n" +
-		"      },\n" +
-		"      \"title\": {\n" +
-		"        \"por\": \"Ariana Grande\"\n" +
-		"      }\n" +
-		"    }\n" +
-		"  ]\n" +
-		"}"
-
 	expectedSeries := "{\n" +
 		"  \"series\": [\n" +
 		"    {\n" +
@@ -1710,8 +1644,8 @@ func TestXmlBoxSeriesX(t *testing.T) {
 			"por:Segunda temporada|eng:Second Season",
 		},
 	}
-	maplines := makeLines(assetsL)
-	maplines[0]["file_number"] = "1"
+	assetsLines := makeLines(assetsL)
+	assetsLines[0]["file_number"] = "1"
 	options["options"]["timestamp"] = "200702102255"
 	options["options"]["creationDate"] = "2020-06-19"
 
@@ -1720,12 +1654,12 @@ func TestXmlBoxSeriesX(t *testing.T) {
 		t.Error(err)
 	}
 
-	//fmt.Printf("%#v\n", maplines)
-	jsonWr, errA := newJSONWriter("", nil, seriesLines, assetsT)
+	//fmt.Printf("%#v\n", assetsLines)
+	assetsWr, errA := newJSONWriter("", nil, nil, assetsT)
 	if errA != nil {
 		t.Error(errA)
 	}
-	jsonWr.testing = true
+	assetsWr.testing = true
 	consolidated = nil
 
 	seriesWr, errS := newJSONWriter("", nil, seriesLines, seriesT)
@@ -1734,22 +1668,18 @@ func TestXmlBoxSeriesX(t *testing.T) {
 	}
 	seriesWr.testing = true
 
-	if err := processAssets(json, maplines, jsonWr); err != nil {
+	if err := processAssets(json, assetsLines, assetsWr); err != nil {
 		t.Error(err)
 	}
 	if suc, errors := processSeries(seriesLines, seriesWr, "id"); len(errors) > 0 {
 		t.Error(errors)
 	} else if suc != 0 {
-		t.Error("fail")
+		t.Fail()
 	}
-	//	categWr.processCategPack(maplines, "uuid_box", "Genero 1", "Genero 2")
-	bufAssets, _, bufSeries, errE := seriesWr.WriteConsolidated(2)
+	_, _, bufSeries, errE := seriesWr.WriteConsolidated(2)
 	if errE != nil {
 		t.Error(errE)
 	}
-	assetRes := string(bufAssets)  // converting from windows encoding to UTF-8
 	seriesRes := string(bufSeries) // converting from windows encoding to UTF-8
-	fmt.Printf("%s\n", assetRes)
-	assert.JSONEq(t, expectedAssets, assetRes)
 	assert.JSONEq(t, expectedSeries, seriesRes)
 }
