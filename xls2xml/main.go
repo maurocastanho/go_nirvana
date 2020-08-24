@@ -156,11 +156,15 @@ func main() {
 	}
 	// init option vars
 	initVars(json)
-	if success == 0 {
-		success, err = processSpreadSheet(json, outType, spreadSheet, outDir, lines)
-		if err != nil {
-			return
+	var errs []error
+	success, errs = processSpreadSheet(json, outType, spreadSheet, outDir, lines)
+	if len(errs) > 0 {
+		for _, e := range errs {
+			logError(e)
 		}
+		return
+	}
+	if success == 0 {
 		log(fmt.Sprintf("Gravado arquivo de report: %s", xlsFilePath))
 	}
 }
@@ -171,21 +175,21 @@ func exitWithError(errMessage string, errCode int) int {
 	return errCode
 }
 
-func processSpreadSheet(json map[string]interface{}, outType string, f *xlsx.Spreadsheet, outDir string, lines []lineT) (int, error) {
+func processSpreadSheet(json map[string]interface{}, outType string, f *xlsx.Spreadsheet, outDir string, lines []lineT) (success int, errs []error) {
 	filenameField, ok := options["options"]["filename_field"]
 	if !ok || filenameField == "" {
-		return 2, fmt.Errorf("ERRO ao procurar filename_field nas options [%#v]", options)
+		return 2, []error{fmt.Errorf("ERRO ao procurar filename_field nas options [%#v]", options)}
 	}
 	nameField, okN := options["options"]["name_field"]
 	if !okN || nameField == "" {
-		return 2, fmt.Errorf("ERRO ao procurar name_field nas options [%#v]", options)
+		return 2, []error{fmt.Errorf("ERRO ao procurar name_field nas options [%#v]", options)}
 	}
 
 	// fmt.Printf("**> [%v]: %#v\n", filenameField, options)
 	// fmt.Printf("***> [%v]: %#v\n", filename, line)
 
 	// fmt.Printf("--> %v\n", objmap)
-	success := 0
+	success = 0
 	lName := ""
 	filePath := ""
 	var curr lineT
@@ -201,20 +205,20 @@ func processSpreadSheet(json map[string]interface{}, outType string, f *xlsx.Spr
 	if outType == "json" {
 		// Read categories sheet for Box format
 		if categLines, err = readSheetByName(f, "categories"); err != nil {
-			return -1, err
+			return -1, []error{err}
 		}
 		if serieLines, err = readSheetByName(f, "series"); err != nil {
-			return -1, err
+			return -1, []error{err}
 		}
 		if err = populateSerieIds(serieLines, options); err != nil {
-			return -1, err
+			return -1, []error{err}
 		}
 		// TODO usar createwriter
 		if wrCategs, err = newJSONWriter(outDir, categLines, nil, categsT); err != nil {
-			return -1, err
+			return -1, []error{err}
 		}
 		if wrSeries, err = newJSONWriter(outDir, nil, serieLines, seriesT); err != nil {
-			return -1, err
+			return -1, []error{err}
 		}
 	}
 	nLines := len(lines)
@@ -240,7 +244,7 @@ func processSpreadSheet(json map[string]interface{}, outType string, f *xlsx.Spr
 		i = j
 		// fmt.Printf("== %v\n", pack)
 		if filePath, err = replaceAllNonAlpha(path.Base(lName)); err != nil {
-			return -1, err
+			return -1, []error{err}
 		}
 		if filePath = strings.TrimSuffix(filePath, path.Ext(filePath)); filePath == "" {
 			logError(fmt.Errorf("ERRO ao procurar filename na linha [%#v], field [%v]", curr, filenameField))
@@ -252,12 +256,11 @@ func processSpreadSheet(json map[string]interface{}, outType string, f *xlsx.Spr
 		var wr writer
 		if wr, err = createWriter(outType, filePath, "", 0, 0,
 			categLines, serieLines, assetsT); err != nil {
-			return -1, err
+			return -1, []error{err}
 		}
 		log("Escrevendo " + filePath)
-		if err = processAssets(json, pack, wr); err != nil {
+		if errs = processAssets(json, pack, wr); len(errs) > 0 {
 			// Do not stop: log error and continue to other files
-			logError(err)
 			success = -1
 		}
 		lName = name
@@ -265,15 +268,14 @@ func processSpreadSheet(json map[string]interface{}, outType string, f *xlsx.Spr
 		if jsonXls, hasPubOutput := json["xls_output"]; hasPubOutput {
 			JsonXlsMap := jsonXls.(map[string]interface{})
 			var suc int
-			xlsFilePath, suc, err = processPublisherXLS(JsonXlsMap, outDir, nLines, pack)
-			if err != nil {
-				return -1, err
+			if xlsFilePath, suc, errs = processPublisherXLS(JsonXlsMap, outDir, nLines, pack); len(errs) > 0 {
+				return -1, errs
 			} else if suc != 0 {
 				success = suc
 			}
 			if rs != nil {
 				if err = rs.WriteAndClose(""); err != nil {
-					return -1, err
+					return -1, []error{err}
 				}
 			}
 		}
@@ -284,65 +286,63 @@ func processSpreadSheet(json map[string]interface{}, outType string, f *xlsx.Spr
 		if rs != nil {
 			// publisher report
 			if _, _, _, err = rs.WriteConsolidated(0); err != nil {
-				return -1, err
+				return -1, []error{err}
 			}
 		}
 		if wrCategs != nil || wrSeries != nil {
 			// extra files
 			suc, errors := processCategs(lines, wrCategs, idField, categField1, categField2)
 			if len(errors) > 0 {
-				return -1, errors[0] // TODO retornar todos os erros
+				return -1, errors
 			} else if suc != 0 {
 				success = suc
 			}
 			if suc, errors = processSeries(lines, wrSeries, "id"); len(errors) > 0 {
-				return -1, errors[0] // TODO retornar todos os erros
+				return -1, errors
 			} else if suc != 0 {
 				success = suc
 			}
-
 			// categories.json
 			if _, _, _, err = wrCategs.WriteConsolidated(1); err != nil {
-				return -1, err
+				return -1, []error{err}
 			}
+			// series.json
 			if _, _, _, err = wrSeries.WriteConsolidated(2); err != nil {
-				return -1, err
+				return -1, []error{err}
 			}
 		}
 	}
-	return success, err
+	return
 }
 
-func processPublisherXLS(JsonXlsMap map[string]interface{}, outDir string, nLines int, pack []lineT) (string, int, error) {
+func processPublisherXLS(JsonXlsMap map[string]interface{}, outDir string, nLines int, pack []lineT) (string, int, []error) {
 	var err error
 	success := 0
 	xlsFile, ok := JsonXlsMap["filename"].(string)
 	if !ok {
-		return "", -1, fmt.Errorf("elemento 'filename' nao existe em xls_output no arquivo json")
+		return "", -1, []error{fmt.Errorf("elemento 'filename' nao existe em xls_output no arquivo json")}
 	}
 	jsonCols, okCols := JsonXlsMap["columns"].([]interface{})
 	if !okCols {
-		return "", -1, fmt.Errorf("elemento 'columns' nao existe em xls_output no arquivo json")
+		return "", -1, []error{fmt.Errorf("elemento 'columns' nao existe em xls_output no arquivo json")}
 	}
 	sheetName, okS := JsonXlsMap["sheet"].(string)
 	if !okS {
-		return "", -1, fmt.Errorf("elemento 'sheet' nao existe em xls_output no arquivo json")
+		return "", -1, []error{fmt.Errorf("elemento 'sheet' nao existe em xls_output no arquivo json")}
 	}
 	xlsFilepath := path.Join(outDir, xlsFile)
 	if rs == nil {
 		nCols := len(jsonCols)
 		if rs, err = newReportSheet(xlsFilepath, sheetName, nCols, nLines); err != nil {
-			return xlsFilepath, -1, err
+			return xlsFilepath, -1, []error{err}
 		}
 		if err = rs.OpenOutput(); err != nil {
-			return xlsFilepath, -1, err
+			return xlsFilepath, -1, []error{err}
 		}
 	}
 	if errs := processAttrs("", jsonCols, pack, rs); len(errs) > 0 {
 		success = -3
-		for _, errA := range errs {
-			log(fmt.Sprintf("ERRO: [%s]", errA.Error()))
-		}
+		return xlsFilepath, -1, errs
 	}
 	rs.newLine()
 	return xlsFilepath, success, nil
@@ -537,23 +537,24 @@ func createWriter(outType string, filename string, sheetname string, ncols int, 
 }
 
 // Process the config file against the lines of the sheet
-func processAssets(json jsonT, lines []lineT, wr writer) (err error) {
-	if err = wr.OpenOutput(); err != nil {
-		return err
+func processAssets(json jsonT, lines []lineT, wr writer) (errs []error) {
+	if err := wr.OpenOutput(); err != nil {
+		return appendErrors(errs, err)
 	}
 	// fmt.Println("----------")
-	var errProc error
-	if err2 := processMap(json, lines, wr); err2 != nil {
-		errs := ""
-		for _, e := range err2 {
-			errs = errs + fmt.Sprintf("[%s]\n", e)
+	var errors bool
+	if errs = appendErrors(errs, processMap(json, lines, wr)...); len(errs) > 0 {
+		errors = true
+		log(fmt.Sprintf("Erros ao processar linha [%#v]:\n\n----------", lines))
+		for _, e := range errs {
+			logError(e)
 		}
-		errProc = fmt.Errorf("Erros ao processar linha [%#v]:\n\n%s----------", lines, errs)
+		errs = nil
 	}
 	rightFile := wr.Filename() + wr.Suffix()             // filename in case of success
 	wrongFile := wr.Filename() + errSuffix + wr.Suffix() // filename in case of errors
 	var fileOut string
-	if errProc == nil {
+	if !errors {
 		fileOut = rightFile
 	} else {
 		fileOut = wrongFile
@@ -565,10 +566,7 @@ func processAssets(json jsonT, lines []lineT, wr writer) (err error) {
 	}
 	// Write new file
 	if err1 := wr.WriteAndClose(fileOut); err1 != nil {
-		return err1
-	}
-	if errProc != nil {
-		err = errProc
+		return appendErrors(errs, err1)
 	}
 	return
 }
@@ -777,7 +775,7 @@ func populateOptions(vars map[string]string, options optionsT, key string) {
 }
 
 // Process attr element
-func processAttr(json jsonT, lines []lineT, wr writer) (err []error) {
+func processAttr(json jsonT, lines []lineT, wr writer) (errs []error) {
 	var name string
 	name, _ = json["Name"].(string)
 	attrType, _ := json["at_type"].(string)
@@ -795,7 +793,7 @@ func processAttr(json jsonT, lines []lineT, wr writer) (err []error) {
 		// there is a filter expression: evaluate
 		if filterAllow, err3 := evalCondition(filter, lines[0]); err3 != nil {
 			// error in condition
-			err = append(err, err3)
+			errs = append(errs, err3)
 			return
 		} else if !filterAllow {
 			// filter expression excludes element: do nothing
@@ -804,27 +802,27 @@ func processAttr(json jsonT, lines []lineT, wr writer) (err []error) {
 	}
 	// process function
 	procVals, err2 := process(function, lines, json, options)
-	err = appendErrors(err, err2)
+	errs = appendErrors(errs, err2)
 	for _, procVal := range procVals {
 		populateOptions(procVal.vars, options, "options")
 		isOtt := attrType == "ott"
 		if isOtt {
 			// Ott type open a new element, line <elem>x<elem>
-			err = appendErrors(err, wr.StartElem(name, mapT))
+			errs = appendErrors(errs, wr.StartElem(name, mapT))
 		}
 		if at, okA := json["attrs"]; okA {
 			attrs := at.([]interface{})
-			err = appendErrors(err, processAttrs(name, attrs, lines, wr)...)
+			errs = appendErrors(errs, processAttrs(name, attrs, lines, wr)...)
 		}
 		if f2, okf2 := json["function2"]; !okf2 || f2 != "set_var" { // test set_var
 			vtype, _ := json["type"].(string)
 			if err1 := wr.WriteAttr(name, processVal(procVal.val, procVal.vars), vtype, attrType); err1 != nil {
-				err = appendErrors(err, err1)
+				errs = appendErrors(errs, err1)
 			}
 		}
 		if isOtt {
 			// Closes ott element
-			err = appendErrors(err, wr.EndElem(name, mapT))
+			errs = appendErrors(errs, wr.EndElem(name, mapT))
 		}
 	}
 	return
@@ -841,7 +839,7 @@ func processSingleAttrs(name string, json []interface{}, lines []lineT, commonAt
 	return
 }
 
-func processSingleAttr(nameElem string, json jsonT, lines []lineT, commonAttrs map[string]interface{}, wr writer) (err []error) {
+func processSingleAttr(nameElem string, json jsonT, lines []lineT, commonAttrs map[string]interface{}, wr writer) (errs []error) {
 	_, okFil := json["filter"].(string)
 	var function string
 	var okFun bool
@@ -854,11 +852,11 @@ func processSingleAttr(nameElem string, json jsonT, lines []lineT, commonAttrs m
 	name, _ := json["Name"].(string)
 	if !okFun {
 		value, _ := json["Value"].(string)
-		err = []error{fmt.Errorf("erro no atributo %s, value [%s]", name, value)}
+		errs = []error{fmt.Errorf("erro no atributo %s, value [%s]", name, value)}
 	}
 	var err3 error
 	if procVals, err3 = process(function, lines, json, options); err3 != nil {
-		return appendErrors(err, err3)
+		return appendErrors(errs, err3)
 	}
 	isOtt := false
 	elType, okt := json["at_type"].(string)
@@ -874,13 +872,13 @@ func processSingleAttr(nameElem string, json jsonT, lines []lineT, commonAttrs m
 			if oka {
 				attrs = at.([]interface{})
 			}
-			err, done = writeElem(wr, attrs, lines, name, procVal.val)
+			errs, done = writeElem(wr, attrs, lines, name, procVal.val)
 		} else {
 			vtype, _ := json["type"].(string)
-			err, done = writeAttr(wr, nameElem, commonAttrs, name, procVal.val, vtype, elType)
+			errs, done = writeAttr(wr, nameElem, commonAttrs, name, procVal.val, vtype, elType)
 		}
 		if done {
-			return err
+			return errs
 		}
 	}
 	if attrs, ok := json["single_attrs"].([]interface{}); ok {
@@ -977,9 +975,10 @@ func processSingleElement(json jsonT, lines []lineT, wr writer) (errs []error) {
 	if !ok {
 		return []error{fmt.Errorf("elemento sem atributo 'function': [%s]", name)}
 	}
-	procVals, err := process(function, lines, json, options)
-	if err != nil {
-		return appendErrors(errs, err)
+	var procVals []resultsT
+	var errsp error
+	if procVals, errsp = process(function, lines, json, options); errsp != nil {
+		return appendErrors(errs, errsp)
 	}
 	if errs = appendErrors(errs, wr.StartElem(name, singleT)); len(errs) > 0 {
 		return
@@ -1007,7 +1006,7 @@ func latinToUTF8(buffer []byte) string {
 }
 
 func logError(err error) {
-	msg := fmt.Sprintf("ERRO: %v\n", err.Error())
+	msg := fmt.Sprintf("ERRO: %v", err.Error())
 	log(msg)
 }
 
