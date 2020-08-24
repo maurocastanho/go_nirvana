@@ -4,6 +4,7 @@
     <file url="file://$PROJECT_DIR$/../media_encoder/config.json" charset="ISO-8859-1" />
     <file url="file://$PROJECT_DIR$/config_box.json" charset="ISO-8859-1" />
     <file url="file://$PROJECT_DIR$/config_box_categories.json" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/config_box_sem_imagens.json" charset="ISO-8859-1" />
     <file url="file://$PROJECT_DIR$/config_box_series.json" charset="ISO-8859-1" />
     <file url="file://$PROJECT_DIR$/config_net.json" charset="ISO-8859-1" />
     <file url="file://$PROJECT_DIR$/config_oi.json" charset="ISO-8859-1" />
