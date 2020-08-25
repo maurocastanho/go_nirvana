@@ -840,7 +840,7 @@ func processSingleAttrs(name string, json []interface{}, lines []lineT, commonAt
 	for _, v := range json {
 		switch vv := v.(type) {
 		case map[string]interface{}:
-			err2 = appendErrors(name, err2, processSingleAttr(name, vv, lines, commonAttrs, wr)...)
+			err2 = appendErrors("", err2, processSingleAttr(name, vv, lines, commonAttrs, wr)...)
 		}
 	}
 	return
@@ -863,7 +863,7 @@ func processSingleAttr(nameElem string, json jsonT, lines []lineT, commonAttrs m
 	}
 	var err3 error
 	if procVals, err3 = process(function, lines, json, options); err3 != nil {
-		return appendErrors(nameElem, errs, err3)
+		return appendErrors("", errs, err3)
 	}
 	isOtt := false
 	elType, okt := json["at_type"].(string)
