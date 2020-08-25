@@ -107,7 +107,8 @@ func process(funcName string, lines []lineT, json jsonT, options optionsT) ([]re
 	for _, line := range lines {
 		res, err := function("", &line, json, options)
 		if err != nil {
-			return res, err
+			name, _ := json["Name"]
+			return res, fmt.Errorf("[%s]: %v", name, err.Error())
 		}
 		result = append(result, res...)
 	}
@@ -619,7 +620,7 @@ func filterCondition(forceVal string, line *lineT, json jsonT, options optionsT)
 func split(forceVal string, line *lineT, json jsonT, options optionsT) ([]resultsT, error) {
 	funcName, okF := json["function2"].(string)
 	if !okF {
-		return errorMessage, fmt.Errorf("elemento '%s' inexistente na linha %v", "function2", line)
+		return errorMessage, fmt.Errorf("elemento [%s] inexistente na linha %v", "function2", line)
 	}
 	func2, okD := functionDict[funcName]
 	if !okD {
@@ -850,11 +851,11 @@ func option(forceVal string, _ *lineT, json jsonT, options optionsT) ([]resultsT
 	}
 	optField, okF := json["field"].(string)
 	if !okF {
-		return errorMessage, fmt.Errorf("elemento '%s' inexistente na option [%v]", "field", json)
+		return errorMessage, fmt.Errorf("elemento [%s] inexistente na option [%v]", "field", json)
 	}
 	val, okO := options["options"][optField]
 	if !okO {
-		return errorMessage, fmt.Errorf("elemento '%s' inexistente nas options [%v], [%v]", optField, options, json)
+		return errorMessage, fmt.Errorf("elemento [%s] inexistente nas options [%v], [%v]", optField, options, json)
 	}
 	return []resultsT{newResult(val)}, nil
 }

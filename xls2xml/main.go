@@ -363,7 +363,7 @@ func processCategs(pack []lineT, wrCateg *jsonWriter, idField string, categField
 		row := pack[k]
 		succ, err := wrCateg.processCategPack(row, idField, categField1, categField2)
 		if err != nil {
-			return succ, appendErrors(errors, err)
+			return succ, appendErrors("", errors, err)
 		}
 		if succ != 0 {
 			success = succ
@@ -379,7 +379,7 @@ func processSeries(pack []lineT, wrSeries *jsonWriter, idField string) (int, []e
 		row := pack[k]
 		success, err := wrSeries.processSeriesPack(row, idField, "Número do Episódio") // TODO parametrizar
 		if err != nil {
-			errors = appendErrors(errors, err)
+			errors = appendErrors("", errors, err)
 			return success, errors
 		}
 	}
@@ -546,11 +546,11 @@ func createWriter(outType string, filename string, sheetname string, ncols int, 
 // Process the config file against the lines of the sheet
 func processAssets(json jsonT, lines []lineT, wr writer) (errs []error) {
 	if err := wr.OpenOutput(); err != nil {
-		return appendErrors(errs, err)
+		return appendErrors("", errs, err)
 	}
 	// fmt.Println("----------")
 	var errors bool
-	if errs = appendErrors(errs, processMap(json, lines, wr)...); len(errs) > 0 {
+	if errs = appendErrors("", errs, processMap(json, lines, wr)...); len(errs) > 0 {
 		errors = true
 		log(fmt.Sprintf("Erros ao processar linhas:\n\n----------"))
 		for _, e := range errs {
@@ -573,7 +573,7 @@ func processAssets(json jsonT, lines []lineT, wr writer) (errs []error) {
 	}
 	// Write new file
 	if err1 := wr.WriteAndClose(fileOut); err1 != nil {
-		return appendErrors(errs, err1)
+		return appendErrors("", errs, err1)
 	}
 	return
 }
@@ -631,38 +631,38 @@ func processMap(json jsonT, lines []lineT, wr writer) (err2 []error) {
 
 	isMap := hasName && !okSattr && !onlyValues
 	if isMap {
-		if err2 = appendErrors(err2, wr.StartElem(name, elType)); len(err2) > 0 {
+		if err2 = appendErrors(name, err2, wr.StartElem(name, elType)); len(err2) > 0 {
 			return
 		}
 
 		defer func() {
-			err2 = appendErrors(err2, wr.EndElem(name, elType))
+			err2 = appendErrors(name, err2, wr.EndElem(name, elType))
 		}()
 	}
 	// Default Attributes
 	if at, ok := json["attrs"]; ok {
 		attrs := at.([]interface{})
-		err2 = appendErrors(err2, processAttrs(name, attrs, lines, wr)...)
+		err2 = appendErrors(name, err2, processAttrs(name, attrs, lines, wr)...)
 	}
 	if atgr, ok := json["group_attrs"]; ok {
 		attrs := atgr.([]interface{})
-		err2 = appendErrors(err2, processGroupAttrs(name, attrs, lines, wr)...)
+		err2 = appendErrors(name, err2, processGroupAttrs(name, attrs, lines, wr)...)
 	}
 	if okSattr {
 		sAttrs := sAux.([]interface{})
-		err2 = appendErrors(err2, processSingleAttrs(name, sAttrs, lines, commonAttrs, wr)...)
+		err2 = appendErrors(name, err2, processSingleAttrs(name, sAttrs, lines, commonAttrs, wr)...)
 	}
 	if len(elements) > 0 && (okEl || okElArray) {
-		err2 = appendErrors(err2, processArray(name, elements, lines, wr)...)
+		err2 = appendErrors(name, err2, processArray(name, elements, lines, wr)...)
 	}
 	// Comment section
 	if co, ok := json["comments"]; ok {
-		if err2 = appendErrors(err2, wr.StartComment("DTH")); len(err2) > 0 {
+		if err2 = appendErrors(name, err2, wr.StartComment("DTH")); len(err2) > 0 {
 			return
 		}
 		comm := co.([]interface{})
-		err2 = appendErrors(err2, processSingleElements(name, comm, lines, wr)...)
-		if err2 = appendErrors(err2, wr.EndComment("DTH")); len(err2) > 0 {
+		err2 = appendErrors(name, err2, processSingleElements(name, comm, lines, wr)...)
+		if err2 = appendErrors(name, err2, wr.EndComment("DTH")); len(err2) > 0 {
 			return
 		}
 	}
@@ -685,7 +685,7 @@ func processMap(json jsonT, lines []lineT, wr writer) (err2 []error) {
 		case []map[string]interface{}:
 			fmt.Println(k, ":")
 			for _, u := range vv {
-				err2 = appendErrors(err2, processMap(u, lines, wr)...)
+				err2 = appendErrors(name, err2, processMap(u, lines, wr)...)
 			}
 		case []interface{}:
 			// fmt.Printf("%s:", k)
@@ -694,7 +694,7 @@ func processMap(json jsonT, lines []lineT, wr writer) (err2 []error) {
 		case map[string]interface{}:
 			switch k {
 			case "options":
-				err2 = appendErrors(err2, processOptions(vv))
+				err2 = appendErrors(name, err2, processOptions(vv))
 			}
 		default:
 			// fmt.Printf("\n%v is type %T\n", k, v)
@@ -721,13 +721,13 @@ func processAttrs(_ string, json []interface{}, lines []lineT, wr writer) (err2 
 	for _, v := range json {
 		switch vv := v.(type) {
 		case map[string]interface{}:
-			err2 = appendErrors(err2, processAttr(vv, lines, wr)...)
+			err2 = appendErrors("", err2, processAttr(vv, lines, wr)...)
 			if _, okEl := vv["elements"]; okEl {
-				err2 = appendErrors(err2, processMap(vv, lines, wr)...)
+				err2 = appendErrors("", err2, processMap(vv, lines, wr)...)
 				continue
 			}
 			if _, okElArr := vv["elements_array"]; okElArr {
-				err2 = appendErrors(err2, processMap(vv, lines, wr)...)
+				err2 = appendErrors("", err2, processMap(vv, lines, wr)...)
 				continue
 			}
 		}
@@ -738,24 +738,24 @@ func processAttrs(_ string, json []interface{}, lines []lineT, wr writer) (err2 
 // Process group of attrs in the JSON
 func processGroupAttrs(_ string, json []interface{}, lines []lineT, wr writer) (err2 []error) {
 	if err := wr.StartElem("a", mapArrayT); err != nil {
-		err2 = appendErrors(err2, err)
+		err2 = appendErrors("", err2, err)
 		return
 	}
 	for _, v := range json {
 		switch vv := v.(type) {
 		case map[string]interface{}:
 			if _, okEl := vv["elements"]; okEl {
-				err2 = appendErrors(err2, processMap(vv, lines, wr)...)
+				err2 = appendErrors("", err2, processMap(vv, lines, wr)...)
 				continue
 			}
 			if _, okElArr := vv["elements_array"]; okElArr {
-				err2 = appendErrors(err2, processMap(vv, lines, wr)...)
+				err2 = appendErrors("", err2, processMap(vv, lines, wr)...)
 				continue
 			}
-			err2 = appendErrors(err2, processAttr(vv, lines, wr)...)
+			err2 = appendErrors("", err2, processAttr(vv, lines, wr)...)
 		}
 	}
-	err2 = appendErrors(err2, wr.EndElem("a", mapArrayT))
+	err2 = appendErrors("", err2, wr.EndElem("a", mapArrayT))
 	return
 }
 
@@ -809,27 +809,27 @@ func processAttr(json jsonT, lines []lineT, wr writer) (errs []error) {
 	}
 	// process function
 	procVals, err2 := process(function, lines, json, options)
-	errs = appendErrors(errs, err2)
+	errs = appendErrors(name, errs, err2)
 	for _, procVal := range procVals {
 		populateOptions(procVal.vars, options, "options")
 		isOtt := attrType == "ott"
 		if isOtt {
 			// Ott type open a new element, line <elem>x<elem>
-			errs = appendErrors(errs, wr.StartElem(name, mapT))
+			errs = appendErrors(name, errs, wr.StartElem(name, mapT))
 		}
 		if at, okA := json["attrs"]; okA {
 			attrs := at.([]interface{})
-			errs = appendErrors(errs, processAttrs(name, attrs, lines, wr)...)
+			errs = appendErrors(name, errs, processAttrs(name, attrs, lines, wr)...)
 		}
 		if f2, okf2 := json["function2"]; !okf2 || f2 != "set_var" { // test set_var
 			vtype, _ := json["type"].(string)
 			if err1 := wr.WriteAttr(name, processVal(procVal.val, procVal.vars), vtype, attrType); err1 != nil {
-				errs = appendErrors(errs, err1)
+				errs = appendErrors(name, errs, err1)
 			}
 		}
 		if isOtt {
 			// Closes ott element
-			errs = appendErrors(errs, wr.EndElem(name, mapT))
+			errs = appendErrors(name, errs, wr.EndElem(name, mapT))
 		}
 	}
 	return
@@ -840,7 +840,7 @@ func processSingleAttrs(name string, json []interface{}, lines []lineT, commonAt
 	for _, v := range json {
 		switch vv := v.(type) {
 		case map[string]interface{}:
-			err2 = appendErrors(err2, processSingleAttr(name, vv, lines, commonAttrs, wr)...)
+			err2 = appendErrors(name, err2, processSingleAttr(name, vv, lines, commonAttrs, wr)...)
 		}
 	}
 	return
@@ -863,7 +863,7 @@ func processSingleAttr(nameElem string, json jsonT, lines []lineT, commonAttrs m
 	}
 	var err3 error
 	if procVals, err3 = process(function, lines, json, options); err3 != nil {
-		return appendErrors(errs, err3)
+		return appendErrors(nameElem, errs, err3)
 	}
 	isOtt := false
 	elType, okt := json["at_type"].(string)
@@ -902,18 +902,18 @@ func writeElem(wr writer, attrs []interface{}, lines []lineT, name string, procV
 	if processed = processAttrs(name, attrs, lines, wr); len(processed) > 0 {
 		return processed, false
 	}
-	if errs = appendErrors(errs, wr.StartElem(name, singleT)); len(errs) > 0 {
+	if errs = appendErrors(name, errs, wr.StartElem(name, singleT)); len(errs) > 0 {
 		return
 	}
 
 	defer func() {
-		if errs = appendErrors(errs, wr.EndElem(name, singleT)); len(errs) > 0 {
+		if errs = appendErrors(name, errs, wr.EndElem(name, singleT)); len(errs) > 0 {
 			done = true
 		}
 	}()
 
 	if procVal != "" {
-		if errs = appendErrors(errs, wr.Write(procVal)); len(errs) > 0 {
+		if errs = appendErrors(name, errs, wr.Write(procVal)); len(errs) > 0 {
 			return
 		}
 	}
@@ -922,23 +922,23 @@ func writeElem(wr writer, attrs []interface{}, lines []lineT, name string, procV
 
 func writeAttr(wr writer, nameElem string, commonAttrs map[string]interface{}, name string, procVal string, vtype string, attrType string) (errs []error, done bool) {
 	done = true
-	if errs = appendErrors(errs, wr.StartElem(nameElem, singleT)); len(errs) > 0 {
+	if errs = appendErrors(nameElem, errs, wr.StartElem(nameElem, singleT)); len(errs) > 0 {
 		return
 	}
 
 	defer func() {
-		errs = appendErrors(errs, wr.EndElem(nameElem, singleT))
+		errs = appendErrors(nameElem, errs, wr.EndElem(nameElem, singleT))
 	}()
 
 	for k, v := range commonAttrs {
-		if errs = appendErrors(errs, wr.WriteAttr(k, v.(string), "string", "")); len(errs) > 0 {
+		if errs = appendErrors(nameElem, errs, wr.WriteAttr(k, v.(string), "string", "")); len(errs) > 0 {
 			return
 		}
 	}
-	if errs = appendErrors(errs, wr.WriteAttr("Name", name, "string", "")); len(errs) > 0 {
+	if errs = appendErrors(nameElem, errs, wr.WriteAttr("Name", name, "string", "")); len(errs) > 0 {
 		return
 	}
-	if errs = appendErrors(errs, wr.WriteAttr("Value", procVal, vtype, attrType)); len(errs) > 0 {
+	if errs = appendErrors(nameElem, errs, wr.WriteAttr("Value", procVal, vtype, attrType)); len(errs) > 0 {
 		return
 	}
 	return nil, false
@@ -950,9 +950,9 @@ func processArray(_ string, json []interface{}, lines []lineT, wr writer) (err2 
 	for _, v := range json {
 		switch vv := v.(type) {
 		case map[string]interface{}:
-			err2 = appendErrors(err2, processMap(vv, lines, wr)...)
+			err2 = appendErrors("", err2, processMap(vv, lines, wr)...)
 		case []interface{}:
-			err2 = appendErrors(err2, processArray("", vv, lines, wr)...)
+			err2 = appendErrors("", err2, processArray("", vv, lines, wr)...)
 		default:
 			// fmt.Printf("\n%v is type %T\n", k, v)
 		}
@@ -966,10 +966,10 @@ func processSingleElements(_ string, json []interface{}, lines []lineT, wr write
 		switch vv := v.(type) {
 		case map[string]interface{}:
 			if _, ok := vv["elements2"]; ok {
-				err2 = appendErrors(err2, processMap(vv, lines, wr)...)
+				err2 = appendErrors("", err2, processMap(vv, lines, wr)...)
 				continue
 			}
-			err2 = appendErrors(err2, processSingleElement(vv, lines, wr)...)
+			err2 = appendErrors("", err2, processSingleElement(vv, lines, wr)...)
 		}
 	}
 	return
@@ -985,18 +985,18 @@ func processSingleElement(json jsonT, lines []lineT, wr writer) (errs []error) {
 	var procVals []resultsT
 	var errsp error
 	if procVals, errsp = process(function, lines, json, options); errsp != nil {
-		return appendErrors(errs, errsp)
+		return appendErrors("", errs, errsp)
 	}
-	if errs = appendErrors(errs, wr.StartElem(name, singleT)); len(errs) > 0 {
+	if errs = appendErrors("", errs, wr.StartElem(name, singleT)); len(errs) > 0 {
 		return
 	}
 
 	defer func() {
-		errs = appendErrors(errs, wr.EndElem(name, singleT))
+		errs = appendErrors("", errs, wr.EndElem(name, singleT))
 	}()
 
 	for _, procVal := range procVals {
-		if errs = appendErrors(errs, wr.Write(procVal.val)); len(errs) > 0 {
+		if errs = appendErrors("", errs, wr.Write(procVal.val)); len(errs) > 0 {
 			return
 		}
 	}
@@ -1021,12 +1021,16 @@ func log(msg string) {
 	_, _ = fmt.Fprintln(os.Stderr, msg)
 }
 
-func appendErrors(result []error, errors ...error) []error {
+func appendErrors(name string, result []error, errors ...error) []error {
 	for _, e := range errors {
 		if e == nil {
 			continue
 		}
-		result = append(result, e)
+		if name == "" {
+			result = append(result, e)
+		} else {
+			result = append(result, fmt.Errorf("[%s] %v", name, e.Error()))
+		}
 	}
 	return result
 }
