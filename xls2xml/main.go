@@ -35,7 +35,14 @@ const (
 // Dateformat is the default date format
 const dateformat = "01-02-06"
 
-type lineT map[string]string
+type lineT struct {
+	fields map[string]string
+	idx    int
+}
+
+func newLineT(idx int) lineT {
+	return lineT{fields: make(map[string]string), idx: idx}
+}
 
 type jsonT map[string]interface{}
 type optionsT map[string]map[string]string
@@ -232,7 +239,7 @@ func processSpreadSheet(json map[string]interface{}, outType string, f *xlsx.Spr
 		j := i
 		for ; j < nLines; j++ {
 			curr = lines[j]
-			name = curr[nameField]
+			name = curr.fields[nameField]
 			if lName == "" {
 				lName = name
 			}
@@ -454,7 +461,7 @@ func readSheet(sheet xlsx.Sheet, header []string, idx int) ([]lineT, error) {
 	}
 	// Reading other lines
 	lines := make([]lineT, 0)
-	line := make(map[string]string)
+	line := newLineT(1)
 	for row := 1; row < nrows && empty < 5; row++ {
 		for c := 0; c < lastCol+1; c++ {
 			colCell := sheet.Cell(c, row)
@@ -476,7 +483,7 @@ func readSheet(sheet xlsx.Sheet, header []string, idx int) ([]lineT, error) {
 				cellF = x.UTC().Format(dateformat)
 			}
 			//fmt.Printf("+++> %s\n", cellF)
-			line[header[c]] = cellF
+			line.fields[header[c]] = cellF
 			if c == 0 {
 				if cellF != "" {
 					empty = 0
@@ -485,10 +492,10 @@ func readSheet(sheet xlsx.Sheet, header []string, idx int) ([]lineT, error) {
 				}
 			}
 		}
-		if !blankLine(line) {
-			line["file_number"] = fmt.Sprintf("%d", idx)
+		if !blankLine(line.fields) {
+			line.fields["file_number"] = fmt.Sprintf("%d", idx)
 			lines = append(lines, line)
-			line = make(map[string]string)
+			line = newLineT(row)
 			idx++
 		}
 	}
@@ -545,7 +552,7 @@ func processAssets(json jsonT, lines []lineT, wr writer) (errs []error) {
 	var errors bool
 	if errs = appendErrors(errs, processMap(json, lines, wr)...); len(errs) > 0 {
 		errors = true
-		log(fmt.Sprintf("Erros ao processar linha [%#v]:\n\n----------", lines))
+		log(fmt.Sprintf("Erros ao processar linhas:\n\n----------"))
 		for _, e := range errs {
 			logError(e)
 		}
@@ -583,7 +590,7 @@ func processMap(json jsonT, lines []lineT, wr writer) (err2 []error) {
 	commonAttrs, _ := json["common_attrs"].(map[string]interface{})
 	// Test if there is a filter expression
 	if filter, ok := json["filter"].(string); ok {
-		filterOk, err := evalCondition(filter, lines[0])
+		filterOk, err := evalCondition(filter, &lines[0])
 		if err != nil {
 			err2 = append(err2, err)
 			return
@@ -791,7 +798,7 @@ func processAttr(json jsonT, lines []lineT, wr writer) (errs []error) {
 	// process filter
 	if filter, okFilter := json["filter"].(string); okFilter {
 		// there is a filter expression: evaluate
-		if filterAllow, err3 := evalCondition(filter, lines[0]); err3 != nil {
+		if filterAllow, err3 := evalCondition(filter, &lines[0]); err3 != nil {
 			// error in condition
 			errs = append(errs, err3)
 			return

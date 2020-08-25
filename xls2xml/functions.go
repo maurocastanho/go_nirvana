@@ -45,11 +45,11 @@ func newResultVars(val string, key string, value string) resultsT {
 var errorMessage = []resultsT{newResult("#ERRO#")}
 
 // FunctionDict is the relation between the operation name and the function
-var functionDict map[string]func(string, lineT, jsonT, optionsT) ([]resultsT, error)
+var functionDict map[string]func(string, *lineT, jsonT, optionsT) ([]resultsT, error)
 
 // InitFunctions maps the user functions
 func initFunctions() {
-	functionDict = map[string]func(string, lineT, jsonT, optionsT) ([]resultsT, error){
+	functionDict = map[string]func(string, *lineT, jsonT, optionsT) ([]resultsT, error){
 		"assetid":         assetID,
 		"assetid_ott":     assetIDOtt,
 		"attr_map":        attrMap,
@@ -105,7 +105,7 @@ func process(funcName string, lines []lineT, json jsonT, options optionsT) ([]re
 	}
 	result := make([]resultsT, 0)
 	for _, line := range lines {
-		res, err := function("", line, json, options)
+		res, err := function("", &line, json, options)
 		if err != nil {
 			return res, err
 		}
@@ -122,7 +122,7 @@ func process(funcName string, lines []lineT, json jsonT, options optionsT) ([]re
 //}
 
 // Fixed returns the same value
-func fixed(forceVal string, _ lineT, json jsonT, _ optionsT) ([]resultsT, error) {
+func fixed(forceVal string, _ *lineT, json jsonT, _ optionsT) ([]resultsT, error) {
 	if forceVal != "" {
 		return []resultsT{newResult(forceVal)}, nil
 	}
@@ -131,7 +131,7 @@ func fixed(forceVal string, _ lineT, json jsonT, _ optionsT) ([]resultsT, error)
 }
 
 // FieldMoney returns field formatted as money
-func fieldMoney(forceVal string, line lineT, json jsonT, options optionsT) ([]resultsT, error) {
+func fieldMoney(forceVal string, line *lineT, json jsonT, options optionsT) ([]resultsT, error) {
 	val, errF := getField(forceVal, "", line, json, options)
 	if errF != nil {
 		return errorMessage, errF
@@ -144,7 +144,7 @@ func fieldMoney(forceVal string, line lineT, json jsonT, options optionsT) ([]re
 }
 
 // Field returns field from line after truncating max size
-func fieldTrunc(forceVal string, line lineT, json jsonT, options optionsT) ([]resultsT, error) {
+func fieldTrunc(forceVal string, line *lineT, json jsonT, options optionsT) ([]resultsT, error) {
 	value, errF := getField(forceVal, "", line, json, options)
 	if errF != nil {
 		return errorMessage, errF
@@ -154,13 +154,13 @@ func fieldTrunc(forceVal string, line lineT, json jsonT, options optionsT) ([]re
 }
 
 // FieldRaw returns field without further processing
-func fieldRaw(forceVal string, line lineT, json jsonT, options optionsT) ([]resultsT, error) {
+func fieldRaw(forceVal string, line *lineT, json jsonT, options optionsT) ([]resultsT, error) {
 	value, err := getField(forceVal, "", line, json, options)
 	return []resultsT{newResult(value)}, err
 }
 
 // FieldDate returns a date field after formatting
-func fieldDate(forceVal string, line lineT, json jsonT, options optionsT) ([]resultsT, error) {
+func fieldDate(forceVal string, line *lineT, json jsonT, options optionsT) ([]resultsT, error) {
 	value, errF := getField(forceVal, "", line, json, options)
 	if errF != nil {
 		return errorMessage, errF
@@ -168,12 +168,12 @@ func fieldDate(forceVal string, line lineT, json jsonT, options optionsT) ([]res
 	t, errD := parseDate(value)
 	if errD != nil {
 		fieldName, _ := getValue("field", json)
-		return errorMessage, fmt.Errorf("erro no campo '%s': [%s]", fieldName, errD.Error())
+		return errorMessage, fmt.Errorf("erro no campo '%s': [%s] na linha %d", fieldName, errD.Error(), line.idx)
 	}
 	return []resultsT{newResult(formatDate(t))}, errD
 }
 
-func getField(forceVal string, fieldN string, line lineT, json jsonT, _ optionsT) (string, error) {
+func getField(forceVal string, fieldN string, line *lineT, json jsonT, _ optionsT) (string, error) {
 	// fmt.Printf("field=%#v, json=%#v, line=%#v, options=%#v\n", field, json, line, options)
 	if forceVal != "" {
 		return forceVal, nil
@@ -187,16 +187,16 @@ func getField(forceVal string, fieldN string, line lineT, json jsonT, _ optionsT
 	if err != nil {
 		return errorMessage[0].val, err
 	}
-	value, ok := line[fieldName]
+	value, ok := line.fields[fieldName]
 	if !ok {
-		return fieldName, fmt.Errorf("elemento '%s' inexistente na linha", fieldName)
+		return fieldName, fmt.Errorf("elemento '%s' inexistente na linha %d", fieldName, line.idx)
 	}
 	// fmt.Printf("field(%v) = [%v]\n", field, value)
 	return value, nil
 }
 
 // FieldValidated validates a field against a list and returns the value if valid
-func fieldValidated(forceVal string, line lineT, json jsonT, options optionsT) ([]resultsT, error) {
+func fieldValidated(forceVal string, line *lineT, json jsonT, options optionsT) ([]resultsT, error) {
 	f, err := fieldTrunc(forceVal, line, json, options)
 	if err != nil {
 		return errorMessage, err
@@ -212,11 +212,11 @@ func fieldValidated(forceVal string, line lineT, json jsonT, options optionsT) (
 		}
 	}
 	return errorMessage, fmt.Errorf("falha na validacao do elemento '%s': %s, "+
-		"valores possiveis: %v", json["Name"], f, opts)
+		"valores possiveis: %v na linha %d", json["Name"], f, opts, line.idx)
 }
 
 // FieldNoAccents returns the field after replacing accented characters for its non-accented correspondents
-func fieldNoAccents(forceVal string, line lineT, json jsonT, options optionsT) ([]resultsT, error) {
+func fieldNoAccents(forceVal string, line *lineT, json jsonT, options optionsT) ([]resultsT, error) {
 	f, err := getField(forceVal, "", line, json, options)
 	if err != nil {
 		return errorMessage, err
@@ -230,7 +230,7 @@ func fieldNoAccents(forceVal string, line lineT, json jsonT, options optionsT) (
 }
 
 // FieldTrim returns the field after removing spaces from left and right
-func fieldTrim(forceVal string, line lineT, json jsonT, options optionsT) ([]resultsT, error) {
+func fieldTrim(forceVal string, line *lineT, json jsonT, options optionsT) ([]resultsT, error) {
 	field, err := getField(forceVal, "", line, json, options)
 	if err != nil {
 		return errorMessage, err
@@ -244,7 +244,7 @@ func fieldTrim(forceVal string, line lineT, json jsonT, options optionsT) ([]res
 }
 
 // FieldNoQuotes removes all quotation symbols from the field and returns it
-func fieldNoQuotes(forceVal string, line lineT, json jsonT, options optionsT) ([]resultsT, error) {
+func fieldNoQuotes(forceVal string, line *lineT, json jsonT, options optionsT) ([]resultsT, error) {
 	field, errG := getField(forceVal, "", line, json, options)
 	if errG != nil {
 		return errorMessage, errG
@@ -255,7 +255,7 @@ func fieldNoQuotes(forceVal string, line lineT, json jsonT, options optionsT) ([
 }
 
 // Suffix removes the extension and appends a suffix to a field, returning the result
-func suffix(forceVal string, line lineT, json jsonT, options optionsT) ([]resultsT, error) {
+func suffix(forceVal string, line *lineT, json jsonT, options optionsT) ([]resultsT, error) {
 	field, errT := fieldTrunc(forceVal, line, json, options)
 	if errT != nil {
 		return errorMessage, errT
@@ -279,7 +279,7 @@ func suffix(forceVal string, line lineT, json jsonT, options optionsT) ([]result
 		// no suffix given: use file extension
 		fieldPrefix = "subpasta"
 	}
-	prefix, _ := line[fieldPrefix]
+	prefix, _ := line.fields[fieldPrefix]
 	if prefix != "" && !strings.HasSuffix(prefix, "/") {
 		prefix += "/"
 	}
@@ -308,7 +308,7 @@ func suffix(forceVal string, line lineT, json jsonT, options optionsT) ([]result
 }
 
 // AssetID returns the Asset ID
-func assetID(forceVal string, line lineT, json jsonT, options optionsT) ([]resultsT, error) {
+func assetID(forceVal string, line *lineT, json jsonT, options optionsT) ([]resultsT, error) {
 	if forceVal != "" {
 		return []resultsT{newResult(forceVal)}, nil
 	}
@@ -316,9 +316,9 @@ func assetID(forceVal string, line lineT, json jsonT, options optionsT) ([]resul
 	if !ok || fProvider == "" {
 		return errorMessage, fmt.Errorf("field prefixo do Asset ID nao encontrado (prefix): [%v]", json)
 	}
-	prov, okP := line[fProvider]
+	prov, okP := line.fields[fProvider]
 	if !okP || prov == "" {
-		return errorMessage, fmt.Errorf("provider assetid nao encontrado (provider): [%v]", line)
+		return errorMessage, fmt.Errorf("provider assetid nao encontrado (provider): [%v] na linha %d", line.fields, line.idx)
 	}
 	suffixF, okS := json["suffix_number"].(float64)
 	if !okS {
@@ -328,9 +328,9 @@ func assetID(forceVal string, line lineT, json jsonT, options optionsT) ([]resul
 	if !ok || timest == "" {
 		return errorMessage, fmt.Errorf("timestamp nao encontrada (timestamp): [%v]", options)
 	}
-	fileNum, okN := line["file_number"]
+	fileNum, okN := line.fields["file_number"]
 	if !okN || fileNum == "" {
-		return errorMessage, fmt.Errorf("numero do arquivo nao encontrado (file_number): [%v]", line)
+		return errorMessage, fmt.Errorf("numero do arquivo nao encontrado (file_number): [%v] na linha %d", line.fields, line.idx)
 	}
 	result := buildAssetID(prov, suffixF, timest, fileNum)
 	return []resultsT{newResult(result)}, nil
@@ -350,7 +350,7 @@ func buildAssetID(prov string, suffixF float64, timest string, fileNum string) s
 }
 
 // AssetIDOtt returns the Asset ID for the ott format
-func assetIDOtt(forceVal string, line lineT, _ jsonT, options optionsT) ([]resultsT, error) {
+func assetIDOtt(forceVal string, line *lineT, _ jsonT, options optionsT) ([]resultsT, error) {
 	if forceVal != "" {
 		return []resultsT{newResult(forceVal)}, nil
 	}
@@ -358,16 +358,16 @@ func assetIDOtt(forceVal string, line lineT, _ jsonT, options optionsT) ([]resul
 	if !okT || timest == "" {
 		return errorMessage, fmt.Errorf("timestamp nao encontrada (timestamp): [%v]", options)
 	}
-	fileNum, okN := line["file_number"]
+	fileNum, okN := line.fields["file_number"]
 	if !okN || fileNum == "" {
-		return errorMessage, fmt.Errorf("numero do arquivo nao encontrado (file_number): [%v]", line)
+		return errorMessage, fmt.Errorf("numero do arquivo nao encontrado (file_number): [%v] na linha %d", line.fields, line.idx)
 	}
 	result := fmt.Sprintf("%s%03s", timest, fileNum)
 	return []resultsT{newResult(result)}, nil
 }
 
 // episodeID returns the Episode ID, make of (season number | episode number)
-func episodeID(forceVal string, line lineT, _ jsonT, options optionsT) ([]resultsT, error) {
+func episodeID(forceVal string, line *lineT, _ jsonT, options optionsT) ([]resultsT, error) {
 	if forceVal != "" {
 		return []resultsT{newResult(forceVal)}, nil
 	}
@@ -375,7 +375,7 @@ func episodeID(forceVal string, line lineT, _ jsonT, options optionsT) ([]result
 	if !okF || fSeason == "" {
 		return errorMessage, fmt.Errorf("config para campo 'season_field' nao encontrado: [%v]", options)
 	}
-	season, okS := line[fSeason]
+	season, okS := line.fields[fSeason]
 	if !okS || season == "" {
 		return errorMessage, fmt.Errorf("temporada do episode_id nao encontrada (%v): [%v]", fSeason, line)
 	}
@@ -383,9 +383,9 @@ func episodeID(forceVal string, line lineT, _ jsonT, options optionsT) ([]result
 	if !okEid || fEpisodeID == "" {
 		return errorMessage, fmt.Errorf("config para campo 'episode_field' nao encontrado: [%v]", options)
 	}
-	episode, okE := line[fEpisodeID]
+	episode, okE := line.fields[fEpisodeID]
 	if !okE || season == "" {
-		return errorMessage, fmt.Errorf("valor do episode_id nao encontrado (%v): [%v]", fEpisodeID, line)
+		return errorMessage, fmt.Errorf("valor do episode_id nao encontrado (%v): [%v] na linha %d", fEpisodeID, line.fields, line.idx)
 	}
 	result := fmt.Sprintf("%02s%03s", season, episode)
 	return []resultsT{newResult(result)}, nil
@@ -395,12 +395,12 @@ func findInSerieMap(str1 string, str2 string, sData map[string]string) (string, 
 	for k, v := range sData {
 		names := strings.Split(k, "|")
 		if len(names) != 2 {
-			return "", "", fmt.Errorf("dado da serie invalidos: [%v]", k)
+			return "", "", fmt.Errorf("dados da serie invalidos: [%v]", k)
 		}
 		if names[0] == str1 && names[1] == str2 {
 			ids := strings.Split(v, "|")
 			if len(ids) != 2 {
-				return "", "", fmt.Errorf("dado da serie invalidos: [%v]", v)
+				return "", "", fmt.Errorf("dados da serie invalidos: [%v]", v)
 			}
 			return ids[0], ids[1], nil
 		}
@@ -409,7 +409,7 @@ func findInSerieMap(str1 string, str2 string, sData map[string]string) (string, 
 }
 
 // seriesId returns the serie Id from sheet "series"
-func seriesId(forceVal string, line lineT, json jsonT, options optionsT) ([]resultsT, error) {
+func seriesId(forceVal string, line *lineT, json jsonT, options optionsT) ([]resultsT, error) {
 	idSerie, _, ts, err2, done := getSeries(forceVal, line, json, options)
 	if done {
 		return ts, err2
@@ -419,7 +419,7 @@ func seriesId(forceVal string, line lineT, json jsonT, options optionsT) ([]resu
 }
 
 // seasonId returns the season Id from sheet "series"
-func seasonId(forceVal string, line lineT, json jsonT, options optionsT) ([]resultsT, error) {
+func seasonId(forceVal string, line *lineT, json jsonT, options optionsT) ([]resultsT, error) {
 	_, idSeason, ts, err2, done := getSeries(forceVal, line, json, options)
 	if done {
 		return ts, err2
@@ -428,7 +428,7 @@ func seasonId(forceVal string, line lineT, json jsonT, options optionsT) ([]resu
 	return []resultsT{newResult(result)}, err2
 }
 
-func getSeries(forceVal string, line lineT, json jsonT, options optionsT) (string, string, []resultsT, error, bool) {
+func getSeries(forceVal string, line *lineT, json jsonT, options optionsT) (string, string, []resultsT, error, bool) {
 	if forceVal != "" {
 		return "", "", []resultsT{newResult(forceVal)}, nil, true
 	}
@@ -436,7 +436,7 @@ func getSeries(forceVal string, line lineT, json jsonT, options optionsT) (strin
 	if errF != nil {
 		return "", "", errorMessage, errF, true
 	}
-	seasonS, okN := line["Temporada"] // TODO move to config
+	seasonS, okN := line.fields["Temporada"] // TODO move to config
 	if !okN {
 		return "", "", errorMessage, errF, true
 	}
@@ -456,7 +456,7 @@ func getSeries(forceVal string, line lineT, json jsonT, options optionsT) (strin
 }
 
 // Date returns the present date, formatted
-func date(forceVal string, _ lineT, _ jsonT, options optionsT) ([]resultsT, error) {
+func date(forceVal string, _ *lineT, _ jsonT, options optionsT) ([]resultsT, error) {
 	if forceVal != "" {
 		return []resultsT{newResult(forceVal)}, nil // TODO
 	}
@@ -468,12 +468,12 @@ func date(forceVal string, _ lineT, _ jsonT, options optionsT) ([]resultsT, erro
 }
 
 // EmptyFunc returns always a empty value
-func emptyFunc(_ string, _ lineT, _ jsonT, _ optionsT) ([]resultsT, error) {
+func emptyFunc(_ string, _ *lineT, _ jsonT, _ optionsT) ([]resultsT, error) {
 	return []resultsT{newResult("")}, nil
 }
 
 // SetVar sets a variable in the options
-func setVar(value string, _ lineT, json jsonT, _ optionsT) ([]resultsT, error) {
+func setVar(value string, _ *lineT, json jsonT, _ optionsT) ([]resultsT, error) {
 	name, ok := json["var"].(string)
 	if !ok || name == "" {
 		return errorMessage, fmt.Errorf("campo 'var' nao encontrado: [%v]", json)
@@ -482,20 +482,20 @@ func setVar(value string, _ lineT, json jsonT, _ optionsT) ([]resultsT, error) {
 }
 
 // ConvertDate converts a date string from the mm/dd/yy format to the default format
-func convertDate(value string, line lineT, json jsonT, options optionsT) ([]resultsT, error) {
+func convertDate(value string, line *lineT, json jsonT, options optionsT) ([]resultsT, error) {
 	field, errF := fieldTrunc(value, line, json, options)
 	if errF != nil {
 		return errorMessage, errF
 	}
 	t, errP := time.Parse("01/02/06", field[0].val)
 	if errP != nil {
-		return errorMessage, errP
+		return errorMessage, fmt.Errorf("erro no formato da data: [%v] na linha %d", errP.Error(), line.idx)
 	}
 	return []resultsT{newResult(formatDate(t))}, nil
 }
 
 // DateRFC3339 converts a date string from the mm/dd/yy format to the RFC3339 format
-func dateRFC3339(forceVal string, line lineT, json jsonT, options optionsT) ([]resultsT, error) {
+func dateRFC3339(forceVal string, line *lineT, json jsonT, options optionsT) ([]resultsT, error) {
 	field, errT := fieldTrunc(forceVal, line, json, options)
 	if errT != nil {
 		return errorMessage, errT
@@ -503,28 +503,28 @@ func dateRFC3339(forceVal string, line lineT, json jsonT, options optionsT) ([]r
 	val := field[0].val
 	t, errP := time.Parse("01-02-06", val)
 	if errP != nil {
-		return errorMessage, errP
+		return errorMessage, fmt.Errorf("erro no formato da data: [%v] na linha %d", errP.Error(), line.idx)
 	}
 	return []resultsT{newResult(t.Format(time.RFC3339))}, nil
 }
 
 // Condition returns one of two given values according to a boolean condition
-func condition(forceValue string, line lineT, json jsonT, _ optionsT) ([]resultsT, error) {
+func condition(forceValue string, line *lineT, json jsonT, _ optionsT) ([]resultsT, error) {
 	var cond string
 	var ok bool
 	var trueVal string
 	if trueVal, ok = json["if_true"].(string); !ok {
-		return errorMessage, fmt.Errorf("elemento '%s' inexistente na linha", "if_true")
+		return errorMessage, fmt.Errorf("elemento '%s' inexistente na condicao [%v]", "if_true", json)
 	}
 	var falseVal string
 	falseVal, ok = json["if_false"].(string)
 	if !ok {
-		return errorMessage, fmt.Errorf("elemento '%s' inexistente na linha", "if_false")
+		return errorMessage, fmt.Errorf("elemento '%s' inexistente na condicao [%v]", "if_false", json)
 	}
 	if forceValue == "" {
 		cond, ok = json["condition"].(string)
 		if !ok {
-			return errorMessage, fmt.Errorf("elemento '%s' inexistente na linha", "condition")
+			return errorMessage, fmt.Errorf("elemento '%s' inexistente na condicao [%v]", "condition", json)
 		}
 	} else {
 		cond = forceValue
@@ -539,13 +539,13 @@ func condition(forceValue string, line lineT, json jsonT, _ optionsT) ([]results
 }
 
 // Eval evaluates an expression
-func eval(value string, line lineT, json jsonT, _ optionsT) ([]resultsT, error) {
+func eval(value string, line *lineT, json jsonT, _ optionsT) ([]resultsT, error) {
 	var expr string
 	var ok bool
 	if value == "" {
 		expr, ok = json["expression"].(string)
 		if !ok {
-			return errorMessage, fmt.Errorf("elemento '%s' inexistente na linha", "expression")
+			return errorMessage, fmt.Errorf("elemento '%s' inexistente na expressao [%v]", "expression", json)
 		}
 	} else {
 		expr = value
@@ -564,15 +564,15 @@ func eval(value string, line lineT, json jsonT, _ optionsT) ([]resultsT, error) 
 	}
 	expression, errV := govaluate.NewEvaluableExpressionWithFunctions(expr, functions)
 	if errV != nil {
-		return errorMessage, fmt.Errorf("expressao invalida (%v) na linha", expr)
+		return errorMessage, fmt.Errorf("expressao invalida (%v): [%v]", expr, json)
 	}
 	params := make(map[string]interface{})
-	for k, v := range line {
+	for k, v := range line.fields {
 		params[removeSpaces(k)] = v
 	}
 	result, errE := expression.Evaluate(params)
 	if errE != nil {
-		return errorMessage, fmt.Errorf("erro na expressao [%s] com parametros [%#v]", expr, params)
+		return errorMessage, fmt.Errorf("erro na expressao [%s] com parametros [%#v], [%v]", expr, params, json)
 	}
 	if result == nil {
 		result = ""
@@ -581,7 +581,7 @@ func eval(value string, line lineT, json jsonT, _ optionsT) ([]resultsT, error) 
 }
 
 // FilterCondition returns an empty string if a condition is false, but continues the processing if it is true
-func filterCondition(forceVal string, line lineT, json jsonT, options optionsT) ([]resultsT, error) {
+func filterCondition(forceVal string, line *lineT, json jsonT, options optionsT) ([]resultsT, error) {
 	var cond string
 	var ok bool
 	if forceVal == "" {
@@ -616,7 +616,7 @@ func filterCondition(forceVal string, line lineT, json jsonT, options optionsT) 
 }
 
 // Split splits a list of arguments and calls a function on each one
-func split(forceVal string, line lineT, json jsonT, options optionsT) ([]resultsT, error) {
+func split(forceVal string, line *lineT, json jsonT, options optionsT) ([]resultsT, error) {
 	funcName, okF := json["function2"].(string)
 	if !okF {
 		return errorMessage, fmt.Errorf("elemento '%s' inexistente na linha %v", "function2", line)
@@ -653,7 +653,7 @@ func split(forceVal string, line lineT, json jsonT, options optionsT) ([]results
 }
 
 // MapField returns a map with a field for key and other for value
-func mapField(forceVal string, line lineT, json jsonT, options optionsT) ([]resultsT, error) {
+func mapField(forceVal string, line *lineT, json jsonT, options optionsT) ([]resultsT, error) {
 	key, errF := getField(forceVal, "field1", line, json, options)
 	if errF != nil {
 		return errorMessage, errF
@@ -666,7 +666,7 @@ func mapField(forceVal string, line lineT, json jsonT, options optionsT) ([]resu
 }
 
 // MapField returns a map with a field for key and other for value
-func mapString(forceVal string, line lineT, json jsonT, options optionsT) ([]resultsT, error) {
+func mapString(forceVal string, line *lineT, json jsonT, options optionsT) ([]resultsT, error) {
 	_, errF := getField(forceVal, "", line, json, options)
 	if errF != nil {
 		return errorMessage, errF
@@ -680,7 +680,7 @@ func mapString(forceVal string, line lineT, json jsonT, options optionsT) ([]res
 }
 
 // AttrMap returns a map with a field for attribute name and other for value
-func attrMap(forceVal string, line lineT, json jsonT, options optionsT) ([]resultsT, error) {
+func attrMap(forceVal string, line *lineT, json jsonT, options optionsT) ([]resultsT, error) {
 	key, errF := getField(forceVal, "attr_list", line, json, options)
 	if errF != nil {
 		return errorMessage, errF
@@ -719,7 +719,7 @@ func attrMap(forceVal string, line lineT, json jsonT, options optionsT) ([]resul
 }
 
 // Convert maps an element of a string array unto another
-func convert(forceVal string, line lineT, json jsonT, options optionsT) ([]resultsT, error) {
+func convert(forceVal string, line *lineT, json jsonT, options optionsT) ([]resultsT, error) {
 	key, err := getField(forceVal, "", line, json, options)
 	if err != nil {
 		return errorMessage, err
@@ -749,7 +749,7 @@ func convert(forceVal string, line lineT, json jsonT, options optionsT) ([]resul
 }
 
 // Utc returns a date in UTC format
-func utc(forceVal string, line lineT, json jsonT, options optionsT) ([]resultsT, error) {
+func utc(forceVal string, line *lineT, json jsonT, options optionsT) ([]resultsT, error) {
 	val, errM := getField(forceVal, "", line, json, options)
 	if errM != nil {
 		return errorMessage, errM
@@ -763,7 +763,7 @@ func utc(forceVal string, line lineT, json jsonT, options optionsT) ([]resultsT,
 }
 
 // EvalCondition evaluates a boolean expression
-func evalCondition(expr string, line lineT) (bool, error) {
+func evalCondition(expr string, line *lineT) (bool, error) {
 	functions := map[string]govaluate.ExpressionFunction{
 		"strlen": func(args ...interface{}) (interface{}, error) {
 			length := len(args[0].(string))
@@ -775,7 +775,7 @@ func evalCondition(expr string, line lineT) (bool, error) {
 		return false, fmt.Errorf("expressao invalida (%v)", expr)
 	}
 	params := make(map[string]interface{})
-	for k, v := range line {
+	for k, v := range line.fields {
 		params[removeSpaces(k)] = v
 	}
 	result, errE := expression.Evaluate(params)
@@ -789,7 +789,7 @@ func evalCondition(expr string, line lineT) (bool, error) {
 }
 
 // Seconds returns the total seconds from a time
-func seconds(forceVal string, line lineT, json jsonT, options optionsT) ([]resultsT, error) {
+func seconds(forceVal string, line *lineT, json jsonT, options optionsT) ([]resultsT, error) {
 	field, errT := fieldTrunc(forceVal, line, json, options)
 	if errT != nil {
 		return errorMessage, errT
@@ -802,7 +802,7 @@ func seconds(forceVal string, line lineT, json jsonT, options optionsT) ([]resul
 }
 
 // SurnameName inverts name and surname
-func surnameName(forceVal string, line lineT, json jsonT, options optionsT) ([]resultsT, error) {
+func surnameName(forceVal string, line *lineT, json jsonT, options optionsT) ([]resultsT, error) {
 	var field string
 	if forceVal == "" {
 		f, err := fieldTrunc(forceVal, line, json, options)
@@ -838,29 +838,29 @@ func surnameName(forceVal string, line lineT, json jsonT, options optionsT) ([]r
 }
 
 // genUUID returns a random uuid number
-func genUUID(_ string, _ lineT, _ jsonT, _ optionsT) ([]resultsT, error) {
+func genUUID(_ string, _ *lineT, _ jsonT, _ optionsT) ([]resultsT, error) {
 	result := uuids()
 	return []resultsT{newResult(result)}, nil
 }
 
 // Option returns the option as defined in the JSON file, section "options"
-func option(forceVal string, _ lineT, json jsonT, options optionsT) ([]resultsT, error) {
+func option(forceVal string, _ *lineT, json jsonT, options optionsT) ([]resultsT, error) {
 	if forceVal != "" {
 		return []resultsT{newResult(forceVal)}, nil
 	}
 	optField, okF := json["field"].(string)
 	if !okF {
-		return errorMessage, fmt.Errorf("elemento '%s' inexistente na linha", "field")
+		return errorMessage, fmt.Errorf("elemento '%s' inexistente na option [%v]", "field", json)
 	}
 	val, okO := options["options"][optField]
 	if !okO {
-		return errorMessage, fmt.Errorf("elemento '%s' inexistente nas options [%v]", optField, options)
+		return errorMessage, fmt.Errorf("elemento '%s' inexistente nas options [%v], [%v]", optField, options, json)
 	}
 	return []resultsT{newResult(val)}, nil
 }
 
 // JanelaRepasse returns the last character of the billing id
-func janelaRepasse(forceVal string, line lineT, json jsonT, options optionsT) ([]resultsT, error) {
+func janelaRepasse(forceVal string, line *lineT, json jsonT, options optionsT) ([]resultsT, error) {
 	if forceVal != "" {
 		return []resultsT{newResult(forceVal)}, nil
 	}
@@ -877,7 +877,7 @@ func janelaRepasse(forceVal string, line lineT, json jsonT, options optionsT) ([
 }
 
 // BoxTechnology returns the technology of the encoding based on the extension
-func boxTechnology(forceVal string, line lineT, json jsonT, options optionsT) ([]resultsT, error) {
+func boxTechnology(forceVal string, line *lineT, json jsonT, options optionsT) ([]resultsT, error) {
 	if forceVal != "" {
 		return []resultsT{newResult(forceVal)}, nil
 	}
@@ -899,18 +899,18 @@ func boxTechnology(forceVal string, line lineT, json jsonT, options optionsT) ([
 	case ".ism":
 		result = "HSS"
 	default:
-		return errorMessage, fmt.Errorf("tecnologia indeterminada para a extensao: [%s]", filename)
+		return errorMessage, fmt.Errorf("tecnologia indeterminada para a extensao: [%s] na linha %d", filename, line.idx)
 	}
 	return []resultsT{newResult(result)}, nil
 }
 
 // Undefined returns a value to indicate an undefined function
-func undefined(value string, _ lineT, _ jsonT, _ optionsT) ([]resultsT, error) {
+func undefined(value string, _ *lineT, _ jsonT, _ optionsT) ([]resultsT, error) {
 	return []resultsT{newResult("##UNDEFINED##")}, fmt.Errorf("funcao indefinida: [%s]", value)
 }
 
 // FirstName returns the first name of a composite name
-func firstName(forceVal string, _ lineT, json jsonT, _ optionsT) ([]resultsT, error) {
+func firstName(forceVal string, _ *lineT, json jsonT, _ optionsT) ([]resultsT, error) {
 	names := getNames(forceVal, json)
 	result := ""
 	if len(names) >= 1 {
@@ -920,7 +920,7 @@ func firstName(forceVal string, _ lineT, json jsonT, _ optionsT) ([]resultsT, er
 }
 
 // LastName returns the first name of a composite name
-func lastName(forceVal string, _ lineT, json jsonT, _ optionsT) ([]resultsT, error) {
+func lastName(forceVal string, _ *lineT, json jsonT, _ optionsT) ([]resultsT, error) {
 	names := getNames(forceVal, json)
 	result := ""
 	length := len(names)
@@ -931,7 +931,7 @@ func lastName(forceVal string, _ lineT, json jsonT, _ optionsT) ([]resultsT, err
 }
 
 // MiddleName returns the first name of a composite name
-func middleName(forceVal string, _ lineT, json jsonT, _ optionsT) ([]resultsT, error) {
+func middleName(forceVal string, _ *lineT, json jsonT, _ optionsT) ([]resultsT, error) {
 	names := getNames(forceVal, json)
 	result := ""
 	length := len(names)
@@ -1074,7 +1074,7 @@ func truncateSuffix(value string, suffix string, max int) (string, error) {
 	return safeSubstring, nil
 }
 
-func truncate(value string, _ lineT, json jsonT, _ optionsT) (string, error) {
+func truncate(value string, _ *lineT, json jsonT, _ optionsT) (string, error) {
 	val, err := getValue("maxlength", json)
 	if val == "" || err != nil {
 		return value, nil

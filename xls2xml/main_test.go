@@ -25,13 +25,13 @@ func makeLines(lines [][]string) []lineT {
 	lenLineCat := len(lines[1])
 	arrLines := make([]lineT, nLines-1, nLines-1)
 	for iLin := 1; iLin < nLines; iLin++ {
-		arrLines[iLin-1] = make(map[string]string)
+		arrLines[iLin-1] = newLineT(iLin)
 		for i := range lines[0] {
 			val := ""
 			if i < lenLineCat {
 				val = lines[iLin][i]
 			}
-			arrLines[iLin-1][lines[0][i]] = val
+			arrLines[iLin-1].fields[lines[0][i]] = val
 		}
 	}
 	return arrLines
@@ -173,7 +173,8 @@ func TestFormatDate(t *testing.T) {
 }
 
 func TestCondition(t *testing.T) {
-	line := map[string]string{"a": "1", "b": "22", "c": "1"}
+	line := newLineT(0)
+	line.fields = map[string]string{"a": "1", "b": "22", "c": "1"}
 	tables := []struct {
 		arg string
 		exp bool
@@ -189,7 +190,7 @@ func TestCondition(t *testing.T) {
 	}
 
 	for _, table := range tables {
-		res, err := evalCondition(table.arg, line)
+		res, err := evalCondition(table.arg, &line)
 		if err != nil {
 			t.Error(err)
 		}
@@ -451,16 +452,15 @@ func TestXmlNet(t *testing.T) {
 	}
 	lenLine1 := len(lines[1])
 	//fmt.Printf("%#v\n%#v\n%d %d", lines[0], lines[1], len(lines[0]), lenLine1)
-
-	var maplines lineT = make(map[string]string)
+	maplines := newLineT(0)
 	for i := range lines[0] {
 		val := ""
 		if i < lenLine1 {
 			val = lines[1][i]
 		}
-		maplines[lines[0][i]] = val
+		maplines.fields[lines[0][i]] = val
 	}
-	maplines["file_number"] = "1"
+	maplines.fields["file_number"] = "1"
 	options["options"]["timestamp"] = "200619015447"
 	options["options"]["creationDate"] = "2020-06-19"
 	//fmt.Printf("%#v\n", maplines)
@@ -601,7 +601,7 @@ func TestXmlOiOtt(t *testing.T) {
 			"12:02:24", "Dolby 5.1"},
 	}
 	maplines := makeLines(lines)
-	maplines[0]["file_number"] = "1"
+	maplines[0].fields["file_number"] = "1"
 	options["options"]["timestamp"] = "200702102255"
 	options["options"]["creationDate"] = "2020-06-19"
 	//fmt.Printf("%#v\n", maplines)
@@ -749,7 +749,7 @@ func TestXmlVivo(t *testing.T) {
 			"", "", "", "", ""},
 	}
 	maplines := makeLines(lines)
-	maplines[0]["file_number"] = "1"
+	maplines[0].fields["file_number"] = "1"
 	options["options"]["timestamp"] = "200619015447"
 	options["options"]["creationDate"] = "2020-06-19"
 	//fmt.Printf("%#v\n", maplines)
@@ -933,7 +933,7 @@ func TestXmlBoxAssets(t *testing.T) {
 		"}"
 
 	alines := makeLines(lines)
-	alines[0]["file_number"] = "1"
+	alines[0].fields["file_number"] = "1"
 
 	categs := [][]string{
 		{"id", "name", "hidden", "morality_level",
@@ -1156,7 +1156,7 @@ func TestXmlBoxAssetsTrailers(t *testing.T) {
 		"}"
 
 	alines := makeLines(lines)
-	alines[0]["file_number"] = "1"
+	alines[0].fields["file_number"] = "1"
 
 	categs := [][]string{
 		{"id", "name", "hidden", "morality_level",
@@ -1351,7 +1351,7 @@ func TestXmlBoxCategories(t *testing.T) {
 	initVars(json)
 
 	assetLines := makeLines(aLines)
-	assetLines[0]["file_number"] = "1"
+	assetLines[0].fields["file_number"] = "1"
 
 	categLines := makeLines(categs)
 
@@ -1477,7 +1477,7 @@ func xTestXmlBoxSeries(t *testing.T) {
 	}
 	//fmt.Printf("%#v\n%#v\n%d %d", lines[0], lines[1], len(lines[0]), lenLine1)
 	maplines := makeLines(lines)
-	maplines[0]["file_number"] = "1"
+	maplines[0].fields["file_number"] = "1"
 	categs := [][]string{
 		{"id", "name", "hidden", "morality_level",
 			"parental_control", "adult", "downloadable", "offline"},
@@ -1645,7 +1645,7 @@ func TestXmlBoxSeries(t *testing.T) {
 		},
 	}
 	assetsLines := makeLines(assetsL)
-	assetsLines[0]["file_number"] = "1"
+	assetsLines[0].fields["file_number"] = "1"
 	options["options"]["timestamp"] = "200702102255"
 	options["options"]["creationDate"] = "2020-06-19"
 

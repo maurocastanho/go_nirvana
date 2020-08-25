@@ -287,17 +287,17 @@ func (wr *jsonWriter) initCateg() (map[string]interface{}, error) {
 	//fmt.Printf("Categories: [%#v]\n", wr.categLines)
 	for _, line := range wr.categLines {
 		el := make(map[string]interface{})
-		id, ok := line["id"]
+		id, ok := line.fields["id"]
 		if !ok || id == "" {
-			name, ok2 := line["name"]
+			name, ok2 := line.fields["name"]
 			if ok2 {
 				fmt.Printf("WARNING: categoria [%s] nao existente na aba 'categories'", name)
 			}
 			continue
 		}
-		el["id"] = line["id"]
+		el["id"] = line.fields["id"]
 		elName := make(map[string]interface{})
-		strNames := strings.Split(line["name"], "|")
+		strNames := strings.Split(line.fields["name"], "|")
 		for _, l := range strNames {
 			vals := strings.Split(l, ":")
 			if len(vals) < 2 {
@@ -307,12 +307,12 @@ func (wr *jsonWriter) initCateg() (map[string]interface{}, error) {
 			elName[vals[0]] = vals[1]
 		}
 		el["name"] = elName
-		el["hidden"] = line["hidden"] == "true"
-		el["morality_level"] = line["morality_level"]
-		el["parental_control"] = line["parental_control"] == "true"
-		el["adult"] = line["adult"] == "true"
-		el["downloadable"] = line["downloadable"] == "true"
-		el["offline"] = line["offline"] == "true"
+		el["hidden"] = line.fields["hidden"] == "true"
+		el["morality_level"] = line.fields["morality_level"]
+		el["parental_control"] = line.fields["parental_control"] == "true"
+		el["adult"] = line.fields["adult"] == "true"
+		el["downloadable"] = line.fields["downloadable"] == "true"
+		el["offline"] = line.fields["offline"] == "true"
 		el["metadata"] = make(map[string]interface{})
 		el["images"] = make([]interface{}, 0)
 		el["parent_id"] = ""
@@ -333,9 +333,9 @@ func (wr *jsonWriter) initSeries() (map[string]interface{}, error) {
 	currentId := ""
 	for _, line := range wr.serieLines {
 		toAppend := true
-		name, _ := line["title"]
+		name, _ := line.fields["title"]
 		//fmt.Printf("serie:[%s]\n", name)
-		id, ok := line["id"]
+		id, ok := line.fields["id"]
 		if !ok || id == "" {
 			return nil, fmt.Errorf("serie [%s] nao existente na aba 'series'", name)
 		}
@@ -349,7 +349,7 @@ func (wr *jsonWriter) initSeries() (map[string]interface{}, error) {
 		el = current
 		el["id"] = id
 		elName := make(map[string]interface{})
-		strNames := strings.Split(line["title"], "|")
+		strNames := strings.Split(line.fields["title"], "|")
 		for _, l := range strNames {
 			vals := strings.Split(l, ":")
 			if len(vals) < 2 {
@@ -361,7 +361,7 @@ func (wr *jsonWriter) initSeries() (map[string]interface{}, error) {
 		el["external_ids"] = make([]interface{}, 0)
 		el["title"] = elName
 		var err error
-		el["synopsys"], err = splitLangName(line["synopsis"])
+		el["synopsys"], err = splitLangName(line.fields["synopsis"])
 		if err != nil {
 			return nil, err
 		}
@@ -371,14 +371,14 @@ func (wr *jsonWriter) initSeries() (map[string]interface{}, error) {
 			elSeas = make([]interface{}, 0)
 		}
 		elSeasM := make(map[string]interface{})
-		elSeasM["id"] = line["id season"]
-		elSeasM["season_number"] = line["season"]
-		titleEls, err := splitLangName(line["title"])
+		elSeasM["id"] = line.fields["id season"]
+		elSeasM["season_number"] = line.fields["season"]
+		titleEls, err := splitLangName(line.fields["title"])
 		if err != nil {
 			return nil, err
 		}
 		elSeasM["title"] = titleEls
-		elSeasM["synopsis"], err = splitLangName(line["season synopsis"])
+		elSeasM["synopsis"], err = splitLangName(line.fields["season synopsis"])
 		if err != nil {
 			return nil, err
 		}
@@ -452,28 +452,28 @@ func (wr *jsonWriter) addToSeries(id string, serieName string) error {
 }
 
 // IMPORTANT: JsonWriter must be created separately for the categories file - do not use this method for the assets file
-func (wr *jsonWriter) processCategPack(row lineT, idField string, categField1 string, categField2 string) (int, error) {
-	categ1, ok1 := row[categField1]
+func (wr *jsonWriter) processCategPack(line lineT, idField string, categField1 string, categField2 string) (int, error) {
+	categ1, ok1 := line.fields[categField1]
 	if !ok1 {
-		return -2, fmt.Errorf("categoria 1 [%s] em branco na linha [%v]", categField1, row)
+		return -2, fmt.Errorf("categoria 1 [%s] em branco na linha [%v]", categField1, line)
 	}
-	if err := wr.addToCategories(row[idField], categ1, "categories"); err != nil {
+	if err := wr.addToCategories(line.fields[idField], categ1, "categories"); err != nil {
 		return -1, err
 	}
-	categ2, ok2 := row[categField2]
+	categ2, ok2 := line.fields[categField2]
 	if !ok2 {
 		return 0, nil // categ 2 can be empty
 	}
-	if err := wr.addToCategories(row[idField], categ2, "categories"); err != nil {
+	if err := wr.addToCategories(line.fields[idField], categ2, "categories"); err != nil {
 		return -1, err
 	}
 	return 0, nil
 }
 
 // IMPORTANT: JsonWriter must be created separately for the series file - do not use this method for the assets file
-func (wr *jsonWriter) processSeriesPack(row lineT, idField string, idEpisodeField string) (int, error) {
-	nEpis := row[idEpisodeField]
-	err := wr.addToSeries(row[idField], nEpis)
+func (wr *jsonWriter) processSeriesPack(line lineT, idField string, idEpisodeField string) (int, error) {
+	nEpis := line.fields[idEpisodeField]
+	err := wr.addToSeries(line.fields[idField], nEpis)
 	if err != nil {
 		return -1, err
 	}
@@ -508,11 +508,11 @@ func populateSerieIds(lines []lineT, options optionsT) error {
 	}
 	options["series"] = make(map[string]string)
 	for i, line := range lines {
-		id, ok1 := line[idF]
+		id, ok1 := line.fields[idF]
 		if !ok1 {
 			return fmt.Errorf("campo '%s' nao encontrado na planilha de series", idF)
 		}
-		title, ok2 := line[titleF]
+		title, ok2 := line.fields[titleF]
 		if !ok2 {
 			return fmt.Errorf("campo '%s' nao encontrado na planilha de series", titleF)
 		}
@@ -525,11 +525,11 @@ func populateSerieIds(lines []lineT, options optionsT) error {
 		if !ok {
 			return fmt.Errorf("serie '%s' nao tem nome em portugues", titleF)
 		}
-		nSeason, ok3 := line[nSeasonF]
+		nSeason, ok3 := line.fields[nSeasonF]
 		if !ok3 {
 			return fmt.Errorf("campo '%s' nao encontrado na planilha de series", nSeason)
 		}
-		idSeason, ok4 := line[idSeasonF]
+		idSeason, ok4 := line.fields[idSeasonF]
 		if !ok4 {
 			return fmt.Errorf("campo '%s' nao encontrado na planilha de series", idSeasonF)
 		}
