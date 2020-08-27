@@ -1,13 +1,13 @@
 {
   "series": [
     {
-      "external_ids": [],
+      "external_ids": {},
       "id": "6fe302ae-4671-4ec4-a780-7a01edc74e48",
       "images": [],
       "seasons": [
         {
           "id": "d620839c-245f-49b0-a42a-0687232b1555",
-          "season_number": "1",
+          "season_number": 1,
           "synopsis": {
             "eng": "First season",
             "por": "Primeira temporada"
@@ -28,13 +28,13 @@
       }
     },
     {
-      "external_ids": [],
+      "external_ids": {},
       "id": "506fa204-b5fc-4c65-90a9-711a614ad214",
       "images": [],
       "seasons": [
         {
           "id": "b7e5b23a-4787-4023-9d0d-e79e52c3342d",
-          "season_number": "1",
+          "season_number": 1,
           "synopsis": {
             "eng": "First season",
             "por": "Primeira temporada"
@@ -55,13 +55,13 @@
       }
     },
     {
-      "external_ids": [],
+      "external_ids": {},
       "id": "9d89fb96-4f4c-4997-abe5-b64ccaf54a4b",
       "images": [],
       "seasons": [
         {
           "id": "8747a1e0-5f6e-4292-ae66-52963a6d93ed",
-          "season_number": "1",
+          "season_number": 1,
           "synopsis": {
             "eng": "First season",
             "por": "Primeira temporada"
@@ -82,13 +82,13 @@
       }
     },
     {
-      "external_ids": [],
+      "external_ids": {},
       "id": "01f45ad5-b43a-4262-aaa2-3bbf0493578f",
       "images": [],
       "seasons": [
         {
           "id": "6cad1d09-78cf-4c71-9341-8b242fea2202",
-          "season_number": "1",
+          "season_number": 1,
           "synopsis": {
             "eng": "First season",
             "por": "Primeira temporada"
@@ -109,13 +109,13 @@
       }
     },
     {
-      "external_ids": [],
+      "external_ids": {},
       "id": "e7adee89-7154-424b-a748-d81158dbc11e",
       "images": [],
       "seasons": [
         {
           "id": "31cc5908-932e-4d43-9977-256ab6c3b386",
-          "season_number": "1",
+          "season_number": 1,
           "synopsis": {
             "eng": "First season",
             "por": "Primeira temporada"
@@ -136,13 +136,13 @@
       }
     },
     {
-      "external_ids": [],
+      "external_ids": {},
       "id": "9587b101-8647-4879-87c9-5b953485bc77",
       "images": [],
       "seasons": [
         {
           "id": "d2833e60-a4dc-472d-b58f-9d61f93c172e",
-          "season_number": "1",
+          "season_number": 1,
           "synopsis": {
             "eng": "First season",
             "por": "Primeira temporada"
@@ -163,13 +163,13 @@
       }
     },
     {
-      "external_ids": [],
+      "external_ids": {},
       "id": "805731a7-7feb-4dc9-b43c-5d2ccd1cede8",
       "images": [],
       "seasons": [
         {
           "id": "1661edd3-8006-4178-81d5-e8821287108b",
-          "season_number": "1",
+          "season_number": 1,
           "synopsis": {
             "eng": "First season",
             "por": "Primeira temporada"
@@ -190,13 +190,13 @@
       }
     },
     {
-      "external_ids": [],
+      "external_ids": {},
       "id": "72a2d982-dd16-4f79-a860-3bbbfcf182f6",
       "images": [],
       "seasons": [
         {
           "id": "ece16c7f-f1dd-4c9f-83e9-3238aedca9e0",
-          "season_number": "1",
+          "season_number": 1,
           "synopsis": {
             "eng": "First season",
             "por": "Primeira temporada"
@@ -217,13 +217,13 @@
       }
     },
     {
-      "external_ids": [],
+      "external_ids": {},
       "id": "6042ca20-11b4-4f69-8846-58b002c52a38",
       "images": [],
       "seasons": [
         {
           "id": "ee9d518c-28e3-436b-b98b-308ad34c5f08",
-          "season_number": "1",
+          "season_number": 1,
           "synopsis": {
             "eng": "First season",
             "por": "Primeira temporada"
@@ -244,13 +244,13 @@
       }
     },
     {
-      "external_ids": [],
+      "external_ids": {},
       "id": "db8a5c52-9d7a-4b27-a34d-40f674920763",
       "images": [],
       "seasons": [
         {
           "id": "678333a0-015d-4d9c-9e8c-822d2c1544c9",
-          "season_number": "1",
+          "season_number": 1,
           "synopsis": {
             "eng": "First season",
             "por": "Primeira temporada"
@@ -271,13 +271,13 @@
       }
     },
     {
-      "external_ids": [],
+      "external_ids": {},
       "id": "d92a15f0-efbe-4511-b036-1b76dabb8cc9",
       "images": [],
       "seasons": [
         {
           "id": "4652d74b-c76a-494f-83fa-200ff820fcdf",
-          "season_number": "1",
+          "season_number": 1,
           "synopsis": {
             "eng": "First season",
             "por": "Primeira temporada"

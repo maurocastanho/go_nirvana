@@ -358,7 +358,7 @@ func (wr *jsonWriter) initSeries() (map[string]interface{}, error) {
 			}
 			elName[vals[0]] = vals[1]
 		}
-		el["external_ids"] = make([]interface{}, 0)
+		//el["external_ids"] = make(map[string]interface{})
 		el["title"] = elName
 		var err error
 		el["synopsys"], err = splitLangName(line.fields["synopsis"])
@@ -372,7 +372,11 @@ func (wr *jsonWriter) initSeries() (map[string]interface{}, error) {
 		}
 		elSeasM := make(map[string]interface{})
 		elSeasM["id"] = line.fields["id season"]
-		elSeasM["season_number"] = line.fields["season"]
+		idSeason, err := strconv.Atoi(line.fields["season"])
+		if err != nil {
+			return nil, err
+		}
+		elSeasM["season_number"] = idSeason
 		titleEls, err := splitLangName(line.fields["title"])
 		if err != nil {
 			return nil, err
