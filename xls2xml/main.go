@@ -77,6 +77,7 @@ const errSuffix = "_ERRO"
 func main() {
 	success := 0
 	var err error
+
 	defer func() {
 		if msg := recover(); msg != nil {
 			success = -4
@@ -101,7 +102,6 @@ func main() {
 			log("*       VERIFIQUE MENSAGENS ACIMA         *")
 			log("*******************************************")
 		}
-
 	}()
 
 	log("-------------------------")
@@ -272,7 +272,7 @@ func processSpreadSheet(json map[string]interface{}, outType string, f *xlsx.Spr
 		}
 		lName = name
 		// publisher output
-		if jsonXls, hasPubOutput := json["xls_output"]; hasPubOutput {
+		if jsonXls, hasPubOutput := json["xls_output"]; hasPubOutput && success == 0 {
 			JsonXlsMap := jsonXls.(map[string]interface{})
 			var suc int
 			if xlsFilePath, suc, errs = processPublisherXLS(JsonXlsMap, outDir, nLines, pack); len(errs) > 0 {
@@ -310,11 +310,11 @@ func processSpreadSheet(json map[string]interface{}, outType string, f *xlsx.Spr
 				success = suc
 			}
 			// categories.json
-			if _, _, _, err = wrCategs.WriteConsolidated(1); err != nil {
+			if _, _, _, err = wrCategs.WriteConsolidated(categsT); err != nil {
 				return -1, []error{err}
 			}
 			// series.json
-			if _, _, _, err = wrSeries.WriteConsolidated(2); err != nil {
+			if _, _, _, err = wrSeries.WriteConsolidated(seriesT); err != nil {
 				return -1, []error{err}
 			}
 		}
@@ -549,15 +549,8 @@ func processAssets(json jsonT, lines []lineT, wr writer) (errs []error) {
 		return appendErrors("", errs, err)
 	}
 	// fmt.Println("----------")
-	var errors bool
-	if errs = appendErrors("", errs, processMap(json, lines, wr)...); len(errs) > 0 {
-		errors = true
-		log(fmt.Sprintf("Erros ao processar linhas:\n\n----------"))
-		for _, e := range errs {
-			logError(e)
-		}
-		errs = nil
-	}
+	errs = appendErrors("", errs, processMap(json, lines, wr)...)
+	errors := len(errs) > 0
 	rightFile := wr.Filename() + wr.Suffix()             // filename in case of success
 	wrongFile := wr.Filename() + errSuffix + wr.Suffix() // filename in case of errors
 	var fileOut string
@@ -922,23 +915,23 @@ func writeElem(wr writer, attrs []interface{}, lines []lineT, name string, procV
 
 func writeAttr(wr writer, nameElem string, commonAttrs map[string]interface{}, name string, procVal string, vtype string, attrType string) (errs []error, done bool) {
 	done = true
-	if errs = appendErrors(nameElem, errs, wr.StartElem(nameElem, singleT)); len(errs) > 0 {
+	if errs = appendErrors(name, errs, wr.StartElem(nameElem, singleT)); len(errs) > 0 {
 		return
 	}
 
 	defer func() {
-		errs = appendErrors(nameElem, errs, wr.EndElem(nameElem, singleT))
+		errs = appendErrors(name, errs, wr.EndElem(nameElem, singleT))
 	}()
 
 	for k, v := range commonAttrs {
-		if errs = appendErrors(nameElem, errs, wr.WriteAttr(k, v.(string), "string", "")); len(errs) > 0 {
+		if errs = appendErrors(name, errs, wr.WriteAttr(k, v.(string), "string", "")); len(errs) > 0 {
 			return
 		}
 	}
-	if errs = appendErrors(nameElem, errs, wr.WriteAttr("Name", name, "string", "")); len(errs) > 0 {
+	if errs = appendErrors(name, errs, wr.WriteAttr("Name", name, "string", "")); len(errs) > 0 {
 		return
 	}
-	if errs = appendErrors(nameElem, errs, wr.WriteAttr("Value", procVal, vtype, attrType)); len(errs) > 0 {
+	if errs = appendErrors(name, errs, wr.WriteAttr("Value", procVal, vtype, attrType)); len(errs) > 0 {
 		return
 	}
 	return nil, false

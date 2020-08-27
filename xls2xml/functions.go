@@ -212,8 +212,8 @@ func fieldValidated(forceVal string, line *lineT, json jsonT, options optionsT) 
 			return f, nil
 		}
 	}
-	return errorMessage, fmt.Errorf("falha na validacao do elemento '%s': %s, "+
-		"valores possiveis: %v na linha %d", json["Name"], f, opts, line.idx)
+	return errorMessage, fmt.Errorf("falha na validacao do elemento '%s': [%v], "+
+		"valores possiveis: %v na linha %d", json["Name"], f[0].val, opts, line.idx)
 }
 
 // FieldNoAccents returns the field after replacing accented characters for its non-accented correspondents
@@ -595,7 +595,7 @@ func filterCondition(forceVal string, line *lineT, json jsonT, options optionsT)
 	}
 	condResult, err := evalCondition(cond, line)
 	if err != nil {
-		return errorMessage, err
+		return errorMessage, fmt.Errorf("falha ao avaliar expressao [%s]: [%s] na linha %v", cond, err.Error(), line.idx)
 	}
 	if condResult {
 		funcName, ok1 := json["function"].(string)

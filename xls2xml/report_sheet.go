@@ -162,7 +162,7 @@ func (rs *reportSheet) WriteAttr(name string, value string, vtype string, _ stri
 	case "time":
 		time, err := toTimeSeconds(value)
 		if err != nil {
-			log(fmt.Sprintf("%s *--------> %#v\n", name, val))
+			logError(err)
 			val = ERRS
 			break
 		}
@@ -172,7 +172,7 @@ func (rs *reportSheet) WriteAttr(name string, value string, vtype string, _ stri
 	case "time_s":
 		sec, err := toTimeSeconds(value)
 		if err != nil {
-			log(fmt.Sprintf("%s *--------> %#v\n", name, val))
+			logError(err)
 			val = ERRS
 			break
 		}
@@ -244,8 +244,8 @@ func (rs *reportSheet) WriteConsolidated(_ int) ([]byte, []byte, []byte, error) 
 }
 
 // Testing returns true if is running in a testing environment
-func (wr *reportSheet) Testing() bool {
-	return wr.testing
+func (rs *reportSheet) Testing() bool {
+	return rs.testing
 }
 
 //func (rs *reportSheet) processColumns(_ string, json []interface{}, lines []lineT, wr writer) (err2 []error) {

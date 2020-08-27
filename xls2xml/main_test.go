@@ -1581,13 +1581,13 @@ func TestXmlBoxSeries(t *testing.T) {
 	expectedSeries := "{\n" +
 		"  \"series\": [\n" +
 		"    {\n" +
-		"      \"external_ids\": [],\n" +
+		"      \"external_ids\": {},\n" +
 		"      \"id\": \"3d0666d2-0d6e-4687-b37b-1f65e173f889\",\n" +
 		"      \"images\": [],\n" +
 		"      \"seasons\": [\n" +
 		"        {\n" +
 		"          \"id\": \"3ee50673-3b99-4cf9-8fb2-1ad5223f4688\",\n" +
-		"          \"season_number\": \"1\",\n" +
+		"          \"season_number\": 1,\n" +
 		"          \"synopsis\": {\n" +
 		"            \"eng\": \"First season\",\n" +
 		"            \"por\": \"Primeira temporada\"\n" +
@@ -1598,7 +1598,7 @@ func TestXmlBoxSeries(t *testing.T) {
 		"        },\n" +
 		"        {\n" +
 		"          \"id\": \"19e1327c-7c0f-491f-9ef0-0365641cb9a1\",\n" +
-		"          \"season_number\": \"2\",\n" +
+		"          \"season_number\": 2,\n" +
 		"          \"synopsis\": {\n" +
 		"            \"eng\": \"Second Season\",\n" +
 		"            \"por\": \"Segunda temporada\"\n" +
