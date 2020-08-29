@@ -14,6 +14,7 @@
         "filename": "publicar_box.xls",
         "sheet": "Formulário",
         "columns": [
+            {"Name": "ID", "field": "uuid_box", "function": "field_raw"},
             {"Name": "ORIGINAL TITLE", "field": "Título Original", "function": "field_raw"},
             {"Name": "TÍTULO EM PORTUGUÊS", "field": "Título em Português", "function": "field_raw"},
             {"Name": "NOME DO EPISÓDIO", "field": "Título em Português do Episódio", "function": "field_raw"},
