@@ -68,7 +68,7 @@
                         {"Name": "duration", "function": "field", "field": "Duração", "type": "timestamp"},
                         {"Name": "series_id", "function": "series_id", "field": "Título em Português", "filter": "Número_do_Episódio != ''"},
                         {"Name": "season_id", "function": "season_id", "field": "Título em Português", "filter": "Número_do_Episódio != ''"},
-                        {"Name": "season_episode_number", "function": "field", "field": "Número do Episódio", "filter": "Número_do_Episódio != ''"},
+                        {"Name": "season_episode_number", "function": "field", "field": "Número do Episódio", "type": "int", "filter": "Número_do_Episódio != ''"},
                         {
                             "Name": "genres",
                             "function": "empty",

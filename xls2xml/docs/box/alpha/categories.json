@@ -1,0 +1,2028 @@
+{
+	"categories": [
+		{
+		"id": "7b4ef709-51d8-438c-b2b1-4123dc5c6c01",
+		"name": {
+		"por": "Prime Box Brazil"
+		},
+		"description_translations": {
+		"por": "Prime Box Brazil, somos feitos de histórias."
+		},
+		"hidden": false,
+		"morality_level": 0,
+		"parental_control": false,
+		"adult": false,
+		"downloadable": false,
+		"offline": false,
+		"metadata": {},
+		"images": [
+			{
+			"id": "c01ef709-pimg-logo-b2b1-4123dc5c67p",
+			"type": "vod-poster",
+			"language": "por",
+			"location": "logos/prime_POSTER_1440x2160.png"
+			},
+			{
+			"id": "c01ef709-bimg-logo-b2b1-4123dc5c67p",
+			"type": "vod-background",
+			"language": "por",
+			"location": "logos/PRIME_COVER_1920x1080.png"
+			}
+		],
+		"series_id": "null",
+		"season_id": "null",
+		"parent_id": "",
+		"assets": [
+			"c01d7acd-c432-45d6-8d3c-6508bbb6p001",
+			"c01d7acd-c432-45d6-8d3c-6508bbb6p002",
+			"c01d7acd-c432-45d6-8d3c-6508bbb6p003",
+			"c01d7acd-c432-45d6-8d3c-6508bbb6p004",
+			"c01d7acd-c432-45d6-8d3c-6508bbb6p005",
+			"c01d7acd-c432-45d6-8d3c-6508bbb6p006",
+			"c01d7acd-c432-45d6-8d3c-6508bbb6p007",
+			"c01d7acd-c432-45d6-8d3c-6508bbb6p008",
+			"c01d7acd-c432-45d6-8d3c-6508bbb6p009",
+			"c01d7acd-c432-45d6-8d3c-6508bbb6p010"
+		]
+		},
+
+		{
+		"id": "7b4ef709-51d8-438c-b2b1-4123dc5c6c02",
+		"name": {
+		"por": "Travel Box Brazil"
+		},
+		"description_translations": {
+		"por": "Travel Box Brazil. A vida é uma viagem."
+		},
+		"hidden": false,
+		"morality_level": 0,
+		"parental_control": false,
+		"adult": false,
+		"downloadable": false,
+		"offline": false,
+		"metadata": {},
+		"images": [
+			{
+			"id": "c02ef709-pimg-logo-b2b1-4123dc5c67t",
+			"type": "vod-poster",
+			"language": "por",
+			"location": "logos/travel_POSTER_1440x2160.png"
+			},
+			{
+			"id": "c02ef709-bimg-logo-b2b1-4123dc5c67t",
+			"type": "vod-background",
+			"language": "por",
+			"location": "logos/travel_COVER_1920x1080.png"
+			}
+		],
+		"series_id": "null",
+		"season_id": "null",
+		"parent_id": "",
+		"assets": [
+			"c02d7acd-c432-45d6-8d3c-6508bbb6t023"
+		]
+		},
+		
+		{
+		"id": "c02af709-51d8-438c-b2b1-4123dc5c6c02",
+		"name": {
+		"por": "Bora"
+		},
+		"description_translations": {
+		"por": "Família Grilo parte para a aventura de suas vidas: explorar o mundo em um barco! Acompanhete a trajetória desta família que conta até com uma cachorrinha de estimação, a Lola."
+		},
+		"hidden": false,
+		"morality_level": 0,
+		"parental_control": false,
+		"adult": false,
+		"downloadable": false,
+		"offline": false,
+		"metadata": {},
+		"images": [
+			{
+			"id": "c02af709-pimg-438c-b2b1-4123dc5c67a1",
+			"type": "vod-poster",
+			"language": "por",
+			"location": "Bora/BORA_POSTER_1440x2160.jpg"
+			},
+			{
+			"id": "c02af709-bimg-438c-b2b1-4123dc5c67a1",
+			"type": "vod-background",
+			"language": "por",
+			"location": "Bora/BORA_COVER_1920x1080.jpg"
+			}
+		],
+		"series_id": "c02c4c5c-68c5-4e00-a98b-754b9e9ft001",
+		"season_id": "null",
+		"parent_id": "7b4ef709-51d8-438c-b2b1-4123dc5c6c02",
+		"assets": [
+			""
+		]
+		},
+		
+		{
+		"id": "c02a1709-51d8-438c-b2b1-4123dc5c6c02",
+		"name": {
+		"por": "Bora T1"
+		},
+		"description_translations": {
+		"por": "Família Grilo parte para a aventura de suas vidas: explorar o mundo em um barco! Acompanhete a trajetória desta família que conta até com uma cachorrinha de estimação, a Lola."
+		},
+		"hidden": false,
+		"morality_level": 0,
+		"parental_control": false,
+		"adult": false,
+		"downloadable": false,
+		"offline": false,
+		"metadata": {},
+		"images": [
+			{
+			"id": "c02a1709-pimg-438c-b2b1-4123dc5c67a1",
+			"type": "vod-poster",
+			"language": "por",
+			"location": "Bora/BORA_POSTER_1440x2160.jpg"
+			},
+			{
+			"id": "c02a1709-bimg-438c-b2b1-4123dc5c67a1",
+			"type": "vod-background",
+			"language": "por",
+			"location": "Bora/BORA_COVER_1920x1080.jpg"
+			}
+		],
+		"series_id": "c02c4c5c-68c5-4e00-a98b-754b9e9ft001",
+		"season_id": "c02bab6c-ts01-4ed5-ab91-b4ec4150s001",
+		"parent_id": "c02af709-51d8-438c-b2b1-4123dc5c6c02",
+		"assets": [
+			"c02d7acd-c432-45d6-8d3c-6508bbb6t001",
+			"c02d7acd-c432-45d6-8d3c-6508bbb6t002",
+			"c02d7acd-c432-45d6-8d3c-6508bbb6t003",
+			"c02d7acd-c432-45d6-8d3c-6508bbb6t004",
+			"c02d7acd-c432-45d6-8d3c-6508bbb6t005",
+			"c02d7acd-c432-45d6-8d3c-6508bbb6t006"
+		]
+		},
+		
+		{
+		"id": "c02bf709-51d8-438c-b2b1-4123dc5c6c02",
+		"name": {
+		"por": "Contrafluxo"
+		},
+		"description_translations": {
+		"por": "O projeto Contrafluxo é uma série documental conduzida por uma família de film makers que começou a registrar e a compartilhar histórias transformadoras de gente que respira liberdade, que procura um resgate da essência do ser humano e que valoriza a experiência em si.  A ideia é provocar um questionamento no pensamento comum contemporâneo, revelando outras possibilidades de se viver, e fazendo uma reflexão sobre o sentido da vida."
+		},
+		"hidden": false,
+		"morality_level": 0,
+		"parental_control": false,
+		"adult": false,
+		"downloadable": false,
+		"offline": false,
+		"metadata": {},
+		"images": [
+			{
+			"id": "c02bf709-pimg-438c-b2b1-4123dc5c67b1",
+			"type": "vod-poster",
+			"language": "por",
+			"location": "Contra Fluxo/contrafluxo_poster_1440x2160.jpg"
+			},
+			{
+			"id": "c02bf709-bimg-438c-b2b1-4123dc5c67b1",
+			"type": "vod-background",
+			"language": "por",
+			"location": "Contra Fluxo/contrafluxo_cover_1920x1080.jpg"
+			}
+		],
+		"series_id": "c02c4c5c-68c5-4e00-a98b-754b9e9ft002",
+		"season_id": "null",
+		"parent_id": "7b4ef709-51d8-438c-b2b1-4123dc5c6c02",
+		"assets": [
+			""
+		]
+		},
+		
+		{
+		"id": "c02b1709-51d8-438c-b2b1-4123dc5c6c02",
+		"name": {
+		"por": "Contrafluxo T1"
+		},
+		"description_translations": {
+		"por": "O projeto Contrafluxo é uma série documental conduzida por uma família de film makers que começou a registrar e a compartilhar histórias transformadoras de gente que respira liberdade, que procura um resgate da essência do ser humano e que valoriza a experiência em si.  A ideia é provocar um questionamento no pensamento comum contemporâneo, revelando outras possibilidades de se viver, e fazendo uma reflexão sobre o sentido da vida."
+		},
+		"hidden": false,
+		"morality_level": 0,
+		"parental_control": false,
+		"adult": false,
+		"downloadable": false,
+		"offline": false,
+		"metadata": {},
+		"images": [
+			{
+			"id": "c02b1709-pimg-438c-b2b1-4123dc5c67b1",
+			"type": "vod-poster",
+			"language": "por",
+			"location": "Contra Fluxo/contrafluxo_poster_1440x2160.jpg"
+			},
+			{
+			"id": "c02b1709-bimg-438c-b2b1-4123dc5c67b1",
+			"type": "vod-background",
+			"language": "por",
+			"location": "Contra Fluxo/contrafluxo_cover_1920x1080.jpg"
+			}
+		],
+		"series_id": "c02c4c5c-68c5-4e00-a98b-754b9e9ft002",
+		"season_id": "c02bab6c-ts02-4ed5-ab91-b4ec4150s002",
+		"parent_id": "c02bf709-51d8-438c-b2b1-4123dc5c6c02",
+		"assets": [
+			"c02d7acd-c432-45d6-8d3c-6508bbb6t007",
+			"c02d7acd-c432-45d6-8d3c-6508bbb6t008",
+			"c02d7acd-c432-45d6-8d3c-6508bbb6t009",
+			"c02d7acd-c432-45d6-8d3c-6508bbb6t010",
+			"c02d7acd-c432-45d6-8d3c-6508bbb6t011",
+			"c02d7acd-c432-45d6-8d3c-6508bbb6t012"
+		]
+		},
+		
+		{
+		"id": "c02cf709-51d8-438c-b2b1-4123dc5c6c02",
+		"name": {
+		"por": "Mobylas"
+		},
+		"description_translations": {
+		"por": "Trabalhamos com máquinas e restauro, mas do nosso próprio jeito: motores dois tempos e cinquenta cilindradas. Fanáticos por mobiletes, fabricadas entre os anos 1960 e 1990 e que está entre uma moto e uma bicicleta, criaram o Tongnhas Mob Club, com sede em São Paulo."
+		},
+		"hidden": false,
+		"morality_level": 0,
+		"parental_control": false,
+		"adult": false,
+		"downloadable": false,
+		"offline": false,
+		"metadata": {},
+		"images": [
+			{
+			"id": "c02cf709-pimg-438c-b2b1-4123dc5c67c1",
+			"type": "vod-poster",
+			"language": "por",
+			"location": "Mobylas/mobylas_poster_1440x2160.jpg"
+			},
+			{
+			"id": "c02cf709-bimg-438c-b2b1-4123dc5c67c1",
+			"type": "vod-background",
+			"language": "por",
+			"location": "Mobylas/mobylas_cover_1920x1080.jpg"
+			}
+		],
+		"series_id": "c02c4c5c-68c5-4e00-a98b-754b9e9ft003",
+		"season_id": "null",
+		"parent_id": "7b4ef709-51d8-438c-b2b1-4123dc5c6c02",
+		"assets": [
+			""
+		]
+		},
+		
+		{
+		"id": "c02c1709-51d8-438c-b2b1-4123dc5c6c02",
+		"name": {
+		"por": "Mobylas T1"
+		},
+		"description_translations": {
+		"por": "Trabalhamos com máquinas e restauro, mas do nosso próprio jeito: motores dois tempos e cinquenta cilindradas. Fanáticos por mobiletes, fabricadas entre os anos 1960 e 1990 e que está entre uma moto e uma bicicleta, criaram o Tongnhas Mob Club, com sede em São Paulo."
+		},
+		"hidden": false,
+		"morality_level": 0,
+		"parental_control": false,
+		"adult": false,
+		"downloadable": false,
+		"offline": false,
+		"metadata": {},
+		"images": [
+			{
+			"id": "c02c1709-pimg-438c-b2b1-4123dc5c67c1",
+			"type": "vod-poster",
+			"language": "por",
+			"location": "Mobylas/mobylas_poster_1440x2160.jpg"
+			},
+			{
+			"id": "c02c1709-bimg-438c-b2b1-4123dc5c67c1",
+			"type": "vod-background",
+			"language": "por",
+			"location": "Mobylas/mobylas_cover_1920x1080.jpg"
+			}
+		],
+		"series_id": "c02c4c5c-68c5-4e00-a98b-754b9e9ft003",
+		"season_id": "c02bab6c-ts03-4ed5-ab91-b4ec4150s003",
+		"parent_id": "c02cf709-51d8-438c-b2b1-4123dc5c6c02",
+		"assets": [
+			"c02d7acd-c432-45d6-8d3c-6508bbb6t013",
+			"c02d7acd-c432-45d6-8d3c-6508bbb6t014",
+			"c02d7acd-c432-45d6-8d3c-6508bbb6t015",
+			"c02d7acd-c432-45d6-8d3c-6508bbb6t016",
+			"c02d7acd-c432-45d6-8d3c-6508bbb6t017",
+			"c02d7acd-c432-45d6-8d3c-6508bbb6t018"
+		]
+		},
+		
+		{
+		"id": "c02df709-51d8-438c-b2b1-4123dc5c6c02",
+		"name": {
+		"por": "Partiu Aventura"
+		},
+		"description_translations": {
+		"por": "Partiu Aventura: seis amigos, um monte de pranchas e pé na estrada. Unidos pela amizade e paixão pelos esportes de aventura, Nicole, Sérgio, Maíra, Bruno, Babi e Kombi seguem numa viagem pelo litoral norte da Bahia em busca dos lugares ideais para fazerem o que mais gostam: sentir a adrenalina correr no sangue. Eles surfam, remam, pedalam, pescam e se deslumbram com alguns dos mais belos cenários da linha verde."
+		},
+		"hidden": false,
+		"morality_level": 0,
+		"parental_control": false,
+		"adult": false,
+		"downloadable": false,
+		"offline": false,
+		"metadata": {},
+		"images": [
+			{
+			"id": "c02df709-pimg-438c-b2b1-4123dc5c67d1",
+			"type": "vod-poster",
+			"language": "por",
+			"location": "Partiu Aventura/partiuaventura_poster_1440x2160.jpg"
+			},
+			{
+			"id": "c02df709-bimg-438c-b2b1-4123dc5c67d1",
+			"type": "vod-background",
+			"language": "por",
+			"location": "Partiu Aventura/partiuaventura_cover_1920x1080.jpg"
+			}
+		],
+		"series_id": "c02c4c5c-68c5-4e00-a98b-754b9e9ft004",
+		"season_id": "null",
+		"parent_id": "7b4ef709-51d8-438c-b2b1-4123dc5c6c02",
+		"assets": [
+			""
+		]
+		},
+		
+		{
+		"id": "c02d1709-51d8-438c-b2b1-4123dc5c6c02",
+		"name": {
+		"por": "Partiu Aventura T1"
+		},
+		"description_translations": {
+		"por": "Partiu Aventura: seis amigos, um monte de pranchas e pé na estrada. Unidos pela amizade e paixão pelos esportes de aventura, Nicole, Sérgio, Maíra, Bruno, Babi e Kombi seguem numa viagem pelo litoral norte da Bahia em busca dos lugares ideais para fazerem o que mais gostam: sentir a adrenalina correr no sangue. Eles surfam, remam, pedalam, pescam e se deslumbram com alguns dos mais belos cenários da linha verde."
+		},
+		"hidden": false,
+		"morality_level": 0,
+		"parental_control": false,
+		"adult": false,
+		"downloadable": false,
+		"offline": false,
+		"metadata": {},
+		"images": [
+			{
+			"id": "c02d1709-pimg-438c-b2b1-4123dc5c67d1",
+			"type": "vod-poster",
+			"language": "por",
+			"location": "Partiu Aventura/partiuaventura_poster_1440x2160.jpg"
+			},
+			{
+			"id": "c02d1709-bimg-438c-b2b1-4123dc5c67d1",
+			"type": "vod-background",
+			"language": "por",
+			"location": "Partiu Aventura/partiuaventura_cover_1920x1080.jpg"
+			}
+		],
+		"series_id": "c02c4c5c-68c5-4e00-a98b-754b9e9ft004",
+		"season_id": "c02bab6c-ts04-4ed5-ab91-b4ec4150s004",
+		"parent_id": "c02df709-51d8-438c-b2b1-4123dc5c6c02",
+		"assets": [
+			"c02d7acd-c432-45d6-8d3c-6508bbb6t019",
+			"c02d7acd-c432-45d6-8d3c-6508bbb6t020",
+			"c02d7acd-c432-45d6-8d3c-6508bbb6t021",
+			"c02d7acd-c432-45d6-8d3c-6508bbb6t022"
+		]
+		},
+		
+		{
+		"id": "c02ef709-51d8-438c-b2b1-4123dc5c6c02",
+		"name": {
+		"por": "Abrolhos"
+		},
+		"description_translations": {
+		"por": "Considerada a mais extensa área de recifes de coral do Atlântico Sul, a região dos Abrolhos, no extremo sul baiano, é o foco deste documentário. São 104 minutos de belíssimas imagens, que apresentam o arquipélago e suas belezas naturais de uma maneira única, trazendo a mensagem da importância da conservação para as gerações futuras."
+		},
+		"hidden": false,
+		"morality_level": 0,
+		"parental_control": false,
+		"adult": false,
+		"downloadable": false,
+		"offline": false,
+		"metadata": {},
+		"images": [
+			{
+			"id": "c02ef709-pimg-438c-b2b1-4123dc5c67e1",
+			"type": "vod-poster",
+			"language": "por",
+			"location": "Abrolhos/abrolhos_POSTER_1440x2160.jpg"
+			},
+			{
+			"id": "c02ef709-bimg-438c-b2b1-4123dc5c67e1",
+			"type": "vod-background",
+			"language": "por",
+			"location": "Abrolhos/abrolhos_COVER_1920x1080.jpg"
+			}
+		],
+		"series_id": "c02c4c5c-68c5-4e00-a98b-754b9e9ft006",
+		"season_id": "null",
+		"parent_id": "7b4ef709-51d8-438c-b2b1-4123dc5c6c02",
+		"assets": [
+			""
+		]
+		},
+		
+		{
+		"id": "c02e1709-51d8-438c-b2b1-4123dc5c6c02",
+		"name": {
+		"por": "Abrolhos T1"
+		},
+		"description_translations": {
+		"por": "Considerada a mais extensa área de recifes de coral do Atlântico Sul, a região dos Abrolhos, no extremo sul baiano, é o foco deste documentário. São 104 minutos de belíssimas imagens, que apresentam o arquipélago e suas belezas naturais de uma maneira única, trazendo a mensagem da importância da conservação para as gerações futuras."
+		},
+		"hidden": false,
+		"morality_level": 0,
+		"parental_control": false,
+		"adult": false,
+		"downloadable": false,
+		"offline": false,
+		"metadata": {},
+		"images": [
+			{
+			"id": "c02e1709-pimg-438c-b2b1-4123dc5c67e1",
+			"type": "vod-poster",
+			"language": "por",
+			"location": "Abrolhos/abrolhos_POSTER_1440x2160.jpg"
+			},
+			{
+			"id": "c02e1709-bimg-438c-b2b1-4123dc5c67e1",
+			"type": "vod-background",
+			"language": "por",
+			"location": "Abrolhos/abrolhos_COVER_1920x1080.jpg"
+			}
+		],
+		"series_id": "c02c4c5c-68c5-4e00-a98b-754b9e9ft006",
+		"season_id": "c02bab6c-ts06-4ed5-ab91-b4ec4150s006",
+		"parent_id": "c02ef709-51d8-438c-b2b1-4123dc5c6c02",
+		"assets": [
+			"c02d7acd-c432-45d6-8d3c-6508bbb6t024",
+			"c02d7acd-c432-45d6-8d3c-6508bbb6t025"
+		]
+		},
+		
+		{
+		"id": "c02ff709-51d8-438c-b2b1-4123dc5c6c02",
+		"name": {
+		"por": "Destino BR Empreendedor"
+		},
+		"description_translations": {
+		"por": "Destino Brasil Empreendedor faz uma viagem pelo país em busca dos melhores sabores e experiências revelando aquilo que faz essas regiões tão especiais e descobrindo o universo que as cercam: de paisagens únicas e pessoas ou eventos marcantes a outros muitos sabores que preenchem a mesa brasileira – sempre privilegiando a experiência com micro e pequenos empreendedores."
+		},
+		"hidden": false,
+		"morality_level": 0,
+		"parental_control": false,
+		"adult": false,
+		"downloadable": false,
+		"offline": false,
+		"metadata": {},
+		"images": [
+			{
+			"id": "c02ff709-pimg-438c-b2b1-4123dc5c67f1",
+			"type": "vod-poster",
+			"language": "por",
+			"location": "Destino BR Empreendedor/brempreendedor_poster_1440x2160.jpg"
+			},
+			{
+			"id": "c02ff709-bimg-438c-b2b1-4123dc5c67f1",
+			"type": "vod-background",
+			"language": "por",
+			"location": "Destino BR Empreendedor/brempreendedor_cover_1920x1080.jpg"
+			}
+		],
+		"series_id": "c02c4c5c-68c5-4e00-a98b-754b9e9ft007",
+		"season_id": "null",
+		"parent_id": "7b4ef709-51d8-438c-b2b1-4123dc5c6c02",
+		"assets": [
+			""
+		]
+		},
+		
+		{
+		"id": "c02f1709-51d8-438c-b2b1-4123dc5c6c02",
+		"name": {
+		"por": "Destino BR Empreendedor T1"
+		},
+		"description_translations": {
+		"por": "Destino Brasil Empreendedor faz uma viagem pelo país em busca dos melhores sabores e experiências revelando aquilo que faz essas regiões tão especiais e descobrindo o universo que as cercam: de paisagens únicas e pessoas ou eventos marcantes a outros muitos sabores que preenchem a mesa brasileira – sempre privilegiando a experiência com micro e pequenos empreendedores."
+		},
+		"hidden": false,
+		"morality_level": 0,
+		"parental_control": false,
+		"adult": false,
+		"downloadable": false,
+		"offline": false,
+		"metadata": {},
+		"images": [
+			{
+			"id": "c02f1709-pimg-438c-b2b1-4123dc5c67f1",
+			"type": "vod-poster",
+			"language": "por",
+			"location": "Destino BR Empreendedor/brempreendedor_poster_1440x2160.jpg"
+			},
+			{
+			"id": "c02f1709-bimg-438c-b2b1-4123dc5c67f1",
+			"type": "vod-background",
+			"language": "por",
+			"location": "Destino BR Empreendedor/brempreendedor_cover_1920x1080.jpg"
+			}
+		],
+		"series_id": "c02c4c5c-68c5-4e00-a98b-754b9e9ft007",
+		"season_id": "c02bab6c-ts07-4ed5-ab91-b4ec4150s007",
+		"parent_id": "c02ff709-51d8-438c-b2b1-4123dc5c6c02",
+		"assets": [
+			"c02d7acd-c432-45d6-8d3c-6508bbb6t026",
+			"c02d7acd-c432-45d6-8d3c-6508bbb6t027",
+			"c02d7acd-c432-45d6-8d3c-6508bbb6t028",
+			"c02d7acd-c432-45d6-8d3c-6508bbb6t029",
+			"c02d7acd-c432-45d6-8d3c-6508bbb6t030"
+		]
+		},
+		
+		{
+		"id": "c02gf709-51d8-438c-b2b1-4123dc5c6c02",
+		"name": {
+		"por": "Ilex, A Busca Pelo Sabor"
+		},
+		"description_translations": {
+		"por": "A série “Ilex” apresenta os desafios da economia da Erva-mate. A história de pessoas envolvidas nessa busca pelo sabor, que desenvolvem umas das plantas nativas do Brasil com excelente potencial de consumo e cultivo sustentável."
+		},
+		"hidden": false,
+		"morality_level": 0,
+		"parental_control": false,
+		"adult": false,
+		"downloadable": false,
+		"offline": false,
+		"metadata": {},
+		"images": [
+			{
+			"id": "c02gf709-pimg-438c-b2b1-4123dc5c67g1",
+			"type": "vod-poster",
+			"language": "por",
+			"location": "Ilex/ilex_poster_1440x2160.jpg"
+			},
+			{
+			"id": "c02gf709-bimg-438c-b2b1-4123dc5c67g1",
+			"type": "vod-background",
+			"language": "por",
+			"location": "Ilex/ilex_cover_1920x1080.jpg"
+			}
+		],
+		"series_id": "c02c4c5c-68c5-4e00-a98b-754b9e9ft008",
+		"season_id": "null",
+		"parent_id": "7b4ef709-51d8-438c-b2b1-4123dc5c6c02",
+		"assets": [
+			""
+		]
+		},
+		
+		{
+		"id": "c02g1709-51d8-438c-b2b1-4123dc5c6c02",
+		"name": {
+		"por": "Ilex, A Busca Pelo Sabor T1"
+		},
+		"description_translations": {
+		"por": "A série “Ilex” apresenta os desafios da economia da Erva-mate. A história de pessoas envolvidas nessa busca pelo sabor, que desenvolvem umas das plantas nativas do Brasil com excelente potencial de consumo e cultivo sustentável."
+		},
+		"hidden": false,
+		"morality_level": 0,
+		"parental_control": false,
+		"adult": false,
+		"downloadable": false,
+		"offline": false,
+		"metadata": {},
+		"images": [
+			{
+			"id": "c02g1709-pimg-438c-b2b1-4123dc5c67g1",
+			"type": "vod-poster",
+			"language": "por",
+			"location": "Ilex/ilex_poster_1440x2160.jpg"
+			},
+			{
+			"id": "c02g1709-bimg-438c-b2b1-4123dc5c67g1",
+			"type": "vod-background",
+			"language": "por",
+			"location": "Ilex/ilex_cover_1920x1080.jpg"
+			}
+		],
+		"series_id": "c02c4c5c-68c5-4e00-a98b-754b9e9ft008",
+		"season_id": "c02bab6c-ts08-4ed5-ab91-b4ec4150s008",
+		"parent_id": "c02gf709-51d8-438c-b2b1-4123dc5c6c02",
+		"assets": [
+			"c02d7acd-c432-45d6-8d3c-6508bbb6t031",
+			"c02d7acd-c432-45d6-8d3c-6508bbb6t032",
+			"c02d7acd-c432-45d6-8d3c-6508bbb6t033",
+			"c02d7acd-c432-45d6-8d3c-6508bbb6t034",
+			"c02d7acd-c432-45d6-8d3c-6508bbb6t035",
+			"c02d7acd-c432-45d6-8d3c-6508bbb6t036"
+
+		]
+		},
+		
+		{
+		"id": "c02hf709-51d8-438c-b2b1-4123dc5c6c02",
+		"name": {
+		"por": "Estradas do Mundo"
+		},
+		"description_translations": {
+		"por": "O expedicionário Fernando Nienkotter embarca em viagens com amigos para conhecer as estradas do mundo."
+		},
+		"hidden": false,
+		"morality_level": 0,
+		"parental_control": false,
+		"adult": false,
+		"downloadable": false,
+		"offline": false,
+		"metadata": {},
+		"images": [
+			{
+			"id": "c02hf709-pimg-438c-b2b1-4123dc5c67h1",
+			"type": "vod-poster",
+			"language": "por",
+			"location": "Estradas do Mundo/estradasdomundo_poster_1440x2160.jpg"
+			},
+			{
+			"id": "c02hf709-bimg-438c-b2b1-4123dc5c67h1",
+			"type": "vod-background",
+			"language": "por",
+			"location": "Estradas do Mundo/estradasdomundo_cover_1920x1080.jpg"
+			}
+		],
+		"series_id": "c02c4c5c-68c5-4e00-a98b-754b9e9ft009",
+		"season_id": "null",
+		"parent_id": "7b4ef709-51d8-438c-b2b1-4123dc5c6c02",
+		"assets": [
+			""
+		]
+		},
+		
+		{
+		"id": "c02h1709-51d8-438c-b2b1-4123dc5c6c02",
+		"name": {
+		"por": "Estradas do Mundo T1"
+		},
+		"description_translations": {
+		"por": "O expedicionário Fernando Nienkotter embarca em viagens com amigos para conhecer as estradas do mundo."
+		},
+		"hidden": false,
+		"morality_level": 0,
+		"parental_control": false,
+		"adult": false,
+		"downloadable": false,
+		"offline": false,
+		"metadata": {},
+		"images": [
+			{
+			"id": "c02h1709-pimg-438c-b2b1-4123dc5c67h1",
+			"type": "vod-poster",
+			"language": "por",
+			"location": "Estradas do Mundo/estradasdomundo_poster_1440x2160.jpg"
+			},
+			{
+			"id": "c02h1709-bimg-438c-b2b1-4123dc5c67h1",
+			"type": "vod-background",
+			"language": "por",
+			"location": "Estradas do Mundo/estradasdomundo_cover_1920x1080.jpg"
+			}
+		],
+		"series_id": "c02c4c5c-68c5-4e00-a98b-754b9e9ft009",
+		"season_id": "c02bab6c-ts09-4ed5-ab91-b4ec4150s009",
+		"parent_id": "c02hf709-51d8-438c-b2b1-4123dc5c6c02",
+		"assets": [
+			"c02d7acd-c432-45d6-8d3c-6508bbb6t037",
+			"c02d7acd-c432-45d6-8d3c-6508bbb6t038",
+			"c02d7acd-c432-45d6-8d3c-6508bbb6t039",
+			"c02d7acd-c432-45d6-8d3c-6508bbb6t040",
+			"c02d7acd-c432-45d6-8d3c-6508bbb6t041",
+			"c02d7acd-c432-45d6-8d3c-6508bbb6t042"
+		]
+		},
+		
+		{
+		"id": "c02if709-51d8-438c-b2b1-4123dc5c6c02",
+		"name": {
+		"por": "Luzes, Cores e Formas"
+		},
+		"description_translations": {
+		"por": "A série “Luzes, Cores & Formas” apresenta os mais importantes artistas plásticos maranhenses. Cada um com suas particularidades, o que eles possuem em comum é a diversidade das raízes maranhenses, que como o nome da série diz, junta luzes, cores e formas num caleidoscópio maravilhoso de imagens e sentimentos."
+		},
+		"hidden": false,
+		"morality_level": 0,
+		"parental_control": false,
+		"adult": false,
+		"downloadable": false,
+		"offline": false,
+		"metadata": {},
+		"images": [
+			{
+			"id": "c02if709-pimg-438c-b2b1-4123dc5c67i1",
+			"type": "vod-poster",
+			"language": "por",
+			"location": "Luzes, Cores e Formas/luzescoresformas_poster_1440x2160.jpg"
+			},
+			{
+			"id": "c02if709-bimg-438c-b2b1-4123dc5c67i1",
+			"type": "vod-background",
+			"language": "por",
+			"location": "Luzes, Cores e Formas/luzescoresformas_cover_1920x1080.jpg"
+			}
+		],
+		"series_id": "c02c4c5c-68c5-4e00-a98b-754b9e9ft010",
+		"season_id": "null",
+		"parent_id": "7b4ef709-51d8-438c-b2b1-4123dc5c6c02",
+		"assets": [
+			""
+		]
+		},
+		
+		{
+		"id": "c02i1709-51d8-438c-b2b1-4123dc5c6c02",
+		"name": {
+		"por": "Luzes, Cores e Formas T1"
+		},
+		"description_translations": {
+		"por": "A série “Luzes, Cores & Formas” apresenta os mais importantes artistas plásticos maranhenses. Cada um com suas particularidades, o que eles possuem em comum é a diversidade das raízes maranhenses, que como o nome da série diz, junta luzes, cores e formas num caleidoscópio maravilhoso de imagens e sentimentos."
+		},
+		"hidden": false,
+		"morality_level": 0,
+		"parental_control": false,
+		"adult": false,
+		"downloadable": false,
+		"offline": false,
+		"metadata": {},
+		"images": [
+			{
+			"id": "c02i1709-pimg-438c-b2b1-4123dc5c67i1",
+			"type": "vod-poster",
+			"language": "por",
+			"location": "Luzes, Cores e Formas/luzescoresformas_poster_1440x2160.jpg"
+			},
+			{
+			"id": "c02i1709-bimg-438c-b2b1-4123dc5c67i1",
+			"type": "vod-background",
+			"language": "por",
+			"location": "Luzes, Cores e Formas/luzescoresformas_cover_1920x1080.jpg"
+			}
+		],
+		"series_id": "c02c4c5c-68c5-4e00-a98b-754b9e9ft010",
+		"season_id": "c02bab6c-ts10-4ed5-ab91-b4ec4150s010",
+		"parent_id": "c02if709-51d8-438c-b2b1-4123dc5c6c02",
+		"assets": [
+			"c02d7acd-c432-45d6-8d3c-6508bbb6t043",
+			"c02d7acd-c432-45d6-8d3c-6508bbb6t044",
+			"c02d7acd-c432-45d6-8d3c-6508bbb6t045",
+			"c02d7acd-c432-45d6-8d3c-6508bbb6t046",
+			"c02d7acd-c432-45d6-8d3c-6508bbb6t047",
+			"c02d7acd-c432-45d6-8d3c-6508bbb6t048"
+		]
+		},
+		
+		{
+		"id": "7b4ef709-51d8-438c-b2b1-4123dc5c6c03",
+		"name": {
+		"por": "Music Box Brazil"
+		},
+		"description_translations": {
+		"por": "Music Box Brazil. O palco da música brasileira."
+		},
+		"hidden": false,
+		"morality_level": 0,
+		"parental_control": false,
+		"adult": false,
+		"downloadable": false,
+		"offline": false,
+		"metadata": {},
+		"images": [
+			{
+			"id": "c03ef709-pimg-logo-b2b1-4123dc5c67m",
+			"type": "vod-poster",
+			"language": "por",
+			"location": "logos/MUSIC_POSTER_1440x2160.png"
+			},
+			{
+			"id": "c03ef709-bimg-logo-b2b1-4123dc5c67m",
+			"type": "vod-background",
+			"language": "por",
+			"location": "logos/music_COVER_1920x1080.png"
+			}
+		],
+		"series_id": "null",
+		"season_id": "null",
+		"parent_id": "",
+		"assets": [
+			"c03d7acd-c432-45d6-8d3c-6508bbb6m013",
+			"c03d7acd-c432-45d6-8d3c-6508bbb6m014",
+			"c03d7acd-c432-45d6-8d3c-6508bbb6m015",
+			"c03d7acd-c432-45d6-8d3c-6508bbb6m034"
+		]
+		},
+		
+		{
+		"id": "c03af709-51d8-438c-b2b1-4123dc5c6c03",
+		"name": {
+		"por": "ABZ da Música"
+		},
+		"description_translations": {
+		"por": "A cada programa, as apresentadoras Virginia e Assucena Assucena do grupo As Bahias e a Cozinha Mineira, entrevistam um músico ou banda cujo nome começa com a letra do alfabeto correspondente. A brincadeira, a cada episódio, é seguir a ordem das letras do alfabeto na escolha do músico."
+		},
+		"hidden": false,
+		"morality_level": 0,
+		"parental_control": false,
+		"adult": false,
+		"downloadable": false,
+		"offline": false,
+		"metadata": {},
+		"images": [
+			{
+			"id": "c03af709-pimg-438c-b2b1-4123dc5c67a1",
+			"type": "vod-poster",
+			"language": "por",
+			"location": "ABZ da Musica/ABZ_POSTER_1440x2160.jpg"
+			},
+			{
+			"id": "c03af709-bimg-438c-b2b1-4123dc5c67a1",
+			"type": "vod-background",
+			"language": "por",
+			"location": "ABZ da Musica/ABZ_COVER_1920x1080.jpg"
+			}
+		],
+		"series_id": "c03c4c5c-68c5-4e00-a98b-754b9e9fm001",
+		"season_id": "null",
+		"parent_id": "7b4ef709-51d8-438c-b2b1-4123dc5c6c03",
+		"assets": [
+			""
+		]
+		},
+		
+		{
+		"id": "c03a1709-51d8-438c-b2b1-4123dc5c6c03",
+		"name": {
+		"por": "ABZ da Música T1"
+		},
+		"description_translations": {
+		"por": "A cada programa, as apresentadoras Virginia e Assucena Assucena do grupo As Bahias e a Cozinha Mineira, entrevistam um músico ou banda cujo nome começa com a letra do alfabeto correspondente. A brincadeira, a cada episódio, é seguir a ordem das letras do alfabeto na escolha do músico."
+		},
+		"hidden": false,
+		"morality_level": 0,
+		"parental_control": false,
+		"adult": false,
+		"downloadable": false,
+		"offline": false,
+		"metadata": {},
+		"images": [
+			{
+			"id": "c03a1709-pimg-438c-b2b1-4123dc5c67a1",
+			"type": "vod-poster",
+			"language": "por",
+			"location": "ABZ da Musica/ABZ_POSTER_1440x2160.jpg"
+			},
+			{
+			"id": "c03a1709-bimg-438c-b2b1-4123dc5c67a1",
+			"type": "vod-background",
+			"language": "por",
+			"location": "ABZ da Musica/ABZ_COVER_1920x1080.jpg"
+			}
+		],
+		"series_id": "c03c4c5c-68c5-4e00-a98b-754b9e9fm001",
+		"season_id": "c03bab6c-ms01-4ed5-ab91-b4ec4150s001",
+		"parent_id": "c03af709-51d8-438c-b2b1-4123dc5c6c03",
+		"assets": [
+			"c03d7acd-c432-45d6-8d3c-6508bbb6m001",
+			"c03d7acd-c432-45d6-8d3c-6508bbb6m002",
+			"c03d7acd-c432-45d6-8d3c-6508bbb6m003",
+			"c03d7acd-c432-45d6-8d3c-6508bbb6m004",
+			"c03d7acd-c432-45d6-8d3c-6508bbb6m005",
+			"c03d7acd-c432-45d6-8d3c-6508bbb6m006"
+		]
+		},
+		
+		{
+		"id": "c03bf709-51d8-438c-b2b1-4123dc5c6c03",
+		"name": {
+		"por": "Andante"
+		},
+		"description_translations": {
+		"por": "Série Andante, apresentada pelo Maestro Forró, chega a segunda temporada. Saindo do Recife, o Maestro faz uma imersão cultural em Havana e Santiago de Cuba."
+		},
+		"hidden": false,
+		"morality_level": 0,
+		"parental_control": false,
+		"adult": false,
+		"downloadable": false,
+		"offline": false,
+		"metadata": {},
+		"images": [
+			{
+			"id": "c03bf709-pimg-438c-b2b1-4123dc5c67b1",
+			"type": "vod-poster",
+			"language": "por",
+			"location": "Andante/andante_poster_1440x2160.jpg"
+			},
+			{
+			"id": "c03bf709-bimg-438c-b2b1-4123dc5c67b1",
+			"type": "vod-background",
+			"language": "por",
+			"location": "Andante/andante_cover_1920x1080.jpg"
+			}
+		],
+		"series_id": "c03c4c5c-68c5-4e00-a98b-754b9e9fm002",
+		"season_id": "null",
+		"parent_id": "7b4ef709-51d8-438c-b2b1-4123dc5c6c03",
+		"assets": [
+			""
+		]
+		},
+		
+		{
+		"id": "c03b1709-51d8-438c-b2b1-4123dc5c6c03",
+		"name": {
+		"por": "Andante T2"
+		},
+		"description_translations": {
+		"por": "Série Andante, apresentada pelo Maestro Forró, chega a segunda temporada. Saindo do Recife, o Maestro faz uma imersão cultural em Havana e Santiago de Cuba."
+		},
+		"hidden": false,
+		"morality_level": 0,
+		"parental_control": false,
+		"adult": false,
+		"downloadable": false,
+		"offline": false,
+		"metadata": {},
+		"images": [
+			{
+			"id": "c03b1709-pimg-438c-b2b1-4123dc5c67b1",
+			"type": "vod-poster",
+			"language": "por",
+			"location": "Andante/andante_poster_1440x2160.jpg"
+			},
+			{
+			"id": "c03b1709-bimg-438c-b2b1-4123dc5c67b1",
+			"type": "vod-background",
+			"language": "por",
+			"location": "Andante/andante_cover_1920x1080.jpg"
+			}
+		],
+		"series_id": "c03c4c5c-68c5-4e00-a98b-754b9e9fm002",
+		"season_id": "c03bab6c-ms02-4ed5-ab91-b4ec4150s002",
+		"parent_id": "c03bf709-51d8-438c-b2b1-4123dc5c6c03",
+		"assets": [
+			"c03d7acd-c432-45d6-8d3c-6508bbb6m007",
+			"c03d7acd-c432-45d6-8d3c-6508bbb6m008",
+			"c03d7acd-c432-45d6-8d3c-6508bbb6m009",
+			"c03d7acd-c432-45d6-8d3c-6508bbb6m010",
+			"c03d7acd-c432-45d6-8d3c-6508bbb6m011",
+			"c03d7acd-c432-45d6-8d3c-6508bbb6m012"
+		]
+		},
+		
+		{
+		"id": "c03cf709-51d8-438c-b2b1-4123dc5c6c03",
+		"name": {
+		"por": "Estúdio Cabeça"
+		},
+		"description_translations": {
+		"por": "Estúdio Cabeça é um programa semanal de entrevistas e debates com músicos convidados. Propõe uma abordagem inteligente, provocadora e polêmica de temas relacionados à música e ao mundo artístico em geral. O convidado, sempre relacionado ao tema do programa, comenta inserções de matérias com opiniões de populares e especialistas no tema, com espaço para réplicas e tréplicas."
+		},
+		"hidden": false,
+		"morality_level": 0,
+		"parental_control": false,
+		"adult": false,
+		"downloadable": false,
+		"offline": false,
+		"metadata": {},
+		"images": [
+			{
+			"id": "c03cf709-pimg-438c-b2b1-4123dc5c67c1",
+			"type": "vod-poster",
+			"language": "por",
+			"location": "Estudio Cabeca/estudiocabeca_poster_1440x2160.jpg"
+			},
+			{
+			"id": "c03cf709-bimg-438c-b2b1-4123dc5c67c1",
+			"type": "vod-background",
+			"language": "por",
+			"location": "Estudio Cabeca/estudiocabeca_cover_1920x1080.jpg"
+			}
+		],
+		"series_id": "c03c4c5c-68c5-4e00-a98b-754b9e9fm003",
+		"season_id": "null",
+		"parent_id": "7b4ef709-51d8-438c-b2b1-4123dc5c6c03",
+		"assets": [
+			""
+		]
+		},
+		
+		{
+		"id": "c03c1709-51d8-438c-b2b1-4123dc5c6c03",
+		"name": {
+		"por": "Estúdio Cabeça T2"
+		},
+		"description_translations": {
+		"por": "Estúdio Cabeça é um programa semanal de entrevistas e debates com músicos convidados. Propõe uma abordagem inteligente, provocadora e polêmica de temas relacionados à música e ao mundo artístico em geral. O convidado, sempre relacionado ao tema do programa, comenta inserções de matérias com opiniões de populares e especialistas no tema, com espaço para réplicas e tréplicas."
+		},
+		"hidden": false,
+		"morality_level": 0,
+		"parental_control": false,
+		"adult": false,
+		"downloadable": false,
+		"offline": false,
+		"metadata": {},
+		"images": [
+			{
+			"id": "c03c1709-pimg-438c-b2b1-4123dc5c67c1",
+			"type": "vod-poster",
+			"language": "por",
+			"location": "Estudio Cabeca/estudiocabeca_poster_1440x2160.jpg"
+			},
+			{
+			"id": "c03c1709-bimg-438c-b2b1-4123dc5c67c1",
+			"type": "vod-background",
+			"language": "por",
+			"location": "Estudio Cabeca/estudiocabeca_cover_1920x1080.jpg"
+			}
+		],
+		"series_id": "c03c4c5c-68c5-4e00-a98b-754b9e9fm003",
+		"season_id": "c03bab6c-ms03-4ed5-ab91-b4ec4150s003",
+		"parent_id": "c03cf709-51d8-438c-b2b1-4123dc5c6c03",
+		"assets": [
+			"c03d7acd-c432-45d6-8d3c-6508bbb6m017",
+			"c03d7acd-c432-45d6-8d3c-6508bbb6m018",
+			"c03d7acd-c432-45d6-8d3c-6508bbb6m019",
+			"c03d7acd-c432-45d6-8d3c-6508bbb6m020",
+			"c03d7acd-c432-45d6-8d3c-6508bbb6m021",
+			"c03d7acd-c432-45d6-8d3c-6508bbb6m022"
+		]
+		},
+		
+		{
+		"id": "c03df709-51d8-438c-b2b1-4123dc5c6c03",
+		"name": {
+		"por": "Porto Dragão Sessions"
+		},
+		"description_translations": {
+		"por": "Porto Dragão Sessions traz um panorama da nova cena musical do Ceará. No formato de entrevistas e performances gravadas ao vivo no teatro B. de Paiva (na Praia de Iracema, Fortaleza), o programa é apresentado pelo artista Daniel Peixoto e pelos atores Gero Camilo e Karine Carvalho e direção de Pedro Diógenes."
+		},
+		"hidden": false,
+		"morality_level": 0,
+		"parental_control": false,
+		"adult": false,
+		"downloadable": false,
+		"offline": false,
+		"metadata": {},
+		"images": [
+			{
+			"id": "c03df709-pimg-438c-b2b1-4123dc5c67d1",
+			"type": "vod-poster",
+			"language": "por",
+			"location": "Porto Dragao/portodragao_poster_1440x2160.jpg"
+			},
+			{
+			"id": "c03df709-bimg-438c-b2b1-4123dc5c67d1",
+			"type": "vod-background",
+			"language": "por",
+			"location": "Porto Dragao/portodragao_cover_1920x1080.jpg"
+			}
+		],
+		"series_id": "c03c4c5c-68c5-4e00-a98b-754b9e9fm004",
+		"season_id": "null",
+		"parent_id": "7b4ef709-51d8-438c-b2b1-4123dc5c6c03",
+		"assets": [
+			""
+		]
+		},
+		
+		{
+		"id": "c03d1709-51d8-438c-b2b1-4123dc5c6c03",
+		"name": {
+		"por": "Porto Dragão Sessions T1"
+		},
+		"description_translations": {
+		"por": "Porto Dragão Sessions traz um panorama da nova cena musical do Ceará. No formato de entrevistas e performances gravadas ao vivo no teatro B. de Paiva (na Praia de Iracema, Fortaleza), o programa é apresentado pelo artista Daniel Peixoto e pelos atores Gero Camilo e Karine Carvalho e direção de Pedro Diógenes."
+		},
+		"hidden": false,
+		"morality_level": 0,
+		"parental_control": false,
+		"adult": false,
+		"downloadable": false,
+		"offline": false,
+		"metadata": {},
+		"images": [
+			{
+			"id": "c03d1709-pimg-438c-b2b1-4123dc5c67d1",
+			"type": "vod-poster",
+			"language": "por",
+			"location": "Porto Dragao/portodragao_poster_1440x2160.jpg"
+			},
+			{
+			"id": "c03d1709-bimg-438c-b2b1-4123dc5c67d1",
+			"type": "vod-background",
+			"language": "por",
+			"location": "Porto Dragao/portodragao_cover_1920x1080.jpg"
+			}
+		],
+		"series_id": "c03c4c5c-68c5-4e00-a98b-754b9e9fm004",
+		"season_id": "c03bab6c-ms04-4ed5-ab91-b4ec4150s004",
+		"parent_id": "c03df709-51d8-438c-b2b1-4123dc5c6c03",
+		"assets": [
+			"c03d7acd-c432-45d6-8d3c-6508bbb6m023",
+			"c03d7acd-c432-45d6-8d3c-6508bbb6m024",
+			"c03d7acd-c432-45d6-8d3c-6508bbb6m025",
+			"c03d7acd-c432-45d6-8d3c-6508bbb6m026",
+			"c03d7acd-c432-45d6-8d3c-6508bbb6m027",
+			"c03d7acd-c432-45d6-8d3c-6508bbb6m028"
+		]
+		},
+		
+		{
+		"id": "c03ef709-51d8-438c-b2b1-4123dc5c6c03",
+		"name": {
+		"por": "Subsolo"
+		},
+		"description_translations": {
+		"por": "Programa voltado a cena independente com entrevistas e bastidores de shows."
+		},
+		"hidden": false,
+		"morality_level": 0,
+		"parental_control": false,
+		"adult": false,
+		"downloadable": false,
+		"offline": false,
+		"metadata": {},
+		"images": [
+			{
+			"id": "c03ef709-pimg-438c-b2b1-4123dc5c67e1",
+			"type": "vod-poster",
+			"language": "por",
+			"location": "Subsolo/subsolo_poster_1440x2160.jpg"
+			},
+			{
+			"id": "c03ef709-bimg-438c-b2b1-4123dc5c67e1",
+			"type": "vod-background",
+			"language": "por",
+			"location": "Subsolo/subsolo_cover_1920x1080.jpg"
+			}
+		],
+		"series_id": "c03c4c5c-68c5-4e00-a98b-754b9e9fm005",
+		"season_id": "null",
+		"parent_id": "7b4ef709-51d8-438c-b2b1-4123dc5c6c03",
+		"assets": [
+			""
+		]
+		},
+		
+		{
+		"id": "c03e1709-51d8-438c-b2b1-4123dc5c6c03",
+		"name": {
+		"por": "Subsolo T1"
+		},
+		"description_translations": {
+		"por": "Programa voltado a cena independente com entrevistas e bastidores de shows."
+		},
+		"hidden": false,
+		"morality_level": 0,
+		"parental_control": false,
+		"adult": false,
+		"downloadable": false,
+		"offline": false,
+		"metadata": {},
+		"images": [
+			{
+			"id": "c03ef709-pimg-438c-b2b1-4123dc5c67e1",
+			"type": "vod-poster",
+			"language": "por",
+			"location": "Subsolo/subsolo_poster_1440x2160.jpg"
+			},
+			{
+			"id": "c03ef709-bimg-438c-b2b1-4123dc5c67e1",
+			"type": "vod-background",
+			"language": "por",
+			"location": "Subsolo/subsolo_cover_1920x1080.jpg"
+			}
+		],
+		"series_id": "c03c4c5c-68c5-4e00-a98b-754b9e9fm005",
+		"season_id": "c03bab6c-ms05-4ed5-ab91-b4ec4150s005",
+		"parent_id": "c03ef709-51d8-438c-b2b1-4123dc5c6c03",
+		"assets": [
+			"c03d7acd-c432-45d6-8d3c-6508bbb6m029",
+			"c03d7acd-c432-45d6-8d3c-6508bbb6m030",
+			"c03d7acd-c432-45d6-8d3c-6508bbb6m031",
+			"c03d7acd-c432-45d6-8d3c-6508bbb6m032",
+			"c03d7acd-c432-45d6-8d3c-6508bbb6m033"
+		]
+		},		
+		
+		{
+		"id": "7b4ef709-51d8-438c-b2b1-4123dc5c6c04",
+		"name": {
+		"por": "FashionTV Brasil"
+		},
+		"description_translations": {
+		"por": "FashionTV Brasil. Tá na moda, tá no FashionTV."
+		},
+		"hidden": false,
+		"morality_level": 0,
+		"parental_control": false,
+		"adult": false,
+		"downloadable": false,
+		"offline": false,
+		"metadata": {},
+		"images": [
+			{
+			"id": "c04ef709-pimg-logo-b2b1-4123dc5c67f",
+			"type": "vod-poster",
+			"language": "por",
+			"location": "logos/fashion_POSTER_1440x2160.png"
+			},
+			{
+			"id": "c04ef709-bimg-logo-b2b1-4123dc5c67f",
+			"type": "vod-background",
+			"language": "por",
+			"location": "logos/FASHION_COVER_1920x1080.png"
+			}
+		],
+		"series_id": "null",
+		"season_id": "null",
+		"parent_id": "",
+		"assets": [
+			""
+		]
+		},
+		
+		{
+		"id": "c04af709-51d8-438c-b2b1-4123dc5c6c04",
+		"name": {
+		"por": "3x+Estilo"
+		},
+		"description_translations": {
+		"por": "Programa de variedades sobre as últimas tendências da moda e novidades do universo fashion. Apresentado por Jordana Mayer, Gabriela Casartelli e Joana Paladini."
+		},
+		"hidden": false,
+		"morality_level": 0,
+		"parental_control": false,
+		"adult": false,
+		"downloadable": false,
+		"offline": false,
+		"metadata": {},
+		"images": [
+			{
+			"id": "c04af709-pimg-438c-b2b1-4123dc5c67a1",
+			"type": "vod-poster",
+			"language": "por",
+			"location": "3x+Estilo/3x+estilo_poster_1440x2160.jpg"
+			},
+			{
+			"id": "c04af709-bimg-438c-b2b1-4123dc5c67a1",
+			"type": "vod-background",
+			"language": "por",
+			"location": "3x+Estilo/3x+estilo_cover_1920x1080.jpg"
+			}
+		],
+		"series_id": "c04c4c5c-68c5-4e00-a98b-754b9e9ff001",
+		"season_id": "null",
+		"parent_id": "7b4ef709-51d8-438c-b2b1-4123dc5c6c04",
+		"assets": [
+			""
+		]
+		},
+		
+		{
+		"id": "c04a1709-51d8-438c-b2b1-4123dc5c6c04",
+		"name": {
+		"por": "3x+Estilo T1"
+		},
+		"description_translations": {
+		"por": "Programa de variedades sobre as últimas tendências da moda e novidades do universo fashion. Apresentado por Jordana Mayer, Gabriela Casartelli e Joana Paladini."
+		},
+		"hidden": false,
+		"morality_level": 0,
+		"parental_control": false,
+		"adult": false,
+		"downloadable": false,
+		"offline": false,
+		"metadata": {},
+		"images": [
+			{
+			"id": "c04a1709-pimg-438c-b2b1-4123dc5c67a1",
+			"type": "vod-poster",
+			"language": "por",
+			"location": "3x+Estilo/3x+estilo_poster_1440x2160.jpg"
+			},
+			{
+			"id": "c04a1709-bimg-438c-b2b1-4123dc5c67a1",
+			"type": "vod-background",
+			"language": "por",
+			"location": "3x+Estilo/3x+estilo_cover_1920x1080.jpg"
+			}
+		],
+		"series_id": "c04c4c5c-68c5-4e00-a98b-754b9e9ff001",
+		"season_id": "c04bab6c-fs01-4ed5-ab91-b4ec4150s001",
+		"parent_id": "c04af709-51d8-438c-b2b1-4123dc5c6c04",
+		"assets": [
+			"c04d7acd-c432-45d6-8d3c-6508bbb6f001",
+			"c04d7acd-c432-45d6-8d3c-6508bbb6f002",
+			"c04d7acd-c432-45d6-8d3c-6508bbb6f003",
+			"c04d7acd-c432-45d6-8d3c-6508bbb6f004",
+			"c04d7acd-c432-45d6-8d3c-6508bbb6f005",
+			"c04d7acd-c432-45d6-8d3c-6508bbb6f006"
+		]
+		},
+		
+		{
+		"id": "c04bf709-51d8-438c-b2b1-4123dc5c6c04",
+		"name": {
+		"por": "Fashion Week Especial SPFW"
+		},
+		"description_translations": {
+		"por": "Sob o tema 'Qual é a sua Utopia?', a edição 47 do São Paulo Fashion Week contou com 36 marcas. Confira os desfiles e fique por dentro das últimas tendências da temporada Outono Inverno 2019/2020."
+		},
+		"hidden": false,
+		"morality_level": 0,
+		"parental_control": false,
+		"adult": false,
+		"downloadable": false,
+		"offline": false,
+		"metadata": {},
+		"images": [
+			{
+			"id": "c04bf709-pimg-438c-b2b1-4123dc5c67b1",
+			"type": "vod-poster",
+			"language": "por",
+			"location": "Fashion Week SPFW47/spfw47_poster_1440x2160.jpg"
+			},
+			{
+			"id": "c04bf709-bimg-438c-b2b1-4123dc5c67b1",
+			"type": "vod-background",
+			"language": "por",
+			"location": "Fashion Week SPFW47/spfw47_cover_1920x1080.jpg"
+			}
+		],
+		"series_id": "c04c4c5c-68c5-4e00-a98b-754b9e9ff002",
+		"season_id": "null",
+		"parent_id": "7b4ef709-51d8-438c-b2b1-4123dc5c6c04",
+		"assets": [
+			""
+		]
+		},
+		
+		{
+		"id": "c04b1709-51d8-438c-b2b1-4123dc5c6c04",
+		"name": {
+		"por": "Fashion Week Especial SPFW N47"
+		},
+		"description_translations": {
+		"por": "Sob o tema 'Qual é a sua Utopia?', a edição 47 do São Paulo Fashion Week contou com 36 marcas. Confira os desfiles e fique por dentro das últimas tendências da temporada Outono Inverno 2019/2020."
+		},
+		"hidden": false,
+		"morality_level": 0,
+		"parental_control": false,
+		"adult": false,
+		"downloadable": false,
+		"offline": false,
+		"metadata": {},
+		"images": [
+			{
+			"id": "c04b1709-pimg-438c-b2b1-4123dc5c67b1",
+			"type": "vod-poster",
+			"language": "por",
+			"location": "Fashion Week SPFW47/spfw47_poster_1440x2160.jpg"
+			},
+			{
+			"id": "c04b1709-bimg-438c-b2b1-4123dc5c67b1",
+			"type": "vod-background",
+			"language": "por",
+			"location": "Fashion Week SPFW47/spfw47_cover_1920x1080.jpg"
+			}
+		],
+		"series_id": "c04c4c5c-68c5-4e00-a98b-754b9e9ff002",
+		"season_id": "c04bab6c-fs02-4ed5-ab91-b4ec4150s002",
+		"parent_id": "c04bf709-51d8-438c-b2b1-4123dc5c6c04",
+		"assets": [
+			"c04d7acd-c432-45d6-8d3c-6508bbb6f007",
+			"c04d7acd-c432-45d6-8d3c-6508bbb6f008",
+			"c04d7acd-c432-45d6-8d3c-6508bbb6f009",
+			"c04d7acd-c432-45d6-8d3c-6508bbb6f010",
+			"c04d7acd-c432-45d6-8d3c-6508bbb6f011",
+			"c04d7acd-c432-45d6-8d3c-6508bbb6f012"
+		]
+		},
+		
+		{
+		"id": "c04cf709-51d8-438c-b2b1-4123dc5c6c04",
+		"name": {
+		"por": "Designers At Work"
+		},
+		"description_translations": {
+		"por": "As inspirações na hora da criação. Confira entrevistas exclusivas com os mais renomados designers."
+		},
+		"hidden": false,
+		"morality_level": 0,
+		"parental_control": false,
+		"adult": false,
+		"downloadable": false,
+		"offline": false,
+		"metadata": {},
+		"images": [
+			{
+			"id": "c04cf709-pimg-438c-b2b1-4123dc5c67c1",
+			"type": "vod-poster",
+			"language": "por",
+			"location": "Designers At Work/designatwork_poster_1440x2160.jpg"
+			},
+			{
+			"id": "c04cf709-bimg-438c-b2b1-4123dc5c67c1",
+			"type": "vod-background",
+			"language": "por",
+			"location": "Designers At Work/designatwork_cover_1920x1080.jpg"
+			}
+		],
+		"series_id": "c04c4c5c-68c5-4e00-a98b-754b9e9ff003",
+		"season_id": "null",
+		"parent_id": "7b4ef709-51d8-438c-b2b1-4123dc5c6c04",
+		"assets": [
+			""
+		]
+		},
+		
+		{
+		"id": "c04c1709-51d8-438c-b2b1-4123dc5c6c04",
+		"name": {
+		"por": "Designers At Work T8"
+		},
+		"description_translations": {
+		"por": "As inspirações na hora da criação. Confira entrevistas exclusivas com os mais renomados designers."
+		},
+		"hidden": false,
+		"morality_level": 0,
+		"parental_control": false,
+		"adult": false,
+		"downloadable": false,
+		"offline": false,
+		"metadata": {},
+		"images": [
+			{
+			"id": "c04c1709-pimg-438c-b2b1-4123dc5c67c1",
+			"type": "vod-poster",
+			"language": "por",
+			"location": "Designers At Work/designatwork_poster_1440x2160.jpg"
+			},
+			{
+			"id": "c04c1709-bimg-438c-b2b1-4123dc5c67c1",
+			"type": "vod-background",
+			"language": "por",
+			"location": "Designers At Work/designatwork_cover_1920x1080.jpg"
+			}
+		],
+		"series_id": "c04c4c5c-68c5-4e00-a98b-754b9e9ff003",
+		"season_id": "c04bab6c-fs03-4ed5-ab91-b4ec4150s003",
+		"parent_id": "c04cf709-51d8-438c-b2b1-4123dc5c6c04",
+		"assets": [
+			"c04d7acd-c432-45d6-8d3c-6508bbb6f013",
+			"c04d7acd-c432-45d6-8d3c-6508bbb6f014",
+			"c04d7acd-c432-45d6-8d3c-6508bbb6f015",
+			"c04d7acd-c432-45d6-8d3c-6508bbb6f016",
+			"c04d7acd-c432-45d6-8d3c-6508bbb6f017",
+			"c04d7acd-c432-45d6-8d3c-6508bbb6f018"
+		]
+		},
+		
+		{
+		"id": "c04df709-51d8-438c-b2b1-4123dc5c6c04",
+		"name": {
+		"por": "Fashion Week Especial Colorful"
+		},
+		"description_translations": {
+		"por": "Roupas sofisticadas e exclusivas você confere no Fashion Week Especial Alta-Costura. O melhor da criação em escala artesanal."
+		},
+		"hidden": false,
+		"morality_level": 0,
+		"parental_control": false,
+		"adult": false,
+		"downloadable": false,
+		"offline": false,
+		"metadata": {},
+		"images": [
+			{
+			"id": "c04df709-pimg-438c-b2b1-4123dc5c67d1",
+			"type": "vod-poster",
+			"language": "por",
+			"location": "Fashion Week Colorful/fwcolorful_poster_1440x2160.jpg"
+			},
+			{
+			"id": "c04df709-bimg-438c-b2b1-4123dc5c67d1",
+			"type": "vod-background",
+			"language": "por",
+			"location": "Fashion Week Colorful/fwcolorful_cover_1920x1080.jpg"
+			}
+		],
+		"series_id": "c04c4c5c-68c5-4e00-a98b-754b9e9ff004",
+		"season_id": "null",
+		"parent_id": "7b4ef709-51d8-438c-b2b1-4123dc5c6c04",
+		"assets": [
+			""
+		]
+		},
+		
+		{
+		"id": "c04d1709-51d8-438c-b2b1-4123dc5c6c04",
+		"name": {
+		"por": "Fashion Week Especial Colorful T1"
+		},
+		"description_translations": {
+		"por": "Roupas sofisticadas e exclusivas você confere no Fashion Week Especial Alta-Costura. O melhor da criação em escala artesanal."
+		},
+		"hidden": false,
+		"morality_level": 0,
+		"parental_control": false,
+		"adult": false,
+		"downloadable": false,
+		"offline": false,
+		"metadata": {},
+		"images": [
+			{
+			"id": "c04d1709-pimg-438c-b2b1-4123dc5c67d1",
+			"type": "vod-poster",
+			"language": "por",
+			"location": "Fashion Week Colorful/fwcolorful_poster_1440x2160.jpg"
+			},
+			{
+			"id": "c04d1709-bimg-438c-b2b1-4123dc5c67d1",
+			"type": "vod-background",
+			"language": "por",
+			"location": "Fashion Week Colorful/fwcolorful_cover_1920x1080.jpg"
+			}
+		],
+		"series_id": "c04c4c5c-68c5-4e00-a98b-754b9e9ff004",
+		"season_id": "c04bab6c-fs04-4ed5-ab91-b4ec4150s004",
+		"parent_id": "c04df709-51d8-438c-b2b1-4123dc5c6c04",
+		"assets": [
+			"c04d7acd-c432-45d6-8d3c-6508bbb6f019",
+			"c04d7acd-c432-45d6-8d3c-6508bbb6f020"
+		]
+		},
+		
+		{
+		"id": "c04ef709-51d8-438c-b2b1-4123dc5c6c04",
+		"name": {
+		"por": "Fashion Week Especial Biodiversidade"
+		},
+		"description_translations": {
+		"por": "Papel, plástico, flores ou frutas. Qualquer elemento pode se transformar em um look. Conheça essas peças no Fashion Week - Especial Biodiversidade."
+		},
+		"hidden": false,
+		"morality_level": 0,
+		"parental_control": false,
+		"adult": false,
+		"downloadable": false,
+		"offline": false,
+		"metadata": {},
+		"images": [
+			{
+			"id": "c04ef709-pimg-438c-b2b1-4123dc5c67e1",
+			"type": "vod-poster",
+			"language": "por",
+			"location": "Fashion Week Biodiversidade/fwbiodiversidade_poster_1440x2160.jpg"
+			},
+			{
+			"id": "c04ef709-bimg-438c-b2b1-4123dc5c67e1",
+			"type": "vod-background",
+			"language": "por",
+			"location": "Fashion Week Biodiversidade/fwbiodiversidade_cover_1920x1080.jpg"
+			}
+		],
+		"series_id": "c04c4c5c-68c5-4e00-a98b-754b9e9ff005",
+		"season_id": "null",
+		"parent_id": "7b4ef709-51d8-438c-b2b1-4123dc5c6c04",
+		"assets": [
+			""
+		]
+		},
+		
+		{
+		"id": "c04e1709-51d8-438c-b2b1-4123dc5c6c04",
+		"name": {
+		"por": "Fashion Week Especial Biodiversidade"
+		},
+		"description_translations": {
+		"por": "Papel, plástico, flores ou frutas. Qualquer elemento pode se transformar em um look. Conheça essas peças no Fashion Week - Especial Biodiversidade."
+		},
+		"hidden": false,
+		"morality_level": 0,
+		"parental_control": false,
+		"adult": false,
+		"downloadable": false,
+		"offline": false,
+		"metadata": {},
+		"images": [
+			{
+			"id": "c04e1709-pimg-438c-b2b1-4123dc5c67e1",
+			"type": "vod-poster",
+			"language": "por",
+			"location": "Fashion Week Biodiversidade/fwbiodiversidade_poster_1440x2160.jpg"
+			},
+			{
+			"id": "c04e1709-bimg-438c-b2b1-4123dc5c67e1",
+			"type": "vod-background",
+			"language": "por",
+			"location": "Fashion Week Biodiversidade/fwbiodiversidade_cover_1920x1080.jpg"
+			}
+		],
+		"series_id": "c04c4c5c-68c5-4e00-a98b-754b9e9ff005",
+		"season_id": "c04bab6c-fs05-4ed5-ab91-b4ec4150s005",
+		"parent_id": "c04ef709-51d8-438c-b2b1-4123dc5c6c04",
+		"assets": [
+			"c04d7acd-c432-45d6-8d3c-6508bbb6f021",
+			"c04d7acd-c432-45d6-8d3c-6508bbb6f022"
+		]
+		},
+		
+		{
+		"id": "c04ff709-51d8-438c-b2b1-4123dc5c6c04",
+		"name": {
+		"por": "Fashion Week Especial Alta Costura"
+		},
+		"description_translations": {
+		"por": "Roupas sofisticadas e exclusivas você confere no Fashion Week Especial Alta-Costura. O melhor da criação em escala artesanal."
+		},
+		"hidden": false,
+		"morality_level": 0,
+		"parental_control": false,
+		"adult": false,
+		"downloadable": false,
+		"offline": false,
+		"metadata": {},
+		"images": [
+			{
+			"id": "c04ff709-pimg-438c-b2b1-4123dc5c67f1",
+			"type": "vod-poster",
+			"language": "por",
+			"location": "Fashion Week Alta Costura/fwaltacostura_poster_1440x2160.jpg"
+			},
+			{
+			"id": "c04ff709-bimg-438c-b2b1-4123dc5c67f1",
+			"type": "vod-background",
+			"language": "por",
+			"location": "Fashion Week Alta Costura/fwaltacostura_cover_1920x1080.jpg"
+			}
+		],
+		"series_id": "c04c4c5c-68c5-4e00-a98b-754b9e9ff006",
+		"season_id": "null",
+		"parent_id": "7b4ef709-51d8-438c-b2b1-4123dc5c6c04",
+		"assets": [
+			""
+		]
+		},
+		
+		{
+		"id": "c04f1709-51d8-438c-b2b1-4123dc5c6c04",
+		"name": {
+		"por": "Fashion Week Especial Alta Costura T1"
+		},
+		"description_translations": {
+		"por": "Roupas sofisticadas e exclusivas você confere no Fashion Week Especial Alta-Costura. O melhor da criação em escala artesanal."
+		},
+		"hidden": false,
+		"morality_level": 0,
+		"parental_control": false,
+		"adult": false,
+		"downloadable": false,
+		"offline": false,
+		"metadata": {},
+		"images": [
+			{
+			"id": "c04f1709-pimg-438c-b2b1-4123dc5c67f1",
+			"type": "vod-poster",
+			"language": "por",
+			"location": "Fashion Week Alta Costura/fwaltacostura_poster_1440x2160.jpg"
+			},
+			{
+			"id": "c04f1709-bimg-438c-b2b1-4123dc5c67f1",
+			"type": "vod-background",
+			"language": "por",
+			"location": "Fashion Week Alta Costura/fwaltacostura_cover_1920x1080.jpg"
+			}
+		],
+		"series_id": "c04c4c5c-68c5-4e00-a98b-754b9e9ff006",
+		"season_id": "c04bab6c-fs06-4ed5-ab91-b4ec4150s006",
+		"parent_id": "c04ff709-51d8-438c-b2b1-4123dc5c6c04",
+		"assets": [
+			"c04d7acd-c432-45d6-8d3c-6508bbb6f023",
+			"c04d7acd-c432-45d6-8d3c-6508bbb6f024"
+
+		]
+		},
+		
+		{
+		"id": "c04gf709-51d8-438c-b2b1-4123dc5c6c04",
+		"name": {
+		"por": "Fashion Week Especial Festa"
+		},
+		"description_translations": {
+		"por": "Tá faltando inspiração para a noite? O Fashion TV juntou as últimas tendências das passarelas em Make, Cabelo e Look, para ajudar você a usar e abusar do brilho, da ousadia e da criatividade."
+		},
+		"hidden": false,
+		"morality_level": 0,
+		"parental_control": false,
+		"adult": false,
+		"downloadable": false,
+		"offline": false,
+		"metadata": {},
+		"images": [
+			{
+			"id": "c04gf709-pimg-438c-b2b1-4123dc5c67g1",
+			"type": "vod-poster",
+			"language": "por",
+			"location": "Fashion Week Festa/fwfesta_poster_1440x2160.jpg"
+			},
+			{
+			"id": "c04gf709-bimg-438c-b2b1-4123dc5c67g1",
+			"type": "vod-background",
+			"language": "por",
+			"location": "Fashion Week Festa/fwfesta_cover_1920x1080.jpg"
+			}
+		],
+		"series_id": "c04c4c5c-68c5-4e00-a98b-754b9e9ff007",
+		"season_id": "null",
+		"parent_id": "7b4ef709-51d8-438c-b2b1-4123dc5c6c04",
+		"assets": [
+			""
+		]
+		},
+		
+		{
+		"id": "c04g1709-51d8-438c-b2b1-4123dc5c6c04",
+		"name": {
+		"por": "Fashion Week Especial Festa T1"
+		},
+		"description_translations": {
+		"por": "Tá faltando inspiração para a noite? O Fashion TV juntou as últimas tendências das passarelas em Make, Cabelo e Look, para ajudar você a usar e abusar do brilho, da ousadia e da criatividade."
+		},
+		"hidden": false,
+		"morality_level": 0,
+		"parental_control": false,
+		"adult": false,
+		"downloadable": false,
+		"offline": false,
+		"metadata": {},
+		"images": [
+			{
+			"id": "c04g1709-pimg-438c-b2b1-4123dc5c67g1",
+			"type": "vod-poster",
+			"language": "por",
+			"location": "Fashion Week Festa/fwfesta_poster_1440x2160.jpg"
+			},
+			{
+			"id": "c04g1709-bimg-438c-b2b1-4123dc5c67g1",
+			"type": "vod-background",
+			"language": "por",
+			"location": "Fashion Week Festa/fwfesta_cover_1920x1080.jpg"
+			}
+		],
+		"series_id": "c04c4c5c-68c5-4e00-a98b-754b9e9ff007",
+		"season_id": "c04bab6c-fs07-4ed5-ab91-b4ec4150s007",
+		"parent_id": "c04gf709-51d8-438c-b2b1-4123dc5c6c04",
+		"assets": [
+			"c04d7acd-c432-45d6-8d3c-6508bbb6f025",
+			"c04d7acd-c432-45d6-8d3c-6508bbb6f026",
+			"c04d7acd-c432-45d6-8d3c-6508bbb6f027"
+		]
+		},
+		
+		{
+		"id": "c04hf709-51d8-438c-b2b1-4123dc5c6c04",
+		"name": {
+		"por": "Fashion Week Especial Grifes que Amamos"
+		},
+		"description_translations": {
+		"por": "O Fashion TV fez uma seleção dos melhores desfiles da temporada, com as marcas favoritas do mundo da Moda. Especial Grifes que Amamos."
+		},
+		"hidden": false,
+		"morality_level": 0,
+		"parental_control": false,
+		"adult": false,
+		"downloadable": false,
+		"offline": false,
+		"metadata": {},
+		"images": [
+			{
+			"id": "c04hf709-pimg-438c-b2b1-4123dc5c67h1",
+			"type": "vod-poster",
+			"language": "por",
+			"location": "Fashion Week Grifes/fwgrifes_poster_1440x2160.jpg"
+			},
+			{
+			"id": "c04hf709-bimg-438c-b2b1-4123dc5c67h1",
+			"type": "vod-background",
+			"language": "por",
+			"location": "Fashion Week Grifes/fwgrifes_cover_1920x1080.jpg"
+			}
+		],
+		"series_id": "c04c4c5c-68c5-4e00-a98b-754b9e9ff008",
+		"season_id": "null",
+		"parent_id": "7b4ef709-51d8-438c-b2b1-4123dc5c6c04",
+		"assets": [
+			""
+		]
+		},
+		
+		{
+		"id": "c04h1709-51d8-438c-b2b1-4123dc5c6c04",
+		"name": {
+		"por": "Fashion Week Especial Grifes que Amamos T1"
+		},
+		"description_translations": {
+		"por": "O Fashion TV fez uma seleção dos melhores desfiles da temporada, com as marcas favoritas do mundo da Moda. Especial Grifes que Amamos."
+		},
+		"hidden": false,
+		"morality_level": 0,
+		"parental_control": false,
+		"adult": false,
+		"downloadable": false,
+		"offline": false,
+		"metadata": {},
+		"images": [
+			{
+			"id": "c04h1709-pimg-438c-b2b1-4123dc5c67h1",
+			"type": "vod-poster",
+			"language": "por",
+			"location": "Fashion Week Grifes/fwgrifes_poster_1440x2160.jpg"
+			},
+			{
+			"id": "c04h1709-bimg-438c-b2b1-4123dc5c67h1",
+			"type": "vod-background",
+			"language": "por",
+			"location": "Fashion Week Grifes/fwgrifes_cover_1920x1080.jpg"
+			}
+		],
+		"series_id": "c04c4c5c-68c5-4e00-a98b-754b9e9ff008",
+		"season_id": "c04bab6c-fs08-4ed5-ab91-b4ec4150s008",
+		"parent_id": "c04hf709-51d8-438c-b2b1-4123dc5c6c04",
+		"assets": [
+			"c04d7acd-c432-45d6-8d3c-6508bbb6f028",
+			"c04d7acd-c432-45d6-8d3c-6508bbb6f029",
+			"c04d7acd-c432-45d6-8d3c-6508bbb6f030"
+		]
+		},
+		
+		{
+		"id": "c04if709-51d8-438c-b2b1-4123dc5c6c04",
+		"name": {
+		"por": "Fashion Week Especial Moda Masculina"
+		},
+		"description_translations": {
+		"por": "Um especial com as melhores tendências Masculinas 2017/18."
+		},
+		"hidden": false,
+		"morality_level": 0,
+		"parental_control": false,
+		"adult": false,
+		"downloadable": false,
+		"offline": false,
+		"metadata": {},
+		"images": [
+			{
+			"id": "c04if709-pimg-438c-b2b1-4123dc5c67i1",
+			"type": "vod-poster",
+			"language": "por",
+			"location": "Fashion Week Moda Masculina/fwmodamasculina_poster_1440x2160.jpg"
+			},
+			{
+			"id": "c04if709-bimg-438c-b2b1-4123dc5c67i1",
+			"type": "vod-background",
+			"language": "por",
+			"location": "Fashion Week Moda Masculina/fwmodamasculina_cover_1920x1080.jpg"
+			}
+		],
+		"series_id": "c04c4c5c-68c5-4e00-a98b-754b9e9ff009",
+		"season_id": "null",
+		"parent_id": "7b4ef709-51d8-438c-b2b1-4123dc5c6c04",
+		"assets": [
+			""
+		]
+		},
+		
+		{
+		"id": "c04i1709-51d8-438c-b2b1-4123dc5c6c04",
+		"name": {
+		"por": "Fashion Week Especial Moda Masculina T1"
+		},
+		"description_translations": {
+		"por": "Um especial com as melhores tendências Masculinas 2017/18."
+		},
+		"hidden": false,
+		"morality_level": 0,
+		"parental_control": false,
+		"adult": false,
+		"downloadable": false,
+		"offline": false,
+		"metadata": {},
+		"images": [
+			{
+			"id": "c04i1709-pimg-438c-b2b1-4123dc5c67i1",
+			"type": "vod-poster",
+			"language": "por",
+			"location": "Fashion Week Moda Masculina/fwmodamasculina_poster_1440x2160.jpg"
+			},
+			{
+			"id": "c04i1709-bimg-438c-b2b1-4123dc5c67i1",
+			"type": "vod-background",
+			"language": "por",
+			"location": "Fashion Week Moda Masculina/fwmodamasculina_cover_1920x1080.jpg"
+			}
+		],
+		"series_id": "c04c4c5c-68c5-4e00-a98b-754b9e9ff009",
+		"season_id": "c04bab6c-fs09-4ed5-ab91-b4ec4150s009",
+		"parent_id": "c04if709-51d8-438c-b2b1-4123dc5c6c04",
+		"assets": [
+			"c04d7acd-c432-45d6-8d3c-6508bbb6f031",
+			"c04d7acd-c432-45d6-8d3c-6508bbb6f032"
+		]
+		},
+		
+		{
+		"id": "c04jf709-51d8-438c-b2b1-4123dc5c6c04",
+		"name": {
+		"por": "Fashion Week Especial Noivas"
+		},
+		"description_translations": {
+		"por": "Se inspire com os desfiles e fashion filmes no Especial Noivas. Diversas ideias de vestidos, cabelo e maquiagem para noivas."
+		},
+		"hidden": false,
+		"morality_level": 0,
+		"parental_control": false,
+		"adult": false,
+		"downloadable": false,
+		"offline": false,
+		"metadata": {},
+		"images": [
+			{
+			"id": "c04jf709-pimg-438c-b2b1-4123dc5c67j1",
+			"type": "vod-poster",
+			"language": "por",
+			"location": "Fashion Week Noivas/fwnoivas_poster_1440x2160.jpg"
+			},
+			{
+			"id": "c04jf709-bimg-438c-b2b1-4123dc5c67j1",
+			"type": "vod-background",
+			"language": "por",
+			"location": "Fashion Week Noivas/fwnoivas_cover_1920x1080.jpg"
+			}
+		],
+		"series_id": "c04c4c5c-68c5-4e00-a98b-754b9e9ff010",
+		"season_id": "null",
+		"parent_id": "7b4ef709-51d8-438c-b2b1-4123dc5c6c04",
+		"assets": [
+			""
+		]
+		},
+		
+		{
+		"id": "c04j1709-51d8-438c-b2b1-4123dc5c6c04",
+		"name": {
+		"por": "Fashion Week Especial Noivas"
+		},
+		"description_translations": {
+		"por": "Se inspire com os desfiles e fashion filmes no Especial Noivas. Diversas ideias de vestidos, cabelo e maquiagem para noivas."
+		},
+		"hidden": false,
+		"morality_level": 0,
+		"parental_control": false,
+		"adult": false,
+		"downloadable": false,
+		"offline": false,
+		"metadata": {},
+		"images": [
+			{
+			"id": "c04j1709-pimg-438c-b2b1-4123dc5c67j1",
+			"type": "vod-poster",
+			"language": "por",
+			"location": "Fashion Week Noivas/fwnoivas_poster_1440x2160.jpg"
+			},
+			{
+			"id": "c04j1709-bimg-438c-b2b1-4123dc5c67j1",
+			"type": "vod-background",
+			"language": "por",
+			"location": "Fashion Week Noivas/fwnoivas_cover_1920x1080.jpg"
+			}
+		],
+		"series_id": "c04c4c5c-68c5-4e00-a98b-754b9e9ff010",
+		"season_id": "c04bab6c-fs10-4ed5-ab91-b4ec4150s010",
+		"parent_id": "c04jf709-51d8-438c-b2b1-4123dc5c6c04",
+		"assets": [
+			"c04d7acd-c432-45d6-8d3c-6508bbb6f033",
+			"c04d7acd-c432-45d6-8d3c-6508bbb6f034"
+		]
+		}
+		
+	]
+}
