@@ -779,17 +779,18 @@ func TestXmlBoxAssets(t *testing.T) {
 		"      \"available_from\": 1593043200000,\n" +
 		"      \"available_to\": 1798675200000,\n      \"duration\": 1421000,\n" +
 		"      \"genres\": [\n" +
-		"        \"Show\"\n" +
+		"        \"Show\",\n" +
+		"        \"Música\"\n" +
 		"      ],\n" +
 		"      \"id\": \"198413c7-3d35-4c6d-9714-f80e92e9b7d0\",\n" +
 		"      \"images\": [\n" +
 		"        {\n" +
-		"          \"id\": \"e2830250-d3bf-451a-ba3b-d4ec3ce1da19\",\n" +
+		"          \"id\": \"198413c7-3d35-4c6d-9714-f80e92e9b7d0_p\",\n" +
 		"          \"location\": \"shows/ariana_grande_poster.jpg\",\n" +
 		"          \"type\": \"vod-poster\"\n" +
 		"        },\n" +
 		"        {\n" +
-		"          \"id\": \"8b841c15-a02f-4a23-b4d2-d4eb409becbe\",\n" +
+		"          \"id\": \"198413c7-3d35-4c6d-9714-f80e92e9b7d0_b\",\n" +
 		"          \"location\": \"shows/ariana_grande_landscape.jpg\",\n" +
 		"          \"type\": \"vod-background\"\n" +
 		"        }\n" +
@@ -799,7 +800,7 @@ func TestXmlBoxAssets(t *testing.T) {
 		"          \"audio_languages\": [\n" +
 		"            \"eng\"\n" +
 		"          ],\n" +
-		"          \"id\": \"198413c7-3d35-4c6d-9714-f80e92e9b7d0\",\n" +
+		"          \"id\": \"198413c7-3d35-4c6d-9714-f80e92e9b7d0_m\",\n" +
 		"          \"location\": \"shows/ariana_grande.mp4\",\n" +
 		"          \"metadata\": {},\n" +
 		"          \"subtitles_languages\": [\n" +
@@ -998,17 +999,18 @@ func TestXmlBoxAssetsTrailers(t *testing.T) {
 		"      \"available_from\": 1593043200000,\n" +
 		"      \"available_to\": 1798675200000,\n      \"duration\": 1421000,\n" +
 		"      \"genres\": [\n" +
-		"        \"Show\"\n" +
+		"        \"Show\",\n" +
+		"        \"Música\"\n" +
 		"      ],\n" +
 		"      \"id\": \"198413c7-3d35-4c6d-9714-f80e92e9b7d0\",\n" +
 		"      \"images\": [\n" +
 		"        {\n" +
-		"          \"id\": \"e2830250-d3bf-451a-ba3b-d4ec3ce1da19\",\n" +
+		"          \"id\": \"198413c7-3d35-4c6d-9714-f80e92e9b7d0_p\",\n" +
 		"          \"location\": \"shows/ariana_grande_poster.jpg\",\n" +
 		"          \"type\": \"vod-poster\"\n" +
 		"        },\n" +
 		"        {\n" +
-		"          \"id\": \"8b841c15-a02f-4a23-b4d2-d4eb409becbe\",\n" +
+		"          \"id\": \"198413c7-3d35-4c6d-9714-f80e92e9b7d0_b\",\n" +
 		"          \"location\": \"shows/ariana_grande_landscape.jpg\",\n" +
 		"          \"type\": \"vod-background\"\n" +
 		"        }\n" +
@@ -1018,7 +1020,7 @@ func TestXmlBoxAssetsTrailers(t *testing.T) {
 		"          \"audio_languages\": [\n" +
 		"            \"eng\"\n" +
 		"          ],\n" +
-		"          \"id\": \"198413c7-3d35-4c6d-9714-f80e92e9b7d0\",\n" +
+		"          \"id\": \"198413c7-3d35-4c6d-9714-f80e92e9b7d0_m\",\n" +
 		"          \"location\": \"shows/ariana_grande.mp4\",\n" +
 		"          \"metadata\": {},\n" +
 		"          \"subtitles_languages\": [\n" +
@@ -1581,7 +1583,6 @@ func TestXmlBoxSeries(t *testing.T) {
 	expectedSeries := "{\n" +
 		"  \"series\": [\n" +
 		"    {\n" +
-		"      \"external_ids\": {},\n" +
 		"      \"id\": \"3d0666d2-0d6e-4687-b37b-1f65e173f889\",\n" +
 		"      \"images\": [],\n" +
 		"      \"seasons\": [\n" +
@@ -1609,7 +1610,7 @@ func TestXmlBoxSeries(t *testing.T) {
 		"          }\n" +
 		"        }\n" +
 		"      ],\n" +
-		"      \"synopsys\": {\n" +
+		"      \"synopsis\": {\n" +
 		"        \"eng\": \"English Synopsis\",\n" +
 		"        \"por\": \"A melhor série de contagem regressiva de esportes." +
 		" Com temas icônicos focados nos momentos e indivíduos mais memoráveis do esporte.\"\n" +

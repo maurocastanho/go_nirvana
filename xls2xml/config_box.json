@@ -73,7 +73,10 @@
                             "Name": "genres",
                             "function": "empty",
                             "elem_val": "",
-                            "elements": [{"attrs": [{"Name": "genres", "function": "field", "field": "Genero 1"}]}]
+                            "elements": [
+                                {"attrs": [{"Name": "genres", "function": "field", "field": "Genero 1", "filter": "Genero_1 != ''"}]},
+                                {"attrs": [{"Name": "genres", "function": "field", "field": "Genero 2", "filter": "Genero_2 != ''"}]}
+                            ]
                         },
                         {"Name": "available_from", "function": "timestamp", "field": "Data Início", "type": "int"},
                         {"Name": "available_to", "function": "timestamp", "field": "Data Fim", "type": "int"},
@@ -83,14 +86,14 @@
                             "elements_array": [
                                 {
                                     "group_attrs":[
-                                        {"Name": "id", "function": "field", "field": "uuid_poster"},
+                                        {"Name": "id", "function": "suffix", "field": "uuid_box", "suffix": "_p"},
                                         {"Name": "type", "function": "fixed", "Value": "vod-poster"},
                                         {"Name": "location", "function": "field_suffix", "field": "ID", "field_prefix": "subpasta", "suffix":  "_poster.jpg"}
                                     ]
                                 },
                                 {
                                     "group_attrs":[
-                                        {"Name": "id", "function": "field", "field": "uuid_landscape"},
+                                        {"Name": "id", "function": "suffix", "field": "uuid_box", "suffix": "_b"},
                                         {"Name": "type", "function": "fixed", "Value": "vod-background"},
                                         {"Name": "location", "function": "field_suffix", "field": "ID", "field_prefix": "subpasta", "suffix":  "_landscape.jpg"}
                                     ]
@@ -169,7 +172,7 @@
                             "elements_array": [
                                 {
                                     "group_attrs": [
-                                        {"Name": "id", "function": "field", "field": "uuid_box"},
+                                        {"Name": "id", "function": "suffix", "field": "uuid_box", "suffix": "_m"},
                                         {"Name": "type", "function": "fixed", "Value": "MEDIA"},
                                         {"Name": "title", "function": "field", "field": "Título em Português"},
                                         {"Name": "location", "function": "field_suffix", "field": "ID", "field_prefix": "subpasta", "suffix": ""},
@@ -219,7 +222,7 @@
                                 {
                                     "filter": "Trailer_ID != ''",
                                     "group_attrs": [
-                                        {"Name": "id", "function": "field", "field": "uuid_trailer"},
+                                        {"Name": "id", "function": "field_suffix", "field": "uuid_box", "suffix": "_t"},
                                         {"Name": "type", "function": "fixed", "Value": "TRAILER"},
                                         {"Name": "title", "function": "field", "field": "Título em Português"},
                                         {"Name": "location", "function": "field_suffix", "field": "Trailer ID", "field_prefix": "subpasta trailer", "suffix": ""},
