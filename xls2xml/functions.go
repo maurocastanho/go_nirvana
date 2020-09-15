@@ -68,7 +68,8 @@ func initFunctions() {
 		"field_no_quotes": fieldNoQuotes,
 		"field_noacc":     fieldNoAccents,
 		"field_raw":       fieldRaw,
-		"field_suffix":    suffix,
+		"field_suffix":    pathSuffix,
+		"suffix":          suffix,
 		"field_trim":      fieldTrim,
 		"field_validated": fieldValidated,
 		"filter":          filterCondition,
@@ -255,8 +256,37 @@ func fieldNoQuotes(forceVal string, line *lineT, json jsonT, options optionsT) (
 	return []resultsT{newResult(result)}, errT
 }
 
-// Suffix removes the extension and appends a suffix to a field, returning the result
+// suffix appends a suffix to a field, returning the result
 func suffix(forceVal string, line *lineT, json jsonT, options optionsT) ([]resultsT, error) {
+	field, errT := fieldTrunc(forceVal, line, json, options)
+	result := field[0].val
+	if errT != nil {
+		return errorMessage, errT
+	}
+	// fmt.Printf("-->> %v\n", field)
+	suf, _ := json["suffix"].(string)
+	var middle string
+	maxS, err := getValue("maxlength", json)
+	if err == nil {
+		// have size limit: truncate string
+		max, errAt := strconv.Atoi(maxS)
+		if errAt != nil {
+			return errorMessage, fmt.Errorf("valor nao numerico em maxlenght: [%v]", maxS)
+		}
+		middle, errAt = truncateSuffix(result, suf, max)
+		if errAt != nil {
+			return errorMessage, errAt
+		}
+	} else {
+		// if err != nil, do not have size limit: do nothing
+		middle = result
+	}
+	result = fmt.Sprintf("%s%s", middle, suf)
+	return []resultsT{newResult(result)}, nil
+}
+
+// pathSuffix removes the extension and appends a path prefix and a suffix to a field, returning the result
+func pathSuffix(forceVal string, line *lineT, json jsonT, options optionsT) ([]resultsT, error) {
 	field, errT := fieldTrunc(forceVal, line, json, options)
 	if errT != nil {
 		return errorMessage, errT
@@ -277,7 +307,7 @@ func suffix(forceVal string, line *lineT, json jsonT, options optionsT) ([]resul
 	}
 	fieldPrefix, _ := json["field_prefix"].(string)
 	if fieldPrefix == "" {
-		// no suffix given: use file extension
+		// no prefix given: use default
 		fieldPrefix = "subpasta"
 	}
 	prefix, _ := line.fields[fieldPrefix]
