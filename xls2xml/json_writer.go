@@ -304,7 +304,7 @@ func (wr *jsonWriter) initCateg() (map[string]interface{}, error) {
 				err := fmt.Errorf("erro ao ler categoria, valor invalido [%s]", l)
 				return nil, err
 			}
-			elName[vals[0]] = vals[1]
+			elName[strings.TrimSpace(vals[0])] = strings.TrimSpace(vals[1])
 		}
 		el["name"] = elName
 		el["hidden"] = line.fields["hidden"] == "true"
@@ -356,12 +356,12 @@ func (wr *jsonWriter) initSeries() (map[string]interface{}, error) {
 				err := fmt.Errorf("erro ao ler serie, valor invalido [%s]", name)
 				return nil, err
 			}
-			elName[vals[0]] = vals[1]
+			elName[strings.TrimSpace(vals[0])] = strings.TrimSpace(vals[1])
 		}
 		//el["external_ids"] = make(map[string]interface{})
 		el["title"] = elName
 		var err error
-		el["synopsys"], err = splitLangName(line.fields["synopsis"])
+		el["synopsis"], err = splitLangName(line.fields["synopsis"])
 		if err != nil {
 			return nil, err
 		}
@@ -406,8 +406,8 @@ func splitLangName(str string) (map[string]string, error) {
 		if numEls != 2 {
 			return nil, fmt.Errorf("Campo de linguagem tem %d elementos, deveria ter 2: [%s]", numEls, langEl)
 		}
-		lang := langSplit[0]
-		text := langSplit[1]
+		lang := strings.TrimSpace(langSplit[0])
+		text := strings.TrimSpace(langSplit[1])
 		result[lang] = text
 	}
 	return result, nil
