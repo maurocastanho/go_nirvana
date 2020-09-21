@@ -58,10 +58,12 @@
                             "Name": "synopsis",
                             "function": "empty",
                             "no_array": "",
-                            "elements": [{"attrs": [
-                                {"Name": "por", "function": "field", "field": "Sinopse EPG"},
-                                {"Name": "por", "function": "map", "field1":"Linguagem Áudio","field2": "Sinopse EPG"}
-                            ]}]
+                            "elements": [
+                                {"attrs": [
+                                    {"Name": "por", "function": "field", "field": "Sinopse EPG"},
+                                    {"Name": "por", "function": "map", "field1":"Linguagem Áudio","field2": "Sinopse EPG"}
+                                ]}
+                            ]
                         },
                         {"Name": "morality_level", "function": "field", "field": "Classificação Etária", "type": "int"},
                         {"Name": "adult", "function": "condition", "condition": "Classificação_Etária == 18", "if_true": "true", "if_false": "false", "type": "boolean"},

@@ -8,6 +8,7 @@ import (
 	"os"
 	"path"
 	"runtime/debug"
+	"strconv"
 	"strings"
 
 	"flag"
@@ -202,8 +203,19 @@ func processSpreadSheet(json map[string]interface{}, outType string, f *xlsx.Spr
 	var curr lineT
 	name := ""
 	idField, _ := options["options"]["id_field"]
-	categField1, _ := options["options"]["categ_field1"]
-	categField2, _ := options["options"]["categ_field2"]
+	cField1, ok := options["options"]["categ_field1"]
+	if !ok {
+		return -1, []error{fmt.Errorf("campo options:categ_field1 não encontrado no arquivo de configuracao")}
+	}
+	cField2 := options["options"]["categ_field2"]
+	if !ok {
+		return -1, []error{fmt.Errorf("campo options:categ_field2 não encontrado no arquivo de configuracao")}
+	}
+	cField3 := options["options"]["categ_field3"]
+	if !ok {
+		return -1, []error{fmt.Errorf("campo options:categ_field3 não encontrado no arquivo de configuracao")}
+	}
+	categFields := []string{cField1, cField2, cField3}
 	var wrCategs *jsonWriter
 	var wrSeries *jsonWriter
 	var categLines []lineT
@@ -221,7 +233,7 @@ func processSpreadSheet(json map[string]interface{}, outType string, f *xlsx.Spr
 			return -1, []error{err}
 		}
 		// TODO usar createwriter
-		if wrCategs, err = newJSONWriter(outDir, categLines, nil, categsT); err != nil {
+		if wrCategs, err = newJSONWriter(outDir, categLines, serieLines, categsT); err != nil {
 			return -1, []error{err}
 		}
 		if wrSeries, err = newJSONWriter(outDir, nil, serieLines, seriesT); err != nil {
@@ -232,6 +244,7 @@ func processSpreadSheet(json map[string]interface{}, outType string, f *xlsx.Spr
 	log("------------------------------")
 	log("Iniciando geracao de arquivos:")
 	log("------------------------------")
+	var wr writer
 	for i := 0; i < nLines; {
 		log(fmt.Sprintf("Processando linha %d...", i+1))
 		var pack []lineT
@@ -260,7 +273,6 @@ func processSpreadSheet(json map[string]interface{}, outType string, f *xlsx.Spr
 		}
 		filePath = path.Join(outDir, filePath)
 		log(fmt.Sprintf("Arquivo: %s", filePath))
-		var wr writer
 		if wr, err = createWriter(outType, filePath, "", 0, 0,
 			categLines, serieLines, assetsT); err != nil {
 			return -1, []error{err}
@@ -288,23 +300,41 @@ func processSpreadSheet(json map[string]interface{}, outType string, f *xlsx.Spr
 		}
 		log("------------------------------------")
 	}
+	if wr != nil {
+		dirCategs := path.Dir(wrCategs.Filename())
+		dirSeries := path.Dir(wrSeries.Filename())
+		fileCateg := path.Join(dirCategs, "categories.json")
+		fileSeries := path.Join(dirSeries, "series.json")
+		os.Remove(fileCateg)
+		os.Remove(fileSeries)
+	}
+
 	if success == 0 {
 		// Main file successfully processed, process other outputs
 		if rs != nil {
 			// publisher report
-			if _, _, _, err = rs.WriteConsolidated(0); err != nil {
+			if _, _, _, err = rs.WriteConsolidated(assetsT); err != nil {
 				return -1, []error{err}
 			}
 		}
 		if wrCategs != nil || wrSeries != nil {
 			// extra files
-			suc, errors := processCategs(lines, wrCategs, idField, categField1, categField2)
+			suc, errors := processSeries(lines, wrSeries, "id")
 			if len(errors) > 0 {
 				return -1, errors
 			} else if suc != 0 {
 				success = suc
 			}
-			if suc, errors = processSeries(lines, wrSeries, "id"); len(errors) > 0 {
+			catSeason, ok := options["options"]["categ_season"]
+			if !ok {
+				return -1, []error{fmt.Errorf("categ_season nao encontrada em options no config")}
+			}
+			categSeason, err := strconv.Atoi(catSeason)
+			if err != nil {
+				return -1, []error{err}
+			}
+			suc, errors = processCategs(lines, wrCategs, wrSeries, idField, categFields, categSeason)
+			if len(errors) > 0 {
 				return -1, errors
 			} else if suc != 0 {
 				success = suc
@@ -355,13 +385,13 @@ func processPublisherXLS(JsonXlsMap map[string]interface{}, outDir string, nLine
 	return xlsFilepath, success, nil
 }
 
-func processCategs(pack []lineT, wrCateg *jsonWriter, idField string, categField1 string, categField2 string) (int, []error) {
+func processCategs(lines []lineT, wrCateg *jsonWriter, wrSeries *jsonWriter, idField string, categFields []string, categSeason int) (int, []error) {
 	log("Processando categorias...")
 	success := 0
 	errors := make([]error, 0, 0)
-	for k := range pack {
-		row := pack[k]
-		succ, err := wrCateg.processCategPack(row, idField, categField1, categField2)
+	for k := range lines {
+		row := lines[k]
+		succ, err := wrCateg.processCategPack(&row, idField, categFields, categSeason, wrSeries.serieLines)
 		if err != nil {
 			return succ, appendErrors("", errors, err)
 		}
@@ -377,7 +407,7 @@ func processSeries(pack []lineT, wrSeries *jsonWriter, idField string) (int, []e
 	errors := make([]error, 0, 0)
 	for k := range pack {
 		row := pack[k]
-		success, err := wrSeries.processSeriesPack(row, idField, "Número do Episódio") // TODO parametrizar
+		success, err := wrSeries.processSeriesPack(&row, idField, "Número do Episódio") // TODO parametrizar
 		if err != nil {
 			errors = appendErrors("", errors, err)
 			return success, errors
