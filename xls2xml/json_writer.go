@@ -239,7 +239,7 @@ func (wr *jsonWriter) WriteConsolidated(mode int) (bufAssets []byte, bufCategs [
 	}
 	if !wr.testing {
 		fileAssets := path.Join(wr.fileName, "assets.json")
-		log("Writing " + fileAssets)
+		log("Salvando " + fileAssets)
 		err = ioutil.WriteFile(fileAssets, bufAssets, 0644)
 		if err != nil {
 			err = fmt.Errorf("ERRO ao criar arquivo [%#v]: %v", fileAssets, err)
@@ -257,7 +257,7 @@ func (wr *jsonWriter) WriteConsolidated(mode int) (bufAssets []byte, bufCategs [
 		}
 		if !wr.testing {
 			fileCateg := path.Join(wr.fileName, "categories.json")
-			log("Writing " + fileCateg)
+			log("Salvando " + fileCateg)
 			err = ioutil.WriteFile(fileCateg, bufCategs, 0644)
 			if err != nil {
 				err = fmt.Errorf("ERRO ao criar arquivo [%#v]: %v", fileCateg, err)
@@ -271,7 +271,7 @@ func (wr *jsonWriter) WriteConsolidated(mode int) (bufAssets []byte, bufCategs [
 		}
 		if !wr.testing {
 			fileSeries := path.Join(wr.fileName, "series.json")
-			log("Writing " + fileSeries)
+			log("Salvando " + fileSeries)
 			err = ioutil.WriteFile(fileSeries, bufSeries, 0644)
 			if err != nil {
 				err = fmt.Errorf("ERRO ao criar arquivo [%#v]: %v", fileSeries, err)
@@ -296,7 +296,7 @@ func (wr *jsonWriter) initCateg() (map[string]interface{}, error) {
 			}
 			continue
 		}
-		m, err, done := newCateg(el, line.fields["name"], line.fields["id"])
+		m, err, done := newCateg(el, line.fields["name"], line.fields["id"], "")
 		el["hidden"] = line.fields["hidden"] == "true"
 		el["morality_level"] = line.fields["morality_level"]
 		el["parental_control"] = line.fields["parental_control"] == "true"
@@ -313,7 +313,7 @@ func (wr *jsonWriter) initCateg() (map[string]interface{}, error) {
 	return root, nil
 }
 
-func newCateg(el map[string]interface{}, name string, id string) (map[string]interface{}, error, bool) {
+func newCateg(el map[string]interface{}, name string, id string, idParent string) (map[string]interface{}, error, bool) {
 	elName := make(map[string]interface{})
 	strNames := strings.Split(name, "|")
 	for _, l := range strNames {
@@ -334,7 +334,7 @@ func newCateg(el map[string]interface{}, name string, id string) (map[string]int
 	el["offline"] = false
 	el["metadata"] = make(map[string]interface{})
 	el["images"] = make([]interface{}, 0)
-	el["parent_id"] = ""
+	el["parent_id"] = idParent
 	el["assets"] = make([]interface{}, 0)
 	return el, nil, false
 }
@@ -428,7 +428,7 @@ func splitLangName(str string) (map[string]string, error) {
 }
 
 // addToCategories adds an asset to the categories list
-func (wr *jsonWriter) addToCategories(id string, categName string, rootEl string) error {
+func (wr *jsonWriter) addToCategories(id string, categName string, idParent string, rootEl string) error {
 	if categName == "" {
 		return nil
 	}
@@ -437,20 +437,22 @@ func (wr *jsonWriter) addToCategories(id string, categName string, rootEl string
 	for _, categ := range categs {
 		name := categ["name"].(map[string]interface{})["por"]
 		if name == categName {
+			for _, asset := range categ["assets"].([]interface{}) {
+				if id == asset.(string) {
+					return nil
+				}
+			}
 			categ["assets"] = append(categ["assets"].([]interface{}), id)
 			return nil
 		}
 	}
 	el := make(map[string]interface{})
-	uuid, err := genUUID("", nil, nil, nil)
+	log(fmt.Sprintf("criando nova categoria: [%s]", categName))
+	categ, err, _ := newCateg(el, categName, id, idParent)
 	if err != nil {
 		return err
 	}
-	newCateg, err, _ := newCateg(el, categName, uuid[0].val)
-	if err != nil {
-		return err
-	}
-	r[rootEl] = append(categs, newCateg)
+	r[rootEl] = append(categs, categ)
 	////categs["assets"]= categ["assets"].([]interface{}), id)
 	// return fmt.Errorf("Categoria nao existente: inclua na aba 'categories'. Nome: [%s], sugestao de id: [%s] ", categName, uuid[0].val)
 	return nil
@@ -474,8 +476,9 @@ func (wr *jsonWriter) addToSeries(id string, serieName string) error {
 }
 
 // IMPORTANT: JsonWriter must be created separately for the categories file - do not use this method for the assets file
-func (wr *jsonWriter) processCategPack(line *lineT, idField string, categFields []string, categSeason int, series []lineT) (int, error) {
+func (wr *jsonWriter) processCategPack(lines []lineT, k int, idField string, categFields []string, categSeason int, series []lineT, categs []lineT) (int, error) {
 	var err error
+	line := lines[k]
 	//numCats := len(categFields)
 	//categ1, ok1 := line.fields[categFields[0]]
 	//if !ok1 {
@@ -485,10 +488,28 @@ func (wr *jsonWriter) processCategPack(line *lineT, idField string, categFields 
 	//if err != nil {
 	//	return -1, err
 	//}
-	idParent := 0
+	studio := line.fields[categFields[0]]
+	serie, err := findSerie(series, studio, line.fields[categFields[1]], line.fields[categFields[2]])
+	if serie == nil {
+		return -1, err
+	}
+	var idStudio string
+	for _, l := range categs {
+		n, _ := splitLangName(l.fields["name"])
+		if studio == n["por"] {
+			idStudio = l.fields["id"]
+		}
+	}
+	var idChild = ""
 	if categSeason > 0 {
-		_, err = wr.processCategAdditional(line, idField, categFields, series, idParent, 1)
+		idChild, err = wr.processCategAdditional(&line, idField, categFields, series, idStudio, 1)
 
+	}
+	if idChild == "" {
+		idChild = idStudio
+	}
+	if err := wr.addToCategories(idChild, studio, idStudio, "categories"); err != nil {
+		return -1, err
 	}
 
 	//for i := 0; i < numCats; i++ {
@@ -510,19 +531,26 @@ func (wr *jsonWriter) processCategPack(line *lineT, idField string, categFields 
 	return 0, err
 }
 
-func (wr *jsonWriter) processCategAdditional(line *lineT, idField string, categFields []string, series []lineT, idParent int, level int) (int, error) {
+func (wr *jsonWriter) processCategAdditional(line *lineT, idField string, categFields []string, series []lineT, idParent string, level int) (string, error) {
 	if level > 1 {
-		return 0, nil
+		return "", nil
 	}
-	id := level
-	if result, err := wr.processCategAdditional(line, idField, categFields, series, id, level+1); err != nil {
+	serie, err := findSerie(series, line.fields[categFields[0]], line.fields[categFields[1]], line.fields[categFields[2]])
+	if serie == nil {
+		return "", err
+	}
+	idGroup := serie.fields["id"]
+	id := line.fields[idField]
+	id1 := fmt.Sprintf("%s_%d", id, level)
+	result, err := wr.processCategAdditional(line, idField, categFields, series, id, level+1)
+	if err != nil {
 		return result, err
 	}
-	if err := wr.addToCategories(line.fields[idField], line.fields[categFields[level]], "categories"); err != nil {
-		return -1, err
+	if err := wr.addToCategories(id1, line.fields[categFields[level]], idParent, "categories"); err != nil {
+		return id1, err
 	}
 
-	return 0, nil
+	return idGroup, nil
 }
 
 func findSerie(series []lineT, studio string, name string, season string) (*lineT, error) {

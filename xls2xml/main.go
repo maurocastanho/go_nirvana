@@ -390,8 +390,7 @@ func processCategs(lines []lineT, wrCateg *jsonWriter, wrSeries *jsonWriter, idF
 	success := 0
 	errors := make([]error, 0, 0)
 	for k := range lines {
-		row := lines[k]
-		succ, err := wrCateg.processCategPack(&row, idField, categFields, categSeason, wrSeries.serieLines)
+		succ, err := wrCateg.processCategPack(lines, k, idField, categFields, categSeason, wrSeries.serieLines, wrCateg.categLines)
 		if err != nil {
 			return succ, appendErrors("", errors, err)
 		}
