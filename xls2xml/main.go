@@ -203,18 +203,10 @@ func processSpreadSheet(json map[string]interface{}, outType string, f *xlsx.Spr
 	var curr lineT
 	name := ""
 	idField, _ := options["options"]["id_field"]
-	cField1, ok := options["options"]["categ_field1"]
-	if !ok {
-		return -1, []error{fmt.Errorf("campo options:categ_field1 não encontrado no arquivo de configuracao")}
-	}
+	// TODO Check categ fields
+	cField1 := options["options"]["categ_field1"]
 	cField2 := options["options"]["categ_field2"]
-	if !ok {
-		return -1, []error{fmt.Errorf("campo options:categ_field2 não encontrado no arquivo de configuracao")}
-	}
 	cField3 := options["options"]["categ_field3"]
-	if !ok {
-		return -1, []error{fmt.Errorf("campo options:categ_field3 não encontrado no arquivo de configuracao")}
-	}
 	categFields := []string{cField1, cField2, cField3}
 	var wrCategs *jsonWriter
 	var wrSeries *jsonWriter
@@ -300,7 +292,7 @@ func processSpreadSheet(json map[string]interface{}, outType string, f *xlsx.Spr
 		}
 		log("------------------------------------")
 	}
-	if wr != nil {
+	if wr != nil && wrCategs != nil {
 		dirCategs := path.Dir(wrCategs.Filename())
 		dirSeries := path.Dir(wrSeries.Filename())
 		fileCateg := path.Join(dirCategs, "categories.json")

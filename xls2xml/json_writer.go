@@ -525,14 +525,13 @@ func (wr *jsonWriter) processSerie(line *lineT, idField string, categFields []st
 	name := line.fields[categFields[1]]
 	idGroup = serie.fields["id"]
 	seriesId := serie.fields["id"]
-	id := line.fields[idField]
-	id1 := fmt.Sprintf("%s_%d", id, 1)
-	result, err := wr.processSeason(line, idField, categFields, series, seriesId)
+	serieId1 := fmt.Sprintf("%s_s", seriesId)
+	result, err := wr.processSeason(line, idField, categFields, series, serieId1)
 	if err != nil {
 		return result, err
 	}
-	if err := wr.addToCategories(result, seriesId, name, idParent, "categories", seriesId, "null"); err != nil {
-		return id1, err
+	if err := wr.addToCategories(result, serieId1, name, idParent, "categories", seriesId, "null"); err != nil {
+		return serieId1, err
 	}
 
 	return idGroup, nil
@@ -546,13 +545,13 @@ func (wr *jsonWriter) processSeason(line *lineT, idField string, categFields []s
 	name := line.fields[categFields[2]]
 	seriesId := serie.fields["id"]
 	seasonId := serie.fields["id season"]
+	seasonId1 := fmt.Sprintf("%s_t", seasonId)
 	name = fmt.Sprintf("%s T%s", line.fields[categFields[1]], strings.TrimSpace(line.fields[categFields[2]]))
 	id := line.fields[idField]
-	id1 := fmt.Sprintf("%s_%d", id, 2)
-	if err := wr.addToCategories(id1, seasonId, name, idParent, "categories", seriesId, seasonId); err != nil {
-		return id1, err
+	if err := wr.addToCategories(id, seasonId1, name, idParent, "categories", seriesId, seasonId); err != nil {
+		return id, err
 	}
-	return seasonId, nil
+	return seasonId1, nil
 }
 
 func findSerie(series []lineT, studio string, name string, season string) (*lineT, error) {
