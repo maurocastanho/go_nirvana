@@ -5,7 +5,7 @@
         {"Name": "owner", "Value": "gvt"},
         {"Name": "doctype", "Value": "ADI"},
         {"Name": "doctype_system", "Value": "ADI.DTD"},
-        {"Name": "season_field", "Value": "Temporada"},
+        {"Name": "season_field", "Value": "Season"},
         {"Name": "episode_field", "Value": "Número do Episódio"}
     ],
     "xls_output": {
@@ -16,7 +16,7 @@
             {"Name": "ORIGINAL TITLE", "field": "Original_Title", "function": "field_raw"},
             {"Name": "TÍTULO EM PORTUGUÊS", "field": "Title", "function": "field_raw"},
             {"Name": "NOME DO EPISÓDIO", "field": "Título em Português do Episódio", "function": "field_raw"},
-            {"Name": "TEMPORADA", "field": "Temporada", "function": "field_raw", "format": "0"},
+            {"Name": "TEMPORADA", "field": "Season", "function": "field_raw", "format": "0"},
             {"Name": "EPISÓDIO", "field": "Número do Episódio", "function": "field_raw", "format": "0"},
             {"Name": "PROVEDOR", "field": "Provider", "function": "field_raw"},
             {"Name": "JANELA DE REPASSE", "field": "Billing_ID", "function": "janela_repasse"},
@@ -90,8 +90,8 @@
                                         {"Name": "Title_Sort_Name", "field": "Title", "maxlength": "22", "function": "field"},
                                         {"Name": "Title_Brief", "field": "Title", "maxlength": "19", "function": "field"},
                                         {"Name": "Title", "field": "Title", "maxlength": "54", "function": "field"},
-                                        {"Name": "Episode_Name", "field": "Título em Português do Episódio", "maxlength": "128", "function": "field", "filter": "Temporada != ''"},
-                                        {"Name": "Episode_ID", "function": "episode_id", "filter": "Temporada != ''"},
+                                        {"Name": "Episode_Name", "field": "Título em Português do Episódio", "maxlength": "128", "function": "field", "filter": "Season != ''"},
+                                        {"Name": "Episode_ID", "function": "episode_id", "filter": "Season != ''"},
                                         {"Name": "Summary_Long", "target_language": "pt-BR", "maxlength": "1024", "field": "Summary_Medium", "function": "field_no_quotes"},
                                         {"Name": "Summary_Medium", "target_language": "pt-BR", "maxlength": "1024", "field": "Summary_Medium", "function": "field_no_quotes"},
                                         {"Name": "Summary_Short", "target_language": "pt-BR", "maxlength": "256", "field": "Summary_Medium", "function": "field_no_quotes"},

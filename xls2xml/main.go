@@ -272,6 +272,9 @@ func processSpreadSheet(json map[string]interface{}, outType string, f *xlsx.Spr
 		log("Escrevendo " + filePath)
 		if errs = processAssets(json, pack, wr); len(errs) > 0 {
 			// Do not stop: log error and continue to other files
+			for _, e := range errs {
+				logError(e)
+			}
 			success = -1
 		}
 		lName = name
