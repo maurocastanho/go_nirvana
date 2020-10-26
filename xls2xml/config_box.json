@@ -77,7 +77,7 @@
                             "elem_val": "",
                             "elements": [
                                 {"attrs": [{"Name": "genres", "function": "field", "field": "Genero 1", "filter": "Genero_1 != ''"}]},
-                                {"attrs": [{"Name": "genres", "function": "field", "field": "Genero 2", "filter": "Genero_2 != ''"}]}
+                                {"attrs": [{"Name": "genres", "function": "field", "field": "Genero 2", "filter": "Genero_2 != '' && (Genero_1 != Genero_2)" }]}
                             ]
                         },
                         {"Name": "available_from", "function": "timestamp", "field": "Data Início", "type": "int"},
@@ -212,8 +212,40 @@
                                             }]
 
                                         },
-
-                                        {"Name": "metadata", "no_array": "", "elements": [{"attrs": []}]}
+                                        {
+                                            "Name": "subtitles",
+                                            "filter": "Legenda != ''",
+                                            "function": "empty",
+                                            "elements_array": [
+                                                {
+                                                    "group_attrs": [
+                                                        {"Name": "type", "function": "fixed", "Value": "normal"},
+                                                        {
+                                                            "Name": "location",
+                                                            "function": "field_suffix",
+                                                            "field": "ID",
+                                                            "field_prefix": "Legenda",
+                                                            "suffix": ".srt"
+                                                        },
+                                                        {
+                                                            "Name": "languages",
+                                                            "elem_val": "",
+                                                            "elements": [
+                                                                {
+                                                                    "attrs": [
+                                                                        {
+                                                                            "Name": "audio_languages1",
+                                                                            "function": "fixed",
+                                                                            "Value": "por"
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
                                     ]
                                 },
                                 {

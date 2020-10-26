@@ -460,7 +460,7 @@ func (wr *jsonWriter) addToCategories(id string, idCateg string, categName strin
 	return nil
 }
 
-// addToSeries adds an asset to the series list
+// addToSeries adds an asset to the series list in assets.json
 func (wr *jsonWriter) addToSeries(id string, serieName string) error {
 	if serieName == "" {
 		return nil
@@ -493,6 +493,10 @@ func (wr *jsonWriter) processCategPack(lines []lineT, k int, idField string, cat
 	studio := line.fields[categFields[0]]
 	serie, err := findSerie(series, studio, line.fields[categFields[1]], line.fields[categFields[2]])
 	if serie == nil {
+		if line.fields[categFields[2]] == "" { // testing if season is not empty
+			return 0, nil
+		}
+
 		return -1, err
 	}
 	var idStudio string

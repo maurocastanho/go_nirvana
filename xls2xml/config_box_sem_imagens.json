@@ -77,7 +77,7 @@
                             "elem_val": "",
                             "elements": [
                                 {"attrs": [{"Name": "genres", "function": "field", "field": "Genero 1", "filter": "Genero_1 != ''"}]},
-                                {"attrs": [{"Name": "genres", "function": "field", "field": "Genero 2", "filter": "Genero_2 != ''"}]}
+                                {"attrs": [{"Name": "genres", "function": "field", "field": "Genero 2", "filter": "Genero_2 != '' && (Genero_1 != Genero_2)" }]}
                             ]
                         },
                         {"Name": "available_from", "function": "timestamp", "field": "Data Início", "type": "int"},

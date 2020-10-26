@@ -1,300 +1,433 @@
 {
   "series": [
     {
-      "external_ids": {},
-      "id": "6fe302ae-4671-4ec4-a780-7a01edc74e48",
+      "id": "3d0666d2-0d6e-4687-b37b-1f65e173f889",
       "images": [],
       "seasons": [
         {
-          "id": "d620839c-245f-49b0-a42a-0687232b1555",
+          "id": "3ee50673-3b99-4cf9-8fb2-1ad5223f4688",
           "season_number": 1,
           "synopsis": {
             "eng": "First season",
             "por": "Primeira temporada"
           },
           "title": {
-            "eng": "National Icons",
-            "por": "Ícones do Esporte"
+            "eng": "The List",
+            "por": "A Lista"
+          }
+        },
+        {
+          "id": "19e1327c-7c0f-491f-9ef0-0365641cb9a1",
+          "season_number": 2,
+          "synopsis": {
+            "eng": "Second Season",
+            "por": "Segunda temporada"
+          },
+          "title": {
+            "eng": "The List",
+            "por": "A Lista"
+          }
+        },
+        {
+          "id": "5980a7b0-a9e5-4368-8110-cd298a68e571",
+          "season_number": 3,
+          "synopsis": {
+            "eng": "Third season",
+            "por": "Terceira temporada"
+          },
+          "title": {
+            "eng": "The List",
+            "por": "A Lista"
+          }
+        },
+        {
+          "id": "6585739f-91e3-4cdc-a7dd-62af9dd6adbe",
+          "season_number": 4,
+          "synopsis": {
+            "eng": "Fourth Season",
+            "por": "Quarta temporada"
+          },
+          "title": {
+            "eng": "The List",
+            "por": "A Lista"
+          }
+        },
+        {
+          "id": "5980a7b0-a9e5-4368-8110-cd298a68e571",
+          "season_number": 5,
+          "synopsis": {
+            "eng": "Fifth season",
+            "por": "Quinta temporada"
+          },
+          "title": {
+            "eng": "The List",
+            "por": "A Lista"
+          }
+        },
+        {
+          "id": "6585739f-91e3-4cdc-a7dd-62af9dd6adbe",
+          "season_number": 6,
+          "synopsis": {
+            "eng": "Sixth Season",
+            "por": "Sexta temporada"
+          },
+          "title": {
+            "eng": "The List",
+            "por": "A Lista"
           }
         }
       ],
-      "synopsys": {
+      "synopsis": {
         "eng": "English Synopsis",
-        "por": "Acompanhe uma batalha comparando os maiores nomes do esporte na atualidade contra as maiores lendas da modalidade de cada país. "
+        "por": "A melhor série de contagem regressiva de esportes. Com temas icônicos focados nos momentos e indivíduos mais memoráveis do esporte."
       },
       "title": {
-        "eng": "National Icons",
-        "por": "Ícones do Esporte"
+        "eng": "The List",
+        "por": "A Lista"
       }
     },
     {
-      "external_ids": {},
-      "id": "506fa204-b5fc-4c65-90a9-711a614ad214",
+      "id": "3d0666d2-0d6e-4687-b37b-1f65e173f889",
       "images": [],
       "seasons": [
         {
-          "id": "b7e5b23a-4787-4023-9d0d-e79e52c3342d",
+          "id": "3ee50673-3b99-4cf9-8fb2-1ad5223f4688",
           "season_number": 1,
           "synopsis": {
             "eng": "First season",
             "por": "Primeira temporada"
           },
           "title": {
-            "eng": "Dream Teams",
-            "por": "Time dos Sonhos"
+            "eng": "The List",
+            "por": "A Lista"
+          }
+        },
+        {
+          "id": "19e1327c-7c0f-491f-9ef0-0365641cb9a1",
+          "season_number": 2,
+          "synopsis": {
+            "eng": "Second Season",
+            "por": "Segunda temporada"
+          },
+          "title": {
+            "eng": "The List",
+            "por": "A Lista"
+          }
+        },
+        {
+          "id": "5980a7b0-a9e5-4368-8110-cd298a68e571",
+          "season_number": 3,
+          "synopsis": {
+            "eng": "Third season",
+            "por": "Terceira temporada"
+          },
+          "title": {
+            "eng": "The List",
+            "por": "A Lista"
+          }
+        },
+        {
+          "id": "6585739f-91e3-4cdc-a7dd-62af9dd6adbe",
+          "season_number": 4,
+          "synopsis": {
+            "eng": "Fourth Season",
+            "por": "Quarta temporada"
+          },
+          "title": {
+            "eng": "The List",
+            "por": "A Lista"
+          }
+        },
+        {
+          "id": "5980a7b0-a9e5-4368-8110-cd298a68e571",
+          "season_number": 5,
+          "synopsis": {
+            "eng": "Fifth season",
+            "por": "Quinta temporada"
+          },
+          "title": {
+            "eng": "The List",
+            "por": "A Lista"
+          }
+        },
+        {
+          "id": "6585739f-91e3-4cdc-a7dd-62af9dd6adbe",
+          "season_number": 6,
+          "synopsis": {
+            "eng": "Sixth Season",
+            "por": "Sexta temporada"
+          },
+          "title": {
+            "eng": "The List",
+            "por": "A Lista"
           }
         }
       ],
-      "synopsys": {
+      "synopsis": {
         "eng": "English Synopsis",
-        "por": "A série monta o time dos sonhos. Cada equipe é formada com os atletas lendários que fizeram história no seu clube, seleção e equipe nas diversas modalidades esportivas"
+        "por": "A melhor série de contagem regressiva de esportes. Com temas icônicos focados nos momentos e indivíduos mais memoráveis do esporte."
       },
       "title": {
-        "eng": "Dream Teams",
-        "por": "Time dos Sonhos"
+        "eng": "The List",
+        "por": "A Lista"
       }
     },
     {
-      "external_ids": {},
-      "id": "9d89fb96-4f4c-4997-abe5-b64ccaf54a4b",
+      "id": "3d0666d2-0d6e-4687-b37b-1f65e173f889",
       "images": [],
       "seasons": [
         {
-          "id": "8747a1e0-5f6e-4292-ae66-52963a6d93ed",
+          "id": "3ee50673-3b99-4cf9-8fb2-1ad5223f4688",
           "season_number": 1,
           "synopsis": {
             "eng": "First season",
             "por": "Primeira temporada"
           },
           "title": {
-            "eng": "Tennis Stars",
-            "por": "Estrelas do Tênis"
+            "eng": "The List",
+            "por": "A Lista"
+          }
+        },
+        {
+          "id": "19e1327c-7c0f-491f-9ef0-0365641cb9a1",
+          "season_number": 2,
+          "synopsis": {
+            "eng": "Second Season",
+            "por": "Segunda temporada"
+          },
+          "title": {
+            "eng": "The List",
+            "por": "A Lista"
+          }
+        },
+        {
+          "id": "5980a7b0-a9e5-4368-8110-cd298a68e571",
+          "season_number": 3,
+          "synopsis": {
+            "eng": "Third season",
+            "por": "Terceira temporada"
+          },
+          "title": {
+            "eng": "The List",
+            "por": "A Lista"
+          }
+        },
+        {
+          "id": "6585739f-91e3-4cdc-a7dd-62af9dd6adbe",
+          "season_number": 4,
+          "synopsis": {
+            "eng": "Fourth Season",
+            "por": "Quarta temporada"
+          },
+          "title": {
+            "eng": "The List",
+            "por": "A Lista"
+          }
+        },
+        {
+          "id": "5980a7b0-a9e5-4368-8110-cd298a68e571",
+          "season_number": 5,
+          "synopsis": {
+            "eng": "Fifth season",
+            "por": "Quinta temporada"
+          },
+          "title": {
+            "eng": "The List",
+            "por": "A Lista"
+          }
+        },
+        {
+          "id": "6585739f-91e3-4cdc-a7dd-62af9dd6adbe",
+          "season_number": 6,
+          "synopsis": {
+            "eng": "Sixth Season",
+            "por": "Sexta temporada"
+          },
+          "title": {
+            "eng": "The List",
+            "por": "A Lista"
           }
         }
       ],
-      "synopsys": {
+      "synopsis": {
         "eng": "English Synopsis",
-        "por": "Conheça a elite do tenis dentro e fora das quadras. Seu estilo de vida glamuroso, personalidades marcantes e as manias curiosas dos nomes desse esporte que amamos."
+        "por": "A melhor série de contagem regressiva de esportes. Com temas icônicos focados nos momentos e indivíduos mais memoráveis do esporte."
       },
       "title": {
-        "eng": "Tennis Stars",
-        "por": "Estrelas do Tênis"
+        "eng": "The List",
+        "por": "A Lista"
       }
     },
     {
-      "external_ids": {},
-      "id": "01f45ad5-b43a-4262-aaa2-3bbf0493578f",
+      "id": "3d0666d2-0d6e-4687-b37b-1f65e173f889",
       "images": [],
       "seasons": [
         {
-          "id": "6cad1d09-78cf-4c71-9341-8b242fea2202",
+          "id": "3ee50673-3b99-4cf9-8fb2-1ad5223f4688",
           "season_number": 1,
           "synopsis": {
             "eng": "First season",
             "por": "Primeira temporada"
           },
           "title": {
-            "eng": "Up Close With",
-            "por": "Perto Deles"
+            "eng": "The List",
+            "por": "A Lista"
+          }
+        },
+        {
+          "id": "19e1327c-7c0f-491f-9ef0-0365641cb9a1",
+          "season_number": 2,
+          "synopsis": {
+            "eng": "Second Season",
+            "por": "Segunda temporada"
+          },
+          "title": {
+            "eng": "The List",
+            "por": "A Lista"
+          }
+        },
+        {
+          "id": "5980a7b0-a9e5-4368-8110-cd298a68e571",
+          "season_number": 3,
+          "synopsis": {
+            "eng": "Third season",
+            "por": "Terceira temporada"
+          },
+          "title": {
+            "eng": "The List",
+            "por": "A Lista"
+          }
+        },
+        {
+          "id": "6585739f-91e3-4cdc-a7dd-62af9dd6adbe",
+          "season_number": 4,
+          "synopsis": {
+            "eng": "Fourth Season",
+            "por": "Quarta temporada"
+          },
+          "title": {
+            "eng": "The List",
+            "por": "A Lista"
+          }
+        },
+        {
+          "id": "5980a7b0-a9e5-4368-8110-cd298a68e571",
+          "season_number": 5,
+          "synopsis": {
+            "eng": "Fifth season",
+            "por": "Quinta temporada"
+          },
+          "title": {
+            "eng": "The List",
+            "por": "A Lista"
+          }
+        },
+        {
+          "id": "6585739f-91e3-4cdc-a7dd-62af9dd6adbe",
+          "season_number": 6,
+          "synopsis": {
+            "eng": "Sixth Season",
+            "por": "Sexta temporada"
+          },
+          "title": {
+            "eng": "The List",
+            "por": "A Lista"
           }
         }
       ],
-      "synopsys": {
+      "synopsis": {
         "eng": "English Synopsis",
-        "por": "Os maiores atletas de diversificados esportes falam sobre assuntos que não são muito falados. O que os motiva e quais foram os desafios que precisaram superar na busca de seus sonhos."
+        "por": "A melhor série de contagem regressiva de esportes. Com temas icônicos focados nos momentos e indivíduos mais memoráveis do esporte."
       },
       "title": {
-        "eng": "Up Close With",
-        "por": "Perto Deles"
+        "eng": "The List",
+        "por": "A Lista"
       }
     },
     {
-      "external_ids": {},
-      "id": "e7adee89-7154-424b-a748-d81158dbc11e",
+      "id": "3d0666d2-0d6e-4687-b37b-1f65e173f889",
       "images": [],
       "seasons": [
         {
-          "id": "31cc5908-932e-4d43-9977-256ab6c3b386",
+          "id": "3ee50673-3b99-4cf9-8fb2-1ad5223f4688",
           "season_number": 1,
           "synopsis": {
             "eng": "First season",
             "por": "Primeira temporada"
           },
           "title": {
-            "eng": "Rivellino",
-            "por": "Rivellino"
+            "eng": "The List",
+            "por": "A Lista"
           }
-        }
-      ],
-      "synopsys": {
-        "eng": "English Synopsis",
-        "por": "Rivellino, campeão e titular da Seleção Brasileira na Copa do Mundo de 70, ídolo do Corinthians e do Fluminense, além de considerado por muitos, um dos melhores jogadores do mundo, conta tudo sobre sua carreira, batalhas, conquistas e vida no esporte  "
-      },
-      "title": {
-        "eng": "Rivellino",
-        "por": "Rivellino"
-      }
-    },
-    {
-      "external_ids": {},
-      "id": "9587b101-8647-4879-87c9-5b953485bc77",
-      "images": [],
-      "seasons": [
+        },
         {
-          "id": "d2833e60-a4dc-472d-b58f-9d61f93c172e",
-          "season_number": 1,
+          "id": "19e1327c-7c0f-491f-9ef0-0365641cb9a1",
+          "season_number": 2,
           "synopsis": {
-            "eng": "First season",
-            "por": "Primeira temporada"
+            "eng": "Second Season",
+            "por": "Segunda temporada"
           },
           "title": {
-            "eng": " José Silverio",
-            "por": "José Silvério"
+            "eng": "The List",
+            "por": "A Lista"
           }
-        }
-      ],
-      "synopsys": {
-        "eng": "English Synopsis",
-        "por": "José Silvério, um dos maiores narradores desportivos da história do Brasil. Com mais de 55 anos de profissão, conta tudo sobre sua carreira, batalhas, conquistas e vida no rádio.  "
-      },
-      "title": {
-        "eng": " José Silverio",
-        "por": "José Silvério"
-      }
-    },
-    {
-      "external_ids": {},
-      "id": "805731a7-7feb-4dc9-b43c-5d2ccd1cede8",
-      "images": [],
-      "seasons": [
+        },
         {
-          "id": "1661edd3-8006-4178-81d5-e8821287108b",
-          "season_number": 1,
+          "id": "5980a7b0-a9e5-4368-8110-cd298a68e571",
+          "season_number": 3,
           "synopsis": {
-            "eng": "First season",
-            "por": "Primeira temporada"
+            "eng": "Third season",
+            "por": "Terceira temporada"
           },
           "title": {
-            "eng": "Fofão",
-            "por": "Fofão"
+            "eng": "The List",
+            "por": "A Lista"
           }
-        }
-      ],
-      "synopsys": {
-        "eng": "English Synopsis",
-        "por": "Fofão, Hélia Souza, a mais vitoriosa jogadora de volei da história do Brasil, conta tudo sobre sua carreira, batalhas, conquistas e vida no esporte. "
-      },
-      "title": {
-        "eng": "Fofão",
-        "por": "Fofão"
-      }
-    },
-    {
-      "external_ids": {},
-      "id": "72a2d982-dd16-4f79-a860-3bbbfcf182f6",
-      "images": [],
-      "seasons": [
+        },
         {
-          "id": "ece16c7f-f1dd-4c9f-83e9-3238aedca9e0",
-          "season_number": 1,
+          "id": "6585739f-91e3-4cdc-a7dd-62af9dd6adbe",
+          "season_number": 4,
           "synopsis": {
-            "eng": "First season",
-            "por": "Primeira temporada"
+            "eng": "Fourth Season",
+            "por": "Quarta temporada"
           },
           "title": {
-            "eng": "Cesar Cielo",
-            "por": "Cesar Cielo"
+            "eng": "The List",
+            "por": "A Lista"
           }
-        }
-      ],
-      "synopsys": {
-        "eng": "English Synopsis",
-        "por": "César Cielo, único nadador brasileiro medalhista de ouro em Jogos Olímpicos, que falou sobre a sua história, conquistas e futuro no esporte. "
-      },
-      "title": {
-        "eng": "Cesar Cielo",
-        "por": "Cesar Cielo"
-      }
-    },
-    {
-      "external_ids": {},
-      "id": "6042ca20-11b4-4f69-8846-58b002c52a38",
-      "images": [],
-      "seasons": [
+        },
         {
-          "id": "ee9d518c-28e3-436b-b98b-308ad34c5f08",
-          "season_number": 1,
+          "id": "5980a7b0-a9e5-4368-8110-cd298a68e571",
+          "season_number": 5,
           "synopsis": {
-            "eng": "First season",
-            "por": "Primeira temporada"
+            "eng": "Fifth season",
+            "por": "Quinta temporada"
           },
           "title": {
-            "eng": "Hugo Hoyama",
-            "por": "Hugo Hoyama"
+            "eng": "The List",
+            "por": "A Lista"
           }
-        }
-      ],
-      "synopsys": {
-        "eng": "English Synopsis",
-        "por": "Hugo Hoyama, mesa-tenista brasileiro e um dos maiores nomes do esporte, conta tudo sobre sua carreira, batalhas, conquistas e vida no esporte "
-      },
-      "title": {
-        "eng": "Hugo Hoyama",
-        "por": "Hugo Hoyama"
-      }
-    },
-    {
-      "external_ids": {},
-      "id": "db8a5c52-9d7a-4b27-a34d-40f674920763",
-      "images": [],
-      "seasons": [
+        },
         {
-          "id": "678333a0-015d-4d9c-9e8c-822d2c1544c9",
-          "season_number": 1,
+          "id": "6585739f-91e3-4cdc-a7dd-62af9dd6adbe",
+          "season_number": 6,
           "synopsis": {
-            "eng": "First season",
-            "por": "Primeira temporada"
+            "eng": "Sixth Season",
+            "por": "Sexta temporada"
           },
           "title": {
-            "eng": "Vanderlei Cordeiro",
-            "por": "Vanderlei Cordeiro"
+            "eng": "The List",
+            "por": "A Lista"
           }
         }
       ],
-      "synopsys": {
+      "synopsis": {
         "eng": "English Synopsis",
-        "por": "O ex-maratonista, bicampeão panamericano e medalha de bronze em Atenas, 2004, Vanderlei Cordeiro de Lima, conta tudo sobre sua carreira, batalhas, conquistas e vida no esporte. "
+        "por": "A melhor série de contagem regressiva de esportes. Com temas icônicos focados nos momentos e indivíduos mais memoráveis do esporte."
       },
       "title": {
-        "eng": "Vanderlei Cordeiro",
-        "por": "Vanderlei Cordeiro"
-      }
-    },
-    {
-      "external_ids": {},
-      "id": "d92a15f0-efbe-4511-b036-1b76dabb8cc9",
-      "images": [],
-      "seasons": [
-        {
-          "id": "4652d74b-c76a-494f-83fa-200ff820fcdf",
-          "season_number": 1,
-          "synopsis": {
-            "eng": "First season",
-            "por": "Primeira temporada"
-          },
-          "title": {
-            "eng": "Pepe",
-            "por": "Pepe"
-          }
-        }
-      ],
-      "synopsys": {
-        "eng": "English Synopsis",
-        "por": "Pepe, um dos pricipais atacantes do futebol brasileiro. Do Santos inesquecível, conta tudo sobre sua carreira, batalhas, conquistas e vida no esporte. "
-      },
-      "title": {
-        "eng": "Pepe",
-        "por": "Pepe"
+        "eng": "The List",
+        "por": "A Lista"
       }
     }
   ]
