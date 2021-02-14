@@ -7,18 +7,19 @@
         {"Name": "series_title_field", "Value": "title"},
         {"Name": "season_id_field", "Value": "id season"},
         {"Name": "season_num_field", "Value": "season"},
-        {"Name": "categ_field1", "Value": "Estúdio"},
-        {"Name": "categ_field2", "Value": "Título em Português"},
-        {"Name": "categ_field3", "Value": "Temporada"},
+        {"Name": "categ_field1", "Value": "Genero 1"},
+        {"Name": "categ_field2", "Value": "Genero 2"},
         {"Name": "categ_season", "Value": "2"}
     ],
     "xls_output": {
         "filename": "publicar_box.xls",
         "sheet": "Formulário",
         "columns": [
-            {"Name": "ID", "field": "uuid_box", "function": "field_raw"},
+            {"Name": "ID BOX", "field": "uuid_box", "function": "field_raw"},
+            {"Name": "ID", "field": "ID", "function": "field_raw"},
             {"Name": "ORIGINAL TITLE", "field": "Título Original", "function": "field_raw"},
             {"Name": "TÍTULO EM PORTUGUÊS", "field": "Título em Português", "function": "field_raw"},
+            {"Name": "LEGENDA", "field": "Legenda", "function": "field_raw"},
             {"Name": "NOME DO EPISÓDIO", "field": "Título em Português do Episódio", "function": "field_raw"},
             {"Name": "TEMPORADA", "field": "Temporada", "function": "field_raw", "format": "0"},
             {"Name": "EPISÓDIO", "field": "Número do Episódio", "function": "field_raw", "format": "0"},
@@ -39,7 +40,7 @@
             {"Name": "TECNOLOGIA", "field": "Formato", "function": "field_raw"},
             {"Name": "AUDIO", "field": "Movie Audio Type", "function": "field_raw"},
             {"Name": "VERSAO", "field": "Versao", "function": "field_raw"},
-            {"Name": "COBRANÇA", "field": "Cobrança", "function": "field", "format": "\"R$\" #,##0.00", "type": "money"},
+            {"Name": "COBRANÇA", "field": "Cobranca", "function": "field", "format": "\"R$\" #,##0.00", "type": "money"},
             {"Name": "BILLING ID", "field": "Billing ID", "function": "field_raw"}
         ]
     },
@@ -60,10 +61,12 @@
                             "Name": "synopsis",
                             "function": "empty",
                             "no_array": "",
-                            "elements": [{"attrs": [
-                                {"Name": "por", "function": "field", "field": "Sinopse EPG"},
-                                {"Name": "por", "function": "map", "field1":"Linguagem Áudio","field2": "Sinopse EPG"}
-                            ]}]
+                            "elements": [
+                                {"attrs": [
+                                    {"Name": "por", "function": "field", "field": "Sinopse EPG"},
+                                    {"Name": "por", "function": "map", "field1":"Linguagem Áudio","field2": "Sinopse EPG"}
+                                ]}
+                            ]
                         },
                         {"Name": "morality_level", "function": "field", "field": "Classificação Etária", "type": "int"},
                         {"Name": "adult", "function": "condition", "condition": "Classificação_Etária == 18", "if_true": "true", "if_false": "false", "type": "boolean"},
@@ -132,41 +135,37 @@
                                             "Name": "summary",
                                             "elem_val": "",
                                             "function": "empty",
-                                            "elements": [{
-                                                "attrs": [
-                                                    {"Name": "summary", "function": "field", "field": "Sinopse Resumo"}
-                                                ]
-                                            }]
+                                            "elements": [
+                                                {"attrs": [{"Name": "summary",
+                                                "function": "field",
+                                                "field": "Sinopse Resumo"}]}
+                                            ]
                                         },
                                         {
                                             "Name": "actors",
                                             "elem_val": "",
                                             "function": "empty",
-                                            "elements": [{
-                                                "attrs": [{
-                                                    "Name": "actors",
-                                                    "function2": "field",
-                                                    "function": "split", "field": "Elenco"
-                                                }]
-                                            }]
+                                            "elements": [
+                                                {"attrs": [{"Name": "actors",
+                                                "function2": "field",
+                                                "function": "split", "field": "Elenco"}]}
+                                            ]
                                         },
                                         {
                                             "Name": "directors",
                                             "elem_val": "",
                                             "function": "empty",
-                                            "elements": [{
-                                                "attrs": [{
-                                                    "Name": "actors",
-                                                    "function2": "field",
-                                                    "function": "split", "field": "Diretor"
-                                                }]
-                                            }]
+                                            "elements": [
+                                                {"attrs": [{"Name": "actors",
+                                                "function2": "field",
+                                                "function": "split", "field": "Diretor"}]}
+                                            ]
                                         },
                                         {
-                                            "filter": "preço != ''",
+                                            "filter": "Cobranca != '' && Cobranca != '0'",
                                             "Name": "tvod_price",
                                             "function": "field",
-                                            "field": "preço",
+                                            "field": "Cobranca",
                                             "type": "float"
                                         }
                                     ]
@@ -186,72 +185,46 @@
                                         {
                                             "Name": "audio_languages",
                                             "elem_val": "",
-                                            "elements": [{
-                                                "attrs": [{
-                                                    "filter": "Linguagem_Áudio != '' && Linguagem_Áudio != 'não'",
-                                                    "Name": "audio_languages1",
-                                                    "function": "split",
-                                                    "function2": "field",
-                                                    "field": "Linguagem Áudio",
-                                                    "atype": "value"
-                                                }]
-                                            }]
-                                        },
-                                        {
-                                            "Name": "subtitles_languages",
-                                            "elem_val": "",
-                                            "elements": [{
-                                                "attrs": [{
-                                                    "filter": "Linguagem_Legenda != '' && Linguagem_Legenda != 'não'",
-                                                    "Name": "audio_languages1",
-                                                    "function": "split",
-                                                    "function2": "field",
-                                                    "field": "Linguagem Legenda",
-                                                    "atype": "value"
-                                                }]
-                                            }]
+                                            "elements": [
+                                                {
+                                                    "attrs": [
+                                                        {
+                                                            "filter": "Linguagem_Áudio != '' && Linguagem_Áudio != 'não'",
+                                                            "Name": "audio_languages1",
+                                                            "function": "split",
+                                                            "function2": "field",
+                                                            "field": "Linguagem Áudio",
+                                                            "atype": "value"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
 
                                         },
                                         {
                                             "Name": "subtitles",
                                             "filter": "Legenda != ''",
                                             "function": "empty",
-                                            "elements_array": [
-                                                {
-                                                    "group_attrs": [
-                                                        {"Name": "type", "function": "fixed", "Value": "normal"},
-                                                        {
-                                                            "Name": "location",
-                                                            "function": "field_suffix",
-                                                            "field": "ID",
-                                                            "field_prefix": "Legenda",
-                                                            "suffix": ".srt"
-                                                        },
-                                                        {
-                                                            "Name": "languages",
-                                                            "elem_val": "",
-                                                            "elements": [
-                                                                {
-                                                                    "attrs": [
-                                                                        {
-                                                                            "Name": "audio_languages1",
-                                                                            "function": "fixed",
-                                                                            "Value": "por"
-                                                                        }
-                                                                    ]
-                                                                }
-                                                            ]
-                                                        }
-                                                    ]
-                                                }
-                                            ]
-                                        }
+                                            "elements_array": [{
+                                                "group_attrs": [
+                                                    {"Name": "language", "function": "fixed", "Value": "por"},
+                                                    {
+                                                        "Name": "location",
+                                                        "function": "field_suffix",
+                                                        "field": "Legenda",
+                                                        "field_prefix": "subpasta",
+                                                        "suffix": ".srt"
+                                                    }
+                                                ]
+                                            }]
+                                        },
+                                        {"Name": "metadata", "no_array": "", "elements": [{"attrs": []}]}
                                     ]
                                 },
                                 {
                                     "filter": "Trailer_ID != ''",
                                     "group_attrs": [
-                                        {"Name": "id", "function": "field_suffix", "field": "uuid_box", "suffix": "_t"},
+                                        {"Name": "id", "function": "suffix", "field": "uuid_box", "suffix": "_t"},
                                         {"Name": "type", "function": "fixed", "Value": "TRAILER"},
                                         {"Name": "title", "function": "field", "field": "Título em Português"},
                                         {"Name": "location", "function": "field_suffix", "field": "Trailer ID", "field_prefix": "subpasta trailer", "suffix": ""},
@@ -275,22 +248,21 @@
 
                                         },
                                         {
-                                            "Name": "subtitles_languages",
-                                            "elem_val": "",
-                                            "elements": [
-                                                {
-                                                    "attrs": [
-                                                        {
-                                                            "filter": "Linguagem_Legenda_Trailer != '' && Linguagem_Legenda_Trailer != 'não'",
-                                                            "function": "split",
-                                                            "function2": "field",
-                                                            "field": "Linguagem Legenda Trailer",
-                                                            "atype": "value"
-                                                        }
-                                                    ]
-                                                }
-                                            ]
-
+                                            "Name": "subtitles",
+                                            "filter": "Legenda_Trailer != ''",
+                                            "function": "empty",
+                                            "elements_array": [{
+                                                "group_attrs": [
+                                                    {"Name": "language", "function": "fixed", "Value": "por"},
+                                                    {
+                                                        "Name": "location",
+                                                        "function": "field_suffix",
+                                                        "field": "Legenda Trailer",
+                                                        "field_prefix": "subpasta",
+                                                        "suffix": ".srt"
+                                                    }
+                                                ]
+                                            }]
                                         },
                                         {"Name": "metadata", "no_array": "", "elements": [{"attrs": []}]}
                                     ]

@@ -8,15 +8,18 @@
         {"Name": "season_id_field", "Value": "id season"},
         {"Name": "season_num_field", "Value": "season"},
         {"Name": "categ_field1", "Value": "Genero 1"},
-        {"Name": "categ_field2", "Value": "Genero 2"}
+        {"Name": "categ_field2", "Value": "Genero 2"},
+        {"Name": "categ_season", "Value": "2"}
     ],
     "xls_output": {
         "filename": "publicar_box.xls",
         "sheet": "Formulário",
         "columns": [
-            {"Name": "ID", "field": "uuid_box", "function": "field_raw"},
+            {"Name": "ID BOX", "field": "uuid_box", "function": "field_raw"},
+            {"Name": "ID", "field": "ID", "function": "field_raw"},
             {"Name": "ORIGINAL TITLE", "field": "Título Original", "function": "field_raw"},
             {"Name": "TÍTULO EM PORTUGUÊS", "field": "Título em Português", "function": "field_raw"},
+            {"Name": "LEGENDA", "field": "Legenda", "function": "field_raw"},
             {"Name": "NOME DO EPISÓDIO", "field": "Título em Português do Episódio", "function": "field_raw"},
             {"Name": "TEMPORADA", "field": "Temporada", "function": "field_raw", "format": "0"},
             {"Name": "EPISÓDIO", "field": "Número do Episódio", "function": "field_raw", "format": "0"},
@@ -37,7 +40,7 @@
             {"Name": "TECNOLOGIA", "field": "Formato", "function": "field_raw"},
             {"Name": "AUDIO", "field": "Movie Audio Type", "function": "field_raw"},
             {"Name": "VERSAO", "field": "Versao", "function": "field_raw"},
-            {"Name": "COBRANÇA", "field": "Cobrança", "function": "field", "format": "\"R$\" #,##0.00", "type": "money"},
+            {"Name": "COBRANÇA", "field": "Cobranca", "function": "field", "format": "\"R$\" #,##0.00", "type": "money"},
             {"Name": "BILLING ID", "field": "Billing ID", "function": "field_raw"}
         ]
     },
@@ -145,10 +148,10 @@
                                             ]
                                         },
                                         {
-                                            "filter": "preço != ''",
+                                            "filter": "Cobranca != '' && Cobranca != '0'",
                                             "Name": "tvod_price",
                                             "function": "field",
-                                            "field": "preço",
+                                            "field": "Cobranca",
                                             "type": "float"
                                         }
                                     ]
@@ -185,25 +188,22 @@
 
                                         },
                                         {
-                                            "Name": "subtitles_languages",
-                                            "elem_val": "",
-                                            "elements": [
-                                                {
-                                                    "attrs": [
-                                                        {
-                                                            "filter": "Linguagem_Legenda != '' && Linguagem_Legenda != 'não'",
-                                                            "Name": "audio_languages1",
-                                                            "function": "split",
-                                                            "function2": "field",
-                                                            "field": "Linguagem Legenda",
-                                                            "atype": "value"
-                                                        }
-                                                    ]
-                                                }
-                                            ]
-
+                                            "Name": "subtitles",
+                                            "filter": "Legenda != ''",
+                                            "function": "empty",
+                                            "elements_array": [{
+                                                "group_attrs": [
+                                                    {"Name": "language", "function": "fixed", "Value": "por"},
+                                                    {
+                                                        "Name": "location",
+                                                        "function": "field_suffix",
+                                                        "field": "Legenda",
+                                                        "field_prefix": "subpasta",
+                                                        "suffix": ".srt"
+                                                    }
+                                                ]
+                                            }]
                                         },
-
                                         {"Name": "metadata", "no_array": "", "elements": [{"attrs": []}]}
                                     ]
                                 },

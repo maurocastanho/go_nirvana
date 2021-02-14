@@ -406,6 +406,8 @@ func (wr *jsonWriter) initSeries() (map[string]interface{}, error) {
 		el["seasons"] = elSeas
 		if toAppend {
 			cat = append(cat, el)
+		} else {
+			cat = append(cat, el)
 		}
 	}
 	root["series"] = cat
@@ -420,7 +422,7 @@ func splitLangName(str string) (map[string]string, error) {
 		langSplit := strings.Split(langEl, ":")
 		numEls := len(langSplit)
 		if numEls != 2 {
-			return nil, fmt.Errorf("Campo de linguagem tem %d elementos, deveria ter 2: [%s]", numEls, langEl)
+			return nil, fmt.Errorf("campo de linguagem tem %d elementos, deveria ter 2: [%s]", numEls, langEl)
 		}
 		lang := strings.TrimSpace(langSplit[0])
 		text := strings.TrimSpace(langSplit[1])
@@ -481,24 +483,7 @@ func (wr *jsonWriter) addToSeries(id string, serieName string) error {
 func (wr *jsonWriter) processCategPack(lines []lineT, k int, idField string, categFields []string, categSeason int, series []lineT, categs []lineT) (int, error) {
 	var err error
 	line := lines[k]
-	//numCats := len(categFields)
-	//categ1, ok1 := line.fields[categFields[0]]
-	//if !ok1 {
-	//	return -2, fmt.Errorf("categoria 1 [%s] em branco na linha [%v]", categFields[0], line)
-	//}
-	//serie, err := findSerie(series, categ1, line.fields[categFields[1]], line.fields[categFields[2]])
-	//if err != nil {
-	//	return -1, err
-	//}
 	studio := line.fields[categFields[0]]
-	serie, err := findSerie(series, studio, line.fields[categFields[1]], line.fields[categFields[2]])
-	if serie == nil {
-		if line.fields[categFields[2]] == "" { // testing if season is not empty
-			return 0, nil
-		}
-
-		return -1, err
-	}
 	var idStudio string
 	for _, l := range categs {
 		n, _ := splitLangName(l.fields["name"])
@@ -506,8 +491,25 @@ func (wr *jsonWriter) processCategPack(lines []lineT, k int, idField string, cat
 			idStudio = l.fields["id"]
 		}
 	}
+	serie, _ := findSerie(series, studio, line.fields[categFields[1]], line.fields[categFields[2]])
+	if serie == nil {
+		if line.fields[categFields[2]] == "" { // testing if season is not empty
+			categ1, ok1 := line.fields[categFields[0]]
+			if !ok1 {
+				return -2, fmt.Errorf("categoria 1 [%s] em branco na linha [%v]", categFields[0], line)
+			}
+			serie, err = findCateg(categs, categ1, line.fields[categFields[1]], line.fields[categFields[2]])
+			if err != nil {
+				return -1, err
+			}
+			if err := wr.addToCategories(line.fields[idField], "", studio, idStudio, "categories", "null", "null"); err != nil {
+				return -1, err
+			}
+			return 0, nil
+		}
+	}
 	var idChild = ""
-	if categSeason > 0 {
+	if line.fields[categFields[categSeason]] != "" {
 		idChild, err = wr.processSerie(&line, idField, categFields, series, idStudio)
 	}
 	if idChild == "" {
@@ -580,10 +582,24 @@ func findSerie(series []lineT, studio string, name string, season string) (*line
 	return nil, fmt.Errorf("serie com nome [%s] e temporada [%s] nao encontrada. Adicionar na aba 'series'", name, season)
 }
 
+func findCateg(categs []lineT, studio string, name string, season string) (*lineT, error) {
+	for _, line := range categs {
+		title, err := splitLangName(line.fields["name"])
+		if err != nil {
+			return nil, err
+		}
+		if title["por"] != name {
+			continue
+		}
+		return &line, nil
+	}
+	return nil, fmt.Errorf("categoria com nome [%s] nao encontrada. Adicionar na aba 'categs'", name)
+}
+
 // IMPORTANT: JsonWriter must be created separately for the series file - do not use this method for the assets file
-func (wr *jsonWriter) processSeriesPack(line *lineT, idField string, idEpisodeField string) (int, error) {
+func (wr *jsonWriter) processSeriesPack(line *lineT, series []lineT, idField string, idEpisodeField string) (int, error) {
 	nEpis := line.fields[idEpisodeField]
-	err := wr.addToSeries(line.fields[idField], nEpis)
+	err := wr.addToSeries(line.fields["uuid_box"], nEpis)
 	if err != nil {
 		return -1, err
 	}

@@ -78,7 +78,10 @@
     },
     {
       "adult": false,
-      "assets": [],
+      "assets": [
+        "a2b9590f-b350-4018-a93c-c7803361ca48",
+        "c0c190c5-b359-46ff-b53f-741a25ddbd90"
+      ],
       "downloadable": false,
       "hidden": false,
       "id": "05ab388f-ecda-44f0-859e-34ba84fb8680",
@@ -221,6 +224,215 @@
       "name": {
         "eng": "Action",
         "por": "Ação"
+      },
+      "offline": false,
+      "parent_id": "",
+      "parental_control": false,
+      "season_id": "null",
+      "series_id": "null"
+    },
+    {
+      "adult": false,
+      "assets": [],
+      "downloadable": false,
+      "hidden": false,
+      "id": "89a28464-bb0a-4caf-83b9-5c989d8f603d",
+      "images": [],
+      "metadata": {},
+      "morality_level": "0",
+      "name": {
+        "eng": "Terror",
+        "por": "Terror"
+      },
+      "offline": false,
+      "parent_id": "",
+      "parental_control": false,
+      "season_id": "null",
+      "series_id": "null"
+    },
+    {
+      "adult": false,
+      "assets": [],
+      "downloadable": false,
+      "hidden": false,
+      "id": "7b11975d-c6b9-4240-a124-14dceaf78be2",
+      "images": [],
+      "metadata": {},
+      "morality_level": "0",
+      "name": {
+        "eng": "Suspense",
+        "por": "Suspense"
+      },
+      "offline": false,
+      "parent_id": "",
+      "parental_control": false,
+      "season_id": "null",
+      "series_id": "null"
+    },
+    {
+      "adult": false,
+      "assets": [],
+      "downloadable": false,
+      "hidden": false,
+      "id": "96d957c3-e0cd-45ad-b486-d3888e1c6ab1",
+      "images": [],
+      "metadata": {},
+      "morality_level": "0",
+      "name": {
+        "eng": "Comédia",
+        "por": "Comédia"
+      },
+      "offline": false,
+      "parent_id": "",
+      "parental_control": false,
+      "season_id": "null",
+      "series_id": "null"
+    },
+    {
+      "adult": false,
+      "assets": [],
+      "downloadable": false,
+      "hidden": false,
+      "id": "d930a9a6-9714-4e35-9584-5a2e6db79177",
+      "images": [],
+      "metadata": {},
+      "morality_level": "0",
+      "name": {
+        "eng": "Sci-Fi",
+        "por": "Ficção Científica"
+      },
+      "offline": false,
+      "parent_id": "",
+      "parental_control": false,
+      "season_id": "null",
+      "series_id": "null"
+    },
+    {
+      "adult": false,
+      "assets": [],
+      "downloadable": false,
+      "hidden": false,
+      "id": "26f8221b-482e-46a4-aa3f-9b0d00d6ced5",
+      "images": [],
+      "metadata": {},
+      "morality_level": "0",
+      "name": {
+        "eng": "War",
+        "por": "Guerra"
+      },
+      "offline": false,
+      "parent_id": "",
+      "parental_control": false,
+      "season_id": "null",
+      "series_id": "null"
+    },
+    {
+      "adult": false,
+      "assets": [],
+      "downloadable": false,
+      "hidden": false,
+      "id": "4752b0cd-2fcb-4864-b707-86fabea3b2ae",
+      "images": [],
+      "metadata": {},
+      "morality_level": "0",
+      "name": {
+        "eng": "Crime",
+        "por": "Crime"
+      },
+      "offline": false,
+      "parent_id": "",
+      "parental_control": false,
+      "season_id": "null",
+      "series_id": "null"
+    },
+    {
+      "adult": false,
+      "assets": [],
+      "downloadable": false,
+      "hidden": false,
+      "id": "7c0dfe62-67d7-49ea-81ac-9cafecc13478",
+      "images": [],
+      "metadata": {},
+      "morality_level": "0",
+      "name": {
+        "eng": "Mystery",
+        "por": "Mistério"
+      },
+      "offline": false,
+      "parent_id": "",
+      "parental_control": false,
+      "season_id": "null",
+      "series_id": "null"
+    },
+    {
+      "adult": false,
+      "assets": [],
+      "downloadable": false,
+      "hidden": false,
+      "id": "46aecda5-b167-482c-bf33-30d0684036b5",
+      "images": [],
+      "metadata": {},
+      "morality_level": "0",
+      "name": {
+        "eng": "Thriller",
+        "por": "Thriller"
+      },
+      "offline": false,
+      "parent_id": "",
+      "parental_control": false,
+      "season_id": "null",
+      "series_id": "null"
+    },
+    {
+      "adult": false,
+      "assets": [],
+      "downloadable": false,
+      "hidden": false,
+      "id": "53ef5d80-6c5a-4f6f-854d-a8277985eef7",
+      "images": [],
+      "metadata": {},
+      "morality_level": "0",
+      "name": {
+        "eng": "Music",
+        "por": "Musical"
+      },
+      "offline": false,
+      "parent_id": "",
+      "parental_control": false,
+      "season_id": "null",
+      "series_id": "null"
+    },
+    {
+      "adult": false,
+      "assets": [],
+      "downloadable": false,
+      "hidden": false,
+      "id": "4ab6074d-9da9-4c3a-8c03-24fea988afa2",
+      "images": [],
+      "metadata": {},
+      "morality_level": "0",
+      "name": {
+        "eng": "Biography",
+        "por": "Biografia"
+      },
+      "offline": false,
+      "parent_id": "",
+      "parental_control": false,
+      "season_id": "null",
+      "series_id": "null"
+    },
+    {
+      "adult": false,
+      "assets": [],
+      "downloadable": false,
+      "hidden": false,
+      "id": "89a28464-bb0a-4caf-83b9-5c989d8f603d",
+      "images": [],
+      "metadata": {},
+      "morality_level": "0",
+      "name": {
+        "eng": "Terror",
+        "por": "Terror"
       },
       "offline": false,
       "parent_id": "",

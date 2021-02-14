@@ -401,7 +401,8 @@ func processSeries(pack []lineT, wrSeries *jsonWriter, idField string) (int, []e
 	errors := make([]error, 0, 0)
 	for k := range pack {
 		row := pack[k]
-		success, err := wrSeries.processSeriesPack(&row, idField, "Número do Episódio") // TODO parametrizar
+
+		success, err := wrSeries.processSeriesPack(&row, wrSeries.serieLines, idField, "Número do Episódio") // TODO parametrizar
 		if err != nil {
 			errors = appendErrors("", errors, err)
 			return success, errors
