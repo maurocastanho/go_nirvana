@@ -189,6 +189,7 @@ func getField(forceVal string, fieldN string, line *lineT, json jsonT, _ options
 	if err != nil {
 		return errorMessage[0].val, err
 	}
+	fieldName = strings.ToLower(fieldName)
 	value, ok := line.fields[fieldName]
 	if !ok {
 		return fieldName, fmt.Errorf("elemento '%s' inexistente na linha %d", fieldName, line.idx)
@@ -560,6 +561,7 @@ func condition(forceValue string, line *lineT, json jsonT, _ optionsT) ([]result
 	} else {
 		cond = forceValue
 	}
+	cond = strings.ToLower(cond)
 	if isCondTrue, err := evalCondition(cond, line); err != nil {
 		return errorMessage, err
 	} else if isCondTrue {
@@ -581,6 +583,7 @@ func eval(value string, line *lineT, json jsonT, _ optionsT) ([]resultsT, error)
 	} else {
 		expr = value
 	}
+	expr = strings.ToLower(expr)
 	functions := map[string]govaluate.ExpressionFunction{
 		"strlen": func(args ...interface{}) (interface{}, error) {
 			length := len(args[0].(string))
@@ -623,6 +626,7 @@ func filterCondition(forceVal string, line *lineT, json jsonT, options optionsT)
 	} else {
 		cond = forceVal
 	}
+	cond = strings.ToLower(cond)
 	condResult, err := evalCondition(cond, line)
 	if err != nil {
 		return errorMessage, fmt.Errorf("falha ao avaliar expressao [%s]: [%s] na linha %v", cond, err.Error(), line.idx)

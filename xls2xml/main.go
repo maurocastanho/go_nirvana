@@ -204,9 +204,9 @@ func processSpreadSheet(json map[string]interface{}, outType string, f *xlsx.Spr
 	name := ""
 	idField, _ := options["options"]["id_field"]
 	// TODO Check categ fields
-	cField1 := options["options"]["categ_field1"]
-	cField2 := options["options"]["categ_field2"]
-	cField3 := options["options"]["categ_field3"]
+	cField1 := strings.ToLower(options["options"]["categ_field1"])
+	cField2 := strings.ToLower(options["options"]["categ_field2"])
+	cField3 := strings.ToLower(options["options"]["categ_field3"])
 	categFields := []string{cField1, cField2, cField3}
 	var wrCategs *jsonWriter
 	var wrSeries *jsonWriter
@@ -470,7 +470,9 @@ func readSheet(sheet xlsx.Sheet, header []string, idx int) ([]lineT, error) {
 	var col int
 	// Seeking last header column
 	for col = ncols - 1; col >= 0; col-- {
-		if colCell := sheet.Cell(col, 0); colCell.String() != "" {
+		colCell := sheet.Cell(col, 0)
+		fmt.Printf("%s, ", colCell.String())
+		if colCell.String() != "" {
 			break
 		}
 	}
@@ -478,7 +480,7 @@ func readSheet(sheet xlsx.Sheet, header []string, idx int) ([]lineT, error) {
 	// Reading Header
 	for col = 0; col < lastCol+1; col++ {
 		colCell := sheet.Cell(col, 0)
-		hName := strings.TrimSpace(colCell.String())
+		hName := strings.ToLower(strings.TrimSpace(colCell.String()))
 		if contains(header, hName) {
 			return nil, fmt.Errorf("header da planilha duplicado: [%s]", hName)
 		}
@@ -493,7 +495,7 @@ func readSheet(sheet xlsx.Sheet, header []string, idx int) ([]lineT, error) {
 			cellF := ""
 			x, err1 := colCell.Date()
 			// TODO evitar o teste de prefixo
-			if err1 != nil || !strings.HasPrefix(header[c], "Data") {
+			if err1 != nil || !strings.HasPrefix(header[c], "data") {
 				f, err2 := colCell.Float()
 				if err2 != nil || math.IsNaN(f) {
 					cellF = strings.TrimSpace(colCell.String())
@@ -608,6 +610,7 @@ func processMap(json jsonT, lines []lineT, wr writer) (err2 []error) {
 	commonAttrs, _ := json["common_attrs"].(map[string]interface{})
 	// Test if there is a filter expression
 	if filter, ok := json["filter"].(string); ok {
+		filter := strings.ToLower(filter)
 		filterOk, err := evalCondition(filter, &lines[0])
 		if err != nil {
 			err2 = append(err2, err)
@@ -815,6 +818,7 @@ func processAttr(json jsonT, lines []lineT, wr writer) (errs []error) {
 	}
 	// process filter
 	if filter, okFilter := json["filter"].(string); okFilter {
+		filter = strings.ToLower(filter)
 		// there is a filter expression: evaluate
 		if filterAllow, err3 := evalCondition(filter, &lines[0]); err3 != nil {
 			// error in condition
@@ -873,6 +877,7 @@ func processSingleAttr(nameElem string, json jsonT, lines []lineT, commonAttrs m
 	} else {
 		function, okFun = json["function"].(string)
 	}
+	function = strings.ToLower(function)
 	var procVals []resultsT
 	name, _ := json["Name"].(string)
 	if !okFun {

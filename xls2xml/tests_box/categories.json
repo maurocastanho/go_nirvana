@@ -21,7 +21,9 @@
     },
     {
       "adult": false,
-      "assets": [],
+      "assets": [
+        "adb458c4-bcd6-4011-a906-65e8c1a8332f"
+      ],
       "downloadable": false,
       "hidden": false,
       "id": "3a65ffe4-61cf-4db7-af67-a3461e270bbb",
@@ -78,10 +80,7 @@
     },
     {
       "adult": false,
-      "assets": [
-        "a2b9590f-b350-4018-a93c-c7803361ca48",
-        "c0c190c5-b359-46ff-b53f-741a25ddbd90"
-      ],
+      "assets": [],
       "downloadable": false,
       "hidden": false,
       "id": "05ab388f-ecda-44f0-859e-34ba84fb8680",
@@ -138,7 +137,9 @@
     },
     {
       "adult": false,
-      "assets": [],
+      "assets": [
+        "e702bae9-f2e2-4092-84b7-8e5e650826da"
+      ],
       "downloadable": false,
       "hidden": false,
       "id": "33bc86f1-94dd-4d4b-9997-d548ee0ada47",
@@ -157,7 +158,17 @@
     },
     {
       "adult": false,
-      "assets": [],
+      "assets": [
+        "99a975ae-b63c-4b5f-a3dc-5d2f926ec048",
+        "881d88fa-91c2-4374-be92-ae5a38ed6f11",
+        "258b9129-e11c-4851-88fc-b77961e1fe9d",
+        "cdb2a984-3d95-412d-9a78-ddcd5dc3ab2d",
+        "da9fd37f-b3c4-447c-95cb-8ffe1c5ed58a",
+        "433e4bdb-f6bf-4325-8368-b680cdb3e278",
+        "228e2901-3c8d-43b5-b1f8-66d336ca01ee",
+        "eb3e6c83-0d50-49df-b84e-ee275f897c2b",
+        "90ed476a-6170-4f5a-ad53-968088692ffb"
+      ],
       "downloadable": false,
       "hidden": false,
       "id": "5a116c8c-b18f-457b-b68a-181d5cdc7edb",
@@ -176,7 +187,10 @@
     },
     {
       "adult": false,
-      "assets": [],
+      "assets": [
+        "35163454-d46f-4e59-890d-afb5a2c4f9c5",
+        "3ebe43ae-5223-4cbc-8f2b-51427d961149"
+      ],
       "downloadable": false,
       "hidden": false,
       "id": "2423b2df-57ac-4c53-b7e7-1096c464b63e",
@@ -214,7 +228,26 @@
     },
     {
       "adult": false,
-      "assets": [],
+      "assets": [
+        "3c4520aa-928b-409d-9c45-301b7a94e699",
+        "e965bec2-187b-47fd-a3bc-1ac139c4610b",
+        "e47643e0-9554-43e1-b117-b6c1ac96b640",
+        "4ef53df6-e3b6-4d05-bafc-a2a6445fa634",
+        "bb7db9c7-d2d9-4406-8c86-8a74d58e8753",
+        "b6497af2-73af-4112-9893-71ff0aa1aa7e",
+        "01240c37-58c0-41a9-8607-031719ca4465",
+        "3ece9c17-d74c-494d-8480-54d89c26202e",
+        "c3828bea-ed9c-4bea-8ed2-ab9d45a78894",
+        "05c38bf4-edfb-472c-abbb-86b4045b47d4",
+        "424fc6b9-b674-4958-8318-81cbc4cb826c",
+        "0e9e0d1b-e13c-4b43-95b8-5b22d1e11f2f",
+        "492c7695-badc-4e5e-9761-2809fcaf694d",
+        "259946be-8184-4897-96d4-59702f4c6952",
+        "43bb24aa-0183-475f-9671-c53abf54f88b",
+        "0cb68d18-55bd-485f-845a-d1a3b08e1852",
+        "3cda1d5c-2d2d-45a1-ad4a-7728f4196e06",
+        "e6c0e76b-5f0f-41de-8ce9-c85979350094"
+      ],
       "downloadable": false,
       "hidden": false,
       "id": "807f0371-cf9e-4ec1-ba69-b962ad9cf820",
@@ -233,7 +266,10 @@
     },
     {
       "adult": false,
-      "assets": [],
+      "assets": [
+        "916b2b28-5f86-41d8-9a5e-ade8b5a3f27f",
+        "7a06958b-6a5a-4589-a3f9-fd5323d3ffbd"
+      ],
       "downloadable": false,
       "hidden": false,
       "id": "89a28464-bb0a-4caf-83b9-5c989d8f603d",
@@ -252,7 +288,9 @@
     },
     {
       "adult": false,
-      "assets": [],
+      "assets": [
+        "e66b6db1-0654-4975-8b5e-2c069588e71f"
+      ],
       "downloadable": false,
       "hidden": false,
       "id": "7b11975d-c6b9-4240-a124-14dceaf78be2",
@@ -271,7 +309,22 @@
     },
     {
       "adult": false,
-      "assets": [],
+      "assets": [
+        "458121fa-a912-4193-8013-d6eceb6891df",
+        "5eb15088-a34e-4c49-b1a3-2a7371c1290a",
+        "1ccdfc4e-f9e7-467b-a4ba-04f0f5cce3fa",
+        "59537ed8-7293-4337-9052-34a768ae1a6f",
+        "a3e345ea-510a-4c40-b41f-2fe52aef1687",
+        "9000d34a-3220-4f79-a939-050628da2e79",
+        "404442f1-128a-47d2-818e-3f59c4999a20",
+        "2a9f3c2d-5927-4a0b-bb75-33d6e80d4840",
+        "f9294371-3c51-4ba2-a9ba-2ca03f36f462",
+        "34ed2bf4-1b49-4897-ad7d-73b65f656a5e",
+        "e88943fc-da4b-486c-8fdb-cc42a0849b98",
+        "08fc7a93-bbb4-44cd-86c7-4f414d6f9ae1",
+        "1ba65809-a9a6-4213-a502-46a479a4581c",
+        "2f979417-fafd-475d-984c-e7e599724ee4"
+      ],
       "downloadable": false,
       "hidden": false,
       "id": "96d957c3-e0cd-45ad-b486-d3888e1c6ab1",
@@ -433,6 +486,25 @@
       "name": {
         "eng": "Terror",
         "por": "Terror"
+      },
+      "offline": false,
+      "parent_id": "",
+      "parental_control": false,
+      "season_id": "null",
+      "series_id": "null"
+    },
+    {
+      "adult": false,
+      "assets": [],
+      "downloadable": false,
+      "hidden": false,
+      "id": "8b29b5a0-287e-4f03-b86e-735b93f299af",
+      "images": [],
+      "metadata": {},
+      "morality_level": "0",
+      "name": {
+        "eng": "Western",
+        "por": "Faroeste"
       },
       "offline": false,
       "parent_id": "",

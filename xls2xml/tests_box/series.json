@@ -1,30 +1,3 @@
 {
-  "series": [
-    {
-      "id": "bee7bc29-1b0d-4107-9956-eecf873cdd17",
-      "images": [],
-      "seasons": [
-        {
-          "id": "3e15cd47-cd0e-4a35-8c0e-d6303ee1f912",
-          "season_number": 1,
-          "synopsis": {
-            "eng": "Season 1",
-            "por": "Temporada 1"
-          },
-          "title": {
-            "eng": "Hackers",
-            "por": "Hackers"
-          }
-        }
-      ],
-      "synopsis": {
-        "eng": "English Synopsis",
-        "por": "Série de documentários que revela tudo que está por trás da palavra \"hacker\". Mais do que entender o que os hackers fazem, a série desvenda o universo que nasceu com a era digital e contraria a ideia de que os hackers são os vilões da história. São 10 episódios que mostram onde atuam esses amantes da tecnologia e como toda e qualquer pessoa pode ser ou conviver com um hacker."
-      },
-      "title": {
-        "eng": "Hackers",
-        "por": "Hackers"
-      }
-    }
-  ]
+  "series": []
 }

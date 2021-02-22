@@ -40,7 +40,7 @@
             {"Name": "TECNOLOGIA", "field": "Formato", "function": "field_raw"},
             {"Name": "AUDIO", "field": "Movie Audio Type", "function": "field_raw"},
             {"Name": "VERSAO", "field": "Versao", "function": "field_raw"},
-            {"Name": "COBRANÇA", "field": "Cobranca", "function": "field", "format": "\"R$\" #,##0.00", "type": "money"},
+            {"Name": "COBRANÇA", "field": "Cobrança", "function": "field", "format": "\"R$\" #,##0.00", "type": "money"},
             {"Name": "BILLING ID", "field": "Billing ID", "function": "field_raw"}
         ]
     },
@@ -148,10 +148,10 @@
                                             ]
                                         },
                                         {
-                                            "filter": "Cobranca != '' && Cobranca != '0'",
+                                            "filter": "Cobrança != '' && Cobrança != '0'",
                                             "Name": "tvod_price",
                                             "function": "field",
-                                            "field": "Cobranca",
+                                            "field": "Cobrança",
                                             "type": "float"
                                         }
                                     ]
@@ -198,8 +198,7 @@
                                                         "Name": "location",
                                                         "function": "field_suffix",
                                                         "field": "Legenda",
-                                                        "field_prefix": "subpasta",
-                                                        "suffix": ".srt"
+                                                        "field_prefix": "subpasta"
                                                     }
                                                 ]
                                             }]
@@ -234,22 +233,21 @@
 
                                         },
                                         {
-                                            "Name": "subtitles_languages",
-                                            "elem_val": "",
-                                            "elements": [
-                                                {
-                                                    "attrs": [
-                                                        {
-                                                            "filter": "Linguagem_Legenda_Trailer != '' && Linguagem_Legenda_Trailer != 'não'",
-                                                            "function": "split",
-                                                            "function2": "field",
-                                                            "field": "Linguagem Legenda Trailer",
-                                                            "atype": "value"
-                                                        }
-                                                    ]
-                                                }
-                                            ]
-
+                                            "Name": "subtitles",
+                                            "filter": "Legenda_Trailer != ''",
+                                            "function": "empty",
+                                            "elements_array": [{
+                                                "group_attrs": [
+                                                    {"Name": "language", "function": "fixed", "Value": "por"},
+                                                    {
+                                                        "Name": "location",
+                                                        "function": "field_suffix",
+                                                        "field": "Legenda Trailer",
+                                                        "field_prefix": "subpasta",
+                                                        "suffix": ".srt"
+                                                    }
+                                                ]
+                                            }]
                                         },
                                         {"Name": "metadata", "no_array": "", "elements": [{"attrs": []}]}
                                     ]

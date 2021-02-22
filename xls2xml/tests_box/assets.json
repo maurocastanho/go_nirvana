@@ -2,136 +2,2995 @@
   "assets": [
     {
       "adult": false,
-      "available_from": 1612310400000,
-      "available_to": 2524521600000,
-      "duration": 1503964,
+      "available_from": 1613952000000,
+      "available_to": 1640908800000,
+      "duration": 5873039,
       "genres": [
-        "Documentário",
-        "Crime"
+        "Comédia",
+        "Romance"
       ],
-      "id": "a2b9590f-b350-4018-a93c-c7803361ca48",
-      "images": [
-        {
-          "id": "a2b9590f-b350-4018-a93c-c7803361ca48_p",
-          "location": "hackers_s01ep01_biohackers/hackers_s01ep01_biohackers_poster.jpg",
-          "type": "vod-poster"
-        },
-        {
-          "id": "a2b9590f-b350-4018-a93c-c7803361ca48_b",
-          "location": "hackers_s01ep01_biohackers/hackers_s01ep01_biohackers_landscape.jpg",
-          "type": "vod-background"
-        }
-      ],
+      "id": "458121fa-a912-4193-8013-d6eceb6891df",
+      "images": [],
       "medias": [
         {
           "audio_languages": [
+            "eng",
             "por"
           ],
-          "id": "a2b9590f-b350-4018-a93c-c7803361ca48_m",
-          "location": "hackers_s01ep01_biohackers/hackers_s01ep01_biohackers.mp4",
+          "id": "458121fa-a912-4193-8013-d6eceb6891df_m",
+          "location": "sony_20210219/spe_13goingon30_hd_eng_por_51.mp4",
           "metadata": {},
           "subtitles": [
             {
               "language": "por",
-              "location": "hackers_s01ep01_biohackers/hackers_s01ep01_biohackers.srt"
+              "location": "sony_20210219/spe_13goingon30_hd_eng_por_51.srt"
             }
           ],
           "technology": "MP4",
-          "title": "Hackers",
+          "title": "De Repente 30",
           "type": "MEDIA"
         }
       ],
       "metadata": {
         "actors": [
-          ""
+          "Jennifer Garner",
+          "Mark Ruffalo",
+          "Judy Greer",
+          "Andy Serkis"
         ],
-        "country": "BRA",
+        "country": "USA",
         "directors": [
-          "Carla Albuquerque",
-          "Beto Ribeiro"
+          "Gary Winick"
         ],
-        "release_year": "2016",
+        "release_year": "2004",
         "rights": [],
         "summary": [
-          "Série de documentários que revela tudo que está por trás da palavra hacker. Mais do que entender o que os hackers fazem, a série desvenda o universo que nasceu com a era digital e contraria a ideia de que os hackers são os vilões da história. São 10 episódios que mostram onde atuam esses amantes da tecnologia e como toda e qualquer pessoa pode ser ou conviver com um hacker."
-        ]
+          "Jennifer Garner (Demolidor – O Homem Sem Medo, série de TV Alias) e Mark Ruffalo (Brilho Eterno de Uma Mente Sem Lembranças) estrelam esta comédia romântica hilária sobre uma pré-adolescente que se vai de garota não popular para mulher maravilhosa. Com a ajuda de um pouco de um pó mágico, Jenna Rink (Garner) de 13 anos se transforma numa mulher com 30 anos e maravilhosa da noite para o dia, com tudo o que ela sempre quis, exceto seu melhor amigo Matt (Ruffalo). Agora, esta mulher madura tem que fazer sua própria mágica para ajudar a garota dentro dela achar o amor verdadeiro que ela deixou para trás."
+        ],
+        "tvod_price": 7.9
       },
-      "morality_level": 14,
-      "season_episode_number": 1,
-      "season_id": "3e15cd47-cd0e-4a35-8c0e-d6303ee1f912",
-      "series_id": "bee7bc29-1b0d-4107-9956-eecf873cdd17",
+      "morality_level": 0,
       "synopsis": {
-        "por": "Descubra a incrível capacidade dos Biohackers, que criam alterações em células vivas, transformando-as e adaptando-as para novas funções. Também fique a par do mundo das implantações digitais, que são capazes de fornecer novas habilidades para o corpo humano."
+        "por": "Jennifer Garner (Demolidor – O Homem Sem Medo, série de TV Alias) e Mark Ruffalo (Brilho Eterno de Uma Mente Sem Lembranças) estrelam esta comédia romântica hilária sobre uma pré-adolescente que se vai de garota não popular para mulher maravilhosa. Com a ajuda de um pouco de um pó mágico, Jenna Rink (Garner) de 13 anos se transforma numa mulher com 30 anos e maravilhosa da noite para o dia, com tudo o que ela sempre quis, exceto seu melhor amigo Matt (Ruffalo). Agora, esta mulher madura tem que fazer sua própria mágica para ajudar a garota dentro dela achar o amor verdadeiro que ela deixou para trás."
       },
       "title": {
-        "por": "Hackers"
+        "por": "De Repente 30"
       }
     },
     {
       "adult": false,
-      "available_from": 1612310400000,
-      "available_to": 2524521600000,
-      "duration": 1470959,
+      "available_from": 1613952000000,
+      "available_to": 1640908800000,
+      "duration": 6720969,
       "genres": [
-        "Documentário",
-        "Crime"
+        "Comédia",
+        "Ação"
       ],
-      "id": "c0c190c5-b359-46ff-b53f-741a25ddbd90",
-      "images": [
-        {
-          "id": "c0c190c5-b359-46ff-b53f-741a25ddbd90_p",
-          "location": "hackers_s01ep02_white_hats/hackers_s01ep02_white_hats_poster.jpg",
-          "type": "vod-poster"
-        },
-        {
-          "id": "c0c190c5-b359-46ff-b53f-741a25ddbd90_b",
-          "location": "hackers_s01ep02_white_hats/hackers_s01ep02_white_hats_landscape.jpg",
-          "type": "vod-background"
-        }
-      ],
+      "id": "5eb15088-a34e-4c49-b1a3-2a7371c1290a",
+      "images": [],
       "medias": [
         {
           "audio_languages": [
+            "eng",
             "por"
           ],
-          "id": "c0c190c5-b359-46ff-b53f-741a25ddbd90_m",
-          "location": "hackers_s01ep02_white_hats/hackers_s01ep02_white_hats.mp4",
+          "id": "5eb15088-a34e-4c49-b1a3-2a7371c1290a_m",
+          "location": "sony_20210219/spe_22jumpstreet_hd_eng_por_51.mp4",
           "metadata": {},
           "subtitles": [
             {
               "language": "por",
-              "location": "hackers_s01ep02_white_hats/hackers_s01ep02_white_hats.srt"
+              "location": "sony_20210219/spe_22jumpstreet_hd_eng_por_51.srt"
             }
           ],
           "technology": "MP4",
-          "title": "Hackers",
+          "title": "Anjos Da Lei 2",
           "type": "MEDIA"
         }
       ],
       "metadata": {
         "actors": [
-          ""
+          "Jonah Hill",
+          "Nick Offerman",
+          "Jimmy Tatro",
+          "Caroline Aaron",
+          "Craig Roberts",
+          "Marc Jackson",
+          "Channing Tatum",
+          "Peter Stormare",
+          "Wyatt Russell",
+          "Amber Stevens",
+          "Jillian Bell",
+          "Ice Cube",
+          "Keith Lucas",
+          "Kenny Lucas"
         ],
-        "country": "BRA",
+        "country": "USA",
         "directors": [
-          "Carla Albuquerque",
-          "Beto Ribeiro"
+          "Phil Lord"
+        ],
+        "release_year": "2014",
+        "rights": [],
+        "summary": [
+          "Depois de enfrentarem o colégio (pela segunda vez), grandes mudanças esperam pelos oficiais Schmidt (Jonah Hill) e Jenko (Channing Tatum) quando eles encaram uma missão infiltrados em uma faculdade local. Mas quando Jenko encontra sua alma gêmea no time de atletismo e Schmidt se infiltra no centro do principal cenário de arte boêmia eles começam a questionar sua parceria. Agora eles não tem apenas que solucionar o caso, mas também tem que descobrir como amadurecer seu relacionamento. Se esses dois adolescentes crescidos puderem se transformar de calouros à homens de verdade, a faculdade pode ser a melhor coisa que já aconteceu com eles."
+        ],
+        "tvod_price": 7.9
+      },
+      "morality_level": 14,
+      "synopsis": {
+        "por": "Depois de enfrentarem o colégio (pela segunda vez), grandes mudanças esperam pelos oficiais Schmidt (Jonah Hill) e Jenko (Channing Tatum) quando eles encaram uma missão infiltrados em uma faculdade local. Mas quando Jenko encontra sua alma gêmea no time de atletismo e Schmidt se infiltra no centro do principal cenário de arte boêmia eles começam a questionar sua parceria. Agora eles não tem apenas que solucionar o caso, mas também tem que descobrir como amadurecer seu relacionamento. Se esses dois adolescentes crescidos puderem se transformar de calouros à homens de verdade, a faculdade pode ser a melhor coisa que já aconteceu com eles."
+      },
+      "title": {
+        "por": "Anjos Da Lei 2"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1613952000000,
+      "available_to": 1640908800000,
+      "duration": 8497958,
+      "genres": [
+        "Ação",
+        "Aventura"
+      ],
+      "id": "3c4520aa-928b-409d-9c45-301b7a94e699",
+      "images": [],
+      "medias": [
+        {
+          "audio_languages": [
+            "eng",
+            "por"
+          ],
+          "id": "3c4520aa-928b-409d-9c45-301b7a94e699_m",
+          "location": "sony_20210219/spe_amazingspiderman2the_hd_eng_por_51.mp4",
+          "metadata": {},
+          "subtitles": [
+            {
+              "language": "por",
+              "location": "sony_20210219/spe_amazingspiderman2the_hd_eng_por_51.srt"
+            }
+          ],
+          "technology": "MP4",
+          "title": "O Espetacular Homem-Aranha 2 - A Ameaça De Electro",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          "Andrew Garfield",
+          "Campbell Scott",
+          "Marton Csokas",
+          "Louis Cancelmi",
+          "Max Charles",
+          "B.J. Novak",
+          "Emma Stone",
+          "Jamie Foxx",
+          "Dane DeHaan",
+          "Colm Feore",
+          "Felicity Jones",
+          "Paul Giamatti",
+          "Sally Field",
+          "Embeth Davidtz"
+        ],
+        "country": "USA",
+        "directors": [
+          "Marc Webb"
+        ],
+        "release_year": "2014",
+        "rights": [],
+        "summary": [
+          "É ótimo ser o Homem-Aranha (Andrew Garfield). Para Peter Parker, não há melhor sensação do que balançar entre os arranha-céus, curtir ser o herói, e passar um tempo com Gwen (Emma Stone). Mas ser o Homem-Aranha tem um preço: só o Homem-Aranha pode proteger seus companheiros nova-iorquinos dos incríveis vilões ​​que ameaçam a cidade. Com o surgimento de Electro (Jamie Foxx), Peter precisa enfrentar um inimigo muito mais poderoso do que ele. E, como seu velho amigo, Harry Osborn (Dane DeHaan), está de volta, Peter percebe que todos os seus inimigos têm algo em comum: Oscorp."
+        ],
+        "tvod_price": 7.9
+      },
+      "morality_level": 12,
+      "synopsis": {
+        "por": "É ótimo ser o Homem-Aranha (Andrew Garfield). Para Peter Parker, não há melhor sensação do que balançar entre os arranha-céus, curtir ser o herói, e passar um tempo com Gwen (Emma Stone). Mas ser o Homem-Aranha tem um preço: só o Homem-Aranha pode proteger seus companheiros nova-iorquinos dos incríveis vilões ​​que ameaçam a cidade. Com o surgimento de Electro (Jamie Foxx), Peter precisa enfrentar um inimigo muito mais poderoso do que ele. E, como seu velho amigo, Harry Osborn (Dane DeHaan), está de volta, Peter percebe que todos os seus inimigos têm algo em comum: Oscorp."
+      },
+      "title": {
+        "por": "O Espetacular Homem-Aranha 2 - A Ameaça De Electro"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1613952000000,
+      "available_to": 1640908800000,
+      "duration": 8180006,
+      "genres": [
+        "Ação",
+        "Aventura"
+      ],
+      "id": "e965bec2-187b-47fd-a3bc-1ac139c4610b",
+      "images": [],
+      "medias": [
+        {
+          "audio_languages": [
+            "eng",
+            "por"
+          ],
+          "id": "e965bec2-187b-47fd-a3bc-1ac139c4610b_m",
+          "location": "sony_20210219/spe_amazingspidermanthe_hd_eng_por_51.mp4",
+          "metadata": {},
+          "subtitles": [
+            {
+              "language": "por",
+              "location": "sony_20210219/spe_amazingspidermanthe_hd_eng_por_51.srt"
+            }
+          ],
+          "technology": "MP4",
+          "title": "O Espetacular Homem-Aranha",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          "Andrew Garfield",
+          "Chris Zylka",
+          "Emma Stone",
+          "Rhys Ifans",
+          "Denis Leary",
+          "Campbell Scott",
+          "Irrfan Khan",
+          "Martin Sheen",
+          "Sally Field",
+          "Embeth Davidtz"
+        ],
+        "country": "USA",
+        "directors": [
+          "Marc Webb"
+        ],
+        "release_year": "2012",
+        "rights": [],
+        "summary": [
+          "O Espetacular Homem-Aranha é a história de Peter Parker (Garfield), um estudante rejeitado por seus colegas e que foi abandonado por seus pais ainda criança, sendo então criado por seu Tio Ben (Sheen) e pela Tia May (Field). Como muitos adolescentes, Peter tenta descobrir quem ele é e como ele se tornou a pessoa que é hoje. Peter também está começando uma história com sua primeira paixão, Gwen Stacy (Stone), e juntos eles lidam com amor, compromissos e segredos. Quando Peter descobre uma misteriosa maleta que pertenceu a seu pai, ele começa uma jornada para entender o desaparecimento de seus pais – o que o leva diretamente à Oscorp e ao laboratório do Dr. Curt Connors (Ifans), antigo sócio de seu pai. E como Peter está em rota de colisão com o alter-ego do Dr. Connors, O Lagarto; ele tem que tomar decisões que podem alterar vidas, para usar seus poderes e moldar seu destino de se tornar um herói."
+        ],
+        "tvod_price": 7.9
+      },
+      "morality_level": 10,
+      "synopsis": {
+        "por": "O Espetacular Homem-Aranha é a história de Peter Parker (Garfield), um estudante rejeitado por seus colegas e que foi abandonado por seus pais ainda criança, sendo então criado por seu Tio Ben (Sheen) e pela Tia May (Field). Como muitos adolescentes, Peter tenta descobrir quem ele é e como ele se tornou a pessoa que é hoje. Peter também está começando uma história com sua primeira paixão, Gwen Stacy (Stone), e juntos eles lidam com amor, compromissos e segredos. Quando Peter descobre uma misteriosa maleta que pertenceu a seu pai, ele começa uma jornada para entender o desaparecimento de seus pais – o que o leva diretamente à Oscorp e ao laboratório do Dr. Curt Connors (Ifans), antigo sócio de seu pai. E como Peter está em rota de colisão com o alter-ego do Dr. Connors, O Lagarto; ele tem que tomar decisões que podem alterar vidas, para usar seus poderes e moldar seu destino de se tornar um herói."
+      },
+      "title": {
+        "por": "O Espetacular Homem-Aranha"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1613952000000,
+      "available_to": 1640908800000,
+      "duration": 6992956,
+      "genres": [
+        "Drama",
+        "Ficção Científica"
+      ],
+      "id": "99a975ae-b63c-4b5f-a3dc-5d2f926ec048",
+      "images": [],
+      "medias": [
+        {
+          "audio_languages": [
+            "eng",
+            "por"
+          ],
+          "id": "99a975ae-b63c-4b5f-a3dc-5d2f926ec048_m",
+          "location": "sony_20210219/spe_arrival2016_hd_eng_por_51.mp4",
+          "metadata": {},
+          "subtitles": [
+            {
+              "language": "por",
+              "location": "sony_20210219/spe_arrival2016_hd_eng_por_51.srt"
+            }
+          ],
+          "technology": "MP4",
+          "title": "A Chegada",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          "Amy Adams",
+          "Jeremy Renner",
+          "Forest Whitaker",
+          "Michael Stuhlbarg",
+          "Tzi Ma"
+        ],
+        "country": "USA",
+        "directors": [
+          "Denis Villeneuve"
         ],
         "release_year": "2016",
         "rights": [],
         "summary": [
-          "Série de documentários que revela tudo que está por trás da palavra hacker. Mais do que entender o que os hackers fazem, a série desvenda o universo que nasceu com a era digital e contraria a ideia de que os hackers são os vilões da história. São 10 episódios que mostram onde atuam esses amantes da tecnologia e como toda e qualquer pessoa pode ser ou conviver com um hacker."
-        ]
+          "Quando seres interplanetários deixam marcas na Terra, a Dra. Louise Banks, uma linguista especialista no assunto, é procurada por militares para traduzir os sinais e desvendar se os alienígenas representam uma ameaça ou não. No entanto, a resposta para todas as perguntas e mistérios pode ameaçar a vida de Louise e a existência de toda a humanidade."
+        ],
+        "tvod_price": 7.9
       },
-      "morality_level": 14,
-      "season_episode_number": 2,
-      "season_id": "3e15cd47-cd0e-4a35-8c0e-d6303ee1f912",
-      "series_id": "bee7bc29-1b0d-4107-9956-eecf873cdd17",
+      "morality_level": 10,
       "synopsis": {
-        "por": "Enquanto os Black Hats são uma ameaça para a segurança online, os White Hats trabalham para fornecer uma internet mais segura. Grandes empresas contratam-os para criar uma invasão no seu próprio sistema, com o intuito de testar a segurança dos seus dados. Descubra mais sobre o trabalho e as áreas que os White Hats atuam."
+        "por": "Quando seres interplanetários deixam marcas na Terra, a Dra. Louise Banks, uma linguista especialista no assunto, é procurada por militares para traduzir os sinais e desvendar se os alienígenas representam uma ameaça ou não. No entanto, a resposta para todas as perguntas e mistérios pode ameaçar a vida de Louise e a existência de toda a humanidade."
       },
       "title": {
-        "por": "Hackers"
+        "por": "A Chegada"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1613952000000,
+      "available_to": 1640908800000,
+      "duration": 7080998,
+      "genres": [
+        "Ação",
+        "Suspense"
+      ],
+      "id": "e47643e0-9554-43e1-b117-b6c1ac96b640",
+      "images": [],
+      "medias": [
+        {
+          "audio_languages": [
+            "eng",
+            "por"
+          ],
+          "id": "e47643e0-9554-43e1-b117-b6c1ac96b640_m",
+          "location": "sony_20210219/spe_bonecollectorthe_hd_eng_por_51.mp4",
+          "metadata": {},
+          "subtitles": [
+            {
+              "language": "por",
+              "location": "sony_20210219/spe_bonecollectorthe_hd_eng_por_51.srt"
+            }
+          ],
+          "technology": "MP4",
+          "title": "Colecionador De Ossos",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          "Denzel Washington",
+          "Queen Latifah",
+          "Angelina Jolie",
+          "Ed O'Neill",
+          "Michael Rooker"
+        ],
+        "country": "USA",
+        "directors": [
+          "Phillip Noyce"
+        ],
+        "release_year": "1999",
+        "rights": [],
+        "summary": [
+          "Um assassino está à solta nas ruas de Manhattan. Um assassino diabólico que deixa uma trilha de mensagens cifradas escondidas nas cenas de cada crime. Pistas que apenas uma mente brilhante pode interpretar. Com a cidade mergulhada no medo, um detetive astuto, mas tetraplégico é o responsável pelo caso. Com a ajuda de uma novata patrulheira de rua, os dois devem penetrar na mente deste terrível psicopata e derrotá-lo em seu próprio jogo. Para que, em seu próximo ataque, os dois não cheguem muito tarde. A Columbia Pictures apresenta uma produção Bregman, O Colecionador de Ossos, um aterrorizante suspense estrelado pelo vencedor do Oscar®  Denzel Washington, a ganhadora do Globo de Ouro Angelina Jolie e a cantora premiada com o Grammy, Queen Latifah."
+        ],
+        "tvod_price": 7.9
+      },
+      "morality_level": 14,
+      "synopsis": {
+        "por": "Um assassino está à solta nas ruas de Manhattan. Um assassino diabólico que deixa uma trilha de mensagens cifradas escondidas nas cenas de cada crime. Pistas que apenas uma mente brilhante pode interpretar. Com a cidade mergulhada no medo, um detetive astuto, mas tetraplégico é o responsável pelo caso. Com a ajuda de uma novata patrulheira de rua, os dois devem penetrar na mente deste terrível psicopata e derrotá-lo em seu próprio jogo. Para que, em seu próximo ataque, os dois não cheguem muito tarde. A Columbia Pictures apresenta uma produção Bregman, O Colecionador de Ossos, um aterrorizante suspense estrelado pelo vencedor do Oscar®  Denzel Washington, a ganhadora do Globo de Ouro Angelina Jolie e a cantora premiada com o Grammy, Queen Latifah."
+      },
+      "title": {
+        "por": "Colecionador De Ossos"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1613952000000,
+      "available_to": 1640908800000,
+      "duration": 7058016,
+      "genres": [
+        "Ação",
+        "Aventura"
+      ],
+      "id": "4ef53df6-e3b6-4d05-bafc-a2a6445fa634",
+      "images": [],
+      "medias": [
+        {
+          "audio_languages": [
+            "eng",
+            "por"
+          ],
+          "id": "4ef53df6-e3b6-4d05-bafc-a2a6445fa634_m",
+          "location": "sony_20210219/spe_bookofelithe_hd_eng_por_51.mp4",
+          "metadata": {},
+          "subtitles": [
+            {
+              "language": "por",
+              "location": "sony_20210219/spe_bookofelithe_hd_eng_por_51.srt"
+            }
+          ],
+          "technology": "MP4",
+          "title": "O Livro De Eli",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          "Denzel Washington",
+          "Frances De La Tour",
+          "Gary Oldman",
+          "Al Goto"
+        ],
+        "country": "USA",
+        "directors": [
+          "Albert Hughes"
+        ],
+        "release_year": "2009",
+        "rights": [],
+        "summary": [
+          "Denzel Washington), um guerreiro solitário, caminha por uma terra pós-apocalíptica e devastada que um dia foi o território dos EUA. Ele segue em direção ao Oeste numa missão que ele não entende plenamente, mas sabe que tem de cumprir. Em seu poder, está a última cópia de um livro que ele protege ferozmente com a vida, pois ali está a única esperança para o futuro. Só Carnegie (Gary Oldman), um senhor da guerra que se auto proclamou chefe de uma cidade de ladrões e pistoleiros, entende o poder que Eli possui e, por isso mesmo, está decidido a apossar-se dele. Mas nada pode deter Eli em sua missão para cumprir seu destino e trazer ajuda a uma humanidade desolada."
+        ],
+        "tvod_price": 7.9
+      },
+      "morality_level": 16,
+      "synopsis": {
+        "por": "Denzel Washington), um guerreiro solitário, caminha por uma terra pós-apocalíptica e devastada que um dia foi o território dos EUA. Ele segue em direção ao Oeste numa missão que ele não entende plenamente, mas sabe que tem de cumprir. Em seu poder, está a última cópia de um livro que ele protege ferozmente com a vida, pois ali está a única esperança para o futuro. Só Carnegie (Gary Oldman), um senhor da guerra que se auto proclamou chefe de uma cidade de ladrões e pistoleiros, entende o poder que Eli possui e, por isso mesmo, está decidido a apossar-se dele. Mas nada pode deter Eli em sua missão para cumprir seu destino e trazer ajuda a uma humanidade desolada."
+      },
+      "title": {
+        "por": "O Livro De Eli"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1613952000000,
+      "available_to": 1640908800000,
+      "duration": 7223990,
+      "genres": [
+        "Ação",
+        "Ficção Científica"
+      ],
+      "id": "bb7db9c7-d2d9-4406-8c86-8a74d58e8753",
+      "images": [],
+      "medias": [
+        {
+          "audio_languages": [
+            "eng",
+            "por"
+          ],
+          "id": "bb7db9c7-d2d9-4406-8c86-8a74d58e8753_m",
+          "location": "sony_20210219/spe_chappie_hd_eng_por_51.mp4",
+          "metadata": {},
+          "subtitles": [
+            {
+              "language": "por",
+              "location": "sony_20210219/spe_chappie_hd_eng_por_51.srt"
+            }
+          ],
+          "technology": "MP4",
+          "title": "Chappie",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          "Sharlto Copley",
+          "Dev Patel",
+          "¥o-Landi Vi$$er",
+          "Jose Cantillo",
+          "Brandon Auret",
+          "Sigourney Weaver",
+          "Hugh Jackman"
+        ],
+        "country": "USA",
+        "directors": [
+          "Neill Blomkamp"
+        ],
+        "release_year": "2015",
+        "rights": [],
+        "summary": [
+          "Chappie é um robô que possui inteligência artificial. Um dia, ele é roubado por dois gângsteres que têm planos maquiavélicos para ele."
+        ],
+        "tvod_price": 7.9
+      },
+      "morality_level": 16,
+      "synopsis": {
+        "por": "Chappie é um robô que possui inteligência artificial. Um dia, ele é roubado por dois gângsteres que têm planos maquiavélicos para ele."
+      },
+      "title": {
+        "por": "Chappie"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1613952000000,
+      "available_to": 1640908800000,
+      "duration": 5394038,
+      "genres": [
+        "Família",
+        "Comédia"
+      ],
+      "id": "35163454-d46f-4e59-890d-afb5a2c4f9c5",
+      "images": [],
+      "medias": [
+        {
+          "audio_languages": [
+            "eng",
+            "por"
+          ],
+          "id": "35163454-d46f-4e59-890d-afb5a2c4f9c5_m",
+          "location": "sony_20210219/spe_cloudywithachanceofmeatballs_hd_eng_por_51.mp4",
+          "metadata": {},
+          "subtitles": [
+            {
+              "language": "por",
+              "location": "sony_20210219/spe_cloudywithachanceofmeatballs_hd_eng_por_51.srt"
+            }
+          ],
+          "technology": "MP4",
+          "title": "Tá Chovendo Hamburguer",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          "Bill Hader",
+          "Al Roker",
+          "Lauren Graham",
+          "Will Forte",
+          "Mr. T",
+          "Anna Faris",
+          "James Caan",
+          "Andy Samberg",
+          "Bruce Campbell",
+          "Bobbe J. Thompson",
+          "Benjamin Bratt",
+          "Neil Patrick Harris"
+        ],
+        "country": "USA",
+        "directors": [
+          "Phil Lord",
+          "Chris Miller"
+        ],
+        "release_year": "2009",
+        "rights": [],
+        "summary": [
+          "Quando a invenção mais recente de Flint Lockwood acidentalmente destrói a praça da cidade e parte em disparada rumo às nuvens, ele considera sua carreira de inventor acabada. Mas aí, algo incrível acontece: do céu, começam a chover deliciosos cheeseburgers. Sua máquina funciona de verdade! Porém quando o equipamento sai de controle, cabe a Flint, com a ajuda de Sam Sparks, a garota do tempo, encontrar um modo de desligar a engenhoca e salvar a pátria."
+        ],
+        "tvod_price": 7.9
+      },
+      "morality_level": 0,
+      "synopsis": {
+        "por": "Quando a invenção mais recente de Flint Lockwood acidentalmente destrói a praça da cidade e parte em disparada rumo às nuvens, ele considera sua carreira de inventor acabada. Mas aí, algo incrível acontece: do céu, começam a chover deliciosos cheeseburgers. Sua máquina funciona de verdade! Porém quando o equipamento sai de controle, cabe a Flint, com a ajuda de Sam Sparks, a garota do tempo, encontrar um modo de desligar a engenhoca e salvar a pátria."
+      },
+      "title": {
+        "por": "Tá Chovendo Hamburguer"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1613952000000,
+      "available_to": 1640908800000,
+      "duration": 9927014,
+      "genres": [
+        "Drama",
+        "Faroeste"
+      ],
+      "id": "881d88fa-91c2-4374-be92-ae5a38ed6f11",
+      "images": [],
+      "medias": [
+        {
+          "audio_languages": [
+            "eng",
+            "por"
+          ],
+          "id": "881d88fa-91c2-4374-be92-ae5a38ed6f11_m",
+          "location": "sony_20210219/spe_djangounchained_hd_eng_por_51.mp4",
+          "metadata": {},
+          "subtitles": [
+            {
+              "language": "por",
+              "location": "sony_20210219/spe_djangounchained_hd_eng_por_51.srt"
+            }
+          ],
+          "technology": "MP4",
+          "title": "Django Livre",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          "Jamie Foxx",
+          "Don Johnson",
+          "Christoph Waltz",
+          "Leonardo DiCaprio",
+          "Kerry Washington",
+          "Samuel Jackson",
+          "Walton Goggins",
+          "Dennis Christopher",
+          "James Remar",
+          "Michael Parks"
+        ],
+        "country": "USA",
+        "directors": [
+          "Quentin Tarantino"
+        ],
+        "release_year": "2012",
+        "rights": [],
+        "summary": [
+          "Escrito e dirigido por Quentin Tarantino e com um premiado elenco; Jamie Foxx interpreta Django, um escravo que se junta ao caçador de recompensas, Dr. King Schultz (Cristoph Waltz), para encontrar os criminosos mais procurados da região Sul com a promessa da liberdade de Django. Aperfeiçoando habilidades vitais de caça, o seu único objetivo é encontrar e resgatar sua esposa (Kerry Washington) adquirida por outros proprietários há muitos anos. Quando essa busca acaba levando-os até Calvin Candie (Leonardo DiCaprio), o infamo e brutal proprietário de “Candyland”, eles acabam deixando Stephen (Samuel L. Jackson), o fiel escravo da casa, desconfiado. Agora todos os passos que derem estão marcados e a organização traiçoeira de Candie está fechando o cerco em torno de ambos."
+        ],
+        "tvod_price": 7.9
+      },
+      "morality_level": 16,
+      "synopsis": {
+        "por": "Escrito e dirigido por Quentin Tarantino e com um premiado elenco; Jamie Foxx interpreta Django, um escravo que se junta ao caçador de recompensas, Dr. King Schultz (Cristoph Waltz), para encontrar os criminosos mais procurados da região Sul com a promessa da liberdade de Django. Aperfeiçoando habilidades vitais de caça, o seu único objetivo é encontrar e resgatar sua esposa (Kerry Washington) adquirida por outros proprietários há muitos anos. Quando essa busca acaba levando-os até Calvin Candie (Leonardo DiCaprio), o infamo e brutal proprietário de “Candyland”, eles acabam deixando Stephen (Samuel L. Jackson), o fiel escravo da casa, desconfiado. Agora todos os passos que derem estão marcados e a organização traiçoeira de Candie está fechando o cerco em torno de ambos."
+      },
+      "title": {
+        "por": "Django Livre"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1613952000000,
+      "available_to": 1640908800000,
+      "duration": 8410003,
+      "genres": [
+        "Drama",
+        "Romance"
+      ],
+      "id": "258b9129-e11c-4851-88fc-b77961e1fe9d",
+      "images": [],
+      "medias": [
+        {
+          "audio_languages": [
+            "eng",
+            "por"
+          ],
+          "id": "258b9129-e11c-4851-88fc-b77961e1fe9d_m",
+          "location": "sony_20210219/spe_eatpraylove_hd_eng_por_51.mp4",
+          "metadata": {},
+          "subtitles": [
+            {
+              "language": "por",
+              "location": "sony_20210219/spe_eatpraylove_hd_eng_por_51.srt"
+            }
+          ],
+          "technology": "MP4",
+          "title": "Comer Rezar Amar",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          "Julia Roberts",
+          "James Franco",
+          "Richard Jenkins",
+          "Viola Davis",
+          "Billy Crudup",
+          "Javier Bardem"
+        ],
+        "country": "USA",
+        "directors": [
+          "Ryan Murphy"
+        ],
+        "release_year": "2010",
+        "rights": [],
+        "summary": [
+          "Acreditando que a vida é algo mais do que ter um marido, uma casa e uma carreira, Liz Gilbert (Julia Roberts) descobre um novo apetite pela a vida nesta inspiradora história verdadeira, baseada num livro de enorme sucesso de vendas. Liz deixa Nova York decidida a passar um ano viajando pela Itália, Índia e Bali em busca da descoberta pessoal através da boa comida, da meditação e da esperança de encontrar o amor verdadeiro. James Franco, Billy Crudup e Javier Bardem coestrelam esta aventura magnífica e inspiradora regada a bom humor e emoções."
+        ],
+        "tvod_price": 7.9
+      },
+      "morality_level": 12,
+      "synopsis": {
+        "por": "Acreditando que a vida é algo mais do que ter um marido, uma casa e uma carreira, Liz Gilbert (Julia Roberts) descobre um novo apetite pela a vida nesta inspiradora história verdadeira, baseada num livro de enorme sucesso de vendas. Liz deixa Nova York decidida a passar um ano viajando pela Itália, Índia e Bali em busca da descoberta pessoal através da boa comida, da meditação e da esperança de encontrar o amor verdadeiro. James Franco, Billy Crudup e Javier Bardem coestrelam esta aventura magnífica e inspiradora regada a bom humor e emoções."
+      },
+      "title": {
+        "por": "Comer Rezar Amar"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1613952000000,
+      "available_to": 1640908800000,
+      "duration": 7925040,
+      "genres": [
+        "Ação",
+        "Suspense"
+      ],
+      "id": "b6497af2-73af-4112-9893-71ff0aa1aa7e",
+      "images": [],
+      "medias": [
+        {
+          "audio_languages": [
+            "eng",
+            "por"
+          ],
+          "id": "b6497af2-73af-4112-9893-71ff0aa1aa7e_m",
+          "location": "sony_20210219/spe_equalizerthefeature_hd_eng_por_51.mp4",
+          "metadata": {},
+          "subtitles": [
+            {
+              "language": "por",
+              "location": "sony_20210219/spe_equalizerthefeature_hd_eng_por_51.srt"
+            }
+          ],
+          "technology": "MP4",
+          "title": "O Protetor",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          "Denzel Washington",
+          "Alex Veadov",
+          "Vladimir Kulich",
+          "E. Mitchell",
+          "Marton Csokas",
+          "Chloë Moretz",
+          "David Harbour",
+          "Bill Pullman",
+          "Haley Bennett",
+          "Melissa Leo",
+          "David Meunier",
+          "Johnny Skourtis"
+        ],
+        "country": "USA",
+        "directors": [
+          "Antoine Fuqua"
+        ],
+        "release_year": "2014",
+        "rights": [],
+        "summary": [
+          "Gira em torno de um ex-agente secreto que oferece os seus serviços de investigação, a fim de reparar seus pecados passados. Baseado na série de TV de mesmo nome."
+        ],
+        "tvod_price": 7.9
+      },
+      "morality_level": 16,
+      "synopsis": {
+        "por": "Gira em torno de um ex-agente secreto que oferece os seus serviços de investigação, a fim de reparar seus pecados passados. Baseado na série de TV de mesmo nome."
+      },
+      "title": {
+        "por": "O Protetor"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1613952000000,
+      "available_to": 1640908800000,
+      "duration": 5480006,
+      "genres": [
+        "Terror"
+      ],
+      "id": "916b2b28-5f86-41d8-9a5e-ade8b5a3f27f",
+      "images": [],
+      "medias": [
+        {
+          "audio_languages": [
+            "eng",
+            "por"
+          ],
+          "id": "916b2b28-5f86-41d8-9a5e-ade8b5a3f27f_m",
+          "location": "sony_20210219/spe_evildead2013_hd_eng_por_51.mp4",
+          "metadata": {},
+          "subtitles": [
+            {
+              "language": "por",
+              "location": "sony_20210219/spe_evildead2013_hd_eng_por_51.srt"
+            }
+          ],
+          "technology": "MP4",
+          "title": "A Morte Do Demônio",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          "Jane Levy",
+          "Karl Willetts",
+          "Randal Wilson",
+          "Jessica Lucas",
+          "Shiloh Fernandez",
+          "Lou Taylor Pucci",
+          "Elizabeth Blackmore",
+          "Phoenix Connolly",
+          "Jim McLarty",
+          "Sian Davis",
+          "Stephen Butterworth",
+          "Rupert Degas",
+          "Bob Dorian",
+          "Ellen Sandweiss"
+        ],
+        "country": "NZL",
+        "directors": [
+          "Fede Alvarez"
+        ],
+        "release_year": "2013",
+        "rights": [],
+        "summary": [
+          "Um chalé abandonado. Uma antiga maldição. Um mal implacável. Os produtores originais se reúnem para apresentar uma genuinamente aterrorizante reinvenção de suas obras-primas de horror. Para ajudar Mia a se livrar das drogas, cinco amigos se isolam em um chalé na floresta. Quando descobrem o Livro dos Mortos, eles inconscientemente invocam demônios adormecidos. A partir deste acontecimento, os jovens, um após outro, vão sendo possuídos. Cabe a David, irmão de Mia, lutar pela sua sobrevivência e de sua irmã."
+        ],
+        "tvod_price": 7.9
+      },
+      "morality_level": 18,
+      "synopsis": {
+        "por": "Um chalé abandonado. Uma antiga maldição. Um mal implacável. Os produtores originais se reúnem para apresentar uma genuinamente aterrorizante reinvenção de suas obras-primas de horror. Para ajudar Mia a se livrar das drogas, cinco amigos se isolam em um chalé na floresta. Quando descobrem o Livro dos Mortos, eles inconscientemente invocam demônios adormecidos. A partir deste acontecimento, os jovens, um após outro, vão sendo possuídos. Cabe a David, irmão de Mia, lutar pela sua sobrevivência e de sua irmã."
+      },
+      "title": {
+        "por": "A Morte Do Demônio"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1613952000000,
+      "available_to": 1640908800000,
+      "duration": 7171977,
+      "genres": [
+        "Terror"
+      ],
+      "id": "7a06958b-6a5a-4589-a3f9-fd5323d3ffbd",
+      "images": [],
+      "medias": [
+        {
+          "audio_languages": [
+            "eng",
+            "por"
+          ],
+          "id": "7a06958b-6a5a-4589-a3f9-fd5323d3ffbd_m",
+          "location": "sony_20210219/spe_exorcismofemilyrosethe_hd_eng_por_51.mp4",
+          "metadata": {},
+          "subtitles": [
+            {
+              "language": "por",
+              "location": "sony_20210219/spe_exorcismofemilyrosethe_hd_eng_por_51.srt"
+            }
+          ],
+          "technology": "MP4",
+          "title": "O Exorcismo De Emily Rose",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          "Laura Linney",
+          "Tom Wilkinson",
+          "Campbell Scott",
+          "Jennifer Carpenter"
+        ],
+        "country": "USA",
+        "directors": [
+          "Scott Derrickson"
+        ],
+        "release_year": "2005",
+        "rights": [],
+        "summary": [
+          "Os indicados ao Oscar® Laura Linney (melhor atriz por Conta Comigo, 2000) e Tom Wilkinson (melhor ator por Entre Quatro Paredes, 2001) estrelam este suspense sobrenatural baseado em uma história real que vai testar sua coragem e principalmente a sua fé. Emily Rose (Jennifer Carpenter, As Branquelas) era uma adolescente comum que foi o alvo de terríveis forças demoníacas que chocaram uma cidade e atormentaram sua alma. Mas ela foi, como muitos acreditaram, possuída? Em uma tentativa de defender o padre que exorcizou Emily, uma advogada cética (Linney) desperta para a descoberta de que poderosas forças espirituais podem mesmo existir. Este aterrorizante filme revela um pesadelo recorrente do qual não se pode acordar."
+        ],
+        "tvod_price": 7.9
+      },
+      "morality_level": 14,
+      "synopsis": {
+        "por": "Os indicados ao Oscar® Laura Linney (melhor atriz por Conta Comigo, 2000) e Tom Wilkinson (melhor ator por Entre Quatro Paredes, 2001) estrelam este suspense sobrenatural baseado em uma história real que vai testar sua coragem e principalmente a sua fé. Emily Rose (Jennifer Carpenter, As Branquelas) era uma adolescente comum que foi o alvo de terríveis forças demoníacas que chocaram uma cidade e atormentaram sua alma. Mas ela foi, como muitos acreditaram, possuída? Em uma tentativa de defender o padre que exorcizou Emily, uma advogada cética (Linney) desperta para a descoberta de que poderosas forças espirituais podem mesmo existir. Este aterrorizante filme revela um pesadelo recorrente do qual não se pode acordar."
+      },
+      "title": {
+        "por": "O Exorcismo De Emily Rose"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1613952000000,
+      "available_to": 1640908800000,
+      "duration": 5422032,
+      "genres": [
+        "Comédia"
+      ],
+      "id": "1ccdfc4e-f9e7-467b-a4ba-04f0f5cce3fa",
+      "images": [],
+      "medias": [
+        {
+          "audio_languages": [
+            "eng",
+            "por"
+          ],
+          "id": "1ccdfc4e-f9e7-467b-a4ba-04f0f5cce3fa_m",
+          "location": "sony_20210219/spe_funwithdickandjane2005_hd_eng_por_51.mp4",
+          "metadata": {},
+          "subtitles": [
+            {
+              "language": "por",
+              "location": "sony_20210219/spe_funwithdickandjane2005_hd_eng_por_51.srt"
+            }
+          ],
+          "technology": "MP4",
+          "title": "As Loucuras De Dick E Jane",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          "Jim Carrey",
+          "Tea Leoni",
+          "Alec Baldwin",
+          "Richard Jenkins"
+        ],
+        "country": "USA",
+        "directors": [
+          "Dean Parisot"
+        ],
+        "release_year": "2007",
+        "rights": [],
+        "summary": [
+          "Quando Dick Harper (Jim Carrey) é demitido da vice-presidência de comunicação da Globodyne Corporation, ele assegura à sua esposa, Jane (Téa Leoni), que vai arrumar outro emprego rapidamente. Meses depois, sua propriedade é cassada, Jane vendeu seu corpo para a ciência e a carreira de Dick como operário diurno termina com a sua deportação para o México. Mais bravos do que nunca e sem querer continuar nesta situação, Dick e Jane passam a agir no setor que mais cresce no mercado de colarinho branco – roubo a mão armada – tornando-se os Robin Hoods suburbanos de alta classe que roubam dos ricos para dar aos pobres... ou seja, eles mesmos."
+        ],
+        "tvod_price": 7.9
+      },
+      "morality_level": 10,
+      "synopsis": {
+        "por": "Quando Dick Harper (Jim Carrey) é demitido da vice-presidência de comunicação da Globodyne Corporation, ele assegura à sua esposa, Jane (Téa Leoni), que vai arrumar outro emprego rapidamente. Meses depois, sua propriedade é cassada, Jane vendeu seu corpo para a ciência e a carreira de Dick como operário diurno termina com a sua deportação para o México. Mais bravos do que nunca e sem querer continuar nesta situação, Dick e Jane passam a agir no setor que mais cresce no mercado de colarinho branco – roubo a mão armada – tornando-se os Robin Hoods suburbanos de alta classe que roubam dos ricos para dar aos pobres... ou seja, eles mesmos."
+      },
+      "title": {
+        "por": "As Loucuras De Dick E Jane"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1613952000000,
+      "available_to": 1640908800000,
+      "duration": 8082028,
+      "genres": [
+        "Ação",
+        "Drama"
+      ],
+      "id": "01240c37-58c0-41a9-8607-031719ca4465",
+      "images": [],
+      "medias": [
+        {
+          "audio_languages": [
+            "eng",
+            "por"
+          ],
+          "id": "01240c37-58c0-41a9-8607-031719ca4465_m",
+          "location": "sony_20210219/spe_fury_hd_eng_por_51.mp4",
+          "metadata": {},
+          "subtitles": [
+            {
+              "language": "por",
+              "location": "sony_20210219/spe_fury_hd_eng_por_51.srt"
+            }
+          ],
+          "technology": "MP4",
+          "title": "Corações De Ferro",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          "Brad Pitt",
+          "Scott Eastwood",
+          "Kevin Vance",
+          "Shia LaBeouf",
+          "Logan Lerman",
+          "Michael Peña",
+          "Jon Bernthal",
+          "Jason Isaacs",
+          "Brad Henke",
+          "Jim Parrack",
+          "Xavier Samuel"
+        ],
+        "country": "USA",
+        "directors": [
+          "David Ayer"
+        ],
+        "release_year": "2014",
+        "rights": [],
+        "summary": [
+          "Durante o final da Segunda Guerra Mundial, um grupo de cinco soldados americanos é encarregado de atacar os nazistas dentro da própria Alemanha. Apesar de estarem em quantidade inferior e terem poucas armas, eles são liderados pelo enfurecido Wardaddy (Brad Pitt), sargento que pretende levá-los à vitória, enquanto ensina o novato Norman (Logan Lerman) a lutar."
+        ],
+        "tvod_price": 7.9
+      },
+      "morality_level": 16,
+      "synopsis": {
+        "por": "Durante o final da Segunda Guerra Mundial, um grupo de cinco soldados americanos é encarregado de atacar os nazistas dentro da própria Alemanha. Apesar de estarem em quantidade inferior e terem poucas armas, eles são liderados pelo enfurecido Wardaddy (Brad Pitt), sargento que pretende levá-los à vitória, enquanto ensina o novato Norman (Logan Lerman) a lutar."
+      },
+      "title": {
+        "por": "Corações De Ferro"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1613952000000,
+      "available_to": 1640908800000,
+      "duration": 6311001,
+      "genres": [
+        "Comédia",
+        "Ficção Científica"
+      ],
+      "id": "59537ed8-7293-4337-9052-34a768ae1a6f",
+      "images": [],
+      "medias": [
+        {
+          "audio_languages": [
+            "eng",
+            "por"
+          ],
+          "id": "59537ed8-7293-4337-9052-34a768ae1a6f_m",
+          "location": "sony_20210219/spe_ghostbusters1984_hd_eng_por_51.mp4",
+          "metadata": {},
+          "subtitles": [
+            {
+              "language": "por",
+              "location": "sony_20210219/spe_ghostbusters1984_hd_eng_por_51.srt"
+            }
+          ],
+          "technology": "MP4",
+          "title": "Os Caça-Fantasmas",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          "Bill Murray",
+          "Dan Aykroyd",
+          "Sigourney Weaver",
+          "Harold Ramis",
+          "Annie Potts",
+          "Rick Moranis",
+          "William Atherton",
+          "Ernie Hudson",
+          "Casey Kasem"
+        ],
+        "country": "USA",
+        "directors": [
+          "Ivan Reitman"
+        ],
+        "release_year": "1984",
+        "rights": [],
+        "summary": [
+          "Bill Murray, Dan Aykroyd e Harold Ramis estrelam esta clássica comédia sobrenatural que vai fazer você gritar!  Quando a universidade reduz o departamento de parapsicologia, os doutores Venkman (Murray), Stantz (Aykroyd) e Spengler (Ramis) mudam suas atividades de cientistas para Caça-Fantasmas, investigadores e exterminadores de pestes paranormais! Quando a atraente Dana Barret (Sigourney Weaver) descobre que sua geladeira é um portal para a dimensão espiritual, nossos heróis ficam frente a frente com uma antiga força do mal que planeja transformar Manhattan no inferno!"
+        ],
+        "tvod_price": 7.9
+      },
+      "morality_level": 0,
+      "synopsis": {
+        "por": "Bill Murray, Dan Aykroyd e Harold Ramis estrelam esta clássica comédia sobrenatural que vai fazer você gritar!  Quando a universidade reduz o departamento de parapsicologia, os doutores Venkman (Murray), Stantz (Aykroyd) e Spengler (Ramis) mudam suas atividades de cientistas para Caça-Fantasmas, investigadores e exterminadores de pestes paranormais! Quando a atraente Dana Barret (Sigourney Weaver) descobre que sua geladeira é um portal para a dimensão espiritual, nossos heróis ficam frente a frente com uma antiga força do mal que planeja transformar Manhattan no inferno!"
+      },
+      "title": {
+        "por": "Os Caça-Fantasmas"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1613952000000,
+      "available_to": 1640908800000,
+      "duration": 6504019,
+      "genres": [
+        "Comédia",
+        "Ficção Científica"
+      ],
+      "id": "a3e345ea-510a-4c40-b41f-2fe52aef1687",
+      "images": [],
+      "medias": [
+        {
+          "audio_languages": [
+            "eng",
+            "por"
+          ],
+          "id": "a3e345ea-510a-4c40-b41f-2fe52aef1687_m",
+          "location": "sony_20210219/spe_ghostbustersii_hd_eng_por_20.mp4",
+          "metadata": {},
+          "subtitles": [
+            {
+              "language": "por",
+              "location": "sony_20210219/spe_ghostbustersii_hd_eng_por_20.srt"
+            }
+          ],
+          "technology": "MP4",
+          "title": "Os Caça-Fantasmas 2",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          "Bill Murray",
+          "Dan Aykroyd",
+          "Sigourney Weaver",
+          "Harold Ramis",
+          "Annie Potts",
+          "Rick Moranis",
+          "Ernie Hudson"
+        ],
+        "country": "USA",
+        "directors": [
+          "Ivan Reitman"
+        ],
+        "release_year": "1989",
+        "rights": [],
+        "summary": [
+          "Bill Murray, Dan Aykroyd e Harold Ramis pegam mais uma vez o seu kit de prótons para lutar contra as forças do mal em Manhattan!  Após uma agitada guerra viscosa que custou milhões à cidade de Nova York, os caça-fantasmas se encontram sem trabalho. Enquanto isso, um antigo tirano prepara sua volta para dominar a Terra, usando seu retrato que está no Museu de Arte de Manhattan e possuindo o bebê de Dana Barrett como lar de sua maligna alma! Com a ajuda do enfeitiçado curador do museu, ele planeja transformar Nova York em um assustador lugar para se viver! Usando seus equipamentos contra pestes paranormais, apenas Os Caça-Fantasmas podem salvar a cidade!"
+        ],
+        "tvod_price": 7.9
+      },
+      "morality_level": 0,
+      "synopsis": {
+        "por": "Bill Murray, Dan Aykroyd e Harold Ramis pegam mais uma vez o seu kit de prótons para lutar contra as forças do mal em Manhattan!  Após uma agitada guerra viscosa que custou milhões à cidade de Nova York, os caça-fantasmas se encontram sem trabalho. Enquanto isso, um antigo tirano prepara sua volta para dominar a Terra, usando seu retrato que está no Museu de Arte de Manhattan e possuindo o bebê de Dana Barrett como lar de sua maligna alma! Com a ajuda do enfeitiçado curador do museu, ele planeja transformar Nova York em um assustador lugar para se viver! Usando seus equipamentos contra pestes paranormais, apenas Os Caça-Fantasmas podem salvar a cidade!"
+      },
+      "title": {
+        "por": "Os Caça-Fantasmas 2"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1613952000000,
+      "available_to": 1640908800000,
+      "duration": 6617030,
+      "genres": [
+        "Ação"
+      ],
+      "id": "3ece9c17-d74c-494d-8480-54d89c26202e",
+      "images": [],
+      "medias": [
+        {
+          "audio_languages": [
+            "eng",
+            "por"
+          ],
+          "id": "3ece9c17-d74c-494d-8480-54d89c26202e_m",
+          "location": "sony_20210219/spe_ghostrider2007_hd_eng_por_51.mp4",
+          "metadata": {},
+          "subtitles": [
+            {
+              "language": "por",
+              "location": "sony_20210219/spe_ghostrider2007_hd_eng_por_51.srt"
+            }
+          ],
+          "technology": "MP4",
+          "title": "Motoqueiro Fantasma",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          "Nicolas Cage",
+          "Eva Mendes",
+          "Wes Bentley",
+          "Sam Elliott",
+          "Donal Logue",
+          "Matt Long",
+          "Peter Fonda"
+        ],
+        "country": "USA",
+        "directors": [
+          "Mark Johnson"
+        ],
+        "release_year": "2007",
+        "rights": [],
+        "summary": [
+          "Johnny Blaze (Nicolas Cage) era apenas um motociclista dublê adolescente quando vendeu sua alma para o diabo (Peter Fonda). Anos depois, Johnny é um famoso motoqueiro radical durante o dia, mas à noite, se transforma no Motoqueiro Fantasma, o lendário personagem da Marvel Comics. Como justiceiro do diabo, ele é encarregado de caçar almas maldosas na Terra e levá-las ao inferno. Mas quando o destino resolve lhe pregar uma peça trazendo o seu grande amor (Eva Mendes) de volta à sua vida, Johnny percebe que pode ter uma segunda chance de ser feliz – se vencer o diabo e ganhar sua alma de volta. Para conseguir o que deseja, ele terá que derrotar Coração Negro (Wes Bentley), o rebelde e perverso filho do demônio, cujo plano de assumir o reinado de seu pai trará o inferno à Terra – a não ser que o Motoqueiro Fantasma possa impedí-lo."
+        ],
+        "tvod_price": 7.9
+      },
+      "morality_level": 14,
+      "synopsis": {
+        "por": "Johnny Blaze (Nicolas Cage) era apenas um motociclista dublê adolescente quando vendeu sua alma para o diabo (Peter Fonda). Anos depois, Johnny é um famoso motoqueiro radical durante o dia, mas à noite, se transforma no Motoqueiro Fantasma, o lendário personagem da Marvel Comics. Como justiceiro do diabo, ele é encarregado de caçar almas maldosas na Terra e levá-las ao inferno. Mas quando o destino resolve lhe pregar uma peça trazendo o seu grande amor (Eva Mendes) de volta à sua vida, Johnny percebe que pode ter uma segunda chance de ser feliz – se vencer o diabo e ganhar sua alma de volta. Para conseguir o que deseja, ele terá que derrotar Coração Negro (Wes Bentley), o rebelde e perverso filho do demônio, cujo plano de assumir o reinado de seu pai trará o inferno à Terra – a não ser que o Motoqueiro Fantasma possa impedí-lo."
+      },
+      "title": {
+        "por": "Motoqueiro Fantasma"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1613952000000,
+      "available_to": 1640908800000,
+      "duration": 9491040,
+      "genres": [
+        "Suspense",
+        "Ação"
+      ],
+      "id": "e66b6db1-0654-4975-8b5e-2c069588e71f",
+      "images": [],
+      "medias": [
+        {
+          "audio_languages": [
+            "eng",
+            "por"
+          ],
+          "id": "e66b6db1-0654-4975-8b5e-2c069588e71f_m",
+          "location": "sony_20210219/spe_girlwiththedragontattoothe2011_hd_eng_por_51.mp4",
+          "metadata": {},
+          "subtitles": [
+            {
+              "language": "por",
+              "location": "sony_20210219/spe_girlwiththedragontattoothe2011_hd_eng_por_51.srt"
+            }
+          ],
+          "technology": "MP4",
+          "title": "Millennium - Os Homens Que Não Amavam as Mulheres",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          "Daniel Craig",
+          "Stellan Skarsgård",
+          "Yorick Van Wageningen",
+          "Rooney Mara",
+          "Christopher Plummer",
+          "Steven Berkoff",
+          "Robin Wright",
+          "Joely Richardson"
+        ],
+        "country": "USA",
+        "directors": [
+          "David Fincher"
+        ],
+        "release_year": "2011",
+        "rights": [],
+        "summary": [
+          "Querendo se distanciar do que restou de uma sentença por difamação, o jornalista Mikael Blomkvist se retira para uma ilha remota no extremo norte da Suécia onde o assassinato não solucionado de uma garota jovem ainda assombra seu tio industrialista quarenta anos depois. Escondido em um chalé na ilha onde o assassino ainda pode estar rondando, a investigação de Blomkvist o leva para os segredos e mentiras dos ricos e poderosos, e o coloca junto de uma aliada pouco convencional - a tatuada, punk hacker, Lisbeth Salander."
+        ],
+        "tvod_price": 7.9
+      },
+      "morality_level": 16,
+      "synopsis": {
+        "por": "Querendo se distanciar do que restou de uma sentença por difamação, o jornalista Mikael Blomkvist se retira para uma ilha remota no extremo norte da Suécia onde o assassinato não solucionado de uma garota jovem ainda assombra seu tio industrialista quarenta anos depois. Escondido em um chalé na ilha onde o assassino ainda pode estar rondando, a investigação de Blomkvist o leva para os segredos e mentiras dos ricos e poderosos, e o coloca junto de uma aliada pouco convencional - a tatuada, punk hacker, Lisbeth Salander."
+      },
+      "title": {
+        "por": "Millennium - Os Homens Que Não Amavam as Mulheres"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1613952000000,
+      "available_to": 1640908800000,
+      "duration": 6201014,
+      "genres": [
+        "Ação",
+        "Família"
+      ],
+      "id": "c3828bea-ed9c-4bea-8ed2-ab9d45a78894",
+      "images": [],
+      "medias": [
+        {
+          "audio_languages": [
+            "eng",
+            "por"
+          ],
+          "id": "c3828bea-ed9c-4bea-8ed2-ab9d45a78894_m",
+          "location": "sony_20210219/spe_goosebumps2015_hd_eng_por_51.mp4",
+          "metadata": {},
+          "subtitles": [
+            {
+              "language": "por",
+              "location": "sony_20210219/spe_goosebumps2015_hd_eng_por_51.srt"
+            }
+          ],
+          "technology": "MP4",
+          "title": "Goosebumps: Monstros E Arrepios",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          "Jack Black",
+          "Amanda Lund",
+          "Dylan Minnette",
+          "Odeya Rush",
+          "Amy Ryan",
+          "Ryan Lee",
+          "Jillian Bell",
+          "Halston Sage",
+          "Ken Marino",
+          "Timothy Simons"
+        ],
+        "country": "USA",
+        "directors": [
+          "Rob Letterman"
+        ],
+        "release_year": "2015",
+        "rights": [],
+        "summary": [
+          "Chateado por mudar de uma cidade grande para uma pequena, o adolescente Zach Cooper encontra uma esperança quando conhece Hannah, morando ao lado de sua casa. Mas acaba desobrindo que Hannah possui um pai misterioso - que na verdade é R. L. Stine, o autor da série Goosebumps."
+        ],
+        "tvod_price": 7.9
+      },
+      "morality_level": 10,
+      "synopsis": {
+        "por": "Chateado por mudar de uma cidade grande para uma pequena, o adolescente Zach Cooper encontra uma esperança quando conhece Hannah, morando ao lado de sua casa. Mas acaba desobrindo que Hannah possui um pai misterioso - que na verdade é R. L. Stine, o autor da série Goosebumps."
+      },
+      "title": {
+        "por": "Goosebumps: Monstros E Arrepios"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1613952000000,
+      "available_to": 1640908800000,
+      "duration": 6065020,
+      "genres": [
+        "Comédia",
+        "Romance"
+      ],
+      "id": "9000d34a-3220-4f79-a939-050628da2e79",
+      "images": [],
+      "medias": [
+        {
+          "audio_languages": [
+            "eng",
+            "por"
+          ],
+          "id": "9000d34a-3220-4f79-a939-050628da2e79_m",
+          "location": "sony_20210219/spe_groundhogday_hd_eng_por_51.mp4",
+          "metadata": {},
+          "subtitles": [
+            {
+              "language": "por",
+              "location": "sony_20210219/spe_groundhogday_hd_eng_por_51.srt"
+            }
+          ],
+          "technology": "MP4",
+          "title": "Feitiço Do Tempo",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          "Bill Murray",
+          "Andie MacDowell",
+          "Chris Elliott",
+          "Stephen Tobolowsky",
+          "Richard Henzel",
+          "Rob Riley"
+        ],
+        "country": "USA",
+        "directors": [
+          "Harold Ramis"
+        ],
+        "release_year": "1993",
+        "rights": [],
+        "summary": [
+          "Bill Murray está ótimo e muito engraçado nesta maravilhosa comédia romântica sobre um homem do tempo pego no dia mais enrolado de sua vida. Phil Connors (Bill Murray), o homem do tempo de uma emissora de televisão, vai com uma produtora implacável (Andie MacDowell) e o operador de câmera sabichão (Chris Elliot), fazer a cobertura da comemoração anual do “Dia da Marmota” na cidade de Punxsutawney, Pensilvânia. Depois de fazer a cobertura, Phil e equipe ficam ilhados na cidadezinha por causa de uma tempestade de neve e as coisas não param de piorar. No dia seguinte, ele é despertado no mesmo horário pelo rádio-relógio, com a mesma música e a mesma festa do Dia da Marmota, tudo exatamente como no dia anterior. Até que, na manhã seguinte, o rádio-relógio desperta e... de novo... e de novo."
+        ],
+        "tvod_price": 7.9
+      },
+      "morality_level": 0,
+      "synopsis": {
+        "por": "Bill Murray está ótimo e muito engraçado nesta maravilhosa comédia romântica sobre um homem do tempo pego no dia mais enrolado de sua vida. Phil Connors (Bill Murray), o homem do tempo de uma emissora de televisão, vai com uma produtora implacável (Andie MacDowell) e o operador de câmera sabichão (Chris Elliot), fazer a cobertura da comemoração anual do “Dia da Marmota” na cidade de Punxsutawney, Pensilvânia. Depois de fazer a cobertura, Phil e equipe ficam ilhados na cidadezinha por causa de uma tempestade de neve e as coisas não param de piorar. No dia seguinte, ele é despertado no mesmo horário pelo rádio-relógio, com a mesma música e a mesma festa do Dia da Marmota, tudo exatamente como no dia anterior. Até que, na manhã seguinte, o rádio-relógio desperta e... de novo... e de novo."
+      },
+      "title": {
+        "por": "Feitiço Do Tempo"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1613952000000,
+      "available_to": 1640908800000,
+      "duration": 6143040,
+      "genres": [
+        "Comédia"
+      ],
+      "id": "404442f1-128a-47d2-818e-3f59c4999a20",
+      "images": [],
+      "medias": [
+        {
+          "audio_languages": [
+            "eng",
+            "por"
+          ],
+          "id": "404442f1-128a-47d2-818e-3f59c4999a20_m",
+          "location": "sony_20210219/spe_grownups2010_hd_eng_por_51.mp4",
+          "metadata": {},
+          "subtitles": [
+            {
+              "language": "por",
+              "location": "sony_20210219/spe_grownups2010_hd_eng_por_51.srt"
+            }
+          ],
+          "technology": "MP4",
+          "title": "Gente Grande",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          "Adam Sandler",
+          "Salma Pinault",
+          "Joyce Van Patten",
+          "Kevin James",
+          "Chris Rock",
+          "David Spade",
+          "Rob Schneider",
+          "Salma Hayek",
+          "Maria Bello",
+          "Maya Rudolph",
+          "Jill Sayre"
+        ],
+        "country": "USA",
+        "directors": [
+          "Dennis Dugan"
+        ],
+        "release_year": "2010",
+        "rights": [],
+        "summary": [
+          "Virar gente grande não significa envelhecer! Os astros da comédia Adam Sandler, Kevin James, Chris Rock, David Spade e Rob Schneider estão hilários interpretando amigos de infância que se reúnem em um feriado para reviver o passado. Não importa o fato de eles agora serem respeitados empresários, maridos e pais. Uma vez juntos, nada impede que esses crianções se divirtam como adultos. Dos produtores de \"CLICK\", um filme hilariante e emocionante que prova que homens podem ser meninos."
+        ],
+        "tvod_price": 7.9
+      },
+      "morality_level": 12,
+      "synopsis": {
+        "por": "Virar gente grande não significa envelhecer! Os astros da comédia Adam Sandler, Kevin James, Chris Rock, David Spade e Rob Schneider estão hilários interpretando amigos de infância que se reúnem em um feriado para reviver o passado. Não importa o fato de eles agora serem respeitados empresários, maridos e pais. Uma vez juntos, nada impede que esses crianções se divirtam como adultos. Dos produtores de \"CLICK\", um filme hilariante e emocionante que prova que homens podem ser meninos."
+      },
+      "title": {
+        "por": "Gente Grande"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1613952000000,
+      "available_to": 1640908800000,
+      "duration": 7568035,
+      "genres": [
+        "Drama"
+      ],
+      "id": "cdb2a984-3d95-412d-9a78-ddcd5dc3ab2d",
+      "images": [],
+      "medias": [
+        {
+          "audio_languages": [
+            "eng",
+            "por"
+          ],
+          "id": "cdb2a984-3d95-412d-9a78-ddcd5dc3ab2d_m",
+          "location": "sony_20210219/spe_her2013_hd_eng_por_51.mp4",
+          "metadata": {},
+          "subtitles": [
+            {
+              "language": "por",
+              "location": "sony_20210219/spe_her2013_hd_eng_por_51.srt"
+            }
+          ],
+          "technology": "MP4",
+          "title": "Ela",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          "Joaquin Phoenix",
+          "Amy Adams",
+          "Rooney Mara",
+          "Olivia Wilde",
+          "Samantha Morton",
+          "Chris Pratt",
+          "Scarlett Johansson",
+          "Artt Butler",
+          "Kristen Wiig",
+          "Adam Spiegel",
+          "Bill Hader",
+          "Brian Cox"
+        ],
+        "country": "USA",
+        "directors": [
+          "Spike Jonze"
+        ],
+        "release_year": "2013",
+        "rights": [],
+        "summary": [
+          "Situado na Los Angeles do futuro próximo, \"Ela\" segue Theodore Twombly, um homem complexo e sentimental que ganha a vida escrevendo comoventes cartas pessoais para outras pessoas. Desolado após o fim de um longo relacionamento, ele fica intrigado com um sistema operacional novo e avançado que promete ser uma entidade intuitiva autônoma, personalizado para cada usuário. Ao iniciá-lo, ele tem o prazer de conhecer \"Samantha\", uma voz feminina brilhante, que é perspicaz, sensível e surpreendentemente divertida. À medida que as necessidades e desejos dela crescem junto com os dele, sua amizade se transforma em amor um pelo outro. Da perspectiva singular do cineasta indicado ao Oscar® Spike Jonze (Melhor Diretor, \"Quero Ser John Malkovich\", 1999), surge uma história de amor original que explora a natureza evolutiva - e os riscos - da intimidade no mundo moderno."
+        ],
+        "tvod_price": 7.9
+      },
+      "morality_level": 14,
+      "synopsis": {
+        "por": "Situado na Los Angeles do futuro próximo, \"Ela\" segue Theodore Twombly, um homem complexo e sentimental que ganha a vida escrevendo comoventes cartas pessoais para outras pessoas. Desolado após o fim de um longo relacionamento, ele fica intrigado com um sistema operacional novo e avançado que promete ser uma entidade intuitiva autônoma, personalizado para cada usuário. Ao iniciá-lo, ele tem o prazer de conhecer \"Samantha\", uma voz feminina brilhante, que é perspicaz, sensível e surpreendentemente divertida. À medida que as necessidades e desejos dela crescem junto com os dele, sua amizade se transforma em amor um pelo outro. Da perspectiva singular do cineasta indicado ao Oscar® Spike Jonze (Melhor Diretor, \"Quero Ser John Malkovich\", 1999), surge uma história de amor original que explora a natureza evolutiva - e os riscos - da intimidade no mundo moderno."
+      },
+      "title": {
+        "por": "Ela"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1613952000000,
+      "available_to": 1640908800000,
+      "duration": 7098969,
+      "genres": [
+        "Comédia"
+      ],
+      "id": "2a9f3c2d-5927-4a0b-bb75-33d6e80d4840",
+      "images": [],
+      "medias": [
+        {
+          "audio_languages": [
+            "eng",
+            "por"
+          ],
+          "id": "2a9f3c2d-5927-4a0b-bb75-33d6e80d4840_m",
+          "location": "sony_20210219/spe_hitch2005_hd_eng_por_51.mp4",
+          "metadata": {},
+          "subtitles": [
+            {
+              "language": "por",
+              "location": "sony_20210219/spe_hitch2005_hd_eng_por_51.srt"
+            }
+          ],
+          "technology": "MP4",
+          "title": "Hitch - Conselheiro Amoroso",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          "Will Smith",
+          "Eva Mendes",
+          "Kevin James",
+          "Michael Rapaport",
+          "Adam Arkin"
+        ],
+        "country": "USA",
+        "directors": [
+          "Andy Tennant"
+        ],
+        "release_year": "2004",
+        "rights": [],
+        "summary": [
+          "Conheça Hitch (Will Smith), o melhor conselheiro amoroso da cidade de Nova York. Amor é a sua especialidade e ele lhe garante que você pode ficar com a garota de seus sonhos em apenas 3 encontros. E é exatamente o que acontece quando Albert Brennaman (o astro de TV Kevin James da série “The King of the Queens”) conquista o coração de uma herdeira da alta sociedade, Allegra Cole (a modelo Amber Valetta). Mas quando a colunista de um jornal Sara Melas (Eva Mendes de Ligado Em Você e Era Uma Vez No México) decide desvendar o secreto esquema de conquistas, ela fica chocada ao descobrir que Alex Hitchens, o cara charmoso com quem anda saindo, é o lendário doutor do amor. Matéria de primeira página do jornal, Alex agora vai ter que salvar a relação amorosa de Albert e Allegra, assim como a sua. Isso tudo para mostrar que quando você acha que encontrou o amor verdadeiro, há sempre um obstáculo a ser enfrentado."
+        ],
+        "tvod_price": 7.9
+      },
+      "morality_level": 10,
+      "synopsis": {
+        "por": "Conheça Hitch (Will Smith), o melhor conselheiro amoroso da cidade de Nova York. Amor é a sua especialidade e ele lhe garante que você pode ficar com a garota de seus sonhos em apenas 3 encontros. E é exatamente o que acontece quando Albert Brennaman (o astro de TV Kevin James da série “The King of the Queens”) conquista o coração de uma herdeira da alta sociedade, Allegra Cole (a modelo Amber Valetta). Mas quando a colunista de um jornal Sara Melas (Eva Mendes de Ligado Em Você e Era Uma Vez No México) decide desvendar o secreto esquema de conquistas, ela fica chocada ao descobrir que Alex Hitchens, o cara charmoso com quem anda saindo, é o lendário doutor do amor. Matéria de primeira página do jornal, Alex agora vai ter que salvar a relação amorosa de Albert e Allegra, assim como a sua. Isso tudo para mostrar que quando você acha que encontrou o amor verdadeiro, há sempre um obstáculo a ser enfrentado."
+      },
+      "title": {
+        "por": "Hitch - Conselheiro Amoroso"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1613952000000,
+      "available_to": 1640908800000,
+      "duration": 5359996,
+      "genres": [
+        "Animação",
+        "Comédia"
+      ],
+      "id": "e702bae9-f2e2-4092-84b7-8e5e650826da",
+      "images": [],
+      "medias": [
+        {
+          "audio_languages": [
+            "eng",
+            "por"
+          ],
+          "id": "e702bae9-f2e2-4092-84b7-8e5e650826da_m",
+          "location": "sony_20210219/spe_hoteltransylvania2_hd_eng_por_51.mp4",
+          "metadata": {},
+          "subtitles": [
+            {
+              "language": "por",
+              "location": "sony_20210219/spe_hoteltransylvania2_hd_eng_por_51.srt"
+            }
+          ],
+          "technology": "MP4",
+          "title": "Hotel Transilvânia",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          "Adam Sandler",
+          "Jon Lovitz",
+          "Chris Parnell",
+          "Andy Samberg",
+          "Selena Gomez",
+          "Kevin James",
+          "Fran Drescher",
+          "Steve Buscemi",
+          "Molly Shannon",
+          "David Spade",
+          "Cee-Lo Green"
+        ],
+        "country": "USA",
+        "directors": [
+          "Genndy Tartakovsky"
+        ],
+        "release_year": "2012",
+        "rights": [],
+        "summary": [
+          "Bem-vindo ao Hotel Transilvânia, o luxuoso resort cinco estacas do Drácula, onde monstros e suas famílias podem relaxar e onde humanos não entram. Um fim de semana especial, Drácula (Adam Sandler) convidou seus melhores amigos, Frankenstein e a esposa, a Múmia, o Homem Invisível, a família do Lobisomem e vários outros para comemorar o aniversário de 118 anos de sua querida filha Mavis (Selena Gomez). Receber todos esses monstros famosos é fácil para o Drácula, mas a festa realmente começa quando um cara comum chega ao hotel, e aí tudo pode mudar!"
+        ],
+        "tvod_price": 7.9
+      },
+      "morality_level": 0,
+      "synopsis": {
+        "por": "Bem-vindo ao Hotel Transilvânia, o luxuoso resort cinco estacas do Drácula, onde monstros e suas famílias podem relaxar e onde humanos não entram. Um fim de semana especial, Drácula (Adam Sandler) convidou seus melhores amigos, Frankenstein e a esposa, a Múmia, o Homem Invisível, a família do Lobisomem e vários outros para comemorar o aniversário de 118 anos de sua querida filha Mavis (Selena Gomez). Receber todos esses monstros famosos é fácil para o Drácula, mas a festa realmente começa quando um cara comum chega ao hotel, e aí tudo pode mudar!"
+      },
+      "title": {
+        "por": "Hotel Transilvânia"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1613952000000,
+      "available_to": 1640908800000,
+      "duration": 5492966,
+      "genres": [
+        "Família",
+        "Animação"
+      ],
+      "id": "3ebe43ae-5223-4cbc-8f2b-51427d961149",
+      "images": [],
+      "medias": [
+        {
+          "audio_languages": [
+            "eng",
+            "por"
+          ],
+          "id": "3ebe43ae-5223-4cbc-8f2b-51427d961149_m",
+          "location": "sony_20210219/spe_hoteltransylvania_hd_eng_por_51.mp4",
+          "metadata": {},
+          "subtitles": [
+            {
+              "language": "por",
+              "location": "sony_20210219/spe_hoteltransylvania_hd_eng_por_51.srt"
+            }
+          ],
+          "technology": "MP4",
+          "title": "Hotel Transilvânia 2",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          "Adam Sandler",
+          "Molly Shannon",
+          "Megan Mullally",
+          "Nick Offerman",
+          "Dana Carvey",
+          "Rob Riggle",
+          "Mel Brooks",
+          "Jonny Solomon",
+          "Chris Kattan",
+          "Sadie Sandler",
+          "Sunny Sandler",
+          "Andy Samberg",
+          "Jon Lovitz",
+          "Robert Smigel",
+          "Rose Abdoo",
+          "Jared Sandler",
+          "Melissa Sturm",
+          "Jennifer Lyter",
+          "Paul Brittain",
+          "Nick Swardson",
+          "Chris Parnell",
+          "Selena Gomez",
+          "Doug Daley",
+          "Ethan Smigel",
+          "Roey Smigel",
+          "Allen Covert",
+          "Kevin James",
+          "Steve Buscemi",
+          "David Spade",
+          "Keegan-Michael Key",
+          "Asher Blinkoff",
+          "Fran Drescher"
+        ],
+        "country": "USA",
+        "directors": [
+          "Genndy Tartakovsky"
+        ],
+        "release_year": "2015",
+        "rights": [],
+        "summary": [
+          "Uma confraternização de família traz Vlad  à cidade - juntamente com alguns segredos - para visitar o filho distante, que ele não vê há muito tempo, mas logo ele faz com que a vida de todos fique de cabeça para baixo. E não somente Drac, Mavis e Jonathan sofrerão, mas também os hóspedes do hotel: Frank, Wayne Werewolf  e Murray ."
+        ],
+        "tvod_price": 7.9
+      },
+      "morality_level": 0,
+      "synopsis": {
+        "por": "Uma confraternização de família traz Vlad  à cidade - juntamente com alguns segredos - para visitar o filho distante, que ele não vê há muito tempo, mas logo ele faz com que a vida de todos fique de cabeça para baixo. E não somente Drac, Mavis e Jonathan sofrerão, mas também os hóspedes do hotel: Frank, Wayne Werewolf  e Murray ."
+      },
+      "title": {
+        "por": "Hotel Transilvânia 2"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1613952000000,
+      "available_to": 1640908800000,
+      "duration": 6258038,
+      "genres": [
+        "Aventura",
+        "Fantasia"
+      ],
+      "id": "adb458c4-bcd6-4011-a906-65e8c1a8332f",
+      "images": [],
+      "medias": [
+        {
+          "audio_languages": [
+            "eng",
+            "por"
+          ],
+          "id": "adb458c4-bcd6-4011-a906-65e8c1a8332f_m",
+          "location": "sony_20210219/spe_jumanji1995_hd_eng_por_51.mp4",
+          "metadata": {},
+          "subtitles": [
+            {
+              "language": "por",
+              "location": "sony_20210219/spe_jumanji1995_hd_eng_por_51.srt"
+            }
+          ],
+          "technology": "MP4",
+          "title": "Jumanji",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          "Robin Williams",
+          "Patricia Clarkson",
+          "Laura Bundy",
+          "Kirsten Dunst",
+          "David Grier",
+          "Adam Hann-Byrd",
+          "Bonnie Hunt",
+          "Jonathan Hyde",
+          "Bebe Neuwirth",
+          "Bradley Pierce",
+          "James Handy"
+        ],
+        "country": "USA",
+        "directors": [
+          "Joe Johnston"
+        ],
+        "release_year": "1995",
+        "rights": [],
+        "summary": [
+          "O jovem Alan Parrish descobre um misterioso tabuleiro de jogo que magicamente o transporta para as desconhecidas selvas de JUMANJI por 26 anos até que duas inocentes crianças, Judy (Kirsten Dunst de Homem-AranhaTM 1 \u0026 2) e Peter (Bradley Pierce), o libertam do poderoso feitiço do jogo. Agora um adulto, Alan, (Robin Williams de Robôs, Uma Babá Quase Perfeita) se reúne com sua amiga de infância, Sarah (Bonnie Hunt de Doze é Demais), e com Judy e Peter, tenta superar as poderosas forças do jogo nesta criativa aventura que combina efeitos especiais de tirar o fôlego com comédia, magia e arrepios!"
+        ],
+        "tvod_price": 7.9
+      },
+      "morality_level": 0,
+      "synopsis": {
+        "por": "O jovem Alan Parrish descobre um misterioso tabuleiro de jogo que magicamente o transporta para as desconhecidas selvas de JUMANJI por 26 anos até que duas inocentes crianças, Judy (Kirsten Dunst de Homem-AranhaTM 1 \u0026 2) e Peter (Bradley Pierce), o libertam do poderoso feitiço do jogo. Agora um adulto, Alan, (Robin Williams de Robôs, Uma Babá Quase Perfeita) se reúne com sua amiga de infância, Sarah (Bonnie Hunt de Doze é Demais), e com Judy e Peter, tenta superar as poderosas forças do jogo nesta criativa aventura que combina efeitos especiais de tirar o fôlego com comédia, magia e arrepios!"
+      },
+      "title": {
+        "por": "Jumanji"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1613952000000,
+      "available_to": 1640908800000,
+      "duration": 7145020,
+      "genres": [
+        "Ação",
+        "Aventura"
+      ],
+      "id": "05c38bf4-edfb-472c-abbb-86b4045b47d4",
+      "images": [],
+      "medias": [
+        {
+          "audio_languages": [
+            "eng",
+            "por"
+          ],
+          "id": "05c38bf4-edfb-472c-abbb-86b4045b47d4_m",
+          "location": "sony_20210219/spe_jumanjiwelcometothejungle_hd_eng_por_51.mp4",
+          "metadata": {},
+          "subtitles": [
+            {
+              "language": "por",
+              "location": "sony_20210219/spe_jumanjiwelcometothejungle_hd_eng_por_51.srt"
+            }
+          ],
+          "technology": "MP4",
+          "title": "Jumanji: Bem-Vindo À Selva",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          "Dwayne Johnson",
+          "Alex Wolff",
+          "Rhys Darby",
+          "Marc Jackson",
+          "Jack Black",
+          "Kevin Hart",
+          "Karen Gillan",
+          "Nick Jonas",
+          "Bobby Cannavale",
+          "Ser'darius Blain",
+          "Madison Iseman",
+          "Morgan Turner"
+        ],
+        "country": "USA",
+        "directors": [
+          "Jake Kasdan"
+        ],
+        "release_year": "2017",
+        "rights": [],
+        "summary": [
+          "Sequência do filme de 1995. O novo longa acompanha quatro jovens que encontram um antigo videogame com o jogo de Jumanji. Ao ligarem e escolherem um personagem, eles são transportados para a floresta."
+        ],
+        "tvod_price": 7.9
+      },
+      "morality_level": 12,
+      "synopsis": {
+        "por": "Sequência do filme de 1995. O novo longa acompanha quatro jovens que encontram um antigo videogame com o jogo de Jumanji. Ao ligarem e escolherem um personagem, eles são transportados para a floresta."
+      },
+      "title": {
+        "por": "Jumanji: Bem-Vindo À Selva"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1613952000000,
+      "available_to": 1640908800000,
+      "duration": 6995030,
+      "genres": [
+        "Comédia",
+        "Romance"
+      ],
+      "id": "f9294371-3c51-4ba2-a9ba-2ca03f36f462",
+      "images": [],
+      "medias": [
+        {
+          "audio_languages": [
+            "eng",
+            "por"
+          ],
+          "id": "f9294371-3c51-4ba2-a9ba-2ca03f36f462_m",
+          "location": "sony_20210219/spe_justgowithit_hd_eng_por_51.mp4",
+          "metadata": {},
+          "subtitles": [
+            {
+              "language": "por",
+              "location": "sony_20210219/spe_justgowithit_hd_eng_por_51.srt"
+            }
+          ],
+          "technology": "MP4",
+          "title": "Esposa De Mentirinha",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          "Adam Sandler",
+          "Jennifer Aniston",
+          "Nick Swardson",
+          "Brooklyn Decker",
+          "Dave Matthews",
+          "Bailee Madison",
+          "Kevin Nealon",
+          "Griffin Gluck",
+          "Nicole Kidman"
+        ],
+        "country": "USA",
+        "directors": [
+          "Dennis Dugan"
+        ],
+        "release_year": "2011",
+        "rights": [],
+        "summary": [
+          "Danny Maccabee (Adam Sandler) conhece a garota de seus sonhos (Brooklyn Decker), mas tem de pedir ajuda de sua leal assistente Katherine (Jennifer Aniston) para fingir que ela é a futura ex-mulher dele e encobrir uma pequena mentira. Quando ele se enrola nas mentiras, os filhos da Katherine entram em cena e todos vão juntos para o Havaí para um fim de semana ridículo e aloprado, testando os limites do que fazemos por amor."
+        ],
+        "tvod_price": 7.9
+      },
+      "morality_level": 12,
+      "synopsis": {
+        "por": "Danny Maccabee (Adam Sandler) conhece a garota de seus sonhos (Brooklyn Decker), mas tem de pedir ajuda de sua leal assistente Katherine (Jennifer Aniston) para fingir que ela é a futura ex-mulher dele e encobrir uma pequena mentira. Quando ele se enrola nas mentiras, os filhos da Katherine entram em cena e todos vão juntos para o Havaí para um fim de semana ridículo e aloprado, testando os limites do que fazemos por amor."
+      },
+      "title": {
+        "por": "Esposa De Mentirinha"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1613952000000,
+      "available_to": 1640908800000,
+      "duration": 6798988,
+      "genres": [
+        "Ação",
+        "Drama"
+      ],
+      "id": "424fc6b9-b674-4958-8318-81cbc4cb826c",
+      "images": [],
+      "medias": [
+        {
+          "audio_languages": [
+            "eng",
+            "por"
+          ],
+          "id": "424fc6b9-b674-4958-8318-81cbc4cb826c_m",
+          "location": "sony_20210219/spe_karatekidpartiithe_hd_eng_por_51.mp4",
+          "metadata": {},
+          "subtitles": [
+            {
+              "language": "por",
+              "location": "sony_20210219/spe_karatekidpartiithe_hd_eng_por_51.srt"
+            }
+          ],
+          "technology": "MP4",
+          "title": "Karatê Kid 2 - A Hora Da Verdade Continua",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          "Ralph Macchio",
+          "Noriyuki Pat Morita",
+          "Martin Kove",
+          "Yuji Okumoto"
+        ],
+        "country": "USA",
+        "directors": [
+          "John Avildsen"
+        ],
+        "release_year": "1986",
+        "rights": [],
+        "summary": [
+          "Kid está de volta: E dessa vez a ação é mais rápida e mais furiosa do que nunca. Karatê Kid Daniel (Ralph Macchio) viaja para Okinawa pra visitar o pai agonizante de seu mestre Miyagi (\"Pat\" Morita). Mas é uma viagem que levar Miyagi de volta para encarar uma longa e amarga disputa com o seu ferrenho inimigo. Daniel aprende muito a respeito da antiga tradição Japonesa e o preço da honra à medida que ele também se vê envolvido na odiosa vingança. Para Kid e seu mestre, já não é mais um jogo praticado de acordo com as regras - e cedem uma luta mortal..."
+        ],
+        "tvod_price": 7.9
+      },
+      "morality_level": 0,
+      "synopsis": {
+        "por": "Kid está de volta: E dessa vez a ação é mais rápida e mais furiosa do que nunca. Karatê Kid Daniel (Ralph Macchio) viaja para Okinawa pra visitar o pai agonizante de seu mestre Miyagi (\"Pat\" Morita). Mas é uma viagem que levar Miyagi de volta para encarar uma longa e amarga disputa com o seu ferrenho inimigo. Daniel aprende muito a respeito da antiga tradição Japonesa e o preço da honra à medida que ele também se vê envolvido na odiosa vingança. Para Kid e seu mestre, já não é mais um jogo praticado de acordo com as regras - e cedem uma luta mortal..."
+      },
+      "title": {
+        "por": "Karatê Kid 2 - A Hora Da Verdade Continua"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1613952000000,
+      "available_to": 1640908800000,
+      "duration": 6241968,
+      "genres": [
+        "Drama",
+        "Suspense"
+      ],
+      "id": "da9fd37f-b3c4-447c-95cb-8ffe1c5ed58a",
+      "images": [],
+      "medias": [
+        {
+          "audio_languages": [
+            "eng",
+            "por"
+          ],
+          "id": "da9fd37f-b3c4-447c-95cb-8ffe1c5ed58a_m",
+          "location": "sony_20210219/spe_life2017_hd_eng_por_51.mp4",
+          "metadata": {},
+          "subtitles": [
+            {
+              "language": "por",
+              "location": "sony_20210219/spe_life2017_hd_eng_por_51.srt"
+            }
+          ],
+          "technology": "MP4",
+          "title": "Vida",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          "Jake Gyllenhaal",
+          "Rebecca Ferguson",
+          "Ryan Reynolds",
+          "Hiroyuki Sanada",
+          "Ariyon Bakare",
+          "Olga Dykhovichnaya"
+        ],
+        "country": "USA",
+        "directors": [
+          "Daniel Espinosa"
+        ],
+        "release_year": "2017",
+        "rights": [],
+        "summary": [
+          "Uma equipe de seis astronautas da Estação Espacial Internacional descobre sinais de vida inteligente em Marte e a investigação do fato gera consequências inimagináveis."
+        ],
+        "tvod_price": 7.9
+      },
+      "morality_level": 14,
+      "synopsis": {
+        "por": "Uma equipe de seis astronautas da Estação Espacial Internacional descobre sinais de vida inteligente em Marte e a investigação do fato gera consequências inimagináveis."
+      },
+      "title": {
+        "por": "Vida"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1613952000000,
+      "available_to": 1640908800000,
+      "duration": 6096988,
+      "genres": [
+        "Comédia",
+        "Romance"
+      ],
+      "id": "34ed2bf4-1b49-4897-ad7d-73b65f656a5e",
+      "images": [],
+      "medias": [
+        {
+          "audio_languages": [
+            "eng",
+            "por"
+          ],
+          "id": "34ed2bf4-1b49-4897-ad7d-73b65f656a5e_m",
+          "location": "sony_20210219/spe_madeofhonor_hd_eng_por_51.mp4",
+          "metadata": {},
+          "subtitles": [
+            {
+              "language": "por",
+              "location": "sony_20210219/spe_madeofhonor_hd_eng_por_51.srt"
+            }
+          ],
+          "technology": "MP4",
+          "title": "O Melhor Amigo Da Noiva",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          "Patrick Dempsey",
+          "Michelle Monaghan",
+          "Kevin McKidd",
+          "Kathleen Quinlan",
+          "Sydney Pollack",
+          "Chris Parson"
+        ],
+        "country": "USA",
+        "directors": [
+          "Paul Weiland"
+        ],
+        "release_year": "2008",
+        "rights": [],
+        "summary": [
+          "Tom (Patrick Dempsey) é um homem bem sucedido que sempre que pode se encontra com Hannah (Michelle Monaghan), sua melhor amiga. Quando Hannah viaja a negócios para a Escócia, onde passa 6 semanas, Tom descobre-se apaixonado por ela. Decidido a pedi-la em casamento assim que retorne de viagem, Tom é surpreendido ao saber que ela voltou noiva de um belo e rico escocês. Chamado para ser a \"madrinha\" do casamento, Tom reluta mas aceita o convite. Seu objetivo agora é impedir que o casamento de Hannah aconteça e tentar conquistá-la de uma vez por todas."
+        ],
+        "tvod_price": 7.9
+      },
+      "morality_level": 10,
+      "synopsis": {
+        "por": "Tom (Patrick Dempsey) é um homem bem sucedido que sempre que pode se encontra com Hannah (Michelle Monaghan), sua melhor amiga. Quando Hannah viaja a negócios para a Escócia, onde passa 6 semanas, Tom descobre-se apaixonado por ela. Decidido a pedi-la em casamento assim que retorne de viagem, Tom é surpreendido ao saber que ela voltou noiva de um belo e rico escocês. Chamado para ser a \"madrinha\" do casamento, Tom reluta mas aceita o convite. Seu objetivo agora é impedir que o casamento de Hannah aconteça e tentar conquistá-la de uma vez por todas."
+      },
+      "title": {
+        "por": "O Melhor Amigo Da Noiva"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1613952000000,
+      "available_to": 1640908800000,
+      "duration": 5879001,
+      "genres": [
+        "Ação",
+        "Ficção Científica"
+      ],
+      "id": "0e9e0d1b-e13c-4b43-95b8-5b22d1e11f2f",
+      "images": [],
+      "medias": [
+        {
+          "audio_languages": [
+            "eng",
+            "por"
+          ],
+          "id": "0e9e0d1b-e13c-4b43-95b8-5b22d1e11f2f_m",
+          "location": "sony_20210219/spe_meninblack1997_hd_eng_por_20.mp4",
+          "metadata": {},
+          "subtitles": [
+            {
+              "language": "por",
+              "location": "sony_20210219/spe_meninblack1997_hd_eng_por_20.srt"
+            }
+          ],
+          "technology": "MP4",
+          "title": "Homens De Preto",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          "Tommy Lee Jones",
+          "Will Smith",
+          "Linda Fiorentino",
+          "Vincent D'Onofrio",
+          "Rip Torn"
+        ],
+        "country": "USA",
+        "directors": [
+          "Barry Sonnenfeld"
+        ],
+        "release_year": "1997",
+        "rights": [],
+        "summary": [
+          "Um policial se junta a uma organização secreta que policia e monitora as interações extraterrestres na Terra."
+        ],
+        "tvod_price": 7.9
+      },
+      "morality_level": 0,
+      "synopsis": {
+        "por": "Um policial se junta a uma organização secreta que policia e monitora as interações extraterrestres na Terra."
+      },
+      "title": {
+        "por": "Homens De Preto"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1613952000000,
+      "available_to": 1640908800000,
+      "duration": 6349968,
+      "genres": [
+        "Ação",
+        "Ficção Científica"
+      ],
+      "id": "492c7695-badc-4e5e-9761-2809fcaf694d",
+      "images": [],
+      "medias": [
+        {
+          "audio_languages": [
+            "eng",
+            "por"
+          ],
+          "id": "492c7695-badc-4e5e-9761-2809fcaf694d_m",
+          "location": "sony_20210219/spe_meninblack3_hd_eng_por_51.mp4",
+          "metadata": {},
+          "subtitles": [
+            {
+              "language": "por",
+              "location": "sony_20210219/spe_meninblack3_hd_eng_por_51.srt"
+            }
+          ],
+          "technology": "MP4",
+          "title": "Homens De Preto 3",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          "Will Smith",
+          "Mike Colter",
+          "Lenny Venito",
+          "Tommy Jones",
+          "Josh Brolin",
+          "Jemaine Clement",
+          "Michael Stuhlbarg",
+          "Alice Eve",
+          "Bill Hader",
+          "David Rasche",
+          "Emma Thompson",
+          "Brad Abrell"
+        ],
+        "country": "USA",
+        "directors": [
+          "Barry Sonnenfeld"
+        ],
+        "release_year": "2012",
+        "rights": [],
+        "summary": [
+          "Em Homens de Preto 3, os agentes J [Will Smith] e K [Tommy Lee Jones]  retornam... a tempo. J já viu coisas inexplicáveis em seus quinze anos com os Homens de Preto, porém, nada, nem mesmo alienígenas o deixam mais perplexo que seu parceiro irônico e reticente. Mas quando a vida de K e o destino do planeta estão em jogo, o agente J terá de viajar no tempo, no passado, para acertar as coisas. J descobre que o universo tem segredos que K nunca contou a ele - segredos que acabarão se revelando quando ele se unir ao jovem agente K [Josh Brolin] para salvar seu parceiro, a agência e o futuro da humanidade."
+        ],
+        "tvod_price": 7.9
+      },
+      "morality_level": 10,
+      "synopsis": {
+        "por": "Em Homens de Preto 3, os agentes J [Will Smith] e K [Tommy Lee Jones]  retornam... a tempo. J já viu coisas inexplicáveis em seus quinze anos com os Homens de Preto, porém, nada, nem mesmo alienígenas o deixam mais perplexo que seu parceiro irônico e reticente. Mas quando a vida de K e o destino do planeta estão em jogo, o agente J terá de viajar no tempo, no passado, para acertar as coisas. J descobre que o universo tem segredos que K nunca contou a ele - segredos que acabarão se revelando quando ele se unir ao jovem agente K [Josh Brolin] para salvar seu parceiro, a agência e o futuro da humanidade."
+      },
+      "title": {
+        "por": "Homens De Preto 3"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1613952000000,
+      "available_to": 1640908800000,
+      "duration": 5290963,
+      "genres": [
+        "Ação",
+        "Ficção Científica"
+      ],
+      "id": "259946be-8184-4897-96d4-59702f4c6952",
+      "images": [],
+      "medias": [
+        {
+          "audio_languages": [
+            "eng",
+            "por"
+          ],
+          "id": "259946be-8184-4897-96d4-59702f4c6952_m",
+          "location": "sony_20210219/spe_meninblackii_hd_eng_por_51.mp4",
+          "metadata": {},
+          "subtitles": [
+            {
+              "language": "por",
+              "location": "sony_20210219/spe_meninblackii_hd_eng_por_51.srt"
+            }
+          ],
+          "technology": "MP4",
+          "title": "Miib™ - Homens De Preto 2",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          "Tommy Jones",
+          "Will Smith",
+          "Lara Boyle",
+          "Johnny Knoxville",
+          "Rosario Dawson",
+          "Tony Shalhoub",
+          "Rip Torn",
+          "Tim Blaney",
+          "Carl Johnson",
+          "Thom Fountain",
+          "Brad Abrell",
+          "Richard Pearson"
+        ],
+        "country": "USA",
+        "directors": [
+          "Barry Sonnenfeld"
+        ],
+        "release_year": "2002",
+        "rights": [],
+        "summary": [
+          "Neste filme sequência do blockbuster Homens de Preto, lançado em 1997, os agentes Kay (Tommy Lee Jones) e Jay (Will Smith) continuam sua aventura para garantir a mais eficaz estratégia de defesa contra uma misteriosa sedutora que lança o maior dos desafios já feitos à missão dos Homens de Preto, cujo lema é proteger a Terra contra o que há de pior no universo. Ou melhor, contra extraterrestres invasores que habitam nosso planeta.Já faz quatro anos que os agentes caçadores de extraterrestres evitaram um desastre interplanetário de proporções gigantescas. Durante este período, Kay retornou à tranquilidade da vida civil, enquanto Jay permanceu trabalhando para a Homens de Preto, uma poderosa agência secreta do governo responsável por todos os assuntos relacionados a seres estranhos na Terra. Enquanto investigava um crime aparentemente de rotina, Jay desvenda um diabólico plano armado por Serleena (Lara Flynn Boyle), uma Kylothian monstruosa e cruel, disfarçada de modelo sexy de lingerie. Quando Serleena domina todo o prédio dos MIB, o agente Jay só tem uma pessoa a recorrer: seu ex-companheiro MIB, Kay, que anda esquecido numa repartição dos correiros, sem muito lá o que fazer. Até porque, ultimamente, Kay está mais disposto a saborear os biscoitinhos feitos por sua mulher do que participar de combates contra insetos gigantes. Mas só que agora a dupla está diante de uma luta contra o tempo. Jay tem que convencer Kay a voltar à função de investigador da MIB, antes que a Terra seja totalmente destruída. A triste realidade, porém, é que, apesar de o agente Kay ser o único ser vivo do planeta capaz de salvar a galáxia, ele não possui uma vaga lembrança da época em que trabalhou como agente secreto na Homens de Preto."
+        ],
+        "tvod_price": 7.9
+      },
+      "morality_level": 0,
+      "synopsis": {
+        "por": "Neste filme sequência do blockbuster Homens de Preto, lançado em 1997, os agentes Kay (Tommy Lee Jones) e Jay (Will Smith) continuam sua aventura para garantir a mais eficaz estratégia de defesa contra uma misteriosa sedutora que lança o maior dos desafios já feitos à missão dos Homens de Preto, cujo lema é proteger a Terra contra o que há de pior no universo. Ou melhor, contra extraterrestres invasores que habitam nosso planeta.Já faz quatro anos que os agentes caçadores de extraterrestres evitaram um desastre interplanetário de proporções gigantescas. Durante este período, Kay retornou à tranquilidade da vida civil, enquanto Jay permanceu trabalhando para a Homens de Preto, uma poderosa agência secreta do governo responsável por todos os assuntos relacionados a seres estranhos na Terra. Enquanto investigava um crime aparentemente de rotina, Jay desvenda um diabólico plano armado por Serleena (Lara Flynn Boyle), uma Kylothian monstruosa e cruel, disfarçada de modelo sexy de lingerie. Quando Serleena domina todo o prédio dos MIB, o agente Jay só tem uma pessoa a recorrer: seu ex-companheiro MIB, Kay, que anda esquecido numa repartição dos correiros, sem muito lá o que fazer. Até porque, ultimamente, Kay está mais disposto a saborear os biscoitinhos feitos por sua mulher do que participar de combates contra insetos gigantes. Mas só que agora a dupla está diante de uma luta contra o tempo. Jay tem que convencer Kay a voltar à função de investigador da MIB, antes que a Terra seja totalmente destruída. A triste realidade, porém, é que, apesar de o agente Kay ser o único ser vivo do planeta capaz de salvar a galáxia, ele não possui uma vaga lembrança da época em que trabalhou como agente secreto na Homens de Preto."
+      },
+      "title": {
+        "por": "Miib™ - Homens De Preto 2"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1613952000000,
+      "available_to": 1640908800000,
+      "duration": 5464972,
+      "genres": [
+        "Ação",
+        "Comédia"
+      ],
+      "id": "43bb24aa-0183-475f-9671-c53abf54f88b",
+      "images": [],
+      "medias": [
+        {
+          "audio_languages": [
+            "eng",
+            "por"
+          ],
+          "id": "43bb24aa-0183-475f-9671-c53abf54f88b_m",
+          "location": "sony_20210219/spe_paulblartmallcop_hd_eng_por_51.mp4",
+          "metadata": {},
+          "subtitles": [
+            {
+              "language": "por",
+              "location": "sony_20210219/spe_paulblartmallcop_hd_eng_por_51.srt"
+            }
+          ],
+          "technology": "MP4",
+          "title": "Segurança De Shopping",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          "Kevin James",
+          "Gary Valentine",
+          "Raini Rodriguez",
+          "Jamal Mixon",
+          "Jayma Mays",
+          "Keir O'Donnell",
+          "Bobby Cannavale",
+          "Stephen Rannazzisi",
+          "Shirley Knight",
+          "Adhir Kalyan",
+          "Peter Gerety",
+          "Adam Ferrara"
+        ],
+        "country": "USA",
+        "directors": [
+          "Steve Carr"
+        ],
+        "release_year": "2009",
+        "rights": [],
+        "summary": [
+          "Na comédia da Columbia Pictures, Paul Blart: Mall Cop, Kevin James estrela como o personagem-título, um pai solteiro, suburbano, tentando sobreviver como oficial de segurança em um shopping de Nova Jersey. Embora ninguém mais leve seu trabalho a sério, Paul se considera na linha de frente da segurança. Quando um roubo fecha o Megaplex, o policial mais formidável do shopping de Jersey terá que se tornar um policial de verdade para salvar o dia."
+        ],
+        "tvod_price": 7.9
+      },
+      "morality_level": 12,
+      "synopsis": {
+        "por": "Na comédia da Columbia Pictures, Paul Blart: Mall Cop, Kevin James estrela como o personagem-título, um pai solteiro, suburbano, tentando sobreviver como oficial de segurança em um shopping de Nova Jersey. Embora ninguém mais leve seu trabalho a sério, Paul se considera na linha de frente da segurança. Quando um roubo fecha o Megaplex, o policial mais formidável do shopping de Jersey terá que se tornar um policial de verdade para salvar o dia."
+      },
+      "title": {
+        "por": "Segurança De Shopping"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1613952000000,
+      "available_to": 1640908800000,
+      "duration": 7049030,
+      "genres": [
+        "Drama"
+      ],
+      "id": "433e4bdb-f6bf-4325-8368-b680cdb3e278",
+      "images": [],
+      "medias": [
+        {
+          "audio_languages": [
+            "eng",
+            "por"
+          ],
+          "id": "433e4bdb-f6bf-4325-8368-b680cdb3e278_m",
+          "location": "sony_20210219/spe_pursuitofhappynessthe2006_hd_eng_por_51.mp4",
+          "metadata": {},
+          "subtitles": [
+            {
+              "language": "por",
+              "location": "sony_20210219/spe_pursuitofhappynessthe2006_hd_eng_por_51.srt"
+            }
+          ],
+          "technology": "MP4",
+          "title": "À Procura Da Felicidade",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          "Will Smith",
+          "Thandie Newton",
+          "Brian Howe",
+          "James Karen",
+          "Dan Castellaneta",
+          "Kurt Fuller",
+          "Jaden Smith"
+        ],
+        "country": "USA",
+        "directors": [
+          "Gabriele Muccino"
+        ],
+        "release_year": "2006",
+        "rights": [],
+        "summary": [
+          "Will Smith estrela esta história inspirada em fatos reais sobre Chris Garner, um vendedor de São Francisco que vive no limite da linha da pobreza. Quando sua mulher Linda (Thandie Newton) o abandona, Chris deve criar sozinho o filho deles de 5 anos, Christopher (Jaden Smith). A determinação de Chris finalmente surte efeito quando ele arruma um estágio sem remuneração em um programa ultra-competitivo de analista financeiro, onde somente um em cada vinte candidatos consegue ser efetivado. Mas sem salário, Chris e seu filho são despejados do apartamento em que vivem e são forçados a dormir nas ruas, em abrigos comunitários e até mesmo em banheiros das estações de metrô. Com determinação e o amor e confiança de seu filho, Chris Gardner dá a volta por cima para se tornar uma lenda em Wall Street."
+        ],
+        "tvod_price": 7.9
+      },
+      "morality_level": 0,
+      "synopsis": {
+        "por": "Will Smith estrela esta história inspirada em fatos reais sobre Chris Garner, um vendedor de São Francisco que vive no limite da linha da pobreza. Quando sua mulher Linda (Thandie Newton) o abandona, Chris deve criar sozinho o filho deles de 5 anos, Christopher (Jaden Smith). A determinação de Chris finalmente surte efeito quando ele arruma um estágio sem remuneração em um programa ultra-competitivo de analista financeiro, onde somente um em cada vinte candidatos consegue ser efetivado. Mas sem salário, Chris e seu filho são despejados do apartamento em que vivem e são forçados a dormir nas ruas, em abrigos comunitários e até mesmo em banheiros das estações de metrô. Com determinação e o amor e confiança de seu filho, Chris Gardner dá a volta por cima para se tornar uma lenda em Wall Street."
+      },
+      "title": {
+        "por": "À Procura Da Felicidade"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1613952000000,
+      "available_to": 1640908800000,
+      "duration": 7385040,
+      "genres": [
+        "Drama",
+        "Romance"
+      ],
+      "id": "228e2901-3c8d-43b5-b1f8-66d336ca01ee",
+      "images": [],
+      "medias": [
+        {
+          "audio_languages": [
+            "eng",
+            "por"
+          ],
+          "id": "228e2901-3c8d-43b5-b1f8-66d336ca01ee_m",
+          "location": "sony_20210219/spe_sevenpounds_hd_eng_por_51.mp4",
+          "metadata": {},
+          "subtitles": [
+            {
+              "language": "por",
+              "location": "sony_20210219/spe_sevenpounds_hd_eng_por_51.srt"
+            }
+          ],
+          "technology": "MP4",
+          "title": "Sete Vidas",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          "Will Smith",
+          "Tim Kelleher",
+          "Gina Hecht",
+          "Andy Milder",
+          "Judyann Elder",
+          "Sarah Morris",
+          "Madison Pettis",
+          "Ivan Angulo",
+          "Octavia Spencer",
+          "Cynthia Rube",
+          "Jack Yang",
+          "Rosario Dawson",
+          "Quintin Kelley",
+          "Louisa Kendrick",
+          "Fiona Hale",
+          "Amanda Carlin",
+          "Connor Cruise",
+          "David Haines",
+          "Casey Morris",
+          "Audrey Wasilewski",
+          "Sonya Eddy",
+          "Charlene Amoia",
+          "Michael Ealy",
+          "Todd Cahoon",
+          "Rich Hutchman",
+          "Michael Spellman",
+          "Dale Raoul",
+          "Steve Tom",
+          "Jora Senane",
+          "Robert Figueroa",
+          "Kevin Cooney",
+          "Nadia Shazana",
+          "Markus Flanagan",
+          "Barry Pepper",
+          "Leif Rogers",
+          "Gaspar Uriarte",
+          "Nichole Ambriz",
+          "Lee von Ernst",
+          "Woody Harrelson",
+          "Elpidia Carrillo",
+          "Robinne Lee",
+          "Joseph Nuñez",
+          "Bill Smitrovich"
+        ],
+        "country": "USA",
+        "directors": [
+          "Gabriele Muccino"
+        ],
+        "release_year": "2008",
+        "rights": [],
+        "summary": [
+          "Will Smith, indicado para o Oscar® de Melhor Ator por À Procura da Felicidade em 2006, está de volta como Ben Thomas, um homem que se vê em uma encruzilhada da sua vida e busca uma maneira de redimir suas culpas. Ele descobre que tem o poder de mudar as circunstâncias de sete pessoas que ele não conhece e merecem uma segunda chance. Mas uma delas conquista o seu coração, e ele terá que decidir se deve desistir do plano e revelar o seu segredo."
+        ],
+        "tvod_price": 7.9
+      },
+      "morality_level": 14,
+      "synopsis": {
+        "por": "Will Smith, indicado para o Oscar® de Melhor Ator por À Procura da Felicidade em 2006, está de volta como Ben Thomas, um homem que se vê em uma encruzilhada da sua vida e busca uma maneira de redimir suas culpas. Ele descobre que tem o poder de mudar as circunstâncias de sete pessoas que ele não conhece e merecem uma segunda chance. Mas uma delas conquista o seu coração, e ele terá que decidir se deve desistir do plano e revelar o seu segredo."
+      },
+      "title": {
+        "por": "Sete Vidas"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1613952000000,
+      "available_to": 1640908800000,
+      "duration": 7648992,
+      "genres": [
+        "Ação",
+        "Aventura"
+      ],
+      "id": "0cb68d18-55bd-485f-845a-d1a3b08e1852",
+      "images": [],
+      "medias": [
+        {
+          "audio_languages": [
+            "eng",
+            "por"
+          ],
+          "id": "0cb68d18-55bd-485f-845a-d1a3b08e1852_m",
+          "location": "sony_20210219/spe_spiderman2_2004_hd_eng_por_51.mp4",
+          "metadata": {},
+          "subtitles": [
+            {
+              "language": "por",
+              "location": "sony_20210219/spe_spiderman2_2004_hd_eng_por_51.srt"
+            }
+          ],
+          "technology": "MP4",
+          "title": "Homem-Aranha 2",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          "Tobey Maguire",
+          "Kirsten Dunst",
+          "James Franco",
+          "Alfred Molina",
+          "Rosemary Harris",
+          "Donna Murphy"
+        ],
+        "country": "USA",
+        "directors": [
+          "Sam Raimi"
+        ],
+        "release_year": "2004",
+        "rights": [],
+        "summary": [
+          "Dois anos se passaram desde que o tranqüilo Peter Parker (Tobey Maguire) separou-se do grande amor de sua vida, Mary Jane Watson (Kirsten Dunst), e decidiu assumir o compromisso e a responsabilidade de seguir sendo o Homem-Aranha. Peter enfrenta novos desafios enquanto aprende a lidar com \"seu dom e sua maldição\", tentando desesperadamente harmonizar suas duas identidades: a do super-herói aracnídeo, o Homem-Aranha, e a do estudante universitário. A continuação do maior sucesso dos quadrinhos, Homem-Aranha!"
+        ],
+        "tvod_price": 7.9
+      },
+      "morality_level": 0,
+      "synopsis": {
+        "por": "Dois anos se passaram desde que o tranqüilo Peter Parker (Tobey Maguire) separou-se do grande amor de sua vida, Mary Jane Watson (Kirsten Dunst), e decidiu assumir o compromisso e a responsabilidade de seguir sendo o Homem-Aranha. Peter enfrenta novos desafios enquanto aprende a lidar com \"seu dom e sua maldição\", tentando desesperadamente harmonizar suas duas identidades: a do super-herói aracnídeo, o Homem-Aranha, e a do estudante universitário. A continuação do maior sucesso dos quadrinhos, Homem-Aranha!"
+      },
+      "title": {
+        "por": "Homem-Aranha 2"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1613952000000,
+      "available_to": 1640908800000,
+      "duration": 8352028,
+      "genres": [
+        "Ação",
+        "Aventura"
+      ],
+      "id": "3cda1d5c-2d2d-45a1-ad4a-7728f4196e06",
+      "images": [],
+      "medias": [
+        {
+          "audio_languages": [
+            "eng",
+            "por"
+          ],
+          "id": "3cda1d5c-2d2d-45a1-ad4a-7728f4196e06_m",
+          "location": "sony_20210219/spe_spiderman3_2007_hd_eng_por_51.mp4",
+          "metadata": {},
+          "subtitles": [
+            {
+              "language": "por",
+              "location": "sony_20210219/spe_spiderman3_2007_hd_eng_por_51.srt"
+            }
+          ],
+          "technology": "MP4",
+          "title": "Homem-Aranha 3",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          "Tobey Maguire",
+          "Theresa Russell",
+          "Dylan Baker",
+          "Kirsten Dunst",
+          "James Franco",
+          "Thomas Haden Church",
+          "Topher Grace",
+          "Bryce Dallas Howard",
+          "Rosemary Harris",
+          "J.K. Simmons",
+          "James Cromwell"
+        ],
+        "country": "USA",
+        "directors": [
+          "Sam Raimi"
+        ],
+        "release_year": "2007",
+        "rights": [],
+        "summary": [
+          "Em Homem-Aranha 3 a maior batalha de Peter é consigo mesmo. O Homem-Aranha vai ter que redescobrir a compaixão que o faz ser quem realmente é: um herói."
+        ],
+        "tvod_price": 7.9
+      },
+      "morality_level": 12,
+      "synopsis": {
+        "por": "Em Homem-Aranha 3 a maior batalha de Peter é consigo mesmo. O Homem-Aranha vai ter que redescobrir a compaixão que o faz ser quem realmente é: um herói."
+      },
+      "title": {
+        "por": "Homem-Aranha 3"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1613952000000,
+      "available_to": 1640908800000,
+      "duration": 7274016,
+      "genres": [
+        "Ação",
+        "Aventura"
+      ],
+      "id": "e6c0e76b-5f0f-41de-8ce9-c85979350094",
+      "images": [],
+      "medias": [
+        {
+          "audio_languages": [
+            "eng",
+            "por"
+          ],
+          "id": "e6c0e76b-5f0f-41de-8ce9-c85979350094_m",
+          "location": "sony_20210219/spe_spiderman_2002_hd_eng_por_51.mp4",
+          "metadata": {},
+          "subtitles": [
+            {
+              "language": "por",
+              "location": "sony_20210219/spe_spiderman_2002_hd_eng_por_51.srt"
+            }
+          ],
+          "technology": "MP4",
+          "title": "Homem-Aranha",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          "Tobey Maguire",
+          "Willem Dafoe",
+          "Kirsten Dunst",
+          "James Franco",
+          "Cliff Robertson",
+          "Rosemary Harris"
+        ],
+        "country": "USA",
+        "directors": [
+          "Sam Raimi"
+        ],
+        "release_year": "2002",
+        "rights": [],
+        "summary": [
+          "Peter Parker (Tobey Maguire) é um jovem estudioso que vive com seus tios, Ben (Cliff Robertson) e May (Rosemary Harris), desde que seus pais faleceram. Inteligente e com um grande interesse pela ciência, Peter tem dificuldade em se relacionar com seus colegas, por ser tímido e por eles o considerarem um nerd. Até que, em uma demonstração científica, um acidente inesperado faz com que aranha modificada geneticamente pique Peter. A partir de então seu corpo é quimicamente alterado pela picada da aranha, fazendo com que Peter possa escalar paredes e tetos, emitir pelos punhos um fluido ultra-resistente semelhante à uma teia de aranha e passe a ter um \"sentido de aranha\", que o avisa sempre que há perigo por perto, além de superforça e visão ampliada. Inicialmente Peter pensa em usar seus novos poderes para ganhar dinheiro, adotando o nome de Homem-Aranha e se apresentando em lutas de exibição. Porém, ao permitir que um ladrão fuja por não considerar sua função capturá-lo, o fugitivo acaba assassinando seu tio Ben. A partir de então, Peter decide não mais usar seus poderes para proveito próprio e sim para enfrentar o mal, tendo como seu primeiro grande desafio enfrentar o psicótico Duende Verde (Willem Dafoe), que na verdade é o empresário Norman Osborn após ter sido exposto à um gás experimental que lhe deu uma segunda personalidade e grande força física."
+        ],
+        "tvod_price": 7.9
+      },
+      "morality_level": 0,
+      "synopsis": {
+        "por": "Peter Parker (Tobey Maguire) é um jovem estudioso que vive com seus tios, Ben (Cliff Robertson) e May (Rosemary Harris), desde que seus pais faleceram. Inteligente e com um grande interesse pela ciência, Peter tem dificuldade em se relacionar com seus colegas, por ser tímido e por eles o considerarem um nerd. Até que, em uma demonstração científica, um acidente inesperado faz com que aranha modificada geneticamente pique Peter. A partir de então seu corpo é quimicamente alterado pela picada da aranha, fazendo com que Peter possa escalar paredes e tetos, emitir pelos punhos um fluido ultra-resistente semelhante à uma teia de aranha e passe a ter um \"sentido de aranha\", que o avisa sempre que há perigo por perto, além de superforça e visão ampliada. Inicialmente Peter pensa em usar seus novos poderes para ganhar dinheiro, adotando o nome de Homem-Aranha e se apresentando em lutas de exibição. Porém, ao permitir que um ladrão fuja por não considerar sua função capturá-lo, o fugitivo acaba assassinando seu tio Ben. A partir de então, Peter decide não mais usar seus poderes para proveito próprio e sim para enfrentar o mal, tendo como seu primeiro grande desafio enfrentar o psicótico Duende Verde (Willem Dafoe), que na verdade é o empresário Norman Osborn após ter sido exposto à um gás experimental que lhe deu uma segunda personalidade e grande força física."
+      },
+      "title": {
+        "por": "Homem-Aranha"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1613952000000,
+      "available_to": 1640908800000,
+      "duration": 6788016,
+      "genres": [
+        "Comédia"
+      ],
+      "id": "e88943fc-da4b-486c-8fdb-cc42a0849b98",
+      "images": [],
+      "medias": [
+        {
+          "audio_languages": [
+            "eng",
+            "por"
+          ],
+          "id": "e88943fc-da4b-486c-8fdb-cc42a0849b98_m",
+          "location": "sony_20210219/spe_superbad_hd_eng_por_51.mp4",
+          "metadata": {},
+          "subtitles": [
+            {
+              "language": "por",
+              "location": "sony_20210219/spe_superbad_hd_eng_por_51.srt"
+            }
+          ],
+          "technology": "MP4",
+          "title": "Superbad - É Hoje",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          "Jonah Hill",
+          "Michael Cera",
+          "Seth Rogen",
+          "Bill Hader",
+          "Christopher Mintz-Plasse"
+        ],
+        "country": "USA",
+        "directors": [
+          "Greg Mottola"
+        ],
+        "release_year": "2007",
+        "rights": [],
+        "summary": [
+          "Superbad – É Hoje é o novo filme dos criadores de O Virgem de 40 Anos e Ligeiramente Grávidos. Seth (Jonah Hill) e Evan (Michael Cera) só querem sair com as garotas que gostam antes de ingressar na faculdade. Mas, para isso acontecer, eles precisam conseguir bebidas para a grande festa daquela noite. Com a ajuda do amigo Fogell, também conhecido como McLovin (Christopher Mintz-Plasse) e sua carteira de identidade falsa, os três partem em busca das bebidas despistando policiais incompetentes (Seth Rogen de Ligeiramente Grávidos e Bill Hader de Saturday Night Live) tentando reverter uma vida inteira de monotonia em apenas uma noite de diversão."
+        ],
+        "tvod_price": 7.9
+      },
+      "morality_level": 14,
+      "synopsis": {
+        "por": "Superbad – É Hoje é o novo filme dos criadores de O Virgem de 40 Anos e Ligeiramente Grávidos. Seth (Jonah Hill) e Evan (Michael Cera) só querem sair com as garotas que gostam antes de ingressar na faculdade. Mas, para isso acontecer, eles precisam conseguir bebidas para a grande festa daquela noite. Com a ajuda do amigo Fogell, também conhecido como McLovin (Christopher Mintz-Plasse) e sua carteira de identidade falsa, os três partem em busca das bebidas despistando policiais incompetentes (Seth Rogen de Ligeiramente Grávidos e Bill Hader de Saturday Night Live) tentando reverter uma vida inteira de monotonia em apenas uma noite de diversão."
+      },
+      "title": {
+        "por": "Superbad - É Hoje"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1613952000000,
+      "available_to": 1640908800000,
+      "duration": 6831993,
+      "genres": [
+        "Drama",
+        "Crime"
+      ],
+      "id": "eb3e6c83-0d50-49df-b84e-ee275f897c2b",
+      "images": [],
+      "medias": [
+        {
+          "audio_languages": [
+            "eng",
+            "por"
+          ],
+          "id": "eb3e6c83-0d50-49df-b84e-ee275f897c2b_m",
+          "location": "sony_20210219/spe_taxidriver_hd_eng_por_51.mp4",
+          "metadata": {},
+          "subtitles": [
+            {
+              "language": "por",
+              "location": "sony_20210219/spe_taxidriver_hd_eng_por_51.srt"
+            }
+          ],
+          "technology": "MP4",
+          "title": "Taxi Driver",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          "Robert DeNiro",
+          "Jodie Foster",
+          "Albert Brooks",
+          "Harvey Keitel",
+          "Leonard Harris",
+          "Peter Boyle",
+          "Cybill Shepherd"
+        ],
+        "country": "USA",
+        "directors": [
+          "Martin Scorsese"
+        ],
+        "release_year": "1975",
+        "rights": [],
+        "summary": [
+          "Indicado 4 vezes ao Oscar® de 1976 (incluindo Melhor Filme) Taxi Driver com Robert De Niro mostra o ciclo de deterioração mental de um homem violento devido ao desespero e a solidão. Contando com um trilha sonora sugestiva e com perfomances estelares de Jodie Foster, Albert Brooks, Harvey Keitel, Peter Boyle e Cybill Shepherd, este DVD de 2 discos inclui novas apresentações especiais e é a Edição Definitiva deste clássico legendário."
+        ],
+        "tvod_price": 7.9
+      },
+      "morality_level": 14,
+      "synopsis": {
+        "por": "Indicado 4 vezes ao Oscar® de 1976 (incluindo Melhor Filme) Taxi Driver com Robert De Niro mostra o ciclo de deterioração mental de um homem violento devido ao desespero e a solidão. Contando com um trilha sonora sugestiva e com perfomances estelares de Jodie Foster, Albert Brooks, Harvey Keitel, Peter Boyle e Cybill Shepherd, este DVD de 2 discos inclui novas apresentações especiais e é a Edição Definitiva deste clássico legendário."
+      },
+      "title": {
+        "por": "Taxi Driver"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1613952000000,
+      "available_to": 1640908800000,
+      "duration": 6405004,
+      "genres": [
+        "Comédia",
+        "Ação"
+      ],
+      "id": "08fc7a93-bbb4-44cd-86c7-4f414d6f9ae1",
+      "images": [],
+      "medias": [
+        {
+          "audio_languages": [
+            "eng",
+            "por"
+          ],
+          "id": "08fc7a93-bbb4-44cd-86c7-4f414d6f9ae1_m",
+          "location": "sony_20210219/spe_thisistheend_hd_eng_por_51.mp4",
+          "metadata": {},
+          "subtitles": [
+            {
+              "language": "por",
+              "location": "sony_20210219/spe_thisistheend_hd_eng_por_51.srt"
+            }
+          ],
+          "technology": "MP4",
+          "title": "É O Fim",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          "James Franco",
+          "David Krumholtz",
+          "Christopher Mintz-Plasse",
+          "Martin Starr",
+          "Jonah Hill",
+          "Seth Rogen",
+          "Jay Baruchel",
+          "Danny McBride",
+          "Craig Robinson",
+          "Michael Cera",
+          "Emma Watson",
+          "Mindy Kaling"
+        ],
+        "country": "USA",
+        "directors": [
+          "Seth Rogen",
+          "Evan Goldberg"
+        ],
+        "release_year": "2013",
+        "rights": [],
+        "summary": [
+          "Tudo corria bem até que um aparente terremoto se revela como sendo o dia do julgamento final. Rogen, Baruchel, Franco, Hill, Danny McBride e Craig Robinson acabam se vendo presos no local na torcida para que o mundo pare de acabar do lado de fora."
+        ],
+        "tvod_price": 7.9
+      },
+      "morality_level": 16,
+      "synopsis": {
+        "por": "Os grandes amigos Seth Rogen e Jay Baruchel vão em uma festa na casa do ator James Franco, que reuniu diversas celebridades no local, como Jonah Hill, Rihanna, Jason Segel e Emma Watson. Tudo corria bem até que um aparente terremoto se revela como sendo o dia do julgamento final. Rogen, Baruchel, Franco, Hill, Danny McBride e Craig Robinson acabam se vendo presos no local na torcida para que o mundo pare de acabar do lado de fora."
+      },
+      "title": {
+        "por": "É O Fim"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1613952000000,
+      "available_to": 1640908800000,
+      "duration": 6413990,
+      "genres": [
+        "Drama"
+      ],
+      "id": "90ed476a-6170-4f5a-ad53-968088692ffb",
+      "images": [],
+      "medias": [
+        {
+          "audio_languages": [
+            "eng",
+            "por"
+          ],
+          "id": "90ed476a-6170-4f5a-ad53-968088692ffb_m",
+          "location": "sony_20210219/spe_whiplash_hd_eng_por_51.mp4",
+          "metadata": {},
+          "subtitles": [
+            {
+              "language": "por",
+              "location": "sony_20210219/spe_whiplash_hd_eng_por_51.srt"
+            }
+          ],
+          "technology": "MP4",
+          "title": "Whiplash - Em Busca Da Perfeição",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          "Miles Teller",
+          "Melissa Benoist",
+          "Paul Reiser"
+        ],
+        "country": "USA",
+        "directors": [
+          "Damien Chazelle"
+        ],
+        "release_year": "2014",
+        "rights": [],
+        "summary": [
+          "Um jovem baterista (Miles Teller) sonha em ser o melhor de sua geração. Com o treinamento de o revenciado e impiedoso mestre do jazz, Terence Fletcher (JK Simmons), o músico começa a ultrapassar todos os seus limites, inclusive tomando atitudes que jamais pensou que tomaria."
+        ],
+        "tvod_price": 7.9
+      },
+      "morality_level": 12,
+      "synopsis": {
+        "por": "Um jovem baterista (Miles Teller) sonha em ser o melhor de sua geração. Com o treinamento de o revenciado e impiedoso mestre do jazz, Terence Fletcher (JK Simmons), o músico começa a ultrapassar todos os seus limites, inclusive tomando atitudes que jamais pensou que tomaria."
+      },
+      "title": {
+        "por": "Whiplash - Em Busca Da Perfeição"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1613952000000,
+      "available_to": 1640908800000,
+      "duration": 6528038,
+      "genres": [
+        "Comédia"
+      ],
+      "id": "1ba65809-a9a6-4213-a502-46a479a4581c",
+      "images": [],
+      "medias": [
+        {
+          "audio_languages": [
+            "eng",
+            "por"
+          ],
+          "id": "1ba65809-a9a6-4213-a502-46a479a4581c_m",
+          "location": "sony_20210219/spe_whitechicks_hd_eng_por_51.mp4",
+          "metadata": {},
+          "subtitles": [
+            {
+              "language": "por",
+              "location": "sony_20210219/spe_whitechicks_hd_eng_por_51.srt"
+            }
+          ],
+          "technology": "MP4",
+          "title": "As Branquelas",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          "Shawn Wayans",
+          "Marlon Wayans",
+          "Busy Philipps",
+          "Jaime King",
+          "Frankie Faison",
+          "Maitland Ward",
+          "Lochlyn Munro",
+          "John Heard"
+        ],
+        "country": "USA",
+        "directors": [
+          "Keenen Ivory Wayans"
+        ],
+        "release_year": "2004",
+        "rights": [],
+        "summary": [
+          "De Keenen Ivory Wayans, o diretor de Todo Mundo em Pânico, chega As Branquelas, uma comédia que mistura gêneros e lhe fará morrer de rir protagonizada pelos engraçadíssimos Shawn Wayans e Marlon Wayans. O que acontece quando dois atrapalhados agentes do FBI se disfarçam de princesas mega-ricas para se infiltrarem na alta sociedade? O resultado é situações extremamente engraçadas e diversão total ao ver estes dois irmãos azarados transformando-se em duas senhoritas refinadas e com estilo!"
+        ],
+        "tvod_price": 7.9
+      },
+      "morality_level": 12,
+      "synopsis": {
+        "por": "De Keenen Ivory Wayans, o diretor de Todo Mundo em Pânico, chega As Branquelas, uma comédia que mistura gêneros e lhe fará morrer de rir protagonizada pelos engraçadíssimos Shawn Wayans e Marlon Wayans. O que acontece quando dois atrapalhados agentes do FBI se disfarçam de princesas mega-ricas para se infiltrarem na alta sociedade? O resultado é situações extremamente engraçadas e diversão total ao ver estes dois irmãos azarados transformando-se em duas senhoritas refinadas e com estilo!"
+      },
+      "title": {
+        "por": "As Branquelas"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1613952000000,
+      "available_to": 1640908800000,
+      "duration": 5264006,
+      "genres": [
+        "Comédia",
+        "Terror"
+      ],
+      "id": "2f979417-fafd-475d-984c-e7e599724ee4",
+      "images": [],
+      "medias": [
+        {
+          "audio_languages": [
+            "eng",
+            "por"
+          ],
+          "id": "2f979417-fafd-475d-984c-e7e599724ee4_m",
+          "location": "sony_20210219/spe_zombieland2009_hd_eng_por_51.mp4",
+          "metadata": {},
+          "subtitles": [
+            {
+              "language": "por",
+              "location": "sony_20210219/spe_zombieland2009_hd_eng_por_51.srt"
+            }
+          ],
+          "technology": "MP4",
+          "title": "Zumbilândia",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          "Woody Harrelson",
+          "Jesse Eisenberg",
+          "Emma Stone",
+          "Abigail Breslin",
+          "Amber Heard",
+          "Bill Murray",
+          "Derek Graf"
+        ],
+        "country": "USA",
+        "directors": [
+          "Ruben Fleischer"
+        ],
+        "release_year": "2009",
+        "rights": [],
+        "summary": [
+          "Colombo (interpretado por Jesse Eisenberg), aluno nerd de uma faculdade, sobreviveu à praga que transformou toda a raça humana em zumbis carnívoros, simplesmente porque tem medo de tudo. Tallahassee (interpretado por Woody Harrelson), sempre armado e apaixonado por doces, ao contrário de Colombo, não tem medo de nada. Juntos, eles vão enfrentar o desafio mais aterrorizante de todos os tempos: conviver um com o outro. Emma Stone e Abigail Breslin complementam o elenco desta comédia horripilante."
+        ],
+        "tvod_price": 7.9
+      },
+      "morality_level": 14,
+      "synopsis": {
+        "por": "Colombo (interpretado por Jesse Eisenberg), aluno nerd de uma faculdade, sobreviveu à praga que transformou toda a raça humana em zumbis carnívoros, simplesmente porque tem medo de tudo. Tallahassee (interpretado por Woody Harrelson), sempre armado e apaixonado por doces, ao contrário de Colombo, não tem medo de nada. Juntos, eles vão enfrentar o desafio mais aterrorizante de todos os tempos: conviver um com o outro. Emma Stone e Abigail Breslin complementam o elenco desta comédia horripilante."
+      },
+      "title": {
+        "por": "Zumbilândia"
       }
     }
   ]
