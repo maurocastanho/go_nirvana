@@ -6,7 +6,6 @@
         {"Name": "doctype", "Value": "ADI"},
         {"Name": "doctype_system", "Value": "ADI.DTD"},
         {"Name": "season_field", "Value": "Temporada"},
-
         {"Name": "episode_field", "Value": "Número do Episódio"}
     ],
     "xls_output": {

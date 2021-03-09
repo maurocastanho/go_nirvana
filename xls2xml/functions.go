@@ -348,6 +348,7 @@ func assetID(forceVal string, line *lineT, json jsonT, options optionsT) ([]resu
 	if !ok || fProvider == "" {
 		return errorMessage, fmt.Errorf("field prefixo do Asset ID nao encontrado (prefix): [%v]", json)
 	}
+	fProvider = strings.ToLower(fProvider)
 	prov, okP := line.fields[fProvider]
 	if !okP || prov == "" {
 		return errorMessage, fmt.Errorf("provider assetid nao encontrado (provider): [%v] na linha %d", line.fields, line.idx)
@@ -369,7 +370,8 @@ func assetID(forceVal string, line *lineT, json jsonT, options optionsT) ([]resu
 }
 
 func buildAssetID(prov string, suffixF float64, timest string, fileNum string) string {
-	provider := strings.ToUpper(removeSpaces(prov))
+	words := strings.Split(prov, " ")
+	provider := strings.ToUpper(removeSpaces(words[0]))
 	if leng := len(provider); leng < 5 {
 		// pads with last character so length = 4
 		last := provider[leng-1]
@@ -407,6 +409,7 @@ func episodeID(forceVal string, line *lineT, _ jsonT, options optionsT) ([]resul
 	if !okF || fSeason == "" {
 		return errorMessage, fmt.Errorf("config para campo 'season_field' nao encontrado: [%v]", options)
 	}
+	fSeason = strings.ToLower(fSeason)
 	season, okS := line.fields[fSeason]
 	if !okS || season == "" {
 		return errorMessage, fmt.Errorf("temporada do episode_id nao encontrada (%v): [%v]", fSeason, line)
@@ -415,6 +418,7 @@ func episodeID(forceVal string, line *lineT, _ jsonT, options optionsT) ([]resul
 	if !okEid || fEpisodeID == "" {
 		return errorMessage, fmt.Errorf("config para campo 'episode_field' nao encontrado: [%v]", options)
 	}
+	fEpisodeID = strings.ToLower(fEpisodeID)
 	episode, okE := line.fields[fEpisodeID]
 	if !okE || season == "" {
 		return errorMessage, fmt.Errorf("valor do episode_id nao encontrado (%v): [%v] na linha %d", fEpisodeID, line.fields, line.idx)
@@ -1105,6 +1109,9 @@ func truncateSuffix(value string, suffix string, max int) (string, error) {
 	if l := len(r); max > l {
 		max = l
 	}
+	for l := max - 1; l >= 0 && r[l] == '_'; l-- {
+		max--
+	}
 	safeSubstring := string(r[0:max])
 	return safeSubstring, nil
 }
@@ -1118,12 +1125,12 @@ func truncate(value string, _ *lineT, json jsonT, _ optionsT) (string, error) {
 	if errA != nil {
 		return errorMessage[0].val, fmt.Errorf("valor nao numerico em maxlenght: [%v]", val)
 	}
-	if len(value) <= max {
+	r := []rune(value)
+	if len(r) <= max {
 		// size ok, return
 		return value, nil
 	}
 	// truncate
-	r := []rune(value)
 	safeSubstring := string(r[0:max])
 	return safeSubstring, nil
 }

@@ -192,7 +192,7 @@ func processSpreadSheet(json map[string]interface{}, outType string, f *xlsx.Spr
 	if !okN || nameField == "" {
 		return 2, []error{fmt.Errorf("ERRO ao procurar name_field nas options [%#v]", options)}
 	}
-
+	nameField = strings.ToLower(nameField)
 	// fmt.Printf("**> [%v]: %#v\n", filenameField, options)
 	// fmt.Printf("***> [%v]: %#v\n", filename, line)
 
@@ -471,7 +471,7 @@ func readSheet(sheet xlsx.Sheet, header []string, idx int) ([]lineT, error) {
 	// Seeking last header column
 	for col = ncols - 1; col >= 0; col-- {
 		colCell := sheet.Cell(col, 0)
-		fmt.Printf("%s, ", colCell.String())
+		//fmt.Printf("%s, ", colCell.String())
 		if colCell.String() != "" {
 			break
 		}
