@@ -89,6 +89,7 @@ func initFunctions() {
 		"map_string":      mapString,
 		"series_id":       seriesId,
 		"season_id":       seasonId,
+		"location_series": locationSerie,
 	}
 }
 
@@ -339,6 +340,92 @@ func pathSuffix(forceVal string, line *lineT, json jsonT, options optionsT) ([]r
 	return []resultsT{newResult(result)}, nil
 }
 
+// locationSerie builds the path to a media file belonging to a TV series
+func locationSerie(forceVal string, line *lineT, json jsonT, options optionsT) ([]resultsT, error) {
+	field, errT := fieldTrunc(forceVal, line, json, options)
+	if errT != nil {
+		return errorMessage, errT
+	}
+	// fmt.Printf("-->> %v\n", field)
+	noacc, errA := removeAccents(field[0].val)
+	if errA != nil {
+		return errorMessage, errA
+	}
+	suf, _ := json["suffix"].(string)
+	if suf == "" {
+		// no suffix given: use file extension
+		suf = path.Ext(noacc)
+	}
+	if extIdx := strings.LastIndex(noacc, "."); extIdx > 0 {
+		// remove original file extension
+		noacc = noacc[0:extIdx]
+	}
+	fieldPrefix, _ := json["field_prefix"].(string)
+	if fieldPrefix == "" {
+		// no prefix given: use default
+		fieldPrefix = "subpasta"
+	}
+	prefix, _ := line.fields[fieldPrefix]
+	if prefix != "" && !strings.HasSuffix(prefix, "/") {
+		prefix += "/"
+	}
+	serie1, _ := line.fields["título original"]
+	if serie1 == "" {
+		return errorMessage, fmt.Errorf("titulo original nao informado: [%v]", line.fields)
+	}
+	serie2, errs1 := removeAccents(serie1)
+	if errs1 != nil {
+		return errorMessage, errs1
+	}
+	serie3, errs2 := replaceAllNonAlpha(serie2)
+	if errs2 != nil {
+		return errorMessage, errs2
+	}
+	serie := strings.ToLower(serie3)
+
+	temp, _ := line.fields["temporada"]
+	if temp == "" {
+		return errorMessage, fmt.Errorf("temporada nao informada: [%s]", line.fields["título original"])
+	}
+	temp, err := formatNumberString(temp)
+	if err != nil {
+		return errorMessage, err
+	}
+	epi, _ := line.fields["número do episódio"]
+	if epi == "" {
+		return errorMessage, fmt.Errorf("numero do episodio nao informado: [%s]", line.fields["título original"])
+	}
+	epi, err = formatNumberString(epi)
+	if err != nil {
+		return errorMessage, err
+	}
+	mtype, _ := json["media_type"].(string)
+	alpha, errR := replaceAllNonAlpha(noacc)
+	if errR != nil {
+		return errorMessage, errR
+	}
+	var middle string
+	maxS, err := getValue("maxlength", json)
+	if err == nil {
+		// have size limit: truncate string
+		max, errAt := strconv.Atoi(maxS)
+		if errAt != nil {
+			return errorMessage, fmt.Errorf("valor nao numerico em maxlenght: [%v]", maxS)
+		}
+		middle, errAt = truncateSuffix(alpha, suf, max)
+		if errAt != nil {
+			return errorMessage, errAt
+		}
+	} else {
+		// if err != nil, do not have size limit: do nothing
+		middle = alpha
+	}
+	middle = fmt.Sprintf("%s/%s_s%s/%s_s%sep%s/%s/%s", serie, serie, temp, serie, temp, epi, mtype, middle)
+	result := fmt.Sprintf("%s%s%s", prefix, middle, suf)
+	result = strings.Replace(result, "//", "/", -1)
+	return []resultsT{newResult(result)}, nil
+}
+
 // AssetID returns the Asset ID
 func assetID(forceVal string, line *lineT, json jsonT, options optionsT) ([]resultsT, error) {
 	if forceVal != "" {
@@ -472,9 +559,9 @@ func getSeries(forceVal string, line *lineT, json jsonT, options optionsT) (stri
 	if errF != nil {
 		return "", "", errorMessage, errF, true
 	}
-	seasonS, okN := line.fields["Temporada"] // TODO move to config
+	seasonS, okN := line.fields["temporada"] // TODO move to config
 	if !okN {
-		return "", "", errorMessage, errF, true
+		return "", "", errorMessage, fmt.Errorf("campo 'Temporada' nao encontrado: [%s]", line.fields["título original"]), true
 	}
 	fSeries, okF := options["options"]["series_id_field"]
 	if !okF || fSeries == "" {
@@ -815,7 +902,7 @@ func evalCondition(expr string, line *lineT) (bool, error) {
 	}
 	params := make(map[string]interface{})
 	for k, v := range line.fields {
-		params[removeSpaces(k)] = v
+		params[removeSpaces(k)] = strings.ToLower(v)
 	}
 	result, errE := expression.Evaluate(params)
 	if errE != nil {
@@ -1187,4 +1274,15 @@ func toTimeSeconds(value string) (int64, error) {
 		return -1, err
 	}
 	return int64(serial * 86400), nil
+}
+
+func formatNumberString(s string) (string, error) {
+	switch len(s) {
+	case 0:
+		return "00", nil
+	case 1:
+		return "0" + s, nil
+	default:
+		return s, nil
+	}
 }

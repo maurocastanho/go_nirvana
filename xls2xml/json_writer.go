@@ -502,8 +502,8 @@ func (wr *jsonWriter) processCategPack(lines []lineT, k int, idField string, cat
 			if err != nil {
 				return -1, err
 			}
-			if err := wr.addToCategories(line.fields[idField], "", studio, idStudio, "categories", "null", "null"); err != nil {
-				return -1, err
+			if errc := wr.addToCategories(line.fields[idField], "", studio, idStudio, "categories", "null", "null"); errc != nil {
+				return -1, errc
 			}
 			return 0, nil
 		}
@@ -515,8 +515,8 @@ func (wr *jsonWriter) processCategPack(lines []lineT, k int, idField string, cat
 	if idChild == "" {
 		idChild = idStudio
 	}
-	if err := wr.addToCategories(idChild, idChild, studio, idStudio, "categories", "null", "null"); err != nil {
-		return -1, err
+	if errc := wr.addToCategories(idChild, idChild, studio, idStudio, "categories", "null", "null"); errc != nil {
+		return -1, errc
 	}
 
 	return 0, err
@@ -530,14 +530,14 @@ func (wr *jsonWriter) processSerie(line *lineT, idField string, categFields []st
 	var idGroup string
 	name := line.fields[categFields[1]]
 	idGroup = serie.fields["id"]
-	seriesId := serie.fields["id"]
-	serieId1 := fmt.Sprintf("%s_s", seriesId)
+	serId := serie.fields["id"]
+	serieId1 := fmt.Sprintf("%s_s", serId)
 	result, err := wr.processSeason(line, idField, categFields, series, serieId1)
 	if err != nil {
 		return result, err
 	}
-	if err := wr.addToCategories(result, serieId1, name, idParent, "categories", seriesId, "null"); err != nil {
-		return serieId1, err
+	if errc := wr.addToCategories(result, serieId1, name, idParent, "categories", serId, "null"); errc != nil {
+		return serieId1, errc
 	}
 
 	return idGroup, nil
@@ -549,13 +549,13 @@ func (wr *jsonWriter) processSeason(line *lineT, idField string, categFields []s
 		return "", err
 	}
 	name := line.fields[categFields[2]]
-	seriesId := serie.fields["id"]
-	seasonId := serie.fields["id season"]
-	seasonId1 := fmt.Sprintf("%s_t", seasonId)
+	serId := serie.fields["id"]
+	seasId := serie.fields["id season"]
+	seasonId1 := fmt.Sprintf("%s_t", seasId)
 	name = fmt.Sprintf("%s T%s", line.fields[categFields[1]], strings.TrimSpace(line.fields[categFields[2]]))
 	id := line.fields[idField]
-	if err := wr.addToCategories(id, seasonId1, name, idParent, "categories", seriesId, seasonId); err != nil {
-		return id, err
+	if errc := wr.addToCategories(id, seasonId1, name, idParent, "categories", serId, seasId); errc != nil {
+		return id, errc
 	}
 	return seasonId1, nil
 }

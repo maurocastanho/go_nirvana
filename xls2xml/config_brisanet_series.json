@@ -1,0 +1,273 @@
+{
+    "options": [
+        {"Name": "filename_field", "Value": "ID"},
+        {"Name": "name_field", "Value": "uuid_box"},
+        {"Name": "id_field", "Value": "uuid_box"},
+        {"Name": "series_id_field", "Value": "id"},
+        {"Name": "series_title_field", "Value": "title"},
+        {"Name": "season_id_field", "Value": "id season"},
+        {"Name": "season_num_field", "Value": "season"},
+        {"Name": "categ_field1", "Value": "Genero 1"},
+        {"Name": "categ_field2", "Value": "Genero 2"},
+        {"Name": "categ_season", "Value": "2"}
+    ],
+    "xls_output": {
+        "filename": "publicar_box.xls",
+        "sheet": "Formulário",
+        "columns": [
+            {"Name": "ID BOX", "field": "uuid_box", "function": "field_raw"},
+            {"Name": "ID", "field": "ID", "function": "field_raw"},
+            {"Name": "ORIGINAL TITLE", "field": "Título Original", "function": "field_raw"},
+            {"Name": "TÍTULO EM PORTUGUÊS", "field": "Título em Português", "function": "field_raw"},
+            {"Name": "LEGENDA", "field": "Legenda", "function": "field_raw"},
+            {"Name": "NOME DO EPISÓDIO", "field": "Título em Português do Episódio", "function": "field_raw"},
+            {"Name": "TEMPORADA", "field": "Temporada", "function": "field_raw", "format": "0"},
+            {"Name": "EPISÓDIO", "field": "Número do Episódio", "function": "field_raw", "format": "0"},
+            {"Name": "ESTÚDIO", "field": "Estúdio", "function": "field_raw"},
+            {"Name": "GÊNERO 1", "field": "Genero 1", "function": "field_raw"},
+            {"Name": "GÊNERO 2", "field": "Genero 2", "function": "field_raw"},
+            {"Name": "ANO DE PRODUÇÃO", "field": "Ano", "function": "field_raw", "format": "0"},
+            {"Name": "RANKING", "field": "Ranking", "function": "field_raw", "format": "#,##0.0"},
+            {"Name": "LÍNGUA ORIGINAL", "field": "Língua Original", "function": "field_raw"},
+            {"Name": "RATING", "field": "Classificação Etária", "function": "field_raw", "format": "0"},
+            {"Name": "ELENCO", "field": "Elenco", "function": "field_raw"},
+            {"Name": "DIRETOR", "field": "Diretor", "function": "field_raw"},
+            {"Name": "PAÍS DE ORIGEM", "field": "País de Origem", "function": "field_raw"},
+            {"Name": "SINOPSE", "field": "Sinopse EPG", "function": "field_raw"},
+            {"Name": "LICENÇA INÍCIO", "field": "Data Início", "function": "field_date", "format": "DD/MM/YYYY"},
+            {"Name": "LICENÇA FIM", "field": "Data Fim", "function": "field_date", "format": "DD/MM/YYYY"},
+            {"Name": "TECNOLOGIA", "field": "Formato", "function": "field_raw"},
+            {"Name": "COBRANÇA", "field": "Cobrança", "function": "field", "format": "\"R$\" #,##0.00", "type": "money"}
+        ]
+    },
+    "elements": [
+        {
+            "Name": "assets",
+            "elements": [
+                {
+                    "attrs": [
+                        {"Name": "id", "function": "field", "field": "uuid_box"},
+                        {
+                            "Name": "title",
+                            "no_array": "",
+                            "function": "empty",
+                            "elements": [{"attrs": [{"Name": "por", "function": "field", "field": "Título em Português"}]}]
+                        },
+                        {
+                            "Name": "synopsis",
+                            "function": "empty",
+                            "no_array": "",
+                            "elements": [
+                                {"attrs": [
+                                    {"Name": "por", "function": "field", "field": "Sinopse EPG"},
+                                    {"Name": "por", "function": "map", "field1":"Linguagem Áudio","field2": "Sinopse EPG"}
+                                ]}
+                            ]
+                        },
+                        {"Name": "morality_level", "function": "field", "field": "Classificação Etária", "type": "int"},
+                        {"Name": "adult", "function": "condition", "condition": "Classificação_Etária == 18", "if_true": "true", "if_false": "false", "type": "boolean"},
+                        {"Name": "duration", "function": "field", "field": "Duração", "type": "timestamp"},
+                        {"Name": "series_id", "function": "series_id", "field": "Título em Português", "filter": "Número_do_Episódio != ''"},
+                        {"Name": "season_id", "function": "season_id", "field": "Título em Português", "filter": "Número_do_Episódio != ''"},
+                        {"Name": "season_episode_number", "function": "field", "field": "Número do Episódio", "type": "int", "filter": "Número_do_Episódio != ''"},
+                        {
+                            "Name": "genres",
+                            "function": "empty",
+                            "elem_val": "",
+                            "elements": [
+                                {"attrs": [{"Name": "genres", "function": "field", "field": "Genero 1", "filter": "Genero_1 != ''"}]},
+                                {"attrs": [{"Name": "genres", "function": "field", "field": "Genero 2", "filter": "Genero_2 != '' && (Genero_1 != Genero_2)" }]}
+                            ]
+                        },
+                        {"Name": "available_from", "function": "timestamp", "field": "Data Início", "type": "int"},
+                        {"Name": "available_to", "function": "timestamp", "field": "Data Fim", "type": "int"},
+                        {
+                            "Name": "images",
+                            "function": "empty",
+                            "elements_array": [
+                                {
+                                    "group_attrs":[
+                                        {"Name": "id", "function": "suffix", "field": "uuid_box", "suffix": "_p"},
+                                        {"Name": "type", "function": "fixed", "Value": "vod-poster"},
+                                        {"Name": "location", "function": "location_series", "field": "ID", "field_prefix": "subpasta", "media_type": "poster", "suffix":  ".jpg"}
+                                    ]
+                                },
+                                {
+                                    "group_attrs":[
+                                        {"Name": "id", "function": "suffix", "field": "uuid_box", "suffix": "_b"},
+                                        {"Name": "type", "function": "fixed", "Value": "vod-background"},
+                                        {"Name": "location", "function": "location_series", "field": "ID", "field_prefix": "subpasta", "media_type": "background", "suffix":  "_background.jpg"}
+                                    ]
+                                }
+                            ]
+
+                        },
+                        {
+                            "Name": "metadata",
+                            "no_array": "",
+                            "function": "empty",
+                            "elements": [
+                                {
+                                    "attrs": [
+                                        {
+                                            "Name": "rights",
+                                            "function": "fixed",
+                                            "Value": "",
+                                            "elements": [
+
+                                            ]
+                                        },
+                                        {
+                                            "Name": "country",
+                                            "function": "field",
+                                            "field": "País de Origem"
+                                        },
+                                        {
+                                            "Name": "release_year",
+                                            "function": "field",
+                                            "field": "Ano"
+                                        },
+                                        {
+                                            "Name": "summary",
+                                            "elem_val": "",
+                                            "function": "empty",
+                                            "elements": [
+                                                {"attrs": [{"Name": "summary",
+                                                "function": "field",
+                                                "field": "Sinopse Resumo"}]}
+                                            ]
+                                        },
+                                        {
+                                            "Name": "actors",
+                                            "elem_val": "",
+                                            "function": "empty",
+                                            "elements": [
+                                                {"attrs": [{"Name": "actors",
+                                                "function2": "field",
+                                                "function": "split", "field": "Elenco"}]}
+                                            ]
+                                        },
+                                        {
+                                            "Name": "directors",
+                                            "elem_val": "",
+                                            "function": "empty",
+                                            "elements": [
+                                                {"attrs": [{"Name": "actors",
+                                                "function2": "field",
+                                                "function": "split", "field": "Diretor"}]}
+                                            ]
+                                        },
+                                        {
+                                            "filter": "Cobrança != '' && Cobrança != '0'",
+                                            "Name": "tvod_price",
+                                            "function": "field",
+                                            "field": "Cobrança",
+                                            "type": "float"
+                                        }
+                                    ]
+                                }
+                        ]},
+                        {
+                            "Name": "medias",
+                            "function": "empty",
+                            "elements_array": [
+                                {
+                                    "group_attrs": [
+                                        {"Name": "id", "function": "suffix", "field": "uuid_box", "suffix": "_m"},
+                                        {"Name": "type", "function": "fixed", "Value": "MEDIA"},
+                                        {"Name": "title", "function": "field", "field": "Título em Português"},
+                                        {"Name": "location", "function": "location_series", "field": "ID", "media_type": "", "field_prefix": "subpasta", "suffix": ""},
+                                        {"Name": "technology", "function": "box_technology", "field": "ID"},
+                                        {
+                                            "Name": "audio_languages",
+                                            "elem_val": "",
+                                            "elements": [
+                                                {
+                                                    "attrs": [
+                                                        {
+                                                            "filter": "Linguagem_Áudio != '' && Linguagem_Áudio != 'não'",
+                                                            "Name": "audio_languages1",
+                                                            "function": "split",
+                                                            "function2": "field",
+                                                            "field": "Linguagem Áudio",
+                                                            "atype": "value"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+
+                                        },
+                                        {
+                                            "Name": "subtitles",
+                                            "filter": "Legenda != ''",
+                                            "function": "empty",
+                                            "elements_array": [{
+                                                "group_attrs": [
+                                                    {"Name": "language", "function": "fixed", "Value": "por"},
+                                                    {
+                                                        "Name": "location",
+                                                        "function": "location_series",
+                                                        "media_type": "",
+                                                        "field": "Legenda",
+                                                        "field_prefix": "subpasta",
+                                                        "suffix": ".srt"
+                                                    }
+                                                ]
+                                            }]
+                                        },
+                                        {"Name": "metadata", "no_array": "", "elements": [{"attrs": []}]}
+                                    ]
+                                },
+                                {
+                                    "filter": "Trailer_ID != ''",
+                                    "group_attrs": [
+                                        {"Name": "id", "function": "suffix", "field": "uuid_box", "suffix": "_t"},
+                                        {"Name": "type", "function": "fixed", "Value": "TRAILER"},
+                                        {"Name": "title", "function": "field", "field": "Título em Português"},
+                                        {"Name": "location", "function": "location_series", "field": "Trailer ID", "media_type": "", "field_prefix": "subpasta trailer", "suffix": ""},
+                                        {"Name": "technology", "function": "box_technology", "field": "Trailer ID"},
+                                        {
+                                            "Name": "audio_languages",
+                                            "elem_val": "",
+                                            "elements": [
+                                                {
+                                                    "attrs": [
+                                                        {
+                                                            "filter": "Linguagem_Trailer != '' && Linguagem_Trailer != 'não'",
+                                                            "function": "split",
+                                                            "function2": "field",
+                                                            "field": "Linguagem Trailer",
+                                                            "atype": "value"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+
+                                        },
+                                        {
+                                            "Name": "subtitles",
+                                            "filter": "Legenda_Trailer != ''",
+                                            "function": "empty",
+                                            "elements_array": [{
+                                                "group_attrs": [
+                                                    {"Name": "language", "function": "fixed", "Value": "por"},
+                                                    {
+                                                        "Name": "location",
+                                                        "function": "location_series",
+                                                        "field": "Legenda Trailer",
+                                                        "field_prefix": "subpasta"
+                                                    }
+                                                ]
+                                            }]
+                                        },
+                                        {"Name": "metadata", "no_array": "", "elements": [{"attrs": []}]}
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1392,7 +1392,7 @@ func TestXmlBoxCategories(t *testing.T) {
 	assert.JSONEq(t, expectedCategs, categRes)
 }
 
-func xTestXmlBoxSeries(t *testing.T) {
+func _(t *testing.T) {
 	json, errConf := readConfig("config_box.json")
 	if errConf != nil {
 		t.Error(errConf)

@@ -2,15 +2,7 @@
   "categories": [
     {
       "adult": false,
-      "assets": [
-        "e058c0c6-42f6-4a0d-840e-b5a3fecdc10f",
-        "fe9d7f55-d23a-4be6-b9c4-3aa639a2cf95",
-        "2664fb3f-e6d7-477d-9681-ebfac6eb42ed",
-        "099d00b2-5c49-49fe-9cfc-aa463a58c392",
-        "6dad67c5-9d1d-4efd-b998-4a6a0c4474d7",
-        "d482d2e6-e487-40b9-b1df-02869dc23293",
-        "7601f8fc-2b37-4a04-97e8-8aa0d5e223d5"
-      ],
+      "assets": [],
       "downloadable": false,
       "hidden": false,
       "id": "03bda820-beaf-4573-b8a9-6250a586feb5",
@@ -30,9 +22,9 @@
     {
       "adult": false,
       "assets": [
-        "952596ed-6509-4c68-8ac4-3e8d84c1c6e8",
-        "8d7af2c6-b767-48e6-9e84-d904c0405c05",
-        "16e434d9-4ff8-4ea4-83b7-2393fbda3048"
+        "53a2d60c-9800-4dfd-aae9-2f500dbf0755",
+        "158e44a4-85bc-47e4-8d9e-b4e3ae1d23ff",
+        "f7f56447-d0fd-4db7-a86e-a4d1c5929900"
       ],
       "downloadable": false,
       "hidden": false,
@@ -147,10 +139,7 @@
     },
     {
       "adult": false,
-      "assets": [
-        "0ae218a7-72b7-46ca-a55b-132cd3ab7867",
-        "63f9e236-bf4a-4e49-8f8c-3d66fd0a57e5"
-      ],
+      "assets": [],
       "downloadable": false,
       "hidden": false,
       "id": "33bc86f1-94dd-4d4b-9997-d548ee0ada47",
@@ -170,11 +159,10 @@
     {
       "adult": false,
       "assets": [
-        "4c5b91ec-c45b-49d9-b9b0-dfd08775beda",
-        "13434320-4a4a-40f7-bbbc-b061c7d55c1e",
-        "ba3fc383-22d1-4937-a645-5a09c42426d2",
-        "d025abb8-4602-414f-8f67-55f5a286788e",
-        "656accb2-e96d-4153-868b-17f00e62b3a0"
+        "3a8a0f00-aaa7-496a-9d11-7e60e0681bb4",
+        "5ae6a62c-a261-428e-9efe-175eb7341cda",
+        "31ca4ee5-3411-4999-aa07-0eb73f70893d",
+        "69413c8e-4d1f-48aa-8822-d3e7d10e5895"
       ],
       "downloadable": false,
       "hidden": false,
@@ -195,12 +183,8 @@
     {
       "adult": false,
       "assets": [
-        "cfdd299b-bd11-4786-8a48-82d6238cd32f",
-        "e4ce5897-1b0c-41c4-a1bf-61c83e4c626a",
-        "0ff01588-a08d-4804-89de-dd95df783f8f",
-        "5312dcc3-c0b4-4195-bec1-4abd1b5741ab",
-        "da0d8ceb-b608-41f3-b9c7-a6cefb6618d9",
-        "fc136f8b-1c05-4eb2-83e6-bff6c85b2097"
+        "37c1b769-8fb2-45f9-8e1e-953382787998",
+        "3fc1fd78-f2a0-4930-9fbb-b93795951e49"
       ],
       "downloadable": false,
       "hidden": false,
@@ -221,8 +205,7 @@
     {
       "adult": false,
       "assets": [
-        "609706c8-69b0-4743-b01d-eaacf5b4f1f5",
-        "a1407e45-bc5a-44dd-9f93-c9052de5dad5"
+        "ff510b8e-31e4-4783-bbfb-e771a4d27506"
       ],
       "downloadable": false,
       "hidden": false,
@@ -243,20 +226,9 @@
     {
       "adult": false,
       "assets": [
-        "914f574d-5d8c-4733-b257-6e6901b2ddfa",
-        "0242fceb-f296-497d-87cd-cde44b433294",
-        "499db338-b332-44cd-aef0-f1a82bb865d9",
-        "a32b0cea-0f20-4f6e-95cc-896a45ab3df6",
-        "ea42ee15-be76-46a2-9787-f6ce26408589",
-        "40c1a727-2d14-4730-95f7-ee87da68b630",
-        "bc9bed19-1858-4cd8-8b97-ca9e1d6bfe9b",
-        "855a4b46-c615-4af2-a2fb-3856f8fd6e6c",
-        "bf52126f-e33f-470c-bee9-9b4a56c8e8aa",
-        "aa7419fb-2c82-40f8-8999-3aa933c18cdc",
-        "f0dc9032-9edf-4423-ae8a-df0cbda96073",
-        "b51dc973-773a-4325-9b8e-a258b97ed27e",
-        "a26b6fae-f241-4228-8dc3-d641a54cdbb1",
-        "01e0dc28-46ba-43ba-bf7f-a4726105d7ff"
+        "36899d09-6bae-4f1c-b9c4-54a98aef250e",
+        "ba5b0861-4af6-45d9-8987-d2b0d5a99c76",
+        "0596dbba-b28d-421f-b868-a688fced59fb"
       ],
       "downloadable": false,
       "hidden": false,
@@ -276,7 +248,14 @@
     },
     {
       "adult": false,
-      "assets": [],
+      "assets": [
+        "cfa5d628-d6ee-4013-9685-f4811cc9a110",
+        "8152f3a6-1c7e-4ce8-a81b-5cb65ddf2cab",
+        "8de631bc-3f41-46f8-a589-861881337821",
+        "b73c2465-13f7-4461-b79f-bfffc027b0ad",
+        "c63fd72b-7e26-4569-a940-458668864d55",
+        "9fc029d8-02fa-4b19-81b5-fa8c78ebc8cd"
+      ],
       "downloadable": false,
       "hidden": false,
       "id": "89a28464-bb0a-4caf-83b9-5c989d8f603d",
@@ -296,7 +275,9 @@
     {
       "adult": false,
       "assets": [
-        "d3638fb2-b895-4500-a40d-9302a68185c0"
+        "00b5c0fc-0a29-45ef-8d70-c0f46d3c7c25",
+        "c0e670a0-ae2f-4c47-bd12-ed300b5ccfb7",
+        "508e4e47-b2a3-4009-9e04-c306344b0e2f"
       ],
       "downloadable": false,
       "hidden": false,
@@ -317,13 +298,9 @@
     {
       "adult": false,
       "assets": [
-        "3d8a89d2-0bcc-4c94-a7c1-9a18502a193c",
-        "17343e9a-ee0b-4167-bbb9-372cee82b823",
-        "f37bfe42-1c87-4975-b351-f4a4be3944cf",
-        "cc6278a4-436e-4d1d-aeb5-8e4f384951b1",
-        "1ac977af-5288-4e38-a428-58229373ff43",
-        "c441fa27-2be3-4242-bd60-e833e7d037ac",
-        "f19aabe2-7c8f-4383-a36c-17500b52b971"
+        "4f255d8f-d2af-4866-b671-c96fd7a60b5d",
+        "4a92ce4e-8d46-4d8b-ac2b-10ea0094f158",
+        "7bd4ec19-4b3f-4251-bd64-7b33eb10b8aa"
       ],
       "downloadable": false,
       "hidden": false,
@@ -438,9 +415,7 @@
     },
     {
       "adult": false,
-      "assets": [
-        "4b54448a-4d60-467e-ba45-d13ba4080278"
-      ],
+      "assets": [],
       "downloadable": false,
       "hidden": false,
       "id": "53ef5d80-6c5a-4f6f-854d-a8277985eef7",
@@ -479,7 +454,7 @@
     {
       "adult": false,
       "assets": [
-        "05c59c1f-cd59-4fae-9c58-88fa7ad8260d"
+        "233e3d27-5423-4ea3-bea9-ee85223803de"
       ],
       "downloadable": false,
       "hidden": false,
@@ -537,9 +512,7 @@
     },
     {
       "adult": false,
-      "assets": [
-        "f7d3271d-4f39-4569-898e-c3f2b6cd6755"
-      ],
+      "assets": [],
       "downloadable": false,
       "hidden": false,
       "id": "1fca4a48-bebc-40ea-a9e1-65a4754145ee",
@@ -549,6 +522,65 @@
       "name": {
         "eng": "Horror",
         "por": "Horror"
+      },
+      "offline": false,
+      "parent_id": "",
+      "parental_control": false,
+      "season_id": "null",
+      "series_id": "null"
+    },
+    {
+      "adult": false,
+      "assets": [],
+      "downloadable": false,
+      "hidden": false,
+      "id": "79c3ef4c-d35b-4df9-9017-94285f181ccd",
+      "images": [],
+      "metadata": {},
+      "morality_level": "0",
+      "name": {
+        "eng": "Faith",
+        "por": "Fé"
+      },
+      "offline": false,
+      "parent_id": "",
+      "parental_control": false,
+      "season_id": "null",
+      "series_id": "null"
+    },
+    {
+      "adult": false,
+      "assets": [
+        "debcaf5f-9ed8-4448-850f-4ebbd3e8cad6"
+      ],
+      "downloadable": false,
+      "hidden": false,
+      "id": "2c83426d-e8b5-4654-834c-a81516f83a11",
+      "images": [],
+      "metadata": {},
+      "morality_level": "0",
+      "name": {
+        "eng": "Crime",
+        "por": "Policial"
+      },
+      "offline": false,
+      "parent_id": "",
+      "parental_control": false,
+      "season_id": "null",
+      "series_id": "null"
+    },
+    {
+      "adult": false,
+      "assets": [],
+      "downloadable": false,
+      "hidden": false,
+      "id": "67e3c5ad-cf4d-4c35-b904-3ec18b9ffa16",
+      "images": [],
+      "metadata": {},
+      "morality_level": "0",
+      "name": {
+        "eng": "Espirituality",
+        "por": "Espiritualidade"
       },
       "offline": false,
       "parent_id": "",

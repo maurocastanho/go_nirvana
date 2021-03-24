@@ -39,7 +39,6 @@
             {"Name": "LICENÇA FIM", "field": "Data Fim", "function": "field_date", "format": "DD/MM/YYYY"},
             {"Name": "TECNOLOGIA", "field": "Formato", "function": "field_raw"},
             {"Name": "AUDIO", "field": "Movie Audio Type", "function": "field_raw"},
-            {"Name": "VERSAO", "field": "Versao", "function": "field_raw"},
             {"Name": "COBRANÇA", "field": "Cobrança", "function": "field", "format": "\"R$\" #,##0.00", "type": "money"},
             {"Name": "BILLING ID", "field": "Billing ID", "function": "field_raw"}
         ]

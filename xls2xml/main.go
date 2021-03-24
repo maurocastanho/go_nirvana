@@ -7,6 +7,7 @@ import (
 	"math"
 	"os"
 	"path"
+	"regexp"
 	"runtime/debug"
 	"strconv"
 	"strings"
@@ -94,6 +95,7 @@ func main() {
 			logError(err)
 		}
 		if success == 0 {
+			log("")
 			log("--------------------------------------")
 			log(" Processamento terminado com sucesso. ")
 			log("--------------------------------------")
@@ -113,10 +115,12 @@ func main() {
 	confFile := ""
 	outType := ""
 	outDir := ""
+	inputXlsCat := ""
 	flag.StringVar(&inputXls, "xls", "", "Arquivo XLS de entrada")
 	flag.StringVar(&confFile, "config", "", "Arquivo JSON de configuracao")
 	flag.StringVar(&outType, "outtype", "xml", "Tipo de output (xml ou json). Default: xml")
 	flag.StringVar(&outDir, "outdir", "", "Diretorio de saida")
+	flag.StringVar(&inputXlsCat, "xlsCat", "", "Arquivo Xls de categorias")
 	flag.Parse()
 	// test command line parameters
 	if inputXls == "" {
@@ -139,22 +143,46 @@ func main() {
 			return
 		}
 	}
+	if outType == "json" {
+		if inputXlsCat == "" {
+			success = exitWithError("arquivo XLS de categorias deve ser especificado na linha de comando", 1)
+			return
+		}
+
+	}
 	log(fmt.Sprintf("Planilha de entrada: [%s]", inputXls))
 	log(fmt.Sprintf("Arquivo config: [%s]", confFile))
 	log(fmt.Sprintf("Diretorio de saida: [%s]", outDir))
+	if outType == "json" {
+		log(fmt.Sprintf("Planilha de categorias: [%s]", inputXlsCat))
+	}
 	log("-------------------------")
 
 	// open input xls file and read main sheet
+	var lines []lineT
+
 	var spreadSheet *xlsx.Spreadsheet
 	if spreadSheet, err = xlsx.Open(inputXls); err != nil {
 		return
 	}
 	defer closeSheet(spreadSheet)
-	var lines []lineT
 	lines, err = readSheetByName(spreadSheet, "dados")
 	if err != nil {
 		success = 1
 		return
+	}
+	var linesCat []lineT
+	if outType == "json" {
+		var sheetCat *xlsx.Spreadsheet
+		if sheetCat, err = xlsx.Open(inputXlsCat); err != nil {
+			return
+		}
+		defer closeSheet(sheetCat)
+		linesCat, err = readSheetByName(sheetCat, "categories")
+		if err != nil {
+			success = 1
+			return
+		}
 	}
 	// read config file
 	var json map[string]interface{}
@@ -165,7 +193,7 @@ func main() {
 	// init option vars
 	initVars(json)
 	var errs []error
-	success, errs = processSpreadSheet(json, outType, spreadSheet, outDir, lines)
+	success, errs = processSpreadSheet(json, outType, spreadSheet, outDir, lines, linesCat)
 	if len(errs) > 0 {
 		for _, e := range errs {
 			logError(e)
@@ -183,9 +211,9 @@ func exitWithError(errMessage string, errCode int) int {
 	return errCode
 }
 
-func processSpreadSheet(json map[string]interface{}, outType string, f *xlsx.Spreadsheet, outDir string, lines []lineT) (success int, errs []error) {
-	filenameField, ok := options["options"]["filename_field"]
-	if !ok || filenameField == "" {
+func processSpreadSheet(json map[string]interface{}, outType string, f *xlsx.Spreadsheet, outDir string, lines []lineT, linesCat []lineT) (success int, errs []error) {
+	filenameField, okf := options["options"]["filename_field"]
+	if !okf || filenameField == "" {
 		return 2, []error{fmt.Errorf("ERRO ao procurar filename_field nas options [%#v]", options)}
 	}
 	nameField, okN := options["options"]["name_field"]
@@ -215,9 +243,7 @@ func processSpreadSheet(json map[string]interface{}, outType string, f *xlsx.Spr
 	var err error
 	if outType == "json" {
 		// Read categories sheet for Box format
-		if categLines, err = readSheetByName(f, "categories"); err != nil {
-			return -1, []error{err}
-		}
+		categLines = linesCat
 		if serieLines, err = readSheetByName(f, "series"); err != nil {
 			return -1, []error{err}
 		}
@@ -300,8 +326,20 @@ func processSpreadSheet(json map[string]interface{}, outType string, f *xlsx.Spr
 		dirSeries := path.Dir(wrSeries.Filename())
 		fileCateg := path.Join(dirCategs, "categories.json")
 		fileSeries := path.Join(dirSeries, "series.json")
-		os.Remove(fileCateg)
-		os.Remove(fileSeries)
+		if err = os.Remove(fileCateg); err != nil {
+			switch err.(type) {
+			case *os.PathError: // ok, file don't exist anyway
+			default:
+				return -1, []error{err}
+			}
+		}
+		if err = os.Remove(fileSeries); err != nil {
+			switch err.(type) {
+			case *os.PathError: // ok, file don't exist anyway
+			default:
+				return -1, []error{err}
+			}
+		}
 	}
 
 	if success == 0 {
@@ -324,8 +362,8 @@ func processSpreadSheet(json map[string]interface{}, outType string, f *xlsx.Spr
 			if !ok {
 				return -1, []error{fmt.Errorf("categ_season nao encontrada em options no config")}
 			}
-			categSeason, err := strconv.Atoi(catSeason)
-			if err != nil {
+			categSeason, errc := strconv.Atoi(catSeason)
+			if errc != nil {
 				return -1, []error{err}
 			}
 			suc, errors = processCategs(lines, wrCategs, wrSeries, idField, categFields, categSeason)
@@ -498,7 +536,10 @@ func readSheet(sheet xlsx.Sheet, header []string, idx int) ([]lineT, error) {
 			if err1 != nil || !strings.HasPrefix(header[c], "data") {
 				f, err2 := colCell.Float()
 				if err2 != nil || math.IsNaN(f) {
-					cellF = strings.TrimSpace(colCell.String())
+					st := colCell.String()
+					re := regexp.MustCompile(`\r?\n`)
+					st = re.ReplaceAllString(st, " ")
+					cellF = strings.TrimSpace(st)
 				} else {
 					if math.Ceil(f) == math.Floor(f) {
 						cellF = fmt.Sprintf("%d", int64(f))
@@ -610,8 +651,8 @@ func processMap(json jsonT, lines []lineT, wr writer) (err2 []error) {
 	commonAttrs, _ := json["common_attrs"].(map[string]interface{})
 	// Test if there is a filter expression
 	if filter, ok := json["filter"].(string); ok {
-		filter := strings.ToLower(filter)
-		filterOk, err := evalCondition(filter, &lines[0])
+		filter2 := strings.ToLower(filter)
+		filterOk, err := evalCondition(filter2, &lines[0])
 		if err != nil {
 			err2 = append(err2, err)
 			return

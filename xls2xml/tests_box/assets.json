@@ -2,2110 +2,68 @@
   "assets": [
     {
       "adult": false,
-      "available_from": 1614643200000,
+      "available_from": 1615248000000,
       "available_to": 2524521600000,
-      "duration": 11313043,
+      "duration": 5774025,
       "genres": [
-        "Drama",
-        "Aventura"
+        "Terror"
       ],
-      "id": "4c5b91ec-c45b-49d9-b9b0-dfd08775beda",
-      "images": [],
-      "medias": [
-        {
-          "audio_languages": [
-            "eng",
-            "por"
-          ],
-          "id": "4c5b91ec-c45b-49d9-b9b0-dfd08775beda_m",
-          "location": "green_mile_hd_eng_por_20.mp4",
-          "metadata": {},
-          "subtitles": [
-            {
-              "language": "por",
-              "location": "green_mile_hd_eng_por_20.srt"
-            }
-          ],
-          "technology": "MP4",
-          "title": "A Espera de um Milagre",
-          "type": "MEDIA"
-        }
-      ],
-      "metadata": {
-        "actors": [
-          "Tom Hanks",
-          "David Morse",
-          "Bonnie Hunt",
-          "Michael Clarke Duncan",
-          "James Cromwell",
-          "Michael Jeter",
-          "Graham Greene",
-          "Doug Hutchison",
-          "Sam Rockwell",
-          "Barry Pepper",
-          "Jeffrey DeMunn\nPatricia Clarkson",
-          "Harry Dean Stanton"
-        ],
-        "country": "USA",
-        "directors": [
-          "Frank Darabont"
-        ],
-        "release_year": "1999",
-        "rights": [],
-        "summary": [
-          "Milagres acontecem em lugares inesperados, mesmo no bloco de celas para o corredor da morte na Penitenciária Cold Mountain."
-        ],
-        "tvod_price": 7.9
-      },
-      "morality_level": 14,
-      "synopsis": {
-        "por": "Milagres acontecem em lugares inesperados, mesmo no bloco de celas para o corredor da morte na Penitenciária Cold Mountain. Lá, John Coffey, um gentil e gigante prisioneiro com poderes sobrenaturais, traz um senso de espírito e humanidade aos seus guardas e colegas de cela. Tom Hanks lidera um elenco estelar nesta emocionante e tocante história de guardas e prisioneiros; maridos e esposas; um inesquecível camundongo chamado Mr. Jingles; e um produtor a altura deste elenco."
-      },
-      "title": {
-        "por": "A Espera de um Milagre"
-      }
-    },
-    {
-      "adult": false,
-      "available_from": 1614643200000,
-      "available_to": 2524521600000,
-      "duration": 6370963,
-      "genres": [
-        "Comédia",
-        "Suspense"
-      ],
-      "id": "3d8a89d2-0bcc-4c94-a7c1-9a18502a193c",
-      "images": [],
-      "medias": [
-        {
-          "audio_languages": [
-            "eng",
-            "por"
-          ],
-          "id": "3d8a89d2-0bcc-4c94-a7c1-9a18502a193c_m",
-          "location": "gremlins_hd_eng_por_20.mp4",
-          "metadata": {},
-          "subtitles": [
-            {
-              "language": "por",
-              "location": "gremlins_hd_eng_por_20.srt"
-            }
-          ],
-          "technology": "MP4",
-          "title": "Gremlins",
-          "type": "MEDIA"
-        }
-      ],
-      "metadata": {
-        "actors": [
-          "Zach Galligan",
-          "Phoebe Cates",
-          "Hoyt Axton",
-          "Polly Holliday",
-          "Frances Lee McCain",
-          "Judge Reinhold",
-          "Dick Miller",
-          "Glynn Turman",
-          "Keye Luke",
-          "Scott Brady",
-          "Corey Feldman",
-          "Jonathan Banks",
-          "Edward Andrews"
-        ],
-        "country": "USA",
-        "directors": [
-          "Joe Dante"
-        ],
-        "release_year": "1984",
-        "rights": [],
-        "summary": [
-          "Uma cidade pequena é invadida por criaturinhas peludas e não tão bonitas depois que um jovem ignora os avisos de um senhor sábio sobre como cuidar deles e alimentá-los."
-        ],
-        "tvod_price": 7.9
-      },
-      "morality_level": 0,
-      "synopsis": {
-        "por": "Rand Peltzer (Hoyt Axton) é um \"inventor\" que, ao tentar dar um presente natalino único para seu filho, Billy Peltzer (Zach Galligan), compra em Chinatown um Mogwai, um ser aparentemente gracioso. Mas o dono, um velho chinês, não queria vendê-lo por dinheiro nenhum, pois ter um Mogwai envolve muitas responsabilidades. Entretanto, o neto do ancião o vende por duzentos dólares e diz as regras essências para ter um Mogwai: nunca colocá-lo diante de uma luz forte e muito menos na luz solar, que pode matá-lo; nunca molhá-lo e, a regra principal, nunca o alimente após a meia-noite, mesmo que ele chore ou implore. Rand ouve o aviso sem dar a devida importância e leva o Mogwai para sua casa em Kingston Falls, uma pequena cidade. Paralelamente, Billy trabalha como caixa de banco e sofre com as exigências de Ruby Deagle (Polly Holiday), uma cliente igualmente rica e antipática."
-      },
-      "title": {
-        "por": "Gremlins"
-      }
-    },
-    {
-      "adult": false,
-      "available_from": 1614643200000,
-      "available_to": 2524521600000,
-      "duration": 6103987,
-      "genres": [
-        "Comédia"
-      ],
-      "id": "17343e9a-ee0b-4167-bbb9-372cee82b823",
-      "images": [],
-      "medias": [
-        {
-          "audio_languages": [
-            "eng",
-            "por"
-          ],
-          "id": "17343e9a-ee0b-4167-bbb9-372cee82b823_m",
-          "location": "hangover_2_hd_eng_por_20.mp4",
-          "metadata": {},
-          "subtitles": [
-            {
-              "language": "por",
-              "location": "hangover_2_hd_eng_por_20.srt"
-            }
-          ],
-          "technology": "MP4",
-          "title": "Se Beber, Não Case! Parte II",
-          "type": "MEDIA"
-        }
-      ],
-      "metadata": {
-        "actors": [
-          "Bradley Cooper",
-          "Ed Helms",
-          "Zach Galifianakis",
-          "Ken Jeong",
-          "Jeffrey Tambor",
-          "Jamie Chung",
-          "Mason Lee",
-          "Mike Tyson",
-          "Crystal",
-          "Justin Bartha",
-          "Paul Giamatti"
-        ],
-        "country": "USA",
-        "directors": [
-          "Todd Phillips"
-        ],
-        "release_year": "2011",
-        "rights": [],
-        "summary": [
-          "Depois de uma farra inesquecível em Las Vegas, Phil,Stu,Alan,e Doug seguiram com sua vidas. Mas o bom e velho Stu está disposto a se casar novamente…"
-        ],
-        "tvod_price": 7.9
-      },
-      "morality_level": 16,
-      "synopsis": {
-        "por": "Depois de uma farra inesquecível em Las Vegas, Phil,Stu,Alan,e Doug seguiram com sua vidas. Mas o bom e velho Stu está disposto a se casar novamente…"
-      },
-      "title": {
-        "por": "Se Beber, Não Case! Parte II"
-      }
-    },
-    {
-      "adult": false,
-      "available_from": 1614643200000,
-      "available_to": 2524521600000,
-      "duration": 5964969,
-      "genres": [
-        "Musical",
-        "Romance"
-      ],
-      "id": "4b54448a-4d60-467e-ba45-d13ba4080278",
-      "images": [],
-      "medias": [
-        {
-          "audio_languages": [
-            "eng",
-            "por"
-          ],
-          "id": "4b54448a-4d60-467e-ba45-d13ba4080278_m",
-          "location": "happy_feet_2_hd_eng_por_20.mp4",
-          "metadata": {},
-          "subtitles": [
-            {
-              "language": "por",
-              "location": "happy_feet_2_hd_eng_por_20.srt"
-            }
-          ],
-          "technology": "MP4",
-          "title": "Happy Feet 2",
-          "type": "MEDIA"
-        }
-      ],
-      "metadata": {
-        "actors": [
-          "Elijah Wood",
-          "Robin Williams",
-          "Hank Azaria",
-          "Alecia \"P!nk\" Moore",
-          "Brad Pitt",
-          "Matt Damon",
-          "Sofía Vergara",
-          "Common",
-          "Hugo Weaving",
-          "Richard Carter",
-          "Magda Szubanski",
-          "Anthony LaPaglia",
-          "Benjamin \"Lil P-Nut\" Flores Jr."
-        ],
-        "country": "USA",
-        "directors": [
-          "George Miller"
-        ],
-        "release_year": "2011",
-        "rights": [],
-        "summary": [
-          "Mano é um especialista do sapateado, mas agora ele cresceu e enfrenta problemas com o filho Erik, um filhote de pinguim Imperador pra lá de fofinho e muito questionador."
-        ],
-        "tvod_price": 7.9
-      },
-      "morality_level": 0,
-      "synopsis": {
-        "por": "Mano é um especialista do sapateado, mas agora ele cresceu e enfrenta problemas com o filho Erik, um filhote de pinguim Imperador pra lá de fofinho e muito questionador. Estimulado por Ramon, um pinguim adulto amigo da família, ele acaba conhecendo o idolatrado Sven, que defende a ideia de que basta desejar para resolver os problemas, mas uma grande ameaça nunca antes imaginada coloca a vida de todos em perigo e eles precisarão de muito mais do que a força do pensamento para sobreviver."
-      },
-      "title": {
-        "por": "Happy Feet 2"
-      }
-    },
-    {
-      "adult": false,
-      "available_from": 1614643200000,
-      "available_to": 2524521600000,
-      "duration": 9136972,
-      "genres": [
-        "Fantasia",
-        "Ação"
-      ],
-      "id": "e058c0c6-42f6-4a0d-840e-b5a3fecdc10f",
-      "images": [],
-      "medias": [
-        {
-          "audio_languages": [
-            "eng",
-            "por"
-          ],
-          "id": "e058c0c6-42f6-4a0d-840e-b5a3fecdc10f_m",
-          "location": "harry_potter_1_philosophers_stone_hd_eng_por_20.mp4",
-          "metadata": {},
-          "subtitles": [
-            {
-              "language": "por",
-              "location": "harry_potter_1_philosophers_stone_hd_eng_por_20.srt"
-            }
-          ],
-          "technology": "MP4",
-          "title": "HP1 e a Pedra Filosofal",
-          "type": "MEDIA"
-        }
-      ],
-      "metadata": {
-        "actors": [
-          "Daniel Radcliffe",
-          "Rupert Grint",
-          "Emma Watson",
-          "John Cleese",
-          "Robbie Coltrane",
-          "Warwick Davis",
-          "Richard Griffiths",
-          "Richard Harris",
-          "Ian Hart",
-          "John Hurt",
-          "Alan Rickman",
-          "Fiona Shaw",
-          "Dame Maggie Smith",
-          "Julie Walters"
-        ],
-        "country": "USA",
-        "directors": [
-          "Chris Columbus"
-        ],
-        "release_year": "2001",
-        "rights": [],
-        "summary": [
-          "Harry Potter é um garoto órfão que vive infeliz com seus tios, os Dursley. Em seu aniversário de 11 anos ele recebe uma carta que mudará sua vida: um convite para ingressar em Hogwarts."
-        ],
-        "tvod_price": 7.9
-      },
-      "morality_level": 0,
-      "synopsis": {
-        "por": "Harry Potter (Daniel Radcliffe) é um garoto órfão que vive infeliz com seus tios, os Dursley. Em seu aniversário de 11 anos ele recebe uma carta que mudará sua vida: um convite para ingressar em Hogwarts - famosa escola especializada em formar jovens bruxos. Seus tios não querem nem ouvir falar no assunto, mas a visita de Hagrid (Robbie Coltrane), o guarda-caça de Hogwarts, transforma a vida de Harry para sempre. A partir de então o pequeno bruxo conhece um mundo mágico que jamais sonhara, e vive as mais incríveis aventuras ao lado dos novos amigos, Rony Weasley (Rupert Grint) e Hermione Granger (Emma Watson)."
-      },
-      "title": {
-        "por": "HP1 e a Pedra Filosofal"
-      }
-    },
-    {
-      "adult": false,
-      "available_from": 1614643200000,
-      "available_to": 2524521600000,
-      "duration": 8760009,
-      "genres": [
-        "Fantasia",
-        "Mistério"
-      ],
-      "id": "fe9d7f55-d23a-4be6-b9c4-3aa639a2cf95",
-      "images": [],
-      "medias": [
-        {
-          "audio_languages": [
-            "eng",
-            "por"
-          ],
-          "id": "fe9d7f55-d23a-4be6-b9c4-3aa639a2cf95_m",
-          "location": "harry_potter_and_the_deathly_hallows_part_1_hd_eng_por_20.mp4",
-          "metadata": {},
-          "subtitles": [
-            {
-              "language": "por",
-              "location": "harry_potter_and_the_deathly_hallows_part_1_hd_eng_por_20.srt"
-            }
-          ],
-          "technology": "MP4",
-          "title": "HP7 e as Reliquias da Morte - Parte 1",
-          "type": "MEDIA"
-        }
-      ],
-      "metadata": {
-        "actors": [
-          "Daniel Radcliffe",
-          "Rupert Grint",
-          "Emma Watson",
-          "Helena Bonham Carter",
-          "Robbie Coltrane",
-          "Warwick Davis",
-          "Ralph Fiennes",
-          "Michael Gambon",
-          "Brendan Gleeson",
-          "Richard Griffiths",
-          "John Hurt",
-          "Jason Isaacs",
-          "Alan Rickman",
-          "Fiona Shaw",
-          "Timothy Spall",
-          "Imelda Staunton",
-          "David Thewlis",
-          "Julie Walters",
-          "Rhys Ifans",
-          "Bill Nighy",
-          "Mark Williams",
-          "Tom Felton",
-          "Toby Jones",
-          "Bonnie Wright",
-          "James Phelps",
-          "Oliver Phelps",
-          "Evanna Lynch"
-        ],
-        "country": "USA",
-        "directors": [
-          "David Yates"
-        ],
-        "release_year": "2010",
-        "rights": [],
-        "summary": [
-          "Harry foi sobrecarregado com uma tarefa sombria, perigosa e aparentemente impossível: localizar e destruir as Horcruxes restantes de Voldemort."
-        ],
-        "tvod_price": 7.9
-      },
-      "morality_level": 12,
-      "synopsis": {
-        "por": "Harry foi sobrecarregado com uma tarefa sombria, perigosa e aparentemente impossível: localizar e destruir as Horcruxes restantes de Voldemort. Harry nunca se sentiu tão solitário, ou encarou um futuro tão cheio de escuridão. Mas Harry deve, de alguma forma, encontrar dentro de si a força para completar a tarefa a qual lhe foi dada. Ele tem que deixar o aconchego, segurança e companhia da Toca e seguir sem medo ou hesitação o caminho inexorável que o aguarda."
-      },
-      "title": {
-        "por": "HP7 e as Reliquias da Morte - Parte 1"
-      }
-    },
-    {
-      "adult": false,
-      "available_from": 1614643200000,
-      "available_to": 2524521600000,
-      "duration": 7821964,
-      "genres": [
-        "Fantasia",
-        "Mistério"
-      ],
-      "id": "2664fb3f-e6d7-477d-9681-ebfac6eb42ed",
-      "images": [],
-      "medias": [
-        {
-          "audio_languages": [
-            "eng",
-            "por"
-          ],
-          "id": "2664fb3f-e6d7-477d-9681-ebfac6eb42ed_m",
-          "location": "harry_potter_and_the_deathly_hallows_part_2_hd_eng_por_20.mp4",
-          "metadata": {},
-          "subtitles": [
-            {
-              "language": "por",
-              "location": "harry_potter_and_the_deathly_hallows_part_2_hd_eng_por_20.srt"
-            }
-          ],
-          "technology": "MP4",
-          "title": "HP7 e as Reliquias da Morte - Parte 2",
-          "type": "MEDIA"
-        }
-      ],
-      "metadata": {
-        "actors": [
-          "Daniel Radcliffe",
-          "Rupert Grint",
-          "Emma Watson",
-          "Helena Bonham Carter",
-          "Robbie Coltrane",
-          "Warwick Davis",
-          "Ralph Fiennes",
-          "Michael Gambon",
-          "John Hurt",
-          "Jason Isaacs",
-          "Gary Oldman",
-          "Alan Rickman",
-          "Dame Maggie Smith",
-          "David Thewlis",
-          "Julie Walters",
-          "Ciarán Hinds",
-          "Helen McCrory",
-          "Tom Felton",
-          "Matthew Lewis",
-          "Evanna Lynch",
-          "Bonnie Wright"
-        ],
-        "country": "USA",
-        "directors": [
-          "David Yates"
-        ],
-        "release_year": "2011",
-        "rights": [],
-        "summary": [
-          "No final épico, a batalha entre as forças do bem e do mal no mundo da bruxaria toma proporções de uma guerra mundial."
-        ],
-        "tvod_price": 7.9
-      },
-      "morality_level": 12,
-      "synopsis": {
-        "por": "No final épico, a batalha entre as forças do bem e do mal no mundo da bruxaria toma proporções de uma guerra mundial. As apostas nunca foram tão altas e ninguém está a salvo. Mas é Harry que pode ser convocado para fazer um derradeiro sacrifício, à medida que ele se aproxima cada vez mais do confronto final com Lorde Voldemort. Tudo termina aqui."
-      },
-      "title": {
-        "por": "HP7 e as Reliquias da Morte - Parte 2"
-      }
-    },
-    {
-      "adult": false,
-      "available_from": 1614643200000,
-      "available_to": 2524521600000,
-      "duration": 9422006,
-      "genres": [
-        "Fantasia",
-        "Aventura"
-      ],
-      "id": "099d00b2-5c49-49fe-9cfc-aa463a58c392",
-      "images": [],
-      "medias": [
-        {
-          "audio_languages": [
-            "eng",
-            "por"
-          ],
-          "id": "099d00b2-5c49-49fe-9cfc-aa463a58c392_m",
-          "location": "harry_potter_and_the_goblet_of_fire_hd_eng_por_20.mp4",
-          "metadata": {},
-          "subtitles": [
-            {
-              "language": "por",
-              "location": "harry_potter_and_the_goblet_of_fire_hd_eng_por_20.srt"
-            }
-          ],
-          "technology": "MP4",
-          "title": "HP4 e o Cálice de Fogo",
-          "type": "MEDIA"
-        }
-      ],
-      "metadata": {
-        "actors": [
-          "Daniel Radcliffe",
-          "Rupert Grint",
-          "Emma Watson",
-          "Robbie Coltrane",
-          "Ralph Fiennes",
-          "Michael Gambon",
-          "Brendan Gleeson",
-          "Jason Isaacs",
-          "Gary Oldman",
-          "Alan Rickman",
-          "Dame Maggie Smith",
-          "Timothy Spall",
-          "Robert Pattinson"
-        ],
-        "country": "USA",
-        "directors": [
-          "Mike Newell"
-        ],
-        "release_year": "2005",
-        "rights": [],
-        "summary": [
-          "Com o início das aulas, Harry sai da casa dos tios e encontra os amigos Ronny e Hermione para ver a Copa Mundial de Quadribol."
-        ],
-        "tvod_price": 7.9
-      },
-      "morality_level": 10,
-      "synopsis": {
-        "por": "Com o início das aulas, Harry sai da casa dos tios e encontra os amigos Ronny e Hermione para ver a Copa Mundial de Quadribol. Em Hogwarts, as tradicionais casas recebem mais duas competidoras: a Beauxbaton e a Durmstrang. Mas agora o desafio é diferente; e pior, por causa da idade Harry é proibido de competir mas acaba envolvido num mistrioso evento chamado de Torneio Tribruxo."
-      },
-      "title": {
-        "por": "HP4 e o Cálice de Fogo"
-      }
-    },
-    {
-      "adult": false,
-      "available_from": 1614643200000,
-      "available_to": 2524521600000,
-      "duration": 10139039,
-      "genres": [
-        "Ação",
-        "Ficção Científica"
-      ],
-      "id": "914f574d-5d8c-4733-b257-6e6901b2ddfa",
-      "images": [],
-      "medias": [
-        {
-          "audio_languages": [
-            "eng",
-            "por"
-          ],
-          "id": "914f574d-5d8c-4733-b257-6e6901b2ddfa_m",
-          "location": "interstellar_hd_eng_por_20.mp4",
-          "metadata": {},
-          "subtitles": [
-            {
-              "language": "por",
-              "location": "interstellar_hd_eng_por_20.srt"
-            }
-          ],
-          "technology": "MP4",
-          "title": "Interestelar",
-          "type": "MEDIA"
-        }
-      ],
-      "metadata": {
-        "actors": [
-          "Matthew McConaughey",
-          "Anne Hathaway",
-          "Jessica Chastain",
-          "Bill Irwin",
-          "Ellen Burstyn",
-          "Michael Caine"
-        ],
-        "country": "USA",
-        "directors": [
-          "Christopher Nolan"
-        ],
-        "release_year": "2014",
-        "rights": [],
-        "summary": [
-          "Uma equipe de exploradores viaja para além desta galáxia em um novo túnel espacial para descobrir se a humanidade tem algum futuro entre as estrelas."
-        ],
-        "tvod_price": 7.9
-      },
-      "morality_level": 10,
-      "synopsis": {
-        "por": "Com nosso tempo na Terra chegando ao fim, uma equipe de exploradores realiza a missão mais importante da história humana: viajar para além desta galáxia para descobrir se a humanidade tem algum futuro entre as estrelas. Do aclamado diretor Christopher Nolan (filmes 'The Dark Knight', 'Inception'), os astros 'inter-estrelares' vencedores do Oscar Matthew McConaughey ('Dallas Buyers Club') e Anna Hathway ('Les Misérables'), a nomeada para o Oscar Jessica Chastain ('Zero Dark Thirty'), Bill Irwin ('Rachel Getting Married'), a vencedora do Oscar Ellen Burstyn ('Alice Doesn't Live Here Anymore') e o vencedor do Oscar Michael Caine ('The Cider House Rules'). O elenco principal também inclui Wes Bentley, Casey Affleck, David Gyasi, Machenzie Foy e Topher Grace."
-      },
-      "title": {
-        "por": "Interestelar"
-      }
-    },
-    {
-      "adult": false,
-      "available_from": 1614643200000,
-      "available_to": 2524521600000,
-      "duration": 5192035,
-      "genres": [
-        "Fantasia",
-        "Ficção Científica"
-      ],
-      "id": "6dad67c5-9d1d-4efd-b998-4a6a0c4474d7",
-      "images": [],
-      "medias": [
-        {
-          "audio_languages": [
-            "eng",
-            "por"
-          ],
-          "id": "6dad67c5-9d1d-4efd-b998-4a6a0c4474d7_m",
-          "location": "irongiant_hd_eng_por_20.mp4",
-          "metadata": {},
-          "subtitles": [
-            {
-              "language": "por",
-              "location": "irongiant_hd_eng_por_20.srt"
-            }
-          ],
-          "technology": "MP4",
-          "title": "O Gigante de Ferro",
-          "type": "MEDIA"
-        }
-      ],
-      "metadata": {
-        "actors": [
-          "Jennifer Aniston",
-          "Harry Connick",
-          "Jr.",
-          "Vin Diesel",
-          "James Gammon",
-          "Cloris Leachman",
-          "Christopher McDonald",
-          "John Mahoney",
-          "Eli Marienthal",
-          "M. Emmet Walsh"
-        ],
-        "country": "USA",
-        "directors": [
-          "Brad Bird"
-        ],
-        "release_year": "1999",
-        "rights": [],
-        "summary": [
-          "Algo enorme está no horizonte. Hogarth Hughes há pouco salvou um robô que caiu das estrela na Terra."
-        ],
-        "tvod_price": 7.9
-      },
-      "morality_level": 0,
-      "synopsis": {
-        "por": "Algo enorme está no horizonte. Hogarth Hughes há pouco salvou um robô que caiu das estrela na Terra. Agora o jovem Hogarth tem um amigo muito grande e um problema maior: Como manter em segredo um gigante de ferro de apetite enorme por carros de ferro-velhos? E tudo piora com a chegada de um curioso agente do governo para caçar o invasor, aliado ao exército Americano que vem demolir o gigante. Resultado: uma incrível aventura que é a parte de metal, parte de magia e toda coração."
-      },
-      "title": {
-        "por": "O Gigante de Ferro"
-      }
-    },
-    {
-      "adult": false,
-      "available_from": 1614643200000,
-      "available_to": 2524521600000,
-      "duration": 6844003,
-      "genres": [
-        "Ação",
-        "Fantasia"
-      ],
-      "id": "0242fceb-f296-497d-87cd-cde44b433294",
-      "images": [],
-      "medias": [
-        {
-          "audio_languages": [
-            "eng",
-            "por"
-          ],
-          "id": "0242fceb-f296-497d-87cd-cde44b433294_m",
-          "location": "jack_giant_slayer_hd_eng_por_20.mp4",
-          "metadata": {},
-          "subtitles": [
-            {
-              "language": "por",
-              "location": "jack_giant_slayer_hd_eng_por_20.srt"
-            }
-          ],
-          "technology": "MP4",
-          "title": "Jack, O Caçador de Gigantes",
-          "type": "MEDIA"
-        }
-      ],
-      "metadata": {
-        "actors": [
-          "Nicholas Hoult",
-          "Eleanor Tomlinson",
-          "Stanley Tucci",
-          "Ian McShane",
-          "Bill Nighy",
-          "Mary Astor"
-        ],
-        "country": "USA",
-        "directors": [
-          "Bryan Singer"
-        ],
-        "release_year": "2013",
-        "rights": [],
-        "summary": [
-          "A trama retrata uma antiga guerra que se reascendeu após um jovem lavrador abrir sem querer um portal entre o nosso mundo e o de uma terrível raça de gigantes."
-        ],
-        "tvod_price": 7.9
-      },
-      "morality_level": 12,
-      "synopsis": {
-        "por": "A trama retrata uma antiga guerra que se reascendeu após um jovem lavrador abrir sem querer um portal entre o nosso mundo e o de uma terrível raça de gigantes. Soltos na Terra pela primeira vez em séculos, os gigantes que estavam banidos há tanto tempo começam a lutar pela terra que perderam, colocando o jovem Jack (Nicholas Hoult) na batalha de sua vida na tentativa de impedi-los. Lutando por seu reino, seu povo e pelo amor de uma valente princesa, ele enfrenta esses incansáveis guerreiros dos quais só ouvira falar em lendas... e então tem a chance de também se tornar uma lenda."
-      },
-      "title": {
-        "por": "Jack, O Caçador de Gigantes"
-      }
-    },
-    {
-      "adult": false,
-      "available_from": 1614643200000,
-      "available_to": 2524521600000,
-      "duration": 5405961,
-      "genres": [
-        "Aventura",
-        "Ação"
-      ],
-      "id": "952596ed-6509-4c68-8ac4-3e8d84c1c6e8",
-      "images": [],
-      "medias": [
-        {
-          "audio_languages": [
-            "eng",
-            "por"
-          ],
-          "id": "952596ed-6509-4c68-8ac4-3e8d84c1c6e8_m",
-          "location": "jl_dark_apokolips_war_2_hd_eng_por_20.mp4",
-          "metadata": {},
-          "subtitles": [
-            {
-              "language": "por",
-              "location": "jl_dark_apokolips_war_2_hd_eng_por_20.srt"
-            }
-          ],
-          "technology": "MP4",
-          "title": "Liga da Justiça Sombria: Guerra de Apokolips",
-          "type": "MEDIA"
-        }
-      ],
-      "metadata": {
-        "actors": [
-          "Roger R. Cross",
-          "Rosario Dawson",
-          "Christopher Gorham",
-          "Camilla Luddington",
-          "Shemar Moore",
-          "Jerry O'Connell",
-          "Jason O'Mara",
-          "Matt Ryan",
-          "Sachie Alessio",
-          "Stuart Allan",
-          "Ray Chase",
-          "John DiMaggio",
-          "Taissa Farmiga",
-          "Liam McIntyre",
-          "Tony Todd",
-          "Rebecca Romijn",
-          "Hynden Walch",
-          "Rainn Wilson"
-        ],
-        "country": "USA",
-        "directors": [
-          "Matt Peters"
-        ],
-        "release_year": "2020",
-        "rights": [],
-        "summary": [
-          "Testemunhe a batalha mais chocante do Universo da DC, onde a própria sobrevivência é uma vitória."
-        ],
-        "tvod_price": 7.9
-      },
-      "morality_level": 14,
-      "synopsis": {
-        "por": "A Liga da Justiça sempre foi a primeira e última defesa da Terra, mas com a chegada iminente de Darkseid e os horrores da guerra que ele trará, tudo está para mudar! Com o tempo se esgotando, a Liga da Justiça precisará, como nunca antes, de todos os seus integrantes e poderes. Mas mesmo os mais poderosos super-heróis do mundo, incluindo o novo membro, John Constantine, poderão não ter chance contra as legiões de Darkseid. Testemunhe a batalha mais chocante do Universo DC, onde a sobrevivência em si já é uma vitória."
-      },
-      "title": {
-        "por": "Liga da Justiça Sombria: Guerra de Apokolips"
-      }
-    },
-    {
-      "adult": false,
-      "available_from": 1614643200000,
-      "available_to": 2524521600000,
-      "duration": 5645980,
-      "genres": [
-        "Ação",
-        "Aventura"
-      ],
-      "id": "499db338-b332-44cd-aef0-f1a82bb865d9",
-      "images": [],
-      "medias": [
-        {
-          "audio_languages": [
-            "eng",
-            "por"
-          ],
-          "id": "499db338-b332-44cd-aef0-f1a82bb865d9_m",
-          "location": "journey_2_mysterious_island_hd_eng_por_20.mp4",
-          "metadata": {},
-          "subtitles": [
-            {
-              "language": "por",
-              "location": "journey_2_mysterious_island_hd_eng_por_20.srt"
-            }
-          ],
-          "technology": "MP4",
-          "title": "Viagem 2: A Ilha Misteriosa",
-          "type": "MEDIA"
-        }
-      ],
-      "metadata": {
-        "actors": [
-          "Dwayne \"The Rock\" Johnson",
-          "Michael Caine",
-          "Josh Hutcherson",
-          "Vanessa Hudgens",
-          "Luis Guzmán",
-          "Kristin Davis"
-        ],
-        "country": "USA",
-        "directors": [
-          "Brad Peyton"
-        ],
-        "release_year": "2011",
-        "rights": [],
-        "summary": [
-          "Sean Anderson descobre uma misteriosa mensagem de rádio, que ele acredita tenha sido enviada por seu avô desaparecido há dois anos."
-        ],
-        "tvod_price": 7.9
-      },
-      "morality_level": 0,
-      "synopsis": {
-        "por": "Sean Anderson descobre uma misteriosa mensagem de rádio, que ele acredita tenha sido enviada por seu avô desaparecido há dois anos. Ele não gosta muito de seu padrasto Hank Parsons, mas o cara consegue ajudá-lo a decifrar os códigos do texto e juntos eles descobrem o paradeiro do coroa aventureiro numa ilha misteriosa, difundida pelo escritor Julio Verne, entre outros. Para chegar lá, a dupla contrata o piloto de helicóptero Gabato e sua filha Kailani, mas muitos perigos aguardam os viajantes e sobreviver implicará numa série de incríveis aventuras."
-      },
-      "title": {
-        "por": "Viagem 2: A Ilha Misteriosa"
-      }
-    },
-    {
-      "adult": false,
-      "available_from": 1614643200000,
-      "available_to": 2524521600000,
-      "duration": 5549990,
-      "genres": [
-        "Ação",
-        "Aventura"
-      ],
-      "id": "a32b0cea-0f20-4f6e-95cc-896a45ab3df6",
-      "images": [],
-      "medias": [
-        {
-          "audio_languages": [
-            "eng",
-            "por"
-          ],
-          "id": "a32b0cea-0f20-4f6e-95cc-896a45ab3df6_m",
-          "location": "journey_center_of_the_earth_hd_eng_por_20.mp4",
-          "metadata": {},
-          "subtitles": [
-            {
-              "language": "por",
-              "location": "journey_center_of_the_earth_hd_eng_por_20.srt"
-            }
-          ],
-          "technology": "MP4",
-          "title": "Viagem ao Centro da Terra: O Filme",
-          "type": "MEDIA"
-        }
-      ],
-      "metadata": {
-        "actors": [
-          "Brendan Fraser",
-          "Josh Hutcherson",
-          "Anita Briem"
-        ],
-        "country": "USA",
-        "directors": [
-          "Eric Brevig"
-        ],
-        "release_year": "2008",
-        "rights": [],
-        "summary": [
-          "A obra genial de Jules Verne é ambientada para os dias modernos, com efeitos CGI de ultima geração num filme com cenas de ação de tirar o fôlego."
-        ],
-        "tvod_price": 7.9
-      },
-      "morality_level": 14,
-      "synopsis": {
-        "por": "A obra genial de Jules Verne é ambientada para os dias modernos, com efeitos CGI de ultima geração num filme com cenas de ação de tirar o fôlego. Nesta nova versão, um grupo de pessoas, por engano, é teletransportado para o centro da terra, onde encontram criaturas gigantescas jamais vistas. Uma equipe de resgate é enviada para salvá-los, enfrentando perigos mortais."
-      },
-      "title": {
-        "por": "Viagem ao Centro da Terra: O Filme"
-      }
-    },
-    {
-      "adult": false,
-      "available_from": 1614643200000,
-      "available_to": 2524521600000,
-      "duration": 7199020,
-      "genres": [
-        "Ação",
-        "Aventura"
-      ],
-      "id": "ea42ee15-be76-46a2-9787-f6ce26408589",
-      "images": [],
-      "medias": [
-        {
-          "audio_languages": [
-            "eng",
-            "por"
-          ],
-          "id": "ea42ee15-be76-46a2-9787-f6ce26408589_m",
-          "location": "justice_league_hd_eng_por_20.mp4",
-          "metadata": {},
-          "subtitles": [
-            {
-              "language": "por",
-              "location": "justice_league_hd_eng_por_20.srt"
-            }
-          ],
-          "technology": "MP4",
-          "title": "Liga da Justiça",
-          "type": "MEDIA"
-        }
-      ],
-      "metadata": {
-        "actors": [
-          "Ben Affleck",
-          "Henry Cavill",
-          "Amy Adams",
-          "Gal Gadot",
-          "Jason Momoa",
-          "Ezra Miller",
-          "Raymond Fisher",
-          "Jesse Eisenberg",
-          "Jeremy Irons",
-          "Diane Lane",
-          "Connie Nielsen",
-          "J.K. Simmons"
-        ],
-        "country": "USA",
-        "directors": [
-          "Zack Snyder"
-        ],
-        "release_year": "2017",
-        "rights": [],
-        "summary": [
-          "Impulsionados pela sua fé na humanidade e inspirados pelo altruísmo do Superman, Batman e Mulher-Maravilha recrutam uma equipe de meta-humanos a fim de enfrentarem uma ameaça recém-despertada."
-        ],
-        "tvod_price": 7.9
-      },
-      "morality_level": 12,
-      "synopsis": {
-        "por": "Impulsionados pela sua fé na humanidade e inspirados pelo altruísmo do Superman, Bruce Wayne solicita a ajuda de sua nova aliada, Diana Prince, para enfrentar um inimigo ainda maior. Juntos, Batman e Mulher-Maravilha trabalham rapidamente para encontrar e recrutar uma equipe de meta-humanos a fim de enfrentarem essa ameaça recém-despertada. Porém, apesar da formação dessa liga de heróis sem precedentes — Batman, Mulher-Maravilha, Aquaman, Ciborgue e o Flash — talvez seja tarde demais para salvar o planeta de um ataque de proporções catastróficas."
-      },
-      "title": {
-        "por": "Liga da Justiça"
-      }
-    },
-    {
-      "adult": false,
-      "available_from": 1614643200000,
-      "available_to": 2524521600000,
-      "duration": 7570022,
-      "genres": [
-        "Ação",
-        "Aventura"
-      ],
-      "id": "40c1a727-2d14-4730-95f7-ee87da68b630",
-      "images": [],
-      "medias": [
-        {
-          "audio_languages": [
-            "eng",
-            "por"
-          ],
-          "id": "40c1a727-2d14-4730-95f7-ee87da68b630_m",
-          "location": "king_arthur_legend_sword_hd_eng_por_20.mp4",
-          "metadata": {},
-          "subtitles": [
-            {
-              "language": "por",
-              "location": "king_arthur_legend_sword_hd_eng_por_20.srt"
-            }
-          ],
-          "technology": "MP4",
-          "title": "Rei Arthur: A Lenda da Espada",
-          "type": "MEDIA"
-        }
-      ],
-      "metadata": {
-        "actors": [
-          "Charlie Hunnam",
-          "Astrid Bergès-Frisbey",
-          "Djimon Hounsou",
-          "Aidan Gillen",
-          "Jude Law",
-          "Eric Bana",
-          "Annabelle Wallis"
-        ],
-        "country": "USA",
-        "directors": [
-          "Guy Ritchie"
-        ],
-        "release_year": "2017",
-        "rights": [],
-        "summary": [
-          "Despojado de seus direitos natos, Arthur trilha um caminho árduo na volta às ruas da cidade. Mas ao remover a espada da pedra, ele deverá conhecer seu verdadeiro legado... Goste ou não."
-        ],
-        "tvod_price": 7.9
-      },
-      "morality_level": 14,
-      "synopsis": {
-        "por": "O aclamado diretor Guy Ritchie apresenta em seu estilo único a história por trás do mito de Excalibur que mostra a trajetória de Arthur das ruas até o trono. Quando seu pai é assassinado e seu tio recebe a coroa, Arthur vê seu direito de se tornar rei cerceado e terá de crescer do modo difícil nos becos da cidade. Mas a partir do momento em que ele tira a espada da pedra, sua vida fica de cabeça para baixo e ele precisará compreender seu verdadeiro legado."
-      },
-      "title": {
-        "por": "Rei Arthur: A Lenda da Espada"
-      }
-    },
-    {
-      "adult": false,
-      "available_from": 1614643200000,
-      "available_to": 2524521600000,
-      "duration": 7098969,
-      "genres": [
-        "Ação",
-        "Aventura"
-      ],
-      "id": "bc9bed19-1858-4cd8-8b97-ca9e1d6bfe9b",
-      "images": [],
-      "medias": [
-        {
-          "audio_languages": [
-            "eng",
-            "por"
-          ],
-          "id": "bc9bed19-1858-4cd8-8b97-ca9e1d6bfe9b_m",
-          "location": "kong_skull_island_hd_eng_por_20.mp4",
-          "metadata": {},
-          "subtitles": [
-            {
-              "language": "por",
-              "location": "kong_skull_island_hd_eng_por_20.srt"
-            }
-          ],
-          "technology": "MP4",
-          "title": "Kong: A Ilha da Caveira",
-          "type": "MEDIA"
-        }
-      ],
-      "metadata": {
-        "actors": [
-          "Tom Hiddleston",
-          "Samuel L. Jackson",
-          "John Goodman",
-          "Brie Larson",
-          "Tian Jing",
-          "Toby Kebbell",
-          "John Ortiz",
-          "Corey Hawkins",
-          "Jason Mitchell",
-          "Shea Whigham",
-          "Thomas Mann",
-          "Terry Notary",
-          "Eugene Cordero",
-          "John C. Reilly"
-        ],
-        "country": "USA",
-        "directors": [
-          "Jordan Vogt-Roberts"
-        ],
-        "release_year": "2017",
-        "rights": [],
-        "summary": [
-          "Quando uma expedição científica até uma ilha desconhecida desperta forças titânicas da natureza, uma missão de descoberta transforma-se em uma guerra explosiva entre bestas e homens."
-        ],
-        "tvod_price": 7.9
-      },
-      "morality_level": 12,
-      "synopsis": {
-        "por": "Quando uma expedição científica até uma ilha desconhecida desperta forças titânicas da natureza, uma missão de descoberta acaba por se transformar em uma guerra explosiva entre bestas e homens. Tom Hiddleston, Samuel L. Jackson, Brie Larson, John Goodman e John C. Reilly participam de uma aventura original e emocionante que revela a história inédita de como Kong se tornou King."
-      },
-      "title": {
-        "por": "Kong: A Ilha da Caveira"
-      }
-    },
-    {
-      "adult": false,
-      "available_from": 1614643200000,
-      "available_to": 2524521600000,
-      "duration": 6847027,
-      "genres": [
-        "Drama"
-      ],
-      "id": "13434320-4a4a-40f7-bbbc-b061c7d55c1e",
+      "id": "cfa5d628-d6ee-4013-9685-f4811cc9a110",
       "images": [],
       "medias": [
         {
           "audio_languages": [
             "por"
           ],
-          "id": "13434320-4a4a-40f7-bbbc-b061c7d55c1e_m",
-          "location": "la_cordillera_hd_por_20.mp4",
+          "id": "cfa5d628-d6ee-4013-9685-f4811cc9a110_m",
+          "location": "3am_hd_16x9_por_20.mp4",
           "metadata": {},
-          "subtitles": [
-            {
-              "language": "por",
-              "location": "la_cordillera_hd_por_20.srt"
-            }
-          ],
           "technology": "MP4",
-          "title": "A Cordilheira",
+          "title": "3 A.M.",
           "type": "MEDIA"
         }
       ],
       "metadata": {
         "actors": [
-          "Ricardo Darín",
-          "Dolores Fonzi",
-          "Erica Rivas",
-          "Elena Anaya",
-          "Daniel Giménez Cacho",
-          "Alfredo Castro",
-          "Gerardo Romano",
-          "Leonardo Franco",
-          "Paulina Garcia",
-          "Christian Slater"
+          "Shahkrit Yamnarm",
+          "Ray MacDonald",
+          "Toni Rakkaen",
+          "Karnklao Duaysianklao",
+          "Peter Knight",
+          "Vasana Chalakorn",
+          "Vivid Bavornkiratikajorn",
+          "Nayapak Bhumipak"
         ],
-        "country": "USA",
+        "country": "THA",
         "directors": [
-          "Santiago Mitre"
-        ],
-        "release_year": "2017",
-        "rights": [],
-        "summary": [
-          "Em um encontro de presidentes da América Latina no Chile, Hernán Blanco, o presidente argentino, passa por um drama político e familiar que o faz enfrentar seus próprios demônios."
-        ],
-        "tvod_price": 7.9
-      },
-      "morality_level": 14,
-      "synopsis": {
-        "por": "Em um encontro de presidentes da América Latina no Chile, onde estratégias e alianças geopolíticas são definidas, Hernán Blanco, o presidente argentino, passa por um drama político e familiar que o faz enfrentar seus próprios demônios. Ele precisa tomar duas decisões que podem alterar o curso da sua vida pública e privada: por um lado, uma complicada situação emocional com sua filha e, do outro, a decisão política mais importante da sua carreira."
-      },
-      "title": {
-        "por": "A Cordilheira"
-      }
-    },
-    {
-      "adult": false,
-      "available_from": 1614643200000,
-      "available_to": 2524521600000,
-      "duration": 6593961,
-      "genres": [
-        "Aventura",
-        "Ação"
-      ],
-      "id": "8d7af2c6-b767-48e6-9e84-d904c0405c05",
-      "images": [],
-      "medias": [
-        {
-          "audio_languages": [
-            "eng",
-            "por"
-          ],
-          "id": "8d7af2c6-b767-48e6-9e84-d904c0405c05_m",
-          "location": "legend_of_tarzan_hd_eng_por_20.mp4",
-          "metadata": {},
-          "subtitles": [
-            {
-              "language": "por",
-              "location": "legend_of_tarzan_hd_eng_por_20.srt"
-            }
-          ],
-          "technology": "MP4",
-          "title": "A Lenda de Tarzan",
-          "type": "MEDIA"
-        }
-      ],
-      "metadata": {
-        "actors": [
-          "Alexander Skarsgård",
-          "Samuel L. Jackson",
-          "Margot Robbie",
-          "Djimon Hounsou",
-          "Christoph Waltz"
-        ],
-        "country": "USA",
-        "directors": [
-          "David Yates"
-        ],
-        "release_year": "2016",
-        "rights": [],
-        "summary": [
-          "Tarzan, ambientado na vida em Londres, é chamado de volta ao seu antigo lar na selva para investigar as atividades em um acampamento de mineração."
-        ],
-        "tvod_price": 7.9
-      },
-      "morality_level": 12,
-      "synopsis": {
-        "por": "Passaram anos desde que o homem conhecido como Tarzan (Skarsgård) deixou as selvas da África para trás por uma vida enobrecida como John Clayton III, Lord Greystoke, com a sua amada esposa, Jane (Robbie) ao seu lado. Agora, ele foi convidado a voltar ao Congo e atuar como emissário comercial do Parlamento, sem saber que ele é um peão em uma convergência mortal de ganância e vingança, organizado pelo belga, Capitão Leon Rom (Waltz). Mas aqueles por trás da trama assassina não têm ideia do que eles estão prestes a desencadear."
-      },
-      "title": {
-        "por": "A Lenda de Tarzan"
-      }
-    },
-    {
-      "adult": false,
-      "available_from": 1614643200000,
-      "available_to": 2524521600000,
-      "duration": 4239043,
-      "genres": [
-        "Animação",
-        "Ação"
-      ],
-      "id": "0ae218a7-72b7-46ca-a55b-132cd3ab7867",
-      "images": [],
-      "medias": [
-        {
-          "audio_languages": [
-            "eng",
-            "por"
-          ],
-          "id": "0ae218a7-72b7-46ca-a55b-132cd3ab7867_m",
-          "location": "lego_batman_dc_superheroes_unite_hd_eng_por_20.mp4",
-          "metadata": {},
-          "subtitles": [
-            {
-              "language": "por",
-              "location": "lego_batman_dc_superheroes_unite_hd_eng_por_20.srt"
-            }
-          ],
-          "technology": "MP4",
-          "title": "LEGO Batman: O Filme - Super Heróis se Unem",
-          "type": "MEDIA"
-        }
-      ],
-      "metadata": {
-        "actors": [
-          "Clancy Brown",
-          "Troy Baker",
-          "Christopher Corey Smith",
-          "Charlie Schlatter",
-          "Travis Willingham",
-          "Townsend Coleman",
-          "Laura Bailey",
-          "Steve Blum",
-          "Rob Paulsen",
-          "Brian Bloom",
-          "Cam Clarke",
-          "Katherine Von Till"
-        ],
-        "country": "USA",
-        "directors": [
-          "Jon Burton"
-        ],
-        "release_year": "2013",
-        "rights": [],
-        "summary": [
-          "Uma festa de premiação pelo Homem do Ano de Gotham City, Bruce Wayne, rapidamente acaba em caos quando o Coringa aparece na cena com um grupo de ladrões do seu lado."
-        ],
-        "tvod_price": 7.9
-      },
-      "morality_level": 0,
-      "synopsis": {
-        "por": "Uma festa de premiação pelo Homem do Ano de Gotham City, Bruce Wayne, rapidamente acaba em caos quando o Coringa aparece na cena com um grupo de ladrões do seu lado, incluindo o Enigma, a Mulher Gato e o Duas-Caras. O Cavaleiro das Trevas entra em ação contra as visitas indesejáveis, mas um criminoso não esperado aparece - Lex Luthor, e com ele, uma arma secreta que mudaria o equilíbrio do poder em Gotham para sempre: o Desconstrutor! A equipe de baderneiros de Lex Luthor e o Coringa precisarão mais do que Batmam e Robin para vencê-los, talvez os Super Amigos? Participe da jornada contra o mal com o Super-Homem, a Mulher Maravilha, o Lanterna Verde, e a Liga da Justiça entrando em ação para proteger o inocente, salvar Gotham City e dar boas risadas no caminho."
-      },
-      "title": {
-        "por": "LEGO Batman: O Filme - Super Heróis se Unem"
-      }
-    },
-    {
-      "adult": false,
-      "available_from": 1614643200000,
-      "available_to": 2524521600000,
-      "duration": 6265987,
-      "genres": [
-        "Ação",
-        "Aventura"
-      ],
-      "id": "855a4b46-c615-4af2-a2fb-3856f8fd6e6c",
-      "images": [],
-      "medias": [
-        {
-          "audio_languages": [
-            "eng",
-            "por"
-          ],
-          "id": "855a4b46-c615-4af2-a2fb-3856f8fd6e6c_m",
-          "location": "lego_batman_hd_eng_por_20.mp4",
-          "metadata": {},
-          "subtitles": [
-            {
-              "language": "por",
-              "location": "lego_batman_hd_eng_por_20.srt"
-            }
-          ],
-          "technology": "MP4",
-          "title": "LEGO Batman: O Filme",
-          "type": "MEDIA"
-        }
-      ],
-      "metadata": {
-        "actors": [
-          "Will Arnett",
-          "Zach Galifianakis",
-          "Michael Cera",
-          "Rosario Dawson",
-          "Ralph Fiennes"
-        ],
-        "country": "USA",
-        "directors": [
-          "Chris McKay"
-        ],
-        "release_year": "2017",
-        "rights": [],
-        "summary": [
-          "Bruce Wayne não deve apenas lidar com os criminosos de Gotham City, mas também tem a responsabilidade de criar um garoto que ele adotou."
-        ],
-        "tvod_price": 7.9
-      },
-      "morality_level": 0,
-      "synopsis": {
-        "por": "No espírito irreverente de diversão que tornou o “The LEGO® Movie” um fenômeno mundial, aquele que se considera o líder – LEGO Batman (Will Arnett) – do conjunto de astros em sua própria aventura para a tela grande. Mas existem grandes mudanças fermentando em Gotham e se quiser salvar a cidade da ocupação hostil do Joker - Coringa (Zach Galifianakis), Batman deverá abandonar o papel de vigilante solitário e tentar trabalhar com os demais e, quem sabe, apenas quem sabe, aprender a relaxar."
-      },
-      "title": {
-        "por": "LEGO Batman: O Filme"
-      }
-    },
-    {
-      "adult": false,
-      "available_from": 1614643200000,
-      "available_to": 2524521600000,
-      "duration": 6025968,
-      "genres": [
-        "Família",
-        "Animação"
-      ],
-      "id": "cfdd299b-bd11-4786-8a48-82d6238cd32f",
-      "images": [],
-      "medias": [
-        {
-          "audio_languages": [
-            "eng",
-            "por"
-          ],
-          "id": "cfdd299b-bd11-4786-8a48-82d6238cd32f_m",
-          "location": "lego_movie_hd_eng_por_20.mp4",
-          "metadata": {},
-          "subtitles": [
-            {
-              "language": "por",
-              "location": "lego_movie_hd_eng_por_20.srt"
-            }
-          ],
-          "technology": "MP4",
-          "title": "Uma Aventura LEGO",
-          "type": "MEDIA"
-        }
-      ],
-      "metadata": {
-        "actors": [
-          "Will Arnett",
-          "Elizabeth Banks",
-          "Chris Pratt",
-          "Morgan Freeman",
-          "Will Ferrell",
-          "Alison Brie",
-          "Liam Neeson",
-          "Nick Offerman",
-          "Charlie Day"
-        ],
-        "country": "USA",
-        "directors": [
-          "Phil Lord"
-        ],
-        "release_year": "2014",
-        "rights": [],
-        "summary": [
-          "O filme LEGO acompanha a épica saga de Emmet para impedir que um perverso tirano cole todo o universo, em uma jornada para a qual ele está total e comicamente despreparado."
-        ],
-        "tvod_price": 7.9
-      },
-      "morality_level": 0,
-      "synopsis": {
-        "por": "O primeiro filme de longa metragem da LEGO segue Emmet, um mini boneco comum e normal que sempre segue as regras, cuja identidade é confundida com a pessoa mais poderosa do mundo e a chave para salvar o mundo. Ele é recrutado por estranhos numa jornada épica para deter um tirano do mal, uma jornada que Emmet está desesperadamente e hilariamente despreparado."
-      },
-      "title": {
-        "por": "Uma Aventura LEGO"
-      }
-    },
-    {
-      "adult": false,
-      "available_from": 1614643200000,
-      "available_to": 2524521600000,
-      "duration": 6082041,
-      "genres": [
-        "Família",
-        "Animação"
-      ],
-      "id": "e4ce5897-1b0c-41c4-a1bf-61c83e4c626a",
-      "images": [],
-      "medias": [
-        {
-          "audio_languages": [
-            "eng",
-            "por"
-          ],
-          "id": "e4ce5897-1b0c-41c4-a1bf-61c83e4c626a_m",
-          "location": "lego_ninjago_hd_eng_por_20.mp4",
-          "metadata": {},
-          "subtitles": [
-            {
-              "language": "por",
-              "location": "lego_ninjago_hd_eng_por_20.srt"
-            }
-          ],
-          "technology": "MP4",
-          "title": "LEGO Ninjago: O Filme",
-          "type": "MEDIA"
-        }
-      ],
-      "metadata": {
-        "actors": [
-          "Dave Franco",
-          "Justin Theroux",
-          "Fred Armisen",
-          "Abbi Jacobson",
-          "Olivia Munn",
-          "Kumail Nanjiani",
-          "Michael Peña",
-          "Zach Woods",
-          "Jackie Chan"
-        ],
-        "country": "USA",
-        "directors": [
-          "Charlie Bean"
-        ],
-        "release_year": "2014",
-        "rights": [],
-        "summary": [
-          "Uma equipe feroz mas indisciplinada de ninjas modernos devem aprender a controlar seus egos e a trabalharem juntos para liberarem seus verdadeiros poderes."
-        ],
-        "tvod_price": 7.9
-      },
-      "morality_level": 0,
-      "synopsis": {
-        "por": "Nessa aventura Ninjago para o cinema, a batalha pela Cidade de Ninjago convoca o jovem Lloyd, conhecido como Ninja Verde (Dave Franco), junto com seus amigos, que são todos guerreiros secretos e Mestres Construtores LEGO. Liderados pelo mestre do kung fu Wu (Jackie Chan), tão piadista quanto sábio, eles precisam derrotar o malvado senhor da guerra Garmadon (Justin Theroux), o Pior Cara de Todos, que também é o pai de Lloyd. Colocando máquina contra máquina e pai contra filho, o confronto épico testará essa equipe feroz mas indisciplinada de ninjas modernos que devem aprender a controlar seus egos e a trabalharem juntos para liberarem seus verdadeiros poderes."
-      },
-      "title": {
-        "por": "LEGO Ninjago: O Filme"
-      }
-    },
-    {
-      "adult": false,
-      "available_from": 1614643200000,
-      "available_to": 2524521600000,
-      "duration": 4513968,
-      "genres": [
-        "Família",
-        "Animação"
-      ],
-      "id": "0ff01588-a08d-4804-89de-dd95df783f8f",
-      "images": [],
-      "medias": [
-        {
-          "audio_languages": [
-            "eng",
-            "por"
-          ],
-          "id": "0ff01588-a08d-4804-89de-dd95df783f8f_m",
-          "location": "lego_scoobydoo_haunted_hollywood_hd_eng_por_20.mp4",
-          "metadata": {},
-          "subtitles": [
-            {
-              "language": "por",
-              "location": "lego_scoobydoo_haunted_hollywood_hd_eng_por_20.srt"
-            }
-          ],
-          "technology": "MP4",
-          "title": "LEGO Scooby-Doo! Hollywood Assombrada",
-          "type": "MEDIA"
-        }
-      ],
-      "metadata": {
-        "actors": [
-          "Frank Welker",
-          "Grey DeLisle Griffin",
-          "Matthew Lillard",
-          "Kate Micucci"
-        ],
-        "country": "USA",
-        "directors": [
-          "Rick Morales"
-        ],
-        "release_year": "2016",
-        "rights": [],
-        "summary": [
-          "Ambientado em um mundo LEGO, a turma do Scooby tenta resgatar um antigo estúdio de cinema, que não é só ameaçado por desenvolvedores e uma série de monstros do cinema."
-        ],
-        "tvod_price": 7.9
-      },
-      "morality_level": 0,
-      "synopsis": {
-        "por": "Ah Hollywood! O brilho, o glam... O cavaleiro sem cabeça? Junte-se ao seu detetive canino favorito, Scooby-Doo, juntamente com Shaggy e a turma da Mystery Inc. quando eles se veem em uma confusão em Hollywood! Em um tour VIP nos lendários estúdios Brickton, Scooby e seus amigos se envolvem em uma experiência direta com as supostas assombrações, quando monstros clássicos do cinema aparecem para uma escolha de elenco assustadora. Só há uma maneira de resolver esse suspense e salvar o antigo estúdio: é o momento mágico do cinema da Mystery Inc! Pegue seus lanches Scooby e sente na cadeira do diretor para este novíssimo filme da LEGO®!"
-      },
-      "title": {
-        "por": "LEGO Scooby-Doo! Hollywood Assombrada"
-      }
-    },
-    {
-      "adult": false,
-      "available_from": 1614643200000,
-      "available_to": 2524521600000,
-      "duration": 4612982,
-      "genres": [
-        "Família",
-        "Animação"
-      ],
-      "id": "5312dcc3-c0b4-4195-bec1-4abd1b5741ab",
-      "images": [],
-      "medias": [
-        {
-          "audio_languages": [
-            "eng",
-            "por"
-          ],
-          "id": "5312dcc3-c0b4-4195-bec1-4abd1b5741ab_m",
-          "location": "lego_scooby_doo_blowout_beach_bash_hd_eng_por_20.mp4",
-          "metadata": {},
-          "subtitles": [
-            {
-              "language": "por",
-              "location": "lego_scooby_doo_blowout_beach_bash_hd_eng_por_20.srt"
-            }
-          ],
-          "technology": "MP4",
-          "title": "LEGO Scooby-Doo! O Golpe da Praia",
-          "type": "MEDIA"
-        }
-      ],
-      "metadata": {
-        "actors": [
-          "Frank Welker",
-          "Grey Griffin",
-          "Matthew Lillard",
-          "Kate Micucci",
-          "Jeff Glen Bennett",
-          "Kate Higgins",
-          "Josh Keaton",
-          "Tom Kenny",
-          "Natalie Lander",
-          "Jack McBrayer"
-        ],
-        "country": "USA",
-        "directors": [
-          ""
-        ],
-        "release_year": "2017",
-        "rights": [],
-        "summary": [
-          "Mystery, Inc. vai para Blowout Beach para uma verdadeira festa de praia com muita dança, quando os Ghost Pirates ameaçam estragar as boas vibrações."
-        ],
-        "tvod_price": 7.9
-      },
-      "morality_level": 0,
-      "synopsis": {
-        "por": "Mystery, Inc. vai para a Blowout Beach para uma verdadeira festa de praia com muita dança. Mas quando os Ghost Pirates ameaçam estragar as boas vibrações, cabe ao Scooby Gang voltar a colocar a festa no ritmo e salvar o dia!"
-      },
-      "title": {
-        "por": "LEGO Scooby-Doo! O Golpe da Praia"
-      }
-    },
-    {
-      "adult": false,
-      "available_from": 1614643200000,
-      "available_to": 2524521600000,
-      "duration": 6870009,
-      "genres": [
-        "Comédia",
-        "Romance"
-      ],
-      "id": "f37bfe42-1c87-4975-b351-f4a4be3944cf",
-      "images": [],
-      "medias": [
-        {
-          "audio_languages": [
-            "eng",
-            "por"
-          ],
-          "id": "f37bfe42-1c87-4975-b351-f4a4be3944cf_m",
-          "location": "life_as_we_know_it_hd_eng_por_20.mp4",
-          "metadata": {},
-          "subtitles": [
-            {
-              "language": "por",
-              "location": "life_as_we_know_it_hd_eng_por_20.srt"
-            }
-          ],
-          "technology": "MP4",
-          "title": "Juntos Pelo Acaso",
-          "type": "MEDIA"
-        }
-      ],
-      "metadata": {
-        "actors": [
-          "Katherine Heigl",
-          "Josh Duhamel",
-          "Josh Lucas",
-          "Christina Hendricks",
-          "Melissa McCarthy",
-          "Hayes MacArthur"
-        ],
-        "country": "USA",
-        "directors": [
-          "Greg Berlanti"
-        ],
-        "release_year": "2017",
-        "rights": [],
-        "summary": [
-          "Holly e Messer, Após um primeiro encontro desastroso, a única coisa que compartilham é a antipatia que têm um pelo outro e o amor pela afilhada Sophie."
-        ],
-        "tvod_price": 7.9
-      },
-      "morality_level": 14,
-      "synopsis": {
-        "por": "Holly (Katherine Heigl) é uma banqueteira de sucesso e Messer (Josh Duhamel) é um promissor coordenador de esportes. Após um primeiro encontro desastroso, a única coisa que compartilham é a antipatia que têm um pelo outro e o amor pela afilhada Sophie. Quando, de repente, se tornam a única família de Sophie, Holly e Messer vêem-se obrigados a colocar suas diferenças de lado. Tentando equilibrar suas ambições profissionais e eventos sociais concorrentes, eles terão que encontrar sentimentos em comum para conseguir viver sob o mesmo teto..Josh Lucas, Christina Hendricks, Hayes MacArthur e Jean Smart co-estrelam esta comédia romântica e dirigida por Greg Berlanti."
-      },
-      "title": {
-        "por": "Juntos Pelo Acaso"
-      }
-    },
-    {
-      "adult": false,
-      "available_from": 1614643200000,
-      "available_to": 2524521600000,
-      "duration": 10759996,
-      "genres": [
-        "Fantasia",
-        "Ação"
-      ],
-      "id": "d482d2e6-e487-40b9-b1df-02869dc23293",
-      "images": [],
-      "medias": [
-        {
-          "audio_languages": [
-            "eng",
-            "por"
-          ],
-          "id": "d482d2e6-e487-40b9-b1df-02869dc23293_m",
-          "location": "lotr_two_towers_hd_eng_por_20.mp4",
-          "metadata": {},
-          "subtitles": [
-            {
-              "language": "por",
-              "location": "lotr_two_towers_hd_eng_por_20.srt"
-            }
-          ],
-          "technology": "MP4",
-          "title": "O Senhor dos Anéis: As Duas Torres",
-          "type": "MEDIA"
-        }
-      ],
-      "metadata": {
-        "actors": [
-          "Elijah Wood",
-          "Ian McKellen",
-          "Liv Tyler",
-          "Viggo Mortensen",
-          "Sean Astin",
-          "Cate Blanchett",
-          "John Rhys-Davies",
-          "Bernard Hill",
-          "Billy Boyd",
-          "Dominic Monaghan",
-          "Orlando Bloom",
-          "Christopher Lee",
-          "Hugo Weaving",
-          "Miranda Otto",
-          "David Wenham",
-          "Brad Dourif",
-          "Karl Urban",
-          "Andy Serkis"
-        ],
-        "country": "USA",
-        "directors": [
-          "Peter Jackson"
-        ],
-        "release_year": "2002",
-        "rights": [],
-        "summary": [
-          "A Sociedade do Anel se rompeu, mas a saga para destruir o Um anel continua. Frodo e Sam são obrigados a confiar sua vidas a Gollum se quiserem chegar a Mordor."
-        ],
-        "tvod_price": 7.9
-      },
-      "morality_level": 12,
-      "synopsis": {
-        "por": "A Sociedade do Anel se rompeu, mas a saga para destruir o Um anel continua. Frodo e Sam são obrigados a confiar sua vidas a Gollum se quiserem chegar a Mordor. À medida que o exército de Saruman se aproxima, os membros sobreviventes da Sociedade, juntamente com outros povos e criaturas da Terra-média, preparam-se para a batalha. A batalha de suas vidas. Indicado a seis prêmios Oscar, incluíndo Melhor Filme."
-      },
-      "title": {
-        "por": "O Senhor dos Anéis: As Duas Torres"
-      }
-    },
-    {
-      "adult": false,
-      "available_from": 1614643200000,
-      "available_to": 2524521600000,
-      "duration": 6049987,
-      "genres": [
-        "Drama",
-        "Romance"
-      ],
-      "id": "ba3fc383-22d1-4937-a645-5a09c42426d2",
-      "images": [],
-      "medias": [
-        {
-          "audio_languages": [
-            "eng",
-            "por"
-          ],
-          "id": "ba3fc383-22d1-4937-a645-5a09c42426d2_m",
-          "location": "lucky_one_hd_eng_por_20.mp4",
-          "metadata": {},
-          "subtitles": [
-            {
-              "language": "por",
-              "location": "lucky_one_hd_eng_por_20.srt"
-            }
-          ],
-          "technology": "MP4",
-          "title": "Um Homem de Sorte",
-          "type": "MEDIA"
-        }
-      ],
-      "metadata": {
-        "actors": [
-          "Zac Efron",
-          "Taylor Schilling",
-          "Jay R. Ferguson",
-          "Riley Thomas Stewart",
-          "Blythe Danner"
-        ],
-        "country": "USA",
-        "directors": [
-          "Scott Hicks"
+          "Isara Nadee",
+          "Kirati Nakintanon",
+          "Patchanon Thammajira"
         ],
         "release_year": "2012",
         "rights": [],
         "summary": [
-          "Em meio a uma batalha em plena Guerra do Iraque, o fuzileiro Logan Thibault (Zac Efron) encontra no chão a foto de uma mulher desconhecida."
-        ],
-        "tvod_price": 7.9
-      },
-      "morality_level": 12,
-      "synopsis": {
-        "por": "Em meio a uma batalha em plena Guerra do Iraque, o fuzileiro Logan Thibault (Zac Efron) encontra no chão a foto de uma mulher desconhecida. Ele a guarda e passa a cuidá-la como se fosse um talismã, prometendo que, caso sobreviva à guerra, irá encontrá-la. Meses depois, ele retorna aos Estados Unidos e passa a pesquisar onde ela poderia morar a partir de pistas dadas pela própria foto. Ele a encontra em um canil, onde trabalha juntamente com a avó (Blythe Danner) e vive com o filho pequeno (Riley Thomas Stewart). Logan passa a também trabalhar no canil, sem revelar o verdadeiro motivo pelo qual chegou até ele."
-      },
-      "title": {
-        "por": "Um Homem de Sorte"
-      }
-    },
-    {
-      "adult": false,
-      "available_from": 1614643200000,
-      "available_to": 2524521600000,
-      "duration": 7218979,
-      "genres": [
-        "Ação",
-        "Aventura"
-      ],
-      "id": "bf52126f-e33f-470c-bee9-9b4a56c8e8aa",
-      "images": [],
-      "medias": [
-        {
-          "audio_languages": [
-            "eng",
-            "por"
-          ],
-          "id": "bf52126f-e33f-470c-bee9-9b4a56c8e8aa_m",
-          "location": "mad_max_fury_road_hd_eng_por_20.mp4",
-          "metadata": {},
-          "subtitles": [
-            {
-              "language": "por",
-              "location": "mad_max_fury_road_hd_eng_por_20.srt"
-            }
-          ],
-          "technology": "MP4",
-          "title": "Mad Max: Estrada da Fúria",
-          "type": "MEDIA"
-        }
-      ],
-      "metadata": {
-        "actors": [
-          "Tom Hardy",
-          "Charlize Theron",
-          "Nicholas Hoult",
-          "Hugh Keays-Byrne",
-          "Rosie Huntington-Whiteley",
-          "Riley Keough",
-          "Zoë Kravitz",
-          "Abbey Lee",
-          "Courtney Eaton",
-          "Nathan Jones"
-        ],
-        "country": "USA",
-        "directors": [
-          "George Miller"
-        ],
-        "release_year": "2016",
-        "rights": [],
-        "summary": [
-          "A quarta aventura da série de filmes Mad Max do diretor George Miller. Em um mundo pós-apocalíptico, Max (Hardy) se junta à misteriosa Furiosa (Theron) para tentar sobreviver."
-        ],
-        "tvod_price": 7.9
+          "Filme de terror Tailandês composto por três histórias arrepiantes."
+        ]
       },
       "morality_level": 16,
       "synopsis": {
-        "por": "Do diretor George Miller, criador do gênero pós-apocalíptico e idealizador da legendária franchise “Mad Max”, “Mad Max: Fury Road”, volta ao mundo do guerreiro das estradas, Max Rockatansky. Assombrado pelo passado turbulento, Mad Max (Tom Hardy) acredita que a melhor forma de sobreviver é perambular só. Entretanto, ele é arrastado por um grupo que foge de Wasteland em um veículo de guerra dirigido por uma Imperadora de elite, Furiosa (Charlize Theron). Eles fugiram de uma fortaleza tiranizada por Immortan Joe (Hugh Keays-Byrne), de quem algo insubstituível foi tomado. Enfurecido, o senhor da guerra reúne toda a sua gangue e persegue cruelmente os rebeldes na guerra em alta velocidade que se segue pelas estradas."
+        "por": "Três histórias de terror acontecem às três horas da manhã, quando os espíritos são livres para fazer o que bem entenderem: duas irmãs que adquirem uma loja de perucas são perseguidas por um fantasma; um homem se apaixona por um corpo de uma mulher que morreu junto com seu noivo em um acidente antes de seu casamento; dois diretores de uma companhia que pregavam peças em seus empregados recebem o troco de um fantasma."
       },
       "title": {
-        "por": "Mad Max: Estrada da Fúria"
+        "por": "3 A.M."
       }
     },
     {
       "adult": false,
-      "available_from": 1614643200000,
+      "available_from": 1615248000000,
       "available_to": 2524521600000,
-      "duration": 6985008,
-      "genres": [
-        "Ação",
-        "Aventura"
-      ],
-      "id": "aa7419fb-2c82-40f8-8999-3aa933c18cdc",
-      "images": [],
-      "medias": [
-        {
-          "audio_languages": [
-            "eng",
-            "por"
-          ],
-          "id": "aa7419fb-2c82-40f8-8999-3aa933c18cdc_m",
-          "location": "man_from_uncle_hd_eng_por_20.mp4",
-          "metadata": {},
-          "subtitles": [
-            {
-              "language": "por",
-              "location": "man_from_uncle_hd_eng_por_20.srt"
-            }
-          ],
-          "technology": "MP4",
-          "title": "O Agente da U.N.C.L.E.",
-          "type": "MEDIA"
-        }
-      ],
-      "metadata": {
-        "actors": [
-          "Henry Cavill",
-          "Armie Hammer",
-          "Alicia Vikander",
-          "Elizabeth Debicki",
-          "Jared Harris",
-          "Hugh Grant"
-        ],
-        "country": "USA",
-        "directors": [
-          "Guy Ritchie"
-        ],
-        "release_year": "2015",
-        "rights": [],
-        "summary": [
-          "Durante a guerra fria, os agentes Solo (CIA) e Kuryakin (KGB) unem-se para impedir que uma organização criminosa desestabilize a frágil balança do poder e crie uma catástrofe mundial."
-        ],
-        "tvod_price": 7.9
-      },
-      "morality_level": 12,
-      "synopsis": {
-        "por": "Ambientado no início da década de 1960, no auge da guerra fria, O AGENTE DA U.N.C.L.E. apresenta os agentes Solo (da CIA e interpretado por Henry Cavill, “Man of Steel”) e Kuryakin (da KGB e interpretado por Armie Hammer, “The Social Network”). Forçados a deixar de lado as antigas hostilidades, os dois agentes juntam forças para impedir que uma misteriosa organização criminosa internacional desestabilize a frágil balança do poder por meio da proliferação de armas e tecnologia nucleares. A única pista da dupla é a filha de um cientista alemão desaparecido, que é a chave para a infiltração na organização criminosa. Eles precisam correr contra o relógio para encontrá-lo e evitar uma catástrofe mundial."
-      },
-      "title": {
-        "por": "O Agente da U.N.C.L.E."
-      }
-    },
-    {
-      "adult": false,
-      "available_from": 1614643200000,
-      "available_to": 2524521600000,
-      "duration": 8176032,
-      "genres": [
-        "Ação",
-        "Ficção Científica"
-      ],
-      "id": "f0dc9032-9edf-4423-ae8a-df0cbda96073",
-      "images": [],
-      "medias": [
-        {
-          "audio_languages": [
-            "eng",
-            "por"
-          ],
-          "id": "f0dc9032-9edf-4423-ae8a-df0cbda96073_m",
-          "location": "matrix_hd_eng_por_20.mp4",
-          "metadata": {},
-          "subtitles": [
-            {
-              "language": "por",
-              "location": "matrix_hd_eng_por_20.srt"
-            }
-          ],
-          "technology": "MP4",
-          "title": "The Matrix",
-          "type": "MEDIA"
-        }
-      ],
-      "metadata": {
-        "actors": [
-          "Keanu Reeves",
-          "Carrie-Anne Moss",
-          "Laurence Fishburne",
-          "Hugo Weaving",
-          "Joe Pantoliano"
-        ],
-        "country": "USA",
-        "directors": [
-          "Lilly Wachowski",
-          "Lana Wachowski"
-        ],
-        "release_year": "1999",
-        "rights": [],
-        "summary": [
-          "O que vemos: Nosso dia a dia é verdadeiro. - O que é real: O mundo é uma farsa, construído por uma das mais poderosas máquinas com inteligência artificial para nos controlar."
-        ],
-        "tvod_price": 7.9
-      },
-      "morality_level": 12,
-      "synopsis": {
-        "por": "Quando uma bela estranha (Carrie Ann Moss) leva o hacker Neo (Keanu Reeves) para um submundo proibido, ele descobre a verdade chocante - a vida que ele conhece é um truque elaborado por uma inteligência cibernética do mal. Neo se junta ao lendário e perigoso guerreiro rebelde Morpheus (Lawrence Fishburne) para destruir a ilusão que escraviza a humanidade. Agora, cada movimento, cada segundo, cada pensamento se torna uma luta para permanecer vivo - para escapar de Matrix."
-      },
-      "title": {
-        "por": "The Matrix"
-      }
-    },
-    {
-      "adult": false,
-      "available_from": 1614643200000,
-      "available_to": 2524521600000,
-      "duration": 8218972,
-      "genres": [
-        "Ação",
-        "Ficção Científica"
-      ],
-      "id": "b51dc973-773a-4325-9b8e-a258b97ed27e",
-      "images": [],
-      "medias": [
-        {
-          "audio_languages": [
-            "eng",
-            "por"
-          ],
-          "id": "b51dc973-773a-4325-9b8e-a258b97ed27e_m",
-          "location": "matrix_reloaded_hd_eng_por_20.mp4",
-          "metadata": {},
-          "subtitles": [
-            {
-              "language": "por",
-              "location": "matrix_reloaded_hd_eng_por_20.srt"
-            }
-          ],
-          "technology": "MP4",
-          "title": "Matrix Reloaded",
-          "type": "MEDIA"
-        }
-      ],
-      "metadata": {
-        "actors": [
-          "Keanu Reeves",
-          "Laurence Fishburne",
-          "Carrie-Anne Moss",
-          "Hugo Weaving",
-          "Jada Pinkett Smith",
-          "Gloria Foster",
-          "Nona Gaye",
-          "Daniel Bernhardt",
-          "Matt McColm",
-          "Harold Perrineau",
-          "Harry Lennix",
-          "Monica Bellucci"
-        ],
-        "country": "USA",
-        "directors": [
-          "Lilly Wachowski",
-          "Lana Wachowski"
-        ],
-        "release_year": "2003",
-        "rights": [],
-        "summary": [
-          "Nuvens de Sentinelas. Clones do agente Smith. Neo pode voar, mas talvez nem mesmo o \"Escolhido\", com novos e impressionantes poderes, seja capaz de conter o avanço das máquinas."
-        ],
-        "tvod_price": 7.9
-      },
-      "morality_level": 12,
-      "synopsis": {
-        "por": "Nuvens de Sentinelas. Clones do agente Smith. Neo pode voar, mas talvez nem mesmo o \"Escolhido\", com novos e impressionantes poderes, seja capaz de conter o avanço das máquinas. Neo, Morpheus e Trinity. Todos estão de volta para o poderosos segundo capítulo da trilogia Matrix – juntamente com novos aliados - , batalhando contra inimigos que são clonados, evoluíram e estão cada vez mais próximos de destruir o último enclave humano no planeta. Também voltam as diretoras Lilly e Lana Wachowski e o produtor Joel Silver, expandindo sua visão a novos limites, com um espetáculo que choca os sentidos, acelera o coração e desenha os caminhos futuros do cinema. O que é a Matrix? A questão ainda não é respondida totalmente, e acaba conduzindo a uma outra: Quem criou a Matrix? Matrix Reloaded é um filme cheio de revelações, que abre caminho para inúmeras \"revoluções\"."
-      },
-      "title": {
-        "por": "Matrix Reloaded"
-      }
-    },
-    {
-      "adult": false,
-      "available_from": 1614643200000,
-      "available_to": 2524521600000,
-      "duration": 7751980,
-      "genres": [
-        "Ação",
-        "Ficção Científica"
-      ],
-      "id": "a26b6fae-f241-4228-8dc3-d641a54cdbb1",
-      "images": [],
-      "medias": [
-        {
-          "audio_languages": [
-            "eng",
-            "por"
-          ],
-          "id": "a26b6fae-f241-4228-8dc3-d641a54cdbb1_m",
-          "location": "matrix_revolutions_hd_eng_por_20.mp4",
-          "metadata": {},
-          "subtitles": [
-            {
-              "language": "por",
-              "location": "matrix_revolutions_hd_eng_por_20.srt"
-            }
-          ],
-          "technology": "MP4",
-          "title": "Matrix Revolutions",
-          "type": "MEDIA"
-        }
-      ],
-      "metadata": {
-        "actors": [
-          "Keanu Reeves",
-          "Laurence Fishburne",
-          "Carrie-Anne Moss",
-          "Hugo Weaving",
-          "Jada Pinkett Smith",
-          "Nona Gaye",
-          "Daniel Bernhardt",
-          "Matt McColm",
-          "Harry Lennix",
-          "Monica Bellucci",
-          "Clayton Watson",
-          "Harold Perrineau",
-          "Collin Chou",
-          "Neil Rayment",
-          "Adrian Rayment"
-        ],
-        "country": "USA",
-        "directors": [
-          "Lilly Wachowski",
-          "Lana Wachowski"
-        ],
-        "release_year": "2003",
-        "rights": [],
-        "summary": [
-          "Neo. Trinity. Morpheus. Agora e matar ou morrer. No impressionante episodio final da trilogia Matrix nao ha outra opcao para os humanos."
-        ],
-        "tvod_price": 7.9
-      },
-      "morality_level": 12,
-      "synopsis": {
-        "por": "Neo. Trinity. Morpheus. Agora e matar ou morrer. No impressionante episodio final da trilogia Matrix nao ha outra opcao para os humanos. Para Neo, isso significa ir aonde ninguem jamais ousou - o coracao da Cidade das Maquinas para uma luta cataclismica contra o cada vez mais poderoso programa renegado Smith. Para os criadores Lilly \u0026 Lana Wachowski e para o produtor Joel Silver, isso significa superar a fantastica inventividade visual dos primeiros dois filmes. A revolucao e agora, com Matrix Revolutions."
-      },
-      "title": {
-        "por": "Matrix Revolutions"
-      }
-    },
-    {
-      "adult": false,
-      "available_from": 1614643200000,
-      "available_to": 2524521600000,
-      "duration": 6652972,
+      "duration": 6034003,
       "genres": [
         "Família",
-        "Drama"
+        "Aventura"
       ],
-      "id": "da0d8ceb-b608-41f3-b9c7-a6cefb6618d9",
+      "id": "37c1b769-8fb2-45f9-8e1e-953382787998",
       "images": [],
       "medias": [
         {
@@ -2113,61 +71,48 @@
             "eng",
             "por"
           ],
-          "id": "da0d8ceb-b608-41f3-b9c7-a6cefb6618d9_m",
-          "location": "max_hd_eng_por_20.mp4",
+          "id": "37c1b769-8fb2-45f9-8e1e-953382787998_m",
+          "location": "acampamento_hd_16x9_por_20.mp4",
           "metadata": {},
-          "subtitles": [
-            {
-              "language": "por",
-              "location": "max_hd_eng_por_20.srt"
-            }
-          ],
           "technology": "MP4",
-          "title": "Max: O Cão Herói",
+          "title": "Um Acampamento do Barulho",
           "type": "MEDIA"
         }
       ],
       "metadata": {
         "actors": [
-          "Josh Wiggins",
-          "Lauren Graham",
-          "Thomas Haden Church",
-          "Jay Hernandez",
-          "Robbie Amell",
-          "Dejon LaQuake",
-          "Luke Kleintank",
-          "Joseph Julian Soria",
-          "Owen Harn"
+          "Connor Rosen",
+          "Logan Shroyer",
+          "Michael Gross"
         ],
         "country": "USA",
         "directors": [
-          "Boaz Yakin"
+          "Lisa Arnold"
         ],
-        "release_year": "2015",
+        "release_year": "2017",
         "rights": [],
         "summary": [
-          "“Max“ é uma história de transição sobre um jovem e sua família, que lidam com a perda, e descobre a amizade, conforto e aventura com o cão herói de seu falecido irmão."
-        ],
-        "tvod_price": 7.9
+          "Encorajado por seu vovô peculiar, um jovem enfrenta seus medos no acampamento de verão"
+        ]
       },
       "morality_level": 0,
       "synopsis": {
-        "por": "Max, um cão militar treinado, serve nas fronteiras do Afeganistão junto com seu tutor, o fuzileiro naval Kyle Wincott. Mas as coisas saem errado nas manobras, Kyle é mortalmente ferido e Max, traumatizado com a perda de seu melhor amigo, é mandado para casa. Ao chegar em casa, o único humano com o qual consegue se conectar é Justin, irmão mais novo de Kyle. A confiança crescente de Justin em Max ajuda o cão a recuperar-se, e os dois correm contra o tempo para resolver o mistério em torno da morte de Kyle. Eles acabam encontrando mais agitação e perigo do que esperavam, e também uma nova amizade."
+        "por": "Em um acampamento cristão para jovens, as crianças aprendem a lidar com seus medos e não a procurar a violência para resolver o problema. Dois irmãos são separados em duas casas diferentes e, depois de uma série de pegadinhas promovidas pelos valentões do local, eles percebem que precisam um do outro. Quando chega a hora de disputar uma importante competição do acampamento, os garotos precisam colocar de lado suas diferenças se quiserem, além de vencer o torneio, aprender o verdadeiro valor do respeito, do perdão e da convivência em paz entre as pessoas."
       },
       "title": {
-        "por": "Max: O Cão Herói"
+        "por": "Um Acampamento do Barulho"
       }
     },
     {
       "adult": false,
-      "available_from": 1614643200000,
+      "available_from": 1615248000000,
       "available_to": 2524521600000,
-      "duration": 8272972,
+      "duration": 4806000,
       "genres": [
-        "Drama",
-        "Suspense"
+        "Faroeste",
+        "Drama"
       ],
-      "id": "d025abb8-4602-414f-8f67-55f5a286788e",
+      "id": "233e3d27-5423-4ea3-bea9-ee85223803de",
       "images": [],
       "medias": [
         {
@@ -2175,494 +120,53 @@
             "eng",
             "por"
           ],
-          "id": "d025abb8-4602-414f-8f67-55f5a286788e_m",
-          "location": "mystic_river_hd_eng_por_20.mp4",
+          "id": "233e3d27-5423-4ea3-bea9-ee85223803de_m",
+          "location": "american_gunslingers_hd_16x9_por_20.mp4",
           "metadata": {},
-          "subtitles": [
-            {
-              "language": "por",
-              "location": "mystic_river_hd_eng_por_20.srt"
-            }
-          ],
           "technology": "MP4",
-          "title": "Sobre Meninos e Lobos",
+          "title": "Pistoleiros",
           "type": "MEDIA"
         }
       ],
       "metadata": {
         "actors": [
-          "Sean Penn",
-          "Tim Robbins",
-          "Kevin Bacon",
-          "Laurence Fishburne",
-          "Marcia Gay Harden",
-          "Laura Linney",
-          "Cayden Boyd",
-          "Kevin Chapman",
-          "Emmy Rossum",
-          "Cameron Bowen"
+          "William Adams",
+          "Jezibell Anat",
+          "Jerry Chesser",
+          "Tori Barker",
+          "Saul Brooks",
+          "Tripp Courtney",
+          "Charlie Glotzbach",
+          "Viola Hobbs"
         ],
         "country": "USA",
         "directors": [
-          "Clint Eastwood"
+          "Christopher Forbes"
         ],
-        "release_year": "2003",
+        "release_year": "2017",
         "rights": [],
         "summary": [
-          "Amigos que cresceram juntos na classe média de Boston, mas que seguiram caminhos diferentes depois de uma terrível tragédia. Anos depois, eventos brutais fazem com que eles se reencontrem."
-        ],
-        "tvod_price": 7.9
+          "Sua vingança será sem perdão! Ao voltar da guerra, um pistoleiro descobre que sua família foi assassinada. Ele suspeita que o autor da chacina é o criminoso que domina a cidade. Que a vingança comece!"
+        ]
       },
       "morality_level": 16,
       "synopsis": {
-        "por": "Amigos que cresceram juntos na classe média de Boston, mas que seguiram caminhos diferentes depois de uma terrível tragédia. Anos depois, eventos brutais fazem com que eles se reencontrem. Katie, a filha adolescente de Jimmy, é brutalmente assassinada. Dave parece ter alguma ligação com o crime. Sean, agora um policial, corre contra o relógio para resolver o crime - antes que Jimmy faça justiça com suas próprias mãos."
+        "por": "Depois da Guerra Civil Norte-Americana, Charles Holley volta para casa e descobre que sua família foi assassinada. Deste momento em diante, a missão de vida de Charles é executar sua vingança. Ao longo de sua jornada, ele encontra dois guias, o Reverendo MacKenzie, que está em busca de redenção enquanto peregrina pelo país, e o misterioso Carlo, que o leva até Animus Smite, o homem que controla, na base da violência, a cidade. Smite é dono de um rentável negócio de apostas que acontece no saloon de propriedade de Miss Lorena. Holley chega ao local e entra no jogo, já pensando em sua vingança!"
       },
       "title": {
-        "por": "Sobre Meninos e Lobos"
+        "por": "Pistoleiros"
       }
     },
     {
       "adult": false,
-      "available_from": 1614643200000,
+      "available_from": 1615248000000,
       "available_to": 2524521600000,
-      "duration": 5675961,
-      "genres": [
-        "Fantasia",
-        "Família"
-      ],
-      "id": "7601f8fc-2b37-4a04-97e8-8aa0d5e223d5",
-      "images": [],
-      "medias": [
-        {
-          "audio_languages": [
-            "eng",
-            "por"
-          ],
-          "id": "7601f8fc-2b37-4a04-97e8-8aa0d5e223d5_m",
-          "location": "neverending_story_hd_eng_por_20.mp4",
-          "metadata": {},
-          "subtitles": [
-            {
-              "language": "por",
-              "location": "neverending_story_hd_eng_por_20.srt"
-            }
-          ],
-          "technology": "MP4",
-          "title": "A História Sem Fim",
-          "type": "MEDIA"
-        }
-      ],
-      "metadata": {
-        "actors": [
-          "Alan Oppenheimer",
-          "Jeff Burr",
-          "Barret Oliver",
-          "Tami Stronach",
-          "Moses Gunn",
-          "Patricia Hayes",
-          "Sydney Bromley",
-          "Gerald McRaney"
-        ],
-        "country": "USA",
-        "directors": [
-          "Gert Frobe"
-        ],
-        "release_year": "1984",
-        "rights": [],
-        "summary": [
-          "Quando o jovem Bastian pegou emprestado um misterioso livro ele jamais sonhou que ao virar uma página seria levado a um mundo de fantasia onde pudesse ver um caracol de corrida."
-        ],
-        "tvod_price": 7.9
-      },
-      "morality_level": 0,
-      "synopsis": {
-        "por": "Quando o jovem Bastian pegou emprestado um misterioso livro ele jamais sonhou que ao virar uma página seria levado a um mundo de fantasia onde pudesse ver um caracol de corrida, um morcego planador, um dragão da sorte, elfos, uma Imperatriz Menina, o valente guerreiro Atreyu e uma pedra ambulante chamada Come-Pedra. A História Sem Fim segue os limites da imaginação graças ao diretor/co-escritor Wolfgang Petersen(de Mar em Fúria) e um super-time de técnicos (com créditos que incluem 2001:Uma Odisséia no Espaço e Alien:O Oitavo Passageiro) que deram vida aos mais encantadores personagens. Você apreciará esta adorável aventura e descobrirá que A História Sem Fim é sua história."
-      },
-      "title": {
-        "por": "A História Sem Fim"
-      }
-    },
-    {
-      "adult": false,
-      "available_from": 1614643200000,
-      "available_to": 2524521600000,
-      "duration": 5816016,
-      "genres": [
-        "Drama",
-        "Romance"
-      ],
-      "id": "656accb2-e96d-4153-868b-17f00e62b3a0",
-      "images": [],
-      "medias": [
-        {
-          "audio_languages": [
-            "eng",
-            "por"
-          ],
-          "id": "656accb2-e96d-4153-868b-17f00e62b3a0_m",
-          "location": "night_in_rodanthe_hd_eng_por_20.mp4",
-          "metadata": {},
-          "subtitles": [
-            {
-              "language": "por",
-              "location": "night_in_rodanthe_hd_eng_por_20.srt"
-            }
-          ],
-          "technology": "MP4",
-          "title": "Noites de Tormenta",
-          "type": "MEDIA"
-        }
-      ],
-      "metadata": {
-        "actors": [
-          "Richard Gere",
-          "Diane Lane",
-          "Scott Glenn",
-          "Christopher Meloni",
-          "Viola Davis",
-          "Pablo Schreiber",
-          "Mae Margaret Whitman"
-        ],
-        "country": "USA",
-        "directors": [
-          "George C. Wolfe"
-        ],
-        "release_year": "2008",
-        "rights": [],
-        "summary": [
-          "Adrienne Willis (Diane Lane) é uma mulher cuja vida está um caos. O marido instável pediu para voltar a morar com ela; a filha adolescente a culpa por tudo."
-        ],
-        "tvod_price": 7.9
-      },
-      "morality_level": 10,
-      "synopsis": {
-        "por": "Adrienne Willis (Diane Lane) é uma mulher cuja vida está um caos. O marido instável pediu para voltar a morar com ela; a filha adolescente a culpa por tudo. Em busca de um pouco de tranquilidade e uma oportunidade para pensar no que fazer, vai passar um final de semana na pousa de uns amigos na cidade costeira de Rodanthe. Paul Flanner (Richard Gere) é o médico que também tem uma vida cheia de problemas e viaja até a Carolina do Norte para encontrar o filho que não vê há anos. No meio do caminho é pego por uma tempestade e forçado e parar justamente na pousada em Rodanthe. Adrienne e Paul são os únicos hóspedes do local. Um encontrará conforto no outro e um mágico e tórrido romance vai surgir."
-      },
-      "title": {
-        "por": "Noites de Tormenta"
-      }
-    },
-    {
-      "adult": false,
-      "available_from": 1614643200000,
-      "available_to": 2524521600000,
-      "duration": 6255014,
-      "genres": [
-        "Romance",
-        "Drama"
-      ],
-      "id": "609706c8-69b0-4743-b01d-eaacf5b4f1f5",
-      "images": [],
-      "medias": [
-        {
-          "audio_languages": [
-            "eng",
-            "por"
-          ],
-          "id": "609706c8-69b0-4743-b01d-eaacf5b4f1f5_m",
-          "location": "no_reservations_hd_eng_por_20.mp4",
-          "metadata": {},
-          "subtitles": [
-            {
-              "language": "por",
-              "location": "no_reservations_hd_eng_por_20.srt"
-            }
-          ],
-          "technology": "MP4",
-          "title": "Sem Reservas",
-          "type": "MEDIA"
-        }
-      ],
-      "metadata": {
-        "actors": [
-          "Catherine Zeta-Jones",
-          "Aaron Eckhart",
-          "Abigail Breslin",
-          "Patricia Clarkson",
-          "Bob Balaban",
-          "Jenny Wade",
-          "Lily Rabe",
-          "Brian F. O'Byrne"
-        ],
-        "country": "USA",
-        "directors": [
-          "Scott Hicks"
-        ],
-        "release_year": "2007",
-        "rights": [],
-        "summary": [
-          "Esta deliciosa comédia romântica sobre uma mulher que descobre que o mundo é bem maior do que uma cozinha."
-        ],
-        "tvod_price": 7.9
-      },
-      "morality_level": 0,
-      "synopsis": {
-        "por": "Quer experimentar uma deliciosa codorna perfeitamente preparada com molho trufado? Kate (Catherine Zeta-Jones), uma chefe de cozinha workaholic, pode preparar esse prato. Mas não pergunte a ela o que fazer com um novo chefe (Aaron Eckhart), um sujeito meio avesso a regras e muito criativo, que se juntou ao estafe do sofisticado Restaurante Manhattan, que é comandado por ela. Ou o que fazer com uma sobrinha órfã (Abigail Breslin), adepta confessa de nuggets e não do foie gras, que agora vive com Kate. “Eu gostaria que existisse um livro de gastronomia para a vida, com receitas que nos dissessem exatamente o que fazer em situações dessas”, diz Kate ao seu terapeuta (Bob Balaban). O amor de uma vida (e pratos maravilhosos!) temperam e aquecem esta deliciosa comédia romântica sobre uma mulher que descobre que o mundo é bem maior do que uma cozinha. Sirva-se à vontade. Alguma coisa nova e diferente está sendo preparada na vida de Kate."
-      },
-      "title": {
-        "por": "Sem Reservas"
-      }
-    },
-    {
-      "adult": false,
-      "available_from": 1614643200000,
-      "available_to": 2524521600000,
-      "duration": 6990019,
-      "genres": [
-        "Comédia",
-        "Crime"
-      ],
-      "id": "cc6278a4-436e-4d1d-aeb5-8e4f384951b1",
-      "images": [],
-      "medias": [
-        {
-          "audio_languages": [
-            "eng",
-            "por"
-          ],
-          "id": "cc6278a4-436e-4d1d-aeb5-8e4f384951b1_m",
-          "location": "oceans_11_hd_eng_por_20.mp4",
-          "metadata": {},
-          "subtitles": [
-            {
-              "language": "por",
-              "location": "oceans_11_hd_eng_por_20.srt"
-            }
-          ],
-          "technology": "MP4",
-          "title": "Onze Homens e um Segredo",
-          "type": "MEDIA"
-        }
-      ],
-      "metadata": {
-        "actors": [
-          "George Clooney",
-          "Matt Damon",
-          "Andy Garcia",
-          "Brad Pitt",
-          "Julia Roberts",
-          "Casey Affleck",
-          "Scott Caan",
-          "Elliott Gould",
-          "Bernie Mac",
-          "Carl Reiner",
-          "Don Cheadle",
-          "Shaobo Qin"
-        ],
-        "country": "USA",
-        "directors": [
-          "Steven Soderbergh"
-        ],
-        "release_year": "2001",
-        "rights": [],
-        "summary": [
-          "Véspera de Ano Novo em Las Vegas.... mas as luzes se apagam. É a hora perfeita para se roubar um beijo ou uma moeda"
-        ],
-        "tvod_price": 7.9
-      },
-      "morality_level": 12,
-      "synopsis": {
-        "por": "George Clooney, Matt Damon, Brad Pitt, Julia Roberts e Don Cheadle arriscam tudo para cometer o assalto mais sofisticado e ousado de Las Vegas. Menos de 24 horas depois de entrar em liberdade condicional, o carismático Danny Ocean (Clooney) escolhe a dedo uma equipe de malandros para embolsar US$ 150 milhões--em uma noite! O alvo: o implacável empresário Terry Benedict (Andy Garcia). Benedict controla três dos maiores cassinos de Las Vegas ... e a sexy ex-mulher do Ocean (Roberts). Em qualquer outro lugar eles seriam bandidos, mas Ocean e sua equipe seguem as regras: Não machucam ninguém. Não roubam de ninguém que não merece.E jogam o jogo como se não tivessem nada a perder."
-      },
-      "title": {
-        "por": "Onze Homens e um Segredo"
-      }
-    },
-    {
-      "adult": false,
-      "available_from": 1614643200000,
-      "available_to": 2524521600000,
-      "duration": 6605020,
-      "genres": [
-        "Comédia",
-        "Crime"
-      ],
-      "id": "1ac977af-5288-4e38-a428-58229373ff43",
-      "images": [],
-      "medias": [
-        {
-          "audio_languages": [
-            "eng",
-            "por"
-          ],
-          "id": "1ac977af-5288-4e38-a428-58229373ff43_m",
-          "location": "oceans_8_hd_eng_por_20.mp4",
-          "metadata": {},
-          "subtitles": [
-            {
-              "language": "por",
-              "location": "oceans_8_hd_eng_por_20.srt"
-            }
-          ],
-          "technology": "MP4",
-          "title": "Oito Mulheres e um Segredo",
-          "type": "MEDIA"
-        }
-      ],
-      "metadata": {
-        "actors": [
-          "Sandra Bullock",
-          "Cate Blanchett",
-          "Anne Hathaway",
-          "Mindy Kaling",
-          "Awkwafina",
-          "Sarah Paulson",
-          "Rihanna",
-          "Helena Bonham Carter",
-          "James Corden",
-          "Richard Armitage"
-        ],
-        "country": "USA",
-        "directors": [
-          "Gary Ross"
-        ],
-        "release_year": "2018",
-        "rights": [],
-        "summary": [
-          "Debbie Ocean (Sandra Bullock) recruta uma equipe de especialistas para planejar e executar um assalto em Nova York."
-        ],
-        "tvod_price": 7.9
-      },
-      "morality_level": 14,
-      "synopsis": {
-        "por": "Cinco anos, oito meses, 12 dias... em contagem regressiva. Este foi o tempo que Debbie Ocean (Sandra Bullock) levou para preparar o maior assalto da sua vida. Ela sabe que precisará de uma equipe com as melhores do métier, a começar pela sua parceira de crimes Lou Miller (Cate Blanchett). Juntas, elas recrutam um grupo de especialistas: a joalheira Amita (Mindy Kaling), a vigarista Constance (Awkwafina), a especialista em receptação Tammy (Sarah Paulson), a hacker Nine Ball (Rihanna) e a estilista Rose (Helena Bonham Carter). O alvo é US$ 150 milhões de dólares em diamantes... diamantes que estarão no pescoço da atriz mundialmente famosa Daphne Kluger (Anne Hathaway), na grande atração no evento do ano, o Met Gala. O plano é sólido como uma rocha, mas tudo precisará ser perfeito para a equipe conseguir entrar e escapar com os diamantes. Tudo absolutamente à vista."
-      },
-      "title": {
-        "por": "Oito Mulheres e um Segredo"
-      }
-    },
-    {
-      "adult": false,
-      "available_from": 1614643200000,
-      "available_to": 2524521600000,
-      "duration": 8147001,
-      "genres": [
-        "Faroeste"
-      ],
-      "id": "05c59c1f-cd59-4fae-9c58-88fa7ad8260d",
-      "images": [],
-      "medias": [
-        {
-          "audio_languages": [
-            "eng",
-            "por"
-          ],
-          "id": "05c59c1f-cd59-4fae-9c58-88fa7ad8260d_m",
-          "location": "outlaw_josey_wales_hd_eng_por_20.mp4",
-          "metadata": {},
-          "subtitles": [
-            {
-              "language": "por",
-              "location": "outlaw_josey_wales_hd_eng_por_20.srt"
-            }
-          ],
-          "technology": "MP4",
-          "title": "Josey Wales: O Fora da Lei",
-          "type": "MEDIA"
-        }
-      ],
-      "metadata": {
-        "actors": [
-          "Clint Eastwood",
-          "Sondra Locke",
-          "Chief Dan George",
-          "John Vernon",
-          "Bill McKinney",
-          "Paula Trueman",
-          "Sam Bottoms"
-        ],
-        "country": "USA",
-        "directors": [
-          "Clint Eastwood"
-        ],
-        "release_year": "1976",
-        "rights": [],
-        "summary": [
-          "O próprio Clint interpreta Josey Wales, um fazendeiro cujas terras no Missouri são atacadas por soldados da União, que também matam sua mulher e filho."
-        ],
-        "tvod_price": 7.9
-      },
-      "morality_level": 14,
-      "synopsis": {
-        "por": "Sucesso de bilheteria e crítica, Josey Wales - O Fora da Lei, chegou a ser escolhido pela revista Times como um dos 10 melhores filmes do ano. Dirigido pela astro Clint Eastwood (Rota Suicida, O Cavaleiro Solitário) e com magnífica trilha sonora, Josey Wales - O Fora da Lei é um Western movimentado e brutal, ambientado durante a Guerra Civil Americana. O próprio Clint interpreta Josey Wales, um fazendeiro cujas terras no Missouri são atacadas por soldados da União, que também matam sua mulher e filho. Buscando vingança, Wales inicia uma solitária e violenta caçada combatendo soldados, bandidos e renegados."
-      },
-      "title": {
-        "por": "Josey Wales: O Fora da Lei"
-      }
-    },
-    {
-      "adult": false,
-      "available_from": 1614643200000,
-      "available_to": 2524521600000,
-      "duration": 7871990,
-      "genres": [
-        "Aventura",
-        "Ficção Científica"
-      ],
-      "id": "16e434d9-4ff8-4ea4-83b7-2393fbda3048",
-      "images": [],
-      "medias": [
-        {
-          "audio_languages": [
-            "eng",
-            "por"
-          ],
-          "id": "16e434d9-4ff8-4ea4-83b7-2393fbda3048_m",
-          "location": "pacific_rim_hd_eng_por_20.mp4",
-          "metadata": {},
-          "subtitles": [
-            {
-              "language": "por",
-              "location": "pacific_rim_hd_eng_por_20.srt"
-            }
-          ],
-          "technology": "MP4",
-          "title": "Círculo de Fogo",
-          "type": "MEDIA"
-        }
-      ],
-      "metadata": {
-        "actors": [
-          "Charlie Hunnam",
-          "Idris Elba",
-          "Rinko Kikuchi",
-          "Charlie Day",
-          "Rob Kazinsky",
-          "Ladislas Fodor",
-          "Ron Perlman",
-          "Clifton Collins",
-          "Jr",
-          "Burn Gorman"
-        ],
-        "country": "USA",
-        "directors": [
-          "Guillermo del Toro"
-        ],
-        "release_year": "2013",
-        "rights": [],
-        "summary": [
-          "Guillermo del Toro mostra suas armas nesse épico de ficção científica sobre um grupo de humanos distintos que se junta no ano de 2025 para combater criaturas monstruosas vindas do mar."
-        ],
-        "tvod_price": 7.9
-      },
-      "morality_level": 12,
-      "synopsis": {
-        "por": "O aclamado diretor Guillermo del Toro mostra suas armas nesse épico de ficção científica sobre um grupo de humanos distintos que se junta no ano de 2025 para combater legiões de criaturas monstruosas vindas do mar. Usando enormes robôs controlados para combater a ameaça alienígena, os sobreviventes da Terra (incluindo Charlie Hunnam, Charlie Day \u0026 Rinko Kikuchi) entram na briga contra as forças alienígenas invasoras que se escondem nas profundezas do Oceano Pacífico. Quase indefesos perante o incansável inimigo, os humanos não têm escolha senão depender de dois heróis improváveis - um ex-piloto dispensado e uma estagiária sem prática - que passam a ser a esperança final da Terra contra o iminente apocalipse."
-      },
-      "title": {
-        "por": "Círculo de Fogo"
-      }
-    },
-    {
-      "adult": false,
-      "available_from": 1614643200000,
-      "available_to": 2524521600000,
-      "duration": 8467027,
+      "duration": 6417014,
       "genres": [
         "Suspense",
         "Drama"
       ],
-      "id": "d3638fb2-b895-4500-a40d-9302a68185c0",
+      "id": "00b5c0fc-0a29-45ef-8d70-c0f46d3c7c25",
       "images": [],
       "medias": [
         {
@@ -2670,63 +174,542 @@
             "eng",
             "por"
           ],
-          "id": "d3638fb2-b895-4500-a40d-9302a68185c0_m",
-          "location": "pelican_brief_hd_eng_por_20.mp4",
+          "id": "00b5c0fc-0a29-45ef-8d70-c0f46d3c7c25_m",
+          "location": "american_violence_hd_16x9_por_20.mp4",
           "metadata": {},
           "subtitles": [
             {
               "language": "por",
-              "location": "pelican_brief_hd_eng_por_20.srt"
+              "location": "american_violence_hd_16x9_eng_por_20.srt"
             }
           ],
           "technology": "MP4",
-          "title": "O Dossiê Pelicano",
+          "title": "No Rastro da Violência",
           "type": "MEDIA"
         }
       ],
       "metadata": {
         "actors": [
-          "Julia Roberts",
-          "Denzel Washington",
-          "Sam Shepard",
-          "John Heard",
-          "Tony Goldwyn",
-          "James Sikking",
-          "William Atherton",
-          "Robert Culp",
-          "Stanley Tucci",
-          "Hume Cronyn",
-          "John Lithgow"
+          "Bruce Dern",
+          "Denise Richards",
+          "Kaiwi Lyman",
+          "Columbus Short",
+          "Rob Gronkowski",
+          "Michael Paré",
+          "Johnny Messner",
+          "Emma Rigby",
+          "Nick Chinlund",
+          "Patrick Kilpatrick",
+          "Michele Santopietro",
+          "Willow Hale",
+          "Michael John Long"
         ],
         "country": "USA",
         "directors": [
-          "Alan J. Pakula"
+          "Timothy Woodward Jr."
         ],
-        "release_year": "1993",
+        "release_year": "2017",
         "rights": [],
         "summary": [
-          "Em Nova Orleans, a jovem estudante de direito Darby Shaw prepara um dossiê contendo suas opiniões e estudos sobre os crimes, chegando a uma surpreendente conclusão."
-        ],
-        "tvod_price": 7.9
+          "Fascinado pelas causas profundas do comportamento violento, a psicóloga de renome mundial, a Dra Amanda Tyler, tem a oportunidade de entrevistar e analisar o preso jackson Shea À medida que a entrevista começa, e o destino de Jack fica no saldo, a Amanda deve determinar se uma suspensão da execução deve ou não ser concedida"
+        ]
       },
-      "morality_level": 12,
+      "morality_level": 14,
       "synopsis": {
-        "por": "Dois juízes da Suprema Corte de Justiça dos Estados Unidos são assassinados na mesma noite. Quem estaria por trás das duas mortes? E por que? Em Nova Orleans, a jovem estudante de direito Darby Shaw (Julia Roberts, de Uma Linda Mulher) prepara um dossiê contendo suas opiniões e estudos sobre os crimes, chegando a uma surpreendente conclusão. Nas mãos erradas, as informações daquele documento significaria uma reviravolta na política de todo o país. Agora, a vida de Darby Shaw está em perigo. Perseguida e assustada, ela só pode contar com a ajuda de Gray Grantham (Denzel Washington, de Possuídos), um ambicioso repórter que sempre procurou uma história como essa. O Dossiê Pelicano é um filme ágil, repleto de suspense e surpresas a cada instante, baseado no best-seller de John Grisham (autor de A Firma)."
+        "por": "Fascinada pelas raízes do comportamento violento na sociedade atual, a Dra. Amanda Tyler, psiquiatra internacionalmente conhecida, recebe a chance de entrevistar e analisar Jackson - Jack Shea, condenado a morte à espera da execução de sua sentença. Conforme a entrevista flui e o futuro de Jack segue inconcluso, a especialista começa a questionar se deve ou não intervir e interceder para salvar a vida do condenado, que pode - ou não - ser mesmo culpado."
       },
       "title": {
-        "por": "O Dossiê Pelicano"
+        "por": "No Rastro da Violência"
       }
     },
     {
       "adult": false,
-      "available_from": 1614643200000,
+      "available_from": 1615248000000,
       "available_to": 2524521600000,
-      "duration": 5992963,
+      "duration": 5375980,
       "genres": [
-        "Animação",
+        "Drama",
         "Família"
       ],
-      "id": "63f9e236-bf4a-4e49-8f8c-3d66fd0a57e5",
+      "id": "3a8a0f00-aaa7-496a-9d11-7e60e0681bb4",
+      "images": [],
+      "medias": [
+        {
+          "audio_languages": [
+            "por"
+          ],
+          "id": "3a8a0f00-aaa7-496a-9d11-7e60e0681bb4_m",
+          "location": "catching_faith_hd_16x9_por_20.mp4",
+          "metadata": {},
+          "technology": "MP4",
+          "title": "Uma Prova de Fé",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          "Bill Engvall",
+          "Lorena Segura York",
+          "Garret Westton",
+          "Alexandra Boylan",
+          "Lizz Carte",
+          "Dariush Moslemi",
+          "Bethany Peterson",
+          "Erin Ross"
+        ],
+        "country": "USA",
+        "directors": [
+          "Jonh K.D. Grahan"
+        ],
+        "release_year": "2015",
+        "rights": [],
+        "summary": [
+          "John e Alexa Taylor parecem ter a vida perfeita. Eles fazem inveja a todos os pais na cidade. Seu filho Beau é a estrela de futebol da escola e sua filha Ravyn é a estudante número um."
+        ]
+      },
+      "morality_level": 12,
+      "synopsis": {
+        "por": "John e Alexa Taylor parecem ter a vida perfeita. Eles fazem inveja a todos os pais na cidade. Seu filho Beau é a estrela de futebol da escola e sua filha Ravyn é a estudante número um. Mas, quando Beau é pego bebendo álcool, seu lugar na equipe e seu futuro brilhante estão ameaçados. Com a temporada de futebol em jogo e a comunidade virando as costas para eles, cada membro da família Taylor está em uma encruzilhada. Agora, eles devem encontrar a força um ao lado do outro e a coragem espiritual, para provarem que a fé e a família são os únicos bens que realmente importam."
+      },
+      "title": {
+        "por": "Uma Prova de Fé"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1615248000000,
+      "available_to": 2524521600000,
+      "duration": 6758035,
+      "genres": [
+        "Ação",
+        "Drama"
+      ],
+      "id": "36899d09-6bae-4f1c-b9c4-54a98aef250e",
+      "images": [],
+      "medias": [
+        {
+          "audio_languages": [
+            "por"
+          ],
+          "id": "36899d09-6bae-4f1c-b9c4-54a98aef250e_m",
+          "location": "chervonyi_hd_16x9_por_20.mp4",
+          "metadata": {},
+          "technology": "MP4",
+          "title": "Massacre na Ucrânia",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          "Mykola Bereza",
+          "Oleg Shulga",
+          "Oleksandr Mavrits",
+          "Lubov Tyshchenko",
+          "Volodymyr Shpudeyko",
+          "Oleg Stefan",
+          "Igor Koltovskyy"
+        ],
+        "country": "UKR",
+        "directors": [
+          "Zaza Buadze"
+        ],
+        "release_year": "2017",
+        "rights": [],
+        "summary": [
+          "Ucrânia, 1947. O comandante do UPA, Exército Insurgente da Ucrânia, Danylo Chervonyi se envolveu em um terrível massacre no campo de prisioneiros de Stalin, conhecido como Gulag. Lá, ele passou pelo inferno, em condições desumanas na prisão, um lugar repleto de maldade, traição e desespero, enquanto líderes considerados criminosos eram processados. Danylo buscou forças para resistir à repressão do comandante do local e tentar escapar da prisão, provocando a primeira rebelião no local. Baseado em fatos reais."
+        ]
+      },
+      "morality_level": 14,
+      "synopsis": {
+        "por": "Ucrânia, 1947. O comandante do UPA, Exército Insurgente da Ucrânia, Danylo Chervonyi se envolveu em um terrível massacre no campo de prisioneiros de Stalin, conhecido como Gulag. Lá, ele passou pelo inferno, em condições desumanas na prisão, um lugar repleto de maldade, traição e desespero, enquanto líderes considerados criminosos eram processados. Danylo buscou forças para resistir à repressão do comandante do local e tentar escapar da prisão, provocando a primeira rebelião no local. Baseado em fatos reais."
+      },
+      "title": {
+        "por": "Massacre na Ucrânia"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1615248000000,
+      "available_to": 2524521600000,
+      "duration": 7086009,
+      "genres": [
+        "Ação"
+      ],
+      "id": "ba5b0861-4af6-45d9-8987-d2b0d5a99c76",
+      "images": [],
+      "medias": [
+        {
+          "audio_languages": [
+            "por"
+          ],
+          "id": "ba5b0861-4af6-45d9-8987-d2b0d5a99c76_m",
+          "location": "chronicles_of_the_ghostly_tribe_hd_16x9_por_20.mp4",
+          "metadata": {},
+          "technology": "MP4",
+          "title": "Crônicas da Tribo Fantasma",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          "Jin Chen",
+          "Mark Chao",
+          "Li Feng",
+          "Chen Li",
+          "Guangjie Li",
+          "Yan Tang",
+          "Rhydian Vaughan",
+          "Qingxiang Wang"
+        ],
+        "country": "CHN",
+        "directors": [
+          "Chuan Lu"
+        ],
+        "release_year": "2015",
+        "rights": [],
+        "summary": [
+          "Uma escavação causa um acidente e abre uma porta entre a Terra e uma outra dimensão, um mundo de seres fantásticos que buscam uma chance de invadir nosso planeta."
+        ]
+      },
+      "morality_level": 14,
+      "synopsis": {
+        "por": "Fronteira entre a China e a Mongólia, final dos anos 1970. Uma grande quantidade de fósseis é encontrada nas montanhas e a equipe de pesquisa, formada por renomados profissionais, sofre uma sequência de problemas, incluindo um ataque de morcegos, desmoronamentos e uma misteriosa explosão, se resume a poucos sobreviventes. Os cientistas que restaram fazem uma descoberta ainda mais incrível: um templo que serve de portal entre a Terra e uma dimensão habitada por seres fantásticos. Quando a porta se abre e criaturas monstruosas surgem atacando os pesquisadores."
+      },
+      "title": {
+        "por": "Crônicas da Tribo Fantasma"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1615248000000,
+      "available_to": 2524521600000,
+      "duration": 6582038,
+      "genres": [
+        "Ação",
+        "Drama"
+      ],
+      "id": "0596dbba-b28d-421f-b868-a688fced59fb",
+      "images": [],
+      "medias": [
+        {
+          "audio_languages": [
+            "por"
+          ],
+          "id": "0596dbba-b28d-421f-b868-a688fced59fb_m",
+          "location": "coldwar2_hd_16x9_por_20.mp4",
+          "metadata": {},
+          "technology": "MP4",
+          "title": "Guerra Fria",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          "Aaron Kwok",
+          "Yun-Fat Chow",
+          "Charlie Yeung",
+          "Matt Totty",
+          "Eddie Peng",
+          "Tony Ka Fai Leung",
+          "Aarif Rahman",
+          "Yili Ma",
+          "Temur Mamisashvili",
+          "Andrew Dasz"
+        ],
+        "country": "CHN",
+        "directors": [
+          "Lok Man Leung",
+          "Kim-Ching Luk"
+        ],
+        "release_year": "2016",
+        "rights": [],
+        "summary": [
+          "Após uma operação de resgate bem sucedido, Sean Lau é agora o Comissário de Polícia. No entanto, as coisas ficam ruins quando sua esposa e filha são sequestradas. Sean terá que procurar ajuda de um ex-rival que se aposentou do DCP, Waise Lee, para tentar convencê-lo a voltar ao seu trabalho, para ajudar a salvar sua esposa e filha."
+        ]
+      },
+      "morality_level": 16,
+      "synopsis": {
+        "por": "Após uma operação de resgate bem sucedido, Sean Lau é agora o Comissário de Polícia. No entanto, as coisas ficam ruins quando sua esposa e filha são sequestradas. Sean terá que procurar ajuda de um ex-rival que se aposentou do DCP, Waise Lee, para tentar convencê-lo a voltar ao seu trabalho, para ajudar a salvar sua esposa e filha."
+      },
+      "title": {
+        "por": "Guerra Fria"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1615248000000,
+      "available_to": 2524521600000,
+      "duration": 6324998,
+      "genres": [
+        "Suspense",
+        "Terror"
+      ],
+      "id": "c0e670a0-ae2f-4c47-bd12-ed300b5ccfb7",
+      "images": [],
+      "medias": [
+        {
+          "audio_languages": [
+            "por"
+          ],
+          "id": "c0e670a0-ae2f-4c47-bd12-ed300b5ccfb7_m",
+          "location": "deadawake_hd_16x9_por_20.mp4",
+          "metadata": {},
+          "technology": "MP4",
+          "title": "Sono Mortal",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          "Jesse Bradford",
+          "Jocelin Donahue",
+          "James Eckhouse",
+          "Lori Petty",
+          "Mona Lee Fultz",
+          "Jesse Borrego",
+          "Brea Grant",
+          "Billy Blair"
+        ],
+        "country": "USA",
+        "directors": [
+          "Phillip Guzman"
+        ],
+        "release_year": "2016",
+        "rights": [],
+        "summary": [
+          "Kate Bowman é uma assistente social que leva uma vida comum, investigando misteriosas mortes que parecem estar ligadas à paralisia do sono. Pouco antes de morrerem, as vítimas descreveram, cada uma a sua maneira, eventos sobrenaturais que estavam vivenciando enquanto estavam paralisadas. Quando Kate resolve ir mais fundo e tentar entender como funciona a paralisia, ela acaba abrindo as portas de seu próprio sono para a criatura, que agora quer destruí-la. O que Kate não sabia era que sua família e a entidade já possuem uma aterrorizante história juntos."
+        ]
+      },
+      "morality_level": 14,
+      "synopsis": {
+        "por": "Kate Bowman é uma assistente social que leva uma vida comum, investigando misteriosas mortes que parecem estar ligadas à paralisia do sono. Pouco antes de morrerem, as vítimas descreveram, cada uma a sua maneira, eventos sobrenaturais que estavam vivenciando enquanto estavam paralisadas. Quando Kate resolve ir mais fundo e tentar entender como funciona a paralisia, ela acaba abrindo as portas de seu próprio sono para a criatura, que agora quer destruí-la. O que Kate não sabia era que sua família e a entidade já possuem uma aterrorizante história juntos."
+      },
+      "title": {
+        "por": "Sono Mortal"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1615248000000,
+      "available_to": 2524521600000,
+      "duration": 4717958,
+      "genres": [
+        "Terror",
+        "Suspense"
+      ],
+      "id": "8152f3a6-1c7e-4ce8-a81b-5cb65ddf2cab",
+      "images": [],
+      "medias": [
+        {
+          "audio_languages": [
+            "por"
+          ],
+          "id": "8152f3a6-1c7e-4ce8-a81b-5cb65ddf2cab_m",
+          "location": "dear_diary_hd_16x9_por_20.mp4",
+          "metadata": {},
+          "technology": "MP4",
+          "title": "Páginas da Morte",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          "Jeffrey Wells",
+          "Tatiana Warden",
+          "Traci L. Newman",
+          "Scott Broughton",
+          "Gregory Dean Tompkins",
+          "Lauretta Compton",
+          "Ray Dwyer Jr.",
+          "Kelly Frances Fischer"
+        ],
+        "country": "USA",
+        "directors": [
+          "Joe W Nowland"
+        ],
+        "release_year": "2019",
+        "rights": [],
+        "summary": [
+          "No meio da noite, uma jovem desperta e subitamente, sem esboçar qualquer sentimento, mata cada membro de sua família, inclusive o cachorro dela. O psiquiatra encarregado do caso descobre que a garota mantinha um diário e resolve investigar. Depois de encontrar o objeto e a ler seu conteúdo, o médico passa a entender a razão de sua primeira página conter um aviso – “quem ler este diário será amaldiçoado”. Gradualmente, o psiquiatra passa ter pesadelos violentos recorrentes e a sofrer de insônia, o que o deixa à beira da loucura."
+        ]
+      },
+      "morality_level": 16,
+      "synopsis": {
+        "por": "No meio da noite, uma jovem desperta e subitamente, sem esboçar qualquer sentimento, mata cada membro de sua família, inclusive o cachorro dela. O psiquiatra encarregado do caso descobre que a garota mantinha um diário e resolve investigar. Depois de encontrar o objeto e a ler seu conteúdo, o médico passa a entender a razão de sua primeira página conter um aviso – “quem ler este diário será amaldiçoado”. Gradualmente, o psiquiatra passa ter pesadelos violentos recorrentes e a sofrer de insônia, o que o deixa à beira da loucura."
+      },
+      "title": {
+        "por": "Páginas da Morte"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1615248000000,
+      "available_to": 2524521600000,
+      "duration": 6206976,
+      "genres": [
+        "Comédia",
+        "Romance"
+      ],
+      "id": "4f255d8f-d2af-4866-b671-c96fd7a60b5d",
+      "images": [],
+      "medias": [
+        {
+          "audio_languages": [
+            "por"
+          ],
+          "id": "4f255d8f-d2af-4866-b671-c96fd7a60b5d_m",
+          "location": "enviado_hd_16x9_por_20.mp4",
+          "metadata": {},
+          "technology": "MP4",
+          "title": "Enviado do Céu",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          "Bruce Davison",
+          "Dominique Swain",
+          "Dina Meyer",
+          "Carol Locatell",
+          "Patrick Muldoon",
+          "Nathan Peterson",
+          "William McNamara",
+          "Brandon Tyler Russell",
+          "Sage Kirkpatrick"
+        ],
+        "country": "USA",
+        "directors": [
+          "Nancy Criss"
+        ],
+        "release_year": "2016",
+        "rights": [],
+        "summary": [
+          "O Pastor Randy Michaels, ministro de uma igreja situada em um bairro perigoso de Los Angeles, foi enviado para uma nova missão em uma cidade rural do Arizona."
+        ]
+      },
+      "morality_level": 12,
+      "synopsis": {
+        "por": "Quando o Pastor Randy Michaels, ministro de uma igreja, responsável pelos trabalhos em uma comunidade situada em um bairro perigoso de Los Angeles, acaba sendo enviado para uma nova missão em uma pequena cidade rural do Arizona, ele e sua família precisam se adaptar à mudança de ares e aos costumes de sua nova vizinhança. Com o apoio de sua esposa e de seus filhos, Randy deixará para trás seus temores e entenderá que o chamado que vem de seu coração é verdadeiro e renovará sua fé."
+      },
+      "title": {
+        "por": "Enviado do Céu"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1615248000000,
+      "available_to": 2524521600000,
+      "duration": 5978966,
+      "genres": [
+        "Aventura",
+        "Fantasia"
+      ],
+      "id": "53a2d60c-9800-4dfd-aae9-2f500dbf0755",
+      "images": [],
+      "medias": [
+        {
+          "audio_languages": [
+            "por"
+          ],
+          "id": "53a2d60c-9800-4dfd-aae9-2f500dbf0755_m",
+          "location": "excalibur_rising_hd_16x9_por_20.mp4",
+          "metadata": {},
+          "technology": "MP4",
+          "title": "Rei Arthur A Volta de Excalibur",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          "Adam Byard",
+          "Annes Elwy",
+          "Gavin Swift",
+          "Nicola Stuart-Hill",
+          "Simon Armstrong",
+          "Dewi Rhys Williams",
+          "Kerry Joy Stewart"
+        ],
+        "country": "USA",
+        "directors": [
+          "Antony Smith"
+        ],
+        "release_year": "2017",
+        "rights": [],
+        "summary": [
+          "Em seu últimos momentos, o Rei Arthur, ferido mortalmente por seu filho Mordred, revela a Sir Bedivere que tem outro filho e que será tarefa do cavaleiro protegê-lo. Além disso, o rei moribundo pede ao amigo que leve Excalibur de volta ao lago para mantê-la segura. Anos depois, o destino coloca Bedivere e Owain, o filho perdido de Arthur, frente a frente. Eles terão que trabalhar juntos para recuperar o trono, usurpado por Mordred, e contarão com a ajuda de Merlin e de Excalibur para lutar."
+        ]
+      },
+      "morality_level": 16,
+      "synopsis": {
+        "por": "Em seu últimos momentos, o Rei Arthur, ferido mortalmente por seu filho Mordred, revela a Sir Bedivere que tem outro filho e que será tarefa do cavaleiro protegê-lo. Além disso, o rei moribundo pede ao amigo que leve Excalibur de volta ao lago para mantê-la segura. Anos depois, o destino coloca Bedivere e Owain, o filho perdido de Arthur, frente a frente. Eles terão que trabalhar juntos para recuperar o trono, usurpado por Mordred, e contarão com a ajuda de Merlin e de Excalibur para lutar."
+      },
+      "title": {
+        "por": "Rei Arthur A Volta de Excalibur"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1615248000000,
+      "available_to": 2524521600000,
+      "duration": 6861023,
+      "genres": [
+        "Terror",
+        "Suspense"
+      ],
+      "id": "8de631bc-3f41-46f8-a589-861881337821",
+      "images": [],
+      "medias": [
+        {
+          "audio_languages": [
+            "por"
+          ],
+          "id": "8de631bc-3f41-46f8-a589-861881337821_m",
+          "location": "frankenstein_vs_mummy_hd_16x9_por_20.mp4",
+          "metadata": {},
+          "technology": "MP4",
+          "title": "Frankenstein vs. A Múmia",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          "Robert MacNaughton",
+          "Max Rhyser",
+          "Ashton Leigh",
+          "Boomer Tibbs",
+          "Brandon deSpain",
+          "Constantin Tripes",
+          "Michael Chmiel",
+          "Malika Franklin"
+        ],
+        "country": "USA",
+        "directors": [
+          "Damien Leone"
+        ],
+        "release_year": "2015",
+        "rights": [],
+        "summary": [
+          "Dois monstros - um criado pelo dr. Victor Frankenstein e um pelo egiptólogo Khalil Naihla - se encontram em um embate histórico e mortal que talvez só seus criadores sejam capazes de interromper."
+        ]
+      },
+      "morality_level": 16,
+      "synopsis": {
+        "por": "Dr. Victor Frankenstein e o egiptólogo Khalil Naihla são professores de medicina de uma conceituada universidade. A última experiência macabra do Dr. Victor é o cadáver reanimado de um louco sádico, e a mais recente loucura de Naihla é a múmia de um maldito faraó. Quando os dois monstros se encontram em um confronto sanguinário e épico ninguém está a salvo. Apenas o Dr. Frankenstein e Naihla poderão conter as violentas criaturas, antes que seja tarde demais."
+      },
+      "title": {
+        "por": "Frankenstein vs. A Múmia"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1615248000000,
+      "available_to": 2524521600000,
+      "duration": 5537980,
+      "genres": [
+        "Terror",
+        "Suspense"
+      ],
+      "id": "b73c2465-13f7-4461-b79f-bfffc027b0ad",
       "images": [],
       "medias": [
         {
@@ -2734,414 +717,738 @@
             "eng",
             "por"
           ],
-          "id": "63f9e236-bf4a-4e49-8f8c-3d66fd0a57e5_m",
-          "location": "polar_express_hd_eng_por_20.mp4",
+          "id": "b73c2465-13f7-4461-b79f-bfffc027b0ad_m",
+          "location": "hayride2_hd_16x9_eng_20.mp4",
           "metadata": {},
           "subtitles": [
             {
               "language": "por",
-              "location": "polar_express_hd_eng_por_20.srt"
+              "location": "hayride2_hd_16x9_eng_por_20.srt"
             }
           ],
           "technology": "MP4",
-          "title": "O Expresso Polar",
+          "title": "Massacre Sangrento",
           "type": "MEDIA"
         }
       ],
       "metadata": {
         "actors": [
-          "Tom Hanks",
-          "Nona Gaye",
-          "Peter Scolari",
-          "Michael Jeter",
-          "Eddie Deezen",
-          "Charles Fleischer"
+          "Richard Tyson",
+          "Sherri Eakin",
+          "Jeremy Ivy",
+          "Jeremy Sande",
+          "Corlandos Scott",
+          "Adam Cardon",
+          "John DeLong",
+          "Rachel Varela"
         ],
         "country": "USA",
         "directors": [
-          "Robert Zemeckis"
+          "Terron R. Parsons"
         ],
-        "release_year": "2004",
+        "release_year": "2015",
         "rights": [],
         "summary": [
-          "É véspera de Natal e um garoto está acordado. Sem acreditar mais em Papai Noel, ele espera por algo que faça com que sua crença na figura natalina retorne."
+          "O final de uma jornada marcou apenas o começo de outra. O Detetive Loomis tem que voltar para descobrir a verdade por trás de uma perigosa lenda local que assombrou uma cidade do Alabama no Halloween passado. Novamente assassinatos estão acontecendo e o alvo principal é, novamente, o jovem Steven e sua namorada Amanda. O assassino tem um único objetivo, chegar ao hospital onde Amanda trabalha."
+        ]
+      },
+      "morality_level": 16,
+      "synopsis": {
+        "por": "O final de uma jornada marcou apenas o começo de outra. O Detetive Loomis tem que voltar para descobrir a verdade por trás de uma perigosa lenda local que assombrou uma cidade do Alabama no Halloween passado. Novamente assassinatos estão acontecendo e o alvo principal é, novamente, o jovem Steven e sua namorada Amanda. O assassino tem um único objetivo, chegar ao hospital onde Amanda trabalha."
+      },
+      "title": {
+        "por": "Massacre Sangrento"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1615248000000,
+      "available_to": 2524521600000,
+      "duration": 5800031,
+      "genres": [
+        "Família",
+        "Fantasia"
+      ],
+      "id": "3fc1fd78-f2a0-4930-9fbb-b93795951e49",
+      "images": [],
+      "medias": [
+        {
+          "audio_languages": [
+            "por"
+          ],
+          "id": "3fc1fd78-f2a0-4930-9fbb-b93795951e49_m",
+          "location": "historia_de_amizade_hd_16x9_por_20.mp4",
+          "metadata": {},
+          "technology": "MP4",
+          "title": "Uma História de Amizade",
+          "type": "MEDIA"
+        },
+        {
+          "audio_languages": [
+            "por"
+          ],
+          "id": "3fc1fd78-f2a0-4930-9fbb-b93795951e49_t",
+          "location": "historia_de_amizade_hd_16x9_eng_por_20_trailer.mp4",
+          "metadata": {},
+          "technology": "MP4",
+          "title": "Uma História de Amizade",
+          "type": "TRAILER"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          "Sarah Lieving",
+          "Aaron Johnson Araza",
+          "Jesse Bell",
+          "Joe Bell",
+          "Kix Brooks",
+          "Miguel Corona",
+          "Sarah-Jane Dalby",
+          "Jackie R. Jacobson"
         ],
-        "tvod_price": 7.9
+        "country": "USA",
+        "directors": [
+          "John Rogers"
+        ],
+        "release_year": "2016",
+        "rights": [],
+        "summary": [
+          "A amizade de uma garota e seu cavalo ganha novas cores quando ela descobre que ele guarda um segredo, que só é revelado quando ele decide ajudá-la."
+        ]
       },
       "morality_level": 0,
       "synopsis": {
-        "por": "É véspera de Natal e um garoto está acordado. Sem acreditar mais em Papai Noel, ele espera por algo que faça com que sua crença na figura natalina retorne. De repente ele ouve um grande barulho, indo para fora de sua casa. O garoto então vê à sua frente um gigantesco trem negro com destino ao Pólo Norte, cujo condutor (Tom Hanks) o convida para embarcar. Após certa relutância, ele decide seguir viagem."
+        "por": "Quando Champion, cavalo que pertence à jovem Monica, quebra o segredo secular de sua linhagem e revela à garota que pode falar, ele o faz, pois está determinado a pedir a ajuda de sua dona para descobrir o que ele quer ser quando crescer. Sua jornada de descoberta afeta também Monica, que, ao ajudar seu grande amigo, acaba por conhecer o seu próprio caminho."
       },
       "title": {
-        "por": "O Expresso Polar"
+        "por": "Uma História de Amizade"
       }
     },
     {
       "adult": false,
-      "available_from": 1614643200000,
+      "available_from": 1615248000000,
       "available_to": 2524521600000,
-      "duration": 5020012,
+      "duration": 4715971,
       "genres": [
-        "Comédia"
-      ],
-      "id": "c441fa27-2be3-4242-bd60-e833e7d037ac",
-      "images": [],
-      "medias": [
-        {
-          "audio_languages": [
-            "eng",
-            "por"
-          ],
-          "id": "c441fa27-2be3-4242-bd60-e833e7d037ac_m",
-          "location": "police_academy_3_hd_eng_por_20.mp4",
-          "metadata": {},
-          "subtitles": [
-            {
-              "language": "por",
-              "location": "police_academy_3_hd_eng_por_20.srt"
-            }
-          ],
-          "technology": "MP4",
-          "title": "Loucademia de Polícia 3",
-          "type": "MEDIA"
-        }
-      ],
-      "metadata": {
-        "actors": [
-          "Steve Guttenberg",
-          "Bubba Smith",
-          "Michael Winslow",
-          "Art Metrano",
-          "George Gaynes",
-          "David Graf",
-          "Marion Ramsey",
-          "Leslie Easterbrook",
-          "Bob Goldthwait"
-        ],
-        "country": "USA",
-        "directors": [
-          "Jerry Paris"
-        ],
-        "release_year": "1986",
-        "rights": [],
-        "summary": [
-          "A cidade tem duas academias de polícia, uma está sob o comando de Eric Lassard (George Gaynes) e a outra de Mauser (Art Metrano)."
-        ],
-        "tvod_price": 7.9
-      },
-      "morality_level": 10,
-      "synopsis": {
-        "por": "Aqueles cidadãos crus, estúpidos e completamente despreparados, que se formaram e foram para as ruas como policiais crus, estúpidos e completamente despreparados, estão de volta para “continuar com o bom trabalho que vinham realizando, com um bocado de humor rasteiro” nesta terceira e muito, muito, muito divertida sequência."
-      },
-      "title": {
-        "por": "Loucademia de Polícia 3"
-      }
-    },
-    {
-      "adult": false,
-      "available_from": 1614643200000,
-      "available_to": 2524521600000,
-      "duration": 5781974,
-      "genres": [
-        "Comédia"
-      ],
-      "id": "f19aabe2-7c8f-4383-a36c-17500b52b971",
-      "images": [],
-      "medias": [
-        {
-          "audio_languages": [
-            "eng",
-            "por"
-          ],
-          "id": "f19aabe2-7c8f-4383-a36c-17500b52b971_m",
-          "location": "police_academy_hd_eng_por_20.mp4",
-          "metadata": {},
-          "subtitles": [
-            {
-              "language": "por",
-              "location": "police_academy_hd_eng_por_20.srt"
-            }
-          ],
-          "technology": "MP4",
-          "title": "Loucademia de Polícia",
-          "type": "MEDIA"
-        }
-      ],
-      "metadata": {
-        "actors": [
-          "Steve Guttenberg",
-          "Kim Cattrall",
-          "G.W. Bailey",
-          "Bubba Smith",
-          "George Gaynes",
-          "Leslie Easterbrook"
-        ],
-        "country": "USA",
-        "directors": [
-          "Hugh Wilson"
-        ],
-        "release_year": "1984",
-        "rights": [],
-        "summary": [
-          "A Loucademia de Polícia saúda os homens, mulheres e todos os casos perdidos que protegem a população de pessoas muito parecidas com elas mesmas!"
-        ],
-        "tvod_price": 7.9
-      },
-      "morality_level": 10,
-      "synopsis": {
-        "por": "Veio o chamado. Os recrutas surgiram.Nunca mais os cadetes da polícia deveriam obedecer aos padrões de altura, peso ou mesmo voz! Claro, inteligência é um opcional também. Uma comédia de sucesso por mais de uma década, gerando seis sequências, além de duas series de TV.Agora estreia em Blu-ra yTM. Junte-se ao grupo. Eles transformam o mundo em um lugar mais divertido."
-      },
-      "title": {
-        "por": "Loucademia de Polícia"
-      }
-    },
-    {
-      "adult": false,
-      "available_from": 1614643200000,
-      "available_to": 2524521600000,
-      "duration": 6863961,
-      "genres": [
-        "Horror",
         "Suspense"
       ],
-      "id": "f7d3271d-4f39-4569-898e-c3f2b6cd6755",
+      "id": "508e4e47-b2a3-4009-9e04-c306344b0e2f",
       "images": [],
       "medias": [
         {
           "audio_languages": [
             "eng",
+            "spa",
             "por"
           ],
-          "id": "f7d3271d-4f39-4569-898e-c3f2b6cd6755_m",
-          "location": "poltergeist_hd_eng_por_20.mp4",
+          "id": "508e4e47-b2a3-4009-9e04-c306344b0e2f_m",
+          "location": "house_of_bodies_hd_eng_por_spa_20.mp4",
           "metadata": {},
           "subtitles": [
             {
               "language": "por",
-              "location": "poltergeist_hd_eng_por_20.srt"
+              "location": "house_of_bodies_hd_eng_por_spa_20.srt"
             }
           ],
           "technology": "MP4",
-          "title": "Poltergeist",
+          "title": "Assassinatos do Passado",
           "type": "MEDIA"
         }
       ],
       "metadata": {
         "actors": [
-          "Craig T. Nelson",
-          "JoBeth Williams",
-          "Beatrice Straight",
-          "Dominique Dunne",
-          "Oliver Robins",
-          "Heather O'Rourke",
-          "Zelda Rubinstein"
+          "Peter Fonda",
+          "Terrence Howard",
+          "Queen Latifah",
+          "George Katt",
+          "Alexz Johnson",
+          "Karlee Eldridge",
+          "Juliana Harkavy",
+          "Harry Zittel"
         ],
         "country": "USA",
         "directors": [
-          "Tobe Hooper"
+          "Alex Merkin"
         ],
-        "release_year": "1982",
+        "release_year": "2014",
         "rights": [],
         "summary": [
-          "Eles estão aqui. Parecem amistosos no começo, tentando equilibrar cadeiras na cozinha da casa da família Freelings, num subúrbio americano."
-        ],
-        "tvod_price": 7.9
+          "O detetive Starks investiga assassinatos misteriosos muito semelhantes aos cometidos pelo serial killer preso Henry Lee Bishop"
+        ]
       },
-      "morality_level": 12,
+      "morality_level": 16,
       "synopsis": {
-        "por": "Eles estão aqui. Parecem amistosos no começo, tentando equilibrar cadeiras na cozinha da casa da família Freelings, num subúrbio americano. Então as coisas tornam-se tenebrosas. Uma tempestade rompe, o ataque de uma árvore, a pequena Carol Anne Frreling desaparece num espectro sinistro. E assim que sua família confronta uma reação em cadeia de horror e luta pra trazer sua caçula de volta, alguma outra coisa está aqui também: um novo marco nas histórias de fantasmas em Hollywood."
+        "por": "O detetive Starks investiga assassinatos misteriosos muito semelhantes aos cometidos pelo serial killer preso Henry Lee Bishop. Enquanto Starks tenta romper barreiras do comportamento assustador de Bishop para buscar respostas, um menino surdo descobre por ele mesmo e passa a testemunhar, uma garota da faculdade lutando para sobreviver de um website voyer assassino. Esse coincidentemente faz as transmissões da casa onde Bishop cometeu os assassinatos anos antes."
       },
       "title": {
-        "por": "Poltergeist"
+        "por": "Assassinatos do Passado"
       }
     },
     {
       "adult": false,
-      "available_from": 1614643200000,
+      "available_from": 1615248000000,
       "available_to": 2524521600000,
-      "duration": 6246028,
+      "duration": 5687020,
       "genres": [
-        "Romance",
-        "Fantasia"
+        "Comédia",
+        "Romance"
       ],
-      "id": "a1407e45-bc5a-44dd-9f93-c9052de5dad5",
+      "id": "4a92ce4e-8d46-4d8b-ac2b-10ea0094f158",
       "images": [],
       "medias": [
         {
           "audio_languages": [
-            "eng",
             "por"
           ],
-          "id": "a1407e45-bc5a-44dd-9f93-c9052de5dad5_m",
-          "location": "practical_magic_hd_eng_por_20.mp4",
+          "id": "4a92ce4e-8d46-4d8b-ac2b-10ea0094f158_m",
+          "location": "its_not_date_hd_16x9_por_20.mp4",
           "metadata": {},
-          "subtitles": [
-            {
-              "language": "por",
-              "location": "practical_magic_hd_eng_por_20.srt"
-            }
-          ],
           "technology": "MP4",
-          "title": "Da Magia à Sedução",
+          "title": "Minha Namorada Fora de Controle",
           "type": "MEDIA"
         }
       ],
       "metadata": {
         "actors": [
-          "Sandra Bullock",
-          "Nicole Kidman",
-          "Dianne Wiest",
-          "Stockard Channing",
-          "Aidan Quinn",
-          "Goran Visnjic",
-          "Evan Rachel Wood",
-          "Alexandra Artrip",
-          "Mark Feuerstein",
-          "Caprice Benedetti",
-          "Chloe Webb",
-          "Herta Ware",
-          "Ellen Geer"
+          "Eric Roberts",
+          "Nina Hartley",
+          "Eliza Roberts",
+          "Leah Huebner",
+          "Alison Korman",
+          "Raymond Morris",
+          "Mari Cielo Pajares",
+          "Mischa Pollack"
         ],
         "country": "USA",
         "directors": [
-          "Griffin Dunne"
+          "Barry Pollack",
+          "Mischa Pollack"
         ],
-        "release_year": "1998",
+        "release_year": "2014",
         "rights": [],
         "summary": [
-          "As mulheres da família Owens são um pouco diferentes das outras mulheres que você conhece. Elas são bruxas, com incríveis poderes mágicos."
-        ],
-        "tvod_price": 7.9
+          "A história de Carly e Milo, um casal na casa dos vinte anos em seu primeiro encontro."
+        ]
       },
-      "morality_level": 12,
+      "morality_level": 14,
       "synopsis": {
-        "por": "As mulheres da família Owens são um pouco diferentes das outras mulheres que você conhece. Elas são bruxas, com incríveis poderes mágicos. Só existe um problema: todos os homens por quem se apaixonam, morrem inesperadamente. Sandra Bullock e Nicole Kidman são Sally e Gillian Owens, duas irmãs criadas pelas tias na tradição secular das bruxas. Elas irão enfrentar espíritos malígnos, amores inesperados e descobrir que ser bruxa nos dias de hoje não é nada fácil. Dirigido por Griffin Dunne, este filme é uma comédia romântica que tem ainda no elenco Aidan Quinn e Goran Visnjic. Você será enfeitiçado!"
+        "por": "Carly Sagat, uma jovem enfermeira, que ainda vivem com os pais, se esforça para encontrar o cara perfeito. Entre uma seleção e outra ela conhece Milo, um jovem que parece perfeito, isso até ela perceber que ele não é o que parece."
       },
       "title": {
-        "por": "Da Magia à Sedução"
+        "por": "Minha Namorada Fora de Controle"
       }
     },
     {
       "adult": false,
-      "available_from": 1614643200000,
+      "available_from": 1615248000000,
       "available_to": 2524521600000,
-      "duration": 6431961,
+      "duration": 5880988,
       "genres": [
-        "Ação",
-        "Aventura"
+        "Comédia",
+        "Romance"
       ],
-      "id": "01e0dc28-46ba-43ba-bf7f-a4726105d7ff",
+      "id": "7bd4ec19-4b3f-4251-bd64-7b33eb10b8aa",
       "images": [],
       "medias": [
         {
           "audio_languages": [
-            "eng",
             "por"
           ],
-          "id": "01e0dc28-46ba-43ba-bf7f-a4726105d7ff_m",
-          "location": "rampage_hd_eng_por_20.mp4",
+          "id": "7bd4ec19-4b3f-4251-bd64-7b33eb10b8aa_m",
+          "location": "love_debt_hd_16x9_por_20.mp4",
           "metadata": {},
-          "subtitles": [
-            {
-              "language": "por",
-              "location": "rampage_hd_eng_por_20.srt"
-            }
-          ],
           "technology": "MP4",
-          "title": "Rampage: Destruição Total",
+          "title": "Relações de Família",
           "type": "MEDIA"
         }
       ],
       "metadata": {
         "actors": [
-          "Dwayne Johnson",
-          "Naomie Harris",
-          "Malin Akerman",
-          "Joe Manganiello",
-          "Jeffrey Dean Morgan",
-          "Breanne Hill",
-          "Matt Gerald",
-          "Jason Liles"
+          "Tom Cavanagh",
+          "Bailee Madison",
+          "Yeardley Smith",
+          "Haaz Sleiman",
+          "Erick Avari",
+          "Daryl Mitchell",
+          "Lee Meriwether",
+          "Bellamy Young",
+          "Kristine DeBell"
         ],
         "country": "USA",
         "directors": [
-          "Brad Peyton"
+          "Valerie Landsburg"
         ],
         "release_year": "2018",
         "rights": [],
         "summary": [
-          "Quando uma experiência genética dá errado, ela solta criaturas que destroem a cidade. O cientista Davis corre para conseguir um antídoto e tentar salvar o macaco que já foi seu amigo."
-        ],
-        "tvod_price": 7.9
+          "Henry Warner tem uma esposa que deseja ser outra pessoa, ter outra vida; tem uma filha adolescente que quer independência, seu próprio apartamento; tem uma filha de 8 anos que quer ser uma personalidade da TV; tem uma sogra que o odeia e um filho de cinco anos que simplesmente nunca falou. Henry e sua família criam um estranho laço com Travis Parker, um rapaz que começou a trabalhar em uma agência frequentada por um grupo variado de pessoas. Ultimamente, parece que os destinos de todos estão conectadas - todos estão tentando se livrar de dívidas, tanto financeiras quanto emocionais."
+        ]
       },
       "morality_level": 14,
       "synopsis": {
-        "por": "O primatologista Davis (Dwayne Johnson) compartilha uma ligação inabalável com George, um gorila extraordinariamente inteligente que está sob seus cuidados desde o nascimento. Quando uma experiência genética de uma corporação gananciosa dá errado, George e outros animais em todo o país sofrem uma mutação que as tornam criaturas super-agressivas que destroem a cidade. Em uma corrida cheia de adrenalina, Davis tenta encontrar um antídoto para não apenas impedir uma catástrofe global, mas também para salvar a terrível criatura que já foi seu amigo."
+        "por": "Henry Warner tem uma esposa que deseja ser outra pessoa, ter outra vida; tem uma filha adolescente que quer independência, seu próprio apartamento; tem uma filha de 8 anos que quer ser uma personalidade da TV; tem uma sogra que o odeia e um filho de cinco anos que simplesmente nunca falou. Henry e sua família criam um estranho laço com Travis Parker, um rapaz que começou a trabalhar em uma agência frequentada por um grupo variado de pessoas. Ultimamente, parece que os destinos de todos estão conectadas - todos estão tentando se livrar de dívidas, tanto financeiras quanto emocionais."
       },
       "title": {
-        "por": "Rampage: Destruição Total"
+        "por": "Relações de Família"
       }
     },
     {
       "adult": false,
-      "available_from": 1614643200000,
+      "available_from": 1615248000000,
       "available_to": 2524521600000,
-      "duration": 4469040,
+      "duration": 5764003,
       "genres": [
-        "Família",
+        "Drama",
         "Aventura"
       ],
-      "id": "fc136f8b-1c05-4eb2-83e6-bff6c85b2097",
+      "id": "5ae6a62c-a261-428e-9efe-175eb7341cda",
       "images": [],
       "medias": [
         {
           "audio_languages": [
-            "eng",
             "por"
           ],
-          "id": "fc136f8b-1c05-4eb2-83e6-bff6c85b2097_m",
-          "location": "scooby_doo_loch_ness_monster_hd_eng_por_20.mp4",
+          "id": "5ae6a62c-a261-428e-9efe-175eb7341cda_m",
+          "location": "misterio_da_fe_hd_16x9_por_20.mp4",
           "metadata": {},
-          "subtitles": [
-            {
-              "language": "por",
-              "location": "scooby_doo_loch_ness_monster_hd_eng_por_20.srt"
-            }
-          ],
           "technology": "MP4",
-          "title": "Scooby-Doo! e o Monstro do Lago Ness",
+          "title": "O Mistério da Fé",
           "type": "MEDIA"
         }
       ],
       "metadata": {
         "actors": [
-          "Frank Welker",
-          "Casey Kasem",
-          "Mindy Cohn",
-          "Grey DeLisle Griffin",
-          "Michael Bell",
-          "Jeff Bennett",
-          "John Di Maggio",
-          "Phil LaMarr",
-          "Sheena Easton"
+          "Amy Lyndon",
+          "Blythe Baird",
+          "Connor Williams",
+          "Daniel Fissmer",
+          "Kevin Sorbo",
+          "Mitch Johnston",
+          "Stephen Baldwin",
+          "Will Restrepo"
         ],
         "country": "USA",
         "directors": [
-          "Scott Jeralds"
+          "Andrew Papke"
         ],
-        "release_year": "2004",
+        "release_year": "2017",
         "rights": [],
         "summary": [
-          "Scooby-Doo e seus amigos investigam o mistério mais assutador de suas vidas!"
-        ],
-        "tvod_price": 7.9
+          "Uma pequena cidade do interior enfrenta os desafios contra os bons costumes por adolescentes que se entregaram as drogas, desafiando os mistérios da fé moderna."
+        ]
       },
       "morality_level": 0,
       "synopsis": {
-        "por": "Scooby-Doo e seus amigos investigam o mistério mais assutador de suas vidas! - Êita! Scooby-Doo, Salsicha e toda a turma fazem uma viagem de férias para a Escócia e, acidentalmente, acabam investigando uma das maiores e mais lendárias criaturas de todos os tempos, o Monstro do Lago Ness. Ele existe de verdade? As primeiras conclusões assustadoramente sugerem que sim, depois que alguma coisa realmente gigante é vista através da janela do castelo dos ancestrais de Daphne. Scooby-Doo e seus amigos conseguirão resolver um dos casos mais intrigantes da História? Cruze os dedos para que Scooby sobreviva aos sustos e às perseguições nesta aventura hilariante."
+        "por": "Uma pequena cidade do interior enfrenta os desafios contra os bons costumes por adolescentes que se entregaram as drogas, desafiando os mistérios da fé moderna."
       },
       "title": {
-        "por": "Scooby-Doo! e o Monstro do Lago Ness"
+        "por": "O Mistério da Fé"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1615248000000,
+      "available_to": 2524521600000,
+      "duration": 4821033,
+      "genres": [
+        "Terror"
+      ],
+      "id": "c63fd72b-7e26-4569-a940-458668864d55",
+      "images": [],
+      "medias": [
+        {
+          "audio_languages": [
+            "por"
+          ],
+          "id": "c63fd72b-7e26-4569-a940-458668864d55_m",
+          "location": "mummy_ressurected_hd_16x9_por_20.mp4",
+          "metadata": {},
+          "technology": "MP4",
+          "title": "Múmia - A Ressurreição",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          "Elizabeth Friedman",
+          "Bailey Gaddis",
+          "Iyad Hajjaj",
+          "Fouad Hajji",
+          "Pablo Nuñez",
+          "Jessie Paddock",
+          "Stuart Rigby",
+          "Alena Savostikova"
+        ],
+        "country": "USA",
+        "directors": [
+          "Patrick McManus"
+        ],
+        "release_year": "2014",
+        "rights": [],
+        "summary": [
+          "Uma equipe de arqueólogos descobrem uma múmia antiga, desencadeando uma maldição mortal de sua tumba eterna."
+        ]
+      },
+      "morality_level": 16,
+      "synopsis": {
+        "por": "Uma equipe de arqueólogos descobrem uma múmia antiga, desencadeando uma maldição mortal de sua tumba eterna."
+      },
+      "title": {
+        "por": "Múmia - A Ressurreição"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1615248000000,
+      "available_to": 2524521600000,
+      "duration": 6715008,
+      "genres": [
+        "Romance",
+        "Drama"
+      ],
+      "id": "ff510b8e-31e4-4783-bbfb-e771a4d27506",
+      "images": [],
+      "medias": [
+        {
+          "audio_languages": [
+            "por"
+          ],
+          "id": "ff510b8e-31e4-4783-bbfb-e771a4d27506_m",
+          "location": "my_first_miracle_hd_16x9_por_20.mp4",
+          "metadata": {},
+          "technology": "MP4",
+          "title": "Enquanto Houver Esperança",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          "Sean Patrick Flanery",
+          "Jason London",
+          "Quinton Aaron"
+        ],
+        "country": "",
+        "directors": [
+          "Rudy Luna"
+        ],
+        "release_year": "2016",
+        "rights": [],
+        "summary": [
+          ""
+        ]
+      },
+      "morality_level": 0,
+      "synopsis": {
+        "por": ""
+      },
+      "title": {
+        "por": "Enquanto Houver Esperança"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1615248000000,
+      "available_to": 2524521600000,
+      "duration": 5981040,
+      "genres": [
+        "Drama",
+        "Espiritualidade"
+      ],
+      "id": "31ca4ee5-3411-4999-aa07-0eb73f70893d",
+      "images": [],
+      "medias": [
+        {
+          "audio_languages": [
+            "por"
+          ],
+          "id": "31ca4ee5-3411-4999-aa07-0eb73f70893d_m",
+          "location": "new_spirit_hd_16x9_por_20.mp4",
+          "metadata": {},
+          "technology": "MP4",
+          "title": "Por que Eu?",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          "Doron Ben-David",
+          "Haim Zanati",
+          "Imri Biton",
+          "Maya Flamm",
+          "Michael Harpaz",
+          "Moriya Ben Harush",
+          "Ohad Shahar",
+          "Shalom Shmuelov"
+        ],
+        "country": "ISR",
+        "directors": [
+          "Doron Eran"
+        ],
+        "release_year": "2017",
+        "rights": [],
+        "summary": [
+          "Esta é a história de dois irmãos, Jacob e Shmuel, que cresceram em uma família tradicional judia, muito pobre. Ao longo dos anos, eles cresceram por caminhos diferentes: Shmuel se tornou mais religioso e ortodoxo, ao passo que Jacob conheceu o Cristianismo e acabou se tornando líder do chamado Judaísmo Messiânico, que prega a palavra de Jesus. Shmuel e toda a comunidade ortodoxa passaram a tratar Jacob como um missionário radical e o acusaram de arrebanhar as almas puras judias da região. O conflito entre os dois irmãos cresce ao ponto de se tornar violento, ameaçando a vida de todos."
+        ]
+      },
+      "morality_level": 14,
+      "synopsis": {
+        "por": "Esta é a história de dois irmãos, Jacob e Shmuel, que cresceram em uma família tradicional judia, muito pobre. Ao longo dos anos, eles cresceram por caminhos diferentes: Shmuel se tornou mais religioso e ortodoxo, ao passo que Jacob conheceu o Cristianismo e acabou se tornando líder do chamado Judaísmo Messiânico, que prega a palavra de Jesus. Shmuel e toda a comunidade ortodoxa passaram a tratar Jacob como um missionário radical e o acusaram de arrebanhar as almas puras judias da região. O conflito entre os dois irmãos cresce ao ponto de se tornar violento, ameaçando a vida de todos."
+      },
+      "title": {
+        "por": "Por que Eu?"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1615248000000,
+      "available_to": 2524521600000,
+      "duration": 5551027,
+      "genres": [
+        "Terror",
+        "Suspense"
+      ],
+      "id": "9fc029d8-02fa-4b19-81b5-fa8c78ebc8cd",
+      "images": [],
+      "medias": [
+        {
+          "audio_languages": [
+            "por"
+          ],
+          "id": "9fc029d8-02fa-4b19-81b5-fa8c78ebc8cd_m",
+          "location": "ouija_experiment_hd_16x9_por_20.mp4",
+          "metadata": {},
+          "technology": "MP4",
+          "title": "Ouija - Onde Tudo Começou",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          "Justin Armstrong",
+          "Dave Clark",
+          "Leah Diaz"
+        ],
+        "country": "USA",
+        "directors": [
+          "Israel Luna"
+        ],
+        "release_year": "2011",
+        "rights": [],
+        "summary": [
+          "Baseado em fatos reais, Ouija Onde Tudo Começou\" é a história de cinco amigos que decidem filmar uma sessão experimental com um tabuleiro Ouija na esperança de criar um vídeo para internet e de algum modo \"ficarem famosos\" Presos em seus dramas pessoais, o grupo não segue as regras do jogo e logo são aterrorizados por entidades malignas"
+        ]
+      },
+      "morality_level": 16,
+      "synopsis": {
+        "por": "Baseado em fatos reais, Ouija Onde Tudo Começou\" é a história de cinco amigos que decidem filmar uma sessão experimental com um tabuleiro Ouija na esperança de criar um vídeo para internet e de algum modo \"ficarem famosos\" Presos em seus dramas pessoais, o grupo não segue as regras do jogo e logo são aterrorizados por entidades malignas"
+      },
+      "title": {
+        "por": "Ouija - Onde Tudo Começou"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1615248000000,
+      "available_to": 2524521600000,
+      "duration": 5732035,
+      "genres": [
+        "Aventura",
+        "Drama"
+      ],
+      "id": "158e44a4-85bc-47e4-8d9e-b4e3ae1d23ff",
+      "images": [],
+      "medias": [
+        {
+          "audio_languages": [
+            "por"
+          ],
+          "id": "158e44a4-85bc-47e4-8d9e-b4e3ae1d23ff_m",
+          "location": "pathfinders_hd_16x9_por_20.mp4",
+          "metadata": {},
+          "technology": "MP4",
+          "title": "Desbravadores",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          "Karl Urban",
+          "Moon Bloodgood",
+          "Clancy Brown"
+        ],
+        "country": "USA",
+        "directors": [
+          "Marcus Nispel"
+        ],
+        "release_year": "2011",
+        "rights": [],
+        "summary": [
+          "Há muitos anos, numa época em que os vikings tentavam conquistar a América do Norte, um garoto viking é acidentalmente esquecido, durante uma batalha contra os índios americanos. Criado pelos índios, ele passa a fazer parte da tribo como se fosse uma das crianças indígenas. Ao crescer sua vila é mais uma vez ameaçada pelos vikings, o que faz com que ele tenha que lutar contra seu próprio povo."
+        ]
+      },
+      "morality_level": 16,
+      "synopsis": {
+        "por": "Há muitos anos, numa época em que os vikings tentavam conquistar a América do Norte, um garoto viking é acidentalmente esquecido, durante uma batalha contra os índios americanos. Criado pelos índios, ele passa a fazer parte da tribo como se fosse uma das crianças indígenas. Ao crescer sua vila é mais uma vez ameaçada pelos vikings, o que faz com que ele tenha que lutar contra seu próprio povo."
+      },
+      "title": {
+        "por": "Desbravadores"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1615248000000,
+      "available_to": 2524521600000,
+      "duration": 4962988,
+      "genres": [
+        "Policial",
+        "Suspense"
+      ],
+      "id": "debcaf5f-9ed8-4448-850f-4ebbd3e8cad6",
+      "images": [],
+      "medias": [
+        {
+          "audio_languages": [
+            "por"
+          ],
+          "id": "debcaf5f-9ed8-4448-850f-4ebbd3e8cad6_m",
+          "location": "percentage_hd_16x9_por_20.mp4",
+          "metadata": {},
+          "technology": "MP4",
+          "title": "Operação Perigosa",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          "Ving Rhames",
+          "Macy Gray",
+          "Malinda Williams",
+          "Omar Gooding",
+          "Cam'Ron Giles",
+          "Antwon Tanner",
+          "Jesse Liebman"
+        ],
+        "country": "USA",
+        "directors": [
+          "Billy Allrich"
+        ],
+        "release_year": "2014",
+        "rights": [],
+        "summary": [
+          "Depois que uma transação de drogas não dá certo, dois traficantes nova-iorquinos se deslocam para Miami, onde estabelecem uma operação de fraude de crédito lucrativo. Porém, logo a dupla atrai a atenção dos policiais, e também dos maiores criminosos da cidade... E, tanto os policiais quanto os criminosos exigem uma porcentagem dos ganhos dos fraudadores."
+        ]
+      },
+      "morality_level": 16,
+      "synopsis": {
+        "por": "Depois que uma transação de drogas não dá certo, dois traficantes nova-iorquinos se deslocam para Miami, onde estabelecem uma operação de fraude de crédito lucrativo. Porém, logo a dupla atrai a atenção dos policiais, e também dos maiores criminosos da cidade... E, tanto os policiais quanto os criminosos exigem uma porcentagem dos ganhos dos fraudadores."
+      },
+      "title": {
+        "por": "Operação Perigosa"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1615248000000,
+      "available_to": 2524521600000,
+      "duration": 9624009,
+      "genres": [
+        "Aventura",
+        "Ação"
+      ],
+      "id": "f7f56447-d0fd-4db7-a86e-a4d1c5929900",
+      "images": [],
+      "medias": [
+        {
+          "audio_languages": [
+            "por"
+          ],
+          "id": "f7f56447-d0fd-4db7-a86e-a4d1c5929900_m",
+          "location": "redbad_hd_16x9_por_20.mp4",
+          "metadata": {},
+          "technology": "MP4",
+          "title": "RedBad - A Invasão dos Francos",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          "Lisa Smit",
+          "Derek de Lint",
+          "Huub Stapel",
+          "Gijs Naber",
+          "Aus Greidanus",
+          "Peter Faber",
+          "Marieke Heebink",
+          "Sierd Jan van der Meulen"
+        ],
+        "country": "NDL",
+        "directors": [
+          "Roel Reiné"
+        ],
+        "release_year": "2018",
+        "rights": [],
+        "summary": [
+          "Redbad, filho do rei Aldigsl, está duvidando dos rituais ultrapassados de seu povo, os frísios. Ele entra em conflito com o pai quando sua namorada, Fenne, é indicada para ser sacrificada aos deuses. Durante o ritual de sacrifício, os francos entram na cidade. Na batalha, a cidade de Dorestad é capturada e o ambicioso Eibert, tio de Redbad, toma o poder e culpa o sobrinho pela derrota. Amarrado a uma jangada, Redbad é lançado ao mar, mas sobrevive e chega à costa, sendo resgatado pelos vikings. Para libertar seu povo, Redbad conta com a ajuda dos vikings. Mas seriam eles fortes o bastante?"
+        ]
+      },
+      "morality_level": 16,
+      "synopsis": {
+        "por": "Redbad, filho do rei Aldigsl, está duvidando dos rituais ultrapassados de seu povo, os frísios. Ele entra em conflito com o pai quando sua namorada, Fenne, é indicada para ser sacrificada aos deuses. Durante o ritual de sacrifício, os francos entram na cidade. Na batalha, a cidade de Dorestad é capturada e o ambicioso Eibert, tio de Redbad, toma o poder e culpa o sobrinho pela derrota. Amarrado a uma jangada, Redbad é lançado ao mar, mas sobrevive e chega à costa, sendo resgatado pelos vikings. Para libertar seu povo, Redbad conta com a ajuda dos vikings. Mas seriam eles fortes o bastante?"
+      },
+      "title": {
+        "por": "RedBad - A Invasão dos Francos"
+      }
+    },
+    {
+      "adult": false,
+      "available_from": 1615248000000,
+      "available_to": 2524521600000,
+      "duration": 5304960,
+      "genres": [
+        "Drama"
+      ],
+      "id": "69413c8e-4d1f-48aa-8822-d3e7d10e5895",
+      "images": [],
+      "medias": [
+        {
+          "audio_languages": [
+            "por"
+          ],
+          "id": "69413c8e-4d1f-48aa-8822-d3e7d10e5895_m",
+          "location": "resgate_hd_16x9_por_20.mp4",
+          "metadata": {},
+          "technology": "MP4",
+          "title": "O Resgate de Uma Vida",
+          "type": "MEDIA"
+        }
+      ],
+      "metadata": {
+        "actors": [
+          "Terrence Howard",
+          "Thomas Haden Church",
+          "Macy Gray",
+          "Rhys Wakefield",
+          "Boyd Holbrook",
+          "William Stanford Davis",
+          "Zach Villa",
+          "Adam Clark"
+        ],
+        "country": "uSA",
+        "directors": [
+          "Knate Lee"
+        ],
+        "release_year": "2016",
+        "rights": [],
+        "summary": [
+          "Willie é um bom homem que vive nas duras e perigosas ruas de Los Angeles. Ele é forçado por dois adolescentes ricos a enfrentar outros homens em lutas nas ruas, pelas quais ganha algum dinheiro. Preso nesse mundo de violência, o qual ele não entende muito bem, Willie encontra algum conforto ao encontrar o diário perdido de uma garota problemática."
+        ]
+      },
+      "morality_level": 12,
+      "synopsis": {
+        "por": "Willie é um bom homem que vive nas duras e perigosas ruas de Los Angeles. Ele é forçado por dois adolescentes ricos a enfrentar outros homens em lutas nas ruas, pelas quais ganha algum dinheiro. Preso nesse mundo de violência, o qual ele não entende muito bem, Willie encontra algum conforto ao encontrar o diário perdido de uma garota problemática."
+      },
+      "title": {
+        "por": "O Resgate de Uma Vida"
       }
     }
   ]

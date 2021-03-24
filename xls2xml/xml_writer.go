@@ -7,6 +7,8 @@ import (
 	"math"
 	"time"
 
+	"golang.org/x/text/encoding"
+
 	xw "github.com/shabbyrobe/xmlwriter"
 	"golang.org/x/text/encoding/charmap"
 )
@@ -160,7 +162,7 @@ func (wr *xmlWriter) EndComment(_ string) error {
 
 // OpenOutput prepares to write a XML file
 func (wr *xmlWriter) OpenOutput() (err error) {
-	encod := charmap.ISO8859_1.NewEncoder()
+	encod := encoding.HTMLEscapeUnsupported(charmap.ISO8859_1.NewEncoder())
 	wr.b = &bytes.Buffer{}
 	wr.w = xw.OpenEncoding(wr.b, "ISO-8859-1", encod, xw.WithIndentString("\t"))
 	wr.ec = &xw.ErrCollector{}
