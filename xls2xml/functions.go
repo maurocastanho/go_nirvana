@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"hash/crc32"
 	"path"
 	"regexp"
 	"strconv"
@@ -86,6 +87,7 @@ func initFunctions() {
 		"surname_name":    surnameName,
 		"timestamp":       utc,
 		"uuid":            genUUID,
+		"uuid_field":      uuidField,
 		"map_string":      mapString,
 		"series_id":       seriesId,
 		"season_id":       seasonId,
@@ -420,7 +422,7 @@ func locationSerie(forceVal string, line *lineT, json jsonT, options optionsT) (
 		// if err != nil, do not have size limit: do nothing
 		middle = alpha
 	}
-	middle = fmt.Sprintf("%s/%s_s%s/%s_s%sep%s/%s/%s", serie, serie, temp, serie, temp, epi, mtype, middle)
+	middle = fmt.Sprintf("%s/%s_s%s/%s_s%sep%s_%s/%s/%s", serie, serie, temp, serie, temp, epi, middle, mtype, middle)
 	result := fmt.Sprintf("%s%s%s", prefix, middle, suf)
 	result = strings.Replace(result, "//", "/", -1)
 	return []resultsT{newResult(result)}, nil
@@ -969,6 +971,27 @@ func genUUID(_ string, _ *lineT, _ jsonT, _ optionsT) ([]resultsT, error) {
 	return []resultsT{newResult(result)}, nil
 }
 
+// uuuidField generates a uuid from a field value
+func uuidField(forceVal string, line *lineT, json jsonT, options optionsT) ([]resultsT, error) {
+	field, err := getField(forceVal, "", line, json, options)
+	if err != nil {
+		return errorMessage, err
+	}
+	field1, errF1 := getField("", "field1", line, json, options)
+	if errF1 == nil {
+		field += field1
+	}
+	field2, errF2 := getField("", "field2", line, json, options)
+	if errF2 == nil {
+		field += field2
+	}
+	result, erru := UUIDfromString(field)
+	if erru != nil {
+		return errorMessage, erru
+	}
+	return []resultsT{newResult(result)}, nil
+}
+
 // Option returns the option as defined in the JSON file, section "options"
 func option(forceVal string, _ *lineT, json jsonT, options optionsT) ([]resultsT, error) {
 	if forceVal != "" {
@@ -1136,7 +1159,18 @@ func replaceAllNonAlpha(val string) (string, error) {
 	if err != nil {
 		return "", err
 	}
-	return reg.ReplaceAllString(val, "_"), nil
+	val = reg.ReplaceAllString(val, "_")
+	r := []rune(val)
+	var b strings.Builder
+	last := ' '
+	l := len(val)
+	for i, c := range r {
+		if !(c == 95 && (last == 95 || (i == l-1))) { // 95 is unicode for '_'
+			b.WriteRune(c)
+		}
+		last = c
+	}
+	return b.String(), nil
 }
 
 func formatMoney(val string) (string, error) {
@@ -1285,4 +1319,27 @@ func formatNumberString(s string) (string, error) {
 	default:
 		return s, nil
 	}
+}
+
+func UUIDfromString(s string) (string, error) {
+	b := []byte(s)
+	l := len(s)
+	h := crc32.ChecksumIEEE(b) // take string checksum
+	b2 := make([]byte, 16)     // prepare hash
+	// insert checksum into hash
+	for i := 0; i < 4; i++ {
+		r := h % 8
+		h /= 8
+		b2[i] = byte(r)
+	}
+	// complete hash with characters of b
+	for i := 4; i < 16 && i < l+4; i++ {
+		b2[i] = b[i-4]
+	}
+	// uses hash to compute uuid
+	uu, err := uuid.FromBytes(b2)
+	if err != nil {
+		return "", err
+	}
+	return uu.String(), nil
 }

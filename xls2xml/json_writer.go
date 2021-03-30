@@ -446,6 +446,7 @@ func (wr *jsonWriter) addToCategories(id string, idCateg string, categName strin
 					return nil
 				}
 			}
+			log(fmt.Sprintf("adicionando: [%s], id: [%s]", categName, id))
 			categ["assets"] = append(categ["assets"].([]interface{}), id)
 			return nil
 		}
@@ -491,6 +492,21 @@ func (wr *jsonWriter) processCategPack(lines []lineT, k int, idField string, cat
 			idStudio = l.fields["id"]
 		}
 	}
+
+	_, errc1 := findCateg(categs, "", line.fields["genero 1"], "")
+	if errc1 == nil {
+		if errc := wr.addToCategories(line.fields[idField], "", line.fields["genero 1"], "", "categories", "null", "null"); errc != nil {
+			return -1, errc
+		}
+	}
+
+	_, errc2 := findCateg(categs, "", line.fields["genero 2"], "")
+	if errc2 == nil {
+		if errc := wr.addToCategories(line.fields[idField], "", line.fields["genero 2"], "", "categories", "null", "null"); errc != nil {
+			return -1, errc
+		}
+	}
+
 	serie, _ := findSerie(series, studio, line.fields[categFields[1]], line.fields[categFields[2]])
 	if serie == nil {
 		if line.fields[categFields[2]] == "" { // testing if season is not empty
@@ -500,6 +516,14 @@ func (wr *jsonWriter) processCategPack(lines []lineT, k int, idField string, cat
 			}
 			serie, err = findCateg(categs, categ1, line.fields[categFields[1]], line.fields[categFields[2]])
 			if err != nil {
+				//id := line.fields[idField]
+				//uuid, erru := UUIDfromString(id)
+				//if erru != nil {
+				//	return -1, erru
+				//}
+				//if errc := wr.addToCategories(id, uuid, "studio", idStudio, "categories", "null", "null"); errc != nil {
+				//	return -1, errc
+				//}
 				return -1, err
 			}
 			if errc := wr.addToCategories(line.fields[idField], "", studio, idStudio, "categories", "null", "null"); errc != nil {

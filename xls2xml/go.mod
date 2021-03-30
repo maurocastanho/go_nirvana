@@ -6,6 +6,7 @@ require (
 	github.com/Knetic/govaluate v3.0.0+incompatible
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/golang-collections/collections v0.0.0-20130729185459-604e922904d3
+	github.com/howeyc/crc16 v0.0.0-20171223171357-2b2a61e366a6
 	github.com/kr/pretty v0.1.0 // indirect
 	github.com/plandem/xlsx v1.0.4
 	github.com/satori/go.uuid v1.2.0
