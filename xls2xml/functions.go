@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"golang.org/x/text/encoding/charmap"
 	"hash/crc32"
 	"path"
 	"regexp"
@@ -1164,9 +1165,18 @@ func replaceAllNonAlpha(val string) (string, error) {
 	var b strings.Builder
 	last := ' '
 	l := len(val)
+	blank := true
 	for i, c := range r {
-		if !(c == 95 && (last == 95 || (i == l-1))) { // 95 is unicode for '_'
-			b.WriteRune(c)
+		const UNDERSCORE = 95                                         // 95 is unicode for '_'
+		if !(c == UNDERSCORE && (last == UNDERSCORE || (i == l-1))) { // prevents duplicates for '_'
+			if c != UNDERSCORE {
+				// tests when a char different from '_' appears
+				blank = false
+			}
+			if !blank {
+				// first char cannot be '_'
+				b.WriteRune(c)
+			}
 		}
 		last = c
 	}
@@ -1234,13 +1244,13 @@ func truncateSuffix(value string, suffix string, max int) (string, error) {
 		max--
 	}
 	safeSubstring := string(r[0:max])
-	return safeSubstring, nil
+	return testInvalidChars(safeSubstring)
 }
 
 func truncate(value string, _ *lineT, json jsonT, _ optionsT) (string, error) {
 	val, err := getValue("maxlength", json)
 	if val == "" || err != nil {
-		return value, nil
+		return testInvalidChars(value)
 	}
 	max, errA := strconv.Atoi(val)
 	if errA != nil {
@@ -1249,11 +1259,11 @@ func truncate(value string, _ *lineT, json jsonT, _ optionsT) (string, error) {
 	r := []rune(value)
 	if len(r) <= max {
 		// size ok, return
-		return value, nil
+		return testInvalidChars(value)
 	}
 	// truncate
 	safeSubstring := string(r[0:max])
-	return safeSubstring, nil
+	return testInvalidChars(safeSubstring)
 }
 
 //func appendIfNotNil(orig []string, values ...string) []string {
@@ -1319,6 +1329,38 @@ func formatNumberString(s string) (string, error) {
 	default:
 		return s, nil
 	}
+}
+
+func testInvalidChars(s string) (string, error) {
+	_, err := charmap.ISO8859_1.NewEncoder().String(s)
+	if err != nil {
+		result := make([]rune, 0)
+		//fmt.Printf("%s\n", err)
+		ok := false
+		rs1 := []rune(s)
+		var r rune
+		var b rune
+		errors := make([]rune, 0)
+		for _, r = range rs1 {
+			b = r
+			_, ok = charmap.ISO8859_1.EncodeRune(r)
+			if ok != true {
+				if r >= 8208 && r <= 8213 { // test if it is a kind of dash (en dash, em dash, etc)
+					b = '-' // replace with hifen
+				} else {
+					b = '?' // error mark
+					fmt.Printf("%d %s\n", r, string(r))
+					errors = append(errors, r)
+				}
+			}
+			result = append(result, b)
+		}
+		if len(errors) > 0 {
+			return "#ERRO#", fmt.Errorf("%d caracter(es) invalido(s) [%v] na string [%s]", len(errors), string(errors), s)
+		}
+		return string(result), nil
+	}
+	return s, nil
 }
 
 func UUIDfromString(s string) (string, error) {
