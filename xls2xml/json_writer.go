@@ -484,37 +484,42 @@ func (wr *jsonWriter) addToSeries(id string, serieName string) error {
 func (wr *jsonWriter) processCategPack(lines []lineT, k int, idField string, categFields []string, categSeason int, series []lineT, categs []lineT) (int, error) {
 	var err error
 	line := lines[k]
-	studio := line.fields[categFields[0]]
-	var idStudio string
-	for _, l := range categs {
-		n, _ := splitLangName(l.fields["name"])
-		if studio == n["por"] {
-			idStudio = l.fields["id"]
-		}
+	studio := line.fields["estúdio"]
+	idStudio := ""
+	categStudio, errS := findCateg(categs, studio)
+	if errS == nil {
+		idStudio = categStudio.fields["id"]
 	}
 
-	_, errc1 := findCateg(categs, "", line.fields["genero 1"], "")
+	// add genre 1 to categ
+	genre1Field := "genero 1"
+	_, errc1 := findCateg(categs, line.fields[genre1Field])
 	if errc1 == nil {
-		if errc := wr.addToCategories(line.fields[idField], "", line.fields["genero 1"], "", "categories", "null", "null"); errc != nil {
+		if errc := wr.addToCategories(line.fields[idField], "", line.fields[genre1Field], "", "categories", "null", "null"); errc != nil {
 			return -1, errc
 		}
 	}
 
-	_, errc2 := findCateg(categs, "", line.fields["genero 2"], "")
+	// add genre 2 to categ
+	genre2Field := "genero 2"
+	_, errc2 := findCateg(categs, line.fields[genre2Field])
 	if errc2 == nil {
-		if errc := wr.addToCategories(line.fields[idField], "", line.fields["genero 2"], "", "categories", "null", "null"); errc != nil {
+		if errc := wr.addToCategories(line.fields[idField], "", line.fields[genre2Field], "", "categories", "null", "null"); errc != nil {
 			return -1, errc
 		}
 	}
 
-	serie, _ := findSerie(series, studio, line.fields[categFields[1]], line.fields[categFields[2]])
+	// search serie
+	seasonField := categFields[2]
+	studioField := categFields[1]
+	serie, _ := findSerie(series, studio, line.fields[studioField], line.fields[seasonField])
 	if serie == nil {
-		if line.fields[categFields[2]] == "" { // testing if season is not empty
-			categ1, ok1 := line.fields[categFields[0]]
-			if !ok1 {
-				return -2, fmt.Errorf("categoria 1 [%s] em branco na linha [%v]", categFields[0], line)
-			}
-			serie, err = findCateg(categs, categ1, line.fields[categFields[1]], line.fields[categFields[2]])
+		if line.fields[seasonField] == "" { // testing if season is not empty
+			//categ1, ok1 := line.fields[categFields[0]]
+			//if !ok1 {
+			//	return -2, fmt.Errorf("categoria 1 [%s] em branco na linha [%v]", categFields[0], line)
+			//}
+			serie, err = findCateg(categs, line.fields[studioField])
 			if err != nil {
 				//id := line.fields[idField]
 				//uuid, erru := UUIDfromString(id)
@@ -556,9 +561,9 @@ func (wr *jsonWriter) processSerie(line *lineT, idField string, categFields []st
 	idGroup = serie.fields["id"]
 	serId := serie.fields["id"]
 	serieId1 := fmt.Sprintf("%s_s", serId)
-	result, err := wr.processSeason(line, idField, categFields, series, serieId1)
-	if err != nil {
-		return result, err
+	result, errS := wr.processSeason(line, idField, categFields, series, serieId1)
+	if errS != nil {
+		return result, errS
 	}
 	if errc := wr.addToCategories(result, serieId1, name, idParent, "categories", serId, "null"); errc != nil {
 		return serieId1, errc
@@ -586,10 +591,10 @@ func (wr *jsonWriter) processSeason(line *lineT, idField string, categFields []s
 
 func findSerie(series []lineT, studio string, name string, season string) (*lineT, error) {
 	for _, line := range series {
-		stu, _ := line.fields["studio"]
-		if studio != stu {
-			continue
-		}
+		//stu, _ := line.fields["studio"]
+		//if studio != stu {
+		//	continue
+		//}
 		title, err := splitLangName(line.fields["title"])
 		if err != nil {
 			return nil, err
@@ -606,7 +611,7 @@ func findSerie(series []lineT, studio string, name string, season string) (*line
 	return nil, fmt.Errorf("serie com nome [%s] e temporada [%s] nao encontrada. Adicionar na aba 'series'", name, season)
 }
 
-func findCateg(categs []lineT, studio string, name string, season string) (*lineT, error) {
+func findCateg(categs []lineT, name string) (*lineT, error) {
 	for _, line := range categs {
 		title, err := splitLangName(line.fields["name"])
 		if err != nil {

@@ -52,47 +52,48 @@ var functionDict map[string]func(string, *lineT, jsonT, optionsT) ([]resultsT, e
 // InitFunctions maps the user functions
 func initFunctions() {
 	functionDict = map[string]func(string, *lineT, jsonT, optionsT) ([]resultsT, error){
-		"assetid":         assetID,
-		"assetid_ott":     assetIDOtt,
-		"attr_map":        attrMap,
-		"box_technology":  boxTechnology,
-		"condition":       condition,
-		"convert":         convert,
-		"convert_date":    convertDate,
-		"date":            date,
-		"date_ott":        dateRFC3339,
-		"empty":           emptyFunc,
-		"episode_id":      episodeID,
-		"eval":            eval,
-		"field":           fieldTrunc,
-		"field_date":      fieldDate,
-		"field_money":     fieldMoney,
-		"field_no_quotes": fieldNoQuotes,
-		"field_noacc":     fieldNoAccents,
-		"field_raw":       fieldRaw,
-		"field_suffix":    pathSuffix,
-		"suffix":          suffix,
-		"field_trim":      fieldTrim,
-		"field_validated": fieldValidated,
-		"filter":          filterCondition,
-		"first_name":      firstName,
-		"fixed":           fixed,
-		"janela_repasse":  janelaRepasse,
-		"last_name":       lastName,
-		"map":             mapField,
-		"middle_name":     middleName,
-		"option":          option,
-		"seconds":         seconds,
-		"set_var":         setVar,
-		"split":           split,
-		"surname_name":    surnameName,
-		"timestamp":       utc,
-		"uuid":            genUUID,
-		"uuid_field":      uuidField,
-		"map_string":      mapString,
-		"series_id":       seriesId,
-		"season_id":       seasonId,
-		"location_series": locationSerie,
+		"assetid":             assetID,
+		"assetid_ott":         assetIDOtt,
+		"attr_map":            attrMap,
+		"box_technology":      boxTechnology,
+		"condition":           condition,
+		"convert":             convert,
+		"convert_date":        convertDate,
+		"date":                date,
+		"date_ott":            dateRFC3339,
+		"empty":               emptyFunc,
+		"episode_id":          episodeID,
+		"eval":                eval,
+		"field":               fieldTrunc,
+		"field_date":          fieldDate,
+		"field_money":         fieldMoney,
+		"field_no_quotes":     fieldNoQuotes,
+		"field_noacc":         fieldNoAccents,
+		"field_raw":           fieldRaw,
+		"field_suffix":        pathSuffix,
+		"suffix":              suffix,
+		"field_trim":          fieldTrim,
+		"field_validated":     fieldValidated,
+		"filter":              filterCondition,
+		"first_name":          firstName,
+		"fixed":               fixed,
+		"janela_repasse":      janelaRepasse,
+		"last_name":           lastName,
+		"map":                 mapField,
+		"middle_name":         middleName,
+		"option":              option,
+		"seconds":             seconds,
+		"set_var":             setVar,
+		"split":               split,
+		"surname_name":        surnameName,
+		"timestamp":           utc,
+		"uuid":                genUUID,
+		"uuid_field":          uuidField,
+		"map_string":          mapString,
+		"series_id":           seriesId,
+		"season_id":           seasonId,
+		"location_series":     locationSerie,
+		"location_series_box": locationSerieBox,
 	}
 }
 
@@ -424,6 +425,111 @@ func locationSerie(forceVal string, line *lineT, json jsonT, options optionsT) (
 		middle = alpha
 	}
 	middle = fmt.Sprintf("%s/%s_s%s/%s_s%sep%s_%s/%s/%s", serie, serie, temp, serie, temp, epi, middle, mtype, middle)
+	result := fmt.Sprintf("%s%s%s", prefix, middle, suf)
+	result = strings.Replace(result, "//", "/", -1)
+	return []resultsT{newResult(result)}, nil
+}
+
+// locationSerie builds the path to a media file belonging to a TV series
+func locationSerieBox(forceVal string, line *lineT, json jsonT, options optionsT) ([]resultsT, error) {
+	field, errT := fieldTrunc(forceVal, line, json, options)
+	if errT != nil {
+		return errorMessage, errT
+	}
+	// fmt.Printf("-->> %v\n", field)
+	noacc, errA := removeAccents(field[0].val)
+	if errA != nil {
+		return errorMessage, errA
+	}
+	suf, _ := json["suffix"].(string)
+	if suf == "" {
+		// no suffix given: use file extension
+		suf = path.Ext(noacc)
+	}
+	if extIdx := strings.LastIndex(noacc, "."); extIdx > 0 {
+		// remove original file extension
+		noacc = noacc[0:extIdx]
+	}
+	fieldPrefix, _ := json["field_prefix"].(string)
+	if fieldPrefix == "" {
+		// no prefix given: use default
+		fieldPrefix = "subpasta"
+	}
+	prefix, _ := line.fields[fieldPrefix]
+	if prefix != "" && !strings.HasSuffix(prefix, "/") {
+		prefix += "/"
+	}
+
+	location, okl := line.fields["location"]
+	if okl {
+		// if location fiels exists, returs concatenations of id and location
+		id, oki := line.fields["id"]
+		if !oki {
+			return errorMessage, fmt.Errorf("id nao informado: [%v] na linha %d", line.fields, line.idx)
+		}
+
+		res := fmt.Sprintf("%s/%s", location, id)
+		reg, err := regexp.Compile("/+")
+		if err != nil {
+			return errorMessage, fmt.Errorf("erro inesperado na linha %d", line.idx)
+		}
+		result := reg.ReplaceAllString(res, "/")
+
+		return []resultsT{newResult(result)}, nil
+	}
+
+	serie1, _ := line.fields["título original"]
+	if serie1 == "" {
+		return errorMessage, fmt.Errorf("titulo original nao informado: [%v]", line.fields)
+	}
+	serie2, errs1 := removeAccents(serie1)
+	if errs1 != nil {
+		return errorMessage, errs1
+	}
+	serie3, errs2 := replaceAllNonAlpha(serie2)
+	if errs2 != nil {
+		return errorMessage, errs2
+	}
+	serie := strings.ToLower(serie3)
+
+	temp, _ := line.fields["temporada"]
+	if temp == "" {
+		return errorMessage, fmt.Errorf("temporada nao informada: [%s]", line.fields["título original"])
+	}
+	temp, err := formatNumberString(temp)
+	if err != nil {
+		return errorMessage, err
+	}
+	epi, _ := line.fields["número do episódio"]
+	if epi == "" {
+		return errorMessage, fmt.Errorf("numero do episodio nao informado: [%s]", line.fields["título original"])
+	}
+	epi, err = formatNumberString(epi)
+	if err != nil {
+		return errorMessage, err
+	}
+	mtype, _ := json["media_type"].(string)
+	alpha, errR := replaceAllNonAlpha(noacc)
+	if errR != nil {
+		return errorMessage, errR
+	}
+	var middle string
+	maxS, err := getValue("maxlength", json)
+	if err == nil {
+		// have size limit: truncate string
+		max, errAt := strconv.Atoi(maxS)
+		if errAt != nil {
+			return errorMessage, fmt.Errorf("valor nao numerico em maxlenght: [%v]", maxS)
+		}
+		middle, errAt = truncateSuffix(alpha, suf, max)
+		if errAt != nil {
+			return errorMessage, errAt
+		}
+	} else {
+		// if err != nil, do not have size limit: do nothing
+		middle = alpha
+	}
+	middle = fmt.Sprintf("%s/%s_s%s/%s/%s", serie, serie, temp, mtype, middle)
 	result := fmt.Sprintf("%s%s%s", prefix, middle, suf)
 	result = strings.Replace(result, "//", "/", -1)
 	return []resultsT{newResult(result)}, nil
