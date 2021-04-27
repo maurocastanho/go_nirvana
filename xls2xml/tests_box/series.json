@@ -1,315 +1,509 @@
 {
   "series": [
     {
-      "id": "44e93709-59b0-40ec-b512-6480aef6ef61",
+      "external_ids": {},
+      "id": "f4da36d6-7818-4468-926f-3fa929baa423",
       "images": [],
       "seasons": [
         {
-          "id": "1b93a554-b442-421d-874b-e84c26f8d060",
+          "id": "3885790c-2d33-4f15-bf32-708131f66ff3",
           "season_number": 1,
           "synopsis": {
-            "eng": "First season",
-            "por": "Primeira temporada"
+            "por": "Temporada 1 da série Pequenos Ilustres"
           },
           "title": {
-            "eng": "The List",
-            "por": "A Lista"
+            "por": "Pequenos Ilustres"
           }
         }
       ],
       "synopsis": {
-        "eng": "English Synopsis",
-        "por": "A melhor série de contagem regressiva de esportes. Com temas icônicos focados nos momentos e indivíduos mais memoráveis do esporte."
+        "por": "Com os Pequenos Ilustres você irá se divertir enquanto aprende sobre a história e conquistas de nomes que marcaram a história nacional e internacional."
       },
       "title": {
-        "eng": "The List",
-        "por": "A Lista"
+        "por": "Pequenos Ilustres"
       }
     },
     {
-      "id": "6fe302ae-4671-4ec4-a780-7a01edc74e48",
+      "external_ids": {},
+      "id": "ffeadcd1-3872-48ec-bc1a-2014114e1649",
       "images": [],
       "seasons": [
         {
-          "id": "d620839c-245f-49b0-a42a-0687232b1555",
+          "id": "8d158058-5f50-47b8-aef2-130ed0f7686b",
           "season_number": 1,
           "synopsis": {
-            "eng": "First season",
-            "por": "Primeira temporada"
+            "por": "Temporada 1 da série As Viagens de Gurzi"
           },
           "title": {
-            "eng": "National Icons",
-            "por": "Ícones do Esporte"
+            "por": "As Viagens de Gurzi"
           }
         }
       ],
       "synopsis": {
-        "eng": "English Synopsis",
-        "por": "Acompanhe uma batalha comparando os maiores nomes do esporte na atualidade contra as maiores lendas da modalidade de cada país."
+        "por": "Gurzi aprendre sobre o poder da alimentação"
       },
       "title": {
-        "eng": "National Icons",
-        "por": "Ícones do Esporte"
+        "por": "As Viagens de Gurzi"
       }
     },
     {
-      "id": "506fa204-b5fc-4c65-90a9-711a614ad214",
+      "external_ids": {},
+      "id": "02d1d19a-1e5b-4f78-bf94-f207fe5657bd",
       "images": [],
       "seasons": [
         {
-          "id": "b7e5b23a-4787-4023-9d0d-e79e52c3342d",
+          "id": "48d811e2-5e13-484d-804c-9ef8a6630289",
           "season_number": 1,
           "synopsis": {
-            "eng": "First season",
-            "por": "Primeira temporada"
+            "por": "Temporada 1 da série Recreio do Jacarelvis"
           },
           "title": {
-            "eng": "Dream Teams",
-            "por": "Time dos Sonhos"
+            "por": "Recreio do Jacarelvis"
           }
         }
       ],
       "synopsis": {
-        "eng": "English Synopsis",
-        "por": "A série monta o time dos sonhos. Cada equipe é formada com os atletas lendários que fizeram história no seu clube, seleção e equipe nas diversas modalidades esportivas"
+        "por": "Aprenda e se divirta com Jacarelvis"
       },
       "title": {
-        "eng": "Dream Teams",
-        "por": "Time dos Sonhos"
+        "por": "Recreio do Jacarelvis"
       }
     },
     {
-      "id": "9d89fb96-4f4c-4997-abe5-b64ccaf54a4b",
+      "external_ids": {},
+      "id": "2b9fb7e5-7b11-45c0-8432-943dc1fbf3ed",
       "images": [],
       "seasons": [
         {
-          "id": "8747a1e0-5f6e-4292-ae66-52963a6d93ed",
+          "id": "a34c6d13-176a-44cd-a84a-c74d8dffefb8",
           "season_number": 1,
           "synopsis": {
-            "eng": "First season",
-            "por": "Primeira temporada"
+            "por": "Temporada 1 da série As Aventuras de Purê e Batata"
           },
           "title": {
-            "eng": "Tennis Stars",
-            "por": "Estrelas do Tênis"
+            "por": "As Aventuras de Purê e Batata"
           }
         }
       ],
       "synopsis": {
-        "eng": "English Synopsis",
-        "por": "Conheça a elite do tenis dentro e fora das quadras. Seu estilo de vida glamuroso, personalidades marcantes e as manias curiosas dos nomes desse esporte que amamos."
+        "por": "Aprende com As Aventuras do Chef Purê e Batata, com muita música, diversão e conhecimento"
       },
       "title": {
-        "eng": "Tennis Stars",
-        "por": "Estrelas do Tênis"
+        "por": "As Aventuras de Purê e Batata"
       }
     },
     {
-      "id": "01f45ad5-b43a-4262-aaa2-3bbf0493578f",
+      "external_ids": {},
+      "id": "4363f2bb-af4d-4db3-9bcf-e27c4f57860d",
       "images": [],
       "seasons": [
         {
-          "id": "6cad1d09-78cf-4c71-9341-8b242fea2202",
+          "id": "3e40940f-3bc6-4ad9-a1ee-b6533b11012d",
           "season_number": 1,
           "synopsis": {
-            "eng": "First season",
-            "por": "Primeira temporada"
+            "por": "Temporada 1 da série Dinotrem"
           },
           "title": {
-            "eng": "Up Close With",
-            "por": "Perto Deles"
+            "por": "Dinotrem"
           }
         }
       ],
       "synopsis": {
-        "eng": "English Synopsis",
-        "por": "Os maiores atletas de diversificados esportes falam sobre assuntos que não são muito falados. O que os motiva e quais foram os desafios que precisaram superar na busca de seus sonhos."
+        "por": "Dinosauros amigáveis embarcam num trem para visitar diferentes épocas pré-históricas."
       },
       "title": {
-        "eng": "Up Close With",
-        "por": "Perto Deles"
+        "por": "Dinotrem"
       }
     },
     {
-      "id": "e7adee89-7154-424b-a748-d81158dbc11e",
+      "external_ids": {},
+      "id": "bd891d2c-616e-4e05-825c-8511fc30dd20",
       "images": [],
       "seasons": [
         {
-          "id": "31cc5908-932e-4d43-9977-256ab6c3b386",
+          "id": "d2e583c3-ead8-44d0-b5db-87089a17c9af",
           "season_number": 1,
           "synopsis": {
-            "eng": "First season",
-            "por": "Primeira temporada"
+            "por": "Temporada 1 da série Os Fofossauros"
           },
           "title": {
-            "eng": "Rivellino",
-            "por": "Rivellino"
+            "por": "Os Fofossauros"
           }
         }
       ],
       "synopsis": {
-        "eng": "English Synopsis",
-        "por": "Rivellino, campeão e titular da Seleção Brasileira na Copa do Mundo de 70, ídolo do Corinthians e do Fluminense, além de considerado por muitos, um dos melhores jogadores do mundo, conta tudo sobre sua carreira, batalhas, conquistas e vida no esporte"
+        "por": "Vamos conhecer todos os Fofossauros e ao mesmo tempo aprender"
       },
       "title": {
-        "eng": "Rivellino",
-        "por": "Rivellino"
+        "por": "Os Fofossauros"
       }
     },
     {
-      "id": "9587b101-8647-4879-87c9-5b953485bc77",
+      "external_ids": {},
+      "id": "7b6fbdf5-6a63-4360-996b-a6c766af7190",
       "images": [],
       "seasons": [
         {
-          "id": "d2833e60-a4dc-472d-b58f-9d61f93c172e",
+          "id": "29dbcb7f-a101-47e8-81a3-1af19e90d789",
           "season_number": 1,
           "synopsis": {
-            "eng": "First season",
-            "por": "Primeira temporada"
+            "por": "Temporada 1 da série Mansão Halloween"
           },
           "title": {
-            "eng": "José Silverio",
-            "por": "José Silvério"
+            "por": "Mansão Halloween"
           }
         }
       ],
       "synopsis": {
-        "eng": "English Synopsis",
-        "por": "José Silvério, um dos maiores narradores desportivos da história do Brasil. Com mais de 55 anos de profissão, conta tudo sobre sua carreira, batalhas, conquistas e vida no rádio."
+        "por": "Conheça a história das criaturas que vivem na Mansão Halloween"
       },
       "title": {
-        "eng": "José Silverio",
-        "por": "José Silvério"
+        "por": "Mansão Halloween"
       }
     },
     {
-      "id": "805731a7-7feb-4dc9-b43c-5d2ccd1cede8",
+      "external_ids": {},
+      "id": "df9b1c00-66a1-48f8-837e-f0f000d82cc3",
       "images": [],
       "seasons": [
         {
-          "id": "1661edd3-8006-4178-81d5-e8821287108b",
+          "id": "927151a4-afb5-41cf-9f4d-b76aa741d07d",
           "season_number": 1,
           "synopsis": {
-            "eng": "First season",
-            "por": "Primeira temporada"
+            "por": "Temporada 1 da série Dani e os Pequeninos"
           },
           "title": {
-            "eng": "Fofão",
-            "por": "Fofão"
+            "por": "Dani e os Pequeninos"
           }
         }
       ],
       "synopsis": {
-        "eng": "English Synopsis",
-        "por": "Fofão, Hélia Souza, a mais vitoriosa jogadora de volei da história do Brasil, conta tudo sobre sua carreira, batalhas, conquistas e vida no esporte."
+        "por": "Dani ensina e brinca com os Pequeninos com várias brincadeiras divertidas, músicas e alegria"
       },
       "title": {
-        "eng": "Fofão",
-        "por": "Fofão"
+        "por": "Dani e os Pequeninos"
       }
     },
     {
-      "id": "72a2d982-dd16-4f79-a860-3bbbfcf182f6",
+      "external_ids": {},
+      "id": "7de50983-38ee-4810-9d1b-038139cda679",
       "images": [],
       "seasons": [
         {
-          "id": "ece16c7f-f1dd-4c9f-83e9-3238aedca9e0",
+          "id": "6cc905ba-79e1-4d50-b4ca-a4921f6a48e0",
           "season_number": 1,
           "synopsis": {
-            "eng": "First season",
-            "por": "Primeira temporada"
+            "por": "Temporada 1 da série Mundo Aquarela Kids"
           },
           "title": {
-            "eng": "Cesar Cielo",
-            "por": "Cesar Cielo"
+            "por": "Mundo Aquarela Kids"
           }
         }
       ],
       "synopsis": {
-        "eng": "English Synopsis",
-        "por": "César Cielo, único nadador brasileiro medalhista de ouro em Jogos Olímpicos, que falou sobre a sua história, conquistas e futuro no esporte."
+        "por": "Boas idéias e informações de maneira divertida"
       },
       "title": {
-        "eng": "Cesar Cielo",
-        "por": "Cesar Cielo"
+        "por": "Mundo Aquarela Kids"
       }
     },
     {
-      "id": "6042ca20-11b4-4f69-8846-58b002c52a38",
+      "external_ids": {},
+      "id": "55928e48-bd3f-41f2-8398-066616d88547",
       "images": [],
       "seasons": [
         {
-          "id": "ee9d518c-28e3-436b-b98b-308ad34c5f08",
+          "id": "29a79c6d-8b1a-4f30-a852-2828633ecf19",
           "season_number": 1,
           "synopsis": {
-            "eng": "First season",
-            "por": "Primeira temporada"
+            "por": "Temporada 1 da série Os Chocolix"
           },
           "title": {
-            "eng": "Hugo Hoyama",
-            "por": "Hugo Hoyama"
+            "por": "Os Chocolix"
           }
         }
       ],
       "synopsis": {
-        "eng": "English Synopsis",
-        "por": "Hugo Hoyama, mesa-tenista brasileiro e um dos maiores nomes do esporte, conta tudo sobre sua carreira, batalhas, conquistas e vida no esporte"
+        "por": "Os Chocolix são uma família de chocolates de cores diferentes que vivem no esplêndido Reino de Chocolândia. Dona Branca, Don Cacau e seus filhos Chocomark e Chocholyne vivem grandes aventuras e ensinam conceitos de amizade e a importância da família."
       },
       "title": {
-        "eng": "Hugo Hoyama",
-        "por": "Hugo Hoyama"
+        "por": "Os Chocolix"
       }
     },
     {
-      "id": "db8a5c52-9d7a-4b27-a34d-40f674920763",
+      "external_ids": {},
+      "id": "2e464bd5-1867-4db5-9127-e5bbe5194f15",
       "images": [],
       "seasons": [
         {
-          "id": "678333a0-015d-4d9c-9e8c-822d2c1544c9",
-          "season_number": 1,
+          "id": "00336051-d8c6-4854-b1cf-b0a86e610fc1",
+          "season_number": 2,
           "synopsis": {
-            "eng": "First season",
-            "por": "Primeira temporada"
+            "por": "Temporada 1 da série Os Chocolix"
           },
           "title": {
-            "eng": "Vanderlei Cordeiro",
-            "por": "Vanderlei Cordeiro"
+            "por": "Os Chocolix"
           }
         }
       ],
       "synopsis": {
-        "eng": "English Synopsis",
-        "por": "O ex-maratonista, bicampeão panamericano e medalha de bronze em Atenas, 2004, Vanderlei Cordeiro de Lima, conta tudo sobre sua carreira, batalhas, conquistas e vida no esporte."
+        "por": "Os Chocolix são uma família de chocolates de cores diferentes que vivem no esplêndido Reino de Chocolândia. Dona Branca, Don Cacau e seus filhos Chocomark e Chocholyne vivem grandes aventuras e ensinam conceitos de amizade e a importância da família."
       },
       "title": {
-        "eng": "Vanderlei Cordeiro",
-        "por": "Vanderlei Cordeiro"
+        "por": "Os Chocolix"
       }
     },
     {
-      "id": "d92a15f0-efbe-4511-b036-1b76dabb8cc9",
+      "external_ids": {},
+      "id": "6b50771f-63fc-40bb-9205-e2ff45189423",
       "images": [],
       "seasons": [
         {
-          "id": "4652d74b-c76a-494f-83fa-200ff820fcdf",
+          "id": "0064c523-0d91-4669-aee5-ed1785369bbf",
           "season_number": 1,
           "synopsis": {
-            "eng": "First season",
-            "por": "Primeira temporada"
+            "por": "Temporada 1 da série Sapo Brothers"
           },
           "title": {
-            "eng": "Pepe",
-            "por": "Pepe"
+            "por": "Sapo  Brothers"
           }
         }
       ],
       "synopsis": {
-        "eng": "English Synopsis",
-        "por": "Pepe, um dos pricipais atacantes do futebol brasileiro. Do Santos inesquecível, conta tudo sobre sua carreira, batalhas, conquistas e vida no esporte."
+        "por": "Sapo Minja e Sapo Jones são dois sapos antropomorfizados, vivendo num mundo humano.  Sapo Minja trabalha numa emissora de TV. Sapo Jones trabalha numa biblioteca. Minja quer fama e fortuna sem ter muito trabalho. Jones quer descobrir a origem do que ele e o irmão são. Vivem aventuras como super heróis, astronautas, exploradores e mais o que aparecer,"
       },
       "title": {
-        "eng": "Pepe",
-        "por": "Pepe"
+        "por": "Sapo  Brothers"
+      }
+    },
+    {
+      "external_ids": {},
+      "id": "a0565336-d943-4b43-918b-4a4cb10ccf7d",
+      "images": [],
+      "seasons": [
+        {
+          "id": "4ba517a3-3675-4f3b-9463-a54eeaf913bf",
+          "season_number": 1,
+          "synopsis": {
+            "por": "Temporada 1 da série Viaja Clarinha"
+          },
+          "title": {
+            "por": "Viaja Clarinha"
+          }
+        }
+      ],
+      "synopsis": {
+        "por": "Clarinha e Migo Uni, viajam pelo mundo todo, onde encontram amigos, dançam, curtem, conhecem pontos turísticos e se divertem."
+      },
+      "title": {
+        "por": "Viaja Clarinha"
+      }
+    },
+    {
+      "external_ids": {},
+      "id": "d7a2effc-b578-4e4c-bae6-cc4bd6b1bcaa",
+      "images": [],
+      "seasons": [
+        {
+          "id": "e3893d29-42e4-461b-9c91-a860e6a140ee",
+          "season_number": 1,
+          "synopsis": {
+            "por": "Temporada 1 da série Cyber Chase"
+          },
+          "title": {
+            "por": "Cyber Chase"
+          }
+        }
+      ],
+      "synopsis": {
+        "por": "Cyberchase mostra que a matemática está em todos os lugares e que todos podem ser bons nela."
+      },
+      "title": {
+        "por": "Cyber Chase"
+      }
+    },
+    {
+      "external_ids": {},
+      "id": "f017d121-998c-451d-a696-b16cbfb6f249",
+      "images": [],
+      "seasons": [
+        {
+          "id": "25ee9f65-d73b-4bbb-9aa6-1e5456636d87",
+          "season_number": 1,
+          "synopsis": {
+            "por": "Temporada 1 da série Sid o Cientista"
+          },
+          "title": {
+            "por": "Sid, o Cientista"
+          }
+        }
+      ],
+      "synopsis": {
+        "por": "Sid é um rapazinho que, estimulado pela Tia Susie, investiga novos conhecimentos com os amiguinhos Gabriela, Geraldo e Mei"
+      },
+      "title": {
+        "por": "Sid, o Cientista"
+      }
+    },
+    {
+      "external_ids": {},
+      "id": "94f36e3d-f7e0-46ed-9592-b1eb28887b78",
+      "images": [],
+      "seasons": [
+        {
+          "id": "01cf7b9a-17ea-4386-972f-3b7951787db7",
+          "season_number": 1,
+          "synopsis": {
+            "por": "Temporada 1 da série Pinguinho"
+          },
+          "title": {
+            "por": "Pinguinho"
+          }
+        }
+      ],
+      "synopsis": {
+        "por": "Conta história de um Pinguinho"
+      },
+      "title": {
+        "por": "Pinguinho"
+      }
+    },
+    {
+      "external_ids": {},
+      "id": "f353dec4-2b01-4d67-bbf4-02c691b4c886",
+      "images": [],
+      "seasons": [
+        {
+          "id": "f27a81cb-4fc2-402a-8ca8-b797e01b3787",
+          "season_number": 1,
+          "synopsis": {
+            "por": "Temporada 1 da série Nilba e os Desastronautas"
+          },
+          "title": {
+            "por": "Nilba e os Desastronautas"
+          }
+        }
+      ],
+      "synopsis": {
+        "por": "Acompanhe as aventuras do jovem comandante Nilba e da tripulação S.S. Geniwald."
+      },
+      "title": {
+        "por": "Nilba e os Desastronautas"
+      }
+    },
+    {
+      "external_ids": {},
+      "id": "b28c22fb-b70e-477a-9240-c72aca637758",
+      "images": [],
+      "seasons": [
+        {
+          "id": "8580093f-755c-43fb-bb60-3cece6646ddc",
+          "season_number": 1,
+          "synopsis": {
+            "por": "Temporada 1 da série Abelinhas"
+          },
+          "title": {
+            "por": "Abelinhas"
+          }
+        }
+      ],
+      "synopsis": {
+        "por": "Essa é uma história sobre abelhas, mel e… coisas da vida! A abelha fazedora de mel prefere lutar. Já o soldado só quer saber de fazer mel. Mas nenhum deles pode fazer o que deseja."
+      },
+      "title": {
+        "por": "Abelinhas"
+      }
+    },
+    {
+      "external_ids": {},
+      "id": "ba518962-5853-4027-b534-d823ae90a85c",
+      "images": [],
+      "seasons": [
+        {
+          "id": "a37d0477-fe56-4284-a835-6f141370a9f7",
+          "season_number": 1,
+          "synopsis": {
+            "por": "Temporada 1 da série Turma do Pug"
+          },
+          "title": {
+            "por": "Turma do Pug"
+          }
+        }
+      ],
+      "synopsis": {
+        "por": "O desenho conta a história de três cachorrinhos que se perdem e precisam voltar para casa."
+      },
+      "title": {
+        "por": "Turma do Pug"
+      }
+    },
+    {
+      "external_ids": {},
+      "id": "7d927cc6-ad7b-4c87-aded-24d4aab274b0",
+      "images": [],
+      "seasons": [
+        {
+          "id": "19f15822-4ebc-4b82-a089-7cb5ae1233ca",
+          "season_number": 1,
+          "synopsis": {
+            "por": "Temporada 1 da série Baby Dragões"
+          },
+          "title": {
+            "por": "Baby Dragões"
+          }
+        }
+      ],
+      "synopsis": {
+        "por": "Baby Dragões é uma série musical educativa."
+      },
+      "title": {
+        "por": "Baby Dragões"
+      }
+    },
+    {
+      "external_ids": {},
+      "id": "6c346407-8c13-4fd5-a51f-cd8d39a1e727",
+      "images": [],
+      "seasons": [
+        {
+          "id": "7bc447c6-26bd-4f89-95fb-8d9d9fb3411b",
+          "season_number": 1,
+          "synopsis": {
+            "por": "Temporada 1 da série Roary o Carrinho de Corrida"
+          },
+          "title": {
+            "por": "Roary - O Carrinho de Corrida"
+          }
+        }
+      ],
+      "synopsis": {
+        "por": "Se divirta com Roary e aprenda com as suas aventuras"
+      },
+      "title": {
+        "por": "Roary - O Carrinho de Corrida"
+      }
+    },
+    {
+      "external_ids": {},
+      "id": "da355b0a-8f7d-49e8-a1c3-d216a5fa1669",
+      "images": [],
+      "seasons": [
+        {
+          "id": "378cbec3-e5d1-4df5-83e7-f488ba4a0970",
+          "season_number": 3,
+          "synopsis": {
+            "por": "Temporada 1 da série Jacarelvis"
+          },
+          "title": {
+            "por": "Jacarelvis"
+          }
+        }
+      ],
+      "synopsis": {
+        "por": "Assista todos os desenhos animados musicais do Jacarelvis e Amigos vol. 3. Muita música infantil e desenhos para seus filhos."
+      },
+      "title": {
+        "por": "Jacarelvis"
       }
     }
   ]

@@ -1470,6 +1470,9 @@ func testInvalidChars(s string) (string, error) {
 }
 
 func UUIDfromString(s string) (string, error) {
+	if s == "" {
+		return "", nil
+	}
 	b := []byte(s)
 	l := len(s)
 	h := crc32.ChecksumIEEE(b) // take string checksum

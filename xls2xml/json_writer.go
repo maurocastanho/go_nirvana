@@ -374,7 +374,7 @@ func (wr *jsonWriter) initSeries() (map[string]interface{}, error) {
 			}
 			elName[strings.TrimSpace(vals[0])] = strings.TrimSpace(vals[1])
 		}
-		//el["external_ids"] = make(map[string]interface{})
+		el["external_ids"] = make(map[string]interface{})
 		el["title"] = elName
 		var err error
 		el["synopsis"], err = splitLangName(line.fields["synopsis"])
@@ -388,13 +388,13 @@ func (wr *jsonWriter) initSeries() (map[string]interface{}, error) {
 		}
 		elSeasM := make(map[string]interface{})
 		elSeasM["id"] = line.fields["id season"]
-		idSeason, err := strconv.Atoi(line.fields["season"])
-		if err != nil {
+		idSeason, erri := strconv.Atoi(line.fields["season"])
+		if erri != nil {
 			return nil, err
 		}
 		elSeasM["season_number"] = idSeason
-		titleEls, err := splitLangName(line.fields["title"])
-		if err != nil {
+		titleEls, errt := splitLangName(line.fields["title"])
+		if errt != nil {
 			return nil, err
 		}
 		elSeasM["title"] = titleEls
@@ -484,12 +484,6 @@ func (wr *jsonWriter) addToSeries(id string, serieName string) error {
 func (wr *jsonWriter) processCategPack(lines []lineT, k int, idField string, categFields []string, categSeason int, series []lineT, categs []lineT) (int, error) {
 	var err error
 	line := lines[k]
-	studio := line.fields["estúdio"]
-	idStudio := ""
-	categStudio, errS := findCateg(categs, studio)
-	if errS == nil {
-		idStudio = categStudio.fields["id"]
-	}
 
 	// add genre 1 to categ
 	genre1Field := "genero 1"
@@ -509,26 +503,20 @@ func (wr *jsonWriter) processCategPack(lines []lineT, k int, idField string, cat
 		}
 	}
 
+	studio := line.fields["estúdio"]
+	idStudio, erru := UUIDfromString(studio)
+	if erru != nil {
+		return -1, err
+	}
+
 	// search serie
-	seasonField := categFields[2]
 	studioField := categFields[1]
+	seasonField := categFields[2]
 	serie, _ := findSerie(series, studio, line.fields[studioField], line.fields[seasonField])
 	if serie == nil {
 		if line.fields[seasonField] == "" { // testing if season is not empty
-			//categ1, ok1 := line.fields[categFields[0]]
-			//if !ok1 {
-			//	return -2, fmt.Errorf("categoria 1 [%s] em branco na linha [%v]", categFields[0], line)
-			//}
 			serie, err = findCateg(categs, line.fields[studioField])
 			if err != nil {
-				//id := line.fields[idField]
-				//uuid, erru := UUIDfromString(id)
-				//if erru != nil {
-				//	return -1, erru
-				//}
-				//if errc := wr.addToCategories(id, uuid, "studio", idStudio, "categories", "null", "null"); errc != nil {
-				//	return -1, errc
-				//}
 				return -1, err
 			}
 			if errc := wr.addToCategories(line.fields[idField], "", studio, idStudio, "categories", "null", "null"); errc != nil {
@@ -544,35 +532,33 @@ func (wr *jsonWriter) processCategPack(lines []lineT, k int, idField string, cat
 	if idChild == "" {
 		idChild = idStudio
 	}
-	if errc := wr.addToCategories(idChild, idChild, studio, idStudio, "categories", "null", "null"); errc != nil {
+	if errc := wr.addToCategories(idChild, idStudio, studio, "", "categories", "null", "null"); errc != nil {
 		return -1, errc
 	}
 
 	return 0, err
 }
 
-func (wr *jsonWriter) processSerie(line *lineT, idField string, categFields []string, series []lineT, idParent string) (string, error) {
+func (wr *jsonWriter) processSerie(line *lineT, idField string, categFields []string, series []lineT, idStudio string) (string, error) {
 	serie, err := findSerie(series, line.fields[categFields[0]], line.fields[categFields[1]], line.fields[categFields[2]])
 	if serie == nil {
 		return "", err
 	}
-	var idGroup string
 	name := line.fields[categFields[1]]
-	idGroup = serie.fields["id"]
 	serId := serie.fields["id"]
 	serieId1 := fmt.Sprintf("%s_s", serId)
-	result, errS := wr.processSeason(line, idField, categFields, series, serieId1)
+	idSeason, errS := wr.processSeason(line, idField, categFields, series, idStudio)
 	if errS != nil {
-		return result, errS
+		return idSeason, errS
 	}
-	if errc := wr.addToCategories(result, serieId1, name, idParent, "categories", serId, "null"); errc != nil {
+	if errc := wr.addToCategories(idSeason, serieId1, name, idStudio, "categories", serieId1, "null"); errc != nil {
 		return serieId1, errc
 	}
 
-	return idGroup, nil
+	return serieId1, nil
 }
 
-func (wr *jsonWriter) processSeason(line *lineT, idField string, categFields []string, series []lineT, idParent string) (string, error) {
+func (wr *jsonWriter) processSeason(line *lineT, idField string, categFields []string, series []lineT, idStudio string) (string, error) {
 	serie, err := findSerie(series, line.fields[categFields[0]], line.fields[categFields[1]], line.fields[categFields[2]])
 	if serie == nil {
 		return "", err
@@ -581,9 +567,10 @@ func (wr *jsonWriter) processSeason(line *lineT, idField string, categFields []s
 	serId := serie.fields["id"]
 	seasId := serie.fields["id season"]
 	seasonId1 := fmt.Sprintf("%s_t", seasId)
+	serieId1 := fmt.Sprintf("%s_s", serId)
 	name = fmt.Sprintf("%s T%s", line.fields[categFields[1]], strings.TrimSpace(line.fields[categFields[2]]))
 	id := line.fields[idField]
-	if errc := wr.addToCategories(id, seasonId1, name, idParent, "categories", serId, seasId); errc != nil {
+	if errc := wr.addToCategories(id, seasonId1, name, serieId1, "categories", serieId1, seasonId1); errc != nil {
 		return id, errc
 	}
 	return seasonId1, nil
@@ -591,10 +578,6 @@ func (wr *jsonWriter) processSeason(line *lineT, idField string, categFields []s
 
 func findSerie(series []lineT, studio string, name string, season string) (*lineT, error) {
 	for _, line := range series {
-		//stu, _ := line.fields["studio"]
-		//if studio != stu {
-		//	continue
-		//}
 		title, err := splitLangName(line.fields["title"])
 		if err != nil {
 			return nil, err
