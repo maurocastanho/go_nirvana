@@ -90,14 +90,14 @@
                                     "group_attrs":[
                                         {"Name": "id", "function": "suffix", "field": "uuid_box", "suffix": "_p"},
                                         {"Name": "type", "function": "fixed", "Value": "vod-poster"},
-                                        {"Name": "location", "function": "location_series", "field": "ID", "field_prefix": "subpasta", "media_type": "poster", "suffix":  ".jpg"}
+                                        {"Name": "location", "function": "location_series",  "fieldDir":  "ID", "field": "Capa", "field_prefix": "subpasta", "media_type": "poster", "suffix":  ""}
                                     ]
                                 },
                                 {
                                     "group_attrs":[
                                         {"Name": "id", "function": "suffix", "field": "uuid_box", "suffix": "_b"},
                                         {"Name": "type", "function": "fixed", "Value": "vod-background"},
-                                        {"Name": "location", "function": "location_series", "field": "ID", "field_prefix": "subpasta", "media_type": "background", "suffix":  "_background.jpg"}
+                                        {"Name": "location", "function": "location_series", "fieldDir":  "ID", "field": "Landscape", "field_prefix": "subpasta", "media_type": "background", "suffix":  ""}
                                     ]
                                 }
                             ]
@@ -177,7 +177,7 @@
                                         {"Name": "id", "function": "suffix", "field": "uuid_box", "suffix": "_m"},
                                         {"Name": "type", "function": "fixed", "Value": "MEDIA"},
                                         {"Name": "title", "function": "field", "field": "Título em Português"},
-                                        {"Name": "location", "function": "location_series", "field": "ID", "media_type": "", "field_prefix": "subpasta", "suffix": ""},
+                                        {"Name": "location", "function": "location_series",  "fieldDir":  "ID", "field": "ID", "media_type": "", "field_prefix": "subpasta", "suffix": ""},
                                         {"Name": "technology", "function": "box_technology", "field": "ID"},
                                         {
                                             "Name": "audio_languages",
@@ -208,10 +208,11 @@
                                                     {
                                                         "Name": "location",
                                                         "function": "location_series",
+                                                        "fieldDir":  "ID",
                                                         "media_type": "",
                                                         "field": "Legenda",
                                                         "field_prefix": "subpasta",
-                                                        "suffix": ".srt"
+                                                        "suffix": ""
                                                     }
                                                 ]
                                             }]
@@ -225,7 +226,7 @@
                                         {"Name": "id", "function": "suffix", "field": "uuid_box", "suffix": "_t"},
                                         {"Name": "type", "function": "fixed", "Value": "TRAILER"},
                                         {"Name": "title", "function": "field", "field": "Título em Português"},
-                                        {"Name": "location", "function": "location_series", "field": "Trailer ID", "media_type": "", "field_prefix": "subpasta trailer", "suffix": ""},
+                                        {"Name": "location", "function": "location_series",  "fieldDir":  "ID", "field": "Trailer ID", "media_type": "", "field_prefix": "subpasta trailer", "suffix": ""},
                                         {"Name": "technology", "function": "box_technology", "field": "Trailer ID"},
                                         {
                                             "Name": "audio_languages",
@@ -255,6 +256,7 @@
                                                     {
                                                         "Name": "location",
                                                         "function": "location_series",
+                                                        "fieldDir":  "ID",
                                                         "field": "Legenda Trailer",
                                                         "field_prefix": "subpasta"
                                                     }

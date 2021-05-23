@@ -116,11 +116,13 @@ func main() {
 	outType := ""
 	outDir := ""
 	inputXlsCat := ""
+	forceGenreCat := false
 	flag.StringVar(&inputXls, "xls", "", "Arquivo XLS de entrada")
 	flag.StringVar(&confFile, "config", "", "Arquivo JSON de configuracao")
 	flag.StringVar(&outType, "outtype", "xml", "Tipo de output (xml ou json). Default: xml")
 	flag.StringVar(&outDir, "outdir", "", "Diretorio de saida")
-	flag.StringVar(&inputXlsCat, "xlsCat", "", "Arquivo Xls de categorias")
+	flag.StringVar(&inputXlsCat, "xlscat", "", "Arquivo Xls de categorias")
+	flag.BoolVar(&forceGenreCat, "genrecat", false, "Forca a inserir Generos como categorias em caso de series")
 	flag.Parse()
 	// test command line parameters
 	if inputXls == "" {
@@ -193,7 +195,7 @@ func main() {
 	// init option vars
 	initVars(json)
 	var errs []error
-	success, errs = processSpreadSheet(json, outType, spreadSheet, outDir, lines, linesCat)
+	success, errs = processSpreadSheet(json, outType, spreadSheet, outDir, lines, linesCat, forceGenreCat)
 	if len(errs) > 0 {
 		for _, e := range errs {
 			logError(e)
@@ -211,7 +213,7 @@ func exitWithError(errMessage string, errCode int) int {
 	return errCode
 }
 
-func processSpreadSheet(json map[string]interface{}, outType string, f *xlsx.Spreadsheet, outDir string, lines []lineT, linesCat []lineT) (success int, errs []error) {
+func processSpreadSheet(json map[string]interface{}, outType string, f *xlsx.Spreadsheet, outDir string, lines []lineT, linesCat []lineT, forceGenreCats bool) (success int, errs []error) {
 	filenameField, okf := options["options"]["filename_field"]
 	if !okf || filenameField == "" {
 		return 2, []error{fmt.Errorf("ERRO ao procurar filename_field nas options [%#v]", options)}
@@ -366,7 +368,7 @@ func processSpreadSheet(json map[string]interface{}, outType string, f *xlsx.Spr
 			if errc != nil {
 				return -1, []error{err}
 			}
-			suc, errors = processCategs(lines, wrCategs, wrSeries, idField, categFields, categSeason)
+			suc, errors = processCategs(lines, wrCategs, wrSeries, idField, categFields, categSeason, forceGenreCats)
 			if len(errors) > 0 {
 				return -1, errors
 			} else if suc != 0 {
@@ -418,12 +420,12 @@ func processPublisherXLS(JsonXlsMap map[string]interface{}, outDir string, nLine
 	return xlsFilepath, success, nil
 }
 
-func processCategs(lines []lineT, wrCateg *jsonWriter, wrSeries *jsonWriter, idField string, categFields []string, categSeason int) (int, []error) {
+func processCategs(lines []lineT, wrCateg *jsonWriter, wrSeries *jsonWriter, idField string, categFields []string, categSeason int, forceGenteCategs bool) (int, []error) {
 	log("Processando categorias...")
 	success := 0
 	errors := make([]error, 0, 0)
 	for k := range lines {
-		succ, err := wrCateg.processCategPack(lines, k, idField, categFields, categSeason, wrSeries.serieLines, wrCateg.categLines)
+		succ, err := wrCateg.processCategPack(lines, k, idField, categFields, categSeason, wrSeries.serieLines, wrCateg.categLines, forceGenteCategs)
 		if err != nil {
 			return succ, appendErrors("", errors, err)
 		}

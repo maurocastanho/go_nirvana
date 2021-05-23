@@ -965,7 +965,7 @@ func TestXmlBoxAssets(t *testing.T) {
 	}
 	wrCategs.testing = true
 	// extra files
-	if suc, errors := processCategs(alines, wrCategs, "uuid_box", "Genero 1", "Genero 2"); len(errors) > 0 {
+	if suc, errors := processCategs(alines, wrCategs, "uuid_box", "Genero 1", "Genero 2", false); len(errors) > 0 {
 		t.Error(errors)
 	} else if suc != 0 {
 		t.Error("fail")
@@ -1190,7 +1190,7 @@ func TestXmlBoxAssetsTrailers(t *testing.T) {
 	}
 	categsWr.testing = true
 	// extra files
-	if suc, errors := processCategs(alines, categsWr, "uuid_box", "Genero 1", "Genero 2"); len(errors) > 0 {
+	if suc, errors := processCategs(alines, categsWr, "uuid_box", "Genero 1", "Genero 2", false); len(errors) > 0 {
 		t.Error(errors)
 	} else if suc != 0 {
 		t.Error("fail")
@@ -1377,7 +1377,7 @@ func TestXmlBoxCategories(t *testing.T) {
 	if err := processAssets(json, assetLines, assetsWr); err != nil {
 		t.Error(err)
 	}
-	if suc, errors := processCategs(assetLines, categWr, "uuid_box", "Genero 1", "Genero 2"); len(errors) > 0 {
+	if suc, errors := processCategs(assetLines, categWr, "uuid_box", "Genero 1", "Genero 2", false); len(errors) > 0 {
 		t.Error(errors)
 	} else if suc != 0 {
 		t.Fail()
