@@ -296,7 +296,7 @@ func (wr *jsonWriter) initCateg() (map[string]interface{}, error) {
 			}
 			continue
 		}
-		m, err, done := newCateg(el, line.fields["name"], line.fields["id"], "", "null", "null")
+		m, err, done := newCateg(el, line.fields["name"], line.fields["id"], "", "null", "null", "")
 		el["hidden"] = line.fields["hidden"] == "true"
 		el["morality_level"] = line.fields["morality_level"]
 		el["parental_control"] = line.fields["parental_control"] == "true"
@@ -309,11 +309,12 @@ func (wr *jsonWriter) initCateg() (map[string]interface{}, error) {
 		cat = append(cat, el)
 	}
 	root["categories"] = cat
+	root["version"] = "1.2"
 	wr.root = root
 	return root, nil
 }
 
-func newCateg(el map[string]interface{}, name string, id string, idParent string, seriesId string, seasonId string) (map[string]interface{}, error, bool) {
+func newCateg(el map[string]interface{}, name string, id string, idParent string, seriesId string, seasonId string, idChild string) (map[string]interface{}, error, bool) {
 	elName := make(map[string]interface{})
 	strNames := strings.Split(name, "|")
 	for _, l := range strNames {
@@ -336,6 +337,11 @@ func newCateg(el map[string]interface{}, name string, id string, idParent string
 	el["images"] = make([]interface{}, 0)
 	el["parent_id"] = idParent
 	el["assets"] = make([]interface{}, 0)
+	if idChild == "" {
+		el["assets"] = []interface{}{}
+	} else {
+		el["assets"] = []interface{}{idChild}
+	}
 	el["series_id"] = seriesId
 	el["season_id"] = seasonId
 	return el, nil, false
@@ -347,7 +353,15 @@ func (wr *jsonWriter) initSeries() (map[string]interface{}, error) {
 	//fmt.Printf("Series: [%#v]\n", wr.serieLines)
 	current := make(map[string]interface{})
 	currentId := ""
+	seriesBack := ""
+	seriesPoster := ""
 	for _, line := range wr.serieLines {
+		idSeason := line.fields["id season"]
+		numSeason, erri := strconv.Atoi(line.fields["season"])
+		if erri != nil {
+			return nil, erri
+		}
+
 		toAppend := true
 		name, _ := line.fields["title"]
 		//fmt.Printf("serie:[%s]\n", name)
@@ -364,6 +378,28 @@ func (wr *jsonWriter) initSeries() (map[string]interface{}, error) {
 		}
 		el = current
 		el["id"] = id
+
+		if numSeason < 0 {
+			// series imgs
+			seriesPoster = line.fields["capa"]
+			seriesBack = line.fields["landscape"]
+
+			elImg := make([]interface{}, 0)
+			elImgPos := make(map[string]interface{}, 0)
+			elImgPos["id"] = id + "_po"
+			elImgPos["location"] = seriesPoster
+			elImgPos["type"] = "vod-poster"
+			elImg = append(elImg, elImgPos)
+
+			elImgBack := make(map[string]interface{}, 0)
+			elImgBack["id"] = id + "_bk"
+			elImgBack["location"] = seriesBack
+			elImgBack["type"] = "vod-background"
+			elImg = append(elImg, elImgBack)
+			el["images"] = elImg
+			continue
+		}
+
 		elName := make(map[string]interface{})
 		strNames := strings.Split(line.fields["title"], "|")
 		for _, l := range strNames {
@@ -375,11 +411,8 @@ func (wr *jsonWriter) initSeries() (map[string]interface{}, error) {
 			elName[strings.TrimSpace(vals[0])] = strings.TrimSpace(vals[1])
 		}
 		elSeasM := make(map[string]interface{})
-		idSeason := elSeasM["id"]
-		idSeason = line.fields["id season"]
 		elSeasM["external_ids"] = make(map[string]interface{})
 		elSeasM["images"] = make([]interface{}, 0)
-		numSeason, erri := strconv.Atoi(line.fields["season"])
 
 		el["external_ids"] = make(map[string]interface{})
 		el["title"] = elName
@@ -393,10 +426,8 @@ func (wr *jsonWriter) initSeries() (map[string]interface{}, error) {
 		if !okS {
 			elSeas = make([]interface{}, 0)
 		}
-		if erri != nil {
-			return nil, err
-		}
 		elSeasM["season_number"] = numSeason
+		elSeasM["id"] = idSeason
 		titleEls, errt := splitLangName(line.fields["title"])
 		if errt != nil {
 			return nil, err
@@ -404,20 +435,21 @@ func (wr *jsonWriter) initSeries() (map[string]interface{}, error) {
 		elSeasM["title"] = titleEls
 		elSeasM["synopsis"], err = splitLangName(line.fields["season synopsis"])
 
+		// season imgs
 		poster, okp := line.fields["capa"]
 		arrIm := make([]interface{}, 0)
 		if okp && poster != "" {
 			imgEl := make(map[string]interface{})
-			imgEl["id"] = idSeason.(string) + "_po"
-			imgEl["type"] = "poster"
+			imgEl["id"] = idSeason + "_po"
+			imgEl["type"] = "vod-poster"
 			imgEl["location"] = poster
 			arrIm = append(arrIm, imgEl)
 		}
 		backg, okb := line.fields["landscape"]
 		if okb && backg != "" {
 			imgEl := make(map[string]interface{})
-			imgEl["id"] = idSeason.(string) + "_bk"
-			imgEl["type"] = "background"
+			imgEl["id"] = idSeason + "_bk"
+			imgEl["type"] = "vod-background"
 			imgEl["location"] = backg
 			arrIm = append(arrIm, imgEl)
 		}
@@ -428,13 +460,16 @@ func (wr *jsonWriter) initSeries() (map[string]interface{}, error) {
 		}
 		elSeas = append(elSeas, elSeasM)
 		el["seasons"] = elSeas
+
 		if toAppend {
 			cat = append(cat, el)
 		} else {
 			cat = append(cat, el)
 		}
 	}
+
 	root["series"] = cat
+	root["version"] = "1.2"
 	wr.root = root
 	return root, nil
 }
@@ -456,28 +491,35 @@ func splitLangName(str string) (map[string]string, error) {
 }
 
 // addToCategories adds an asset to the categories list
-func (wr *jsonWriter) addToCategories(id string, idCateg string, categName string, idParent string, rootEl string, seriesId string, seasonId string) error {
+func (wr *jsonWriter) addToCategories(id string, idCateg string, categName string, idParent string, rootEl string, seriesId string, seasonId string, element string) error {
 	if categName == "" {
 		return nil
 	}
 	r := wr.root.(map[string]interface{})
 	categs := r[rootEl].([]map[string]interface{})
-	for _, categ := range categs {
-		name := categ["name"].(map[string]interface{})["por"]
-		if name == categName {
-			for _, asset := range categ["assets"].([]interface{}) {
-				if id == asset.(string) {
-					return nil
+	log(fmt.Sprintf("criando nova categoria: [%s], id: [%s], parent:[%s]", categName, idCateg, idParent))
+	if seriesId != "" {
+		// search custom categories
+		for _, categ := range categs {
+			name := categ["name"].(map[string]interface{})["por"]
+			if name == categName {
+				if _, ok1 := categ[element]; ok1 == false {
+					categ[element] = make([]interface{}, 0)
 				}
+				for _, asset := range categ[element].([]interface{}) {
+					if id == asset.(string) {
+						return nil
+					}
+				}
+				log(fmt.Sprintf("adicionando: [%s], id: [%s]", categName, id))
+				categ[element] = append(categ[element].([]interface{}), id)
+				return nil
 			}
-			log(fmt.Sprintf("adicionando: [%s], id: [%s]", categName, id))
-			categ["assets"] = append(categ["assets"].([]interface{}), id)
-			return nil
 		}
 	}
+	// creates series and season categories
 	el := make(map[string]interface{})
-	log(fmt.Sprintf("criando nova categoria: [%s], id: [%s], parent:[%s]", categName, id, idParent))
-	categ, err, _ := newCateg(el, categName, idCateg, idParent, seriesId, seasonId)
+	categ, err, _ := newCateg(el, categName, idCateg, idParent, seriesId, seasonId, id)
 	if err != nil {
 		return err
 	}
@@ -521,32 +563,45 @@ func (wr *jsonWriter) processCategPack(lines []lineT, k int, idField string, cat
 	serie, _ := findSerie(series, studio, line.fields[studioField], line.fields[seasonField])
 	if serie == nil || forceGenreCategs {
 		// add genre 1 to categ
+		var id string
+		var element string
+		if serie == nil {
+			id = line.fields[idField]
+			element = "assets"
+		} else {
+			id = serie.fields["id"]
+			element = "series"
+		}
 		genre1Field := "genero 1"
 		_, errc1 := findCateg(categs, line.fields[genre1Field])
-		if errc1 == nil {
-			if errc := wr.addToCategories(line.fields[idField], "", line.fields[genre1Field], "", "categories", "null", "null"); errc != nil {
-				return -1, errc
-			}
+		if errc1 != nil {
+			return -1, errc1
+		}
+		if errc := wr.addToCategories(id, "", line.fields[genre1Field], "", "categories", "null", "null", element); errc != nil {
+			return -1, errc
 		}
 
 		// add genre 2 to categ
 		genre2Field := "genero 2"
 		_, errc2 := findCateg(categs, line.fields[genre2Field])
-		if errc2 == nil {
-			if errc := wr.addToCategories(line.fields[idField], "", line.fields[genre2Field], "", "categories", "null", "null"); errc != nil {
-				return -1, errc
-			}
+		if errc2 != nil {
+			return -1, errc2
+		}
+		if errc := wr.addToCategories(id, "", line.fields[genre2Field], "", "categories", "null", "null", element); errc != nil {
+			return -1, errc
 		}
 	}
-	var idChild = ""
-	if line.fields[categFields[categSeason]] != "" {
-		idChild, err = wr.processSerie(&line, idField, categFields, series, idStudio)
-	}
-	if idChild == "" {
-		idChild = idStudio
-	}
-	if errc := wr.addToCategories(idChild, idStudio, studio, "", "categories", "null", "null"); errc != nil {
-		return -1, errc
+	if !forceGenreCategs {
+		var idChild = ""
+		if line.fields[categFields[categSeason]] != "" {
+			idChild, err = wr.processSerie(&line, idField, categFields, series, idStudio)
+		}
+		if idChild == "" {
+			idChild = idStudio
+		}
+		if errc := wr.addToCategories(idChild, idStudio, studio, "", "categories", "null", "null", "assets"); errc != nil {
+			return -1, errc
+		}
 	}
 
 	return 0, err
@@ -564,7 +619,7 @@ func (wr *jsonWriter) processSerie(line *lineT, idField string, categFields []st
 	if errS != nil {
 		return idSeason, errS
 	}
-	if errc := wr.addToCategories(idSeason, serieId1, name, idStudio, "categories", serId, "null"); errc != nil {
+	if errc := wr.addToCategories(idSeason, serieId1, name, idStudio, "categories", serId, "null", "assets"); errc != nil {
 		return serieId1, errc
 	}
 
@@ -583,7 +638,7 @@ func (wr *jsonWriter) processSeason(line *lineT, idField string, categFields []s
 	serieId1 := fmt.Sprintf("%s_s", serId)
 	name = fmt.Sprintf("%s T%s", line.fields[categFields[1]], strings.TrimSpace(line.fields[categFields[2]]))
 	id := line.fields[idField]
-	if errc := wr.addToCategories(id, seasonId1, name, serieId1, "categories", serId, seasId); errc != nil {
+	if errc := wr.addToCategories(id, seasonId1, name, serieId1, "categories", serId, seasId, "assets"); errc != nil {
 		return id, errc
 	}
 	return seasonId1, nil

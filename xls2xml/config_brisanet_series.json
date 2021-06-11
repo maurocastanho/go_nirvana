@@ -47,6 +47,8 @@
             "elements": [
                 {
                     "attrs": [
+                        {"Name": "version", "function": "fixed", "Value": "1.2"},
+
                         {"Name": "id", "function": "field", "field": "uuid_box"},
                         {
                             "Name": "title",

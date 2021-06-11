@@ -122,8 +122,9 @@ func main() {
 	flag.StringVar(&outType, "outtype", "xml", "Tipo de output (xml ou json). Default: xml")
 	flag.StringVar(&outDir, "outdir", "", "Diretorio de saida")
 	flag.StringVar(&inputXlsCat, "xlscat", "", "Arquivo Xls de categorias")
-	flag.BoolVar(&forceGenreCat, "genrecat", false, "Forca a inserir Generos como categorias em caso de series")
+	flag.BoolVar(&forceGenreCat, "genrecat", false, "So insere categorias que sao generos")
 	flag.Parse()
+
 	// test command line parameters
 	if inputXls == "" {
 		success = exitWithError("arquivo XLS deve ser especificado na linha de comando", 1)
@@ -441,7 +442,7 @@ func processSeries(pack []lineT, wrSeries *jsonWriter, idField string) (int, []e
 	errors := make([]error, 0, 0)
 	for k := range pack {
 		row := pack[k]
-		success, err := wrSeries.processSeriesPack(&row, wrSeries.serieLines, idField, "Número do Episódio") // TODO parametrizar
+		success, err := wrSeries.processSeriesPack(&row, wrSeries.serieLines, idField, "número do episódio") // TODO parametrizar
 		if err != nil {
 			errors = appendErrors("", errors, err)
 			return success, errors
